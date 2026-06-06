@@ -1363,3 +1363,84 @@ a { color: inherit; }
   border-bottom: 2px solid #E6A340;
 }
 /* === END SEO ROUND 2 === */
+
+
+/* =========================================================================
+   === SEO ROUND 3 fix: guide method-table styles ===
+   The .method-table / .method-source / .method-caption classes are used in
+   all guides but had no CSS — source captions were rendering as inline plain
+   text, making every row a wall of run-on text. Brand-tokenized fix.
+   ========================================================================= */
+.method-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  color: #0E2A47;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 rgba(14, 42, 71, 0.06);
+}
+.method-table thead th {
+  background: #0E2A47;
+  color: #FBF7EF;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 0.85rem 1rem;
+}
+.method-table thead th:last-child { text-align: right; }
+.method-table tbody td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(14, 42, 71, 0.08);
+  vertical-align: top;
+  line-height: 1.45;
+}
+.method-table tbody tr:nth-child(even) td { background: #FBF7EF; }
+.method-table tbody td:last-child {
+  text-align: right;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  color: #0E2A47;
+  white-space: nowrap;
+}
+.method-table .method-source {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.82rem;
+  color: rgba(14, 42, 71, 0.65);
+  font-weight: 400;
+  line-height: 1.4;
+}
+.method-table tfoot td {
+  padding: 1rem;
+  background: #0E2A47;
+  color: #FBF7EF;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.02rem;
+}
+.method-table tfoot td:last-child {
+  text-align: right;
+  color: #E6A340;
+}
+.method-caption {
+  font-size: 0.88rem;
+  color: rgba(14, 42, 71, 0.7);
+  font-style: italic;
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+/* Mobile: let the table scroll horizontally instead of wrapping awkwardly */
+@media (max-width: 640px) {
+  .method-table thead th,
+  .method-table tbody td,
+  .method-table tfoot td { padding: 0.7rem 0.75rem; font-size: 0.92rem; }
+  .method-table .method-source { font-size: 0.78rem; }
+}
+/* === END SEO ROUND 3 fix === */
