@@ -1260,6 +1260,12 @@ a { color: inherit; }
   border-collapse: collapse;
   margin: 1rem 0 1.25rem;
   font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+@media (min-width: 640px) {
+  .vm-table { display: table; overflow-x: visible; }
 }
 .vm-table th, .vm-table td {
   text-align: left;
