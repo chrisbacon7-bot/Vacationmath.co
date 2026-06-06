@@ -1210,3 +1210,148 @@ a { color: inherit; }
 @media (max-width: 480px) {
   .sticky-cta-bar { padding: 12px 48px 12px 16px; justify-content: flex-start; }
 }
+
+
+/* =========================================================================
+   === SEO ROUND 2: explainer blocks + popular calculators ===
+   Uses brand tokens (navy #0E2A47, honey #E6A340, coral #E76F51,
+   sea glass #7FB7BE, cream #FBF7EF). Fonts: Fraunces (headings), Inter (body).
+   ========================================================================= */
+.vm-explainer {
+  max-width: 48rem;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
+  font-family: 'Inter', sans-serif;
+  color: #0E2A47;
+  line-height: 1.6;
+}
+.vm-explainer-header { margin-bottom: 2rem; }
+.vm-explainer h2 {
+  font-family: 'Fraunces', serif;
+  color: #0E2A47;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem;
+}
+.vm-explainer h3 {
+  font-family: 'Fraunces', serif;
+  color: #0E2A47;
+  font-size: 1.25rem;
+  margin: 1.75rem 0 0.5rem;
+}
+.vm-explainer p, .vm-explainer li { color: #0E2A47; }
+.vm-explainer a {
+  color: #0E2A47;
+  text-decoration: none;
+  border-bottom: 2px solid #E6A340;
+}
+.vm-explainer a:hover, .vm-explainer a:focus-visible { border-bottom-color: #E76F51; }
+.vm-lede {
+  font-size: 1.125rem;
+  padding: 1rem 1.25rem;
+  background: #FBF7EF;
+  border-left: 4px solid #E6A340;
+  border-radius: 6px;
+}
+.vm-list { margin: 0.5rem 0 1rem; padding-left: 1.25rem; }
+.vm-list li { margin-bottom: 0.4rem; }
+.vm-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.25rem;
+  font-size: 0.95rem;
+}
+.vm-table th, .vm-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid rgba(14, 42, 71, 0.12);
+}
+.vm-table thead th {
+  background: #FBF7EF;
+  border-bottom: 2px solid #E6A340;
+  font-family: 'Fraunces', serif;
+}
+.vm-table tbody th { font-weight: 600; }
+.vm-caption { font-size: 0.85rem; opacity: 0.78; margin-top: -0.5rem; }
+.vm-faq {
+  margin: 0.5rem 0;
+  padding: 0.85rem 1rem;
+  background: #FBF7EF;
+  border-left: 3px solid #7FB7BE;
+  border-radius: 6px;
+}
+.vm-faq > summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Fraunces', serif;
+  color: #0E2A47;
+  list-style: none;
+}
+.vm-faq > summary::-webkit-details-marker { display: none; }
+.vm-faq > summary::after {
+  content: '+';
+  float: right;
+  color: #E6A340;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.vm-faq[open] > summary::after { content: '–'; }
+.vm-faq > p { margin: 0.6rem 0 0; }
+.vm-cta {
+  margin-top: 2.5rem;
+  padding: 1.25rem 1.5rem;
+  background: #0E2A47;
+  color: #FBF7EF;
+  border-radius: 10px;
+}
+.vm-cta h2 { color: #FBF7EF; margin-top: 0; }
+.vm-cta a { color: #E6A340; border-bottom-color: #E6A340; }
+
+/* Popular calculators grid (homepage) */
+.vm-popular-calcs { background: #FBF7EF; padding: 4rem 0; }
+.vm-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.vm-calc-card {
+  display: block;
+  background: #fff;
+  border: 1px solid rgba(14, 42, 71, 0.12);
+  border-left: 4px solid #E6A340;
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.vm-calc-card:hover, .vm-calc-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -10px rgba(14, 42, 71, 0.25);
+  border-left-color: #E76F51;
+}
+.vm-calc-card h3 {
+  font-family: 'Fraunces', serif;
+  color: #0E2A47;
+  font-size: 1.125rem;
+  margin: 0 0 0.35rem;
+  line-height: 1.25;
+}
+.vm-calc-card p {
+  font-family: 'Inter', sans-serif;
+  color: #0E2A47;
+  opacity: 0.78;
+  font-size: 0.92rem;
+  margin: 0;
+  line-height: 1.4;
+}
+.vm-popular-calcs-foot { margin-top: 1.5rem; text-align: right; }
+.vm-popular-calcs-foot a {
+  color: #0E2A47;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid #E6A340;
+}
+/* === END SEO ROUND 2 === */
