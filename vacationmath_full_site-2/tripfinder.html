@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Where Should We Go? Vacation Destination Finder by Budget | Vacation Math</title>
+<meta name="description" content="Enter your budget, party size, and travel window. We rank the best destinations for what your money actually buys — cruises, Disney, all-inclusives, city trips, and more." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530">
+<link rel="stylesheet" href="calc-shared.css">
+<link rel="stylesheet" href="site-nav.css?v20260530">
+<link rel="stylesheet" href="card-finder-mini.css">
+
+<link rel="canonical" href="https://vacationmath.co/tripfinder" />
+<meta property="og:url" content="https://vacationmath.co/tripfinder" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Where Should We Go? Vacation Destination Finder by Budget" />
+<meta property="og:description" content="Enter your budget, party size, and travel window. We rank the best destinations for what your money actually buys — cruises, Disney, all-inclusives, city trips, and more." />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+  <link rel="stylesheet" href="guide-download.css?v20260530n">
+  <script src="guide-download.js?v20260530n" defer></script>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero">
+  <div class="container">
+    <a href="calculators.html" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Trip Finder</p>
+    <h1 class="calc-h1">Tell us when you can go. We&rsquo;ll show you where the math works.</h1>
+    <p class="calc-sub">No destination in mind? Same problem most people have. Enter your departure city, the weeks you could travel, party size, budget, and the kind of trip you want. We rank 100 destinations across 12 months by what your money actually buys that week &mdash; flights, hotels, and ground costs included.</p>
+  </div>
+</header>
+
+<main class="calc-main">
+  <div class="container calc-grid">
+
+    <!-- ============ INPUTS ============ -->
+    <section class="calc-inputs">
+      <h2 class="panel-title">Your travel window</h2>
+
+      <div class="field">
+        <label for="tf-origin">You&rsquo;re departing from</label>
+        <select id="tf-origin"><option value="atl" selected>Atlanta (ATL)</option></select>
+        <p class="hint">Sets the round-trip airfare baseline. Pick &ldquo;driving&rdquo; to zero out flight costs, or type your ZIP below to auto-select your nearest airport.</p>
+      </div>
+      <div class="field" id="tf-zip-any-field">
+        <label for="tf-zip-any">Your ZIP code <span style="font-weight:400;color:var(--muted)">(auto-selects nearest airport)</span></label>
+        <input type="text" id="tf-zip-any" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 72712" autocomplete="postal-code" style="max-width:120px;" />
+        <span id="tf-zip-status" style="margin-left:8px;font-size:0.85rem;color:var(--honey);"></span>
+      </div>
+
+      <div class="field" id="tf-driving-from-field" hidden>
+        <label for="tf-driving-from">Your ZIP code</label>
+        <input type="text" id="tf-driving-from" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="32256" autocomplete="postal-code" style="max-width:120px;" />
+        <span id="tf-zip-status" style="margin-left:8px;font-size:0.85rem;color:var(--muted);"></span>
+        <div class="field field-row" style="margin-top:.6rem;">
+          <div>
+            <label for="tf-mpg">Vehicle MPG</label>
+            <input type="number" id="tf-mpg" min="8" max="80" value="25" />
+          </div>
+          <div>
+            <label for="tf-gas">Gas $/gal</label>
+            <input type="number" id="tf-gas" min="2" step="0.10" value="3.50" />
+          </div>
+        </div>
+        <p class="hint">We&rsquo;ll estimate round-trip mileage and fuel cost. Only US destinations within driving range are shown.</p>
+      </div>
+
+      <div class="field field-row">
+        <div>
+          <label for="tf-month-start">Earliest month</label>
+          <select id="tf-month-start"></select>
+        </div>
+        <div>
+          <label for="tf-month-end">Latest month</label>
+          <select id="tf-month-end"></select>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:-.4rem;">Range of months you could actually travel. We&rsquo;ll check every month in the window.</p>
+
+      <div class="field field-row-3">
+        <div>
+          <label for="tf-adults">Adults (13+)</label>
+          <input type="number" id="tf-adults" min="1" max="10" value="2" />
+        </div>
+        <div>
+          <label for="tf-kids">Kids 3&ndash;12</label>
+          <input type="number" id="tf-kids" min="0" max="10" value="0" />
+        </div>
+        <div>
+          <label for="tf-infants">Under 3</label>
+          <input type="number" id="tf-infants" min="0" max="6" value="0" />
+        </div>
+      </div>
+      <p class="hint" style="margin-top:-.4rem;">Kids 3&ndash;12 are counted at roughly 60% of adult food/ground costs. Under 3s contribute almost nothing to costs.</p>
+
+      <div class="field">
+        <label for="tf-nights">Nights</label>
+        <input type="number" id="tf-nights" min="2" max="21" value="7" />
+      </div>
+
+      <div class="field">
+        <label for="tf-budget">Total trip budget (USD)</label>
+        <input type="number" id="tf-budget" min="500" step="100" value="5000" />
+        <p class="hint">Everything in: flights, lodging, food, ground. Conservative.</p>
+      </div>
+
+      <div class="field">
+        <label for="tf-tier">Style</label>
+        <select id="tf-tier">
+          <option value="budget">Budget &mdash; hostels, 2-star, street food</option>
+          <option value="mid" selected>Mid-range &mdash; 3-4 star, mix of dining</option>
+          <option value="lux">Higher-end &mdash; 4-5 star, nicer meals</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Vibe (pick any that matter)</label>
+        <div class="tf-vibes" id="tf-vibes">
+          <!-- Filled by JS -->
+        </div>
+        <p class="hint">Leave all unchecked to see every destination.</p>
+      </div>
+
+      <button class="btn btn-honey calc-go" id="tf-calculate">Find trips that fit</button>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="calc-results" id="tf-results" aria-live="polite">
+      <p class="results-empty">Fill in your window on the left, then we&rsquo;ll rank destinations.</p>
+    </section>
+</div>
+<!-- ══ DOWNLOAD WIDGET ══ -->
+<div id="vm-download-widget" style="display:none;"></div>
+<!-- ══ END DOWNLOAD WIDGET ══ -->
+
+
+  <!-- Card CTA -->
+  <section class="container" style="margin-top: 3rem;">
+    <div id="card-cta"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-tripfinder" novalidate>
+      <label class="sr-only" for="email-footer-tripfinder">Email address</label>
+      <input id="email-footer-tripfinder" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Math it before you book it.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>Destination pricing synthesized from Hopper 2026 Consumer Travel Index, Booking.com market rates, and NOAA seasonal data (May 2026). Results are estimates, not live quotes. Real bookings can move 20% in either direction.</p>
+  </div>
+</footer>
+
+<script src="zip-data.js"></script>
+<script src="calc-data.js"></script>
+<script src="origin-picker.js"></script>
+<script src="trip-finder-data.js"></script>
+<script src="cards-data.js"></script>
+<script src="card-module.js"></script>
+<script src="card-cta.js"></script>
+<script src="card-finder-mini.js"></script>
+<script src="tripfinder.js"></script>
+<script src="site-nav.js?v20260531a"></script>
+<script src="trust-block.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3dc7dac75d4',t:'MTc4MDM2NjU1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

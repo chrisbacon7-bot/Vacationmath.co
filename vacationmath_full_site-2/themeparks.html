@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Theme Park Comparison Calculator — Disney vs Universal vs More (2026)</title>
+<meta name="description" content="Compare theme parks side-by-side with 2026 ticket prices, hotel rates, food, and parking. Disney, Universal, SeaWorld, Six Flags, Cedar Point, Hersheypark, Dollywood, Legoland." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530">
+<link rel="stylesheet" href="calc-shared.css">
+<script src="nav-fix.js" defer></script>
+  <link rel="stylesheet" href="site-nav.css?v20260530">
+  <link rel="stylesheet" href="card-finder-mini.css">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/themeparks" />
+<meta property="og:url" content="https://vacationmath.co/themeparks" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
+<meta property="og:title" content="Theme Park Comparison — Side-by-Side 2026 Pricing" />
+<meta property="og:description" content="Pick any two of 10+ theme parks and see real per-day cost for your group, with current 2026 pricing." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Theme Park Comparison — Side-by-Side 2026 Pricing" />
+<meta name="twitter:description" content="Pick any two of 10+ theme parks and see real per-day cost for your group, with current 2026 pricing." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Theme Park Comparison", "item": "https://vacationmath.co/themeparks"}]}</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+  <link rel="stylesheet" href="guide-download.css?v20260530n">
+  <script src="guide-download.js?v20260530n" defer></script>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero">
+  <div class="container">
+    <a href="calculators.html" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Theme Park Comparison</p>
+    <h1 class="calc-h1">Pick any two parks. See the real total.</h1>
+    <p class="calc-sub">18 parks across the US, 2026 pricing — Disney, Universal, SeaWorld, Six Flags, Cedar Point, Hersheypark, Dollywood, Legoland, Great Wolf, Knott's, Silver Dollar City, Busch Gardens. Same family, same nights, two totals side by side.</p>
+  </div>
+</header>
+
+  <!-- HOW IT WORKS -->
+  <section class="calc-how-it-works">
+    <div class="container">
+      <p class="calc-meta">Takes about 60 seconds to complete. No account needed.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-body">
+            <p class="how-step-title">Pick two parks</p>
+            <p class="how-step-desc">Choose any two from 18 US theme parks.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-body">
+            <p class="how-step-title">Enter your trip details</p>
+            <p class="how-step-desc">Party size, nights, and ticket tier.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-body">
+            <p class="how-step-title">See both totals side by side</p>
+            <p class="how-step-desc">Same trip, two parks, one honest comparison.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<main class="calc-main">
+  <div class="container calc-grid">
+
+    <section class="calc-inputs">
+      <h2 class="panel-title">Your park trip</h2>
+
+      <div class="field">
+        <label for="park-a">Park A</label>
+        <select id="park-a"><option>Loading…</option></select>
+        <p class="hint" id="park-a-note"></p>
+      </div>
+
+      <div class="field">
+        <label for="park-b">Park B</label>
+        <select id="park-b"><option>Loading…</option></select>
+        <p class="hint" id="park-b-note"></p>
+      </div>
+
+      <div class="field-row-3">
+        <div><label for="adults">Adults (13+)</label><input type="number" id="adults" min="1" max="10" value="2" /></div>
+        <div><label for="children">Kids 3&ndash;12</label><input type="number" id="children" min="0" max="10" value="2" /></div>
+        <div><label for="infants">Under 3</label><input type="number" id="infants" min="0" max="4" value="0" /></div>
+      </div>
+      <p class="hint" style="margin-top:-.4rem;">Under 3 enters free at most parks. Kids 3&ndash;12 typically get a $10&ndash;15/day ticket discount.</p>
+
+      <div class="field">
+        <label for="nights">Nights</label>
+        <input type="number" id="nights" min="1" max="14" value="5" />
+      </div>
+
+      <div class="field">
+        <label for="park-days">Park days</label>
+        <input type="number" id="park-days" min="1" max="14" value="4" />
+      </div>
+
+      <div class="field">
+        <label for="hotel-tier">Hotel</label>
+        <select id="hotel-tier">
+          <option value="onsite">On-property (if offered)</option>
+          <option value="offsite" selected>Offsite / nearby</option>
+          <option value="custom">Custom — enter your own rate</option>
+        </select>
+        <p class="hint" id="hotel-note">Most regional parks don't have on-property hotels — we'll fall back to offsite automatically.</p>
+      </div>
+
+      <div class="field" id="custom-hotel-field" hidden>
+        <label for="customHotelRate">Your nightly rate</label>
+        <input type="number" id="customHotelRate" min="50" max="2000" step="5" value="185" />
+        <p class="hint">Used for both parks. If you'd stay somewhere different at each park, run the comparison twice.</p>
+      </div>
+
+      <fieldset class="field check-group">
+        <legend>Add-ons (applied to both parks where it exists)</legend>
+        <label class="check"><input type="checkbox" id="ll-pass" checked /> Skip-the-line passes (Lightning Lane / Express / Quick Queue)</label>
+        <label class="check"><input type="checkbox" id="souvenirs" checked /> Souvenirs budget ($40/person)</label>
+        <label class="check"><input type="checkbox" id="photos" /> Photo package ($199)</label>
+        <label class="check"><input type="checkbox" id="transfers" /> Local airport transfers / rideshare ($120 round trip)</label>
+      </fieldset>
+
+      <div id="gt-container"></div>
+
+      <div class="field">
+        <label for="origin">You&rsquo;re departing from</label>
+        <select id="origin"><option value="atl" selected>Atlanta (ATL)</option></select>
+        <p class="hint">Sets your round-trip flight cost. Choose &ldquo;driving&rdquo; to zero out flights.</p>
+      </div>
+      <div class="field">
+        <label for="origin-zip">Your ZIP code <span style="font-weight:400;color:var(--muted)">(auto-selects nearest airport)</span></label>
+        <input type="text" id="origin-zip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="e.g. 72712" autocomplete="postal-code" style="max-width:120px;" />
+        <span id="origin-zip-status" style="margin-left:8px;font-size:0.85rem;color:var(--honey);"></span>
+      </div>
+      <button class="btn btn-honey calc-go" id="calculate">Compare these parks</button>
+    </section>
+
+    <section class="calc-results" id="results" aria-live="polite">
+      <p class="results-empty">Pick your parks and fill in your trip — we'll show the full cost side by side.</p>
+    </section>
+</div>
+<!-- ══ DOWNLOAD WIDGET ══ -->
+<div id="vm-download-widget" style="display:none;"></div>
+<!-- ══ END DOWNLOAD WIDGET ══ -->
+
+  <!-- ============ TRIP-MATCHED CARDS ============ -->
+  <section class="container">
+    <div id="card-cta"></div>
+  </section>
+
+  <!-- ============ MINI CARD FINDER (placed below — "not these? try the finder") ============ -->
+  <section class="container">
+    <div id="card-finder-mini"></div>
+  </section>
+  <section class="post-results" id="email-section" hidden>
+    <div class="container">
+      <div class="email-card">
+        <p class="kicker">Free</p>
+        <h2 class="email-h2">Get the Starter Pack — free.</h2>
+        <p>I'll email you the Vacation Math Starter Pack (a printable 13-page PDF on hidden trip costs, how to fund a trip without debt, and what points are actually worth) plus the Tuesday brief: one real trip with the math worked out, every week.</p>
+        <form class="capture" data-source="themeparks-calc" novalidate>
+          <label class="sr-only" for="email-tp">Email address</label>
+          <input id="email-tp" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send me the Starter Pack</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div id="live-quote"></div>
+  </section>
+  <section class="methodology">
+    <div class="container">
+      <h3>How we got these numbers</h3>
+      <p>18 parks with 2026 pricing data (updated May 2026). Ticket data sourced from each park's published 2026 rates and current promotions (Disney 4-Park Magic, Universal multi-day, SeaWorld Memorial Day sales, Six Flags advance pricing, Cedar Point season passes). Hotel rates use on-property published averages where available, and nearby offsite averages otherwise. Child tickets default to 90% of adult (Disney/Universal pattern); free/discounted children where the park offers it are noted in the result. Results are estimates, not live quotes.</p>
+      <details>
+        <summary>See sources</summary>
+        <ul class="source-list">
+          <li><a href="https://disneyworld.disney.go.com/special-offers/2026-summer-ticket-offer/" target="_blank" rel="noopener">Disney 2026 4-Park Magic</a></li>
+          <li><a href="https://media.universalparksusa.com/press-releases/" target="_blank" rel="noopener">Universal Orlando 2026 multi-day</a></li>
+          <li><a href="https://seaworld.com/orlando/limited-time-offers/" target="_blank" rel="noopener">SeaWorld Orlando 2026 pricing</a></li>
+          <li><a href="https://buschgardens.com/tampa/tickets/theme-park-tickets/" target="_blank" rel="noopener">Busch Gardens Tampa 2026</a></li>
+          <li><a href="https://www.cedarpoint.com/" target="_blank" rel="noopener">Cedar Point 2026</a></li>
+          <li><a href="https://www.sixflags.com/" target="_blank" rel="noopener">Six Flags 2026</a></li>
+          <li><a href="https://www.hersheypark.com/" target="_blank" rel="noopener">Hersheypark 2026</a></li>
+          <li><a href="https://www.dollywood.com/" target="_blank" rel="noopener">Dollywood 2026</a></li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-themeparks" novalidate>
+      <label class="sr-only" for="email-footer-themeparks">Email address</label>
+      <input id="email-footer-themeparks" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Memories aren&rsquo;t reserved for the rich.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>Not affiliated with, endorsed by, or sponsored by any park or brand. Pricing data updated May 2026. Results are estimates, not live quotes.</p>
+  </div>
+</footer>
+
+<script src="zip-data.js"></script>
+<script src="calc-data.js"></script>
+<script src="origin-picker.js"></script>
+<script src="calc-pickers.js"></script>
+<script src="cards-data.js"></script>
+<script src="card-module.js"></script>
+<script src="card-cta.js"></script>
+<script src="card-finder-mini.js"></script>
+<script src="verified-badge.js"></script>
+<script src="live-quote.js"></script>
+<script src="getting-there.js"></script>
+<script src="themeparks.js"></script>
+  <script src="site-nav.js?v20260531a"></script>
+<script src="trust-block.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3daf8fdebc1',t:'MTc4MDM2NjU1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

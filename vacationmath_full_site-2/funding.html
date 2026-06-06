@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vacation Savings Calculator — How Much to Save Per Month | Vacation Math</title>
+<meta name="description" content="Enter your trip cost and travel date. We calculate your monthly savings target, how points can offset the cost, and how long it takes to fully fund the trip you want." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530e">
+<link rel="stylesheet" href="calc-shared.css">
+<script src="nav-fix.js" defer></script>
+  <link rel="stylesheet" href="site-nav.css?v20260530e">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/funding" />
+<meta property="og:url" content="https://vacationmath.co/funding" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
+<meta property="og:title" content="Vacation Savings Calculator — How Much to Save Per Month" />
+<meta property="og:description" content="Enter your trip cost and travel date. We calculate your monthly savings target, how points can offset the cost, and how long it takes to fully fund the trip you want." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vacation Savings Calculator — How Much to Save Per Month" />
+<meta name="twitter:description" content="Enter your trip cost and travel date. We calculate your monthly savings target, how points can offset the cost, and how long it takes to fully fund the trip you want." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Vacation Funding Plan", "item": "https://vacationmath.co/funding"}]}</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+  <link rel="stylesheet" href="guide-download.css?v20260530n">
+  <script src="guide-download.js?v20260530n" defer></script>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero">
+  <div class="container">
+    <a href="calculators.html" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Vacation Funding Plan</p>
+    <h1 class="calc-h1">Stop wondering if you can afford it.</h1>
+    <p class="calc-sub">Tell me the trip cost, when it is, and what your household normally spends. I'll show you the weekly cash target and how much your normal spending can earn back as points &mdash; without you changing a single thing.</p>
+  </div>
+</header>
+
+  <!-- HOW IT WORKS -->
+  <section class="calc-how-it-works">
+    <div class="container">
+      <p class="calc-meta">Takes about 60 seconds to complete. No account needed.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-body">
+            <p class="how-step-title">Enter your trip and timeline</p>
+            <p class="how-step-desc">Total cost, travel date, and monthly household spend.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-body">
+            <p class="how-step-title">We calculate the savings plan</p>
+            <p class="how-step-desc">Weekly cash target plus what your normal spending earns back.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-body">
+            <p class="how-step-title">See the path to fully funded</p>
+            <p class="how-step-desc">A plan you can act on this week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<main class="calc-main">
+  <div class="container calc-grid">
+
+    <!-- ============ INPUTS ============ -->
+    <section class="calc-inputs">
+      <h2 class="panel-title">Your savings goal</h2>
+
+      <div class="field">
+        <label for="target">Total trip cost ($)</label>
+        <input type="number" id="target" min="500" step="100" value="6000" />
+        <p class="hint">Use the real total from the Disney or Cruise calculator.</p>
+      </div>
+
+      <div class="field">
+        <label for="months">Months until trip</label>
+        <input type="number" id="months" min="1" max="36" value="9" />
+      </div>
+
+      <div class="field">
+        <label for="saved">Already saved ($)</label>
+        <input type="number" id="saved" min="0" step="50" value="500" />
+      </div>
+
+      <div class="field">
+        <label for="income">Household take-home (monthly, $)</label>
+        <input type="number" id="income" min="0" step="100" value="6500" />
+        <p class="hint">For context only. We benchmark against the 8% guideline.</p>
+      </div>
+
+      <h2 class="panel-title" style="margin-top:18px">Normal monthly spending</h2>
+
+      <div class="field">
+        <label for="groceries">Groceries ($)</label>
+        <input type="number" id="groceries" min="0" step="25" value="800" />
+      </div>
+
+      <div class="field">
+        <label for="gas">Gas / transport ($)</label>
+        <input type="number" id="gas" min="0" step="25" value="250" />
+      </div>
+
+      <div class="field">
+        <label for="dining">Dining out ($)</label>
+        <input type="number" id="dining" min="0" step="25" value="350" />
+      </div>
+
+      <div class="field">
+        <label for="other">All other discretionary ($)</label>
+        <input type="number" id="other" min="0" step="25" value="600" />
+      </div>
+
+      <div class="field">
+        <label for="signup">Signup bonuses you'll earn (cash value, $)</label>
+        <input type="number" id="signup" min="0" step="100" value="0" />
+        <p class="hint">Common 2026 estimates: Chase Sapphire Preferred ~$938 &middot; Capital One Venture X ~$1,450 &middot; Amex Gold ~$1,500. Use Card Math for your spend mix.</p>
+      </div>
+
+      <button class="btn btn-honey calc-go" id="calculate">Build my funding plan</button>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="calc-results" id="results" aria-live="polite">
+      <p class="results-empty">Fill in your trip goal — we'll show the weekly savings target and how long it takes.</p>
+    </section>
+</div>
+<!-- ══ DOWNLOAD WIDGET ══ -->
+<div id="vm-download-widget" style="display:none;"></div>
+<!-- ══ END DOWNLOAD WIDGET ══ -->
+
+
+  <!-- ============ EMAIL CAPTURE ============ -->
+  <section class="post-results" id="email-section" hidden>
+    <div class="container">
+      <div class="email-card">
+        <p class="kicker">Free</p>
+        <h2 class="email-h2">Get the Starter Pack — free.</h2>
+        <p>I'll email you the Vacation Math Starter Pack (a printable 13-page PDF that includes this exact funding formula plus hidden trip costs, the 1.5¢ rule on points, and links to every calculator) plus the Tuesday brief.</p>
+        <form class="capture" data-source="funding-calc" novalidate>
+          <label class="sr-only" for="email-funding">Email address</label>
+          <input id="email-funding" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send me the Starter Pack</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div id="card-cta"></div>
+  </section>
+
+  <!-- ============ METHODOLOGY ============ -->
+  <section class="methodology">
+    <div class="container">
+      <h3>How we got these numbers</h3>
+      <p>Vacation funding benchmarks come from 2025-2026 survey data on household travel budgets. The 8%-of-take-home guideline is a sustainable rate that lets a typical family fund one meaningful trip per year without raiding emergency savings. The points yield estimate assumes a 1.6¢/dollar blended return &mdash; what a normal-but-thoughtful card spender earns across grocery, gas, and dining categories.</p>
+      <details>
+        <summary>See sources</summary>
+        <ul class="source-list">
+          <li>Vacation budget averages: <a href="https://www.allianztravelinsurance.com/" target="_blank" rel="noopener">Allianz Travel 2025 Vacation Confidence Index</a></li>
+          <li>Household savings rates: <a href="https://www.bls.gov/cex/" target="_blank" rel="noopener">BLS Consumer Expenditure Survey</a></li>
+          <li>Debt-financed travel: <a href="https://www.bankrate.com/credit-cards/" target="_blank" rel="noopener">Bankrate 2025 vacation debt survey</a></li>
+          <li>Credit card earn rates: <a href="https://www.nerdwallet.com/best/credit-cards/" target="_blank" rel="noopener">NerdWallet earn-rate benchmarks</a>, <a href="https://thepointsguy.com/" target="_blank" rel="noopener">The Points Guy valuations</a></li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-funding" novalidate>
+      <label class="sr-only" for="email-footer-funding">Email address</label>
+      <input id="email-footer-funding" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Memories aren&rsquo;t reserved for the rich.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>Educational tool only. Not financial advice. Run your own numbers and consult a licensed advisor for material decisions.</p>
+  </div>
+</footer>
+
+<script src="zip-data.js"></script>
+<script src="calc-data.js"></script>
+<script src="origin-picker.js"></script>
+<script src="cards-data.js"></script>
+<script src="card-module.js"></script>
+<script src="card-cta.js"></script>
+<script src="getting-there.js"></script>
+<script src="funding.js"></script>
+  <script src="site-nav.js?v20260531a"></script>
+<script>window.VM_TRUST_OVERRIDE = {promise:'Weekly cash + points math, side by side.', pricing:'2026 numbers.', updated:'Updated May 2026.'};</script>
+<script src="trust-block.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3d76d2cdfe8',t:'MTc4MDM2NjU0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

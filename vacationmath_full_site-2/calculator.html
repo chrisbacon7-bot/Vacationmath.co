@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Credit Card Travel Math Calculator — Rank 5 Cards by Your Real Spend (2026) | Vacation Math</title>
+<meta name="description" content="Free vacation cost calculator. Tell us where you're going — cruise, Disney, all-inclusive, road trip, Europe — and we'll show what you'd actually pay, line by line, with sources." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="calculator.css">
+<script src="nav-fix.js" defer></script>
+  <link rel="stylesheet" href="site-nav.css">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/calculator" />
+<meta property="og:url" content="https://vacationmath.co/calculator" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
+<meta property="og:title" content="Vacation Math Calculator" />
+<meta property="og:description" content="Real cost, line by line, with current 2026 pricing. No signup required." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vacation Math Calculator" />
+<meta name="twitter:description" content="Real cost, line by line, with current 2026 pricing. No signup required." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Vacation Math Calculator", "item": "https://vacationmath.co/calculator"}]}</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+</head>
+<body class="calc-body">
+
+<!-- ============ HEADER ============ -->
+<header class="calc-header">
+  <div class="container">
+    <a href="index.html" class="back-link">&larr; Vacation Math</a>
+    <h1 class="calc-headline">The Vacation Math Calculator</h1>
+    <p class="calc-sub">Show me what this trip actually costs &mdash; and the right card for the way I actually spend.</p>
+
+    <!-- Mode toggle -->
+    <div class="mode-toggle" role="tablist" aria-label="Calculator depth">
+      <button type="button" class="mode-btn mode-active" data-mode="quick" role="tab" aria-selected="true">
+        <span class="mode-title">Quick pick</span>
+        <span class="mode-hint">~ 2 min &middot; one card recommendation</span>
+      </button>
+      <button type="button" class="mode-btn" data-mode="deep" role="tab" aria-selected="false">
+        <span class="mode-title">Deep dive</span>
+        <span class="mode-hint">~ 5 min &middot; expense profile + ranked picks</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ INPUTS ============ -->
+<main>
+<section class="calc-inputs">
+  <div class="container">
+    <form id="calc-form" novalidate>
+
+      <!-- STEP 1: The trip (always shown) -->
+      <fieldset class="step">
+        <legend><span class="step-num">Step 1</span> <span class="step-title">The trip</span></legend>
+        <div class="step-grid">
+          <div class="field">
+            <label for="trip-type">Trip type</label>
+            <select id="trip-type" name="trip_type">
+              <option value="cruise">Cruise</option>
+              <option value="disney" selected>Disney or theme park</option>
+              <option value="all_inclusive">All-inclusive</option>
+              <option value="hawaii">Hawaii</option>
+              <option value="europe">Europe</option>
+              <option value="national_park">National park</option>
+              <option value="road_trip">Road trip</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="adults">Adults</label>
+            <input id="adults" name="adults" type="number" min="1" max="10" value="2" />
+          </div>
+
+          <div class="field">
+            <label for="kids">Kids</label>
+            <input id="kids" name="kids" type="number" min="0" max="10" value="2" />
+          </div>
+
+          <div class="field field-wide">
+            <label for="cost-per-adult">Cost per adult <span class="value-display" id="cost-per-adult-display">$1,500</span></label>
+            <input id="cost-per-adult" name="cost_per_adult" type="range" min="200" max="8000" step="50" value="1500" />
+            <div class="range-meta"><span>$200</span><span>$8,000</span></div>
+          </div>
+
+          <div class="field field-wide">
+            <label for="cost-per-kid">Cost per kid <span class="value-display" id="cost-per-kid-display">$1,000</span></label>
+            <input id="cost-per-kid" name="cost_per_kid" type="range" min="0" max="6000" step="50" value="1000" />
+            <div class="range-meta"><span>$0</span><span>$6,000</span></div>
+          </div>
+
+          <div class="field field-wide sticker-readout">
+            <div class="sticker-readout-row">
+              <span class="sticker-readout-label">Sticker price</span>
+              <span class="sticker-readout-value" id="sticker-display">$5,000</span>
+            </div>
+            <p class="sticker-readout-hint" id="sticker-breakdown">2 adults &times; $1,500 + 2 kids &times; $1,000</p>
+            <p class="sticker-readout-bench" id="sticker-benchmark"></p>
+            <input id="sticker" name="sticker" type="hidden" value="5000" />
+          </div>
+
+          <div class="field field-wide">
+            <label>Trip timing</label>
+            <div class="radio-row">
+              <label class="radio"><input type="radio" name="timing" value="next_3" /> <span>Next 3 months</span></label>
+              <label class="radio"><input type="radio" name="timing" value="3_12" checked /> <span>3&ndash;12 months</span></label>
+              <label class="radio"><input type="radio" name="timing" value="12_plus" /> <span>12+ months</span></label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 2: Your situation -->
+      <fieldset class="step">
+        <legend><span class="step-num">Step 2</span> <span class="step-title">Your situation</span></legend>
+
+        <div class="field">
+          <label>Current cards <span class="field-hint">Check all that apply</span></label>
+          <div class="checkbox-grid">
+            <label class="check"><input type="checkbox" name="cards" value="csp" /> <span>Chase Sapphire Preferred</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="csr" /> <span>Chase Sapphire Reserve</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="venture" /> <span>Capital One Venture</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="venture_x" /> <span>Capital One Venture X</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="amex_gold" /> <span>Amex Gold</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="amex_plat" /> <span>Amex Platinum</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="bilt" /> <span>Bilt</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="citi_premier" /> <span>Citi Premier</span></label>
+            <label class="check"><input type="checkbox" name="cards" value="none" checked /> <span>None / just a basic card</span></label>
+          </div>
+        </div>
+
+        <!-- QUICK MODE: single monthly slider -->
+        <div class="field quick-only" id="quick-monthly-wrap">
+          <label for="monthly">Monthly household spending <span class="value-display" id="monthly-display">$7,500</span></label>
+          <input id="monthly" name="monthly" type="range" min="3000" max="25000" step="100" value="7500" />
+          <div class="range-meta"><span>$3,000</span><span>$25,000</span></div>
+        </div>
+
+        <!-- DEEP MODE: expense profile -->
+        <div class="deep-only" id="expense-profile" hidden>
+          <p class="field-hint hint-block">Rough monthly spend by category. We use these to match cards to the way you actually buy things. Estimates are fine.</p>
+          <div class="step-grid step-grid-tight">
+            <div class="field">
+              <label for="exp-dining">Dining out <span class="value-display" id="exp-dining-display">$600</span></label>
+              <input id="exp-dining" type="range" min="0" max="3000" step="25" value="600" />
+            </div>
+            <div class="field">
+              <label for="exp-grocery">Groceries <span class="value-display" id="exp-grocery-display">$1,000</span></label>
+              <input id="exp-grocery" type="range" min="0" max="3500" step="25" value="1000" />
+            </div>
+            <div class="field">
+              <label for="exp-gas">Gas / EV charging <span class="value-display" id="exp-gas-display">$300</span></label>
+              <input id="exp-gas" type="range" min="0" max="1500" step="25" value="300" />
+            </div>
+            <div class="field">
+              <label for="exp-travel">Travel (non-trip) <span class="value-display" id="exp-travel-display">$300</span></label>
+              <input id="exp-travel" type="range" min="0" max="3000" step="25" value="300" />
+            </div>
+            <div class="field">
+              <label for="exp-streaming">Streaming + subscriptions <span class="value-display" id="exp-streaming-display">$80</span></label>
+              <input id="exp-streaming" type="range" min="0" max="500" step="5" value="80" />
+            </div>
+            <div class="field">
+              <label for="exp-other">Everything else <span class="value-display" id="exp-other-display">$2,500</span></label>
+              <input id="exp-other" type="range" min="0" max="15000" step="50" value="2500" />
+            </div>
+          </div>
+          <div class="profile-total">
+            <span class="profile-total-label">Monthly total</span>
+            <span class="profile-total-value" id="profile-total-value">$4,780</span>
+          </div>
+        </div>
+
+        <!-- DEEP MODE: travel style -->
+        <div class="deep-only" id="travel-style" hidden>
+          <p class="field-hint hint-block">How you actually travel. These shape which card perks matter.</p>
+          <div class="step-grid step-grid-tight">
+            <div class="field">
+              <label>Airport lounges</label>
+              <div class="pill-row" data-name="style_lounges">
+                <button type="button" class="pill" data-val="never">Never use them</button>
+                <button type="button" class="pill pill-on" data-val="sometimes">Sometimes</button>
+                <button type="button" class="pill" data-val="always">Always look for one</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Where you sleep</label>
+              <div class="pill-row" data-name="style_lodging">
+                <button type="button" class="pill pill-on" data-val="hotels">Hotels mostly</button>
+                <button type="button" class="pill" data-val="airbnb">Airbnb / vacation rental</button>
+                <button type="button" class="pill" data-val="mix">Mix of both</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>How you get around</label>
+              <div class="pill-row" data-name="style_transport">
+                <button type="button" class="pill pill-on" data-val="rental_car">Rental car</button>
+                <button type="button" class="pill" data-val="rideshare">Uber / Lyft / public transit</button>
+                <button type="button" class="pill" data-val="both">Both</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Annual fee comfort</label>
+              <div class="pill-row" data-name="style_fee">
+                <button type="button" class="pill pill-on" data-val="under_100">Under $100</button>
+                <button type="button" class="pill" data-val="under_400">Up to ~$400</button>
+                <button type="button" class="pill" data-val="any">Any, if math works</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>Application strategy</label>
+              <div class="pill-row" data-name="style_apply">
+                <button type="button" class="pill pill-on" data-val="one_at_time">One card at a time</button>
+                <button type="button" class="pill" data-val="open_more">Open to a few</button>
+                <button type="button" class="pill" data-val="no_new">No new cards right now</button>
+              </div>
+            </div>
+            <div class="field">
+              <label>International travel</label>
+              <div class="pill-row" data-name="style_intl">
+                <button type="button" class="pill pill-on" data-val="rarely">Rarely</button>
+                <button type="button" class="pill" data-val="yearly">Once a year-ish</button>
+                <button type="button" class="pill" data-val="often">Multiple times a year</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- STEP 3: Points (optional) -->
+      <fieldset class="step">
+        <legend><span class="step-num">Step 3</span> <span class="step-title">Points you already have <span class="legend-opt">(optional)</span></span></legend>
+
+        <button type="button" class="disclose-toggle" id="points-toggle" aria-expanded="false" aria-controls="points-block">+ Add my existing points (optional)</button>
+
+        <div class="points-block" id="points-block" hidden>
+          <div class="step-grid">
+            <div class="field">
+              <label for="chase-ur">Chase Ultimate Rewards</label>
+              <input id="chase-ur" name="chase_ur" type="number" min="0" step="100" value="" placeholder="0" />
+            </div>
+            <div class="field">
+              <label for="amex-mr">Amex Membership Rewards</label>
+              <input id="amex-mr" name="amex_mr" type="number" min="0" step="100" value="" placeholder="0" />
+            </div>
+            <div class="field">
+              <label for="capone-miles">Capital One Miles</label>
+              <input id="capone-miles" name="capone_miles" type="number" min="0" step="100" value="" placeholder="0" />
+            </div>
+            <div class="field">
+              <label for="hotel-points">Hotel points</label>
+              <input id="hotel-points" name="hotel_points" type="number" min="0" step="100" value="" placeholder="0" />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="calc-btn" class="btn btn-honey calc-submit">Show me the math</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="calc-results" id="calc-results" hidden aria-live="polite">
+  <div class="container">
+    <p class="kicker" id="result-kicker">Your $5,000 Disney trip for a party of 4</p>
+
+    <!-- B: Three big numbers -->
+    <div class="big-numbers">
+      <div class="big-num">
+        <div class="big-num-value" id="big-sticker">$5,000</div>
+        <div class="big-num-label">Sticker price</div>
+        <div class="big-num-caption">What the travel industry quotes</div>
+      </div>
+      <div class="big-num">
+        <div class="big-num-value" id="big-pay">$3,450</div>
+        <div class="big-num-label">What you&rsquo;d actually pay</div>
+        <div class="big-num-caption">With attention + the right card move</div>
+      </div>
+      <div class="big-num big-num-honey">
+        <div class="big-num-value" id="big-gap">$1,550</div>
+        <div class="big-num-label">The gap</div>
+        <div class="big-num-caption">What you&rsquo;re leaving on the table</div>
+      </div>
+    </div>
+
+    <!-- Short summary line -->
+    <p class="result-summary" id="result-summary"></p>
+
+    <!-- Edge case banner -->
+    <div class="edge-banner" id="edge-banner" hidden></div>
+
+    <!-- C: Gap table -->
+    <div class="result-card">
+      <h2 class="result-h2">Where the gap comes from</h2>
+      <table class="gap-table">
+        <thead>
+          <tr><th scope="col">Source</th><th scope="col" class="num">Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Points you already have</td><td class="num" id="gap-points">$0</td></tr>
+          <tr><td>One card move this month</td><td class="num" id="gap-card">$0</td></tr>
+          <tr><td>Smart timing</td><td class="num" id="gap-timing">$0</td></tr>
+          <tr class="total"><td><strong>Total gap</strong></td><td class="num"><strong id="gap-total">$0</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TRIP-COST INTELLIGENCE -->
+    <div class="result-card intel-card" id="intel-card">
+      <h2 class="result-h2">Trip-cost reality check</h2>
+      <div class="intel-grid">
+        <!-- Benchmark -->
+        <div class="intel-block">
+          <h4 class="intel-h4">How your number compares</h4>
+          <p class="intel-text" id="intel-benchmark"></p>
+          <div class="intel-bar" id="intel-bar-wrap" hidden>
+            <div class="intel-bar-track">
+              <div class="intel-bar-range" id="intel-bar-range"></div>
+              <div class="intel-bar-marker" id="intel-bar-marker"></div>
+            </div>
+            <div class="intel-bar-labels">
+              <span id="intel-bar-low">$0</span>
+              <span id="intel-bar-high">$0</span>
+            </div>
+          </div>
+        </div>
+        <!-- Hidden costs -->
+        <div class="intel-block">
+          <h4 class="intel-h4">Costs people forget</h4>
+          <ul class="intel-list" id="intel-hidden"></ul>
+        </div>
+        <!-- Missing -->
+        <div class="intel-block">
+          <h4 class="intel-h4">Likely missing from your budget</h4>
+          <ul class="intel-list" id="intel-missing"></ul>
+        </div>
+        <!-- Booking window -->
+        <div class="intel-block">
+          <h4 class="intel-h4">Best time to book</h4>
+          <p class="intel-text" id="intel-booking"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- D: Three moves -->
+    <div class="result-card">
+      <h2 class="result-h2">The three moves to close it</h2>
+      <ol class="moves">
+        <li class="move">
+          <h3>Use what you already have.</h3>
+          <p id="move-1"></p>
+        </li>
+        <li class="move">
+          <h3>Make one card move this month.</h3>
+          <p id="move-2"></p>
+        </li>
+        <li class="move">
+          <h3>Time it right.</h3>
+          <p id="move-3"></p>
+        </li>
+      </ol>
+      <p class="closing-line">That&rsquo;s it. Three moves. Twelve months. The gap closes itself.</p>
+    </div>
+
+    <!-- E: Card recommendation -->
+    <div class="rec-card" id="rec-card">
+      <p class="kicker">The card move</p>
+      <h2 class="rec-name" id="rec-name">Chase Sapphire Preferred</h2>
+      <div class="rec-meta">
+        <div><span class="rec-meta-label">Annual fee</span><span class="rec-meta-value" id="rec-fee">$95</span></div>
+        <div><span class="rec-meta-label">Sign-up bonus value</span><span class="rec-meta-value" id="rec-bonus">$1,080</span></div>
+        <div><span class="rec-meta-label">Net first-year value</span><span class="rec-meta-value" id="rec-net">$1,200</span></div>
+      </div>
+      <div class="rec-section">
+        <h4>Why this card, for you</h4>
+        <ul class="rec-reasons" id="rec-reasons"></ul>
+      </div>
+      <div class="rec-section">
+        <h4>For this trip</h4>
+        <p id="rec-benefit"></p>
+      </div>
+      <div class="rec-section rec-procon">
+        <div>
+          <h4>The honest pro</h4>
+          <p id="rec-pro"></p>
+        </div>
+        <div>
+          <h4>The honest con</h4>
+          <p id="rec-con"></p>
+        </div>
+      </div>
+
+      <details class="rec-math">
+        <summary>See the math &mdash; how we scored this card</summary>
+        <div class="rec-math-inner">
+          <p class="rec-math-intro" id="rec-math-intro"></p>
+          <table class="score-table">
+            <thead>
+              <tr><th>Component</th><th class="num">Value</th><th>Why</th></tr>
+            </thead>
+            <tbody id="score-rows"></tbody>
+            <tfoot>
+              <tr><td><strong>Net first-year value</strong></td><td class="num"><strong id="score-net">$0</strong></td><td></td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </details>
+
+      <details class="rec-math" id="rec-ranked-wrap" hidden>
+        <summary>See the runner-ups &mdash; how all cards ranked for you</summary>
+        <div class="rec-math-inner">
+          <table class="rank-table">
+            <thead>
+              <tr><th>#</th><th>Card</th><th class="num">Score</th><th>Fee</th></tr>
+            </thead>
+            <tbody id="rank-rows"></tbody>
+          </table>
+          <p class="rec-math-intro">Higher score = better fit for your spending, your travel style, and this trip.</p>
+        </div>
+      </details>
+
+      <a id="rec-cta" href="#" class="btn btn-honey rec-cta" target="_blank" rel="noopener noreferrer">Learn more about this card</a>
+      <p class="rec-disclosure">Opens the issuer&rsquo;s official page in a new tab. When we activate affiliate partnerships, paid links will be clearly tagged &ldquo;Affiliate&rdquo; &mdash; our recommendations won&rsquo;t change based on what pays best. We don&rsquo;t take payment from issuers for placement.</p>
+    </div>
+
+    <!-- F: Email worksheet -->
+    <div class="worksheet">
+      <div class="container worksheet-inner">
+        <h2 class="worksheet-headline">Want the full worksheet?</h2>
+        <p class="worksheet-sub">We&rsquo;ll email you a personalized Excel with your numbers, the card details, and a 12-month action plan.</p>
+        <form id="worksheet-form" class="worksheet-form" novalidate>
+          <label class="sr-only" for="worksheet-email">Email address</label>
+          <input id="worksheet-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey-on-navy worksheet-btn">Send me the Starter Pack</button>
+          <p class="trust trust-light">Just this one email + the Tuesday Brief. Unsubscribe whenever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- G: Footer disclaimer -->
+    <p class="disclaimer">This isn&rsquo;t financial advice. It&rsquo;s vacation math. Use your head. Double-check the numbers. Then take the trip.</p>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-calculator" novalidate>
+      <label class="sr-only" for="email-footer-calculator">Email address</label>
+      <input id="email-footer-calculator" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Memories aren&rsquo;t reserved for the rich.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>An independent project by Christopher Bacon. Not affiliated with, endorsed by, or sponsored by Delta Air Lines, Delta Vacations, or any airline, hotel, or travel company. All trademarks belong to their respective owners.</p>
+  </div>
+</footer>
+
+<script src="calculator.js"></script>
+  <script src="site-nav.js?v20260531a"></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3d28e59759c',t:'MTc4MDM2NjU0OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

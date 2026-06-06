@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Timeshare Math Calculator — What Ownership Really Costs vs. Just Booking | Vacation Math</title>
+<meta name="description" content="Is a timeshare worth it? Free calculator compares total ownership cost (maintenance fees, mortgage, assessments) against booking the same trip every year. The math is usually not pretty." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530e">
+<link rel="stylesheet" href="calc-shared.css">
+<script src="nav-fix.js" defer></script>
+  <link rel="stylesheet" href="site-nav.css?v20260530e">
+  <link rel="stylesheet" href="card-finder-mini.css">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/timeshare" />
+<meta property="og:url" content="https://vacationmath.co/timeshare" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
+<meta property="og:title" content="Timeshare Math Calculator — What Ownership Really Costs vs. Just Booking" />
+<meta property="og:description" content="Is a timeshare worth it? Free calculator compares total ownership cost (maintenance fees, mortgage, assessments) against booking the same trip every year. The math is usually not pretty." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Timeshare Math Calculator — What Ownership Really Costs vs. Just Booking" />
+<meta name="twitter:description" content="Is a timeshare worth it? Free calculator compares total ownership cost (maintenance fees, mortgage, assessments) against booking the same trip every year. The math is usually not pretty." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Timeshare Math", "item": "https://vacationmath.co/timeshare"}]}</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+  <link rel="stylesheet" href="guide-download.css?v20260530n">
+  <script src="guide-download.js?v20260530n" defer></script>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero">
+  <div class="container">
+    <a href="calculators.html" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Timeshare Math</p>
+    <h1 class="calc-h1">Should you buy that timeshare, or just rent it?</h1>
+    <p class="calc-sub">A timeshare presentation will hand you a 90-minute version of the truth. This is the 90-second version, with every number from the industry's own data: lifetime cost, opportunity cost, and the exact same week available on RedWeek for a fraction.</p>
+  </div>
+</header>
+
+  <!-- HOW IT WORKS -->
+  <section class="calc-how-it-works">
+    <div class="container">
+      <p class="calc-meta">Takes about 90 seconds to complete. No account needed.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-body">
+            <p class="how-step-title">Enter the offer details</p>
+            <p class="how-step-desc">Purchase price, annual fees, and how you'd use it.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-body">
+            <p class="how-step-title">We run the lifetime math</p>
+            <p class="how-step-desc">Total cost, opportunity cost, and the rental alternative.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-body">
+            <p class="how-step-title">See the real comparison</p>
+            <p class="how-step-desc">Buy vs. rent — with the industry's own numbers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<main class="calc-main">
+  <div class="container calc-grid">
+
+    <section class="calc-inputs">
+      <h2 class="panel-title">The offer</h2>
+
+      <div class="field">
+        <label for="developer">Developer / brand</label>
+        <select id="developer"><option>Loading…</option></select>
+        <p class="hint" id="developer-note">12 major developers. Pick yours to autofill price and fees — you can override below.</p>
+      </div>
+
+      <div class="field">
+        <label for="purchase">Purchase price</label>
+        <input type="number" id="purchase" min="0" step="500" value="23160" />
+        <p class="hint">Industry average per ARDA 2025 is $23,160. Brand averages range $15k–$45k.</p>
+      </div>
+
+      <div class="field">
+        <label for="maintenance">Year-1 maintenance fee</label>
+        <input type="number" id="maintenance" min="0" step="50" value="1480" />
+        <p class="hint">Avg per Ernst & Young 2025. Escalates ~5% per year, baked into the math.</p>
+      </div>
+
+      <div class="field">
+        <label for="bedrooms">Unit size</label>
+        <select id="bedrooms">
+          <option value="studio">Studio</option>
+          <option value="oneBR" selected>1 bedroom</option>
+          <option value="twoBR">2 bedroom</option>
+          <option value="threeBR">3 bedroom</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="years">Years you plan to own</label>
+        <input type="number" id="years" min="1" max="40" value="20" />
+        <p class="hint">Most owners keep 15-25 years before resale or default.</p>
+      </div>
+
+      <fieldset class="field check-group">
+        <legend>Financing</legend>
+        <label class="check"><input type="checkbox" id="financed" /> I'd finance through the resort (17% / 10 yr avg)</label>
+      </fieldset>
+
+      <button class="btn btn-honey calc-go" id="calculate">Show me if this deal works</button>
+    </section>
+
+    <section class="calc-results" id="results" aria-live="polite">
+      <p class="results-empty">Fill in the offer — we'll show what ownership actually costs vs. booking the same trip every year.</p>
+    </section>
+</div>
+<!-- ══ DOWNLOAD WIDGET ══ -->
+<div id="vm-download-widget" style="display:none;"></div>
+<!-- ══ END DOWNLOAD WIDGET ══ -->
+
+  <!-- ============ TRIP-MATCHED CARDS ============ -->
+  <section class="container">
+    <div id="card-cta"></div>
+  </section>
+
+  <!-- ============ MINI CARD FINDER (placed below — "not these? try the finder") ============ -->
+  <section class="container">
+    <div id="card-finder-mini"></div>
+  </section>
+  <section class="post-results" id="email-section" hidden>
+    <div class="container">
+      <div class="email-card">
+        <p class="kicker">Free</p>
+        <h2 class="email-h2">Get the Starter Pack — free.</h2>
+        <p>I'll email you the Vacation Math Starter Pack (a printable 13-page PDF on hidden trip costs, how to fund a trip without debt, and what points are actually worth) plus the Tuesday brief: one real trip with the math worked out, every week.</p>
+        <form class="capture" data-source="timeshare-calc" novalidate>
+          <label class="sr-only" for="email-ts">Email address</label>
+          <input id="email-ts" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send me the Starter Pack</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div id="live-quote"></div>
+  </section>
+  <section class="methodology">
+    <div class="container">
+      <h3>How we got these numbers</h3>
+      <p>Average purchase price ($23,160), financing rate (~17%), and ownership length come from the American Resort Development Association's 2025 State of the Industry report. Annual maintenance ($1,480) and ~5% escalation come from Ernst &amp; Young's 2025 timeshare study. Resale recovery (~10%) reflects RedWeek and Timeshare Users Group resale data — most timeshares sell for pennies on the dollar. Opportunity cost uses 7% (S&amp;P 500 long-term average).</p>
+      <details>
+        <summary>See sources</summary>
+        <ul class="source-list">
+          <li><a href="https://www.arda.org" target="_blank" rel="noopener">ARDA 2025 State of the Industry</a></li>
+          <li><a href="https://vacationownershipconsultants.com/timeshare-maintenance-fee-what-every-owner-should-know/" target="_blank" rel="noopener">Ernst &amp; Young 2025 maintenance fee study</a></li>
+          <li><a href="https://www.amerisave.com/learn/critical-truths-about-timeshares-in-what-the-billion-industry-wont-tell-you" target="_blank" rel="noopener">AmeriSave 2026 timeshare analysis</a></li>
+          <li><a href="https://www.redweek.com" target="_blank" rel="noopener">RedWeek rental comps</a></li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-timeshare" novalidate>
+      <label class="sr-only" for="email-footer-timeshare">Email address</label>
+      <input id="email-footer-timeshare" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Memories aren&rsquo;t reserved for the rich.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>Not affiliated with, endorsed by, or sponsored by any timeshare developer or exit company. Industry averages from public ARDA / E&amp;Y data, updated May 2026. Results are long-run estimates, not live quotes.</p>
+  </div>
+</footer>
+
+<script src="calc-data.js"></script>
+<script src="calc-pickers.js"></script>
+<script src="cards-data.js"></script>
+<script src="card-module.js"></script>
+<script src="card-cta.js"></script>
+<script src="card-finder-mini.js"></script>
+<script src="verified-badge.js"></script>
+<script src="live-quote.js"></script>
+<script src="timeshare.js"></script>
+  <script src="site-nav.js?v20260531a"></script>
+<script>window.VM_TRUST_OVERRIDE = {promise:'Industry-sourced lifetime math.', pricing:'2026 ARDA + resale data.', updated:'Updated May 2026.'};</script>
+<script src="trust-block.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3dbbe687563',t:'MTc4MDM2NjU1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tuesday Travel Math — The Vacation Math Blog</title>
+<meta name="description" content="Every Tuesday, a new piece of travel math. Real data, sourced numbers, honest answers. Read past issues of the Vacation Math newsletter." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../site-nav.css">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/blog/" />
+<meta property="og:url" content="https://vacationmath.co/blog/" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:title" content="Tuesday Travel Math — The Vacation Math Blog" />
+<meta property="og:description" content="Every Tuesday, a new piece of travel math. Real data, sourced numbers, honest answers." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tuesday Travel Math — The Vacation Math Blog" />
+<meta name="twitter:description" content="Every Tuesday, a new piece of travel math. Real data, sourced numbers, honest answers." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Tuesday Travel Math","url":"https://vacationmath.co/blog/","description":"Every Tuesday, a new piece of travel math from Vacation Math.","publisher":{"@type":"Organization","name":"Vacation Math","url":"https://vacationmath.co"},"author":{"@type":"Person","name":"Chris Bacon"}}</script>
+<!-- VM-SEO-END -->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+
+<style>
+  /* Blog-specific layout (uses your existing tokens) */
+  .blog-hero {
+    background: var(--cream, #f7f1e6);
+    padding: 80px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid #ecdfc8;
+  }
+  .blog-hero .container { max-width: 760px; }
+  .blog-hero .pill {
+    display: inline-block;
+    background: #e89a3c;
+    color: #0f2540;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .blog-hero h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    color: #0f2540;
+    font-weight: 800;
+    margin: 0 0 18px;
+    letter-spacing: -0.5px;
+  }
+  .blog-hero h1 em {
+    color: #c75c2a;
+    font-style: italic;
+    font-weight: 800;
+  }
+  .blog-hero .sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #3a4a5e;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .post-list {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+  .post-card {
+    background: #fbf6ec;
+    border: 1px solid #ecdfc8;
+    border-radius: 14px;
+    padding: 32px;
+    margin-bottom: 20px;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+  }
+  .post-card:hover {
+    transform: translateY(-2px);
+    border-color: #e89a3c;
+  }
+  .post-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #9c7a3f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .post-card h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #0f2540;
+    font-weight: 800;
+    margin: 0 0 12px;
+    letter-spacing: -0.3px;
+  }
+  .post-card h2 em { color: #c75c2a; font-style: italic; }
+  .post-card .excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #3a4a5e;
+    margin: 0 0 14px;
+  }
+  .post-card .read-more {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #c75c2a;
+  }
+  .empty-state {
+    background: #fbf6ec;
+    border: 1px dashed #ecdfc8;
+    border-radius: 14px;
+    padding: 48px 32px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #5a6b7c;
+  }
+  .subscribe-cta {
+    background: #0f2540;
+    border-radius: 14px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-top: 32px;
+  }
+  .subscribe-cta h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 26px;
+    color: #fff;
+    font-weight: 800;
+    margin: 0 0 10px;
+  }
+  .subscribe-cta h3 em { color: #e89a3c; font-style: italic; }
+  .subscribe-cta p {
+    font-family: 'Inter', sans-serif;
+    color: #c8d4e3;
+    font-size: 15px;
+    margin: 0 0 22px;
+  }
+  .subscribe-cta .btn {
+    display: inline-block;
+    background: #e89a3c;
+    color: #0f2540;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<header class="blog-hero">
+  <div class="container">
+    <span class="pill">● Tuesday Travel Math</span>
+    <h1>Real travel math, <em>every Tuesday.</em></h1>
+    <p class="sub">A short newsletter that does the math on something that quietly changed for travelers. No hype. Sourced numbers. Honest answers.</p>
+  </div>
+</header>
+
+<main class="post-list">
+
+  <!-- ISSUE #1 -->
+  <a class="post-card" href="summer-road-trip-gas-cost-2026.html">
+    <div class="post-meta">Issue #1 · June 2, 2026</div>
+    <h2>Oil at $95 just made your road trip a <em>math problem</em>.</h2>
+    <p class="excerpt">Brent crude is near record highs, pumps are at $4.42, and GasBuddy is forecasting a $4.80 summer average. Here's what that actually costs on a real trip — plus six ways to take the bite out of the pump.</p>
+    <span class="read-more">Read the math →</span>
+  </a>
+
+  <!-- Subscribe CTA -->
+  <div class="subscribe-cta">
+    <h3>Get the next issue <em>in your inbox</em>.</h3>
+    <p>Every Tuesday morning. No fluff, no ads, no SEO-stuffed listicles. Just the math.</p>
+    <a class="btn" href="../index.html#signup">Subscribe free →</a>
+  </div>
+
+</main>
+
+<script src="../nav-fix.js" defer></script>
+<script src="../site-nav.js?v20260531a"></script>
+</body>
+</html>

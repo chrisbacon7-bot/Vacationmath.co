@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Points vs. Cash Calculator — Is Your Redemption Worth It? | Vacation Math</title>
+<meta name="description" content="Enter your points balance and the cash price. We calculate your cents-per-point and tell you if you should use points or pay cash. Works with Chase, Amex, Hyatt, Marriott, and more." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530e">
+<link rel="stylesheet" href="calc-shared.css">
+<script src="nav-fix.js" defer></script>
+  <link rel="stylesheet" href="site-nav.css?v20260530e">
+  <link rel="stylesheet" href="card-finder-mini.css">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/points" />
+<meta property="og:url" content="https://vacationmath.co/points" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
+<meta property="og:title" content="Points vs. Cash Calculator — Is Your Redemption Worth It?" />
+<meta property="og:description" content="Enter your points balance and the cash price. We calculate your cents-per-point and tell you if you should use points or pay cash. Works with Chase, Amex, Hyatt, Marriott, and more." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Points vs. Cash Calculator — Is Your Redemption Worth It?" />
+<meta name="twitter:description" content="Enter your points balance and the cash price. We calculate your cents-per-point and tell you if you should use points or pay cash. Works with Chase, Amex, Hyatt, Marriott, and more." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Points vs Cash", "item": "https://vacationmath.co/points"}]}</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+  <link rel="stylesheet" href="guide-download.css?v20260530n">
+  <script src="guide-download.js?v20260530n" defer></script>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero">
+  <div class="container">
+    <a href="calculators.html" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Points vs. Cash</p>
+    <h1 class="calc-h1">Should you use the points, or pay cash?</h1>
+    <p class="calc-sub">Every points balance comes with the same question: redeem now, or save them for something better? Plug in the redemption you're staring at. I'll tell you what each point is actually worth and whether you're getting a deal.</p>
+  </div>
+</header>
+
+  <!-- HOW IT WORKS -->
+  <section class="calc-how-it-works">
+    <div class="container">
+      <p class="calc-meta">Takes about 30 seconds to complete. No account needed.</p>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-num">1</div>
+          <div class="how-step-body">
+            <p class="how-step-title">Enter the redemption</p>
+            <p class="how-step-desc">Points program, number of points, and the cash price.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">2</div>
+          <div class="how-step-body">
+            <p class="how-step-title">We calculate the honest value</p>
+            <p class="how-step-desc">What each point is worth on this redemption vs. baseline.</p>
+          </div>
+        </div>
+        <div class="how-step-arrow" aria-hidden="true">&rarr;</div>
+        <div class="how-step">
+          <div class="how-step-num">3</div>
+          <div class="how-step-body">
+            <p class="how-step-title">See if it's worth it</p>
+            <p class="how-step-desc">A clear answer — redeem, or save them for something better.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<main class="calc-main">
+  <div class="container calc-grid">
+
+    <section class="calc-inputs">
+      <h2 class="panel-title">The redemption</h2>
+
+      <div class="field">
+        <label for="program">Points program</label>
+        <select id="program"><option>Loading…</option></select>
+        <p class="hint">28 programs — bank, US airlines, international airlines, and hotels.</p>
+      </div>
+
+      <div class="field">
+        <label for="points">Points required</label>
+        <input type="number" id="points" min="0" value="60000" step="1000" />
+      </div>
+
+      <div class="field">
+        <label for="cashprice">Cash price (what you'd pay otherwise)</label>
+        <input type="number" id="cashprice" min="0" value="900" step="10" />
+        <p class="hint">Include taxes/fees you'd avoid by paying in points.</p>
+      </div>
+
+      <div class="field">
+        <label for="taxesfees">Taxes + fees if you redeem in points</label>
+        <input type="number" id="taxesfees" min="0" value="11" step="1" />
+        <p class="hint">Usually just the $5.60-$50 phantom fees on awards.</p>
+      </div>
+
+      <div class="field">
+        <label for="benchmark">Compare against</label>
+        <select id="benchmark">
+          <option value="tpg" selected>The Points Guy (aspirational)</option>
+          <option value="transfer">Best transfer value (Frequent Miler)</option>
+          <option value="portal">Portal value (1.25 cpp)</option>
+          <option value="cash">Cash-back value (1 cpp)</option>
+          <option value="custom">Custom — set your own benchmark</option>
+        </select>
+      </div>
+
+      <div class="field" id="custom-cpp-field" hidden>
+        <label for="customCpp">Your benchmark (cents per point)</label>
+        <input type="number" id="customCpp" min="0" step="0.05" value="1.50" />
+        <p class="hint">Use the value you'd accept as a fair redemption. 1.5¢ is a common floor for transferable points.</p>
+      </div>
+
+      <button class="btn btn-honey calc-go" id="calculate">Is this redemption worth it?</button>
+    </section>
+
+    <section class="calc-results" id="results" aria-live="polite">
+      <p class="results-empty">Fill in your points balance and the cash price — we'll tell you if this is a good deal or a bad one.</p>
+    </section>
+</div>
+<!-- ══ DOWNLOAD WIDGET ══ -->
+<div id="vm-download-widget" style="display:none;"></div>
+<!-- ══ END DOWNLOAD WIDGET ══ -->
+
+  <!-- ============ TRIP-MATCHED CARDS ============ -->
+  <section class="container">
+    <div id="card-cta"></div>
+  </section>
+
+  <!-- ============ MINI CARD FINDER (placed below — "not these? try the finder") ============ -->
+  <section class="container">
+    <div id="card-finder-mini"></div>
+  </section>
+  <section class="post-results" id="email-section" hidden>
+    <div class="container">
+      <div class="email-card">
+        <p class="kicker">Free</p>
+        <h2 class="email-h2">Get the Starter Pack — free.</h2>
+        <p>I'll email you the Vacation Math Starter Pack (a printable 13-page PDF that includes the full benchmark valuations table above, plus hidden trip costs, the funding formula, and the 1.5¢ rule) plus the Tuesday brief.</p>
+        <form class="capture" data-source="points-calc" novalidate>
+          <label class="sr-only" for="email-points">Email address</label>
+          <input id="email-points" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send me the Starter Pack</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div id="live-quote"></div>
+  </section>
+  <section class="methodology">
+    <div class="container">
+      <h3>How we got these numbers</h3>
+      <p>Benchmark valuations are the median of three major sources published in 2026: The Points Guy monthly valuations, NerdWallet's annual airline mile valuations, and Frequent Miler's Reasonable Redemption Values (RRVs). When sources disagree, we use the lower number so the "good redemption" bar stays honest.</p>
+      <details>
+        <summary>See sources</summary>
+        <ul class="source-list">
+          <li><a href="https://thepointsguy.com" target="_blank" rel="noopener">The Points Guy monthly valuations (May 2026)</a></li>
+          <li><a href="https://frequentmiler.com/reasonable-redemption-values-rrvs/" target="_blank" rel="noopener">Frequent Miler Reasonable Redemption Values (May 2026)</a></li>
+          <li><a href="https://www.nerdwallet.com/travel/learn/airline-miles-and-hotel-points-valuations" target="_blank" rel="noopener">NerdWallet 2026 valuations</a></li>
+          <li><a href="https://frequentmiler.com/what-are-marriott-bonvoy-points-worth/" target="_blank" rel="noopener">Marriott RRV explainer (Gondola data)</a></li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-email-signup">
+    <form class="capture capture-footer" data-source="footer-signup-points" novalidate>
+      <label class="sr-only" for="email-footer-points">Email address</label>
+      <input id="email-footer-points" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+      <button type="submit" class="btn btn-honey-on-navy">Get the Tuesday brief</button>
+      <p class="form-msg" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="container footer-grid">
+    <p>Vacation Math &middot; &copy; 2026</p>
+    <p class="footer-tag">Memories aren&rsquo;t reserved for the rich.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>Not affiliated with, endorsed by, or sponsored by any airline, hotel, credit card issuer, or loyalty program. Valuations are estimates based on publicly reported benchmark data and will vary by specific redemption.</p>
+  </div>
+</footer>
+
+<script src="calc-data.js"></script>
+<script src="calc-pickers.js"></script>
+<script src="cards-data.js"></script>
+<script src="card-module.js"></script>
+<script src="card-cta.js"></script>
+<script src="card-finder-mini.js"></script>
+<script src="verified-badge.js"></script>
+<script src="live-quote.js"></script>
+<script src="points.js"></script>
+  <script src="site-nav.js?v20260531a"></script>
+<script>window.VM_TRUST_OVERRIDE = {promise:'Portal-floor point values, not transfer dreams.', pricing:'2026 redemption rates.', updated:'Updated May 2026.'};</script>
+<script src="trust-block.js" defer></script>
+<script src="analytics.js" defer></script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3d9aa7f31b0',t:'MTc4MDM2NjU1MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

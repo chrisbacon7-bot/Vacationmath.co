@@ -1,0 +1,427 @@
+/* ============ Vacation Math — Tentpole Landing Pages ============
+ * Long-form landing pages for the four content pillars.
+ * Built on top of styles.css design tokens.
+ * ============================================================ */
+
+.tp-body { background: var(--cream); }
+
+/* ---------- HERO ---------- */
+.tp-hero {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 96px 0 88px;
+  position: relative;
+  overflow: hidden;
+}
+.tp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(900px 500px at 85% -20%, rgba(230, 163, 64, 0.22), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(127, 183, 190, 0.14), transparent 60%);
+  pointer-events: none;
+}
+.tp-hero-inner { position: relative; max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+.tp-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(251, 247, 239, 0.7);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+  transition: color 0.15s var(--ease);
+}
+.tp-back:hover { color: var(--honey); }
+.tp-kicker {
+  display: inline-block;
+  background: var(--honey);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+  font-family: var(--font-body);
+}
+.tp-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 22px;
+  color: var(--cream);
+}
+.tp-h1 em {
+  color: var(--honey);
+  font-style: italic;
+  font-weight: 700;
+}
+.tp-lede {
+  font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+  line-height: 1.5;
+  color: rgba(251, 247, 239, 0.88);
+  margin: 0 0 32px;
+  max-width: 680px;
+}
+.tp-hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.tp-btn-primary {
+  background: var(--honey);
+  color: var(--navy);
+  border: none;
+  padding: 16px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tp-btn-primary:hover { background: var(--cream); transform: translateY(-1px); }
+.tp-btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1.5px solid rgba(251, 247, 239, 0.4);
+  padding: 15px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  transition: all 0.15s var(--ease);
+}
+.tp-btn-ghost:hover { border-color: var(--honey); color: var(--honey); }
+
+/* ---------- WHAT YOU GET BAR ---------- */
+.tp-stats {
+  background: var(--cream-soft);
+  padding: 36px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.tp-stats-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.tp-stat-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  line-height: 1.05;
+}
+.tp-stat-num .plus { color: var(--honey); font-size: 1.6rem; vertical-align: 0.3em; margin-left: 2px; }
+.tp-stat-cap {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+/* ---------- SECTIONS ---------- */
+.tp-section { padding: 88px 0; }
+.tp-section + .tp-section { border-top: 1px solid var(--hairline); }
+.tp-section-tinted { background: var(--cream-soft); }
+.tp-section-navy { background: var(--navy); color: var(--cream); }
+.tp-section-navy .tp-section-h2 { color: var(--cream); }
+.tp-section-navy .tp-section-sub { color: rgba(251, 247, 239, 0.78); }
+
+.tp-section-inner { max-width: 880px; margin: 0 auto; padding: 0 var(--gutter); }
+.tp-section-wide  { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+
+.tp-section-kicker {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--honey);
+  margin: 0 0 14px;
+  font-family: var(--font-body);
+}
+.tp-section-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin: 0 0 22px;
+}
+.tp-section-sub {
+  font-size: 1.08rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 36px;
+  max-width: 680px;
+}
+
+/* ---------- WHAT YOU LEARN GRID ---------- */
+.tp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+.tp-card {
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  transition: all 0.2s var(--ease);
+}
+.tp-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--honey); }
+.tp-card-icon {
+  width: 38px; height: 38px;
+  background: rgba(230, 163, 64, 0.15);
+  color: var(--honey);
+  border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.tp-card-h3 {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.tp-card-body {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- ITEMIZED COST LIST ---------- */
+.tp-cost-list {
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 28px 0 0;
+}
+.tp-cost-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--hairline);
+  gap: 16px;
+}
+.tp-cost-row:last-child { border-bottom: none; background: var(--cream-soft); }
+.tp-cost-label {
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.96rem;
+}
+.tp-cost-label small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 2px;
+}
+.tp-cost-value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.tp-cost-row.is-total .tp-cost-label,
+.tp-cost-row.is-total .tp-cost-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.22rem;
+  color: var(--navy);
+}
+
+/* ---------- CALCULATOR CARDS ---------- */
+.tp-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.tp-calc-card {
+  background: #fff;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s var(--ease);
+}
+.tp-calc-card:hover {
+  border-color: var(--honey);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.tp-calc-card-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--honey);
+  margin: 0;
+}
+.tp-calc-card-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin: 4px 0 6px;
+  line-height: 1.15;
+}
+.tp-calc-card-body {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.tp-calc-card-arrow {
+  margin-top: 12px;
+  color: var(--honey);
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+/* ---------- FAQ ---------- */
+.tp-faq-item {
+  border-bottom: 1px solid var(--hairline);
+  padding: 22px 0;
+}
+.tp-faq-q {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.tp-faq-a {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- FINAL CAPTURE ---------- */
+.tp-cta-final {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 88px 0;
+  text-align: center;
+}
+.tp-cta-final h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 0 0 14px;
+}
+.tp-cta-final p { color: rgba(251, 247, 239, 0.8); margin: 0 0 28px; }
+.tp-cta-form {
+  display: flex;
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tp-cta-form input {
+  flex: 1 1 240px;
+  min-width: 220px;
+  padding: 15px 18px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(251, 247, 239, 0.3);
+  background: rgba(251, 247, 239, 0.06);
+  color: var(--cream);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s var(--ease);
+}
+.tp-cta-form input::placeholder { color: rgba(251, 247, 239, 0.5); }
+.tp-cta-form input:focus { border-color: var(--honey); background: rgba(251, 247, 239, 0.1); }
+.tp-cta-trust {
+  margin: 20px 0 0;
+  font-size: 0.86rem;
+  color: rgba(251, 247, 239, 0.6);
+}
+
+@media (max-width: 720px) {
+  .tp-hero { padding: 72px 0 64px; }
+  .tp-section { padding: 64px 0; }
+  .tp-cost-row { padding: 14px 18px; }
+}
+
+/* ============ Sprint 3 Tentpole Polish ============ */
+
+/* More generous section padding */
+.tp-section { padding: clamp(60px, 8vw, 96px) 0; }
+.tp-section-tinted { padding: clamp(60px, 8vw, 96px) 0; }
+.tp-section-navy { padding: clamp(60px, 8vw, 96px) 0; }
+
+/* Cards — stronger hover */
+.tp-card {
+  border-radius: 14px;
+  transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease;
+}
+.tp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px -14px rgba(14,42,71,0.2);
+}
+
+/* Calc cards — cleaner hover */
+.tp-calc-card {
+  border-radius: 14px;
+  transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease;
+}
+.tp-calc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -12px rgba(14,42,71,0.2);
+}
+
+/* Cost list rows — more breathing room */
+.tp-cost-row {
+  padding: 16px 0;
+}
+
+/* FAQ items — more spacing */
+.tp-faq-item {
+  padding: 20px 0;
+}
+
+/* Hero lede — slightly more generous */
+.tp-lede {
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* Stats numbers */
+.tp-stat-num {
+  letter-spacing: -0.03em;
+}
