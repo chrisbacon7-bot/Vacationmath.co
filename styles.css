@@ -1305,7 +1305,9 @@ a { color: inherit; }
   border-radius: 10px;
 }
 .vm-cta h2 { color: #FBF7EF; margin-top: 0; }
+.vm-cta p, .vm-cta li { color: #FBF7EF; }
 .vm-cta a { color: #E6A340; border-bottom-color: #E6A340; }
+.vm-cta a:hover, .vm-cta a:focus-visible { color: #FBF7EF; border-bottom-color: #FBF7EF; }
 
 /* Popular calculators grid (homepage) */
 .vm-popular-calcs { background: #FBF7EF; padding: 4rem 0; }
