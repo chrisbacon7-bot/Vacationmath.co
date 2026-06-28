@@ -416,7 +416,7 @@
       html += '<div class="benchmark-callout">' + r.infants + ' under 3 sail free &mdash; no fare, no gratuity, no drink package, no excursion charge. Still bring documents and a stroller plan.</div>';
     }
 
-    html += '<div class="freshness-badge">2026 pricing data · last updated May 2026 · next refresh August 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data · last updated July 2026 · next refresh August 2026</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> This is an <em>estimate</em>, not a live quote. It is built from published 2026 cruise fares, NerdWallet averages, and Cruise Critic research &mdash; then biased to over-count costs and under-count card value. Your real booking price will move with season, cabin type, promotions, and how the line prices that sailing week. The honest expectation: your actual total comes in at or below this number more often than above it.</div>';
 
