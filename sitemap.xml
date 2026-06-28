@@ -232,10 +232,28 @@
   </url>
 
   <url>
-    <loc>https://vacationmath.co/blog/summer-road-trip-gas-cost-2026.html</loc>
+    <loc>https://vacationmath.co/blog/summer-road-trip-gas-cost-2026</loc>
     <lastmod>2026-06-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
+  <url>
+    <loc>https://vacationmath.co/blog/summer-airfare-cost-2026</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vacationmath.co/blog/one-way-vs-round-trip-flights</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vacationmath.co/blog/hotel-points-math-2026</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
 </urlset>
