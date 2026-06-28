@@ -1,6 +1,6 @@
 /* =====================================================================
    Vacation Math — Shared calculator data
-   All numbers updated May 2026. Estimates built from published pricing, not live quotes. Sources cited at /sources.html
+   All numbers updated June 27, 2026 (Q3/July refresh). Estimates built from published pricing, not live quotes. Sources cited at /sources.html
    ===================================================================== */
 (function (global) {
   "use strict";
@@ -26,7 +26,7 @@
       high: 199  // peak (Xmas, spring break)
     },
     parkHopperPerTicket: 198,    // Per-ticket add-on for multi-day. $198 low / $264 peak. WDW Magazine 2026.
-    lightningLanePerDay: 29,     // Avg Lightning Lane Multi Pass per person per day
+    lightningLanePerDay: 35,     // Avg Lightning Lane Multi Pass per person per day. 2026 range $15-$45/person/day per WDW Magazine; $35 is mid-summer mid-park average.
     childTicketDiscount: 5,      // ~$5 off adult price for kids 3-9
     // Dining per party of 4 per day, by style
     dining: {
@@ -331,7 +331,7 @@
   //          IRS 2026 mileage rate 72.5¢/mi, AAA gas prices May 2026 ~$3.10/gal national
   // ----------------------------------------------------------------
   var ROADTRIP = {
-    avgGasPrice: 4.49,               // AAA national May 26, 2026 (gasprices.aaa.com)
+    avgGasPrice: 3.90,               // AAA national June 26, 2026 (gasprices.aaa.com). Down ~13% from May peak.
     mpgByVehicle: {
       compact: 32, sedan: 28, suv: 22, minivan: 24, truck: 18, ev: 105 // EV MPGe
     },

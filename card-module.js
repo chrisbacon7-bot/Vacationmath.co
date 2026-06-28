@@ -178,7 +178,7 @@
       + '  <div class="card-module__grid">' + cardsHtml + '</div>'
       + '  <footer class="card-module__footer">'
       + '    <p class="card-module__disclosure">'
-      + '      Offers verified ' + (window.VM_CONFIG && VM_CONFIG.VERIFIED_LABEL ? escapeHtml(VM_CONFIG.VERIFIED_LABEL.replace(/^Pricing verified /, "")) : "May 2026")
+      + '      Offers verified ' + (window.VM_CONFIG && VM_CONFIG.VERIFIED_LABEL ? escapeHtml(VM_CONFIG.VERIFIED_LABEL.replace(/^Pricing verified /, "")) : "July 2026")
       + '      against each issuer\'s official site. Bonuses change weekly \u2014 confirm at the issuer\'s page before applying. '
       + '      We don\'t accept payment to recommend a card. When we activate affiliate partnerships, links will be tagged "Affiliate" \u2014 the recommendations won\'t change.'
       + '    </p>'

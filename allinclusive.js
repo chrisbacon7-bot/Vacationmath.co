@@ -249,7 +249,7 @@
     html += '<div class="verdict ' + vClass + '"><h3>' + vTitle + '</h3><p>' + vBody + '</p></div>';
 
     html += '<div class="result-note"><strong>What people forget to add to either side.</strong> All-inclusive doesn\'t cover off-property excursions (Tulum, Xcaret, snorkel tours), specialty dining surcharges at some resorts, spa, or customary tips. À-la-carte doesn\'t budget for taxis, bottled water (don\'t drink the tap), 18-20% restaurant tips, or the "let\'s just have one more drink" creep. Both math the same way: be honest about what you\'ll actually do.</div>';
-    html += '<div class="freshness-badge">2026 resort pricing &middot; last updated May 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">2026 resort pricing &middot; last updated July 2026 &middot; next refresh August 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

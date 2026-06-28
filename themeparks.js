@@ -183,7 +183,7 @@
     html += '<div class="result-note"><strong>What people forget to add.</strong> Single-day sticker prices mislead. Regional parks look half-price until you add parking on every visit, no early entry, no in-park transportation, and a separate hotel commute. Disney and Universal multi-day pricing flattens out fast — by day 4, the per-day cost drops below most regional sticker prices once you factor in skip-line value.</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> These are <em>estimates</em>, not live quotes. Park ticket prices are pulled from each park&rsquo;s 2026 published pricing; hotel ranges come from Booking.com / Hopper / Touring Plans research; skip-line costs use peak-day averages. Your real total will move with date, hotel tier, dynamic ticket pricing, and promotions. The honest expectation: actual totals come in at or below these numbers more often than above them.</div>';
-    html += '<div class="freshness-badge">2026 pricing data &middot; last updated May 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data &middot; last updated July 2026 &middot; next refresh August 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

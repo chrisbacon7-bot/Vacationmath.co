@@ -9,7 +9,7 @@
   var DEFAULTS = {
     promise: 'Real cost, line by line.',
     pricing: '2026 published pricing.',
-    updated: 'Updated May 2026.',
+    updated: 'Updated July 2026.',
     sourcesId: 'sources',
     methodologyHref: 'how-it-works.html'
   };
