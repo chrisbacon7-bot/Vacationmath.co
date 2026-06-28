@@ -33,7 +33,10 @@
     { href: 'guides/how-much-to-budget-for-vacation.html', label: 'Vacation Budget Guide' },
     { href: 'blog/',             label: '— Tuesday Travel Math —', divider: true },
     { href: 'blog/',             label: 'All Issues' },
-    { href: 'blog/summer-road-trip-gas-cost-2026.html', label: 'Issue #1 · Summer Gas Math' }
+    { href: 'blog/summer-road-trip-gas-cost-2026', label: 'Issue #1 · Summer Gas Math' },
+    { href: 'blog/summer-airfare-cost-2026',       label: 'Issue #2 · Summer Airfare Math' },
+    { href: 'blog/one-way-vs-round-trip-flights',  label: 'Issue #3 · One-Way vs Round Trip' },
+    { href: 'blog/hotel-points-math-2026',         label: 'Issue #4 · Hotel Points Math' }
   ];
 
   // Page detection so we can highlight active nav item
