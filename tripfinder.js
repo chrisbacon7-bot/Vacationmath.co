@@ -618,7 +618,7 @@
     }
     html += aboutNote;
 
-    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? '12 drivable US destinations' : '100 destinations') + ' &middot; last refreshed May 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? '12 drivable US destinations' : '100 destinations') + ' &middot; last refreshed July 2026</div>';
 
     $("tf-results").innerHTML = html;
     $("tf-results").classList.add("has-results");
