@@ -15,7 +15,9 @@
     { href: 'roadtrip.html',     label: 'Road Trip: Drive or Fly?' },
     { href: 'points.html',       label: 'Points vs. Cash' },
     { href: 'whentobook.html',   label: 'Best Time to Book' },
-    { href: 'timeshare.html',    label: 'Timeshare Math' }
+    { href: 'timeshare.html',    label: 'Timeshare Math' },
+    { href: '#',                 label: '— Spreadsheet —', divider: true },
+    { href: 'tracker.html',      label: 'Trip Tracker (.xlsx)' }
   ];
 
   const PILLARS = [
