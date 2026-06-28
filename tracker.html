@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Free Vacation Trip Tracker Spreadsheet (2026) — Plan & Track Expenses | Vacation Math</title>
+<meta name="description" content="Free Excel and Numbers trip tracker. Plan a budget with a 'biased to over-count' buffer, log expenses as you go, see planned vs actual on a live dashboard. No signup, no email gate." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css?v20260530e">
+<link rel="stylesheet" href="calc-shared.css">
+<script src="nav-fix.js" defer></script>
+<link rel="stylesheet" href="site-nav.css?v20260530e">
+
+<!-- VM-SEO-START -->
+<link rel="canonical" href="https://vacationmath.co/tracker" />
+<meta property="og:url" content="https://vacationmath.co/tracker" />
+<meta property="og:site_name" content="Vacation Math" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://vacationmath.co/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vacation Math — Trip Tracker Spreadsheet" />
+<meta property="og:title" content="Free Vacation Trip Tracker Spreadsheet (2026) | Vacation Math" />
+<meta property="og:description" content="Free Excel and Numbers trip tracker. Plan a budget with a 'biased to over-count' buffer, log expenses as you go, see planned vs actual on a live dashboard. No signup." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Free Vacation Trip Tracker Spreadsheet (2026) | Vacation Math" />
+<meta name="twitter:description" content="Free Excel and Numbers trip tracker. Plan, log, and track your vacation expenses with built-in formulas and a live dashboard. No signup." />
+<meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<meta name="author" content="Chris Bacon" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Trip Tracker Spreadsheet", "item": "https://vacationmath.co/tracker"}]}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Free Vacation Trip Tracker Spreadsheet (Excel + Numbers)",
+  "description": "A free Excel and Numbers workbook for planning vacation budgets and tracking actual expenses. Includes Plan, Trip Log, and Dashboard sheets with 138 built-in formulas. Works in Excel, Numbers, Google Sheets, and LibreOffice.",
+  "author": {"@type": "Person", "name": "Chris Bacon", "url": "https://vacationmath.co"},
+  "publisher": {"@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co"},
+  "datePublished": "2026-06-27",
+  "dateModified": "2026-06-27",
+  "mainEntityOfPage": "https://vacationmath.co/tracker"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vacation Math Trip Tracker",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Excel, Numbers, Google Sheets, LibreOffice",
+  "url": "https://vacationmath.co/tracker",
+  "downloadUrl": "https://vacationmath.co/downloads/vacationmath-tracker.xlsx",
+  "fileFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "description": "A free Excel/Numbers workbook for planning vacation budgets and tracking actual expenses, with built-in formulas, dropdowns, conditional formatting, and a live dashboard.",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "publisher": {"@type": "Organization", "name": "Vacation Math"},
+  "softwareVersion": "1.0"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the tracker work in Apple Numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Numbers opens .xlsx files natively. All formulas, conditional formatting, dropdowns, and the dashboard chart are preserved. If you want a .numbers file specifically, open the .xlsx in Numbers and choose File → Save As → Numbers format."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the tracker work in Google Sheets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Upload the .xlsx to Google Drive and open with Sheets. All 138 formulas work, the dashboard chart converts cleanly, and dropdowns are preserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to sign up or share my email?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The download is a direct .xlsx file with no signup wall, no email gate, and no tracking. Free to copy, edit, and share."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the 'biased to over-count' buffer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Plan sheet adds a configurable buffer (default 10%) on top of your category totals. The philosophy: better to over-budget and have buffer than be surprised on the credit card. Change the buffer rate at cell D5 of the Plan sheet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from the website calculators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The calculators give you a one-shot estimate using our 2026 pricing data. The tracker is editable, lives on your computer, lets you customize categories, and tracks actual spending against your plan as the trip happens. Use the calculators first to set your plan numbers, then drop those into the tracker."
+      }
+    }
+  ]
+}
+</script>
+<!-- VM-SEO-END -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1CX9TZ0873');
+</script>
+
+<style>
+  .tracker-hero { padding: 64px 0 32px; }
+  .tracker-cta-row { display:flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .download-card {
+    background: linear-gradient(180deg, rgba(230,163,64,0.10), rgba(230,163,64,0.04));
+    border: 1.5px solid rgba(230,163,64,0.35);
+    border-radius: 18px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 720px;
+  }
+  .download-card-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #B07A1F;
+    margin: 0 0 0.5rem;
+  }
+  .download-card h2 { margin: 0 0 0.5rem; font-size: 1.6rem; }
+  .download-card-sub { margin: 0 0 1.25rem; opacity: 0.78; }
+  .download-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.95rem 1.6rem; border-radius: 999px;
+    background: #e6a340; color: #1a1410;
+    font-weight: 700; font-size: 1.05rem;
+    text-decoration: none; border: 1.5px solid #b07a1f;
+    transition: transform 80ms, box-shadow 120ms;
+  }
+  .download-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(230,163,64,0.35); }
+  .download-meta {
+    margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .download-meta span { white-space: nowrap; }
+  .sheet-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem; margin: 2rem 0;
+  }
+  .sheet-card {
+    border: 1px solid var(--border, #D4D1CA);
+    background: var(--surface, #FBF8F2);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .sheet-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+  .sheet-card .sc-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(230,163,64,0.18); color: #B07A1F;
+    font-weight: 700; font-size: 0.9rem; margin-bottom: 0.5rem;
+  }
+  .sheet-card p { margin: 0; font-size: 0.95rem; opacity: 0.82; }
+  .feature-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+  .feature-list li {
+    padding: 0.6rem 0; border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex; gap: 0.75rem;
+  }
+  .feature-list li::before {
+    content: "✓"; color: #2D7A48; font-weight: 700; flex-shrink: 0;
+  }
+  .compatibility-pills {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;
+  }
+  .compatibility-pills span {
+    background: rgba(0,0,0,0.04); padding: 0.35rem 0.75rem;
+    border-radius: 999px; font-size: 0.85rem; font-weight: 500;
+  }
+  .faq-block { margin: 2rem 0; }
+  .faq-item { margin-bottom: 1.5rem; }
+  .faq-item h3 { font-size: 1.05rem; margin: 0 0 0.4rem; }
+  .faq-item p { margin: 0; opacity: 0.82; }
+  .calculator-recommendation {
+    background: rgba(0,0,0,0.03);
+    border-left: 4px solid #e6a340;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 12px 12px 0;
+    margin: 2rem 0;
+  }
+  .calculator-recommendation p { margin: 0.4rem 0; }
+</style>
+</head>
+<body class="calc-body">
+
+<header class="calc-hero tracker-hero">
+  <div class="container">
+    <a href="calculators" class="back-link">&larr; All calculators</a>
+    <p class="kicker honey">Trip Tracker</p>
+    <h1 class="calc-h1">Your trip. Your spreadsheet. Your numbers.</h1>
+    <p class="calc-sub">A free Excel and Numbers workbook that does what the website calculators do — plus lets you save it, edit it, and track what you actually spend on the trip. No signup. No email gate. 138 built-in formulas. Works in Excel, Numbers, Google Sheets, and LibreOffice.</p>
+  </div>
+</header>
+
+<main class="calc-main">
+  <div class="container">
+
+    <!-- DOWNLOAD CARD -->
+    <div class="download-card">
+      <p class="download-card-eyebrow">FREE DOWNLOAD · 2026</p>
+      <h2>Vacation Math Trip Tracker</h2>
+      <p class="download-card-sub">Plan a budget with a configurable over-count buffer. Log expenses as you go. See planned vs actual on a live dashboard.</p>
+      <a href="downloads/vacationmath-tracker.xlsx" download class="download-btn" id="tracker-download-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download the .xlsx
+      </a>
+      <div class="compatibility-pills">
+        <span>Excel</span>
+        <span>Numbers (Mac)</span>
+        <span>Google Sheets</span>
+        <span>LibreOffice</span>
+      </div>
+      <div class="download-meta">
+        <span>26 KB</span>
+        <span>·</span>
+        <span>Free forever, no signup</span>
+        <span>·</span>
+        <span>Updated July 2026</span>
+      </div>
+    </div>
+
+    <!-- WHAT'S INSIDE -->
+    <section style="margin: 3rem 0 1rem;">
+      <h2 style="margin-bottom: 0.5rem;">What's inside</h2>
+      <p style="opacity: 0.78; margin-top: 0;">Six sheets, designed to work together. Edit any number — every total updates live.</p>
+
+      <div class="sheet-grid">
+        <div class="sheet-card">
+          <span class="sc-num">1</span>
+          <h3>Start Here</h3>
+          <p>Trip name, destination, travelers, dates. These feed every other sheet automatically.</p>
+        </div>
+        <div class="sheet-card">
+          <span class="sc-num">2</span>
+          <h3>Plan</h3>
+          <p>13 default categories with Disney starter numbers. Edit any cell. Buffer (default 10%) is configurable.</p>
+        </div>
+        <div class="sheet-card">
+          <span class="sc-num">3</span>
+          <h3>Trip Log</h3>
+          <p>50 rows ready for daily expenses. Category dropdown, automatic per-traveler split, who-paid tracking.</p>
+        </div>
+        <div class="sheet-card">
+          <span class="sc-num">4</span>
+          <h3>Dashboard</h3>
+          <p>KPI cards for planned vs actual, conditional formatting (green = under budget, red = over), by-category table, who-paid summary, and a live chart.</p>
+        </div>
+        <div class="sheet-card">
+          <span class="sc-num">5</span>
+          <h3>Categories</h3>
+          <p>The dropdown source. Edit, add, rename. The Trip Log dropdown updates automatically.</p>
+        </div>
+        <div class="sheet-card">
+          <span class="sc-num">6</span>
+          <h3>Methodology</h3>
+          <p>Nine FAQ items covering the buffer math, named ranges, and what to do if a formula breaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section style="margin: 3rem 0;">
+      <h2 style="margin-bottom: 0.5rem;">What it does</h2>
+      <ul class="feature-list">
+        <li>Adds a configurable buffer (default 10%) on top of your plan — biased toward over-counting so you don't get surprised</li>
+        <li>Calculates per-traveler costs everywhere — change the traveler count once, every per-person number updates</li>
+        <li>SUMIFs the Trip Log into Dashboard categories automatically — log a $42 expense, dashboard updates instantly</li>
+        <li>Conditional formatting on the dashboard: red text + pink fill for over budget, green for comfortable, plain for in-between</li>
+        <li>Dropdowns on Category and Split columns so a typo can't break the math</li>
+        <li>Tracks who paid (Card A, Card B, Cash, Other — rename to match your actual cards) for easy reimbursement math</li>
+        <li>Personal vs split expenses — set the Split column per row, per-person share adjusts automatically</li>
+        <li>50 expense rows ready, easy to add more without breaking formulas</li>
+        <li>All formatting, dropdowns, and the dashboard chart preserved across Excel, Numbers, Google Sheets, and LibreOffice</li>
+      </ul>
+    </section>
+
+    <!-- RECOMMENDATION TO PAIR WITH CALCS -->
+    <div class="calculator-recommendation">
+      <p><strong>The pairing that works best:</strong></p>
+      <p>Run a website calculator first to set your plan numbers. The Disney, cruise, all-inclusive, road trip, and theme parks calculators all give you sourced 2026 line items in 60 seconds. Drop those into the tracker's Plan sheet. Then log actuals as you go.</p>
+      <p style="margin-top: 0.75rem;">
+        <a href="calculators" style="color: #B07A1F; font-weight: 600;">See all calculators &rarr;</a>
+      </p>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq-block">
+      <h2>Common questions</h2>
+
+      <div class="faq-item">
+        <h3>Does it work in Apple Numbers?</h3>
+        <p>Yes. Numbers opens .xlsx files natively. All formulas, conditional formatting, dropdowns, and the dashboard chart are preserved. If you want a .numbers file specifically, open the .xlsx in Numbers and choose File → Save As → Numbers format.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does it work in Google Sheets?</h3>
+        <p>Yes. Upload the .xlsx to Google Drive and open with Sheets. All 138 formulas work, the dashboard chart converts cleanly, and dropdowns are preserved.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Do I need to sign up or share my email?</h3>
+        <p>No. The download is a direct .xlsx file. No signup wall, no email gate, no tracking. Free to copy, edit, and share.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What's the 'biased to over-count' buffer?</h3>
+        <p>The Plan sheet adds a configurable buffer (default 10%) on top of your category totals. The philosophy: better to over-budget and have buffer than be surprised on the credit card statement. Change the buffer rate at cell D5 of the Plan sheet to anything you like (0% to 25% is typical).</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How is this different from the website calculators?</h3>
+        <p>The calculators give you a one-shot estimate using sourced 2026 pricing. The tracker is editable, lives on your computer, lets you customize categories, and tracks actual spending against your plan as the trip happens. Use the calculators first to set your plan numbers, then drop those into the tracker.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I add more categories?</h3>
+        <p>Yes. Edit the Categories sheet — add a row, type your new category name. The Trip Log dropdown picks it up automatically. For full Dashboard tracking on a new category, also add it to the Plan sheet and the Dashboard's by-category table.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if a formula breaks?</h3>
+        <p>The Methodology sheet inside the workbook covers this. The most common cause: a named range was deleted. Named ranges in this workbook: TravelerCount, BufferRate, PlannedTotal, PlannedSubtotal, ActualTotal, LogAmountRange, LogCategoryRange, LogPaidByRange, CategoryList. Restore via Formulas → Name Manager in Excel.</p>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="methodology">
+      <h3>How we built it</h3>
+      <p>Every default number in the Plan sheet matches the same sources we use for the calculators: official 2026 Disney pricing, NerdWallet, AAA, Touring Plans, and cruise line tariffs (updated July 2026). The buffer is deliberate — we'd rather you over-budget and have money left than under-budget and panic. All formulas use named ranges so they survive when you add or rename rows.</p>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="download-card" style="margin-top: 3rem;">
+      <p class="download-card-eyebrow">READY?</p>
+      <h2>Download and start planning</h2>
+      <p class="download-card-sub">Free forever. No signup. Works everywhere.</p>
+      <a href="downloads/vacationmath-tracker.xlsx" download class="download-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download the .xlsx
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<footer class="calc-footer">
+  <div class="container">
+    <p class="footer-tag">Math it before you book it.</p>
+    <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
+  </div>
+  <div class="container footer-fineprint">
+    <p>The workbook is provided as-is for personal use. Pricing defaults updated July 2026 and subject to change. The buffer and methodology are recommendations, not guarantees. Free to copy, edit, and share.</p>
+  </div>
+</footer>
+
+<script>
+  // Fire GA4 event on download click
+  document.querySelectorAll('a[href*="vacationmath-tracker.xlsx"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'tracker_download', {
+          file_name: 'vacationmath-tracker.xlsx',
+          source: 'tracker-page'
+        });
+      }
+    });
+  });
+</script>
+<script src="site-nav.js?v20260531a"></script>
+<script src="trust-block.js"></script>
+<script src="analytics.js"></script>
+</body>
+</html>
