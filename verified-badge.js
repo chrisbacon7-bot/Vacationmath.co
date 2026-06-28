@@ -1,6 +1,6 @@
 /* =====================================================================
    Verified Pricing Badge
-   Renders "Pricing verified May 2026" pill on every calc result.
+   Renders "Pricing verified July 2026" pill on every calc result.
    Auto-mounts inside #results after the first render.
 
    Usage: VM_VerifiedBadge.render(containerEl)
@@ -10,7 +10,7 @@
   "use strict";
 
   // ---- Update this when data is refreshed ----
-  var VERIFIED_LABEL = "2026 pricing data · updated May";
+  var VERIFIED_LABEL = "2026 pricing data · updated July";
   var NEXT_REFRESH = "August 2026";
   // ---------------------------------------------
 
