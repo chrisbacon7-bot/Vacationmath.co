@@ -183,6 +183,32 @@
     };
   }
 
+  // Destination-keyed mandatory fees that travelers pay separately (not in the resort rate).
+  // Returns null when the destination has nothing additional to disclose.
+  function destinationFees(destId, travelers, nights) {
+    var QR_VISITAX_PER_PERSON = 15;   // USD; Quintana Roo state tourism tax
+    var QR_ENV_PER_NIGHT = 4;         // USD; Cancun municipal environmental fee, ~$4/room/night
+
+    if (destId === "cancun" || destId === "riviera_maya") {
+      var visitax = QR_VISITAX_PER_PERSON * Math.max(travelers, 0);
+      var enviro = QR_ENV_PER_NIGHT * Math.max(nights, 0);
+      var total = visitax + enviro;
+      var location = destId === "cancun" ? "Cancun" : "Riviera Maya";
+      return {
+        heading: "Quintana Roo fees the calculator can't add for you (~" + money(total) + ").",
+        body:
+          "Two government fees apply to every " + location + " trip and are not collected by your resort. " +
+          "<strong>Visitax</strong> is a state tourism tax of $15 per person (" + money(visitax) + " for your party of " + travelers + "), paid online at " +
+          "<a href=\"https://www.visitax.gob.mx\" target=\"_blank\" rel=\"noopener\">visitax.gob.mx</a> before you fly. As of June 2026, agents at " +
+          "Cancun International scan QR codes at security; travelers without one pay on the spot before boarding. " +
+          "<strong>Environmental fee</strong> is ~$4 per room per night (" + money(enviro) + " for " + nights + " night" + (nights === 1 ? "" : "s") + "), " +
+          "collected in cash at the front desk, usually in pesos. Both are small, but they're not optional."
+      };
+    }
+    // Other destinations to verify and add later: Bahamas departure tax, Aruba tourism levy, Hawaii TAT/Green Fee, etc.
+    return null;
+  }
+
   function render(r) {
     var html = "";
 
@@ -249,6 +275,12 @@
     html += '<div class="verdict ' + vClass + '"><h3>' + vTitle + '</h3><p>' + vBody + '</p></div>';
 
     html += '<div class="result-note"><strong>What people forget to add to either side.</strong> All-inclusive doesn\'t cover off-property excursions (Tulum, Xcaret, snorkel tours), specialty dining surcharges at some resorts, spa, or customary tips. À-la-carte doesn\'t budget for taxis, bottled water (don\'t drink the tap), 18-20% restaurant tips, or the "let\'s just have one more drink" creep. Both math the same way: be honest about what you\'ll actually do.</div>';
+
+    // Destination-specific government fees the calculator can't roll up into the AI/ALC totals
+    var destFees = destinationFees(r.destination.id, billable, r.nights);
+    if (destFees) {
+      html += '<div class="result-note" style="border-left:4px solid #e6a340;padding-left:1rem;margin-top:1rem"><strong>' + destFees.heading + '</strong> ' + destFees.body + '</div>';
+    }
     html += '<div class="freshness-badge">2026 resort pricing &middot; last updated July 2026 &middot; next refresh August 2026</div>';
 
     $("results").innerHTML = html;
