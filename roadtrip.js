@@ -151,7 +151,7 @@
     html += '<div class="verdict ' + vClass + '"><h3>' + vTitle + '</h3><p>' + vBody + '</p></div>';
 
     html += '<div class="result-note"><strong>What people forget to add.</strong> Driving math usually skips midway hotels, the wear on your car (yes, even on a "free" car you already own), and food at gas stations. Flying math usually skips bag fees ($70 round-trip per checked bag), the rental car at the destination, and airport parking or rideshare. Both add up.</div>';
-    html += '<div class="freshness-badge">Gas at $' + R.avgGasPrice.toFixed(2) + '/gal (AAA, May 2026) &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">Gas at $' + R.avgGasPrice.toFixed(2) + '/gal (AAA, June 2026) &middot; next refresh August 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
