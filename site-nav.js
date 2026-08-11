@@ -36,7 +36,13 @@
     { href: 'blog/summer-road-trip-gas-cost-2026', label: 'Issue #1 · Summer Gas Math' },
     { href: 'blog/summer-airfare-cost-2026',       label: 'Issue #2 · Summer Airfare Math' },
     { href: 'blog/one-way-vs-round-trip-flights',  label: 'Issue #3 · One-Way vs Round Trip' },
-    { href: 'blog/hotel-points-math-2026',         label: 'Issue #4 · Hotel Points Math' }
+    { href: 'blog/hotel-points-math-2026',         label: 'Issue #4 · Hotel Points Math' },
+    { href: 'blog/all-inclusive-hidden-fees-2026',      label: 'Issue #5 · All-Inclusive Hidden Fees' },
+    { href: 'blog/post-july-4th-travel-prices-2026',    label: 'Issue #6 · Post-July 4th Prices' },
+    { href: 'blog/credit-card-vacation-debt-2026',      label: 'Issue #7 · Vacation Credit Card Debt' },
+    { href: 'blog/disney-food-snacks-cost-2026',        label: 'Issue #8 · Disney Food &amp; Snacks' },
+    { href: 'blog/disney-merchandise-cost-2026',        label: 'Issue #9 · Disney Merchandise' },
+    { href: 'blog/fall-travel-cost-2026',               label: 'Issue #10 · Fall Travel Cost' }
   ];
 
   // Page detection so we can highlight active nav item
