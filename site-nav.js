@@ -42,7 +42,10 @@
     { href: 'blog/credit-card-vacation-debt-2026',      label: 'Issue #7 · Vacation Credit Card Debt' },
     { href: 'blog/disney-food-snacks-cost-2026',        label: 'Issue #8 · Disney Food &amp; Snacks' },
     { href: 'blog/disney-merchandise-cost-2026',        label: 'Issue #9 · Disney Merchandise' },
-    { href: 'blog/fall-travel-cost-2026',               label: 'Issue #10 · Fall Travel Cost' }
+    { href: 'blog/fall-travel-cost-2026',               label: 'Issue #10 · Fall Travel Cost' },
+    { href: 'blog/labor-day-travel-cost-2026',          label: 'Issue #11 · Labor Day Travel Cost' },
+    { href: 'blog/halloween-events-cost-2026',          label: 'Issue #12 · Halloween Events Cost' },
+    { href: 'blog/thanksgiving-christmas-flight-booking-2026', label: 'Issue #13 · Holiday Flight Booking' }
   ];
 
   // Page detection so we can highlight active nav item
