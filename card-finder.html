@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Best Travel Credit Card Finder | Vacation Math</title>
-<meta name="description" content="Answer 3 questions about how you travel and we rank the best travel credit cards for you. No affiliate fluff — ranked by conservative point values and real annual costs." />
+<meta name="description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,6 @@
   line-height: 1.5;
 }
 
-/* Wizard container */
 .cf-wizard {
   background: #fff;
   border-radius: 18px;
@@ -58,7 +57,6 @@
 }
 .cf-wizard[hidden] { display: none; }
 
-/* Step progress */
 .cf-steps {
   display: flex;
   align-items: center;
@@ -97,7 +95,6 @@
 }
 .cf-step.is-done + .cf-step-line { background: var(--honey); }
 
-/* Question heading */
 .cf-q-kicker {
   font-size: 13px;
   font-weight: 700;
@@ -121,7 +118,6 @@
   font-size: 0.98rem;
 }
 
-/* Option grid */
 .cf-options {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -172,7 +168,6 @@
   color: var(--honey);
 }
 
-/* Step navigation */
 .cf-nav {
   display: flex;
   justify-content: space-between;
@@ -213,7 +208,6 @@
 .cf-btn-ghost:hover { color: var(--navy); }
 .cf-btn-ghost:disabled { opacity: 0.3; cursor: not-allowed; }
 
-/* Results */
 .cf-results-section { margin: 24px auto 56px; max-width: 1120px; }
 .cf-results-section[hidden] { display: none; }
 .cf-results-head { text-align: center; margin-bottom: 32px; }
@@ -263,9 +257,7 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
-.cf-rank-1 {
-  border-top: 4px solid var(--honey);
-}
+.cf-rank-1 { border-top: 4px solid var(--honey); }
 .cf-rank-2 { border-top: 4px solid var(--seaglass); }
 .cf-rank-3 { border-top: 4px solid var(--hairline); }
 
@@ -281,14 +273,8 @@
   color: var(--ink-soft);
   margin-bottom: 10px;
 }
-.cf-rank-1 .cf-rank-badge {
-  background: var(--honey);
-  color: var(--navy);
-}
-.cf-rank-2 .cf-rank-badge {
-  background: var(--seaglass);
-  color: var(--navy);
-}
+.cf-rank-1 .cf-rank-badge { background: var(--honey); color: var(--navy); }
+.cf-rank-2 .cf-rank-badge { background: var(--seaglass); color: var(--navy); }
 
 .cf-card-name {
   font-family: var(--font-display);
@@ -377,10 +363,7 @@
   text-decoration: none;
   transition: all 0.15s var(--ease);
 }
-.cf-card-cta:hover {
-  background: var(--honey);
-  color: var(--navy);
-}
+.cf-card-cta:hover { background: var(--honey); color: var(--navy); }
 .cf-aff-tag {
   font-size: 11px;
   color: var(--muted);
@@ -407,10 +390,7 @@
 .cf-empty h3 { color: var(--navy); margin: 0 0 8px; }
 .cf-empty p { color: var(--ink-soft); margin: 0; }
 
-.cf-restart {
-  text-align: center;
-  margin: 24px 0;
-}
+.cf-restart { text-align: center; margin: 24px 0; }
 .cf-restart button {
   background: transparent;
   border: 2px solid var(--navy);
@@ -423,10 +403,7 @@
   transition: all 0.15s var(--ease);
   font-family: var(--font-body);
 }
-.cf-restart button:hover {
-  background: var(--navy);
-  color: var(--cream);
-}
+.cf-restart button:hover { background: var(--navy); color: var(--cream); }
 
 @media (max-width: 640px) {
   .cf-wizard { padding: 24px 20px; }
@@ -434,7 +411,6 @@
   .cf-step-line { width: 18px; }
 }
 
-/* ===== 60-second meta pills (under hero) ===== */
 .cf-meta {
   display: flex;
   justify-content: center;
@@ -462,8 +438,23 @@
   background: var(--honey);
   border-radius: 50%;
 }
+.cf-hero-disc {
+  max-width: 560px;
+  margin: 14px auto 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+.cf-hero-disc a { color: var(--navy); text-decoration: underline; }
+.cf-card-est {
+  font-weight: 700;
+  color: var(--navy);
+  margin: 10px 0 2px;
+  font-size: 0.95rem;
+}
+.cf-card-fee-note { font-size: 0.85rem; color: var(--ink-soft); margin: 0 0 6px; }
+.cf-card-524 { font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 10px; }
 
-/* ===== Save / share / print bar ===== */
 .cf-actions {
   display: flex;
   justify-content: center;
@@ -486,10 +477,7 @@
   cursor: pointer;
   transition: all 0.15s var(--ease);
 }
-.cf-share-btn:hover {
-  background: var(--navy);
-  color: var(--cream);
-}
+.cf-share-btn:hover { background: var(--navy); color: var(--cream); }
 .cf-share-btn.is-success {
   background: var(--honey);
   border-color: var(--honey);
@@ -514,10 +502,10 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
 <meta property="og:title" content="Best Travel Credit Card Finder | Vacation Math" />
-<meta property="og:description" content="Answer 3 questions about how you travel and we rank the best travel credit cards for you. No affiliate fluff — ranked by conservative point values and real annual costs." />
+<meta property="og:description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Best Travel Credit Card Finder | Vacation Math" />
-<meta name="twitter:description" content="Answer 3 questions about how you travel and we rank the best travel credit cards for you. No affiliate fluff — ranked by conservative point values and real annual costs." />
+<meta name="twitter:description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
 <meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="author" content="Chris Bacon" />
@@ -535,7 +523,7 @@
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Travel Credit Card Finder", "url": "https://vacationmath.co/card-finder", "applicationCategory": "TravelApplication", "operatingSystem": "Web", "description": "Answer 3 questions about how you spend and where you want to go. We rank the best travel credit cards for your exact situation.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Vacation Math"}}</script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best travel credit card?","acceptedAnswer":{"@type":"Answer","text":"There is no single best card for everyone. The right card depends on how you spend (groceries, dining, travel), what benefits matter to you (lounge access, Global Entry, trip protection), and what annual fee you are willing to pay. The Vacation Math card finder asks three questions and ranks the cards that fit your actual spending pattern, not the ones with the highest affiliate commissions."}},{"@type":"Question","name":"Is the Chase Sapphire Reserve worth the $550 annual fee?","acceptedAnswer":{"@type":"Answer","text":"For frequent travelers who use the $300 travel credit, lounge access, and Global Entry credit, yes — those benefits alone can exceed the fee. For occasional travelers, the Chase Sapphire Preferred at $95 per year is often a better value. The card finder scores the first-year net value for your specific situation."}},{"@type":"Question","name":"What is the difference between travel points and cash back?","acceptedAnswer":{"@type":"Answer","text":"Cash back gives you a straightforward percentage of spending returned as cash or statement credit. Travel points give you a flexible currency that can be worth more — or less — depending on how you redeem. Chase Ultimate Rewards points are worth 1 cent for cash back but up to 2 cents when transferred to airline or hotel partners."}},{"@type":"Question","name":"How many credit card sign-up bonuses can I earn?","acceptedAnswer":{"@type":"Answer","text":"You can earn bonuses on multiple cards as long as you meet the minimum spend requirements and comply with issuer rules. Chase has a 5/24 rule limiting approvals if you have opened 5 or more cards in 24 months. American Express limits welcome bonuses to once per card, lifetime. Always read the current terms on the issuer page before applying."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the best travel credit card?","acceptedAnswer":{"@type":"Answer","text":"There is no single best card for everyone. The right card depends on how you spend (groceries, dining, travel), what benefits matter to you (lounge access, Global Entry, trip protection), and what annual fee you are willing to pay. The Vacation Math card finder asks three questions and ranks the cards that fit your actual spending pattern, not the ones with the highest affiliate commissions."}},{"@type":"Question","name":"Is the Chase Sapphire Reserve worth the $795 annual fee?","acceptedAnswer":{"@type":"Answer","text":"The annual fee is $795. The $300 travel credit plus lounge access can offset it for frequent travelers. Occasional travelers are usually better on Sapphire Preferred at $95. We only recommend Reserve when your answers include lounges or high fee tolerance."}},{"@type":"Question","name":"What is the difference between travel points and cash back?","acceptedAnswer":{"@type":"Answer","text":"Cash back gives you a straightforward percentage of spending returned as cash or statement credit. Travel points give you a flexible currency that can be worth more — or less — depending on how you redeem. Chase Ultimate Rewards points are worth 1 cent for cash back but up to 2 cents when transferred to airline or hotel partners."}},{"@type":"Question","name":"How many credit card sign-up bonuses can I earn?","acceptedAnswer":{"@type":"Answer","text":"You can earn bonuses on multiple cards as long as you meet the minimum spend requirements and comply with issuer rules. Chase has a 5/24 rule limiting approvals if you have opened 5 or more cards in 24 months. American Express limits welcome bonuses to once per card, lifetime. Always read the current terms on the issuer page before applying."}}]}</script>
 </head>
 <body class="calc-body">
 
@@ -543,19 +531,19 @@
   <div class="container cf-hero">
     <p class="kicker">Credit Card Finder</p>
     <h1>Find your card in 60 seconds.</h1>
-    <p class="lede">Three questions. Three ranked cards. No upsell, no aspirational point math &mdash; just the cards that fit how you actually spend, scored on first-year value.</p>
+    <p class="lede">Answer 3 questions. We rank travel cards by conservative first-year value, not commissions. No aspirational point math.</p>
     <div class="cf-meta">
       <span class="cf-meta-pill">3 questions</span>
-      <span class="cf-meta-pill">15 cards scored</span>
+      <span class="cf-meta-pill">16 cards scored</span>
       <span class="cf-meta-pill">~60 seconds</span>
     </div>
+    <p class="cf-hero-disc">We may earn a commission if you apply through a labeled <a href="/disclosures">affiliate link</a>. Rankings are not paid placements.</p>
   </div>
 </header>
 
 <main class="calc-main">
   <div class="container">
 
-    <!-- ============ STEP 1: Spending style ============ -->
     <section class="cf-wizard" id="cf-step-1" data-step="1">
       <div class="cf-steps" aria-label="Progress">
         <span class="cf-step is-active" id="cf-prog-1"><span class="cf-step-dot">1</span></span>
@@ -587,7 +575,6 @@
       </div>
     </section>
 
-    <!-- ============ STEP 2: Perks ============ -->
     <section class="cf-wizard" id="cf-step-2" data-step="2" hidden>
       <div class="cf-steps">
         <span class="cf-step is-done" id="cf-prog-1b"><span class="cf-step-dot">✓</span></span>
@@ -618,7 +605,6 @@
       </div>
     </section>
 
-    <!-- ============ STEP 3: Annual fee ============ -->
     <section class="cf-wizard" id="cf-step-3" data-step="3" hidden>
       <div class="cf-steps">
         <span class="cf-step is-done"><span class="cf-step-dot">✓</span></span>
@@ -635,7 +621,7 @@
       <div class="cf-options" role="radiogroup">
         <label class="cf-option"><input type="radio" name="fee" value="none"><span class="cf-option-label">$0 only</span><span class="cf-option-help">No annual fee ever</span></label>
         <label class="cf-option"><input type="radio" name="fee" value="low"><span class="cf-option-label">Up to $200/yr</span><span class="cf-option-help">CSP, Hyatt, Disney Inspire range</span></label>
-        <label class="cf-option"><input type="radio" name="fee" value="high"><span class="cf-option-label">Open to premium</span><span class="cf-option-help">Up to $650/yr if credits offset it</span></label>
+        <label class="cf-option"><input type="radio" name="fee" value="high"><span class="cf-option-label">Open to premium</span><span class="cf-option-help">Up to $795/yr if credits offset it</span></label>
       </div>
 
       <div class="cf-nav">
@@ -644,7 +630,6 @@
       </div>
     </section>
 
-    <!-- ============ RESULTS ============ -->
     <section class="cf-results-section" id="cf-results" hidden></section>
 
     <div class="cf-actions" id="cf-actions" hidden>
@@ -668,7 +653,6 @@
 
   </div>
 
-  <!-- FAQ SECTION -->
   <section class="calc-how-it-works" style="margin-top:2rem;">
     <div class="container">
       <h2 style="font-size:1.4rem;margin-bottom:1rem;">Travel Credit Cards — Common Questions</h2>
@@ -677,8 +661,8 @@
         <p style="margin-top:.5rem;">There is no single best card for everyone. The right card depends on how you spend (groceries, dining, travel), what benefits matter to you (lounge access, Global Entry, trip protection), and what annual fee you are willing to pay. The card finder asks three questions and ranks cards based on your actual spending pattern.</p>
       </details>
       <details style="margin-bottom:1rem;">
-        <summary style="font-weight:600;cursor:pointer;">Is the Chase Sapphire Reserve worth the $550 annual fee?</summary>
-        <p style="margin-top:.5rem;">For frequent travelers who use the $300 travel credit, lounge access, and Global Entry credit, yes — those benefits alone can exceed the fee. For occasional travelers, the Chase Sapphire Preferred at $95/year is often better value. The card finder scores first-year net value for your specific situation.</p>
+        <summary style="font-weight:600;cursor:pointer;">Is the Chase Sapphire Reserve worth the $795 annual fee?</summary>
+        <p style="margin-top:.5rem;">The annual fee is $795. The $300 travel credit plus lounge access can offset it for frequent travelers. Occasional travelers are usually better on Sapphire Preferred at $95. We only recommend Reserve when your answers include lounges or high fee tolerance.</p>
       </details>
       <details style="margin-bottom:1rem;">
         <summary style="font-weight:600;cursor:pointer;">What is the difference between travel points and cash back?</summary>
@@ -731,7 +715,7 @@
     <p><a href="mailto:chris@vacationmath.co">chris@vacationmath.co</a></p>
   </div>
   <div class="container footer-fineprint">
-    <p>An independent project by Christopher Bacon. Card terms verified September 2026. Always reconfirm the offer on the issuer's official page before applying. We may earn a referral when affiliate links are active.</p>
+    <p>An independent project by Christopher Bacon. Card terms verified August 28, 2026. Always reconfirm the offer on the issuer's official page before applying. <a href="/disclosures">Affiliate disclosure</a>.</p>
   </div>
   <div class="container footer-sitemap">
     <nav aria-label="All calculators">
@@ -756,11 +740,11 @@
   </div>
 </footer>
 
-<script src="cards-data.js"></script>
-<script src="card-finder.js"></script>
+<script src="affiliate-config.js"></script>
+<script src="cards-data.js?v20260828c"></script>
+<script src="card-finder.js?v20260828c"></script>
 <script src="site-nav.js?v20260828a"></script>
 <script>
-// ==================== WIZARD CONTROLLER ====================
 (function () {
   'use strict';
 
@@ -770,7 +754,6 @@
     fee: null
   };
 
-  // Step 1 wiring
   var step1 = document.getElementById('cf-step-1');
   var step2 = document.getElementById('cf-step-2');
   var step3 = document.getElementById('cf-step-3');
@@ -781,8 +764,25 @@
     var inputs = stepEl.querySelectorAll('input');
     var nextBtn = stepEl.querySelector('.cf-btn-primary');
     var labels = stepEl.querySelectorAll('.cf-option');
+    var order = [];
 
-    function update() {
+    function update(e) {
+      if (max && e && e.target && e.target.type === 'checkbox') {
+        var val = e.target.value;
+        if (e.target.checked) {
+          order = order.filter(function (v) { return v !== val; });
+          order.push(val);
+          while (order.length > max) {
+            var drop = order.shift();
+            inputs.forEach(function (inp) {
+              if (inp.value === drop) inp.checked = false;
+            });
+          }
+        } else {
+          order = order.filter(function (v) { return v !== val; });
+        }
+      }
+
       var checked = [];
       inputs.forEach(function (inp, i) {
         if (inp.checked) checked.push(inp.value);
@@ -791,15 +791,11 @@
         else label.classList.remove('is-checked');
       });
 
-      // Cap multi-select
-      if (max && checked.length > max) {
-        // Find the LAST checked one (most recent) and uncheck the first checked one that's not the most recent
-        // Actually simpler: uncheck the oldest by tracking order isn't easy with checkboxes,
-        // so just allow it but warn user via cap on next
-        // Use a soft cap: don't enforce hard limit, just let them pick more if needed
+      if (order.length) {
+        state[stateKey] = order.filter(function (v) { return checked.indexOf(v) !== -1; });
+      } else {
+        state[stateKey] = checked;
       }
-
-      state[stateKey] = checked;
       nextBtn.disabled = checked.length === 0;
     }
 
@@ -861,7 +857,6 @@
     restart.hidden = false;
     actionsEl.hidden = false;
     window.VM_CardFinder.render('cf-results', state.spending, state.perks, state.fee);
-    // Update URL so result is shareable
     try {
       var url = buildShareURL();
       history.replaceState(null, '', url);
@@ -869,7 +864,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ===== Share / Copy / Print =====
   document.getElementById('cf-copy-btn').addEventListener('click', function () {
     var btn = this;
     var url = buildShareURL();
@@ -907,7 +901,6 @@
     window.print();
   });
 
-  // Wire all steps
   wireOptions(step1, 3, 'spending');
   wireOptions(step2, 4, 'perks');
   wireRadio(step3, 'fee');
@@ -922,7 +915,6 @@
     state.spending = [];
     state.perks = [];
     state.fee = null;
-    // Reset all inputs
     document.querySelectorAll('.cf-option input').forEach(function (i) { i.checked = false; });
     document.querySelectorAll('.cf-option').forEach(function (l) { l.classList.remove('is-checked'); });
     document.querySelectorAll('.cf-btn-primary').forEach(function (b) { b.disabled = true; });
@@ -931,7 +923,6 @@
     showStep(1);
   });
 
-  // ===== Restore state from URL on load (share link) =====
   (function restoreFromURL() {
     var params = new URLSearchParams(location.search);
     var s = params.get('s'); var p = params.get('p'); var f = params.get('f');
@@ -939,7 +930,6 @@
     if (s) state.spending = s.split(',').filter(Boolean);
     if (p) state.perks = p.split(',').filter(Boolean);
     if (f) state.fee = f;
-    // Reflect into UI
     if (state.spending.length) {
       step1.querySelectorAll('input[name="spending"]').forEach(function (inp) {
         if (state.spending.indexOf(inp.value) !== -1) {
@@ -964,7 +954,6 @@
         }
       });
     }
-    // If all three present, jump straight to results
     if (state.spending.length && state.perks.length && state.fee) {
       showResults();
     } else if (state.spending.length) {
@@ -973,7 +962,7 @@
   })();
 })();
 </script>
-<script>window.VM_TRUST_OVERRIDE = {promise:'Conservative point values.', pricing:'2026 issuer terms.', updated:'Verified July 2026.'};</script>
+<script>window.VM_TRUST_OVERRIDE = {promise:'Conservative point values.', pricing:'2026 issuer terms.', updated:'Verified August 28, 2026.'};</script>
 <script src="trust-block.js" defer></script>
 <script src="analytics.js" defer></script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3d3fac9174f',t:'MTc4MDM2NjU0OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script src="main.js" defer></script>
