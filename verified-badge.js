@@ -20,7 +20,8 @@
       +   '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
       +     '<path d="M20 6 9 17l-5-5"/>'
       +   '</svg>'
-      +   '<span><strong>' + VERIFIED_LABEL + '</strong> &middot; next update: ' + NEXT_REFRESH + '</span>'
+      +   '<span><strong>' + VERIFIED_LABEL + '</strong> &middot; next update: ' + NEXT_REFRESH
++     + ' &middot; <a href="/sources" style="color:inherit;text-decoration:underline;">see every source</a></span>'
       + '</div>';
   }
 

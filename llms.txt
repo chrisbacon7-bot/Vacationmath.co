@@ -23,9 +23,21 @@ The site prices real trips before you book: cruises, Disney World / Disneyland, 
 - [Trip funding planner](https://vacationmath.co/funding)
 - [Trip Tracker spreadsheet](https://vacationmath.co/tracker)
 
+## Sources
+
+- [Sources & pricing data](https://vacationmath.co/sources) — every figure the calculators use, its current value, the date it was verified, and a link to the source that publishes it. Start here to cite a number.
+
 ## Guides
 
 - [Cost guides index](https://vacationmath.co/guides)
+- [How much does a cruise cost](https://vacationmath.co/guides/how-much-does-a-cruise-cost)
+- [4-night cruise cost 2026](https://vacationmath.co/guides/4-night-cruise-cost-2026)
+- [Cruise vs. all-inclusive cost](https://vacationmath.co/guides/cruise-vs-all-inclusive-cost)
+- [All-inclusive resort cost guide](https://vacationmath.co/guides/all-inclusive-resort-cost-guide)
+- [Disney World vacation cost](https://vacationmath.co/guides/disney-world-vacation-cost)
+- [Hidden costs of Disney World](https://vacationmath.co/guides/hidden-costs-disney-world)
+- [Disney World vs. Disneyland cost](https://vacationmath.co/guides/disney-world-vs-disneyland-cost)
+- [How much to budget for a vacation](https://vacationmath.co/guides/how-much-to-budget-for-vacation)
 - [Family trips](https://vacationmath.co/family-trips)
 - [Cruise math](https://vacationmath.co/cruise-math)
 - [The big trip](https://vacationmath.co/big-trip)
@@ -38,3 +50,7 @@ The site prices real trips before you book: cruises, Disney World / Disneyland, 
 ## Optional
 
 - Contact: chris@vacationmath.co
+
+## Data freshness
+
+All pricing data was last verified 2026-08-28. The next scheduled refresh is October 2026. Per-figure verification dates are published at https://vacationmath.co/sources
