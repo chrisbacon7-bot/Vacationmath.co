@@ -574,7 +574,16 @@
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
-    if (typeof VM_ANALYTICS !== "undefined") { VM_ANALYTICS.calcComplete("budget", typeof r !== "undefined" && r && r.total ? r.total : 0); }
+    // r has no .total (it is a list of trips), so this always reported 0.
+    // Report the cheapest option actually shown, plus how many fit.
+    if (typeof VM_ANALYTICS !== "undefined") {
+      var cheapest = fits[0] || stretches[0] || over[0] || null;
+      VM_ANALYTICS.calcComplete("budget", cheapest ? cheapest.total : 0, {
+        fits: fits.length, stretches: stretches.length, over: over.length
+      });
+    }
+    var emailSection = document.getElementById("email-section");
+    if (emailSection) emailSection.hidden = false;
 
     // Card CTA based on the cheapest fit
     var best = fits[0] || stretches[0] || over[0];
