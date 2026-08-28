@@ -29,17 +29,18 @@
   }
 
   function affiliateLink(card) {
-    var href = card.affiliateUrl && card.affiliateUrl.length > 0 ? card.affiliateUrl : card.url;
-    var isAffiliate = card.affiliateUrl && card.affiliateUrl.length > 0;
-    var rel = isAffiliate ? "sponsored noopener" : "noopener";
+    var href = (typeof g.VM_cardHref === "function") ? g.VM_cardHref(card) : ((card && card.url) || "#");
+    var rel = (typeof g.VM_cardRel === "function") ? g.VM_cardRel(card, href) : "noopener";
+    var isAffiliate = (typeof g.VM_cardIsAffiliate === "function") ? g.VM_cardIsAffiliate(card, href) : false;
     var tag = isAffiliate
-      ? '<span class="card-aff-tag" title="Affiliate link \u2014 we may earn a referral if you apply">Affiliate</span>'
+      ? '<span class="card-aff-tag" title="Affiliate link \u2014 we may earn a commission if you apply and are approved">Affiliate</span>'
       : '<span class="card-aff-tag card-aff-tag--official">Official issuer page</span>';
     return {
       href: href,
       rel: rel,
       target: "_blank",
-      tagHtml: tag
+      tagHtml: tag,
+      isAffiliate: isAffiliate
     };
   }
 
@@ -53,7 +54,12 @@
     var link = affiliateLink(card);
     var bonusLine = "";
     var bonusSpendMonths = null;
-    if (card.bonus && card.bonus.dollarValue) {
+    if (card.bonus && card.bonus.copy) {
+      bonusLine = "Sign-up: " + card.bonus.copy;
+      if (card.bonus.spend && card.bonus.months) {
+        bonusSpendMonths = { spend: card.bonus.spend, months: card.bonus.months, value: card.bonus.dollarValue };
+      }
+    } else if (card.bonus && card.bonus.dollarValue) {
       bonusLine = "Sign-up: "
         + (card.bonus.points ? card.bonus.points.toLocaleString() + " points = ~" + money(card.bonus.dollarValue) : money(card.bonus.dollarValue))
         + (card.bonus.spend ? " after " + money(card.bonus.spend) + " in " + card.bonus.months + " mo" : "");
@@ -116,7 +122,6 @@
         + (urgencyLine || '')
         + '</div>';
     } else {
-      // Edge case: card doesn't materially offset this trip (e.g. low-fee card on a small trip)
       savingsBlock = ''
         + '<div class="card-rec__savings card-rec__savings--minimal">'
         + '  <p class="card-rec__savings-minimal-text">No meaningful offset on a trip this size. Better suited to ongoing spend than this single booking.</p>'
@@ -137,7 +142,7 @@
       + '    <dt>Best for</dt><dd>' + escapeHtml(card.bestFor) + '</dd>'
       + '    <dt>Perks</dt><dd>' + escapeHtml(card.networkPerks) + '</dd>'
       + '  </dl>'
-      + '  <a class="card-rec__cta" href="' + escapeHtml(link.href) + '" target="' + link.target + '" rel="' + link.rel + '">View official offer &rarr;</a>'
+      + '  <a class="card-rec__cta" data-card-id="' + escapeHtml(card.id) + '" href="' + escapeHtml(link.href) + '" target="' + link.target + '" rel="' + link.rel + '">View official offer &rarr;</a>'
       + '  ' + link.tagHtml
       + '</article>';
   }
@@ -151,11 +156,9 @@
 
     var framing = VM_CARDS.FRAMING[calcType] || "";
 
-    // Compute offset for each card on THIS trip and sort by best fit.
-    // This way the "best fit" badge actually reflects the math, not a hardcoded order.
     var ranked = lineup
       .map(function (id) { return VM_CARDS.CARDS[id]; })
-      .filter(function (c) { return !!c; })
+      .filter(function (c) { return !!c && c.available !== false; })
       .map(function (c) { return { card: c, offset: c.valueFn(tripCost, opts || {}) }; })
       .sort(function (a, b) { return b.offset - a.offset; });
 
@@ -168,6 +171,11 @@
       + 'Subject to each issuer\'s eligibility rules (Chase 5/24, Amex once-per-lifetime, Capital One inquiry limits).'
       + '</p>';
 
+    var affLive = typeof g.VM_affiliateLive === "function" && g.VM_affiliateLive();
+    var affSentence = affLive
+      ? 'We may earn a commission if you apply through a labeled affiliate link and are approved. Rankings are not paid placements. Links tagged Affiliate use rel=sponsored. <a href="/disclosures">Affiliate disclosure</a>.'
+      : 'We don\'t accept payment to recommend a card. When we activate affiliate partnerships, links will be tagged "Affiliate" \u2014 the recommendations won\'t change. <a href="/disclosures">Affiliate disclosure</a>.';
+
     container.innerHTML = ''
       + '<div class="card-module">'
       + '  <header class="card-module__header">'
@@ -178,9 +186,9 @@
       + '  <div class="card-module__grid">' + cardsHtml + '</div>'
       + '  <footer class="card-module__footer">'
       + '    <p class="card-module__disclosure">'
-      + '      Offers verified ' + (window.VM_CONFIG && VM_CONFIG.VERIFIED_LABEL ? escapeHtml(VM_CONFIG.VERIFIED_LABEL.replace(/^Pricing verified /, "")) : "July 2026")
+      + '      Offers verified August 28, 2026'
       + '      against each issuer\'s official site. Bonuses change weekly \u2014 confirm at the issuer\'s page before applying. '
-      + '      We don\'t accept payment to recommend a card. When we activate affiliate partnerships, links will be tagged "Affiliate" \u2014 the recommendations won\'t change.'
+      +        affSentence
       + '    </p>'
       +    bonusDisclosure
       + '    <p class="card-module__methodology">'
@@ -188,6 +196,14 @@
       + '    </p>'
       + '  </footer>'
       + '</div>';
+
+    Array.prototype.forEach.call(container.querySelectorAll(".card-rec__cta"), function (a) {
+      a.addEventListener("click", function () {
+        var id = a.getAttribute("data-card-id");
+        var card = (g.VM_CARDS && g.VM_CARDS.CARDS && g.VM_CARDS.CARDS[id]) || { id: id };
+        if (typeof g.VM_trackCardClick === "function") g.VM_trackCardClick(card, a.getAttribute("href"));
+      });
+    });
   }
 
   // Timeshare variant: no card pitch — instead a "read before you buy" callout
