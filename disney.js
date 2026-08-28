@@ -328,22 +328,7 @@
   window.addEventListener("DOMContentLoaded", function () {
     render(calculate());
   });
-
-  // Email form
-  var emailForm = document.querySelector('form[data-source="disney-calc"]');
-  if (emailForm) {
-    emailForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var input = emailForm.querySelector('input[type="email"]');
-      var msg = emailForm.querySelector(".form-msg");
-      if (!input.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.value)) {
-        msg.textContent = "Please enter a valid email.";
-        msg.style.color = "var(--coral)";
-        return;
-      }
-      msg.textContent = "Got it. Check your inbox in the next 2 minutes.";
-      msg.style.color = "var(--navy)";
-      input.value = "";
-    });
-  }
+  // The capture form is handled by main.js (submitForm -> POST /subscribe).
+  // A local handler used to intercept it here and show a success message
+  // without sending anything; removed 2026-08-28.
 })();

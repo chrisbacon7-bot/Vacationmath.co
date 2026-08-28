@@ -69,6 +69,32 @@ var VM_ANALYTICS = (function() {
     track("calc_complete", p);
   }
 
+  // ---- Auto-track: was the email prompt actually SEEN? ----
+  // Without this, a zero-signup month is ambiguous: it could mean the prompt is
+  // unpersuasive, or that nobody ever scrolled far enough to see it. Comparing
+  // email_prompt_view against email_signup separates the two.
+  function observeCapturePrompts() {
+    if (!("IntersectionObserver" in window)) return;
+    var seen = [];
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
+        var form = entry.target;
+        if (seen.indexOf(form) !== -1) return;
+        seen.push(form);
+        io.unobserve(form);
+        track("email_prompt_view", { source: (form.dataset && form.dataset.source) || "unknown" });
+      });
+    }, { threshold: [0.5] });
+    var forms = document.querySelectorAll("form.capture");
+    for (var i = 0; i < forms.length; i++) io.observe(forms[i]);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", observeCapturePrompts);
+  } else {
+    observeCapturePrompts();
+  }
+
   // ---- Auto-track: email signups ----
   document.addEventListener("submit", function(e) {
     var form = e.target;

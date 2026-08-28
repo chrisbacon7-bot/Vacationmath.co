@@ -646,6 +646,19 @@
 
     $("tf-results").innerHTML = html;
     $("tf-results").classList.add("has-results");
+    // Trip Finder previously fired no completion event at all, so its usage was
+    // invisible in analytics despite being one of the most-used calculators.
+    if (typeof VM_ANALYTICS !== "undefined") {
+      var tfFits = (trips || []).filter(function (t) { return t.tag === "fits"; });
+      var tfCheapest = (trips || []).slice().sort(function (a, b) {
+        return (a.total || 0) - (b.total || 0);
+      })[0];
+      VM_ANALYTICS.calcComplete("tripfinder", tfCheapest ? tfCheapest.total : 0, {
+        fits: tfFits.length, shown: (trips || []).length
+      });
+    }
+    var emailSection = document.getElementById("email-section");
+    if (emailSection) emailSection.hidden = false;
 
     // Card CTA: feature the cheapest fit
     var best = fitsBest[0] || stretchBest[0] || overBest[0];
