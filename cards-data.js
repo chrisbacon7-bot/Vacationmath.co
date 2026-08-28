@@ -1,24 +1,28 @@
 /**
  * Vacation Math — Credit Card catalog
- * Verified offers as of August 2026 from each issuer's official page.
+ * Verified August 28, 2026 from each issuer's official page.
  * Re-verify quarterly. See refresh playbook.
  *
+ * 16 live cards. Citi Custom Cash is kept as available:false (closed to new
+ * applicants May 28, 2026) and is never scored or recommended.
+ *
  * AFFILIATE PLUMBING:
- *   Each card has `url` (current: official issuer page, no affiliate code) and
- *   `affiliateUrl` (placeholder for when programs activate). The renderer prefers
- *   `affiliateUrl` if non-empty, otherwise falls back to `url`. To activate affiliates:
- *   fill in `affiliateUrl` per card. The renderer auto-applies rel="sponsored"
- *   when the link is affiliate, and rel="noopener" always.
+ *   Apply URLs live in affiliate-config.js (VM_AFFILIATE.urls). Keep per-card
+ *   `affiliateUrl` as "" unless you need a one-off override. Renderer prefers
+ *   affiliateUrl, then VM_AFFILIATE.urls[id], then issuer `url`. Rankings never
+ *   read commission.
  *
  * VALUE MATH:
  *   Each card has a `valueFn(tripCost, opts)` that returns the realistic first-year
  *   offset for THIS trip — sign-up bonus value + reasonable category earn on the trip,
  *   capped by what's plausible. Honest math, not aspirational ceilings.
+ *   Annual-fee convention is per-card: CSP does not subtract AF; Venture X, Venture,
+ *   Amex Gold, CSR, and Strata Premier do.
  */
 (function (g) {
   "use strict";
 
-  // -- Verified August 2026 offers --
+  // -- Verified August 28, 2026 offers --
   var CARDS = {
     csp: {
       id: "csp",
@@ -26,17 +30,38 @@
       issuer: "Chase",
       annualFee: 95,
       bonus: { points: 75000, spend: 5000, months: 3, dollarValue: 938 }, // 75k * 1.25¢ portal
-      earn: "5x Chase Travel, 3x dining, 2x other travel, 1x else",
+      earn: "5x Chase Travel, 3x dining, 3x gas/EV/vacation homes, 3x streaming + online grocery, 2x other travel, 1x else",
       pointValue: 1.25, // ¢ per point via Chase Travel portal
-      networkPerks: "Trip insurance, primary rental car coverage, no foreign transaction fees",
+      networkPerks: "$100 Chase Travel hotel credit, trip insurance, primary rental car coverage, no foreign transaction fees",
       bestFor: "Flexible travel — transferable points to airlines + hotels",
       url: "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred",
       affiliateUrl: "",
-      // tripCost is the calc's calculated trip cost
       valueFn: function (tripCost) {
         var bonus = 938; // verified portal value of 75k pts
-        var trip = Math.min(tripCost, 6000) * 0.025; // ~2.5x avg earn rate on the trip (mix of 5x travel, 3x dining, 2x)
-        return Math.round(bonus + trip);
+        var hotelCredit = 100; // Chase Travel hotel credit (was $50; $100 as of Aug 28, 2026)
+        var trip = Math.min(tripCost, 6000) * 0.025;
+        return Math.round(bonus + hotelCredit + trip);
+      }
+    },
+
+    csr: {
+      id: "csr",
+      name: "Chase Sapphire Reserve",
+      issuer: "Chase",
+      annualFee: 795,
+      bonus: { points: 100000, spend: 6000, months: 3, dollarValue: 1500 }, // 100k * 1.5¢ portal floor
+      earn: "8x Chase Travel, 4x flights+hotels booked direct, 3x dining, 1x else",
+      pointValue: 1.5,
+      networkPerks: "$300 travel credit, Priority Pass + Chase Sapphire Lounges, $300 OpenTable dining credit (narrow restaurant list), trip insurance, no FTF",
+      bestFor: "Frequent travelers who'll actually use the $300 travel credit and lounges",
+      url: "https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve",
+      affiliateUrl: "",
+      valueFn: function (tripCost) {
+        var bonus = 1500;
+        var travelCredit = 300;
+        var diningCredit = 150; // conservative slice of the $300 OpenTable credit
+        var trip = Math.min(tripCost, 6000) * 0.025;
+        return Math.round(bonus + travelCredit + diningCredit + trip - 795);
       }
     },
 
@@ -48,13 +73,13 @@
       bonus: { points: 75000, spend: 4000, months: 3, dollarValue: 750 }, // 1¢ floor via Capital One Travel
       earn: "10x hotels/cars via Capital One Travel, 5x flights via portal, 2x else",
       pointValue: 1.0,
-      networkPerks: "$300 annual travel credit, 10,000-mile anniversary bonus (~$100), Priority Pass lounges, no FTF",
+      networkPerks: "$300 annual travel credit, 10,000-mile anniversary bonus (~$100), Priority Pass lounges, no FTF. As of Feb 1, 2026 extra guests at Capital One / Priority Pass lounges are no longer free (cardholder still has access).",
       bestFor: "Premium perks if you'll use the $300 travel credit (net $95/yr effective fee)",
       url: "https://www.capitalone.com/credit-cards/venture-x/",
       affiliateUrl: "",
       valueFn: function (tripCost) {
         var bonus = 750;
-        var creditOffset = 300; // annual travel credit applied to this trip
+        var creditOffset = 300;
         var anniversary = 100;
         var trip = Math.min(tripCost, 6000) * 0.02;
         return Math.round(bonus + creditOffset + anniversary + trip - 395);
@@ -85,7 +110,13 @@
       name: "American Express Gold",
       issuer: "American Express",
       annualFee: 325,
-      bonus: { points: 100000, spend: 8000, months: 6, dollarValue: 2000 }, // TPG valuation
+      bonus: {
+        points: 100000,
+        spend: 8000,
+        months: 6,
+        dollarValue: 2000, // TPG valuation; valueFn uses a 1¢ floor
+        copy: "As high as 100,000 points after $8,000 in 6 mo (personalized — not everyone sees 100k)"
+      },
       earn: "4x restaurants + groceries (US), 3x flights, 2x prepaid hotels via Amex Travel",
       pointValue: 2.0, // TPG valuation for MR
       networkPerks: "$120 dining credit, $120 Uber Cash, $84 Dunkin, $100 Resy",
@@ -94,6 +125,7 @@
       affiliateUrl: "",
       valueFn: function (tripCost) {
         // Bonus is aspirational at TPG 2¢. Use a 1¢ floor for honest offset math.
+        // Personalized welcome — 100k is the ceiling, not a promise.
         var bonus = 1000; // 100k * 1¢ conservative
         var credits = 200; // ~$200 of annual credits realistically used
         var trip = Math.min(tripCost, 6000) * 0.025;
@@ -103,15 +135,15 @@
 
     bilt: {
       id: "bilt",
-      name: "Bilt Mastercard (Bilt Card 2.0)",
-      issuer: "Wells Fargo",
+      name: "Bilt Blue (Bilt Card)",
+      issuer: "Column N.A.",
       annualFee: 0,
-      bonus: { points: 0, spend: 0, months: 0, dollarValue: 100 }, // $100 Bilt Cash on approval (current promo)
+      bonus: { points: 0, spend: 0, months: 0, dollarValue: 100 }, // $100 Bilt Cash on approval (Bilt Blue)
       earn: "1x rent (no fee), 3x dining, 2x travel, 1x else; 4% Bilt Cash on everyday spend option",
       pointValue: 1.5, // strong transfer partners (Hyatt, AA, United)
-      networkPerks: "No annual fee, Rent Day 2x multiplier, transferable to 18 airline/hotel partners",
+      networkPerks: "No annual fee, Rent Day 2x multiplier, transferable to airline/hotel partners. Wells Fargo Mastercard sunset Feb 7, 2026 — this is the Column N.A. Bilt Blue card.",
       bestFor: "Renters / homeowners earning points on housing payments + flexible travel transfers",
-      url: "https://www.biltrewards.com/",
+      url: "https://www.bilt.com/card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
         var bonus = 100;
@@ -130,7 +162,7 @@
       pointValue: 1.0, // Disney Rewards Dollars
       networkPerks: "200 Disney Rewards Dollars after $2k spend on Disney bookings, $100 ticket credit, $120/yr Disney+/Hulu/ESPN+ credit, character meet-and-greets, 10% off dining + merch",
       bestFor: "Annual Disney trip families who'd use the perks every year",
-      url: "https://disneyrewards.com/cards/",
+      url: "https://creditcards.chase.com/rewards-credit-cards/disney/inspire",
       affiliateUrl: "",
       valueFn: function (tripCost) {
         var bonus = 500;
@@ -164,15 +196,21 @@
       name: "Universal Rewards Plus Visa Signature",
       issuer: "FNBO",
       annualFee: 99,
-      bonus: { points: 0, spend: 500, months: 3, dollarValue: 250 }, // $250 statement credit
+      bonus: {
+        points: 15000,
+        spend: 500,
+        months: 3,
+        dollarValue: 100, // $100 GC / Express Passes on approval; 15k pts after $500/3 cycles. Offers vary.
+        copy: "15,000 points after $500 in 3 billing cycles + $100 gift cards or Express Passes on approval (offers vary — confirm on FNBO)"
+      },
       earn: "Points redeemable for Universal experiences",
       pointValue: 1.0,
       networkPerks: "1 free single-day park ticket after $6,000 annual spend, Visa Lounge access at Universal parks, character meet perks",
       bestFor: "Annual Universal Orlando / Hollywood / Epic Universe visitors",
-      url: "https://www.universalrewardsvisa.com/",
+      url: "https://www.card.fnbo.com/landing/universal/orlando",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 250;
+        var bonus = 100; // conservative: $100 GC / Express Passes, not a $250 statement credit
         var freeTicket = 130; // value of a single-day Universal ticket (only if hitting $6k spend)
         return Math.round(bonus + freeTicket - 99);
       }
@@ -183,15 +221,21 @@
       name: "World of Hyatt Credit Card",
       issuer: "Chase",
       annualFee: 95,
-      bonus: { points: 60000, spend: 3000, months: 3, dollarValue: 1020 }, // 60k * 1.7¢ Hyatt avg
+      bonus: {
+        points: 60000,
+        spend: 3000,
+        months: 3,
+        dollarValue: 900, // 60k * 1.5¢ Frequent Miler RRV IF they hit the full 60k
+        copy: "Up to 60,000 points (~$900 at 1.5¢) — 30k after $3k/3 mo, plus up to 30k extra (2x on 1x spend, cap $15k). Full 60k is not guaranteed after $3k. 75k promo ended Aug 20, 2026."
+      },
       earn: "Up to 9x at Hyatt, 2x dining/airlines/transit",
-      pointValue: 1.7, // strong Hyatt redemption value
+      pointValue: 1.5, // Frequent Miler 1.50¢ RRV
       networkPerks: "Free Cat 1-4 night annually (~$200+), Discoverist status, 5 qualifying nights toward elite",
       bestFor: "Ziva/Zilara all-inclusive bookings + boutique Hyatt redemptions worldwide",
       url: "https://creditcards.chase.com/travel-credit-cards/world-of-hyatt-credit-card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1020;
+        var bonus = 900; // full 60k at 1.5¢ — only if they hit the extra 2x spend
         var freeNight = 250; // realistic Cat 1-4 value
         return Math.round(bonus + freeNight - 95);
       }
@@ -202,15 +246,21 @@
       name: "Marriott Bonvoy Brilliant",
       issuer: "American Express",
       annualFee: 650,
-      bonus: { points: 150000, spend: 8000, months: 6, dollarValue: 1200 }, // 150k * 0.8¢ + $125 statement credit
+      bonus: {
+        points: 150000,
+        spend: 6000,
+        months: 6,
+        dollarValue: 1200, // 150k * 0.8¢; +$250 statement credit in valueFn
+        copy: "150,000 Bonvoy points + $250 statement credit after $6,000 in 6 mo (offer ends Sep 30, 2026)"
+      },
       earn: "6x Marriott, 3x dining + flights direct, 2x else",
       pointValue: 0.8,
-      networkPerks: "Annual Free Night (up to 85k pts ~$680), $300 Marriott dining credit, $25/mo Marriott credit, Platinum Elite status",
+      networkPerks: "Annual Free Night (up to 85k pts ~$680), $300 Marriott dining credit, $25/mo Marriott credit, Platinum Elite status. Current 150k + $250 offer ends Sep 30, 2026.",
       bestFor: "Frequent Marriott AI/resort stays (Mexico, Caribbean Bonvoy properties)",
       url: "https://www.americanexpress.com/us/credit-cards/card/marriott-bonvoy-brilliant/",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1200 + 125; // bonus + statement credit
+        var bonus = 1200 + 250; // 150k at 0.8¢ + $250 statement credit
         var freeNight = 680;
         var diningCredit = 300;
         return Math.round(bonus + freeNight + diningCredit - 650);
@@ -241,15 +291,17 @@
       name: "Royal ONE Visa Signature",
       issuer: "Bank of America",
       annualFee: 0,
-      bonus: { points: 0, spend: 1000, months: 3, dollarValue: 250 }, // initial offer estimate (new card launching June 2026)
+      bonus: { points: 30000, spend: 1500, months: 3, dollarValue: 300 }, // live: 30k pts = $300 after $1,500 / 90 days
       earn: "Points on Royal Caribbean Group sailings",
       pointValue: 1.0,
-      networkPerks: "Onboard credit and points toward Crown & Anchor status (new launch June 2026)",
-      bestFor: "Royal Caribbean / Celebrity loyalists — confirm current offer at apply",
-      url: "https://www.royalcaribbean.com/faq/topics/royal-visa-signature-credit-card",
+      networkPerks: "Onboard credit and points toward Crown & Anchor status",
+      bestFor: "Royal Caribbean / Celebrity loyalists",
+      url: "https://www.royalcaribbean.com/royal-one-visa-card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        return 250;
+        var bonus = 300;
+        var trip = Math.min(tripCost, 4000) * 0.01;
+        return Math.round(bonus + trip);
       }
     },
 
@@ -258,15 +310,15 @@
       name: "Costco Anywhere Visa",
       issuer: "Citi",
       annualFee: 0,
-      bonus: { points: 0, spend: 0, months: 0, dollarValue: 0 }, // no sign-up bonus
-      earn: "4% gas (first $7k/yr), 3% restaurants + travel, 2% Costco, 1% else",
+      bonus: { points: 0, spend: 0, months: 0, dollarValue: 0 }, // no public sign-up bonus
+      earn: "5% Costco gas + 4% other gas/EV (combined $7k/yr cap, then 1%), 3% restaurants + travel, 2% Costco, 1% else",
       pointValue: 1.0,
       networkPerks: "Requires active Costco membership ($65/yr)",
       bestFor: "Roadtrippers who already shop Costco — best gas rebate without category caps",
       url: "https://www.citi.com/credit-cards/citi-costco-anywhere-visa-credit-card",
       affiliateUrl: "",
       valueFn: function (tripCost, opts) {
-        // tripCost is roadtrip total; gas is ~30-40% of cost
+        // tripCost is roadtrip total; gas is ~30-40% of cost. 4% is a conservative blend of 5% Costco / 4% other.
         var gas = (opts && opts.gasCost) ? opts.gasCost : tripCost * 0.35;
         var dining = (opts && opts.foodCost) ? opts.foodCost : tripCost * 0.20;
         return Math.round(gas * 0.04 + dining * 0.03);
@@ -278,17 +330,16 @@
       name: "Citi Custom Cash",
       issuer: "Citi",
       annualFee: 0,
+      available: false, // closed to new applicants May 28, 2026 (Citi official Not Available)
       bonus: { points: 0, spend: 1500, months: 6, dollarValue: 200 },
       earn: "5% on top monthly category (capped at $500 spend = $25 max), 1% else",
       pointValue: 1.0,
-      networkPerks: "10 eligible 5% categories including gas, dining, travel, transit, groceries",
-      bestFor: "Targeted high-spend month — front-load roadtrip gas or trip dining into one billing cycle",
+      networkPerks: "Closed to new applicants as of May 28, 2026",
+      bestFor: "Not available to new applicants",
       url: "https://www.citi.com/credit-cards/citi-custom-cash-credit-card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 200;
-        var fivePct = 25 * 2; // realistic 2 months of $500 capped spend in 5% category
-        return Math.round(bonus + fivePct);
+        return 0;
       }
     },
 
@@ -309,23 +360,44 @@
         var trip = Math.min(tripCost, 4000) * 0.015;
         return Math.round(bonus + trip);
       }
+    },
+
+    citiStrata: {
+      id: "citiStrata",
+      name: "Citi Strata Premier",
+      issuer: "Citi",
+      annualFee: 95,
+      bonus: { points: 60000, spend: 4000, months: 3, dollarValue: 900 }, // 60k ThankYou * 1.5¢
+      earn: "10x hotels/cars/attractions on Citi Travel, 3x air + hotels, 3x restaurants, 3x supermarkets, 3x gas/EV, 1x else",
+      pointValue: 1.5,
+      networkPerks: "$100 annual hotel benefit via cititravel.com, transferable ThankYou Points, no FTF",
+      bestFor: "The $95 transferable workhorse — 3x groceries, gas, and dining",
+      url: "https://www.citi.com/credit-cards/citi-strata-premier-credit-card",
+      affiliateUrl: "",
+      valueFn: function (tripCost) {
+        var bonus = 900;
+        var hotel = 100;
+        var trip = Math.min(tripCost, 6000) * 0.025;
+        return Math.round(bonus + hotel + trip - 95);
+      }
     }
   };
 
   // -- Per-calc card lineups (3 cards each, ranked best-fit first) --
+  // citiCustomCash is closed; never include it.
   var LINEUPS = {
     disney: ["disneyInspire", "csp", "venture"],
     cruise: ["csp", "carnival", "amexgold"],
     allinclusive: ["hyatt", "bonvoyBrilliant", "csp"],
     themeparks: ["universalPlus", "csp", "disneyVisa"],
-    roadtrip: ["costcoCiti", "chaseFreedomUnlimited", "citiCustomCash"],
-    points: ["csp", "amexgold", "venturex"],
-    whentobook: ["csp", "venture", "bilt"],
+    roadtrip: ["costcoCiti", "chaseFreedomUnlimited", "citiStrata"],
+    points: ["csp", "amexgold", "csr"],
+    whentobook: ["csp", "citiStrata", "bilt"],
     // Meta calcs (user hasn't committed to a trip type yet) — show flexible workhorse cards.
     // The valueFn sort still re-ranks based on the actual trip total entered.
-    budget: ["csp", "venture", "venturex"],
-    tripfinder: ["csp", "venturex", "amexgold"],
-    funding: ["csp", "chaseFreedomUnlimited", "venture"]
+    budget: ["csp", "citiStrata", "venture"],
+    tripfinder: ["csp", "citiStrata", "venturex"],
+    funding: ["csp", "chaseFreedomUnlimited", "citiStrata"]
   };
 
   // -- Trip-type-specific framing line shown above the card stack --
@@ -334,12 +406,12 @@
     cruise: "Cruise lines push their co-brand cards hard, but they're rarely the best math. CSP and Amex Gold both earn more on the dining + airfare around your sailing than the cruise card does on the cruise itself.",
     allinclusive: "All-inclusive math rewards transferable points and brand-tied cards. Hyatt is dominant for Ziva/Zilara. Marriott Bonvoy covers Cancún and the Caribbean. CSP is the flexible fallback.",
     themeparks: "Universal has the strongest park-specific card; CSP wins for off-property hotels and flexibility; Disney Visa is here only if you'll mix in a Disney trip too.",
-    roadtrip: "Gas is the largest variable cost on a roadtrip. The cards that pay you the most on gas + dining are not the household-name travel cards.",
-    points: "These three cards form the points-collector starter pack. CSP and Amex Gold are the highest-value transferable points engines; Venture X earns the highest ceiling if you'll use the $300 credit every year.",
-    whentobook: "If you don't have a strategy yet, start here. CSP is the default workhorse. Venture is the simpler alternative. Bilt is the no-annual-fee option that still earns transferable points.",
-    budget: "You haven't committed to a trip type yet, so we're showing the flexible workhorse cards \u2014 the ones whose points transfer everywhere. The 'Best fit' badge updates based on your budget number.",
-    tripfinder: "Since the trip type is still open, these are the transferable-points cards that flex across airlines, hotels, and all-inclusives. They're the strongest default when you don't yet know where you're going.",
-    funding: "While you save toward the trip, your normal spending should be working for you. CSP earns 3x on dining; Freedom Unlimited earns 1.5% on everything else; Venture is the simplest miles option if you prefer one card."
+    roadtrip: "Gas is the largest variable cost on a roadtrip. Costco Anywhere still leads on gas if you have a membership. Freedom Unlimited is the no-fee everyday booster. Strata Premier adds 3x gas plus transferable ThankYou points.",
+    points: "These three cards form the points-collector starter pack. CSP is the $95 workhorse. Amex Gold is the dining/grocery engine (welcome bonus is personalized — as high as 100k). CSR is the premium only if you'll use the lounges and the $300 travel credit.",
+    whentobook: "If you don't have a strategy yet, start here. CSP is the default workhorse. Citi Strata Premier is the $95 transferable + grocery/gas 3x workhorse. Bilt Blue is the no-annual-fee option that still earns transferable points.",
+    budget: "You haven't committed to a trip type yet, so we're showing the flexible workhorse cards \u2014 the ones whose points transfer everywhere. CSP and Strata Premier are the $95 transferable options; Venture is the simpler miles card. The 'Best fit' badge updates based on your budget number.",
+    tripfinder: "Since the trip type is still open, these are the transferable-points cards that flex across airlines, hotels, and all-inclusives. CSP and Strata Premier are the $95 workhorses; Venture X is the lounge card if you'll use the $300 credit.",
+    funding: "While you save toward the trip, your normal spending should be working for you. CSP earns 3x on dining; Freedom Unlimited earns 1.5% on everything else; Strata Premier is 3x groceries, gas, and dining with transferable ThankYou points."
   };
 
   g.VM_CARDS = {
