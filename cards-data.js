@@ -1,6 +1,6 @@
 /**
  * Vacation Math — Credit Card catalog
- * Verified offers as of May 2026 from each issuer's official page.
+ * Verified offers as of August 2026 from each issuer's official page.
  * Re-verify quarterly. See refresh playbook.
  *
  * AFFILIATE PLUMBING:
@@ -18,7 +18,7 @@
 (function (g) {
   "use strict";
 
-  // -- Verified May 2026 offers --
+  // -- Verified August 2026 offers --
   var CARDS = {
     csp: {
       id: "csp",

@@ -5,10 +5,11 @@
    Why user-input flights instead of estimates: flight prices vary too much
    by origin/date for any estimate to be honest. People already know their
    real number by the time they're doing serious math. Driving math uses
-   the 2026 IRS standard mileage rate ($0.67/mile). Hotel-on-the-road kicks
+   the IRS standard mileage rate for Jul-Dec 2026 ($0.76/mile). Hotel-on-the-road kicks
    in past 500 miles one-way (one extra night each way).
 
-   Source for $0.67/mi: IRS Notice 2025-83 (standard mileage rate for 2026).
+   Source for $0.76/mi: IRS standard mileage rates, effective Jul 1-Dec 31, 2026
+   (72.5¢ applied Jan 1-Jun 30, 2026).
    Hotel-on-the-road: AAA 2026 average for mid-tier roadside hotel.
    ===================================================================== */
 (function (g) {

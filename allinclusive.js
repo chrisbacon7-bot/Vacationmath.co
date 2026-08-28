@@ -281,7 +281,7 @@
     if (destFees) {
       html += '<div class="result-note" style="border-left:4px solid #e6a340;padding-left:1rem;margin-top:1rem"><strong>' + destFees.heading + '</strong> ' + destFees.body + '</div>';
     }
-    html += '<div class="freshness-badge">2026 resort pricing &middot; last updated July 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">2026 resort pricing &middot; last updated September 2026 &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

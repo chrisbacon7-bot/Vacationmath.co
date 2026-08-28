@@ -118,7 +118,7 @@
     html += '<div class="result-note"><strong>The rule of thumb.</strong> If your cents-per-point is below the benchmark, the points are being undersold \u2014 pay cash and bank the points. If you\'re above it, redeem. Most flexible-point holders never beat the benchmark on portal redemptions; the wins almost always come from transferring to airline partners with sweet-spot awards.</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> Cents-per-point benchmarks are <em>estimates</em> based on published valuations from The Points Guy, NerdWallet, and Frequent Miler, averaged and biased conservatively. Your actual value depends on the specific award, transfer partner, and date. Cash-back and portal rates are fixed by the program. Transfer-partner sweet spots can deliver far more value than the benchmark &mdash; or far less if you book at standard award rates.</div>';
-    html += '<div class="freshness-badge">Frequent Miler RRVs (May 22, 2026) &middot; refreshed May 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">Frequent Miler RRVs (Jul 23, 2026) &middot; refreshed September 2026 &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
