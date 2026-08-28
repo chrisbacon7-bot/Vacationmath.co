@@ -1,32 +1,34 @@
 /* =====================================================================
    Vacation Math — Shared calculator data
-   All numbers updated June 27, 2026 (Q3/July refresh). Estimates built from published pricing, not live quotes. Sources cited at /sources.html
+   All numbers updated August 28, 2026 (Q4/September refresh). Estimates built from published pricing, not live quotes. Sources cited at /sources.html
+   Next scheduled refresh: October 2026.
    ===================================================================== */
 (function (global) {
   "use strict";
 
   // ----------------------------------------------------------------
   // DISNEY WORLD DATA (2026)
-  // Sources: MouseHacking 2026 guide, NerdWallet, Disney official,
-  //          Disney Tourist Blog, WDW Prep School, AllEars.net
+  // Sources: Disney official ticket page (Aug 17, 2026), Disney Tourist Blog Apr 2026
+  //          ticket-increase coverage, Touring Plans 2026 ticket table, Disney Food Blog
+  //          Aug 2026 Lightning Lane price confirmations, Theme Parks Guide Jun 2026 resort rates
   // ----------------------------------------------------------------
   var DISNEY = {
     resorts: {
       // Per night, party of 4. low = off-season starting; avg = NerdWallet mid;
       // high = peak holiday/spring break
-      value:    { label: "Value (All-Star, Pop Century, Art of Animation)", low: 175, avg: 240, high: 307 },
-      moderate: { label: "Moderate (Caribbean Beach, Coronado, Port Orleans)", low: 294, avg: 366, high: 550 },
-      deluxe:   { label: "Deluxe (Grand Floridian, Contemporary, Polynesian)", low: 626, avg: 877, high: 1300 },
+      value:    { label: "Value (All-Star, Pop Century, Art of Animation)", low: 150, avg: 215, high: 307 },
+      moderate: { label: "Moderate (Caribbean Beach, Coronado, Port Orleans)", low: 280, avg: 350, high: 550 },
+      deluxe:   { label: "Deluxe (Grand Floridian, Contemporary, Polynesian)", low: 500, avg: 750, high: 1300 },
       offsite:  { label: "Off-property (Disney Springs / nearby)", low: 142, avg: 185, high: 280 }
     },
     // Per person per day, base ticket (1-park). Avg = NerdWallet ~$160 mid-season.
     tickets: {
-      low: 134,  // off-peak Aug-Sep
-      avg: 160,  // mid-season average
-      high: 199  // peak (Xmas, spring break)
+      low: 119,  // Disney's advertised "from" price (Animal Kingdom, off-peak) - official ticket page Aug 2026
+      avg: 160,  // mid-season blended average across four parks
+      high: 209  // Nov-Dec 2026 peak, Magic Kingdom (2027 dates now top out at $219)
     },
-    parkHopperPerTicket: 198,    // Per-ticket add-on for multi-day. $198 low / $264 peak. WDW Magazine 2026.
-    lightningLanePerDay: 35,     // Avg Lightning Lane Multi Pass per person per day. 2026 range $15-$45/person/day per WDW Magazine; $35 is mid-summer mid-park average.
+    parkHopperPerTicket: 89,     // Per-ticket add-on. Published 2026 range $65-$105; $89 is the 2027 mid example. Prior $198 double-counted.
+    lightningLanePerDay: 27,     // Lightning Lane Multi Pass per person per day. Confirmed Aug 2026 actuals $16-$32 (MK $23-32, EPCOT $18-24, DHS $22-27, AK $16-17); $27 is the high end of the blended average.
     childTicketDiscount: 5,      // ~$5 off adult price for kids 3-9
     // Dining per party of 4 per day, by style
     dining: {
@@ -55,7 +57,7 @@
         label: "MSC",
         note: "Kids 17 & under often free as 3rd/4th guest",
         perPersonLow: 439, perPersonAvg: 600, perPersonHigh: 900,
-        gratuityPerDay: 16,
+        gratuityPerDay: 17,
         kidsFreeProgram: true
       },
       carnival: {
@@ -74,14 +76,14 @@
       },
       ncl: {
         label: "Norwegian (NCL)",
-        note: "'Free at Sea' bundles drinks but adds ~$28/pp/day gratuities",
+        note: "'Free at Sea' bundles drinks but adds $28.50/pp/day in package service charges",
         perPersonLow: 600, perPersonAvg: 850, perPersonHigh: 1200,
         gratuityPerDay: 20,
         kidsFreeProgram: false
       },
       princess: {
         label: "Princess",
-        note: "Plus package ($65/pp/day) bundles drinks + tips + Wi-Fi",
+        note: "Plus package ($65/pp/day, $70 on Sphere class) bundles drinks + tips + Wi-Fi",
         perPersonLow: 410, perPersonAvg: 700, perPersonHigh: 1100,
         gratuityPerDay: 18,
         kidsFreeProgram: false
@@ -90,7 +92,7 @@
         label: "Disney Cruise Line",
         note: "Premium pricing. No drink packages. Kids pay full.",
         perPersonLow: 1108, perPersonAvg: 1750, perPersonHigh: 2800,
-        gratuityPerDay: 14.5,
+        gratuityPerDay: 16,
         kidsFreeProgram: false
       }
     },
@@ -108,13 +110,14 @@
       unlimited: { label: "Unlimited alcohol", perDay: 85 } // ~$65-$120 line variance
     },
     // Per-line unlimited drink package pricing (per person per day, gratuity included)
-    // Sources: Royal Caribbean Blog, Cruise.blog, Carnival.com, NCL.com, Princess.com, MSC May 2026
+    // Sources: Carnival.com CHEERS page, Royal Caribbean Blog, NCL.com Free at Sea,
+    //          Princess official Plus/Premier terms, MSC package pricing - all verified Aug 2026
     drinkPackagePerLine: {
-      msc:      { unlimited: 65,  soda: 13 },
-      carnival: { unlimited: 84,  soda: 11 },  // CHEERS
-      royal:    { unlimited: 105, soda: 12 },  // Deluxe Beverage
-      ncl:      { unlimited: 138, soda: 14 },  // "Free at Sea" really runs ~$138/pp/day in add-on gratuities
-      princess: { unlimited: 75,  soda: 13 },  // Plus package portion
+      msc:      { unlimited: 86,  soda: 13 },  // Premium Extra, pre-cruise ($85-88 range)
+      carnival: { unlimited: 84,  soda: 11 },  // CHEERS $69.95 pre-cruise + 20% = ~$83.94
+      royal:    { unlimited: 105, soda: 12 },  // Deluxe Beverage, typical all-in ($63-120 + 18%)
+      ncl:      { unlimited: 54,  soda: 14 },  // Unlimited Open Bar $45 + 20%. Free at Sea service charge is $28.50 separately.
+      princess: { unlimited: 65,  soda: 13 },  // Princess Plus ($70 Sphere class)
       disney:   { unlimited: 0,   soda: 0 }    // Disney doesn't sell packages
     },
     // Per-drink menu prices at sea (typical 2026 ranges, before 18-20% auto-grat)
@@ -127,7 +130,7 @@
       bottledH2O:  { label: "Bottled water",           price: 3 }
     },
     drinkGratuityPct: 0.18, // 18% auto-added to every drink
-    wifiPerDay: 22,              // Basic ship Wi-Fi 2026 average
+    wifiPerDay: 25,              // Ship Wi-Fi per device per day, Aug 2026 median $24.99 (range $15.99 MSC - $30 Disney)
     specialtyDiningPerMeal: 45,  // Per person per night, typical
     excursionPerPersonPerPort: 80, // Cruise-line excursion median
     photoPackage: 250,           // Typical printed/digital package
@@ -137,9 +140,12 @@
   };
 
   // ----------------------------------------------------------------
-  // CARD DATA (May 2026)
-  // Sources: Chase, Capital One, Amex, The Points Guy May 2026,
+  // CARD DATA (verified August 2026)
+  // Sources: issuer official pages, The Points Guy current-offer pages Aug 2026,
   //          NerdWallet, Doctor of Credit
+  // 2026 product changes reflected: Chase Sapphire Preferred refresh (Jun 15, 2026),
+  //          Amex Gold refresh (Apr 2026, $8k/6mo spend), Venture X lounge-guest cut
+  //          (Feb 1, 2026), Citi Strata bonus cut to 60k, Bilt Card 2.0 (Feb 7, 2026).
   // ----------------------------------------------------------------
   var CARDS = [
     {
@@ -157,7 +163,7 @@
       id: "amex_gold", name: "Amex Gold",
       annualFee: 325,
       bonusPoints: 100000,
-      minSpend: 6000, spendWindowMonths: 6,
+      minSpend: 8000, spendWindowMonths: 6,
       currency: "Amex MR",
       cppCash: 0.006, cppPortal: 0.01, cppTransfer: 0.015,
       mults: { dining: 4, groceries: 4, gas: 1, travel: 3, other: 1 },
@@ -198,20 +204,20 @@
       bestFor: "First-card family wanting no fee"
     },
     {
-      id: "bilt", name: "Bilt Mastercard",
+      id: "bilt", name: "Bilt Mastercard (Bilt Card 2.0 - Blue)",
       annualFee: 0,
       bonusPoints: 0,
       minSpend: 0, spendWindowMonths: 0,
       currency: "Bilt Rewards",
       cppCash: 0.0055, cppPortal: 0.0125, cppTransfer: 0.0155,
       mults: { dining: 3, groceries: 2, gas: 2, travel: 2, rent: 1, other: 1 },
-      perks: "Earn points on rent (no transaction fee). 2x on Rent Day. Transfers to 18 partners.",
+      perks: "Earn points on rent (no transaction fee). 2x on Rent Day. Transfers to 18 partners. Bilt Card 2.0 launched Feb 2026 - Blue $0, Obsidian $95, Palladium $495.",
       bestFor: "Renters who want to earn on their housing payment"
     },
     {
       id: "citi_strata", name: "Citi Strata Premier",
       annualFee: 95,
-      bonusPoints: 75000,
+      bonusPoints: 60000,
       minSpend: 4000, spendWindowMonths: 3,
       currency: "Citi ThankYou",
       cppCash: 0.005, cppPortal: 0.01, cppTransfer: 0.016,
@@ -222,27 +228,28 @@
   ];
 
   // ----------------------------------------------------------------
-  // POINTS VALUATIONS (May 2026)
-  // Sources: The Points Guy May 2026, NerdWallet 2026, Frequent Miler RRV May 2026
+  // POINTS VALUATIONS (August 2026)
+  // Sources: Frequent Miler Reasonable Redemption Values (page dated Jul 23, 2026),
+  //          The Points Guy 2026, NerdWallet 2026
   // Cents per point at the redemption type indicated
   // ----------------------------------------------------------------
   var POINTS = {
     programs: {
-      chase_ur:    { label: "Chase Ultimate Rewards",    cash: 1.00, portal: 1.00, transfer: 1.50, tpg: 2.05, source: "FM RRV May 2026 (transfer); NerdWallet (portal floor 1¢)" },
-      amex_mr:     { label: "Amex Membership Rewards",   cash: 0.60, portal: 1.00, transfer: 1.50, tpg: 2.00, source: "FM RRV May 2026" },
-      capone:      { label: "Capital One Miles",          cash: 1.00, portal: 1.00, transfer: 1.45, tpg: 1.85, source: "FM RRV May 2026" },
-      citi_tyc:    { label: "Citi ThankYou",              cash: 0.50, portal: 1.00, transfer: 1.60, tpg: 1.80, source: "FM RRV May 2026" },
-      bilt:        { label: "Bilt Rewards",                cash: 0.55, portal: 1.25, transfer: 1.55, tpg: 2.05, source: "FM RRV May 2026" },
-      delta:       { label: "Delta SkyMiles",              cash: 1.20, portal: 1.20, transfer: 1.10, tpg: 1.20, source: "FM RRV May 2026" },
-      united:      { label: "United MileagePlus",          cash: 1.20, portal: 1.20, transfer: 1.20, tpg: 1.30, source: "FrequentMiler 2026" },
-      aa:          { label: "American AAdvantage",         cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.40, source: "FrequentMiler 2026" },
+      chase_ur:    { label: "Chase Ultimate Rewards",    cash: 1.00, portal: 1.00, transfer: 1.50, tpg: 2.05, source: "FM RRV Aug 2026 (transfer); NerdWallet (portal floor 1¢)" },
+      amex_mr:     { label: "Amex Membership Rewards",   cash: 0.60, portal: 1.00, transfer: 1.50, tpg: 2.00, source: "FM RRV Aug 2026" },
+      capone:      { label: "Capital One Miles",          cash: 1.00, portal: 1.00, transfer: 1.45, tpg: 1.85, source: "FM RRV Aug 2026" },
+      citi_tyc:    { label: "Citi ThankYou",              cash: 0.50, portal: 1.00, transfer: 1.50, tpg: 1.80, source: "FM RRV Aug 2026" },
+      bilt:        { label: "Bilt Rewards",                cash: 0.55, portal: 1.25, transfer: 1.55, tpg: 2.05, source: "FM RRV Aug 2026" },
+      delta:       { label: "Delta SkyMiles",              cash: 1.20, portal: 1.20, transfer: 1.10, tpg: 1.20, source: "FM RRV Aug 2026" },
+      united:      { label: "United MileagePlus",          cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "FM RRV Aug 2026" },
+      aa:          { label: "American AAdvantage",         cash: 1.40, portal: 1.40, transfer: 1.40, tpg: 1.40, source: "FM RRV Aug 2026" },
       southwest:   { label: "Southwest Rapid Rewards",     cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "FrequentMiler 2026" },
       alaska:      { label: "Atmos (Alaska/Hawaiian)",     cash: 1.50, portal: 1.50, transfer: 1.50, tpg: 1.50, source: "FrequentMiler 2026" },
       jetblue:     { label: "JetBlue TrueBlue",            cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "NerdWallet 2026" },
-      marriott:    { label: "Marriott Bonvoy",             cash: 0.77, portal: 0.77, transfer: 0.77, tpg: 0.80, source: "FrequentMiler 2026 (0.77 RRV)" },
-      hilton:      { label: "Hilton Honors",               cash: 0.41, portal: 0.41, transfer: 0.41, tpg: 0.50, source: "FM RRV May 2026" },
-      hyatt:       { label: "World of Hyatt",              cash: 1.70, portal: 1.70, transfer: 1.70, tpg: 1.70, source: "TPG May 2026 (best hotel program)" },
-      ihg:         { label: "IHG One Rewards",             cash: 0.50, portal: 0.50, transfer: 0.50, tpg: 0.50, source: "NerdWallet 2026" }
+      marriott:    { label: "Marriott Bonvoy",             cash: 0.73, portal: 0.73, transfer: 0.73, tpg: 0.80, source: "FM RRV Aug 2026 (0.73 RRV)" },
+      hilton:      { label: "Hilton Honors",               cash: 0.35, portal: 0.35, transfer: 0.35, tpg: 0.50, source: "FM RRV Aug 2026" },
+      hyatt:       { label: "World of Hyatt",              cash: 1.50, portal: 1.50, transfer: 1.50, tpg: 1.70, source: "FM RRV Aug 2026 (best hotel program)" },
+      ihg:         { label: "IHG One Rewards",             cash: 0.59, portal: 0.59, transfer: 0.59, tpg: 0.59, source: "FM RRV Aug 2026" }
     },
     // Thresholds for verdict against cash price
     verdict: {
@@ -326,23 +333,25 @@
   };
 
   // ----------------------------------------------------------------
-  // ROAD TRIP VS FLY (May 2026)
-  // Sources: AAA Your Driving Costs 2025 ($0.13/mi fuel + $0.45 ownership = $0.58),
-  //          IRS 2026 mileage rate 72.5¢/mi, AAA gas prices May 2026 ~$3.10/gal national
+  // ROAD TRIP VS FLY (August 2026)
+  // Sources: AAA Your Driving Costs 2025 edition (13.00¢/mi fuel + 11.04¢/mi maintenance,
+  //          77¢/mi all-in at 15k mi/yr; 2026 edition not yet published),
+  //          IRS mileage rate 76¢/mi for Jul 1-Dec 31, 2026, AAA national average
+  //          gas $4.09/gal on Aug 28, 2026 (gasprices.aaa.com)
   // ----------------------------------------------------------------
   var ROADTRIP = {
-    avgGasPrice: 3.90,               // AAA national June 26, 2026 (gasprices.aaa.com). Down ~13% from May peak.
+    avgGasPrice: 4.09,               // AAA national average Aug 28, 2026 (gasprices.aaa.com). Up ~4.9% since the June reading. FL $3.95, CA $5.65.
     mpgByVehicle: {
       compact: 32, sedan: 28, suv: 22, minivan: 24, truck: 18, ev: 105 // EV MPGe
     },
     // Wear & tear per mile (AAA 2025: ~$0.45/mi non-fuel for ownership)
     wearPerMile: 0.10,               // Conservative — strips out fixed costs that exist anyway
-    irsBusinessRate: 0.725,          // IRS 2026 — used as "upper-bound real cost" comparison
+    irsBusinessRate: 0.76,           // IRS rate for Jul 1-Dec 31, 2026 (was 72.5¢ Jan-Jun) — used as "upper-bound real cost" comparison
     // Hotel mid-trip stops on the road
-    midwayHotelAvg: 145,
+    midwayHotelAvg: 152,             // Highway/interstate mid-tier. US average daily rate was $171.74 in Jul 2026 (CoStar/STR, +5.7% YoY).
     // Flight cost defaults (will be user-input)
     avgBagFeePerWay: 35,
-    rentalCarPerDay: 75,             // Avg US 2026, midsize sedan
+    rentalCarPerDay: 83,             // US airport average $82.90/day incl. taxes, summer 2026 (+13% YoY)
     parkingPerDayAtAirport: 18,
     rideshareAirportEach: 45,
     // Road meals are cheaper because of grocery stops + fast food
@@ -362,8 +371,8 @@
       ticketAdultPerDay: 160,        // Mid-season avg (also 4-day promo: $109)
       ticketChildPerDay: 155,
       mealPerPersonPerDay: 110,      // QS+TS combo, ~Disney inflated pricing
-      llPerPersonPerDay: 29,         // Lightning Lane
-      parkingPerDay: 0,              // Free for resort guests
+      llPerPersonPerDay: 27,         // Lightning Lane Multi Pass — matches DISNEY.lightningLanePerDay (Aug 2026 actuals $16-$32)
+      parkingPerDay: 0,              // Free for resort guests (day guests pay $35/day as of May 2026)
       transferRoundTrip: 130,        // Mears Connect party of 4
       souvenirBudget: 200,
       memoryMaker: 185
@@ -441,7 +450,7 @@
 
 
   // ====================================================================
-  // EXPANDED CATALOGS (May 2026 verified — see /home/user/workspace/vacationmath/research/catalog_2026.json)
+  // EXPANDED CATALOGS (spot-verified August 2026; gratuities and point values refreshed this pass)
   // ====================================================================
 
   // ---- All-Inclusive Destinations (16 cities) ----
@@ -485,11 +494,11 @@
     carnival: { label:"Carnival Cruise Line", tier:"value", perPersonLow:249, perPersonAvg:550, perPersonHigh:900, gratuityPerDay:17, note:"7-night Caribbean interior from ~$249/person (online advance). Gratuity increased to $17/day standard staterooms effective April 2, 2026 (fr" },
     royal_caribbean: { label:"Royal Caribbean International", tier:"mainstream", perPersonLow:346, perPersonAvg:650, perPersonHigh:1100, gratuityPerDay:18.5, note:"7-night Caribbean interior from ~$346/person. Gratuity $18.50/day (non-suite), $21/day (suite) as of 2026. Icon of the Seas and Utopia of th" },
     ncl: { label:"Norwegian Cruise Line (NCL)", tier:"mainstream", perPersonLow:429, perPersonAvg:750, perPersonHigh:1300, gratuityPerDay:20, note:"7-night Caribbean from ~$429/person. 'Free at Sea' included beverage/dining promos common. Gratuity $20/day standard, $25/day Haven/Suites. " },
-    msc: { label:"MSC Cruises", tier:"mainstream", perPersonLow:298, perPersonAvg:520, perPersonHigh:850, gratuityPerDay:16, note:"From $208 base pricing on homepage; 7-night Caribbean from ~$298/person. MSC expanding US homeports significantly for 2025–26 season includi" },
+    msc: { label:"MSC Cruises", tier:"mainstream", perPersonLow:298, perPersonAvg:520, perPersonHigh:850, gratuityPerDay:17, note:"From $208 base pricing on homepage; 7-night Caribbean from ~$298/person. MSC expanding US homeports significantly for 2025–26 season includi" },
     princess: { label:"Princess Cruises", tier:"premium", perPersonLow:499, perPersonAvg:850, perPersonHigh:1450, gratuityPerDay:18, note:"7-night Caribbean from ~$499/person. Princess Plus/Premier fares include gratuities. Gratuity $17–19/day (non-suite). Medallion technology d" },
-    celebrity: { label:"Celebrity Cruises", tier:"premium", perPersonLow:624, perPersonAvg:950, perPersonHigh:1500, gratuityPerDay:18, note:"7-night Caribbean from ~$624/person. Gratuity $18/day (inside/oceanview/veranda), $19/day (Concierge/AquaClass), $23/day (The Retreat). Beve" },
-    holland_america: { label:"Holland America Line", tier:"premium", perPersonLow:599, perPersonAvg:900, perPersonHigh:1400, gratuityPerDay:17, note:"7-night Caribbean from ~$599/person. 'Crew appreciation' $17/day (standard), $19/day (suites). Older demographic; classical cruising focus. " },
-    disney: { label:"Disney Cruise Line", tier:"premium", perPersonLow:1108, perPersonAvg:1750, perPersonHigh:2800, gratuityPerDay:14.5, note:"7-night Eastern Caribbean from ~$1,108/person. Disney Treasure 7-night party of 4 ~$8,074 (spring 2026). Gratuity at guest discretion; cust" },
+    celebrity: { label:"Celebrity Cruises", tier:"premium", perPersonLow:624, perPersonAvg:950, perPersonHigh:1500, gratuityPerDay:19.5, note:"7-night Caribbean from ~$624/person. Gratuity $18/day (inside/oceanview/veranda), $19/day (Concierge/AquaClass), $23/day (The Retreat). Beve" },
+    holland_america: { label:"Holland America Line", tier:"premium", perPersonLow:599, perPersonAvg:900, perPersonHigh:1400, gratuityPerDay:18, note:"7-night Caribbean from ~$599/person. 'Crew appreciation' $17/day (standard), $19/day (suites). Older demographic; classical cruising focus. " },
+    disney: { label:"Disney Cruise Line", tier:"premium", perPersonLow:1108, perPersonAvg:1750, perPersonHigh:2800, gratuityPerDay:16, note:"7-night Eastern Caribbean from ~$1,108/person. Disney Treasure 7-night party of 4 ~$8,074 (spring 2026). Gratuity at guest discretion; cust" },
     virgin_voyages: { label:"Virgin Voyages", tier:"premium", perPersonLow:545, perPersonAvg:950, perPersonHigh:1600, gratuityPerDay:22, note:"Adults-only (18+). From ~$545/person 7-night Caribbean. Daily gratuity $22/day (auto-charged; $20/day if pre-paid). Noted price increases in" },
     viking_ocean: { label:"Viking Ocean Cruises", tier:"luxury", perPersonLow:4799, perPersonAvg:6500, perPersonHigh:9500, gratuityPerDay:15, note:"7-night Caribbean from ~$4,799/person. Adults-only (18+). No casinos, no kids, no formal wear. All veranda staterooms; river-style service. " },
     oceania: { label:"Oceania Cruises", tier:"upper_premium", perPersonLow:2212, perPersonAvg:3500, perPersonHigh:5500, gratuityPerDay:18, note:"7-night Caribbean from ~$2,212/person (CruisesOnly). Culinary-focused; noted for included gourmet dining. 'Simply More' package includes sho" },
@@ -604,17 +613,17 @@
     amex_mr: { label:"American Express Membership Rewards", cash:0.6, portal:1.0, transfer:1.5, tpg:2.0, source:"FM RRV May 2026" },
     bilt: { label:"Bilt Rewards", cash:0.55, portal:1.25, transfer:1.55, tpg:2.2, source:"FM RRV May 2026" },
     capital_one: { label:"Capital One Rewards", cash:1.0, portal:1.0, transfer:1.45, tpg:1.85, source:"FM RRV May 2026" },
-    citi_ty: { label:"Citi ThankYou Rewards", cash:0.5, portal:1.0, transfer:1.6, tpg:1.9, source:"FM RRV May 2026" },
+    citi_ty: { label:"Citi ThankYou Rewards", cash:0.5, portal:1.0, transfer:1.5, tpg:1.9, source:"FM RRV Aug 2026" },
     wells_fargo: { label:"Wells Fargo Rewards", cash:1.0, portal:1.0, transfer:null, tpg:1.75, source:"TPG May 2026" },
-    hyatt: { label:"World of Hyatt", cash:0.5, portal:null, transfer:1.65, tpg:1.65, source:"TPG May 2026" },
-    american_aadvantage: { label:"American Airlines AAdvantage", cash:1.0, portal:null, transfer:1.6, tpg:1.6, source:"TPG May 2026" },
-    united_mileageplus: { label:"United MileagePlus", cash:1.0, portal:null, transfer:1.35, tpg:1.35, source:"TPG May 2026" },
+    hyatt: { label:"World of Hyatt", cash:0.5, portal:null, transfer:1.5, tpg:1.65, source:"FM RRV Aug 2026" },
+    american_aadvantage: { label:"American Airlines AAdvantage", cash:1.0, portal:null, transfer:1.4, tpg:1.6, source:"FM RRV Aug 2026" },
+    united_mileageplus: { label:"United MileagePlus", cash:1.0, portal:null, transfer:1.3, tpg:1.35, source:"FM RRV Aug 2026" },
     jetblue_trueblue: { label:"JetBlue TrueBlue", cash:1.0, portal:null, transfer:null, tpg:1.35, source:"TPG May 2026" },
     delta_skymiles: { label:"Delta SkyMiles", cash:1.0, portal:null, transfer:1.1, tpg:1.2, source:"FM RRV May 2026" },
     southwest_rapid_rewards: { label:"Southwest Rapid Rewards", cash:1.0, portal:null, transfer:null, tpg:1.25, source:"TPG May 2026" },
     alaska_mileageplan: { label:"Alaska Airlines Mileage Plan (Atmos Rewards)", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG May 2026" },
-    marriott_bonvoy: { label:"Marriott Bonvoy", cash:0.35, portal:null, transfer:0.8, tpg:0.8, source:"TPG May 2026" },
-    hilton_honors: { label:"Hilton Honors", cash:0.41, portal:null, transfer:null, tpg:0.41, source:"FM RRV May 2026" },
+    marriott_bonvoy: { label:"Marriott Bonvoy", cash:0.35, portal:null, transfer:0.73, tpg:0.8, source:"FM RRV Aug 2026" },
+    hilton_honors: { label:"Hilton Honors", cash:0.35, portal:null, transfer:null, tpg:0.41, source:"FM RRV Aug 2026" },
     aeroplan: { label:"Aeroplan (Air Canada)", cash:1.0, portal:null, transfer:1.7, tpg:1.4, source:"TPG May 2026" },
     avios: { label:"British Airways Avios / Iberia Avios", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG May 2026" },
     flying_blue: { label:"Air France/KLM Flying Blue", cash:1.0, portal:null, transfer:1.3, tpg:1.3, source:"TPG May 2026" },
@@ -625,7 +634,7 @@
     wyndham_rewards: { label:"Wyndham Rewards", cash:0.5, portal:null, transfer:null, tpg:0.65, source:"TPG May 2026" },
     choice_privileges: { label:"Choice Privileges", cash:0.35, portal:null, transfer:null, tpg:0.6, source:"TPG May 2026" },
     best_western_rewards: { label:"Best Western Rewards", cash:0.4, portal:null, transfer:null, tpg:0.6, source:"TPG May 2026" },
-    ihg_one_rewards: { label:"IHG One Rewards", cash:0.4, portal:null, transfer:null, tpg:0.6, source:"TPG May 2026" },
+    ihg_one_rewards: { label:"IHG One Rewards", cash:0.59, portal:null, transfer:null, tpg:0.6, source:"FM RRV Aug 2026" },
     accor_all: { label:"Accor Live Limitless (ALL)", cash:0.5, portal:null, transfer:2.0, tpg:2.0, source:"TPG May 2026" },
     radisson_rewards: { label:"Radisson Rewards", cash:0.3, portal:null, transfer:null, tpg:0.4, source:"TPG May 2026" },
   };
@@ -989,7 +998,7 @@
     DISNEY: DISNEY, CRUISE: CRUISE, CARDS: CARDS,
     POINTS: POINTS, ALLINC: ALLINC, TIMESHARE: TIMESHARE,
     ROADTRIP: ROADTRIP, THEMEPARKS: THEMEPARKS, WHENTOBOOK: WHENTOBOOK,
-    // Expanded catalogs (May 2026)
+    // Expanded catalogs (spot-verified August 2026)
     AI_DESTINATIONS: AI_DESTINATIONS,
     CRUISE_LINES_EXPANDED: CRUISE_LINES_EXPANDED,
     CRUISE_PORTS: CRUISE_PORTS,

@@ -161,7 +161,7 @@
     html += '<div class="result-note"><strong>What people forget.</strong> Cheapest book day (' + W.cheapestBookDay + ') and cheapest fly day (' + W.cheapestFlyDay + '/Wednesday) compound: book Friday for a Tuesday departure and you stack two small wins. The single cheapest month for domestic travel is ' + W.cheapestMonth + '; the priciest is ' + W.priciestMonth + ' (no surprise). Holiday windows tighten \u2014 Christmas best at ~58 days out, Thanksgiving at ~45, not the 30-day rule you\'ve probably heard.</div>';
 
     html += '<div class="result-note"><strong>If you don\'t have a quote yet \u2014 typical 2026 ranges, party of 4, round trip.</strong> Domestic short-haul (under 1,000 mi): $800\u2013$1,400. Domestic transcon: $1,200\u2013$2,200. Caribbean / Mexico: $1,400\u2013$2,400. Hawaii: $1,800\u2013$3,200. Europe (summer): $2,800\u2013$4,800. Source: Hopper 2026 Consumer Travel Index + DOT ARC May 2026. These are ranges, not estimates for your specific route \u2014 always check Google Flights for your dates before locking the total in.</div>';
-    html += '<div class="freshness-badge">Expedia 2026 Air Hacks + Hopper 2026 booking windows &middot; refreshed May 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">Expedia 2026 Air Hacks + Hopper 2026 booking windows &middot; refreshed September 2026 &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

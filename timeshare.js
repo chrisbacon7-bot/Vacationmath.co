@@ -183,7 +183,7 @@
     html += '<div class="result-note"><strong>What people forget to add.</strong> Timeshare math always misses three things: special assessments after hurricanes or roof replacements (averaging $1,500/decade), exchange fees if you want a different resort ($200-$400/use through RCI/II), and the time-cost of trying to sell. The average RedWeek resale closes at 5-15% of the original purchase price.</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> This is a long-run <em>estimate</em>, not a live quote. Maintenance escalation (5%/yr) reflects the industry 30-year average from ARDA and TUG. Rental comps use RedWeek listing data. The S&amp;P comparison uses the long-run 7% real return. Your real outcome depends on your specific resort, financing terms, and resale market &mdash; we&rsquo;ve biased the math toward giving the purchase the benefit of the doubt.</div>';
-    html += '<div class="freshness-badge">ARDA 2025 industry averages &middot; RedWeek 2026 listings &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">ARDA 2025 industry averages &middot; RedWeek 2026 listings &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

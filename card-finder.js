@@ -324,7 +324,7 @@
       +   top3.map(function (r, i) { return renderRankedCard(r, i, spendingStyle, perks); }).join('')
       + '</div>'
       + '<div class="cf-disclosure">'
-      +   '<p><strong>How this works.</strong> We score every card in our 15-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Card terms verified May 2026. Always reconfirm offers on the issuer page before applying.</p>'
+      +   '<p><strong>How this works.</strong> We score every card in our 15-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Card terms verified September 2026. Always reconfirm offers on the issuer page before applying.</p>'
       + '</div>';
 
     container.innerHTML = html;

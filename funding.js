@@ -121,7 +121,7 @@
     html += '</tbody></table>';
 
     html += '<div class="result-note"><strong>The points number is real, not hopeful.</strong> If you already spend ' + money(r.monthlySpend) + '/month on groceries, gas, dining, and discretionary &mdash; and you put it on a thoughtful card instead of debit &mdash; you earn this back. No new spending. No hacks. Use the Card Math calculator next to figure out which card maximizes your specific mix.</div>';
-    html += '<div class="freshness-badge">Blended earn rate 1.6&cent;/$ &middot; 2026 NerdWallet/TPG card values &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">Blended earn rate 1.6&cent;/$ &middot; 2026 NerdWallet/TPG card values &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

@@ -542,7 +542,7 @@
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> These are <em>estimates</em> built from the same 2026 pricing data the rest of the site uses. Airfare baselines come from Hopper 2026 Consumer Travel Index ranges by origin. Lodging, food, and ticket assumptions are conservative averages &mdash; your real bookings can move 20% in either direction. Use this to triangulate, not to lock in.</div>';
 
-    html += '<div class="freshness-badge">2026 pricing data &middot; last updated July 2026 &middot; next refresh August 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data &middot; last updated September 2026 &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
