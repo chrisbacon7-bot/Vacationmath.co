@@ -11,7 +11,7 @@
 
   // ---- Update this when data is refreshed ----
   var VERIFIED_LABEL = "2026 pricing data · updated September";
-  var NEXT_REFRESH = "August 2026";
+  var NEXT_REFRESH = "October 2026";
   // ---------------------------------------------
 
   function badgeHtml() {
