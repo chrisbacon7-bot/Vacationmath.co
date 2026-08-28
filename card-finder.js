@@ -9,7 +9,7 @@
  * Every card in the catalog is scored against the user's inputs.
  * Returns the top 3 with a clear "why" for each.
  *
- * Affiliate plumbing: respects card.affiliateUrl when populated.
+ * Affiliate plumbing: uses VM_cardHref / VM_cardRel when affiliate-config.js is loaded.
  */
 (function (g) {
   "use strict";
@@ -25,6 +25,12 @@
       perks:    { transferable: 10, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 3, lowFee: 4, signupBonus: 9, insurance: 9 },
       feeTier:  "mid", // $95
       tagline:  "The flexible workhorse for any trip."
+    },
+    csr: {
+      spending: { travel: 10, dining: 8, groceries: 4, gas: 3, disney: 4, cruise: 7, allinclusive: 7, themeparks: 6, everyday: 6 },
+      perks:    { transferable: 10, lounges: 10, hotelStatus: 5, brandLoyalty: 0, simpleCashback: 3, lowFee: 0, signupBonus: 9, insurance: 10 },
+      feeTier:  "ultra", // $795
+      tagline:  "Lounges and a $300 travel credit — only if you'll use them."
     },
     venturex: {
       spending: { travel: 10, dining: 6, groceries: 5, gas: 4, disney: 5, cruise: 7, allinclusive: 7, themeparks: 6, everyday: 7 },
@@ -106,17 +112,17 @@
       feeTier:  "free",
       tagline:  "Best gas rebate on any card — if you have Costco."
     },
-    citiCustomCash: {
-      spending: { travel: 5, dining: 7, groceries: 7, gas: 7, disney: 3, cruise: 3, allinclusive: 3, themeparks: 4, everyday: 5 },
-      perks:    { transferable: 0, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 8, lowFee: 10, signupBonus: 4, insurance: 2 },
-      feeTier:  "free",
-      tagline:  "5% on whichever category you spend most that month."
-    },
     chaseFreedomUnlimited: {
       spending: { travel: 6, dining: 7, groceries: 4, gas: 4, disney: 3, cruise: 4, allinclusive: 4, themeparks: 4, everyday: 7 },
       perks:    { transferable: 6, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 8, lowFee: 10, signupBonus: 5, insurance: 2 },
       feeTier:  "free",
       tagline:  "Everyday booster — pair with a Sapphire to unlock transfers."
+    },
+    citiStrata: {
+      spending: { travel: 8, dining: 8, groceries: 8, gas: 8, disney: 4, cruise: 6, allinclusive: 6, themeparks: 5, everyday: 7 },
+      perks:    { transferable: 8, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 4, lowFee: 4, signupBonus: 7, insurance: 7 },
+      feeTier:  "mid",
+      tagline:  "3x on groceries, gas, and dining with transferable points."
     }
   };
 
@@ -144,6 +150,7 @@
 
     Object.keys(CARD_PROFILES).forEach(function (id) {
       var profile = CARD_PROFILES[id];
+      if (g.VM_CARDS && g.VM_CARDS.CARDS && g.VM_CARDS.CARDS[id] && g.VM_CARDS.CARDS[id].available === false) return;
 
       // Hard filter: skip cards over user's fee tolerance
       if (allowedTiers.indexOf(profile.feeTier) === -1) return;
@@ -152,7 +159,6 @@
       var perkScore = 0;
       var reasons = [];
 
-      // Spending dimension (weight 1.0)
       spendingStyle.forEach(function (tag) {
         var v = profile.spending[tag] || 0;
         spendScore += v;
@@ -160,7 +166,6 @@
         else if (v >= 6) reasons.push({ tag: tag, kind: 'spend', strength: 'good' });
       });
 
-      // Perks dimension (weight 1.2 — slightly heavier so perks matter)
       perks.forEach(function (tag) {
         var v = profile.perks[tag] || 0;
         perkScore += v * 1.2;
@@ -168,7 +173,6 @@
         else if (v >= 6) reasons.push({ tag: tag, kind: 'perk', strength: 'good' });
       });
 
-      // Tiny tie-breaker bonus: free cards get a small boost when fee tolerance is "low"
       var feeBonus = 0;
       if (feeTolerance === 'low' && profile.feeTier === 'free') feeBonus = 1;
       if (feeTolerance === 'none' && profile.feeTier === 'free') feeBonus = 2;
@@ -189,7 +193,6 @@
     return results;
   }
 
-  // ---------- Reason text ----------
   var REASON_LABELS = {
     spend: {
       travel: 'travel spend',
@@ -215,7 +218,6 @@
   };
 
   function buildWhyText(card, reasons, spendingStyle, perks) {
-    // Take the 2 strongest reasons, prefer matching user's actual picks
     var strong = reasons.filter(function (r) { return r.strength === 'strong'; });
     var good = reasons.filter(function (r) { return r.strength === 'good'; });
     var picks = strong.concat(good).slice(0, 2);
@@ -230,7 +232,6 @@
     return 'Strong on ' + phrases[0] + ' and ' + phrases[1] + '.';
   }
 
-  // ---------- HTML rendering ----------
   function money(n) {
     return '$' + Math.round(n).toLocaleString('en-US');
   }
@@ -246,11 +247,18 @@
   }
 
   function affiliateLink(card) {
-    var href = (card.affiliateUrl && card.affiliateUrl.length > 0) ? card.affiliateUrl : card.url;
-    var isAff = !!(card.affiliateUrl && card.affiliateUrl.length > 0);
+    var href = (typeof g.VM_cardHref === "function")
+      ? g.VM_cardHref(card)
+      : ((card.affiliateUrl && card.affiliateUrl.length > 0) ? card.affiliateUrl : card.url);
+    var isAff = (typeof g.VM_cardIsAffiliate === "function")
+      ? g.VM_cardIsAffiliate(card, href)
+      : !!(card.affiliateUrl && card.affiliateUrl.length > 0);
+    var rel = (typeof g.VM_cardRel === "function")
+      ? g.VM_cardRel(card, href)
+      : (isAff ? 'sponsored noopener' : 'noopener');
     return {
       href: href,
-      rel: isAff ? 'sponsored noopener' : 'noopener',
+      rel: rel,
       tag: isAff
         ? '<span class="cf-aff-tag">Affiliate</span>'
         : '<span class="cf-aff-tag cf-aff-tag--official">Official issuer page</span>'
@@ -267,6 +275,17 @@
       ? 'No annual fee'
       : money(card.annualFee) + '/yr annual fee';
 
+    var estimateHtml = '';
+    if (typeof card.valueFn === 'function') {
+      var est = Math.round(card.valueFn(5000));
+      estimateHtml = '<p class="cf-card-est">Est. first-year offset on a $5,000 trip: ' + money(est) + '</p>'
+        + '<p class="cf-card-fee-note">' + escapeHtml(feeLine) + '</p>';
+    }
+    var chaseNote = '';
+    if (card.issuer === 'Chase') {
+      chaseNote = '<p class="cf-card-524">Chase typically declines new cards if you\'ve opened 5+ in 24 months.</p>';
+    }
+
     var rankLabel = ['Best match', 'Strong runner-up', 'Worth a look'][rank] || ('Pick ' + (rank + 1));
     var rankClass = ['cf-rank-1', 'cf-rank-2', 'cf-rank-3'][rank] || 'cf-rank-x';
 
@@ -278,6 +297,8 @@
       +     '<p class="cf-card-issuer">' + escapeHtml(card.issuer) + ' &middot; ' + feeLine + '</p>'
       +   '</header>'
       +   '<p class="cf-card-tagline">' + escapeHtml(profile.tagline) + '</p>'
+      +   estimateHtml
+      +   chaseNote
       +   '<div class="cf-why">'
       +     '<p class="cf-why-label">Why it ranked here</p>'
       +     '<p class="cf-why-text">' + escapeHtml(why) + '</p>'
@@ -288,7 +309,7 @@
       +     '<div><dt>Perks</dt><dd>' + escapeHtml(card.networkPerks) + '</dd></div>'
       +   '</dl>'
       +   '<div class="cf-card-foot">'
-      +     '<a class="cf-card-cta" href="' + escapeHtml(link.href) + '" target="_blank" rel="' + link.rel + '">'
+      +     '<a class="cf-card-cta" data-card-id="' + escapeHtml(card.id) + '" href="' + escapeHtml(link.href) + '" target="_blank" rel="' + link.rel + '">'
       +       'See the offer'
       +     '</a>'
       +     link.tag
@@ -324,10 +345,18 @@
       +   top3.map(function (r, i) { return renderRankedCard(r, i, spendingStyle, perks); }).join('')
       + '</div>'
       + '<div class="cf-disclosure">'
-      +   '<p><strong>How this works.</strong> We score every card in our 15-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Card terms verified September 2026. Always reconfirm offers on the issuer page before applying.</p>'
+      +   '<p><strong>How this works.</strong> We score every card in our 16-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Rankings ignore commission; if a link is affiliate it is labeled Affiliate and uses rel=sponsored. Card terms verified August 28, 2026. Always reconfirm offers on the issuer page before applying. <a href="/disclosures">Affiliate disclosure</a>.</p>'
       + '</div>';
 
     container.innerHTML = html;
+
+    Array.prototype.forEach.call(container.querySelectorAll(".cf-card-cta"), function (a) {
+      a.addEventListener("click", function () {
+        var id = a.getAttribute("data-card-id");
+        var card = (g.VM_CARDS && g.VM_CARDS.CARDS && g.VM_CARDS.CARDS[id]) || { id: id };
+        if (typeof g.VM_trackCardClick === "function") g.VM_trackCardClick(card, a.getAttribute("href"));
+      });
+    });
   }
 
   function buildSummary(spendingStyle, perks, feeTolerance) {
@@ -346,7 +375,6 @@
     return 'Spending on ' + spend + '. Prioritizing ' + perksText + '. Comfortable with ' + feeText + '.';
   }
 
-  // ---------- Public API ----------
   g.VM_CardFinder = {
     score: scoreCards,
     render: renderResults,
