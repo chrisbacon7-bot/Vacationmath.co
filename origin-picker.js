@@ -88,12 +88,26 @@
   function zipToAirport(zip, callback) {
     var z = String(zip).trim().replace(/\D/g,"").slice(0,5);
     if (z.length < 5) { callback(null); return; }
-    var data = global.ZIP_DATA;
-    if (!data || !data[z]) { callback(null); return; }
-    var coords = data[z]; // [lat, lng]
-    var id = nearestAirport(coords[0], coords[1]);
-    var airport = id ? AIRPORTS.filter(function(a){ return a.id === id; })[0] : null;
-    callback(id, airport ? airport.label : null);
+
+    // ZIP_DATA is loaded on demand (see zip-loader.js) so the 1.1 MB table
+    // isn't shipped to visitors who never type a ZIP.
+    var resolve = function () {
+      var data = global.ZIP_DATA;
+      if (!data || !data[z]) { callback(null); return; }
+      var coords = data[z]; // [lat, lng]
+      var id = nearestAirport(coords[0], coords[1]);
+      var airport = id ? AIRPORTS.filter(function(a){ return a.id === id; })[0] : null;
+      callback(id, airport ? airport.label : null);
+    };
+
+    if (global.VM_Zip) {
+      global.VM_Zip.ensure(function (ok) {
+        if (!ok) { callback(null); return; }
+        resolve();
+      });
+    } else {
+      resolve(); // zip-data.js loaded eagerly (legacy pages)
+    }
   }
 
   // ----------------------------------------------------------------
@@ -112,6 +126,8 @@
   // ----------------------------------------------------------------
   function wireZipAutoSelect(zipInputEl, originSelectEl, statusEl) {
     if (!zipInputEl || !originSelectEl) return;
+    // Start fetching the ZIP table as soon as the field is touched.
+    if (global.VM_Zip) global.VM_Zip.warm(zipInputEl);
     zipInputEl.addEventListener("input", function() {
       var z = zipInputEl.value.replace(/\D/g,"");
       if (z.length !== 5) return;

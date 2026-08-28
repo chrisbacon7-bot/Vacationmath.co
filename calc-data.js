@@ -52,50 +52,11 @@
   // ----------------------------------------------------------------
   // Per-person totals for 7-night Caribbean, interior cabin (the standard)
   var CRUISE = {
-    lines: {
-      msc: {
-        label: "MSC",
-        note: "Kids 17 & under often free as 3rd/4th guest",
-        perPersonLow: 439, perPersonAvg: 600, perPersonHigh: 900,
-        gratuityPerDay: 17,
-        kidsFreeProgram: true
-      },
-      carnival: {
-        label: "Carnival",
-        note: "Best mid-tier value; CHEERS drinks $84/day",
-        perPersonLow: 614, perPersonAvg: 850, perPersonHigh: 1500,
-        gratuityPerDay: 17,
-        kidsFreeProgram: false
-      },
-      royal: {
-        label: "Royal Caribbean",
-        note: "Mega-ship premium for Icon / Utopia / Star",
-        perPersonLow: 492, perPersonAvg: 850, perPersonHigh: 1555,
-        gratuityPerDay: 18.50,
-        kidsFreeProgram: false
-      },
-      ncl: {
-        label: "Norwegian (NCL)",
-        note: "'Free at Sea' bundles drinks but adds $28.50/pp/day in package service charges",
-        perPersonLow: 600, perPersonAvg: 850, perPersonHigh: 1200,
-        gratuityPerDay: 20,
-        kidsFreeProgram: false
-      },
-      princess: {
-        label: "Princess",
-        note: "Plus package ($65/pp/day, $70 on Sphere class) bundles drinks + tips + Wi-Fi",
-        perPersonLow: 410, perPersonAvg: 700, perPersonHigh: 1100,
-        gratuityPerDay: 18,
-        kidsFreeProgram: false
-      },
-      disney: {
-        label: "Disney Cruise Line",
-        note: "Premium pricing. No drink packages. Kids pay full.",
-        perPersonLow: 1108, perPersonAvg: 1750, perPersonHigh: 2800,
-        gratuityPerDay: 16,
-        kidsFreeProgram: false
-      }
-    },
+    // NOTE: the former `lines` object was removed on 2026-08-28. It duplicated
+    // CRUISE_LINES_EXPANDED with different fares, and /budget read it while
+    // /cruise read the expanded catalog — so the two calculators disagreed by
+    // up to 55% on the same cruise line. CRUISE_LINES_EXPANDED is now the
+    // single source of truth for per-line fares and gratuities.
     // Cabin upgrade per person on top of interior
     cabinUpgrade: {
       interior: 0,
@@ -367,7 +328,7 @@
   var THEMEPARKS = {
     disney: {
       label: "Walt Disney World",
-      hotelOnPropAvg: 366,           // Moderate avg
+      hotelOnPropAvg: 350,           // Mirrors DISNEY.resorts.moderate.avg
       ticketAdultPerDay: 160,        // Mid-season avg (also 4-day promo: $109)
       ticketChildPerDay: 155,
       mealPerPersonPerDay: 110,      // QS+TS combo, ~Disney inflated pricing
