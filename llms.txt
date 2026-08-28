@@ -1,0 +1,40 @@
+# Vacation Math
+
+> Free 2026 vacation cost calculators and the Tuesday Travel Math newsletter. Honest, itemized trip math — no hype.
+
+Vacation Math (https://vacationmath.co) is a free static site of 2026 vacation cost calculators. Founder Chris Bacon lives in Orlando, Florida. Canonical host: https://vacationmath.co (no www).
+
+The site prices real trips before you book: cruises, Disney World / Disneyland, all-inclusive resorts, theme parks, road trips, Europe/Hawaii-style big trips, points vs. cash, timeshare math, when to book, and a reverse budget calculator. Tuesday Travel Math is the weekly newsletter and lives at /blog/.
+
+## Calculators
+
+- [All calculators](https://vacationmath.co/calculators)
+- [Disney World cost calculator](https://vacationmath.co/disney)
+- [Cruise cost calculator](https://vacationmath.co/cruise)
+- [All-inclusive resort cost calculator](https://vacationmath.co/allinclusive)
+- [Theme park trip calculator](https://vacationmath.co/themeparks)
+- [Road trip calculator](https://vacationmath.co/roadtrip)
+- [Reverse vacation budget calculator](https://vacationmath.co/budget)
+- [Trip Finder](https://vacationmath.co/tripfinder)
+- [Travel card finder](https://vacationmath.co/card-finder)
+- [Best time to book](https://vacationmath.co/whentobook)
+- [Points vs. cash](https://vacationmath.co/points)
+- [Timeshare math](https://vacationmath.co/timeshare)
+- [Trip funding planner](https://vacationmath.co/funding)
+- [Trip Tracker spreadsheet](https://vacationmath.co/tracker)
+
+## Guides
+
+- [Cost guides index](https://vacationmath.co/guides)
+- [Family trips](https://vacationmath.co/family-trips)
+- [Cruise math](https://vacationmath.co/cruise-math)
+- [The big trip](https://vacationmath.co/big-trip)
+- [How it works / about](https://vacationmath.co/how-it-works)
+
+## Blog
+
+- [Tuesday Travel Math](https://vacationmath.co/blog/) — weekly issues on real travel costs.
+
+## Optional
+
+- Contact: chris@vacationmath.co
