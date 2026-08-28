@@ -27,7 +27,7 @@
         source: e.source
       };
     }
-    return P.programs[key];
+    return null;   // POINTS_EXPANDED is the only catalog; see calc-data.js
   }
 
   function $(id) { return document.getElementById(id); }
@@ -154,6 +154,18 @@
     field.hidden = $("benchmark").value !== "custom";
   }
   $("benchmark").addEventListener("change", updateCppVisibility);
+
+  // Results are rendered on load, so any input change must re-render or the
+  // panel shows stale numbers for the previously selected program. Previously
+  // only the Calculate button recalculated, so switching program left the old
+  // program's values on screen.
+  ["program", "benchmark", "points", "cashprice", "taxesfees", "customCpp"]
+    .forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var evt = el.tagName === "SELECT" ? "change" : "input";
+      el.addEventListener(evt, function () { render(calculate()); });
+    });
 
   window.addEventListener("DOMContentLoaded", function () {
     populatePrograms();

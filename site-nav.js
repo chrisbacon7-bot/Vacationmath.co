@@ -6,57 +6,58 @@
   'use strict';
 
   const CALCULATORS = [
-    { href: 'tripfinder.html',   label: 'Where Should We Go?' },
-    { href: 'budget.html',       label: 'What Can We Afford?' },
-    { href: 'disney.html',       label: 'Disney World Cost' },
-    { href: 'cruise.html',       label: 'Cruise Cost' },
-    { href: 'allinclusive.html', label: 'All-Inclusive Cost' },
-    { href: 'themeparks.html',   label: 'Theme Park Cost' },
-    { href: 'roadtrip.html',     label: 'Road Trip: Drive or Fly?' },
-    { href: 'points.html',       label: 'Points vs. Cash' },
-    { href: 'whentobook.html',   label: 'Best Time to Book' },
-    { href: 'timeshare.html',    label: 'Timeshare Math' },
+    { href: '/tripfinder',   label: 'Where Should We Go?' },
+    { href: '/budget',       label: 'What Can We Afford?' },
+    { href: '/disney',       label: 'Disney World Cost' },
+    { href: '/cruise',       label: 'Cruise Cost' },
+    { href: '/allinclusive', label: 'All-Inclusive Cost' },
+    { href: '/themeparks',   label: 'Theme Park Cost' },
+    { href: '/roadtrip',     label: 'Road Trip: Drive or Fly?' },
+    { href: '/points',       label: 'Points vs. Cash' },
+    { href: '/whentobook',   label: 'Best Time to Book' },
+    { href: '/timeshare',    label: 'Timeshare Math' },
     { href: '#',                 label: '— Spreadsheet —', divider: true },
-    { href: 'tracker.html',      label: 'Trip Tracker (.xlsx)' }
+    { href: '/tracker',      label: 'Trip Tracker (.xlsx)' }
   ];
 
   const PILLARS = [
-    { href: 'family-trips.html', label: 'Family Trips' },
-    { href: 'cruise-math.html',  label: 'Cruise Math' },
-    { href: 'big-trip.html',     label: 'The Big Trip' },
-    { href: 'guides/',           label: '— Cost Guides —', divider: true },
-    { href: 'guides/disney-world-vacation-cost.html',      label: 'Disney World Cost Guide' },
-    { href: 'guides/how-much-does-a-cruise-cost.html',     label: 'How Much Does a Cruise Cost' },
-    { href: 'guides/all-inclusive-resort-cost-guide.html', label: 'All-Inclusive Cost Guide' },
-    { href: 'guides/hidden-costs-disney-world.html',       label: 'Hidden Disney Costs' },
-    { href: 'guides/cruise-vs-all-inclusive-cost.html',    label: 'Cruise vs. All-Inclusive' },
-    { href: 'guides/how-much-to-budget-for-vacation.html', label: 'Vacation Budget Guide' },
-    { href: 'blog/',             label: '— Tuesday Travel Math —', divider: true },
-    { href: 'blog/',             label: 'All Issues' },
-    { href: 'blog/summer-road-trip-gas-cost-2026', label: 'Issue #1 · Summer Gas Math' },
-    { href: 'blog/summer-airfare-cost-2026',       label: 'Issue #2 · Summer Airfare Math' },
-    { href: 'blog/one-way-vs-round-trip-flights',  label: 'Issue #3 · One-Way vs Round Trip' },
-    { href: 'blog/hotel-points-math-2026',         label: 'Issue #4 · Hotel Points Math' },
-    { href: 'blog/all-inclusive-hidden-fees-2026',      label: 'Issue #5 · All-Inclusive Hidden Fees' },
-    { href: 'blog/post-july-4th-travel-prices-2026',    label: 'Issue #6 · Post-July 4th Prices' },
-    { href: 'blog/credit-card-vacation-debt-2026',      label: 'Issue #7 · Vacation Credit Card Debt' },
-    { href: 'blog/disney-food-snacks-cost-2026',        label: 'Issue #8 · Disney Food &amp; Snacks' },
-    { href: 'blog/disney-merchandise-cost-2026',        label: 'Issue #9 · Disney Merchandise' },
-    { href: 'blog/fall-travel-cost-2026',               label: 'Issue #10 · Fall Travel Cost' },
-    { href: 'blog/labor-day-travel-cost-2026',          label: 'Issue #11 · Labor Day Travel Cost' },
-    { href: 'blog/halloween-events-cost-2026',          label: 'Issue #12 · Halloween Events Cost' },
-    { href: 'blog/thanksgiving-christmas-flight-booking-2026', label: 'Issue #13 · Holiday Flight Booking' }
+    { href: '/family-trips', label: 'Family Trips' },
+    { href: '/cruise-math',  label: 'Cruise Math' },
+    { href: '/big-trip',     label: 'The Big Trip' },
+    { href: '/guides/',           label: '— Cost Guides —', divider: true },
+    { href: '/guides/disney-world-vacation-cost',      label: 'Disney World Cost Guide' },
+    { href: '/guides/how-much-does-a-cruise-cost',     label: 'How Much Does a Cruise Cost' },
+    { href: '/guides/all-inclusive-resort-cost-guide', label: 'All-Inclusive Cost Guide' },
+    { href: '/guides/hidden-costs-disney-world',       label: 'Hidden Disney Costs' },
+    { href: '/guides/cruise-vs-all-inclusive-cost',    label: 'Cruise vs. All-Inclusive' },
+    { href: '/guides/how-much-to-budget-for-vacation', label: 'Vacation Budget Guide' },
+    { href: '/blog/',             label: '— Tuesday Travel Math —', divider: true },
+    { href: '/blog/',             label: 'All Issues' },
+    { href: '/blog/summer-road-trip-gas-cost-2026', label: 'Issue #1 · Summer Gas Math' },
+    { href: '/blog/summer-airfare-cost-2026',       label: 'Issue #2 · Summer Airfare Math' },
+    { href: '/blog/one-way-vs-round-trip-flights',  label: 'Issue #3 · One-Way vs Round Trip' },
+    { href: '/blog/hotel-points-math-2026',         label: 'Issue #4 · Hotel Points Math' },
+    { href: '/blog/all-inclusive-hidden-fees-2026',      label: 'Issue #5 · All-Inclusive Hidden Fees' },
+    { href: '/blog/post-july-4th-travel-prices-2026',    label: 'Issue #6 · Post-July 4th Prices' },
+    { href: '/blog/credit-card-vacation-debt-2026',      label: 'Issue #7 · Vacation Credit Card Debt' },
+    { href: '/blog/disney-food-snacks-cost-2026',        label: 'Issue #8 · Disney Food &amp; Snacks' },
+    { href: '/blog/disney-merchandise-cost-2026',        label: 'Issue #9 · Disney Merchandise' },
+    { href: '/blog/fall-travel-cost-2026',               label: 'Issue #10 · Fall Travel Cost' },
+    { href: '/blog/labor-day-travel-cost-2026',          label: 'Issue #11 · Labor Day Travel Cost' },
+    { href: '/blog/halloween-events-cost-2026',          label: 'Issue #12 · Halloween Events Cost' },
+    { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Issue #13 · Holiday Flight Booking' }
   ];
 
   // Page detection so we can highlight active nav item
   function currentPage() {
     const path = location.pathname.toLowerCase();
-    const p = (path.split('/').pop() || 'index.html');
-    if (p === '' || p === 'index.html') return 'home';
-    if (p === 'card-finder.html') return 'finder';
-    if (p === 'budget.html') return 'calc:budget.html';
-    if (p === 'tripfinder.html') return 'calc:tripfinder.html';
-    if (p === 'how-it-works.html' || p === 'pillars.html') return 'how';
+    // Normalise to a clean, leading-slash path so both /disney and the legacy
+    // /disney.html resolve to the same key as the nav's clean hrefs.
+    let p = path.replace(/\/index\.html?$/, '/').replace(/\.html$/, '');
+    if (p.length > 1) p = p.replace(/\/+$/, '');
+    if (p === '' || p === '/') return 'home';
+    if (p === '/card-finder') return 'finder';
+    if (p === '/how-it-works' || p === '/pillars') return 'how';
     if (path.includes('/guides/')) return 'pillar:guides';
     if (path.includes('/blog/')) return 'pillar:blog';
     if (CALCULATORS.some(c => c.href === p)) return 'calc:' + p;
@@ -76,21 +77,21 @@
 
     const dropdownItems = CALCULATORS.map(c => {
       const isActive = active === 'calc:' + c.href;
-      return `<li><a href="${root}${c.href}"${isActive ? ' aria-current="page"' : ''}>${c.label}</a></li>`;
+      return `<li><a href="${c.href}"${isActive ? ' aria-current="page"' : ''}>${c.label}</a></li>`;
     }).join('');
 
     const pillarItems = PILLARS.map(c => {
       if (c.divider) {
         return `<li class="vm-drop-divider">${c.label}</li>`;
       }
-      const isActive = active === 'pillar:' + c.href || (c.href.includes('/guides/') && active === 'pillar:guides') || (c.href.startsWith('blog/') && active === 'pillar:blog');
-      return `<li><a href="${root}${c.href}"${isActive ? ' aria-current="page"' : ''}>${c.label}</a></li>`;
+      const isActive = active === 'pillar:' + c.href || (c.href.indexOf('/guides/') === 0 && active === 'pillar:guides') || (c.href.indexOf('/blog/') === 0 && active === 'pillar:blog');
+      return `<li><a href="${c.href}"${isActive ? ' aria-current="page"' : ''}>${c.label}</a></li>`;
     }).join('');
 
     return `
 <nav class="vm-nav" aria-label="Primary">
   <div class="vm-nav-inner">
-    <a href="${root}index.html" class="vm-brand" aria-label="Vacation Math home">
+    <a href="/" class="vm-brand" aria-label="Vacation Math home">
       <svg class="vm-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <rect x="1" y="1" width="30" height="30" rx="6" stroke="currentColor" stroke-width="2"/>
         <path d="M9 13h14M9 19h14" stroke="#E6A340" stroke-width="2.5" stroke-linecap="round"/>
@@ -119,8 +120,8 @@
           ${pillarItems}
         </ul>
       </li>
-      <li><a href="${root}card-finder.html"${active === 'finder' ? ' aria-current="page"' : ''}>Card Finder</a></li>
-      <li><a href="${root}how-it-works.html"${active === 'how' ? ' aria-current="page"' : ''}>How It Works</a></li>
+      <li><a href="/card-finder"${active === 'finder' ? ' aria-current="page"' : ''}>Card Finder</a></li>
+      <li><a href="/how-it-works"${active === 'how' ? ' aria-current="page"' : ''}>How It Works</a></li>
       <li><a href="${homeIsCurrent ? '#newsletter' : root + 'index.html#newsletter'}" class="vm-nav-cta">Subscribe</a></li>
     </ul>
   </div>

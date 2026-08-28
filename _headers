@@ -1,0 +1,27 @@
+# Cloudflare Pages header rules
+# Assets are not fingerprinted, so JS/CSS use a short freshness window plus
+# stale-while-revalidate: repeat visits are served instantly from cache while
+# the browser refreshes in the background. A pricing refresh is therefore
+# visible within the hour without a purge, and immediately after one.
+
+/*.js
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/*.css
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/downloads/*
+  Cache-Control: public, max-age=86400
+
+# HTML stays revalidate-always so content edits appear at once.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
