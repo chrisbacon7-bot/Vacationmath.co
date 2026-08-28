@@ -770,6 +770,36 @@ a { color: inherit; }
 }
 .footer a:hover { color: var(--honey); border-color: var(--honey); }
 
+/* Static, crawlable calculator index. The primary nav is built client-side,
+   so this gives search engines (and no-JS visitors) real links on every page. */
+.footer-sitemap {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(251, 247, 239, 0.16);
+}
+.footer-sitemap-title {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(251, 247, 239, 0.55);
+}
+.footer-sitemap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+.footer-sitemap li { margin: 0; }
+.footer-sitemap a {
+  font-size: 13px;
+  color: rgba(251, 247, 239, 0.78);
+  border-bottom-color: rgba(251, 247, 239, 0.2);
+}
+.footer-sitemap a:hover { color: var(--honey); border-color: var(--honey); }
+
 /* ============ Mobile ============ */
 @media (max-width: 760px) {
   body { font-size: 16px; }

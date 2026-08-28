@@ -195,23 +195,11 @@
   // Cents per point at the redemption type indicated
   // ----------------------------------------------------------------
   var POINTS = {
-    programs: {
-      chase_ur:    { label: "Chase Ultimate Rewards",    cash: 1.00, portal: 1.00, transfer: 1.50, tpg: 2.05, source: "FM RRV Aug 2026 (transfer); NerdWallet (portal floor 1¢)" },
-      amex_mr:     { label: "Amex Membership Rewards",   cash: 0.60, portal: 1.00, transfer: 1.50, tpg: 2.00, source: "FM RRV Aug 2026" },
-      capone:      { label: "Capital One Miles",          cash: 1.00, portal: 1.00, transfer: 1.45, tpg: 1.85, source: "FM RRV Aug 2026" },
-      citi_tyc:    { label: "Citi ThankYou",              cash: 0.50, portal: 1.00, transfer: 1.50, tpg: 1.80, source: "FM RRV Aug 2026" },
-      bilt:        { label: "Bilt Rewards",                cash: 0.55, portal: 1.25, transfer: 1.55, tpg: 2.05, source: "FM RRV Aug 2026" },
-      delta:       { label: "Delta SkyMiles",              cash: 1.20, portal: 1.20, transfer: 1.10, tpg: 1.20, source: "FM RRV Aug 2026" },
-      united:      { label: "United MileagePlus",          cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "FM RRV Aug 2026" },
-      aa:          { label: "American AAdvantage",         cash: 1.40, portal: 1.40, transfer: 1.40, tpg: 1.40, source: "FM RRV Aug 2026" },
-      southwest:   { label: "Southwest Rapid Rewards",     cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "FrequentMiler 2026" },
-      alaska:      { label: "Atmos (Alaska/Hawaiian)",     cash: 1.50, portal: 1.50, transfer: 1.50, tpg: 1.50, source: "FrequentMiler 2026" },
-      jetblue:     { label: "JetBlue TrueBlue",            cash: 1.30, portal: 1.30, transfer: 1.30, tpg: 1.30, source: "NerdWallet 2026" },
-      marriott:    { label: "Marriott Bonvoy",             cash: 0.73, portal: 0.73, transfer: 0.73, tpg: 0.80, source: "FM RRV Aug 2026 (0.73 RRV)" },
-      hilton:      { label: "Hilton Honors",               cash: 0.35, portal: 0.35, transfer: 0.35, tpg: 0.50, source: "FM RRV Aug 2026" },
-      hyatt:       { label: "World of Hyatt",              cash: 1.50, portal: 1.50, transfer: 1.50, tpg: 1.70, source: "FM RRV Aug 2026 (best hotel program)" },
-      ihg:         { label: "IHG One Rewards",             cash: 0.59, portal: 0.59, transfer: 0.59, tpg: 0.59, source: "FM RRV Aug 2026" }
-    },
+    // NOTE: the former `programs` map was removed on 2026-08-28. It duplicated
+    // POINTS_EXPANDED (28 programs) with conflicting numbers, and points.js only
+    // ever read it as a fallback that never triggered, because the program picker
+    // is populated from POINTS_EXPANDED keys. POINTS_EXPANDED is the single source
+    // of truth for point values; `verdict` thresholds below are still used.
     // Thresholds for verdict against cash price
     verdict: {
       excellent: 1.15, // 15%+ above benchmark

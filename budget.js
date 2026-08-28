@@ -47,6 +47,12 @@
   };
 
   // Drive cost estimate per person (fuel + wear + meals, ~800 mi avg)
+  // Conservative per-person ground-transport allowance used in place of airfare
+  // when the visitor is driving. Deliberately NOT derived from gas price alone:
+  // fuel for a 1,000-mile round trip is only ~$150 per vehicle, but this figure
+  // also absorbs wear, a night on the road, parking, and meals en route, and the
+  // site's estimates are biased toward over-counting. Revisit as a product
+  // decision rather than a data refresh.
   var DRIVE_COST_PER_PERSON = 220;
 
   function getOriginFares() {
@@ -132,9 +138,15 @@
       var cruiseFareTotal = (perPerson * firstTwo) + (perPerson * 0.5 * extras);
       // Gratuities apply to adults + kids (NOT infants) — this is the trap people miss
       var gratuity = line.gratuityPerDay * nights * (adults + kids);
-      var drinks = 75 * nights * adults;          // assume adult package only
-      var sodaPkg = 12 * nights * kids;           // kids' soda pkg ~$12/day
-      var excursions = 95 * (adults + kids) * 2;  // 2 excursions, infants skip
+      // Per-line package pricing, same source /cruise uses.
+      var pkg = C.drinkPackagePerLine[key === "royal_caribbean" ? "royal" : key];
+      var drinkPerDay = pkg && typeof pkg.unlimited === "number"
+        ? pkg.unlimited : C.drinkPackages.unlimited.perDay;
+      var sodaPerDay = pkg && typeof pkg.soda === "number"
+        ? pkg.soda : C.drinkPackages.soda.perDay;
+      var drinks = drinkPerDay * nights * adults;   // adult package only
+      var sodaPkg = sodaPerDay * nights * kids;     // kids' soda package
+      var excursions = C.excursionPerPersonPerPort * (adults + kids) * 2;  // 2 ports, infants skip
       var total = cruiseFareTotal + gratuity + drinks + sodaPkg + excursions + transport;
       return {
         category: "Cruise",
@@ -165,7 +177,13 @@
         if (!rate) return;
         // Adults full rate, kids at discount, infants free (most AI resorts)
         var lodging = (rate * adults * nights) + (rate * KID_DISCOUNT[tierKey] * kids * nights);
-        var hidden = 95 * (adults + kids) + 60 * nights + 200; // excursions + tips + spa, infants skip
+        var H = VM_DATA.ALLINC.aiHiddenAdditions;
+        // Tips: all-inclusives bundle service, but $80-200 per person per week
+        // in cash is customary. Use the low end, scaled by trip length.
+        var tips = 80 * (adults + kids) * (nights / 7);
+        var hidden = (H.excursionPerPerson * H.excursionsPerTrip * (adults + kids))
+                   + tips
+                   + H.spaPerTrip;   // excursions + tips + spa, infants skip
         var total = lodging + hidden + transport;
         var tierName = tierKey === "budget" ? "budget" : (tierKey === "mid" ? "mid-range" : "luxury");
         picks.push({
@@ -199,7 +217,7 @@
       var rt = d.miles * 2;
       var fuel = (rt / 28) * R.avgGasPrice;
       var wear = rt * R.wearPerMile;
-      var hotels = 145 * nights; // moderate hotel/airbnb baseline
+      var hotels = VM_DATA.ROADTRIP.midwayHotelAvg * nights; // moderate hotel/airbnb baseline
       var food = 65 * foodHeadcount * nights;
       var activities = 70 * activityHeadcount * Math.max(1, nights - 1);
       var total = fuel + wear + hotels + food + activities;
