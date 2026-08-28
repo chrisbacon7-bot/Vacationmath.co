@@ -24,7 +24,7 @@
     { href: '/family-trips', label: 'Family Trips' },
     { href: '/cruise-math',  label: 'Cruise Math' },
     { href: '/big-trip',     label: 'The Big Trip' },
-    { href: '/guides/',           label: '— Cost Guides —', divider: true },
+    { href: '/guides',            label: '— Cost Guides —', divider: true },
     { href: '/guides/disney-world-vacation-cost',      label: 'Disney World Cost Guide' },
     { href: '/guides/how-much-does-a-cruise-cost',     label: 'How Much Does a Cruise Cost' },
     { href: '/guides/all-inclusive-resort-cost-guide', label: 'All-Inclusive Cost Guide' },
@@ -58,7 +58,7 @@
     if (p === '' || p === '/') return 'home';
     if (p === '/card-finder') return 'finder';
     if (p === '/how-it-works' || p === '/pillars') return 'how';
-    if (path.includes('/guides/')) return 'pillar:guides';
+    if (p === '/guides' || path.includes('/guides/')) return 'pillar:guides';
     if (path.includes('/blog/')) return 'pillar:blog';
     if (CALCULATORS.some(c => c.href === p)) return 'calc:' + p;
     if (PILLARS.some(c => c.href === p)) return 'pillar:' + p;

@@ -1,0 +1,4 @@
+# Collapse the duplicate /guides/ URL onto the canonical /guides
+# (both currently 200; canonical and sitemap use no trailing slash).
+/guides/              /guides  301
+/guides/index.html    /guides  301
