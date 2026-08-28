@@ -88,7 +88,6 @@
 
   var CARD_ORDER = ["csp", "csr", "venture", "venture_x", "amex_gold", "amex_plat", "bilt", "citi_premier"];
 
-  // Points valuations (cents per point). Conservative.
   var VALUATIONS = {
     ur: 0.018, mr: 0.019, capone: 0.017, citi: 0.016, bilt: 0.016, hotel: 0.006,
     cashback: 0.015
@@ -96,7 +95,28 @@
 
   var PREMIUM_IDS = ["csr", "venture_x", "amex_plat", "amex_gold", "csp", "venture", "citi_premier"];
 
-  // Default category shares of monthly spend (used only in Quick mode).
   var DEFAULT_SHARES = {
     dining: 0.10, grocery: 0.18, gas: 0.05, travel: 0.05, streaming: 0.02, other: 0.60
+  };
+
+  var CTA_URLS = {
+    csp: "https://creditcards.chase.com/rewards-credit-cards/sapphire/preferred",
+    csr: "https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve",
+    venture: "https://www.capitalone.com/credit-cards/venture/",
+    venture_x: "https://www.capitalone.com/credit-cards/venture-x/",
+    amex_gold: "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
+    amex_plat: "https://www.americanexpress.com/us/credit-cards/card/platinum/",
+    bilt: "https://www.bilt.com/card",
+    citi_premier: "https://www.citi.com/credit-cards/citi-strata-premier-credit-card"
+  };
+
+  var PROCONS = {
+    csp: { pro: "75K after $5,000 in 3 months, plus a $100 Chase Travel hotel credit, for $95. Still the best beginner math.", con: "Transfer partner redemptions require a little homework. It's not a one-click card." },
+    csr: { pro: "100k after $6,000 in 3 months. If you fly more than twice a year and use the lounges, the $300 travel credit and Priority Pass can earn the $795 fee back.", con: "$795 is real money. If you won't use the credits, the math doesn't work. Honestly evaluate before you apply." },
+    venture: { pro: "Simplest premium card on the market. 2x on everything, redeem against any travel.", con: "Capital One miles are worth less per point than Chase or Amex. The simplicity costs you a few percent." },
+    venture_x: { pro: "$300 travel credit + 10K anniversary miles effectively reduces the $395 fee to about $0–$50 net.", con: "The 10x hotel rate only works if you book through Capital One's portal. Extra lounge guests are no longer free as of Feb 1, 2026." },
+    amex_gold: { pro: "4x dining + 4x grocery is the highest earn rate for normal family spending. Welcome bonus is personalized — as high as 100k after $8k in 6 months.", con: "The $325 fee requires using the dining and Uber credits monthly. Forget once and the math slips." },
+    amex_plat: { pro: "If you fly 4+ times a year and use the credits, the lounge access alone is worth the fee. Welcome bonus is personalized — as high as 175k after $12k in 6 months.", con: "$895 is the highest fee in this calculator. Don't pretend the credits will cover it if you won't use them." },
+    bilt: { pro: "Bilt Blue (Column N.A.) is free, earns on rent, and pays $100 Bilt Cash on approval.", con: "The transfer partners are good but not Chase- or Amex-level deep. Best as a complement, not a main." },
+    citi_premier: { pro: "Strata Premier: 3x groceries, gas, and dining plus a $100 hotel benefit at $95. Quietly the best value of any mid-fee card here.", con: "Citi ThankYou points have fewer transfer partners than Chase or Amex. You give up some flexibility." }
   };
