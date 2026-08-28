@@ -9,6 +9,14 @@
 
   function $(id) { return document.getElementById(id); }
 
+  // Catalog notes are written long-form for the cruise calculator's detail
+  // panel. Budget results only have room for one sentence.
+  function firstSentence(text) {
+    if (!text) return "";
+    var m = String(text).match(/^[\s\S]*?[.!?](?=\s|$)/);
+    return (m ? m[0] : String(text)).trim();
+  }
+
   // ---- Pill buttons ----
   document.querySelectorAll(".wpills").forEach(function(group) {
     group.querySelectorAll(".wpill").forEach(function(btn) {
@@ -101,6 +109,7 @@
 
   function estCruise(opts) {
     var C = VM_DATA.CRUISE;
+    var C_LINES = VM_DATA.CRUISE_LINES_EXPANDED;
     var adults = opts.adults, kids = opts.kids, infants = opts.infants;
     var people = adults + kids + infants;
     var nights = opts.nights;
@@ -110,9 +119,10 @@
     // Adults + kids count for flight; infants on lap free.
     var transport = (fare + 80) * (adults + kids);
 
-    var lines = ["msc", "carnival", "royal", "ncl"];
+    // Read the same catalog /cruise uses, so both calculators agree.
+    var lines = ["msc", "carnival", "royal_caribbean", "ncl"];
     return lines.map(function(key){
-      var line = C.lines[key];
+      var line = C_LINES[key];
       // Per-person fare scales with nights. Apply 3rd/4th-guest 50% discount logic:
       // first 2 guests at full, remaining at 50% (a reasonable default for budget calc).
       var perPerson = line.perPersonAvg * (nights / 7);
@@ -131,7 +141,7 @@
         label: line.label + " &mdash; " + nights + "-night Caribbean cruise",
         total: total,
         perPersonPerDay: people > 0 ? (total / people / nights) : 0,
-        notes: line.note + ". 3rd/4th guests at half fare, gratuities for everyone 2+, adult drink package, two excursions."
+        notes: firstSentence(line.note) + " 3rd/4th guests at half fare, gratuities for everyone 2+, adult drink package, two excursions."
       };
     });
   }

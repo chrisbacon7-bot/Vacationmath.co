@@ -145,8 +145,8 @@
       if (statusEl) statusEl.textContent = '';
       return null;
     }
-    // ZIP_DATA is bundled as zip-data.js
-    if (typeof ZIP_DATA !== 'undefined' && ZIP_DATA[raw]) {
+    // ZIP_DATA is loaded on demand by zip-loader.js
+    if (typeof ZIP_DATA !== 'undefined' && ZIP_DATA && ZIP_DATA[raw]) {
       var coords = { lat: ZIP_DATA[raw][0], lng: ZIP_DATA[raw][1] };
       if (statusEl) statusEl.textContent = '✓ Found';
       return coords;
@@ -165,20 +165,44 @@
   function initZipInput() {
     var zipEl = $("tf-driving-from");
     if (!zipEl) return;
+    // Warm the on-demand ZIP table as soon as the field is touched.
+    if (window.VM_Zip) window.VM_Zip.warm(zipEl);
     zipEl.addEventListener("input", function() {
       var raw = this.value.replace(/\D/g, '').slice(0, 5);
       this.value = raw;
       var statusEl = $("tf-zip-status");
-      if (raw.length === 5) {
-        if (typeof ZIP_DATA !== 'undefined' && ZIP_DATA[raw]) {
-          if (statusEl) statusEl.textContent = '✓';
-          if (statusEl) statusEl.style.color = 'var(--honey, #c8882a)';
-        } else {
-          if (statusEl) statusEl.textContent = 'ZIP not found';
-          if (statusEl) statusEl.style.color = '#c0392b';
-        }
-      } else {
+      if (raw.length !== 5) {
         if (statusEl) statusEl.textContent = '';
+        return;
+      }
+      if (statusEl) {
+        statusEl.textContent = 'Checking…';
+        statusEl.style.color = 'var(--ink-soft, #6b6056)';
+      }
+      var verify = function () {
+        // Re-read the field: the visitor may have kept typing.
+        var current = zipEl.value.replace(/\D/g, '').slice(0, 5);
+        if (current !== raw) return;
+        if (!statusEl) return;
+        if (typeof ZIP_DATA !== 'undefined' && ZIP_DATA && ZIP_DATA[raw]) {
+          statusEl.textContent = '✓';
+          statusEl.style.color = 'var(--honey, #c8882a)';
+        } else {
+          statusEl.textContent = 'ZIP not found';
+          statusEl.style.color = '#c0392b';
+        }
+      };
+      if (window.VM_Zip) {
+        window.VM_Zip.ensure(function (ok) {
+          if (!ok && statusEl) {
+            statusEl.textContent = 'Could not check ZIP';
+            statusEl.style.color = '#c0392b';
+            return;
+          }
+          verify();
+        });
+      } else {
+        verify();
       }
     });
   }
