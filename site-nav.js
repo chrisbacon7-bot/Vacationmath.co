@@ -200,6 +200,111 @@
     });
   }
 
+  const RELATED_ARTICLES = {
+    '/disney': [
+      { href: '/blog/disney-food-snacks-cost-2026', label: 'Disney food &amp; snacks 2026' },
+      { href: '/blog/disney-merchandise-cost-2026', label: 'Disney merchandise 2026' },
+      { href: '/blog/halloween-events-cost-2026', label: 'Halloween events cost 2026' },
+      { href: '/guides/hidden-costs-disney-world', label: 'Hidden costs of Disney World' }
+    ],
+    '/themeparks': [
+      { href: '/blog/disney-food-snacks-cost-2026', label: 'Disney food &amp; snacks 2026' },
+      { href: '/blog/disney-merchandise-cost-2026', label: 'Disney merchandise 2026' },
+      { href: '/blog/halloween-events-cost-2026', label: 'Halloween events cost 2026' },
+      { href: '/guides/hidden-costs-disney-world', label: 'Hidden costs of Disney World' }
+    ],
+    '/cruise': [
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' },
+      { href: '/guides/how-much-does-a-cruise-cost', label: 'How much does a cruise cost' },
+      { href: '/guides/4-night-cruise-cost-2026', label: '4-night cruise cost 2026' },
+      { href: '/guides/cruise-vs-all-inclusive-cost', label: 'Cruise vs all-inclusive cost' }
+    ],
+    '/cruise-math': [
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' },
+      { href: '/guides/how-much-does-a-cruise-cost', label: 'How much does a cruise cost' },
+      { href: '/guides/4-night-cruise-cost-2026', label: '4-night cruise cost 2026' },
+      { href: '/guides/cruise-vs-all-inclusive-cost', label: 'Cruise vs all-inclusive cost' }
+    ],
+    '/allinclusive': [
+      { href: '/blog/all-inclusive-hidden-fees-2026', label: 'All-inclusive hidden fees 2026' },
+      { href: '/guides/all-inclusive-resort-cost-guide', label: 'All-inclusive resort cost guide' },
+      { href: '/guides/cruise-vs-all-inclusive-cost', label: 'Cruise vs all-inclusive cost' }
+    ],
+    '/roadtrip': [
+      { href: '/blog/summer-road-trip-gas-cost-2026', label: 'Summer road trip gas cost 2026' },
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' },
+      { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
+    ],
+    '/budget': [
+      { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
+      { href: '/guides/how-much-to-budget-for-vacation', label: 'How much to budget for vacation' },
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }
+    ],
+    '/funding': [
+      { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
+      { href: '/guides/how-much-to-budget-for-vacation', label: 'How much to budget for vacation' },
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }
+    ],
+    '/whentobook': [
+      { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Thanksgiving &amp; Christmas flights 2026' },
+      { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' },
+      { href: '/blog/post-july-4th-travel-prices-2026', label: 'Post-July 4th travel prices 2026' },
+      { href: '/blog/summer-airfare-cost-2026', label: 'Summer airfare cost 2026' }
+    ],
+    '/points': [
+      { href: '/blog/hotel-points-math-2026', label: 'Hotel points math 2026' },
+      { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' }
+    ],
+    '/card-finder': [
+      { href: '/blog/hotel-points-math-2026', label: 'Hotel points math 2026' },
+      { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' }
+    ],
+    '/family-trips': [
+      { href: '/blog/disney-food-snacks-cost-2026', label: 'Disney food &amp; snacks 2026' },
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' },
+      { href: '/guides/disney-world-vacation-cost', label: 'Disney World vacation cost' }
+    ],
+    '/calculators': [
+      { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Thanksgiving &amp; Christmas flights 2026' },
+      { href: '/blog/halloween-events-cost-2026', label: 'Halloween events cost 2026' },
+      { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
+    ],
+    '/how-it-works': [],
+    '/': [
+      { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Thanksgiving &amp; Christmas flights 2026' },
+      { href: '/blog/halloween-events-cost-2026', label: 'Halloween events cost 2026' },
+      { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
+    ]
+  };
+
+  function chip(href, label, highlight) {
+    const bg = highlight ? '#fbe8c8' : '#f0f4f8';
+    const color = highlight ? '#b07a1f' : '#1e3a5f';
+    const weight = highlight ? 'font-weight:600;' : '';
+    return `<li><a href="${href}" style="display:inline-block; padding:0.5rem 1rem; background:${bg}; border-radius:6px; text-decoration:none; color:${color}; font-size:0.9rem; ${weight}">${label}</a></li>`;
+  }
+
+  function injectRelatedArticles() {
+    if (document.querySelector('.related-articles')) return;
+    let p = location.pathname.toLowerCase().replace(/\/index\.html?$/, '/').replace(/\.html$/, '');
+    if (p.length > 1) p = p.replace(/\/+$/, '');
+    if (p === '') p = '/';
+    if (!(p in RELATED_ARTICLES)) return;
+    const items = RELATED_ARTICLES[p];
+    const lis = items.map(i => chip(i.href, i.label, false)).join('') + chip('/blog/', 'All issues', true);
+    const html = `<section class="related-articles" aria-label="Tuesday Travel Math" style="padding:2rem 0; border-top:1px solid #e5e7eb; margin-top:2rem;">
+  <div class="container">
+    <h2 style="font-size:1.1rem; font-weight:600; margin-bottom:1rem; color:#1e3a5f;">Tuesday Travel Math</h2>
+    <ul style="list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:0.75rem;">${lis}</ul>
+  </div>
+</section>`;
+    const footer = document.querySelector('footer.footer');
+    if (!footer) return;
+    const wrap = document.createElement('div');
+    wrap.innerHTML = html.trim();
+    footer.parentNode.insertBefore(wrap.firstElementChild, footer);
+  }
+
   function inject() {
     const existing = document.querySelector('nav.nav, nav.vm-nav');
     if (existing) existing.remove();
@@ -208,6 +313,7 @@
     const nav = placeholder.firstElementChild;
     document.body.insertBefore(nav, document.body.firstChild);
     wire();
+    injectRelatedArticles();
   }
 
   if (document.readyState === 'loading') {
