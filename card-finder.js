@@ -21,7 +21,7 @@
   var CARD_PROFILES = {
     // ----- Premium travel -----
     csp: {
-      spending: { travel: 9, dining: 8, groceries: 4, gas: 3, disney: 4, cruise: 6, allinclusive: 6, themeparks: 6, everyday: 6 },
+      spending: { travel: 9, dining: 8, groceries: 4, gas: 7, disney: 4, cruise: 6, allinclusive: 6, themeparks: 6, everyday: 6 },
       perks:    { transferable: 10, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 3, lowFee: 4, signupBonus: 9, insurance: 9 },
       feeTier:  "mid", // $95
       tagline:  "The flexible workhorse for any trip."
@@ -88,7 +88,7 @@
       spending: { travel: 6, dining: 6, groceries: 3, gas: 2, disney: 2, cruise: 3, allinclusive: 9, themeparks: 3, everyday: 4 },
       perks:    { transferable: 0, lounges: 6, hotelStatus: 10, brandLoyalty: 10, simpleCashback: 2, lowFee: 0, signupBonus: 8, insurance: 6 },
       feeTier:  "ultra", // $650
-      tagline:  "Free night + $325 in credits — Marriott loyalists only."
+      tagline:  "Free night + dining credits — Marriott loyalists only. 150k + $250 SC after $6k/6 mo through Sep 30, 2026."
     },
 
     // ----- Cruise co-brands -----
