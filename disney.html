@@ -35,7 +35,7 @@
 <meta name="author" content="Chris Bacon" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Disney World Real-Cost Calculator (2026 Pricing)", "item": "https://vacationmath.co/disney"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a Disney World trip really cost in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "A party of four with park tickets, a moderate Disney resort, food, Lightning Lane, parking, and souvenirs typically lands between $5,500 and $8,500 for a 5-day trip in 2026. The calculator itemizes every category so you can see what your specific trip will cost based on your dates and choices."}}, {"@type": "Question", "name": "What does Disney leave out of their price quote?", "acceptedAnswer": {"@type": "Answer", "text": "Disney's room-plus-tickets quote leaves out food (about $90 per person per day), Lightning Lane ($25-39 per person per day in 2026), parking ($30 per day), tips, souvenirs, and snacks. These typically add 40-60% to the headline price."}}, {"@type": "Question", "name": "Is Lightning Lane worth it in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Lightning Lane is worth it on high-crowd days at Magic Kingdom and Hollywood Studios, where it saves 2-4 hours of standby waiting. Skip it at EPCOT and Animal Kingdom on moderate-crowd days. The calculator factors this in based on your trip dates."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a Disney World trip really cost in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "A party of four with park tickets, a moderate Disney resort, food, Lightning Lane, parking, and souvenirs typically lands between $5,500 and $8,500 for a 5-day trip in 2026. The calculator itemizes every category so you can see what your specific trip will cost based on your dates and choices."}}, {"@type": "Question", "name": "What does Disney leave out of their price quote?", "acceptedAnswer": {"@type": "Answer", "text": "Disney's room-plus-tickets quote leaves out food (about $90 per person per day), Lightning Lane ($15-45 per person per day in 2026), parking ($30 per day), tips, souvenirs, and snacks. These typically add 40-60% to the headline price."}}, {"@type": "Question", "name": "Is Lightning Lane worth it in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Lightning Lane is worth it on high-crowd days at Magic Kingdom and Hollywood Studios, where it saves 2-4 hours of standby waiting. Skip it at EPCOT and Animal Kingdom on moderate-crowd days. The calculator factors this in based on your trip dates."}}]}</script>
 <!-- VM-SEO-END -->
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
@@ -64,7 +64,7 @@
     "url": "https://vacationmath.co"
   },
   "datePublished": "2026-05-24",
-  "dateModified": "2026-08-28",
+  "dateModified": "2026-08-29",
   "mainEntityOfPage": "https://vacationmath.co/disney"
 }
 </script>
@@ -168,6 +168,7 @@
           <option value="moderate" selected>Moderate — Caribbean Beach, Coronado, Port Orleans</option>
           <option value="deluxe">Deluxe — Grand Floridian, Contemporary, Polynesian</option>
           <option value="offsite">Off-property — Disney Springs / nearby hotel</option>
+          <option value="dvc">DVC / points — enter cash-equivalent nightly rate</option>
           <option value="custom">Custom — enter your own nightly rate</option>
         </select>
       </div>
@@ -175,10 +176,22 @@
       <div class="field" id="custom-resort-field" hidden>
         <label for="customResortRate">Your resort nightly rate (USD)</label>
         <input type="number" id="customResortRate" min="0" step="10" value="250" />
-        <p class="hint">Use this for AirBnB, a points stay, a different on/off-property hotel, or any rate you've been quoted.</p>
+        <p class="hint">Use this for DVC/points rental or a quoted hotel. DVC usually lands near Moderate cash for a Deluxe villa — enter the cash-equivalent nightly rate, not points.</p>
       </div>
 
       <div id="dcal-container" class="dcal-container"></div>
+
+      <div class="field">
+        <label for="room-promo">Room discount</label>
+        <select id="room-promo">
+          <option value="0" selected>None (rack rate)</option>
+          <option value="15">15% off</option>
+          <option value="20">20% off</option>
+          <option value="25">25% off</option>
+          <option value="30">30% off</option>
+        </select>
+        <p class="hint">Stay Longer &amp; Save More is up to 30% through Oct 3, 2026; fall/holiday is up to 20%. Does not stack with other room/ticket sales. Stacks with Kids Eat Free. Confirm dates.</p>
+      </div>
 
       <div class="field">
         <label for="week">Specific week (auto-sets season)</label>
@@ -235,43 +248,73 @@
           <option value="light">Light — 1 QS + 1 TS (groceries supplement)</option>
           <option value="typical" selected>Typical — 2 QS + 1 TS dinner</option>
           <option value="heavy">Heavy — 2 TS + signature</option>
+          <option value="qs-plan">Quick-Service Dining Plan ($60.47/adult/night)</option>
+          <option value="table-plan">Disney Dining Plan ($98.59/adult/night)</option>
         </select>
       </div>
 
       <!-- Hidden checkboxes keep calculate() working -->
       <input type="checkbox" id="park-hopper" class="sr-only" aria-hidden="true" tabindex="-1" />
       <input type="checkbox" id="lightning-lane" checked class="sr-only" aria-hidden="true" tabindex="-1" />
+      <input type="checkbox" id="ll-premier" class="sr-only" aria-hidden="true" tabindex="-1" />
       <input type="checkbox" id="memory-maker" checked class="sr-only" aria-hidden="true" tabindex="-1" />
       <input type="checkbox" id="stroller" class="sr-only" aria-hidden="true" tabindex="-1" />
       <input type="checkbox" id="airport" checked class="sr-only" aria-hidden="true" tabindex="-1" />
+      <input type="checkbox" id="kids-eat-free" checked class="sr-only" aria-hidden="true" tabindex="-1" />
 
       <div class="toggle-group">
         <p class="pill-label" style="margin-bottom:12px;">Add-ons</p>
         <div class="toggle-row" data-checkbox="lightning-lane">
           <div class="toggle-info">
             <p class="toggle-name">Lightning Lane Multi Pass</p>
-            <p class="toggle-price" id="ll-est">~$25–39/person/day</p>
+            <p class="toggle-price" id="ll-est">~$15–$45/person/day (we use $27 mid)</p>
           </div>
           <button class="toggle-btn on" role="switch" aria-checked="true" data-checkbox="lightning-lane">On</button>
+        </div>
+        <div class="toggle-row" data-checkbox="ll-premier">
+          <div class="toggle-info">
+            <p class="toggle-name">Lightning Lane Premier Pass</p>
+            <p class="toggle-price">One park, one day, no hopper. Date-based; confirm in the app.</p>
+          </div>
+          <button class="toggle-btn" role="switch" aria-checked="false" data-checkbox="ll-premier">Off</button>
+        </div>
+        <div class="field" id="ll-premier-extras" hidden>
+          <label for="ll-premier-park">Premier park</label>
+          <select id="ll-premier-park">
+            <option value="magic-kingdom" selected>Magic Kingdom (~$389)</option>
+            <option value="hollywood-studios">Hollywood Studios (~$309)</option>
+            <option value="epcot">EPCOT (~$209)</option>
+            <option value="animal-kingdom">Animal Kingdom (~$159)</option>
+          </select>
+          <label for="ll-premier-days" style="margin-top:8px;">Premier days</label>
+          <input type="number" id="ll-premier-days" min="0" max="14" value="1" />
+          <p class="hint">Per person, per day, one park (no hopper benefit). Default 1 day so a 4-day MK Premier doesn’t overstate. Late-July 2026 midpoints.</p>
+        </div>
+        <div class="toggle-row" data-checkbox="kids-eat-free">
+          <div class="toggle-info">
+            <p class="toggle-name">Kids Eat Free (2026): ages 3–9 dining plan is $0 on a Disney Resorts Collection package.</p>
+            <p class="toggle-price">Does not apply off-property; does not apply in 2027.</p>
+          </div>
+          <button class="toggle-btn on" role="switch" aria-checked="true" data-checkbox="kids-eat-free">On</button>
         </div>
         <div class="toggle-row" data-checkbox="memory-maker">
           <div class="toggle-info">
             <p class="toggle-name">Memory Maker (photos)</p>
-            <p class="toggle-price">~$199 flat</p>
+            <p class="toggle-price">$185 if bought 3+ days ahead ($210 at the park)</p>
           </div>
           <button class="toggle-btn on" role="switch" aria-checked="true" data-checkbox="memory-maker">On</button>
         </div>
         <div class="toggle-row" data-checkbox="airport">
           <div class="toggle-info">
             <p class="toggle-name">Airport transport</p>
-            <p class="toggle-price">~$35–55/person round trip</p>
+            <p class="toggle-price">~$130 for a family of 4 (Mears / 2 Ubers)</p>
           </div>
           <button class="toggle-btn on" role="switch" aria-checked="true" data-checkbox="airport">On</button>
         </div>
         <div class="toggle-row" data-checkbox="park-hopper">
           <div class="toggle-info">
             <p class="toggle-name">Park Hopper upgrade</p>
-            <p class="toggle-price">~$65/person/day</p>
+            <p class="toggle-price">~$65–$105 per ticket (we use $89)</p>
           </div>
           <button class="toggle-btn" role="switch" aria-checked="false" data-checkbox="park-hopper">Off</button>
         </div>
@@ -354,6 +397,8 @@
           <li>Mid-season averages: <a href="https://www.nerdwallet.com/travel/learn/disney-family-vacation-cost" target="_blank" rel="noopener">NerdWallet 2026</a></li>
           <li>Ticket pricing: <a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans 2026</a>, <a href="https://allears.net/2026/04/16/news-disney-world-announces-2027-ticket-prices/" target="_blank" rel="noopener">AllEars.net</a></li>
           <li>Lightning Lane: <a href="https://wdwprepschool.com/lightning-lane-passes/" target="_blank" rel="noopener">WDW Prep School</a></li>
+          <li>Dining plan 2026: <a href="https://www.disneytouristblog.com/disney-dining-plan-costs-info-tips/" target="_blank" rel="noopener">Disney Tourist Blog</a> (QS $60.47 / regular $98.59 per adult per night; kids 3–9 $0 on Kids Eat Free packages)</li>
+          <li>Park Hopper: <a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans</a> $65–$105 per ticket (we use $89)</li>
           <li>Memory Maker, transport: <a href="https://disneyworld.disney.go.com/" target="_blank" rel="noopener">Disney official</a>, <a href="https://allears.net/2026/03/30/its-going-to-cost-more-to-get-to-disney-world-from-the-airport/" target="_blank" rel="noopener">AllEars Mears Connect coverage</a></li>
         </ul>
       </details>
@@ -422,7 +467,7 @@
   <h2>Lightning Lane cost calculator: is it worth it in 2026?</h2>
   <p>
     Lightning Lane Multi Pass (the replacement for Genie+) runs
-    <strong>$15-35 per person, per day in 2026</strong>, with date-based
+    <strong>$15-45 per person, per day in 2026</strong>, with date-based
     pricing — higher on weekends, holidays, and spring break. The Single Pass
     add-on for top-tier rides (Tron, Guardians, Seven Dwarfs, Rise of the
     Resistance) is an additional <strong>$15-25 per person, per ride</strong>.
@@ -488,7 +533,7 @@
   <h2>Hidden Disney costs nobody warns you about</h2>
   <ul class="vm-list">
     <li><strong>Resort parking:</strong> $15-25 per night at moderate and deluxe resorts (waived at value resorts).</li>
-    <li><strong>Memory Maker / PhotoPass:</strong> $199 advance, $229 at the parks.</li>
+    <li><strong>Memory Maker / PhotoPass:</strong> $185 advance (3+ days), $210 at the parks.</li>
     <li><strong>Stroller rentals:</strong> $15-31 per day at the parks, or $100+ for an offsite weekly rental.</li>
     <li><strong>Mobile-order tip jar guilt:</strong> $40-80 across the trip on coffees and snacks.</li>
     <li><strong>Park-day breakfast:</strong> $50-80 for a family of four every morning if you don't bring food.</li>
@@ -649,7 +694,7 @@
 <script src="getting-there.js"></script>
 <script src="ai-config.js"></script>
 <script src="ai-live-pricing.js"></script>
-<script src="disney.js"></script>
+<script src="disney.js?v20260829a"></script>
 <script src="disney-calendar.js"></script>
   <script src="site-nav.js?v20260828a"></script>
 <script src="trust-block.js" defer></script>
