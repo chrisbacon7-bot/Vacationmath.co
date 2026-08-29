@@ -83,15 +83,42 @@
       lounge: false, fhr: false, intl_no_fee: true, primary_rental_cdw: false,
       trip_credit: 100,
       note: "Citi Premier's replacement. 60k after $4k/3 mo aggregators; $100 hotel benefit."
+    },
+    cfu: {
+      id: "cfu", name: "Chase Freedom Unlimited",
+      annual_fee: 0, bonus_points: 20000, bonus_currency: "cash",
+      min_spend: 500, spend_window_months: 3,
+      travel_mult: 5, dining_mult: 3, grocery_mult: 1, gas_mult: 1, streaming_mult: 1, base_mult: 1.5,
+      lounge: false, fhr: false, intl_no_fee: false, primary_rental_cdw: false,
+      trip_credit: 0,
+      note: "$200 after $500/3 mo. 5% Chase Travel, 3% dining+drugstores, 1.5% else. Has foreign transaction fees."
+    },
+    discover_miles: {
+      id: "discover_miles", name: "Discover it Miles",
+      annual_fee: 0, bonus_points: 0, bonus_currency: "discover",
+      min_spend: 0, spend_window_months: 0,
+      travel_mult: 3, dining_mult: 3, grocery_mult: 3, gas_mult: 3, streaming_mult: 3, base_mult: 3,
+      lounge: false, fhr: false, intl_no_fee: true, primary_rental_cdw: false,
+      trip_credit: 0,
+      note: "1.5 miles/$1 everywhere. Discover Match is first-year only (12 billing periods or 365 days, whichever is longer). No min spend, no match cap. Multipliers model first-year 1.5x+match \u2248 3%."
+    },
+    wells_autograph: {
+      id: "wells_autograph", name: "Wells Fargo Autograph",
+      annual_fee: 0, bonus_points: 20000, bonus_currency: "wells",
+      min_spend: 1000, spend_window_months: 3,
+      travel_mult: 3, dining_mult: 3, grocery_mult: 1, gas_mult: 3, streaming_mult: 3, base_mult: 1,
+      lounge: false, fhr: false, intl_no_fee: true, primary_rental_cdw: false,
+      trip_credit: 0,
+      note: "20,000 points after $1,000/3 mo ($200 at 1\u00a2). Unlimited 3x restaurants, travel, gas+EV, transit, streaming, phone plans; 1x else. No FTF. $0 AF."
     }
   };
 
-  var CARD_ORDER = ["csp", "csr", "venture", "venture_x", "amex_gold", "amex_plat", "bilt", "citi_premier"];
+  var CARD_ORDER = ["csp", "csr", "venture", "venture_x", "amex_gold", "amex_plat", "bilt", "citi_premier", "cfu", "discover_miles", "wells_autograph"];
 
   // Points valuations (cents per point). Conservative.
   var VALUATIONS = {
     ur: 0.018, mr: 0.019, capone: 0.017, citi: 0.016, bilt: 0.016, hotel: 0.006,
-    cashback: 0.015
+    cashback: 0.015, cash: 0.01, discover: 0.01, wells: 0.01
   };
 
   var PREMIUM_IDS = ["csr", "venture_x", "amex_plat", "amex_gold", "csp", "venture", "citi_premier"];
@@ -152,12 +179,12 @@
   // Hidden costs by trip type — the stuff travelers forget.
   var HIDDEN_COSTS = {
     cruise:        ["Gratuities ($15–$20/person/day, often automatic)", "Excursions at every port ($75–$200/person)", "Specialty dining + drink package", "WiFi package ($15–$30/day)", "Parking at the port"],
-    disney:        ["Park-hopper upgrade + Lightning Lane / Genie+", "Sit-down dining is 2–3× quick-serve", "Magic Bands and merch ($50–$150/kid)", "Resort parking ($25–$35/night)", "Airport transfer (Mears, Uber XL)"],
+    disney:        ["Park-hopper upgrade + Lightning Lane / Genie+", "Sit-down dining is 2–3\u00d7 quick-serve", "Magic Bands and merch ($50–$150/kid)", "Resort parking ($25–$35/night)", "Airport transfer (Mears, Uber XL)"],
     all_inclusive: ["Premium liquor upgrade if you drink up", "Off-resort excursions", "Spa and cabana rentals", "Airport transfer (if not included)", "Gratuities even when 'included'"],
-    hawaii:        ["Resort fees ($35–$50/night)", "Rental car + parking ($30–$50/day)", "Inter-island flights if hopping", "Lūʻau ($150–$200/adult)", "Snorkel/surf lessons or rentals"],
+    hawaii:        ["Resort fees ($35–$50/night)", "Rental car + parking ($30–$50/day)", "Inter-island flights if hopping", "L\u016b\u02bbau ($150–$200/adult)", "Snorkel/surf lessons or rentals"],
     europe:        ["Foreign transaction fees on the wrong card", "Train + Eurail reservation fees on top of tickets", "City tourist taxes ($2–$8/night)", "Tipping at restaurants when you don't expect to", "Data/SIM plan for the trip"],
     national_park: ["Entrance fees ($30–$35/vehicle) and the $80 America the Beautiful pass", "Gas — distances are bigger than they look", "Bear spray, layers, decent boots if you don't have them", "Guided tours or ranger programs", "In-park lodging is double the gateway town"],
-    road_trip:     ["Gas — budget the actual miles, not the optimistic miles", "Resort/hotel fees and parking", "Tolls on the route", "Wear and tear / oil change before or after", "Eating out 3× a day adds up fast"],
+    road_trip:     ["Gas — budget the actual miles, not the optimistic miles", "Resort/hotel fees and parking", "Tolls on the route", "Wear and tear / oil change before or after", "Eating out 3\u00d7 a day adds up fast"],
     other:         ["Travel insurance if you're driving the trip cost up", "Pet care or boarding", "Parking at the airport or port", "Airport food and last-minute supplies", "Tips for shuttles, valets, housekeeping"]
   };
 
@@ -206,7 +233,10 @@
     amex_gold: "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
     amex_plat: "https://www.americanexpress.com/us/credit-cards/card/platinum/",
     bilt: "https://www.bilt.com/card",
-    citi_premier: "https://www.citi.com/credit-cards/citi-strata-premier-credit-card"
+    citi_premier: "https://www.citi.com/credit-cards/citi-strata-premier-credit-card",
+    cfu: "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited",
+    discover_miles: "https://www.discover.com/credit-cards/travel/it-miles.html",
+    wells_autograph: "https://creditcards.wellsfargo.com/autograph-visa-credit-card/"
   };
 
   var TRIP_LABELS = {
@@ -224,7 +254,10 @@
     amex_gold: { pro: "4x dining + 4x grocery is the highest earn rate for normal family spending. Welcome bonus is personalized — as high as 100k after $8k in 6 months.", con: "The $325 fee requires using the dining and Uber credits monthly. Forget once and the math slips." },
     amex_plat: { pro: "If you fly 4+ times a year and use the credits, the lounge access alone is worth the fee. Welcome bonus is personalized — as high as 175k after $12k in 6 months.", con: "$895 is the highest fee in this calculator. Don't pretend the credits will cover it if you won't use them." },
     bilt: { pro: "Bilt Blue (Column N.A.) is free, earns on rent, and pays $100 Bilt Cash on approval.", con: "The transfer partners are good but not Chase- or Amex-level deep. Best as a complement, not a main." },
-    citi_premier: { pro: "Strata Premier: 3x groceries, gas, and dining plus a $100 hotel benefit at $95. Quietly the best value of any mid-fee card here.", con: "Citi ThankYou points have fewer transfer partners than Chase or Amex. You give up some flexibility." }
+    citi_premier: { pro: "Strata Premier: 3x groceries, gas, and dining plus a $100 hotel benefit at $95. Quietly the best value of any mid-fee card here.", con: "Citi ThankYou points have fewer transfer partners than Chase or Amex. You give up some flexibility." },
+    cfu: { pro: "$200 after $500 in 3 months, then 1.5% everywhere (3% dining+drugstores, 5% Chase Travel) with no annual fee.", con: "Has foreign transaction fees. Travel bonus is Chase Travel portal, not every airline/hotel booking." },
+    discover_miles: { pro: "First-year Discover Match turns 1.5 miles per dollar into ~3% everywhere — no min spend, no match cap, no annual fee, no foreign transaction fees.", con: "The match is first-year only. After that you're at 1.5 miles per dollar with no transfer partners. Miles cash out at 1\u00a2." },
+    wells_autograph: { pro: "20k points after $1,000 in 3 months ($200 at 1\u00a2). Unlimited 3x on travel, dining, and gas with no annual fee and no foreign transaction fees.", con: "Points transfer to some partners, but not at Chase- or Amex-level. Groceries earn 1x." }
   };
 
 

@@ -20,7 +20,7 @@
       +     '<div class="cfm-body">'
       +       '<p class="cfm-kicker">None of these the right fit?</p>'
       +       '<h3 class="cfm-h3">Get a shortlist built around how <em>you</em> spend.</h3>'
-      +       '<p class="cfm-help">The three cards above are matched to this trip. If you want a shortlist built around your everyday spending and the perks you actually use, answer three quick questions — we score 16 cards and rank the top three for you. Honest math, no aspirational redemptions.</p>'
+      +       '<p class="cfm-help">The three cards above are matched to this trip. If you want a shortlist built around your everyday spending and the perks you actually use, answer three quick questions — we score 18 cards and rank the top three for you. Honest math, no aspirational redemptions.</p>'
       +     '</div>'
       +     '<div class="cfm-pills">'
       +       '<a class="cfm-pill" href="/card-finder?p=transferable">Transferable points</a>'

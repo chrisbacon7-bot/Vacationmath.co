@@ -21,7 +21,7 @@
       disneyInspire: "", disneyVisa: "", universalPlus: "", hyatt: "",
       bonvoyBrilliant: "", carnival: "", royalCaribbeanCard: "",
       costcoCiti: "", citiCustomCash: "", chaseFreedomUnlimited: "",
-      citiStrata: ""
+      citiStrata: "", discoverMiles: "", wellsAutograph: ""
     }
   };
   function issuerUrl(card) { return (card && card.url) || "#"; }

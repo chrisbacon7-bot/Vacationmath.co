@@ -118,6 +118,18 @@
       feeTier:  "free",
       tagline:  "Everyday booster — pair with a Sapphire to unlock transfers."
     },
+    discoverMiles: {
+      spending: { travel: 7, dining: 6, groceries: 6, gas: 6, disney: 3, cruise: 4, allinclusive: 4, themeparks: 4, everyday: 8 },
+      perks:    { transferable: 0, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 9, lowFee: 10, signupBonus: 6, insurance: 2 },
+      feeTier:  "free",
+      tagline:  "First-year mile match + no FTF — ~3% everywhere, then 1.5%."
+    },
+    wellsAutograph: {
+      spending: { travel: 8, dining: 8, groceries: 3, gas: 8, disney: 3, cruise: 5, allinclusive: 5, themeparks: 4, everyday: 7 },
+      perks:    { transferable: 2, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 7, lowFee: 10, signupBonus: 5, insurance: 4 },
+      feeTier:  "free",
+      tagline:  "3x travel/dining/gas, $0 AF, no FTF."
+    },
     citiStrata: {
       spending: { travel: 8, dining: 8, groceries: 8, gas: 8, disney: 4, cruise: 6, allinclusive: 6, themeparks: 5, everyday: 7 },
       perks:    { transferable: 8, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 4, lowFee: 4, signupBonus: 7, insurance: 7 },
@@ -345,7 +357,7 @@
       +   top3.map(function (r, i) { return renderRankedCard(r, i, spendingStyle, perks); }).join('')
       + '</div>'
       + '<div class="cf-disclosure">'
-      +   '<p><strong>How this works.</strong> We score every card in our 16-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Rankings ignore commission; if a link is affiliate it is labeled Affiliate and uses rel=sponsored. Card terms verified August 28, 2026. Always reconfirm offers on the issuer page before applying. <a href="/disclosures">Affiliate disclosure</a>.</p>'
+      +   '<p><strong>How this works.</strong> We score every card in our 18-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. Rankings ignore commission; if a link is affiliate it is labeled Affiliate and uses rel=sponsored. Card terms verified August 28, 2026. Always reconfirm offers on the issuer page before applying. <a href="/disclosures">Affiliate disclosure</a>.</p>'
       + '</div>';
 
     container.innerHTML = html;

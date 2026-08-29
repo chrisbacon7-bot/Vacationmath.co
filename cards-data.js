@@ -3,7 +3,7 @@
  * Verified August 28, 2026 from each issuer's official page.
  * Re-verify quarterly. See refresh playbook.
  *
- * 16 live cards. Citi Custom Cash is kept as available:false (closed to new
+ * 18 live cards. Citi Custom Cash is kept as available:false (closed to new
  * applicants May 28, 2026) and is never scored or recommended.
  *
  * AFFILIATE PLUMBING:
@@ -359,6 +359,49 @@
       }
     },
 
+    discoverMiles: {
+      id: "discoverMiles",
+      name: "Discover it Miles",
+      issuer: "Discover",
+      annualFee: 0,
+      bonus: {
+        points: 0,
+        spend: 0,
+        months: 0,
+        dollarValue: 0,
+        copy: "Discover Match for new cardmembers: match all miles from approval through first 12 consecutive billing periods or 365 days, whichever is longer. No min spend, no match cap. First-year only — not a fixed signup-bonus dollar amount."
+      },
+      earn: "1.5 miles per $1 everywhere. Discover Match for new cardmembers doubles first-year miles. Miles = 1¢ cash. First-year effective earn ~3% (1.5% + match).",
+      pointValue: 1.0,
+      networkPerks: "No foreign transaction fees. Discover Match applies to all spend (no min, no cap) from approval through first 12 consecutive billing periods or 365 days, whichever is longer. Match is first-year only.",
+      bestFor: "First-year ~3% everywhere via mile match — $0 AF, no FTF, no min spend",
+      url: "https://www.discover.com/credit-cards/travel/it-miles.html",
+      affiliateUrl: "",
+      valueFn: function (tripCost) {
+        // Match is first-year only and applies to all spend. 1.5 miles + match ≈ 3%. Miles = 1¢. No fake bonus.
+        return Math.round(Math.min(tripCost, 6000) * 0.03);
+      }
+    },
+
+    wellsAutograph: {
+      id: "wellsAutograph",
+      name: "Wells Fargo Autograph",
+      issuer: "Wells Fargo",
+      annualFee: 0,
+      bonus: { points: 20000, spend: 1000, months: 3, dollarValue: 200 },
+      earn: "Unlimited 3x restaurants (incl takeout/delivery), travel (air, hotels, cars, cruises, agencies), gas+EV, transit (rideshare, parking, tolls, rail), popular streaming, phone plans; 1x else",
+      pointValue: 1.0,
+      networkPerks: "No foreign transaction fees. $0 annual fee. Points can transfer to some partners (not Chase-level). 20,000 points after $1,000 in 3 months ($200 cash at 1¢).",
+      bestFor: "No-fee 3x travel/dining/gas with no FTF — better roadtrip gas than Freedom Unlimited",
+      url: "https://creditcards.wellsfargo.com/autograph-visa-credit-card/",
+      affiliateUrl: "",
+      valueFn: function (tripCost) {
+        var bonus = 200;
+        var trip = Math.min(tripCost, 4000) * 0.03;
+        return Math.round(bonus + trip);
+      }
+    },
+
     citiStrata: {
       id: "citiStrata",
       name: "Citi Strata Premier",
@@ -385,7 +428,7 @@
     cruise: ["csp", "amexgold", "royalCaribbeanCard"],
     allinclusive: ["hyatt", "bonvoyBrilliant", "csp"],
     themeparks: ["universalPlus", "csp", "disneyVisa"],
-    roadtrip: ["costcoCiti", "chaseFreedomUnlimited", "citiStrata"],
+    roadtrip: ["costcoCiti", "wellsAutograph", "citiStrata"],
     points: ["csp", "amexgold", "csr"],
     whentobook: ["csp", "citiStrata", "bilt"],
     budget: ["csp", "citiStrata", "venture"],
@@ -398,7 +441,7 @@
     cruise: "Cruise lines push their co-brand cards hard, but they\u2019re rarely the best math. CSP and Amex Gold both earn more on the dining + airfare around your sailing. Royal ONE is the live Royal Caribbean cobrand if you\u2019re loyal to that line.",
     allinclusive: "All-inclusive math rewards transferable points and brand-tied cards. Hyatt is dominant for Ziva/Zilara. Marriott Bonvoy covers Cancún and the Caribbean. CSP is the flexible fallback.",
     themeparks: "Universal has the strongest park-specific card; CSP wins for off-property hotels and flexibility; Disney Visa is here only if you'll mix in a Disney trip too.",
-    roadtrip: "Gas is the largest variable cost on a roadtrip. Costco Anywhere still leads on gas if you have a membership. Freedom Unlimited is the no-fee everyday booster. Strata Premier adds 3x gas plus transferable ThankYou points.",
+    roadtrip: "Gas is the largest variable cost on a roadtrip. Costco Anywhere still leads on gas if you have a membership. Autograph is 3x gas, travel, and dining with no annual fee and no foreign transaction fees. Strata Premier adds 3x gas plus transferable ThankYou points.",
     points: "These three cards form the points-collector starter pack. CSP is the $95 workhorse. Amex Gold is the dining/grocery engine (welcome bonus is personalized — as high as 100k). CSR is the premium only if you'll use the lounges and the $300 travel credit.",
     whentobook: "If you don't have a strategy yet, start here. CSP is the default workhorse. Citi Strata Premier is the $95 transferable + grocery/gas 3x workhorse. Bilt Blue is the no-annual-fee option that still earns transferable points.",
     budget: "You haven't committed to a trip type yet, so we're showing the flexible workhorse cards \u2014 the ones whose points transfer everywhere. CSP and Strata Premier are the $95 transferable options; Venture is the simpler miles card. The 'Best fit' badge updates based on your budget number.",
