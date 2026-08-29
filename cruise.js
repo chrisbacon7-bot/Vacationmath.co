@@ -7,6 +7,16 @@
   var LINES = VM_DATA.CRUISE_LINES_EXPANDED;
   var PORTS = VM_DATA.CRUISE_PORTS;
 
+  // Aug 29 2026 rate corrections — kept here (do not put in calc-data.js).
+  // Royal Deluxe Beverage typical pre-cruise ~$63.99 + 18% ≈ $76 (was $105 high-end).
+  if (C.drinkPackagePerLine && C.drinkPackagePerLine.royal) {
+    C.drinkPackagePerLine.royal.unlimited = 76;
+  }
+  // Celebrity interior/oceanview/veranda $18/day; $19.50 was a Concierge blend.
+  if (LINES.celebrity) LINES.celebrity.gratuityPerDay = 18;
+  var NCL_FAS_PER_DAY = 28.50; // NCL Free at Sea daily service charge
+  var DRINK_GRAT_BY_LINE = { carnival: 0.20, ncl: 0.20, princess: 0.20 };
+
   function $(id) { return document.getElementById(id); }
 
   // ---- Pill buttons ----
@@ -128,7 +138,9 @@
   // Per-adult, per-day pay-as-you-go cost given current drink mix.
   function drinkMixCost() {
     var menu = C.drinkMenu;
-    var g = 1 + C.drinkGratuityPct;
+    var lineId = ($("line") || {}).value || "";
+    var gratPct = DRINK_GRAT_BY_LINE[lineId] || C.drinkGratuityPct;
+    var g = 1 + gratPct;
     var cocktail = num("d-cocktail", 0);
     var beer = num("d-beer", 0);
     var wine = num("d-wine", 0);
@@ -261,7 +273,7 @@
     // "service charges" of roughly $28/pp/day on top of fare. Per NCL published promo terms.
     var nclFas = 0;
     if (lineSupportsFreeAtSea(lineKey) && nclFasToggleOn()) {
-      nclFas = 28 * adults * nights;
+      nclFas = NCL_FAS_PER_DAY * adults * nights;
       // If FAS is on, the drink package decision is already covered — zero out drinks
       drinks = 0;
       drinkLabel = "Free at Sea included (service charge counted separately)";
@@ -358,7 +370,7 @@
         { label: "Pre-cruise hotel (1 night near port)", amount: preCruise, kind: "hidden", shown: $("hotel").checked },
         { label: "Port parking (" + (nights + 1) + " days)", amount: parking, kind: "hidden", shown: $("parking").checked },
         { label: "Port fees & taxes (" + totalPeople + " people)", amount: portFees, kind: "hidden" },
-        { label: "NCL Free at Sea service charges (" + adults + " adults × " + nights + " nts × $28)", amount: nclFas, kind: "hidden", shown: nclFas > 0 }
+        { label: "NCL Free at Sea service charges (" + adults + " adults × " + nights + " nts × $28.50)", amount: nclFas, kind: "hidden", shown: nclFas > 0 }
       ].filter(function (x) { return x.shown !== false && x.amount > 0; })
     };
   }
