@@ -467,3 +467,31 @@
     };
   }
 
+
+  window.VM_CALC_RUN = {
+    $: $,
+    $all: $all,
+    fmt$: fmt$,
+    clamp: clamp,
+    getMode: function () { return mode; },
+    updateSliderFill: updateSliderFill,
+    bindSlider: bindSlider,
+    setMode: setMode,
+    pillValue: pillValue,
+    readCategorySpend: readCategorySpend,
+    updateProfileTotal: updateProfileTotal,
+    calculate: calculate,
+    reasonsFor: reasonsFor,
+    buildBenchmark: buildBenchmark,
+    cardChecks: cardChecks,
+    CARDS: CARDS,
+    VALUATIONS: VALUATIONS,
+    CTA_URLS: CTA_URLS,
+    TRIP_LABELS: TRIP_LABELS,
+    PROCONS: PROCONS,
+    HIDDEN_COSTS: HIDDEN_COSTS,
+    missingItems: missingItems,
+    BOOKING_TIPS: BOOKING_TIPS,
+    BENCHMARKS: BENCHMARKS
+  };
+})();

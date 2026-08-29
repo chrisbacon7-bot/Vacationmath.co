@@ -1,3 +1,36 @@
+/* Vacation Math — Calculator v2 UI. Engine exports live on window.VM_CALC_RUN. */
+(function () {
+  "use strict";
+  var E = window.VM_CALC_RUN;
+  if (!E) {
+    console.error("Vacation Math calculator engine missing (VM_CALC_RUN).");
+    return;
+  }
+  var $ = E.$;
+  var $all = E.$all;
+  var fmt$ = E.fmt$;
+  var clamp = E.clamp;
+  var getMode = E.getMode;
+  var updateSliderFill = E.updateSliderFill;
+  var bindSlider = E.bindSlider;
+  var setMode = E.setMode;
+  var pillValue = E.pillValue;
+  var readCategorySpend = E.readCategorySpend;
+  var updateProfileTotal = E.updateProfileTotal;
+  var calculate = E.calculate;
+  var reasonsFor = E.reasonsFor;
+  var buildBenchmark = E.buildBenchmark;
+  var cardChecks = E.cardChecks;
+  var CARDS = E.CARDS;
+  var VALUATIONS = E.VALUATIONS;
+  var CTA_URLS = E.CTA_URLS;
+  var TRIP_LABELS = E.TRIP_LABELS;
+  var PROCONS = E.PROCONS;
+  var HIDDEN_COSTS = E.HIDDEN_COSTS;
+  var missingItems = E.missingItems;
+  var BOOKING_TIPS = E.BOOKING_TIPS;
+  var BENCHMARKS = E.BENCHMARKS;
+
   // ----------------------------------------------------------------
   // RENDER
   // ----------------------------------------------------------------
@@ -164,7 +197,7 @@
 
       // Ranked table (deep mode only)
       var rankWrap = $("#rec-ranked-wrap");
-      if (mode === "deep") {
+      if (getMode() === "deep") {
         rankWrap.hidden = false;
         var rrEl = $("#rank-rows"); rrEl.innerHTML = "";
         r.ranked.slice(0, 8).forEach(function (rs2, idx) {
