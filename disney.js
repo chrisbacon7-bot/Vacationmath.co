@@ -10,21 +10,29 @@
   var LL_PREMIER = { "magic-kingdom": 389, "hollywood-studios": 309, "epcot": 209, "animal-kingdom": 159 };
   var LL_MULTI = { low: 20, avg: 27, high: 35 }; // ~$15–$45; mid $27
   var DDP_ADULT = { "qs-plan": 60.47, "table-plan": 98.59 };
-  // Multi-day 1-park per-day rates before 6.5% FL tax. wdwinfo advance-purchase
-  // ranges (Aug 2026); 1-day high is TouringPlans MK $209 (wdwinfo top $184 was stale).
-  // Season = low / midpoint / high of each length. Total = perDay * days, not 1-day × N.
-  var TICKET_PER_DAY = {
-    1:  { low: 119, avg: 160, high: 209 },
-    2:  { low: 160, avg: 177, high: 194 },
-    3:  { low: 128, avg: 159, high: 190 },
-    4:  { low: 123, avg: 152, high: 182 },
-    5:  { low: 107, avg: 136, high: 164 },
-    6:  { low:  94, avg: 120, high: 146 },
-    7:  { low:  83, avg: 106, high: 130 },
-    8:  { low:  78, avg:  98, high: 118 },
-    9:  { low:  71, avg:  88, high: 106 },
-    10: { low:  66, avg:  82, high:  98 }
+  // Adult 1-park-per-day TOTALS before 6.5% FL tax. Never 1-day × N.
+  // Low/high: MousePlanet after Oct 8, 2025 increase. Avg: TouringPlans medians where
+  // published (1/4/7/10); MagicGuides 6-day avg; else midpoint of MousePlanet range.
+  var TICKET_TOTAL = {
+    1:  { low: 119, avg: 184, high: 209 },
+    2:  { low: 256, avg: 321, high: 386 },
+    3:  { low: 384, avg: 476, high: 567 },
+    4:  { low: 492, avg: 659, high: 724 },
+    5:  { low: 535, avg: 676, high: 816 },
+    6:  { low: 564, avg: 786, high: 871 },
+    7:  { low: 581, avg: 735, high: 907 },
+    8:  { low: 624, avg: 805, high: 940 },
+    9:  { low: 639, avg: 840, high: 948 },
+    10: { low: 660, avg: 875, high: 970 }
   };
+  // Child 3–9: $5 off 1-day (TouringPlans); ~$5–$26 off the whole multi-day ticket, not per day (yourfirstvisit / MagicGuides).
+  function childTicketOffset(days) {
+    if (days <= 1) return 5;
+    var n = Math.round(5 + 2.5 * (days - 1));
+    if (n < 5) n = 5;
+    if (n > 26) n = 26;
+    return n;
+  }
   var TICKET_TAX = 0.065;   // Orange County / FL sales tax on park tickets (TouringPlans, PlanDisney)
   var LODGING_TAX = 0.125;  // Orange County 12.5%. All-Star is Osceola 13.5% — not modeled; value defaults to 12.5%.
   var PARK_LABEL = { "magic-kingdom": "Magic Kingdom", "hollywood-studios": "Hollywood Studios", "epcot": "EPCOT", "animal-kingdom": "Animal Kingdom" };
@@ -137,12 +145,13 @@
     var lodgingTax = lodgingPretax * lodgingTaxRate;
     var lodging = lodgingPretax + lodgingTax;
     var ladderDays = parkDays < 1 ? 1 : Math.min(10, parkDays);
-    var ladder = TICKET_PER_DAY[ladderDays] || TICKET_PER_DAY[1];
-    var perDay = ladder[season] || ladder.avg;
-    var childPerDay = Math.max(0, perDay - (D.childTicketDiscount || 5));
-    var adultTickets = parkDays > 0 ? (perDay * parkDays * adults) : 0;
-    var childTickets = parkDays > 0 ? (childPerDay * parkDays * children) : 0;
+    var ladder = TICKET_TOTAL[ladderDays] || TICKET_TOTAL[1];
+    var adultEach = ladder[season] || ladder.avg;
+    var childEach = Math.max(0, adultEach - childTicketOffset(ladderDays));
+    var adultTickets = parkDays > 0 ? (adultEach * adults) : 0;
+    var childTickets = parkDays > 0 ? (childEach * children) : 0;
     var ticketsPretax = adultTickets + childTickets;
+    var perDay = parkDays > 0 ? (adultEach / parkDays) : 0;
     var ticketTax = ticketsPretax * TICKET_TAX;
     var ticketsBase = ticketsPretax + ticketTax;
     var parkHopperOn = $("park-hopper").checked;
@@ -213,7 +222,7 @@
         { label: resortLine, amount: lodgingGross, kind: "sticker" },
         { label: "Room discount (" + promoPct + "% off on-site lodging)", amount: -roomDiscount, kind: "sticker", shown: promoPct > 0 && roomDiscount > 0 },
         { label: lodgingTaxRate > 0 ? "Florida lodging tax (" + (lodgingTaxRate * 100) + "% on discounted room; All-Star is 13.5%)" : "Florida lodging tax (skipped — custom/DVC rate as entered)", amount: lodgingTax, kind: "sticker", shown: lodgingTax > 0 },
-        { label: "Base tickets (" + parkDays + "-day ladder, $" + Math.round(perDay) + "/adult/day \u00d7 " + totalTickets + " people)", amount: ticketsPretax, kind: "sticker" },
+        { label: "Base tickets (" + parkDays + "-day 1-park ladder, $" + Math.round(adultEach) + "/adult \u00d7 " + totalTickets + " people; not 1-day \u00d7 N)", amount: ticketsPretax, kind: "sticker" },
         { label: "Ticket tax (6.5% Florida sales tax)", amount: ticketTax, kind: "sticker", shown: ticketTax > 0 },
         { label: gt.label, amount: gt.amount, kind: "hidden", shown: gt.amount > 0, isFlight: gt.mode === "fly" },
         { label: "Park Hopper ($89/ticket + 6.5% tax)", amount: parkHopper, kind: "hidden", shown: parkHopperOn },
