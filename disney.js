@@ -10,6 +10,23 @@
   var LL_PREMIER = { "magic-kingdom": 389, "hollywood-studios": 309, "epcot": 209, "animal-kingdom": 159 };
   var LL_MULTI = { low: 20, avg: 27, high: 35 }; // ~$15–$45; mid $27
   var DDP_ADULT = { "qs-plan": 60.47, "table-plan": 98.59 };
+  // Multi-day 1-park per-day rates before 6.5% FL tax. wdwinfo advance-purchase
+  // ranges (Aug 2026); 1-day high is TouringPlans MK $209 (wdwinfo top $184 was stale).
+  // Season = low / midpoint / high of each length. Total = perDay * days, not 1-day × N.
+  var TICKET_PER_DAY = {
+    1:  { low: 119, avg: 160, high: 209 },
+    2:  { low: 160, avg: 177, high: 194 },
+    3:  { low: 128, avg: 159, high: 190 },
+    4:  { low: 123, avg: 152, high: 182 },
+    5:  { low: 107, avg: 136, high: 164 },
+    6:  { low:  94, avg: 120, high: 146 },
+    7:  { low:  83, avg: 106, high: 130 },
+    8:  { low:  78, avg:  98, high: 118 },
+    9:  { low:  71, avg:  88, high: 106 },
+    10: { low:  66, avg:  82, high:  98 }
+  };
+  var TICKET_TAX = 0.065;   // Orange County / FL sales tax on park tickets (TouringPlans, PlanDisney)
+  var LODGING_TAX = 0.125;  // Orange County 12.5%. All-Star is Osceola 13.5% — not modeled; value defaults to 12.5%.
   var PARK_LABEL = { "magic-kingdom": "Magic Kingdom", "hollywood-studios": "Hollywood Studios", "epcot": "EPCOT", "animal-kingdom": "Animal Kingdom" };
 
   function $(id) { return document.getElementById(id); }
@@ -113,20 +130,32 @@
     }
     var lodgingGross = nightlyRate * nights;
     var promoPct = (onsitePackage && roomPromo > 0) ? roomPromo : 0;
-    var lodging = lodgingGross * (1 - promoPct / 100);
-    var roomDiscount = lodgingGross - lodging;
-    var perTicketBase = D.tickets[season] * parkDays;
-    var adultTickets = perTicketBase * adults;
-    var childTickets = (D.tickets[season] - D.childTicketDiscount) * parkDays * children;
-    var ticketsBase = adultTickets + childTickets;
+    var lodgingPretax = lodgingGross * (1 - promoPct / 100);
+    var roomDiscount = lodgingGross - lodgingPretax;
+    // Custom / DVC nightly is whatever the guest typed — may already include tax, so skip lodging tax there.
+    var lodgingTaxRate = (resortKey === "custom" || resortKey === "dvc") ? 0 : LODGING_TAX;
+    var lodgingTax = lodgingPretax * lodgingTaxRate;
+    var lodging = lodgingPretax + lodgingTax;
+    var ladderDays = parkDays < 1 ? 1 : Math.min(10, parkDays);
+    var ladder = TICKET_PER_DAY[ladderDays] || TICKET_PER_DAY[1];
+    var perDay = ladder[season] || ladder.avg;
+    var childPerDay = Math.max(0, perDay - (D.childTicketDiscount || 5));
+    var adultTickets = parkDays > 0 ? (perDay * parkDays * adults) : 0;
+    var childTickets = parkDays > 0 ? (childPerDay * parkDays * children) : 0;
+    var ticketsPretax = adultTickets + childTickets;
+    var ticketTax = ticketsPretax * TICKET_TAX;
+    var ticketsBase = ticketsPretax + ticketTax;
     var parkHopperOn = $("park-hopper").checked;
-    var parkHopper = parkHopperOn ? (D.parkHopperPerTicket * totalTickets) : 0;
+    var parkHopperPretax = parkHopperOn ? (D.parkHopperPerTicket * totalTickets) : 0;
+    var parkHopper = parkHopperPretax * (1 + TICKET_TAX);
     var llOn = $("lightning-lane").checked;
     var llRate = LL_MULTI[season] || 27;
-    var lightning = llOn ? (llRate * totalTickets * parkDays) : 0;
+    var lightningPretax = llOn ? (llRate * totalTickets * parkDays) : 0;
+    var lightning = lightningPretax * (1 + TICKET_TAX);
     var premierDays = premierOn ? Math.min(parkDays, Math.max(0, premierDaysIn)) : 0;
     var premierRate = LL_PREMIER[premierPark] || LL_PREMIER["magic-kingdom"];
-    var premier = (premierOn && premierDays > 0) ? (premierRate * billable * premierDays) : 0;
+    var premierPretax = (premierOn && premierDays > 0) ? (premierRate * billable * premierDays) : 0;
+    var premier = premierPretax * (1 + TICKET_TAX);
     var diningHeads = adults + (children * 0.7);
     var dining = 0;
     var diningLabel = "";
@@ -183,11 +212,13 @@
       lineItems: [
         { label: resortLine, amount: lodgingGross, kind: "sticker" },
         { label: "Room discount (" + promoPct + "% off on-site lodging)", amount: -roomDiscount, kind: "sticker", shown: promoPct > 0 && roomDiscount > 0 },
-        { label: "Base tickets (" + parkDays + " days \u00d7 " + totalTickets + " people)", amount: ticketsBase, kind: "sticker" },
+        { label: lodgingTaxRate > 0 ? "Florida lodging tax (" + (lodgingTaxRate * 100) + "% on discounted room; All-Star is 13.5%)" : "Florida lodging tax (skipped — custom/DVC rate as entered)", amount: lodgingTax, kind: "sticker", shown: lodgingTax > 0 },
+        { label: "Base tickets (" + parkDays + "-day ladder, $" + Math.round(perDay) + "/adult/day \u00d7 " + totalTickets + " people)", amount: ticketsPretax, kind: "sticker" },
+        { label: "Ticket tax (6.5% Florida sales tax)", amount: ticketTax, kind: "sticker", shown: ticketTax > 0 },
         { label: gt.label, amount: gt.amount, kind: "hidden", shown: gt.amount > 0, isFlight: gt.mode === "fly" },
-        { label: "Park Hopper", amount: parkHopper, kind: "hidden", shown: parkHopperOn },
-        { label: "Lightning Lane Multi Pass (" + parkDays + " days, $" + llRate + "/person/day)", amount: lightning, kind: "hidden", shown: llOn },
-        { label: "Lightning Lane Premier Pass (" + premierDays + " day" + (premierDays !== 1 ? "s" : "") + ", " + premierParkName + "; one-park, no hopper benefit)", amount: premier, kind: "hidden", shown: premierOn && premier > 0 },
+        { label: "Park Hopper ($89/ticket + 6.5% tax)", amount: parkHopper, kind: "hidden", shown: parkHopperOn },
+        { label: "Lightning Lane Multi Pass (" + parkDays + " days, $" + llRate + "/person/day + 6.5% tax)", amount: lightning, kind: "hidden", shown: llOn },
+        { label: "Lightning Lane Premier Pass (" + premierDays + " day" + (premierDays !== 1 ? "s" : "") + ", " + premierParkName + "; one-park, no hopper benefit; + 6.5% tax)", amount: premier, kind: "hidden", shown: premierOn && premier > 0 },
         { label: diningLabel, amount: dining, kind: "hidden" },
         { label: "Snacks & drinks (" + billable + " people \u00d7 " + parkDays + " days)", amount: snacks, kind: "hidden" },
         { label: "Memory Maker photos", amount: memoryMaker, kind: "hidden", shown: $("memory-maker").checked },
