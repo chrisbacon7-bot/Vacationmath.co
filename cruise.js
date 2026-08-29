@@ -77,7 +77,7 @@
       VM_OriginPicker.initOnPage({
         destRegion: 'caribbean',
         destLat: 25.77, destLng: -80.19, destName: 'Miami cruise port',
-        getPartySize: function(){var a=parseInt((document.getElementById("adults")||{}).value||2,10);var k=parseInt((document.getElementById("kids")||{}).value||0,10);return a+k;}
+        getPartySize: function(){var a=parseInt((document.getElementById("adults")||{}).value||2,10);var k=parseInt((document.getElementById("children")||{}).value||0,10);return a+k;}
       });
     }
 
