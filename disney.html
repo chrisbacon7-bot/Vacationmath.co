@@ -158,7 +158,7 @@
       <div class="field">
         <label for="park-days">Park days</label>
         <input type="number" id="park-days" min="0" max="14" value="4" />
-        <p class="hint">Most travelers do nights = park days, give or take.</p>
+        <p class="hint">Multi-day tickets get cheaper per day (a 7-day is not 7× a 1-day). Florida 6.5% tax is added. Lodging tax is 12.5% (All-Star 13.5%).</p>
       </div>
 
       <div class="field">
@@ -176,7 +176,7 @@
       <div class="field" id="custom-resort-field" hidden>
         <label for="customResortRate">Your resort nightly rate (USD)</label>
         <input type="number" id="customResortRate" min="0" step="10" value="250" />
-        <p class="hint">Use this for DVC/points rental or a quoted hotel. DVC usually lands near Moderate cash for a Deluxe villa — enter the cash-equivalent nightly rate, not points.</p>
+        <p class="hint">Use this for DVC/points rental or a quoted hotel. DVC usually lands near Moderate cash for a Deluxe villa — enter the cash-equivalent nightly rate, not points. Lodging tax is not added on custom/DVC (your number may already include it).</p>
       </div>
 
       <div id="dcal-container" class="dcal-container"></div>
@@ -395,7 +395,8 @@
         <ul class="source-list">
           <li>Resort starting rates: <a href="https://www.mousehacking.com/blog/walt-disney-world-hotels-guide" target="_blank" rel="noopener">MouseHacking 2026 guide</a></li>
           <li>Mid-season averages: <a href="https://www.nerdwallet.com/travel/learn/disney-family-vacation-cost" target="_blank" rel="noopener">NerdWallet 2026</a></li>
-          <li>Ticket pricing: <a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans 2026</a>, <a href="https://allears.net/2026/04/16/news-disney-world-announces-2027-ticket-prices/" target="_blank" rel="noopener">AllEars.net</a></li>
+          <li>Ticket pricing: <a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans 2026</a> (1-day median $184, MK high $209; 4-day median ~$659, not 4× a 1-day; 7-day typical ~$105/day), <a href="https://mouseplanet.com/walt-disney-world-raises-prices-on-tickets-and-annual-passports/52057/" target="_blank" rel="noopener">MousePlanet 1–10 day totals</a> after the Oct 8, 2025 increase. Child 3–9 is ~$5 off a 1-day ticket and ~$5–$26 off the whole multi-day ticket, not $5/day (<a href="https://yourfirstvisit.net/disney-world-tickets-and-2026-ticket-prices/" target="_blank" rel="noopener">yourfirstvisit</a>).</li>
+          <li>Ticket / Lightning Lane tax: Florida 6.5% sales tax (<a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans</a>, PlanDisney). Lodging tax: Orange County 12.5%; All-Star Resorts Osceola 13.5% (PlanDisney). Custom/DVC nightly rates are used as entered (tax skipped).</li>
           <li>Lightning Lane: <a href="https://wdwprepschool.com/lightning-lane-passes/" target="_blank" rel="noopener">WDW Prep School</a></li>
           <li>Dining plan 2026: <a href="https://www.disneytouristblog.com/disney-dining-plan-costs-info-tips/" target="_blank" rel="noopener">Disney Tourist Blog</a> (QS $60.47 / regular $98.59 per adult per night; kids 3–9 $0 on Kids Eat Free packages)</li>
           <li>Park Hopper: <a href="https://touringplans.com/blog/every-regular-disney-world-ticket-price-in-2026/" target="_blank" rel="noopener">TouringPlans</a> $65–$105 per ticket (we use $89)</li>
@@ -685,7 +686,7 @@
 <script src="zip-loader.js"></script>
 <script src="calc-data.js"></script>
 <script src="origin-picker.js"></script>
-<script src="cards-data.js?v20260828h"></script>
+<script src="cards-data.js?v20260829b"></script>
 <script src="card-module.js"></script>
 <script src="card-cta.js"></script>
 <script src="card-finder-mini.js"></script>
@@ -694,7 +695,7 @@
 <script src="getting-there.js"></script>
 <script src="ai-config.js"></script>
 <script src="ai-live-pricing.js"></script>
-<script src="disney.js?v20260829a"></script>
+<script src="disney.js?v20260829b"></script>
 <script src="disney-calendar.js"></script>
   <script src="site-nav.js?v20260828a"></script>
 <script src="trust-block.js" defer></script>
