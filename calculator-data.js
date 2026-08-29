@@ -115,9 +115,9 @@
 
   var CARD_ORDER = ["csp", "csr", "venture", "venture_x", "amex_gold", "amex_plat", "bilt", "citi_premier", "cfu", "discover_miles", "wells_autograph"];
 
-  // Points valuations (cents per point). Conservative.
+  // Points valuations ($ per point). Conservative Chase Travel / cash-out floors, not TPG transfer values.
   var VALUATIONS = {
-    ur: 0.018, mr: 0.019, capone: 0.017, citi: 0.016, bilt: 0.016, hotel: 0.006,
+    ur: 0.0125, mr: 0.0125, capone: 0.01, citi: 0.01, bilt: 0.0125, hotel: 0.006,
     cashback: 0.015, cash: 0.01, discover: 0.01, wells: 0.01
   };
 
@@ -181,7 +181,7 @@
     cruise:        ["Gratuities ($15–$20/person/day, often automatic)", "Excursions at every port ($75–$200/person)", "Specialty dining + drink package", "WiFi package ($15–$30/day)", "Parking at the port"],
     disney:        ["Park-hopper upgrade + Lightning Lane / Genie+", "Sit-down dining is 2–3\u00d7 quick-serve", "Magic Bands and merch ($50–$150/kid)", "Resort parking ($25–$35/night)", "Airport transfer (Mears, Uber XL)"],
     all_inclusive: ["Premium liquor upgrade if you drink up", "Off-resort excursions", "Spa and cabana rentals", "Airport transfer (if not included)", "Gratuities even when 'included'"],
-    hawaii:        ["Resort fees ($35–$50/night)", "Rental car + parking ($30–$50/day)", "Inter-island flights if hopping", "L\u016b\u02bbau ($150–$200/adult)", "Snorkel/surf lessons or rentals"],
+    hawaii:        ["Resort fees ($35–$50/night)", "Rental car + parking ($30–50/day)", "Inter-island flights if hopping", "L\u016b\u02bbau ($150–$200/adult)", "Snorkel/surf lessons or rentals"],
     europe:        ["Foreign transaction fees on the wrong card", "Train + Eurail reservation fees on top of tickets", "City tourist taxes ($2–$8/night)", "Tipping at restaurants when you don't expect to", "Data/SIM plan for the trip"],
     national_park: ["Entrance fees ($30–$35/vehicle) and the $80 America the Beautiful pass", "Gas — distances are bigger than they look", "Bear spray, layers, decent boots if you don't have them", "Guided tours or ranger programs", "In-park lodging is double the gateway town"],
     road_trip:     ["Gas — budget the actual miles, not the optimistic miles", "Resort/hotel fees and parking", "Tolls on the route", "Wear and tear / oil change before or after", "Eating out 3\u00d7 a day adds up fast"],
