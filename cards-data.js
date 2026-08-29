@@ -49,15 +49,15 @@
       name: "Chase Sapphire Reserve",
       issuer: "Chase",
       annualFee: 795,
-      bonus: { points: 100000, spend: 6000, months: 3, dollarValue: 1500 }, // 100k * 1.5¢ portal floor
+      bonus: { points: 100000, spend: 6000, months: 3, dollarValue: 1250 }, // 100k * 1.25¢ Chase Travel floor
       earn: "8x Chase Travel, 4x flights+hotels booked direct, 3x dining, 1x else",
-      pointValue: 1.5,
+      pointValue: 1.25,
       networkPerks: "$300 travel credit, Priority Pass + Chase Sapphire Lounges, $300 OpenTable dining credit (narrow restaurant list), trip insurance, no FTF",
       bestFor: "Frequent travelers who'll actually use the $300 travel credit and lounges",
       url: "https://creditcards.chase.com/rewards-credit-cards/sapphire/reserve",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1500;
+        var bonus = 1250;
         var travelCredit = 300;
         var diningCredit = 150; // conservative slice of the $300 OpenTable credit
         var trip = Math.min(tripCost, 6000) * 0.025;
@@ -114,17 +114,17 @@
         points: 100000,
         spend: 8000,
         months: 6,
-        dollarValue: 2000, // TPG valuation; valueFn uses a 1¢ floor
+        dollarValue: 1250, // 100k * 1.25¢ conservative cash-out / portal floor, not TPG
         copy: "As high as 100,000 points after $8,000 in 6 mo (personalized — not everyone sees 100k)"
       },
       earn: "4x restaurants + groceries (US), 3x flights, 2x prepaid hotels via Amex Travel",
-      pointValue: 2.0, // TPG valuation for MR
+      pointValue: 1.25, // conservative MR floor, not TPG transfer value
       networkPerks: "$120 dining credit, $120 Uber Cash, $84 Dunkin, $100 Resy",
       bestFor: "Families with high dining + grocery spend; max-value transferable points",
       url: "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1000; // 100k * 1¢ conservative
+        var bonus = 1250; // 100k * 1.25¢ conservative
         var credits = 200;
         var trip = Math.min(tripCost, 6000) * 0.025;
         return Math.round(bonus + credits + trip - 325);
@@ -138,7 +138,7 @@
       annualFee: 0,
       bonus: { points: 0, spend: 0, months: 0, dollarValue: 100 },
       earn: "1x rent (no fee), 3x dining, 2x travel, 1x else; 4% Bilt Cash on everyday spend option",
-      pointValue: 1.5,
+      pointValue: 1.25,
       networkPerks: "No annual fee, Rent Day 2x multiplier, transferable to airline/hotel partners. Wells Fargo Mastercard sunset Feb 7, 2026 — this is the Column N.A. Bilt Blue card.",
       bestFor: "Renters / homeowners earning points on housing payments + flexible travel transfers",
       url: "https://www.bilt.com/card",
@@ -223,8 +223,8 @@
         points: 60000,
         spend: 3000,
         months: 3,
-        dollarValue: 900,
-        copy: "Up to 60,000 points (~$900 at 1.5¢) — 30k after $3k/3 mo, plus up to 30k extra (2x on 1x spend, cap $15k). Full 60k is not guaranteed after $3k. 75k promo ended Aug 20, 2026."
+        dollarValue: 450,
+        copy: "30k after $3k/3 mo (~$450 at 1.5¢). Extra 30k (2x on 1x spend, cap $15k) is not guaranteed — we do not score the maybe-extra 30k. 75k promo ended Aug 20, 2026."
       },
       earn: "Up to 9x at Hyatt, 2x dining/airlines/transit",
       pointValue: 1.5,
@@ -233,7 +233,7 @@
       url: "https://creditcards.chase.com/travel-credit-cards/world-of-hyatt-credit-card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 900;
+        var bonus = 450; // 30k × 1.5¢; extra 30k not scored
         var freeNight = 250;
         return Math.round(bonus + freeNight - 95);
       }
@@ -407,15 +407,15 @@
       name: "Citi Strata Premier",
       issuer: "Citi",
       annualFee: 95,
-      bonus: { points: 60000, spend: 4000, months: 3, dollarValue: 900 },
+      bonus: { points: 60000, spend: 4000, months: 3, dollarValue: 600 }, // 60k * 1.0¢ cash-out floor
       earn: "10x hotels/cars/attractions on Citi Travel, 3x air + hotels, 3x restaurants, 3x supermarkets, 3x gas/EV, 1x else",
-      pointValue: 1.5,
+      pointValue: 1.0,
       networkPerks: "$100 annual hotel benefit via cititravel.com, transferable ThankYou Points, no FTF",
       bestFor: "The $95 transferable workhorse — 3x groceries, gas, and dining",
       url: "https://www.citi.com/credit-cards/citi-strata-premier-credit-card",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 900;
+        var bonus = 600;
         var hotel = 100;
         var trip = Math.min(tripCost, 6000) * 0.025;
         return Math.round(bonus + hotel + trip - 95);
