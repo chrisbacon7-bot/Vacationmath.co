@@ -36,286 +36,293 @@
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CX9TZ0873"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1CX9TZ0873');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1CX9TZ0873');
 </script>
 
 <style>
-  /* Blog-specific layout (uses your existing tokens) */
-  .blog-hero {
-    background: var(--cream, #f7f1e6);
-    padding: 80px 0 48px;
-    text-align: center;
-    border-bottom: 1px solid #ecdfc8;
-  }
-  .blog-hero .container { max-width: 760px; }
-  .blog-hero .pill {
-    display: inline-block;
-    background: #e89a3c;
-    color: #0f2540;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 8px 14px;
-    border-radius: 999px;
-    margin-bottom: 20px;
-  }
-  .blog-hero h1 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: clamp(36px, 5vw, 56px);
-    line-height: 1.05;
-    color: #0f2540;
-    font-weight: 800;
-    margin: 0 0 18px;
-    letter-spacing: -0.5px;
-  }
-  .blog-hero h1 em {
-    color: #c75c2a;
-    font-style: italic;
-    font-weight: 800;
-  }
-  .blog-hero .sub {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    color: #3a4a5e;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-  .post-list {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 56px 24px 80px;
-  }
-  .post-card {
-    background: #fbf6ec;
-    border: 1px solid #ecdfc8;
-    border-radius: 14px;
-    padding: 32px;
-    margin-bottom: 20px;
-    transition: transform 0.15s ease, border-color 0.15s ease;
-    text-decoration: none;
-    display: block;
-    color: inherit;
-  }
-  .post-card:hover {
-    transform: translateY(-2px);
-    border-color: #e89a3c;
-  }
-  .post-meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: #9c7a3f;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .post-card h2 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 28px;
-    line-height: 1.2;
-    color: #0f2540;
-    font-weight: 800;
-    margin: 0 0 12px;
-    letter-spacing: -0.3px;
-  }
-  .post-card h2 em { color: #c75c2a; font-style: italic; }
-  .post-card .excerpt {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #3a4a5e;
-    margin: 0 0 14px;
-  }
-  .post-card .read-more {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #c75c2a;
-  }
-  .empty-state {
-    background: #fbf6ec;
-    border: 1px dashed #ecdfc8;
-    border-radius: 14px;
-    padding: 48px 32px;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    color: #5a6b7c;
-  }
-  .subscribe-cta {
-    background: #0f2540;
-    border-radius: 14px;
-    padding: 40px 32px;
-    text-align: center;
-    margin-top: 32px;
-  }
-  .subscribe-cta h3 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-size: 26px;
-    color: #fff;
-    font-weight: 800;
-    margin: 0 0 10px;
-  }
-  .subscribe-cta h3 em { color: #e89a3c; font-style: italic; }
-  .subscribe-cta p {
-    font-family: 'Inter', sans-serif;
-    color: #c8d4e3;
-    font-size: 15px;
-    margin: 0 0 22px;
-  }
-  .subscribe-cta .btn {
-    display: inline-block;
-    background: #e89a3c;
-    color: #0f2540;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    padding: 14px 30px;
-    border-radius: 8px;
-  }
+/* Blog-specific layout (uses your existing tokens) */
+.blog-hero {
+background: var(--cream, #f7f1e6);
+padding: 80px 0 48px;
+text-align: center;
+border-bottom: 1px solid #ecdfc8;
+}
+.blog-hero .container { max-width: 760px; }
+.blog-hero .pill {
+display: inline-block;
+background: #e89a3c;
+color: #0f2540;
+font-family: 'Inter', sans-serif;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding: 8px 14px;
+border-radius: 999px;
+margin-bottom: 20px;
+}
+.blog-hero h1 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: clamp(36px, 5vw, 56px);
+line-height: 1.05;
+color: #0f2540;
+font-weight: 800;
+margin: 0 0 18px;
+letter-spacing: -0.5px;
+}
+.blog-hero h1 em {
+color: #c75c2a;
+font-style: italic;
+font-weight: 800;
+}
+.blog-hero .sub {
+font-family: 'Inter', sans-serif;
+font-size: 18px;
+line-height: 1.6;
+color: #3a4a5e;
+max-width: 560px;
+margin: 0 auto;
+}
+.post-list {
+max-width: 760px;
+margin: 0 auto;
+padding: 56px 24px 80px;
+}
+.post-card {
+background: #fbf6ec;
+border: 1px solid #ecdfc8;
+border-radius: 14px;
+padding: 32px;
+margin-bottom: 20px;
+transition: transform 0.15s ease, border-color 0.15s ease;
+text-decoration: none;
+display: block;
+color: inherit;
+}
+.post-card:hover {
+transform: translateY(-2px);
+border-color: #e89a3c;
+}
+.post-meta {
+font-family: 'Inter', sans-serif;
+font-size: 11px;
+font-weight: 700;
+color: #9c7a3f;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+.post-card h2 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: 28px;
+line-height: 1.2;
+color: #0f2540;
+font-weight: 800;
+margin: 0 0 12px;
+letter-spacing: -0.3px;
+}
+.post-card h2 em { color: #c75c2a; font-style: italic; }
+.post-card .excerpt {
+font-family: 'Inter', sans-serif;
+font-size: 16px;
+line-height: 1.6;
+color: #3a4a5e;
+margin: 0 0 14px;
+}
+.post-card .read-more {
+font-family: 'Inter', sans-serif;
+font-size: 14px;
+font-weight: 700;
+color: #c75c2a;
+}
+.empty-state {
+background: #fbf6ec;
+border: 1px dashed #ecdfc8;
+border-radius: 14px;
+padding: 48px 32px;
+text-align: center;
+font-family: 'Inter', sans-serif;
+color: #5a6b7c;
+}
+.subscribe-cta {
+background: #0f2540;
+border-radius: 14px;
+padding: 40px 32px;
+text-align: center;
+margin-top: 32px;
+}
+.subscribe-cta h3 {
+font-family: 'Fraunces', Georgia, serif;
+font-size: 26px;
+color: #fff;
+font-weight: 800;
+margin: 0 0 10px;
+}
+.subscribe-cta h3 em { color: #e89a3c; font-style: italic; }
+.subscribe-cta p {
+font-family: 'Inter', sans-serif;
+color: #c8d4e3;
+font-size: 15px;
+margin: 0 0 22px;
+}
+.subscribe-cta .btn {
+display: inline-block;
+background: #e89a3c;
+color: #0f2540;
+font-family: 'Inter', sans-serif;
+font-weight: 700;
+font-size: 15px;
+text-decoration: none;
+padding: 14px 30px;
+border-radius: 8px;
+}
 </style>
 </head>
 <body>
 
 <header class="blog-hero">
-  <div class="container">
-    <span class="pill">● Tuesday Travel Math</span>
-    <h1>Real travel math, <em>every Tuesday.</em></h1>
-    <p class="sub">A short newsletter that does the math on something that quietly changed for travelers. No hype. Sourced numbers. Honest answers.</p>
-  </div>
+<div class="container">
+<span class="pill">&#9679; Tuesday Travel Math</span>
+<h1>Real travel math, <em>every Tuesday.</em></h1>
+<p class="sub">A short newsletter that does the math on something that quietly changed for travelers. No hype. Sourced numbers. Honest answers.</p>
+</div>
 </header>
 
 <main class="post-list">
 
-  <!-- ISSUE #1 -->
-  <a class="post-card" href="summer-road-trip-gas-cost-2026">
-    <div class="post-meta">Issue #1 · June 2, 2026</div>
-    <h2>Oil at $95 just made your road trip a <em>math problem</em>.</h2>
-    <p class="excerpt">Brent crude is near record highs, pumps are at $4.42, and GasBuddy is forecasting a $4.80 summer average. Here's what that actually costs on a real trip — plus six ways to take the bite out of the pump.</p>
-    <span class="read-more">Read the math →</span>
-  </a>
+<!-- ISSUE #1 -->
+<a class="post-card" href="summer-road-trip-gas-cost-2026">
+<div class="post-meta">Issue #1 &middot; June 2, 2026</div>
+<h2>Oil at $95 just made your road trip a <em>math problem</em>.</h2>
+<p class="excerpt">Brent crude is near record highs, pumps are at $4.42, and GasBuddy is forecasting a $4.80 summer average. Here's what that actually costs on a real trip — plus six ways to take the bite out of the pump.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #2 -->
-  <a class="post-card" href="summer-airfare-cost-2026">
-    <div class="post-meta">Issue #2 &middot; June 9, 2026</div>
-    <h2>The summer travel math just <em>broke.</em></h2>
-    <p class="excerpt">Jet fuel doubled. Domestic airfare is up 20%+. The cheapest summer trip in 2026 might not be the one you planned in February.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #2 -->
+<a class="post-card" href="summer-airfare-cost-2026">
+<div class="post-meta">Issue #2 &middot; June 9, 2026</div>
+<h2>The summer travel math just <em>broke.</em></h2>
+<p class="excerpt">Jet fuel doubled. Domestic airfare is up 20%+. The cheapest summer trip in 2026 might not be the one you planned in February.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #3 -->
-  <a class="post-card" href="one-way-vs-round-trip-flights">
-    <div class="post-meta">Issue #3 &middot; June 16, 2026</div>
-    <h2>Two one-ways just beat a round trip by $340. <em>Here&rsquo;s when.</em></h2>
-    <p class="excerpt">Airlines want you to book round trips. Sometimes that&rsquo;s the right call. Sometimes it costs you $340 extra. Here&rsquo;s how to tell the difference.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #3 -->
+<a class="post-card" href="one-way-vs-round-trip-flights">
+<div class="post-meta">Issue #3 &middot; June 16, 2026</div>
+<h2>Two one-ways just beat a round trip by $340. <em>Here&rsquo;s when.</em></h2>
+<p class="excerpt">Airlines want you to book round trips. Sometimes that&rsquo;s the right call. Sometimes it costs you $340 extra. Here&rsquo;s how to tell the difference.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #4 -->
-  <a class="post-card" href="hotel-points-math-2026">
-    <div class="post-meta">Issue #4 &middot; June 23, 2026</div>
-    <h2>I ran the math on my hotel points. <em>It wasn&rsquo;t pretty.</em></h2>
-    <p class="excerpt">Hotel loyalty programs devalued again. Here&rsquo;s what your points are actually worth now, and when they genuinely beat cash.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #4 -->
+<a class="post-card" href="hotel-points-math-2026">
+<div class="post-meta">Issue #4 &middot; June 23, 2026</div>
+<h2>I ran the math on my hotel points. <em>It wasn&rsquo;t pretty.</em></h2>
+<p class="excerpt">Hotel loyalty programs devalued again. Here&rsquo;s what your points are actually worth now, and when they genuinely beat cash.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #5 -->
-  <a class="post-card" href="all-inclusive-hidden-fees-2026">
-    <div class="post-meta">Issue #5 &middot; June 30, 2026</div>
-    <h2>All-inclusive is hiding <em>these 5 fees</em> in 2026.</h2>
-    <p class="excerpt">Brochures print the buffet photo, not the Visitax QR code checkpoint. Here's the real add-on math for a Cancun trip &mdash; taxes, fees, and transfers included.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #5 -->
+<a class="post-card" href="all-inclusive-hidden-fees-2026">
+<div class="post-meta">Issue #5 &middot; June 30, 2026</div>
+<h2>All-inclusive is hiding <em>these 5 fees</em> in 2026.</h2>
+<p class="excerpt">Brochures print the buffet photo, not the Visitax QR code checkpoint. Here's the real add-on math for a Cancun trip &mdash; taxes, fees, and transfers included.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #6 -->
-  <a class="post-card" href="post-july-4th-travel-prices-2026">
-    <div class="post-meta">Issue #6 &middot; July 7, 2026</div>
-    <h2>The post-July 4th price crash that <em>isn&rsquo;t happening</em> this year.</h2>
-    <p class="excerpt">Record crowds, trimmed airline capacity, and rising fares broke the usual post-holiday dip. Here's where the real 2026 savings actually are.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #6 -->
+<a class="post-card" href="post-july-4th-travel-prices-2026">
+<div class="post-meta">Issue #6 &middot; July 7, 2026</div>
+<h2>The post-July 4th price crash that <em>isn&rsquo;t happening</em> this year.</h2>
+<p class="excerpt">Record crowds, trimmed airline capacity, and rising fares broke the usual post-holiday dip. Here's where the real 2026 savings actually are.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #7 -->
-  <a class="post-card" href="credit-card-vacation-debt-2026">
-    <div class="post-meta">Issue #7 &middot; July 14, 2026</div>
-    <h2>84% of summer travelers will put this trip <em>on a credit card.</em></h2>
-    <p class="excerpt">NerdWallet's 2026 Summer Travel Report says the debt part of vacation planning isn't going away. Here's the real interest math, and the reverse-budget fix.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #7 -->
+<a class="post-card" href="credit-card-vacation-debt-2026">
+<div class="post-meta">Issue #7 &middot; July 14, 2026</div>
+<h2>84% of summer travelers will put this trip <em>on a credit card.</em></h2>
+<p class="excerpt">NerdWallet's 2026 Summer Travel Report says the debt part of vacation planning isn't going away. Here's the real interest math, and the reverse-budget fix.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #8 -->
-  <a class="post-card" href="disney-food-snacks-cost-2026">
-    <div class="post-meta">Issue #8 &middot; July 21, 2026</div>
-    <h2>Disney food and snacks: <em>where the daily money actually goes.</em></h2>
-    <p class="excerpt">Food and snacks alone can swing $600&ndash;$1,200 for a family of four. Real 2026 pricing, best-value picks, and four moves that cut the bill.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #8 -->
+<a class="post-card" href="disney-food-snacks-cost-2026">
+<div class="post-meta">Issue #8 &middot; July 21, 2026</div>
+<h2>Disney food and snacks: <em>where the daily money actually goes.</em></h2>
+<p class="excerpt">Food and snacks alone can swing $600&ndash;$1,200 for a family of four. Real 2026 pricing, best-value picks, and four moves that cut the bill.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #9 -->
-  <a class="post-card" href="disney-merchandise-cost-2026">
-    <div class="post-meta">Issue #9 &middot; July 28, 2026</div>
-    <h2>Disney merchandise: <em>the silent $400 leak</em> (and how to stop it).</h2>
-    <p class="excerpt">Mickey ears, Spirit Jerseys, and lightsabers quietly drain $300&ndash;$600 per family. The four rules that stop the leak before you arrive.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #9 -->
+<a class="post-card" href="disney-merchandise-cost-2026">
+<div class="post-meta">Issue #9 &middot; July 28, 2026</div>
+<h2>Disney merchandise: <em>the silent $400 leak</em> (and how to stop it).</h2>
+<p class="excerpt">Mickey ears, Spirit Jerseys, and lightsabers quietly drain $300&ndash;$600 per family. The four rules that stop the leak before you arrive.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #10 -->
-  <a class="post-card" href="fall-travel-cost-2026">
-    <div class="post-meta">Issue #10 &middot; August 4, 2026</div>
-    <h2>Fall is cheaper. <em>Here&rsquo;s what it actually costs.</em></h2>
-    <p class="excerpt">Real all-in 2026 pricing for five fall trips &mdash; from the Smoky Mountains to Walt Disney World &mdash; because cheaper than summer isn't the same as cheap.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #10 -->
+<a class="post-card" href="fall-travel-cost-2026">
+<div class="post-meta">Issue #10 &middot; August 4, 2026</div>
+<h2>Fall is cheaper. <em>Here&rsquo;s what it actually costs.</em></h2>
+<p class="excerpt">Real all-in 2026 pricing for five fall trips &mdash; from the Smoky Mountains to Walt Disney World &mdash; because cheaper than summer isn't the same as cheap.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #11 -->
-  <a class="post-card" href="labor-day-travel-cost-2026">
-    <div class="post-meta">Issue #11 &middot; August 11, 2026</div>
-    <h2>Labor Day flights are up 23%. <em>Here's the move that still saves you money.</em></h2>
-    <p class="excerpt">Real fare data by destination and day, plus what gas actually costs heading into the holiday weekend.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #11 -->
+<a class="post-card" href="labor-day-travel-cost-2026">
+<div class="post-meta">Issue #11 &middot; August 11, 2026</div>
+<h2>Labor Day flights are up 23%. <em>Here's the move that still saves you money.</em></h2>
+<p class="excerpt">Real fare data by destination and day, plus what gas actually costs heading into the holiday weekend.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #12 -->
-  <a class="post-card" href="halloween-events-cost-2026">
-    <div class="post-meta">Issue #12 &middot; August 18, 2026</div>
-    <h2>Halloween Horror Nights or Mickey's Not So Scary. <em>Here's what each one actually costs.</em></h2>
-    <p class="excerpt">Real 2026 pricing for both Orlando Halloween events, night by night. The wrong date can cost a family double.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #12 -->
+<a class="post-card" href="halloween-events-cost-2026">
+<div class="post-meta">Issue #12 &middot; August 18, 2026</div>
+<h2>Halloween Horror Nights or Mickey's Not So Scary. <em>Here's what each one actually costs.</em></h2>
+<p class="excerpt">Real 2026 pricing for both Orlando Halloween events, night by night. The wrong date can cost a family double.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- ISSUE #13 -->
-  <a class="post-card" href="thanksgiving-christmas-flight-booking-2026">
-    <div class="post-meta">Issue #13 &middot; August 25, 2026</div>
-    <h2>The window to book cheap Thanksgiving and Christmas flights <em>is open right now.</em></h2>
-    <p class="excerpt">Real booking timelines for both holidays, the cheapest days to fly, and what waiting actually costs you.</p>
-    <span class="read-more">Read the math &rarr;</span>
-  </a>
+<!-- ISSUE #13 -->
+<a class="post-card" href="thanksgiving-christmas-flight-booking-2026">
+<div class="post-meta">Issue #13 &middot; August 25, 2026</div>
+<h2>The window to book cheap Thanksgiving and Christmas flights <em>is open right now.</em></h2>
+<p class="excerpt">Real booking timelines for both holidays, the cheapest days to fly, and what waiting actually costs you.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
+<!-- ISSUE #14 -->
+<a class="post-card" href="hurricane-season-travel-insurance-2026">
+<div class="post-meta">Issue #14 &middot; September 1, 2026</div>
+<h2>Airlines waive the fee. <em>They don&rsquo;t pay for the hotel.</em></h2>
+<p class="excerpt">What airlines, cruise lines, and Disney World actually cover if a hurricane hits your trip, what they don't, and what travel insurance really buys you.</p>
+<span class="read-more">Read the math &rarr;</span>
+</a>
 
-  <!-- Related tools -->
-  <section class="related-calcs" aria-label="Related calculators" style="padding:0 0 8px;">
-    <h2 style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;margin:0 0 1rem;color:#1e3a5f;">Related tools</h2>
-    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
-      <li><a href="../disney" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Disney World Cost</a></li>
-      <li><a href="../cruise" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Cruise Cost</a></li>
-      <li><a href="../allinclusive" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">All-Inclusive Cost</a></li>
-      <li><a href="../budget" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Vacation Budget</a></li>
-      <li><a href="../calculators" style="display:inline-block;padding:0.5rem 1rem;background:#fbe8c8;border-radius:6px;text-decoration:none;color:#b07a1f;font-size:0.9rem;font-weight:600;">All calculators</a></li>
-    </ul>
-  </section>
+<!-- Related tools -->
+<section class="related-calcs" aria-label="Related calculators" style="padding:0 0 8px;">
+<h2 style="font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;margin:0 0 1rem;color:#1e3a5f;">Related tools</h2>
+<ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0.75rem;">
+<li><a href="../disney" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Disney World Cost</a></li>
+<li><a href="../cruise" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Cruise Cost</a></li>
+<li><a href="../allinclusive" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">All-Inclusive Cost</a></li>
+<li><a href="../budget" style="display:inline-block;padding:0.5rem 1rem;background:#f0f4f8;border-radius:6px;text-decoration:none;color:#1e3a5f;font-size:0.9rem;">Vacation Budget</a></li>
+<li><a href="../calculators" style="display:inline-block;padding:0.5rem 1rem;background:#fbe8c8;border-radius:6px;text-decoration:none;color:#b07a1f;font-size:0.9rem;font-weight:600;">All calculators</a></li>
+</ul>
+</section>
 
-  <!-- Subscribe CTA -->
-  <div class="subscribe-cta">
-    <h3>Get the next issue <em>in your inbox</em>.</h3>
-    <p>Every Tuesday morning. No fluff, no ads, no SEO-stuffed listicles. Just the math.</p>
-    <a class="btn" href="../#signup">Subscribe free →</a>
-  </div>
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+<h3>Get the next issue <em>in your inbox</em>.</h3>
+<p>Every Tuesday morning. No fluff, no ads, no SEO-stuffed listicles. Just the math.</p>
+<a class="btn" href="../#signup">Subscribe free &rarr;</a>
+</div>
 
 </main>
 
