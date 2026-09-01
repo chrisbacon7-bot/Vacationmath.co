@@ -226,7 +226,7 @@
 
   <url>
     <loc>https://vacationmath.co/blog/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -307,6 +307,12 @@
   <url>
     <loc>https://vacationmath.co/blog/thanksgiving-christmas-flight-booking-2026</loc>
     <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vacationmath.co/blog/hurricane-season-travel-insurance-2026</loc>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
