@@ -138,7 +138,7 @@
   <url>
     <loc>https://vacationmath.co/guides</loc>
     <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
@@ -226,7 +226,7 @@
 
   <url>
     <loc>https://vacationmath.co/blog/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -316,6 +316,19 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://vacationmath.co/blog/should-you-buy-travel-insurance-2026</loc>
+    <lastmod>2026-09-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vacationmath.co/blog/disney-fall-room-promo-math-2026</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
   <url>
     <loc>https://vacationmath.co/sources</loc>
     <lastmod>2026-08-28</lastmod>
