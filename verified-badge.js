@@ -21,7 +21,7 @@
       +     '<path d="M20 6 9 17l-5-5"/>'
       +   '</svg>'
       +   '<span><strong>' + VERIFIED_LABEL + '</strong> &middot; next update: ' + NEXT_REFRESH
-+     + ' &middot; <a href="/sources" style="color:inherit;text-decoration:underline;">see every source</a></span>'
+      +   ' &middot; <a href="/sources" style="color:inherit;text-decoration:underline;">see every source</a></span>'
       + '</div>';
   }
 
