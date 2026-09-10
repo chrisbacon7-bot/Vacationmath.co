@@ -11,25 +11,25 @@
 <meta property="og:url" content="https://vacationmath.co/disney" />
 <meta property="og:image" content="https://vacationmath.co/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="calc-shared.css">
-<link rel="stylesheet" href="site-nav.css">
-<script src="nav-fix.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a Disney World trip really cost in 2026?","acceptedAnswer":{"@type":"Answer","text":"A party of four with park tickets, a moderate Disney resort, food, Lightning Lane, parking, and souvenirs typically lands between $6,800 and $9,400 for a 5-night trip in 2026 (about $7,500 average). The calculator itemizes every category so you can see what your specific trip will cost based on your dates and choices."}}]}</script>
+<script>
+(async function () {
+  try {
+    const [a, b] = await Promise.all([
+      fetch('/disney.full.1.txt', { cache: 'no-store' }).then(r => r.text()),
+      fetch('/disney.full.2.txt', { cache: 'no-store' }).then(r => r.text())
+    ]);
+    document.open();
+    document.write(a + b);
+    document.close();
+  } catch (e) {
+    document.body.innerHTML = '<p>Could not load calculator. <a href="/calculators">All calculators</a> · <a href="/blog/disney-fall-room-promo-math-2026">Fall room promo math</a></p>';
+  }
+})();
+</script>
 </head>
-<body class="calc-body">
-<header class="calc-hero"><div class="container">
-<a href="/calculators" class="back-link">&larr; All calculators</a>
-<p class="kicker honey">Disney Real-Cost</p>
-<h1 class="calc-h1">Disney World cost calculator 2026</h1>
-<p class="calc-sub">Party of 4, 5 nights, moderate resort: about $7,500 all-in ($6,800–$9,400). <a href="/blog/disney-fall-room-promo-math-2026">Stay Longer &amp; Save More fall promo math &rarr;</a></p>
-</div></header>
-<main class="calc-main"><div class="container">
-<p>Full calculator page is being restored. Meta/FAQ already match the 5-night snapshot. Room promo: <a href="/blog/disney-fall-room-promo-math-2026">See the fall room promo math &rarr;</a></p>
-<p><a class="btn btn-honey" href="/calculators">Back to calculators</a></p>
-</div></main>
-<script src="site-nav.js?v20260910a"></script>
-<script src="analytics.js" defer></script>
+<body>
+<p>Loading Disney World cost calculator…</p>
+<p><a href="/blog/disney-fall-room-promo-math-2026">Stay Longer &amp; Save More fall promo math →</a></p>
 </body>
 </html>
