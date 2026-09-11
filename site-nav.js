@@ -6,6 +6,7 @@
   'use strict';
 
   const CALCULATORS = [
+    { href: '/plan',         label: 'Trip Plan: Destination + Budget' },
     { href: '/tripfinder',   label: 'Where Should We Go?' },
     { href: '/budget',       label: 'What Can We Afford?' },
     { href: '/disney',       label: 'Disney World Cost' },
@@ -238,6 +239,11 @@
       { href: '/blog/summer-road-trip-gas-cost-2026', label: 'Summer road trip gas cost 2026' },
       { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' },
       { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
+    ],
+    '/plan': [
+      { href: '/guides/how-much-to-budget-for-vacation', label: 'How much to budget for vacation' },
+      { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
+      { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }
     ],
     '/budget': [
       { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
