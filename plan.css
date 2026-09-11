@@ -1,5 +1,40 @@
 /* Trip Plan calculator page styles */
 
+.plan-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+.plan-shortcut {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1.5px solid var(--hairline, #D9D5CC);
+  background: #fff;
+  color: var(--ink, #1A1A1A);
+  font-size: 0.85rem;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 500;
+  cursor: pointer;
+}
+.plan-shortcut:hover {
+  border-color: var(--honey, #E6A340);
+  background: rgba(230,163,64,0.06);
+}
+.plan-shortcut.is-active {
+  border-color: var(--navy, #0E2A47);
+  background: var(--navy, #0E2A47);
+  color: #fff;
+}
+#p-dest-filter {
+  max-width: 100%;
+}
+#p-dest {
+  max-width: 100%;
+}
+
 .plan-diff {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
