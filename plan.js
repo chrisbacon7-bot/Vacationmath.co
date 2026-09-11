@@ -1163,13 +1163,11 @@
   }
 
   function buildFoodRec(dest, opts, styleKey) {
-    var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
     var days = opts.nights + 1;
     var items = foodPicksFor(dest, styleKey).slice(0, 4);
     if (!items.length) items = foodFallbackItems();
     var note = foodNoteFor(dest);
     var title;
-    var body;
     var impact = "";
 
     if (dest.kind === "disney" && dataPack().DISNEY) {
@@ -1181,18 +1179,15 @@
       var snacks = dataPack().DISNEY.snacksPerPersonPerDay * foodHead * opts.nights;
       var perDay = (diningTot + snacks) / Math.max(1, days);
       title = "About " + money(perDay) + " / day for the party";
-      body = dining.label + ". In-park food is the line that blows Disney budgets. The dining plan is usually a bad buy.";
       impact = "Dining + snacks in this plan: " + money(diningTot + snacks) + " across " + opts.nights + " nights.";
     } else if (dest.kind === "cruise") {
       title = "Main dining is in the fare";
-      body = "The cabin fare already includes the dining room. The leak is specialty restaurants, drink packages, and room-service fees.";
       impact = styleKey === "budget"
         ? "This plan prices pay-as-you-go drinks, not a package. Run the break-even before you tap yes."
         : "Unlimited adult drinks + kids soda are in the itemized plan. Specialty dining is leftover-only.";
     } else if (dest.kind === "ai") {
       var extra = Math.round((styleKey === "lux" ? 45 : 25) * (opts.adults + opts.kids) * Math.min(2, opts.nights / 3));
       title = "Meals are in the package";
-      body = "All-inclusive food is the product. Budget extras for the night you leave the property and the 'included' bottled water you still tip for.";
       impact = "Plan about " + money(extra) + " extra if you want one off-resort dinner for the party. Tips are already a separate line.";
     } else {
       var tf = tfById(dest.id);
@@ -1200,11 +1195,6 @@
       var daily = (ground && ground[styleKey]) || (VM_PLAN_DATA.CITY_BASE.city_generic.food && VM_PLAN_DATA.CITY_BASE.city_generic.food[styleKey]) || 75;
       var partyDay = daily * Math.max(1, opts.adults + opts.kids * 0.6);
       title = "About " + money(daily) + " / person / day";
-      var band = "";
-      if (ground) {
-        band = " Style bands: budget " + money(ground.budget) + " · mid " + money(ground.mid) + " · lux " + money(ground.lux) + " / person / day (food, local transit, attractions).";
-      }
-      body = styleLabel + " daily-ground band from Trip Finder." + band;
       impact = "This plan uses " + money(partyDay) + " / day for the party × " + days + " days (including a travel day).";
     }
 
@@ -1213,9 +1203,7 @@
       title: title,
       body: note,
       items: items,
-      impact: (dest.kind === "disney" || dest.kind === "cruise" || dest.kind === "ai")
-        ? impact
-        : (body ? body + " " : "") + impact
+      impact: impact
     };
   }
 
