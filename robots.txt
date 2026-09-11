@@ -3,12 +3,17 @@
 # ai-train = training or fine-tuning AI models
 # ANY RESTRICTIONS EXPRESSED VIA CONTENT SIGNALS ARE EXPRESS RESERVATIONS OF
 # RIGHTS UNDER ARTICLE 4 OF THE EU DIRECTIVE 2019/790.
+#
+# NOTE: Cloudflare may prepend "Managed content" that Disallows GPTBot,
+# ClaudeBot, Google-Extended, etc. That overrides this file until you turn
+# those blocks off in Cloudflare: AI Crawl Control (or Bot / robots settings)
+# for vacationmath.co. Goal: allow AI *search* crawlers; keep ai-train=no.
 
 User-agent: *
 Content-Signal: search=yes,ai-train=no
 Allow: /
 
-# AI search bots — explicitly welcomed (do not also Disallow these)
+# AI search / answer bots — welcomed for discovery (not for training)
 User-agent: GPTBot
 Allow: /
 
@@ -19,6 +24,9 @@ User-agent: Google-Extended
 Allow: /
 
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://vacationmath.co/sitemap.xml
