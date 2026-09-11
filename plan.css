@@ -290,8 +290,14 @@ button.plan-tier-card:focus-visible {
   gap: 12px;
   margin: 0.75rem 0 1.5rem;
 }
+.plan-rec-card--wide,
+.plan-recs .plan-rec-card:nth-child(5) {
+  grid-column: 1 / -1;
+}
 @media (max-width: 720px) {
   .plan-recs { grid-template-columns: 1fr; }
+  .plan-rec-card--wide,
+  .plan-recs .plan-rec-card:nth-child(5) { grid-column: auto; }
 }
 .plan-rec-card {
   background: #fff;

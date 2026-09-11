@@ -346,17 +346,58 @@
     return [opts.dest, opts.budget, opts.adults, opts.kids, opts.infants, opts.nights, opts.origin, opts.style, opts.month].join("|");
   }
 
-  function hotelExamplesFor(dest, styleKey) {
+  function fallbackKey(dest) {
+    if (!dest) return "city";
+    if (dest.kind === "disney") return "disney";
+    if (dest.kind === "cruise") return "cruise";
+    if (dest.kind === "ai") return "ai";
+    var r = String(dest.region || "").toLowerCase();
+    if (r === "hawaii") return "hawaii";
+    if (r === "europe") return "europe";
+    if (r === "caribbean") return "caribbean";
+    if (r === "mexico") return "mexico";
+    if (r === "asia") return "asia";
+    if (r === "oceania") return "oceania";
+    if (r === "africa") return "africa";
+    if (r === "middle east") return "middleeast";
+    if (r === "central america" || r === "south america") return "latam";
+    if (r === "domestic us") return "domestic";
+    if (dest.flightRegion === "hawaii") return "hawaii";
+    return "city";
+  }
+
+  function asHotelBand(raw) {
+    if (!raw) return { why: "", picks: [] };
+    if (Object.prototype.toString.call(raw) === "[object Array]") {
+      return { why: "", picks: raw.slice() };
+    }
+    return { why: raw.why || "", picks: (raw.picks || []).slice() };
+  }
+
+  function hotelBandFor(dest, styleKey) {
     var curated = VM_PLAN_DATA.HOTEL_EXAMPLES && VM_PLAN_DATA.HOTEL_EXAMPLES[dest.id];
-    if (curated && curated[styleKey] && curated[styleKey].length) return curated[styleKey].slice();
-    return [];
+    var band = asHotelBand(curated && curated[styleKey]);
+    if (band.picks.length) return band;
+    var fbs = VM_PLAN_DATA.HOTEL_FALLBACKS || {};
+    var fb = fbs[fallbackKey(dest)] || fbs.city;
+    return asHotelBand(fb && fb[styleKey]);
+  }
+
+  function hotelExamplesFor(dest, styleKey) {
+    return hotelBandFor(dest, styleKey).picks;
+  }
+
+  function hotelWhyFor(dest, styleKey) {
+    return hotelBandFor(dest, styleKey).why;
   }
 
   function firstHotelExample(dest, styleKey) {
-    var curated = VM_PLAN_DATA.HOTEL_EXAMPLES && VM_PLAN_DATA.HOTEL_EXAMPLES[dest.id];
-    var items = curated && curated[styleKey];
-    if (items && items[0]) {
-      return items[0].replace(/\s*\((value|moderate|deluxe)\)\s*$/i, "").replace(/\.$/, "");
+    var picks = hotelExamplesFor(dest, styleKey);
+    if (picks[0]) {
+      return picks[0]
+        .replace(/\s+[—–-]\s+.+$/, "")
+        .replace(/\s*\((value|moderate|deluxe)\)\s*$/i, "")
+        .replace(/\.$/, "");
     }
     if (dest.kind === "ai" && dest.aiId && dataPack().AI_DESTINATIONS) {
       var list = dataPack().AI_DESTINATIONS;
@@ -379,15 +420,38 @@
     return generic[styleKey] || generic.mid;
   }
 
-  function firstFoodPick(dest) {
+  function foodSource(dest) {
     var curated = VM_PLAN_DATA.FOOD_PICKS && VM_PLAN_DATA.FOOD_PICKS[dest.id];
-    if (curated && curated.picks && curated.picks[0]) return curated.picks[0].replace(/\.$/, "");
-    return "";
+    if (curated) return curated;
+    var fbs = VM_PLAN_DATA.FOOD_FALLBACKS || {};
+    return fbs[fallbackKey(dest)] || fbs.city || null;
   }
 
-  function foodPicksFor(dest) {
-    var curated = VM_PLAN_DATA.FOOD_PICKS && VM_PLAN_DATA.FOOD_PICKS[dest.id];
-    return (curated && curated.picks) ? curated.picks.slice() : [];
+  function foodNoteFor(dest) {
+    var src = foodSource(dest);
+    return (src && src.note) || "Grocery breakfasts, one sit-down dinner, skip hotel restaurants.";
+  }
+
+  function foodPicksFor(dest, styleKey) {
+    var src = foodSource(dest);
+    if (!src) return [];
+    if (styleKey && src[styleKey] && src[styleKey].length) return src[styleKey].slice();
+    if (src.picks && src.picks.length) return src.picks.slice();
+    return [];
+  }
+
+  function firstFoodPick(dest, styleKey) {
+    var picks = foodPicksFor(dest, styleKey);
+    return picks[0] ? picks[0].replace(/\.$/, "") : "";
+  }
+
+  function activitiesPicksFor(dest, styleKey) {
+    var curated = VM_PLAN_DATA.ACTIVITIES && VM_PLAN_DATA.ACTIVITIES[dest.id];
+    if (curated && curated[styleKey] && curated[styleKey].length) return curated[styleKey].slice();
+    var fbs = VM_PLAN_DATA.ACTIVITY_FALLBACKS || {};
+    var fb = fbs[fallbackKey(dest)] || fbs.city;
+    if (fb && fb[styleKey] && fb[styleKey].length) return fb[styleKey].slice();
+    return [];
   }
 
   function hotelCompareDetail(dest, styleKey) {
@@ -486,25 +550,27 @@
     var nights = opts.nights || 5;
     var promo = nights >= 5 ? " Book 5+ nights if a room promo is live." : " Midweek check-in usually beats a Friday arrival.";
     var hotel = firstHotelExample(dest, styleKey);
-    var foodPick = firstFoodPick(dest);
+    var hotelWhy = hotelWhyFor(dest, styleKey);
+    var foodPick = firstFoodPick(dest, styleKey);
+    var actPick = (activitiesPicksFor(dest, styleKey)[0] || "").replace(/\.$/, "");
     var included = ln.amount > 0;
 
     if (kind === "lodging") {
       return {
         text: styleLabel + " class — " + hotel + "." + promo,
-        detail: hotelCompareDetail(dest, styleKey)
+        detail: [hotelWhy, hotelCompareDetail(dest, styleKey)].filter(Boolean).join(" ")
       };
     }
     if (kind === "cabin") {
       return {
         text: styleLabel + " cabin — " + hotel + ". Guarantee cabin if you can live without picking the deck.",
-        detail: hotelCompareDetail(dest, styleKey)
+        detail: [hotelWhy, hotelCompareDetail(dest, styleKey)].filter(Boolean).join(" ")
       };
     }
     if (kind === "aipkg") {
       return {
         text: styleLabel + " AI — " + hotel + ". Confirm the airport transfer is in the rate, not an add-on.",
-        detail: hotelCompareDetail(dest, styleKey)
+        detail: [hotelWhy, hotelCompareDetail(dest, styleKey)].filter(Boolean).join(" ")
       };
     }
     if (kind === "flights") {
@@ -527,9 +593,9 @@
     if (kind === "tickets") {
       return {
         text: "Skip Park Hopper unless you’ll change parks midday. One park per day is already in this number.",
-        detail: styleKey === "budget"
+        detail: actPick || (styleKey === "budget"
           ? "Lean move: start with the cheaper parks and skip Hopper entirely."
-          : "Hopper is a per-ticket add-on, not in this line. Add it only if leftover covers it."
+          : "Hopper is a per-ticket add-on, not in this line. Add it only if leftover covers it.")
       };
     }
     if (kind === "ll") {
@@ -543,24 +609,31 @@
       };
     }
     if (kind === "food") {
+      var foodItems = foodPicksFor(dest, styleKey);
+      var foodDetail = foodItems.slice(1, 4).join(" · ");
       if (dest.kind === "disney") {
         return {
-          text: "Grocery breakfasts cut this line ~30%. One table-service dinner, rest QS.",
-          detail: styleKey === "lux"
+          text: foodPick || "Grocery breakfasts cut this line ~30%. One table-service dinner, rest QS.",
+          detail: foodDetail || (styleKey === "lux"
             ? "Stretch dining is 2 table-service + a signature. The dining plan is still usually a bad buy."
-            : "Mobile-order quick service beats a sit-down lunch. The dining plan is usually a bad buy."
+            : "Mobile-order quick service beats a sit-down lunch. The dining plan is usually a bad buy.")
         };
       }
       if (dest.kind === "ai") {
         return {
-          text: "Meals are in the package. The leak is the night you leave the property and the à-la-carte upsell.",
-          detail: "Budget extras for one off-resort dinner. Tips are already a separate line."
+          text: foodPick || "Meals are in the package. The leak is the night you leave the property and the à-la-carte upsell.",
+          detail: foodDetail || "Budget extras for one off-resort dinner. Tips are already a separate line."
         };
       }
-      var extras = foodPicksFor(dest).slice(1, 3).join(" · ");
+      if (dest.kind === "cruise") {
+        return {
+          text: foodPick || "Main dining room is already in the fare.",
+          detail: foodDetail || "Specialty dining only if leftover covers it."
+        };
+      }
       return {
         text: (foodPick ? foodPick + ". " : "") + "Grocery breakfasts, one sit-down dinner, skip hotel restaurants.",
-        detail: extras || "A transit card beats taxis. Hotel breakfast is the expensive version of a bakery."
+        detail: foodDetail || "A transit card beats taxis. Hotel breakfast is the expensive version of a bakery."
       };
     }
     if (kind === "snacks") {
@@ -605,12 +678,12 @@
     if (kind === "excursions") {
       if (dest.kind === "cruise") {
         return {
-          text: "Book one ship excursion and research one independent port day. The third dock kiosk is the overrun.",
+          text: actPick || "Book one ship excursion and research one independent port day. The third dock kiosk is the overrun.",
           detail: "Ship excursions cost more and include the “we wait for you” insurance. Independent is cheaper if you vet it."
         };
       }
       return {
-        text: "Two is enough. The dock-priced third excursion is where AI savings go to die.",
+        text: actPick || "Two is enough. The dock-priced third excursion is where AI savings go to die.",
         detail: "Pre-book transfers. A taxi to a “recommended” restaurant is not an excursion — it’s a leak."
       };
     }
@@ -1006,83 +1079,41 @@
 
   function buildHotelRec(dest, styleKey) {
     var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
-    var curated = hotelExamplesFor(dest, styleKey);
-    if (curated.length) {
-      var items = curated.slice(0, 2);
-      var compare = hotelCompareDetail(dest, styleKey);
-      if (compare) items.push(compare);
-      if (curated[2]) items.push(curated[2]);
-      return {
-        kicker: dest.kind === "cruise" ? "Cabin" : "Hotel",
-        title: styleLabel + " class — " + dest.short,
-        body: "Named classes for this tier. Not a ranking and not live inventory.",
-        items: items.slice(0, 4),
-        impact: compare ? "This card follows the Lean / Solid / Stretch tier you selected." : ""
-      };
+    var band = hotelBandFor(dest, styleKey);
+    var items = band.picks.slice(0, 3);
+    var why = band.why;
+    var kicker = dest.kind === "cruise" ? "Cabin" : "Hotel";
+    var title = styleLabel + " class — " + dest.short;
+    if (dest.kind === "disney") {
+      var resortKey = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).disneyResort;
+      title = (resortKey === "value" ? "Value" : resortKey === "moderate" ? "Moderate" : "Deluxe / DVC") + " — " + dest.short;
+    } else if (dest.kind === "cruise") {
+      var cabin = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).cruiseCabin || "balcony";
+      title = cabin.charAt(0).toUpperCase() + cabin.slice(1) + " class — " + dest.short;
     }
-    if (dest.kind === "ai" && dest.aiId && dataPack().AI_DESTINATIONS) {
-      var ai = null;
+    if (!items.length && dest.kind === "ai" && dest.aiId && dataPack().AI_DESTINATIONS) {
       var aiList = dataPack().AI_DESTINATIONS;
+      var ai = null;
       for (var i = 0; i < aiList.length; i++) {
         if (aiList[i].id === dest.aiId) ai = aiList[i];
       }
       var tier = styleKey === "lux" ? "luxury" : styleKey;
       var brandStr = ai && ai.brands ? (ai.brands[tier] || ai.brands.mid || "") : "";
-      var items = brandStr ? brandStr.split(",").map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 3) : [];
-      if (items.length) {
-        var compareAi = hotelCompareDetail(dest, styleKey);
-        if (compareAi) items.push(compareAi);
-        return {
-          kicker: "Hotel",
-          title: styleLabel + " all-inclusive class — " + dest.short,
-          body: "Typical of the dedicated all-inclusive rate table. Confirm the actual property before you deposit.",
-          items: items.slice(0, 4),
-          impact: ""
-        };
-      }
+      items = brandStr ? brandStr.split(",").map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 3) : [];
     }
-    if (dest.kind === "disney") {
-      var resort = VM_PLAN_DATA.STYLE_MAP[styleKey];
-      var D = (dataPack().DISNEY && dataPack().DISNEY.resorts) || {};
-      var row = D[resort.disneyResort] || {};
-      return {
-        kicker: "Hotel",
-        title: (row.label || "Disney resort") + "",
-        body: "Disney World lodging class for the style you picked. Off-property is the budget escape hatch.",
-        items: [
-          row.label || "On-property resort matching this style",
-          styleKey === "budget" ? "Off-property Disney Springs / nearby hotel if the value resorts are sold out" : "One room; walk or bus to the parks",
-          styleKey === "lux" ? "Deluxe villa only if leftover covers the jump" : "Skip the club-level upsell unless leftover is real",
-          hotelCompareDetail(dest, styleKey)
-        ].filter(Boolean),
-        impact: ""
-      };
+    if (!items.length) {
+      items = styleKey === "budget"
+        ? ["Limited-service or guesthouse on transit", "Walk-to-bakery beats a cheap room far from everything", "Skip hotel breakfast if a bakery is on the block"]
+        : styleKey === "lux"
+          ? ["Flagship in one district", "Only if leftover covers the jump from mid-range", "Luxury is the room — do not also buy every paid tour"]
+          : ["Neighborhood 3–4 star", "One room, not a suite, unless leftover is real", "Location over a rooftop pool you will use twice"];
     }
-    if (dest.kind === "cruise") {
-      var cabin = VM_PLAN_DATA.STYLE_MAP[styleKey].cruiseCabin;
-      return {
-        kicker: "Cabin",
-        title: cabin.charAt(0).toUpperCase() + cabin.slice(1) + " class",
-        body: "Cabin class for the style you picked. Guarantee cabins save money if you can live without picking the deck.",
-        items: styleKey === "budget"
-          ? ["Carnival or MSC interior", "Guarantee cabin if a window is optional", "Skip the drink package until you run the break-even"]
-          : styleKey === "lux"
-            ? ["NCL Haven / suite or Princess Plus-style fare", "Suite gratuities are higher — already a separate line", "Wi-Fi is in the stretch plan, not the fare"]
-            : ["Royal Caribbean balcony on a 7-night Caribbean", "Central-ship balcony if you get seasick", "Drink package only if leftover covers it"],
-        impact: ""
-      };
-    }
-    var generic = {
-      budget: ["2-star / limited-service or guesthouse class", "Walk-to-transit beats a cheap room far from everything", "Skip hotel breakfast if a bakery is on the block"],
-      mid: ["3–4 star neighborhood hotel", "One room, not a suite, unless leftover is real", "Location over a rooftop pool you will use twice"],
-      lux: ["4–5 star flagship or design hotel", "Only if leftover covers the jump from mid-range", "Luxury is the room — do not also buy every paid tour"]
-    };
     return {
-      kicker: "Hotel",
-      title: styleLabel + " class — " + dest.short,
-      body: "No curated property list for this city. Use the class, then price two neighborhoods.",
-      items: (generic[styleKey] || generic.mid).concat(hotelCompareDetail(dest, styleKey) ? [hotelCompareDetail(dest, styleKey)] : []).slice(0, 4),
-      impact: ""
+      kicker: kicker,
+      title: title,
+      body: why || "Named lodging for this tier. Not a ranking and not live inventory.",
+      items: items,
+      impact: "This card follows the Lean / Solid / Stretch tier you selected."
     };
   }
 
@@ -1132,18 +1163,11 @@
   }
 
   function buildFoodRec(dest, opts, styleKey) {
-    var curated = VM_PLAN_DATA.FOOD_PICKS[dest.id];
     var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
     var days = opts.nights + 1;
-    var people = opts.adults + opts.kids * 0.6;
-    var items = curated && curated.picks ? curated.picks.slice(0, 4) : foodFallbackItems();
-    if (styleKey === "budget" && items.length < 4) {
-      items.push("Lean move: grocery breakfasts most mornings.");
-    }
-    if (styleKey === "lux" && items.length < 4) {
-      items.push("Stretch move: one reserved dinner — not a restaurant every night.");
-    }
-    var note = curated && curated.note ? curated.note : "Grocery breakfasts, one sit-down dinner, skip hotel restaurants. That pattern holds in most cities.";
+    var items = foodPicksFor(dest, styleKey).slice(0, 4);
+    if (!items.length) items = foodFallbackItems();
+    var note = foodNoteFor(dest);
     var title;
     var body;
     var impact = "";
@@ -1195,12 +1219,54 @@
     };
   }
 
+  function buildActivitiesRec(dest, styleKey) {
+    var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
+    var items = activitiesPicksFor(dest, styleKey).slice(0, 4);
+    var title = styleLabel + " days — " + dest.short;
+    if (dest.kind === "disney") {
+      title = styleKey === "budget"
+        ? "One-park days, no Hopper"
+        : styleKey === "lux"
+          ? "Hopper + Lightning Lane stance"
+          : "Two parks — Hopper only if you’ll switch";
+    } else if (dest.kind === "cruise") {
+      title = styleKey === "budget"
+        ? "Sea days + one port walk"
+        : styleKey === "lux"
+          ? "Two excursions + drink-package math"
+          : "One ship tour + one independent port";
+    } else if (dest.id === "los_angeles") {
+      title = styleKey === "budget"
+        ? "Getty, Griffith, beach — skip the stack"
+        : styleKey === "lux"
+          ? "Universal Express leftover — not Disneyland + Universal"
+          : "Universal or beach or Getty — pick two";
+    }
+    var impact = "This card follows the Lean / Solid / Stretch tier you selected.";
+    if (dest.kind === "cruise") {
+      impact = "Drink-package break-even is linked under the drinks line.";
+    } else if (dest.id === "los_angeles") {
+      impact = "Disneyland is Anaheim — a separate day trip, not this lodging.";
+    } else if (dest.kind === "disney") {
+      impact = "Hopper and Lightning Lane are add-ons — only Stretch prices both in.";
+    }
+    return {
+      kicker: "Activities",
+      title: title,
+      body: "Cost posture in each bullet (free / ticketed / tour). Not a live ticket shop.",
+      items: items,
+      impact: impact,
+      wide: true
+    };
+  }
+
   function buildRecs(dest, opts, styleKey) {
     return {
       season: buildSeasonRec(dest, opts, styleKey),
       hotel: buildHotelRec(dest, styleKey),
       airline: buildAirlineRec(dest, opts),
-      food: buildFoodRec(dest, opts, styleKey)
+      food: buildFoodRec(dest, opts, styleKey),
+      activities: buildActivitiesRec(dest, styleKey)
     };
   }
 
@@ -1215,16 +1281,17 @@
       }
       var impact = r.impact ? "<p class=\"plan-rec-impact\">" + esc(r.impact) + "</p>" : "";
       var body = r.body ? "<p class=\"plan-rec-body\">" + esc(r.body) + "</p>" : "";
-      return "<article class=\"plan-rec-card\">" +
+      var wide = r.wide ? " plan-rec-card--wide" : "";
+      return "<article class=\"plan-rec-card" + wide + "\">" +
         "<p class=\"plan-rec-kicker\">" + esc(r.kicker) + "</p>" +
         "<h4 class=\"plan-rec-title\">" + esc(r.title) + "</h4>" +
         body + list + impact +
         "</article>";
     }
     return "<h3 class=\"panel-title\">Recommendations</h3>" +
-      "<p class=\"plan-section-sub\">Season, hotel class, airline patterns from your origin, and a food band. Orientation for the itemized plan — not live inventory and not flight numbers.</p>" +
+      "<p class=\"plan-section-sub\">Season, hotel, airline, food, and activities for the Lean / Solid / Stretch tier you selected. Orientation — not live inventory, not flight numbers, not affiliate links.</p>" +
       "<div class=\"plan-recs\">" +
-        card(recs.season) + card(recs.hotel) + card(recs.airline) + card(recs.food) +
+        card(recs.season) + card(recs.hotel) + card(recs.airline) + card(recs.food) + card(recs.activities) +
       "</div>";
   }
 
@@ -1617,6 +1684,10 @@
     },
     destById: destById,
     catalog: catalog,
-    filterDestinations: filterDestinations
+    filterDestinations: filterDestinations,
+    hotelExamplesFor: hotelExamplesFor,
+    foodPicksFor: foodPicksFor,
+    activitiesPicksFor: activitiesPicksFor,
+    fallbackKey: fallbackKey
   };
 })();
