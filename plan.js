@@ -27,14 +27,16 @@
 
   function destById(id) {
     var list = catalog();
-    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    for (var i = 0; i < list.length; i++) if (list[i] && list[i].id === id) return list[i];
     return list[0] || { id: "disney", label: "Walt Disney World", short: "Disney World", kind: "disney", flightRegion: "domestic", detailHref: "/disney", detailLabel: "Disney World Cost Calculator", blurb: "" };
   }
 
   function tfById(id) {
     var pack = window.VM_TRIPFINDER_DATA;
     var list = (pack && pack.DESTINATIONS) || [];
-    for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i] && list[i].id === id) return list[i];
+    }
     return null;
   }
 
@@ -427,6 +429,428 @@
     };
   }
 
+  function dataPack() {
+    if (window.VM_DATA) return window.VM_DATA;
+    if (typeof VM_DATA !== "undefined") return VM_DATA;
+    return {};
+  }
+
+  function joinAnd(arr) {
+    if (!arr || !arr.length) return "";
+    if (arr.length === 1) return arr[0];
+    if (arr.length === 2) return arr[0] + " and " + arr[1];
+    return arr.slice(0, -1).join(", ") + ", and " + arr[arr.length - 1];
+  }
+
+  function roomsFor(opts) {
+    return Math.max(1, Math.ceil((opts.adults + opts.kids) / 2));
+  }
+
+  function seasonFromMonthly(tf, dest, opts, styleKey) {
+    var names = VM_PLAN_DATA.MONTH_NAMES;
+    var nights = opts.nights;
+    var rooms = roomsFor(opts);
+    var months = [];
+    for (var i = 0; i < 12; i++) {
+      var row = tf.monthly[i] || {};
+      var hotel = row.hotel || {};
+      var nightly = hotel[styleKey] || 0;
+      months.push({
+        idx: i,
+        name: names[i],
+        closed: nightly <= 0,
+        lodging: nightly > 0 ? nightly * nights * rooms : 0,
+        nightly: nightly,
+        weather: row.weather || "",
+        tier: row.tier || "",
+        crowd: row.crowd || ""
+      });
+    }
+    var open = months.filter(function (m) { return !m.closed; });
+    if (!open.length) return null;
+
+    var stormyOrClosed = [];
+    var peakHigh = [];
+    months.forEach(function (m) {
+      if (m.closed) {
+        stormyOrClosed.push(m);
+        return;
+      }
+      if (m.weather === "stormy") stormyOrClosed.push(m);
+    });
+    var maxLodging = 0;
+    open.forEach(function (m) { if (m.lodging > maxLodging) maxLodging = m.lodging; });
+    open.forEach(function (m) {
+      if (m.tier === "peak" && m.lodging >= maxLodging * 0.92 && m.weather !== "stormy") {
+        peakHigh.push(m);
+      }
+    });
+    peakHigh.sort(function (a, b) { return b.lodging - a.lodging; });
+
+    var skipSet = {};
+    var skipItems = [];
+    function addSkip(m, why) {
+      if (skipSet[m.idx]) return;
+      skipSet[m.idx] = true;
+      skipItems.push(m.name + " — " + why);
+    }
+    stormyOrClosed.forEach(function (m) {
+      addSkip(m, m.closed ? "Most lodging is closed or unpriced." : "Storm / hurricane band. Cheap room, expensive weather.");
+    });
+    peakHigh.slice(0, 3).forEach(function (m) {
+      addSkip(m, "Peak demand. Lodging near the annual high (" + money(m.nightly) + "/night " + styleKey + ").");
+    });
+
+    var candidates = open.filter(function (m) { return m.weather !== "stormy"; });
+    if (!candidates.length) candidates = open.slice();
+    candidates.sort(function (a, b) { return a.lodging - b.lodging; });
+    var best = [candidates[0]];
+    if (candidates[1] && candidates[1].lodging <= candidates[0].lodging * 1.08) best.push(candidates[1]);
+    else if (candidates[1] && candidates[1].tier !== "peak") best.push(candidates[1]);
+
+    var cheapest = open.slice().sort(function (a, b) { return a.lodging - b.lodging; })[0];
+    var peak = open.slice().sort(function (a, b) { return b.lodging - a.lodging; })[0];
+
+    var selected;
+    var selectedLabel;
+    if (opts.month === "" || opts.month == null) {
+      var sum = 0;
+      open.forEach(function (m) { sum += m.lodging; });
+      selected = { lodging: sum / open.length, name: "typical season", nightly: (sum / open.length) / (nights * rooms) };
+      selectedLabel = "a typical month (12-month open average)";
+    } else {
+      var sm = months[parseInt(opts.month, 10)];
+      if (sm && !sm.closed) {
+        selected = sm;
+        selectedLabel = sm.name;
+      } else {
+        var avg = 0;
+        open.forEach(function (m) { avg += m.lodging; });
+        selected = { lodging: avg / open.length, name: sm ? sm.name : "typical", nightly: 0 };
+        selectedLabel = (sm ? sm.name : "that month") + " is closed — using the open-month average";
+      }
+    }
+
+    var vsBest = Math.round(selected.lodging - cheapest.lodging);
+    var vsPeak = Math.round(peak.lodging - selected.lodging);
+    var impact;
+    if (vsBest <= 40) {
+      impact = selectedLabel.charAt(0).toUpperCase() + selectedLabel.slice(1) + " is already near the cheapest lodging band (" + money(cheapest.lodging) + " for " + nights + " night" + (nights === 1 ? "" : "s") + ", " + rooms + " room" + (rooms === 1 ? "" : "s") + "). Peak " + peak.name + " runs about " + money(peak.lodging) + " — " + money(Math.max(0, vsPeak)) + " more.";
+    } else {
+      impact = selectedLabel.charAt(0).toUpperCase() + selectedLabel.slice(1) + " lodging is about " + money(selected.lodging) + ". Cheapest open month (" + cheapest.name + ") is " + money(cheapest.lodging) + " — " + money(vsBest) + " less. Peak " + peak.name + " is " + money(peak.lodging) + " (" + money(Math.max(0, vsPeak)) + " more than this month).";
+    }
+
+    var bestBits = best.map(function (m) {
+      var extra = [];
+      if (m.weather) extra.push(m.weather + " weather");
+      if (m.tier) extra.push(m.tier + " rates");
+      return m.name + (extra.length ? " (" + extra.join(", ") + ")" : "");
+    });
+
+    return {
+      kicker: "Season",
+      title: "Best: " + joinAnd(best.map(function (m) { return m.name; })) + ". Skip: " + (skipItems.length ? joinAnd(skipItems.map(function (s) { return s.split(" — ")[0]; }).slice(0, 3)) : "no hard-skip month"),
+      body: "Lodging $ from the Trip Finder 2026 " + styleKey + " hotel band × " + nights + " night" + (nights === 1 ? "" : "s") + " × " + rooms + " room" + (rooms === 1 ? "" : "s") + ". Same monthly table as the itemized plan." + (dest.short ? " " + dest.short + "." : ""),
+      items: bestBits.map(function (b) { return "Aim for " + b + "."; }).concat(skipItems.slice(0, 3)),
+      impact: impact
+    };
+  }
+
+  function seasonFromBands(kind, dest, opts, styleKey) {
+    var pack = VM_PLAN_DATA.SEASON[kind] || VM_PLAN_DATA.SEASON.city;
+    var names = VM_PLAN_DATA.MONTH_NAMES;
+    var keys = VM_PLAN_DATA.SEASON_KEYS;
+    var nights = opts.nights;
+    var rooms = dest.kind === "disney" || dest.kind === "cruise" ? 1 : roomsFor(opts);
+
+    function lodgingAt(monthIdx) {
+      var band = pack[monthIdx];
+      var key = keys[band] || "avg";
+      if (dest.kind === "disney" && dataPack().DISNEY) {
+        var map = VM_PLAN_DATA.STYLE_MAP[styleKey];
+        var resort = dataPack().DISNEY.resorts[map.disneyResort];
+        return (resort[key] || resort.avg) * nights;
+      }
+      if (dest.kind === "cruise" && dataPack().CRUISE) {
+        var data = dataPack();
+        var lines = data.CRUISE_LINES_EXPANDED || {};
+        var lineKey = styleKey === "budget" ? "carnival" : (styleKey === "lux" ? "ncl" : "royal_caribbean");
+        var cruiseLine = lines[lineKey] || { perPersonAvg: 900 };
+        var cabinAdd = (data.CRUISE.cabinUpgrade && data.CRUISE.cabinUpgrade[VM_PLAN_DATA.STYLE_MAP[styleKey].cruiseCabin]) || 0;
+        var per = (cruiseLine.perPersonAvg * (nights / 7) + cabinAdd) * Math.min(2, opts.adults + opts.kids);
+        return per * seasonMult(key);
+      }
+      var nightly = ((VM_PLAN_DATA.CITY_BASE.city_generic.hotel || {})[styleKey]) || 210;
+      return nightly * seasonMult(key) * nights * rooms;
+    }
+
+    var scored = [];
+    for (var i = 0; i < 12; i++) {
+      scored.push({ idx: i, name: names[i], band: pack[i], key: keys[pack[i]] || "avg", lodging: lodgingAt(i) });
+    }
+    var best = scored.filter(function (m) { return m.band === 0; }).slice(0, 3);
+    var skip = scored.filter(function (m) { return m.band === 2; });
+    skip.sort(function (a, b) { return b.lodging - a.lodging; });
+    skip = skip.slice(0, 3);
+    if (!best.length) {
+      var lows = scored.slice().sort(function (a, b) { return a.lodging - b.lodging; });
+      best = lows.slice(0, 2);
+    }
+    var cheapest = scored.slice().sort(function (a, b) { return a.lodging - b.lodging; })[0];
+    var peak = scored.slice().sort(function (a, b) { return b.lodging - a.lodging; })[0];
+
+    var selectedLodging;
+    var selectedLabel;
+    if (opts.month === "" || opts.month == null) {
+      var avgSum = 0;
+      scored.forEach(function (m) { avgSum += m.lodging; });
+      selectedLodging = avgSum / 12;
+      selectedLabel = "a typical month";
+    } else {
+      var sm = scored[parseInt(opts.month, 10)];
+      selectedLodging = sm.lodging;
+      selectedLabel = sm.name;
+    }
+    var vsBest = Math.round(selectedLodging - cheapest.lodging);
+    var vsPeak = Math.round(peak.lodging - selectedLodging);
+    var what = dest.kind === "cruise" ? "cabin fare (first two guests)" : (dest.kind === "disney" ? "resort lodging" : "lodging");
+    var impact = selectedLabel.charAt(0).toUpperCase() + selectedLabel.slice(1) + " " + what + " is about " + money(selectedLodging) +
+      ". Cheapest band (" + cheapest.name + ") is " + money(cheapest.lodging) +
+      (vsBest > 40 ? " — " + money(vsBest) + " less" : " (already close)") +
+      ". Peak " + peak.name + " is " + money(peak.lodging) +
+      (vsPeak > 40 ? " — " + money(vsPeak) + " more" : "") + ".";
+
+    return {
+      kicker: "Season",
+      title: "Best: " + joinAnd(best.map(function (m) { return m.name; })) + ". Skip: " + (skip.length ? joinAnd(skip.map(function (m) { return m.name; })) : "no hard-skip month"),
+      body: dest.kind === "disney"
+        ? "Disney room bands (low / average / high) from the same 2026 resort table as the itemized plan, × " + nights + " nights."
+        : dest.kind === "cruise"
+          ? "Caribbean cruise season bands applied to the first-two-guest cabin fare. Shoulder weeks cut the cabin; holiday weeks do not."
+          : "Season bands applied to the " + styleKey + " nightly hotel rate × " + nights + " nights.",
+      items: best.map(function (m) { return "Aim for " + m.name + " (" + m.key + " season, about " + money(m.lodging) + ")."; })
+        .concat(skip.map(function (m) { return "Skip " + m.name + " if you can — " + m.key + " season, about " + money(m.lodging) + "."; })),
+      impact: impact
+    };
+  }
+
+  function buildSeasonRec(dest, opts, styleKey) {
+    if (dest.kind === "disney") return seasonFromBands("disney", dest, opts, styleKey);
+    if (dest.kind === "cruise") return seasonFromBands("cruise", dest, opts, styleKey);
+    var tf = tfById(dest.id);
+    if (tf && tf.monthly) {
+      var fromTf = seasonFromMonthly(tf, dest, opts, styleKey);
+      if (fromTf) return fromTf;
+    }
+    var kind = dest.kind === "ai" ? "cancun" : (dest.flightRegion === "hawaii" ? "hawaii" : "city");
+    return seasonFromBands(kind, dest, opts, styleKey);
+  }
+
+  function buildHotelRec(dest, styleKey) {
+    var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
+    var curated = VM_PLAN_DATA.HOTEL_EXAMPLES[dest.id];
+    if (curated && curated[styleKey] && curated[styleKey].length) {
+      return {
+        kicker: dest.kind === "cruise" ? "Cabin" : "Hotel",
+        title: styleLabel + " class — " + dest.short,
+        body: "Example properties and classes for the style you picked. Not a ranking and not live inventory.",
+        items: curated[styleKey].slice(0, 3),
+        impact: ""
+      };
+    }
+    if (dest.kind === "ai" && dest.aiId && dataPack().AI_DESTINATIONS) {
+      var ai = null;
+      var aiList = dataPack().AI_DESTINATIONS;
+      for (var i = 0; i < aiList.length; i++) {
+        if (aiList[i].id === dest.aiId) ai = aiList[i];
+      }
+      var tier = styleKey === "lux" ? "luxury" : styleKey;
+      var brandStr = ai && ai.brands ? (ai.brands[tier] || ai.brands.mid || "") : "";
+      var items = brandStr ? brandStr.split(",").map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 3) : [];
+      if (items.length) {
+        return {
+          kicker: "Hotel",
+          title: styleLabel + " all-inclusive class — " + dest.short,
+          body: "Typical of the dedicated all-inclusive rate table. Confirm the actual property before you deposit.",
+          items: items,
+          impact: ""
+        };
+      }
+    }
+    if (dest.kind === "disney") {
+      var resort = VM_PLAN_DATA.STYLE_MAP[styleKey];
+      var D = (dataPack().DISNEY && dataPack().DISNEY.resorts) || {};
+      var row = D[resort.disneyResort] || {};
+      return {
+        kicker: "Hotel",
+        title: (row.label || "Disney resort") + "",
+        body: "Disney World lodging class for the style you picked. Off-property is the budget escape hatch.",
+        items: [
+          row.label || "On-property resort matching this style",
+          styleKey === "budget" ? "Off-property Disney Springs / nearby hotel if the value resorts are sold out" : "One room; walk or bus to the parks",
+          styleKey === "lux" ? "Deluxe villa only if leftover covers the jump" : "Skip the club-level upsell unless leftover is real"
+        ],
+        impact: ""
+      };
+    }
+    if (dest.kind === "cruise") {
+      var cabin = VM_PLAN_DATA.STYLE_MAP[styleKey].cruiseCabin;
+      return {
+        kicker: "Cabin",
+        title: cabin.charAt(0).toUpperCase() + cabin.slice(1) + " class",
+        body: "Cabin class for the style you picked. Guarantee cabins save money if you can live without picking the deck.",
+        items: styleKey === "budget"
+          ? ["Carnival or MSC interior", "Guarantee cabin if a window is optional", "Skip the drink package until you run the break-even"]
+          : styleKey === "lux"
+            ? ["NCL Haven / suite or Princess Plus-style fare", "Suite gratuities are higher — already a separate line", "Wi-Fi is in the stretch plan, not the fare"]
+            : ["Royal Caribbean balcony on a 7-night Caribbean", "Central-ship balcony if you get seasick", "Drink package only if leftover covers it"],
+        impact: ""
+      };
+    }
+    var generic = {
+      budget: ["2-star / limited-service or guesthouse class", "Walk-to-transit beats a cheap room far from everything", "Skip hotel breakfast if a bakery is on the block"],
+      mid: ["3–4 star neighborhood hotel", "One room, not a suite, unless leftover is real", "Location over a rooftop pool you will use twice"],
+      lux: ["4–5 star flagship or design hotel", "Only if leftover covers the jump from mid-range", "Luxury is the room — do not also buy every paid tour"]
+    };
+    return {
+      kicker: "Hotel",
+      title: styleLabel + " class — " + dest.short,
+      body: "No curated property list for this city. Use the class, then price two neighborhoods.",
+      items: generic[styleKey] || generic.mid,
+      impact: ""
+    };
+  }
+
+  function buildAirlineRec(dest, opts) {
+    var originId = opts.origin === "drive" ? "driving" : (opts.origin || "atl");
+    var hubs = VM_PLAN_DATA.ORIGIN_HUBS || {};
+    var hub = hubs[originId] || {
+      city: "your airport",
+      carrier: "",
+      tip: "Compare the nearest hub on the same week. Midweek usually beats Sunday."
+    };
+    var region = dest.flightRegion || "domestic";
+    var regionTip = (VM_PLAN_DATA.REGION_AIR && VM_PLAN_DATA.REGION_AIR[region]) ||
+      "Book the pattern for this region, then price two nearby dates. We do not invent flight numbers.";
+    var driving = originId === "driving";
+    var items = [];
+    if (hub.tip) items.push(hub.tip);
+    if (!driving) items.push(regionTip);
+    items.push("No flight numbers on purpose — those change weekly. Use the hub pattern, then price two midweek dates.");
+    if (driving && isFlyOnlyRegion(region)) {
+      items.unshift("Driving does not replace a flight here. Pick an origin airport or add airfare.");
+    }
+    var title = driving
+      ? (isFlyOnlyRegion(region) ? "You still need a flight" : "Drive — no airfare in the plan")
+      : ((hub.city || "Your hub") + (hub.carrier ? " · " + hub.carrier : "") + " → " + (dest.short || dest.label));
+    return {
+      kicker: "Airline",
+      title: title,
+      body: driving
+        ? "Ground-transport allowance is already in the itemized plan when driving can replace the flight."
+        : "Pattern from your origin, not a specific itinerary. Same airfare band as the Getting-there line.",
+      items: items.slice(0, 4),
+      impact: ""
+    };
+  }
+
+  function foodFallbackItems() {
+    return [
+      "Grocery or bakery breakfasts most mornings",
+      "One sit-down dinner, not one every night",
+      "Skip the hotel restaurant unless breakfast is already in the rate"
+    ];
+  }
+
+  function buildFoodRec(dest, opts, styleKey) {
+    var curated = VM_PLAN_DATA.FOOD_PICKS[dest.id];
+    var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
+    var days = opts.nights + 1;
+    var people = opts.adults + opts.kids * 0.6;
+    var items = curated && curated.picks ? curated.picks.slice(0, 3) : foodFallbackItems();
+    var note = curated && curated.note ? curated.note : "Grocery breakfasts, one sit-down dinner, skip hotel restaurants. That pattern holds in most cities.";
+    var title;
+    var body;
+    var impact = "";
+
+    if (dest.kind === "disney" && dataPack().DISNEY) {
+      var map = VM_PLAN_DATA.STYLE_MAP[styleKey];
+      var dining = dataPack().DISNEY.dining[map.disneyDining];
+      var foodHead = opts.adults + (opts.kids * 0.7);
+      var diningScale = Math.max(0.5, foodHead / 4);
+      var diningTot = dining.perDay * opts.nights * diningScale;
+      var snacks = dataPack().DISNEY.snacksPerPersonPerDay * foodHead * opts.nights;
+      var perDay = (diningTot + snacks) / Math.max(1, days);
+      title = "About " + money(perDay) + " / day for the party";
+      body = dining.label + ". In-park food is the line that blows Disney budgets. The dining plan is usually a bad buy.";
+      impact = "Dining + snacks in this plan: " + money(diningTot + snacks) + " across " + opts.nights + " nights.";
+    } else if (dest.kind === "cruise") {
+      title = "Main dining is in the fare";
+      body = "The cabin fare already includes the dining room. The leak is specialty restaurants, drink packages, and room-service fees.";
+      impact = styleKey === "budget"
+        ? "This plan prices pay-as-you-go drinks, not a package. Run the break-even before you tap yes."
+        : "Unlimited adult drinks + kids soda are in the itemized plan. Specialty dining is leftover-only.";
+    } else if (dest.kind === "ai") {
+      var extra = Math.round((styleKey === "lux" ? 45 : 25) * (opts.adults + opts.kids) * Math.min(2, opts.nights / 3));
+      title = "Meals are in the package";
+      body = "All-inclusive food is the product. Budget extras for the night you leave the property and the 'included' bottled water you still tip for.";
+      impact = "Plan about " + money(extra) + " extra if you want one off-resort dinner for the party. Tips are already a separate line.";
+    } else {
+      var tf = tfById(dest.id);
+      var ground = tf && tf.dailyGround ? tf.dailyGround : null;
+      var daily = (ground && ground[styleKey]) || (VM_PLAN_DATA.CITY_BASE.city_generic.food && VM_PLAN_DATA.CITY_BASE.city_generic.food[styleKey]) || 75;
+      var partyDay = daily * Math.max(1, opts.adults + opts.kids * 0.6);
+      title = "About " + money(daily) + " / person / day";
+      var band = "";
+      if (ground) {
+        band = " Style bands: budget " + money(ground.budget) + " · mid " + money(ground.mid) + " · lux " + money(ground.lux) + " / person / day (food, local transit, attractions).";
+      }
+      body = styleLabel + " daily-ground band from Trip Finder." + band;
+      impact = "This plan uses " + money(partyDay) + " / day for the party × " + days + " days (including a travel day).";
+    }
+
+    return {
+      kicker: "Food",
+      title: title,
+      body: note,
+      items: items,
+      impact: (body && dest.kind !== "disney" && dest.kind !== "cruise" && dest.kind !== "ai" ? body + " " : (dest.kind === "disney" || dest.kind === "cruise" || dest.kind === "ai" ? body + " " : "")) + impact
+    };
+  }
+
+  function buildRecs(dest, opts, styleKey) {
+    return {
+      season: buildSeasonRec(dest, opts, styleKey),
+      hotel: buildHotelRec(dest, styleKey),
+      airline: buildAirlineRec(dest, opts),
+      food: buildFoodRec(dest, opts, styleKey)
+    };
+  }
+
+  function recsHtml(recs) {
+    function card(r) {
+      if (!r) return "";
+      var list = "";
+      if (r.items && r.items.length) {
+        list = "<ul class=\"plan-rec-list\">" + r.items.map(function (it) {
+          return "<li>" + esc(it) + "</li>";
+        }).join("") + "</ul>";
+      }
+      var impact = r.impact ? "<p class=\"plan-rec-impact\">" + esc(r.impact) + "</p>" : "";
+      var body = r.body ? "<p class=\"plan-rec-body\">" + esc(r.body) + "</p>" : "";
+      return "<article class=\"plan-rec-card\">" +
+        "<p class=\"plan-rec-kicker\">" + esc(r.kicker) + "</p>" +
+        "<h4 class=\"plan-rec-title\">" + esc(r.title) + "</h4>" +
+        body + list + impact +
+        "</article>";
+    }
+    return "<h3 class=\"panel-title\">Recommendations</h3>" +
+      "<p class=\"plan-section-sub\">Season, hotel class, airline patterns from your origin, and a food band. Orientation for the itemized plan — not live inventory and not flight numbers.</p>" +
+      "<div class=\"plan-recs\">" +
+        card(recs.season) + card(recs.hotel) + card(recs.airline) + card(recs.food) +
+      "</div>";
+  }
+
   function compute() {
     var opts = readOpts();
     var dest = destById(opts.dest);
@@ -454,7 +878,8 @@
       verdict: verdictFor(recTotal, opts.budget),
       tiers: tiers,
       cuts: cutsFor(recommended, opts.budget),
-      upgrades: upgradesFor(recommended, opts.dest, opts, opts.style, opts.budget)
+      upgrades: upgradesFor(recommended, opts.dest, opts, opts.style, opts.budget),
+      recs: buildRecs(dest, opts, opts.style)
     };
   }
 
@@ -533,7 +958,7 @@
         rows +
         "<tr class=\"plan-itemize-total\"><th>Estimated total</th><td>" + money(model.total) + "</td></tr>" +
       "</tbody></table>" +
-      cutsHtml + upHtml + deepHtml;
+      cutsHtml + upHtml + recsHtml(model.recs) + deepHtml;
 
     var email = $("email-section");
     if (email) email.hidden = false;
@@ -719,6 +1144,7 @@
   window.VM_PLAN = {
     compute: compute,
     buildPlan: buildPlan,
+    buildRecs: buildRecs,
     destById: destById,
     catalog: catalog,
     filterDestinations: filterDestinations

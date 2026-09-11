@@ -210,3 +210,55 @@
   line-height: 1.55;
   color: var(--ink-soft, #5c564c);
 }
+.plan-recs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 0.75rem 0 1.5rem;
+}
+@media (max-width: 720px) {
+  .plan-recs { grid-template-columns: 1fr; }
+}
+.plan-rec-card {
+  background: #fff;
+  border: 1.5px solid var(--hairline, #D9D5CC);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.plan-rec-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--honey, #E6A340);
+}
+.plan-rec-title {
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 4px 0 8px;
+  color: var(--navy, #0E2A47);
+  line-height: 1.3;
+}
+.plan-rec-body {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--ink-soft, #5c564c);
+}
+.plan-rec-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink, #1A1A1A);
+}
+.plan-rec-list li { margin: 0 0 4px; }
+.plan-rec-impact {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--navy, #0E2A47);
+}
