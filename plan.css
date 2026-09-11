@@ -133,9 +133,54 @@
   border-radius: 12px;
   padding: 14px 16px;
 }
-.plan-tier-card.is-recommended {
+button.plan-tier-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+}
+button.plan-tier-card:hover {
+  border-color: var(--honey, #E6A340);
+  background: rgba(230,163,64,0.06);
+}
+button.plan-tier-card:focus-visible {
+  outline: 2px solid var(--honey, #E6A340);
+  outline-offset: 2px;
+}
+.plan-tier-card.is-recommended,
+.plan-tier-card.is-selected {
   border-color: var(--navy, #0E2A47);
-  background: linear-gradient(180deg, rgba(14,42,71,0.04), #fff);
+  background: linear-gradient(180deg, rgba(14,42,71,0.06), #fff);
+  box-shadow: 0 0 0 1px var(--navy, #0E2A47);
+}
+.plan-tier-card.is-suggested:not(.is-selected) {
+  border-color: var(--honey, #E6A340);
+  box-shadow: 0 0 0 1px rgba(230,163,64,0.35);
+}
+.plan-tier-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-soft, #5c564c);
+  background: #f4f1ea;
+  vertical-align: middle;
+}
+.plan-tier-card.is-selected .plan-tier-badge {
+  background: var(--navy, #0E2A47);
+  color: #fff;
+}
+.plan-tier-card.is-suggested:not(.is-selected) .plan-tier-badge {
+  background: rgba(230,163,64,0.2);
+  color: #8a5a12;
 }
 .plan-tier-label {
   margin: 0;
@@ -201,6 +246,15 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+.plan-line-tip-detail {
+  display: block;
+  font-weight: 400;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  color: var(--ink-soft, #5c564c);
+  margin-top: 3px;
+  white-space: normal;
 }
 .plan-cut-list, .plan-upgrade-list, .plan-deep-links, .plan-faq-list {
   margin: 0.5rem 0 1.25rem;
