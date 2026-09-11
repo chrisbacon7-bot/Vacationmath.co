@@ -48,7 +48,8 @@
     { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Issue #13 · Holiday Flight Booking' },
     { href: '/blog/hurricane-season-travel-insurance-2026', label: 'Issue #14 · Hurricane Season Insurance' },
     { href: '/blog/should-you-buy-travel-insurance-2026', label: 'Issue #15 · Should You Buy Insurance' },
-    { href: '/blog/disney-fall-room-promo-math-2026', label: 'Issue #16 · Disney Fall Room Promo' }
+    { href: '/blog/disney-fall-room-promo-math-2026', label: 'Issue #16 · Disney Fall Room Promo' },
+    { href: '/blog/cruise-drink-package-break-even-2026', label: 'Issue #17 · Cruise Drink Package Break-Even' }
   ];
 
   // Page detection so we can highlight active nav item
