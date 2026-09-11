@@ -676,6 +676,28 @@ window.VM_TRIPFINDER_DATA = (function () {
       ]
     },
     {
+      id: "los_angeles", name: "Los Angeles", country: "USA", region: "Domestic US",
+      vibes: ["city", "food", "culture", "beach"],
+      regionFlight: "domestic", flightSurcharge: 1.0,
+      dailyGround: { budget: 100, mid: 180, lux: 380 },
+      visaUS: "none", tzOffset: -3,
+      notes: "LAX is the door; BUR, LGB, and SNA often price better the same week. City trip — Universal and the Getty are day costs. Disneyland is Anaheim (~1 hour), not this lodging math. Oscars week and summer beach hotels are the expensive windows; March–May and September–October are the value months.",
+      monthly: [
+        m("shoulder", 170, 270, 520, "good", "med"),   // Jan
+        m("peak", 230, 370, 720, "good", "high"),      // Feb — Oscars / awards weeks
+        m("shoulder", 190, 310, 600, "great", "med"),  // Mar
+        m("shoulder", 200, 320, 620, "great", "med"),  // Apr
+        m("shoulder", 210, 340, 660, "good", "med"),   // May
+        m("peak", 250, 400, 780, "hot", "high"),       // Jun — beach premium
+        m("peak", 270, 430, 840, "hot", "high"),       // Jul
+        m("peak", 260, 420, 820, "hot", "high"),       // Aug
+        m("shoulder", 200, 320, 620, "great", "med"),  // Sep
+        m("shoulder", 200, 320, 620, "great", "med"),  // Oct
+        m("shoulder", 200, 330, 640, "good", "med"),   // Nov
+        m("peak", 240, 380, 740, "mixed", "high")      // Dec — holidays
+      ]
+    },
+    {
       id: "charleston", name: "Charleston", country: "USA", region: "Domestic US",
       vibes: ["food", "culture", "romantic", "beach"],
       regionFlight: "domestic", flightSurcharge: 0.95,

@@ -64,6 +64,7 @@
     { id: "paris", label: "Paris" },
     { id: "tokyo", label: "Tokyo" },
     { id: "vegas", label: "Las Vegas" },
+    { id: "los_angeles", label: "Los Angeles" },
     { id: "oahu", label: "Oahu" }
   ];
 
@@ -242,6 +243,11 @@
       mid: ["Center-Strip 3-4 star (Park MGM / New York-New York class)", "Walk the Strip; skip the resort-fee spa credit math"],
       lux: ["Bellagio / Wynn / Venetian class", "Weekends and holidays double the midweek rate"]
     },
+    los_angeles: {
+      budget: ["Koreatown or Downtown limited-service (Freehand / HI Los Angeles class)", "Metro or one rideshare zone — a cheap Valley room is a $40 Uber habit"],
+      mid: ["Downtown Ace / Proper class, or Santa Monica 3-star (Shore Hotel class)", "Pick one neighborhood. Hotel parking is $40–60/night if you rent a car"],
+      lux: ["Santa Monica Proper / 1 Hotel West Hollywood class", "Beach or WeHo, not both. Disneyland is Anaheim — a separate day trip"]
+    },
     oahu: {
       budget: ["Waikiki limited-service (Aqua / Shoreline class)", "No car if you stay on the Waikiki bus grid"],
       mid: ["Waikiki 3-4 star (Outrigger / Hilton Hawaiian Village class)", "Parking is a line item — $40–55/night"],
@@ -350,6 +356,10 @@
     vegas: {
       picks: ["Off-Strip or food-hall dinner", "One steakhouse only if leftover is real", "Free drinks are not a meal plan"],
       note: "Strip restaurants price like airports. Walk ten minutes."
+    },
+    los_angeles: {
+      picks: ["Taco truck or Grand Central Market, not the hotel restaurant", "Koreatown BBQ as the one sit-down", "Santa Monica Pier is a walk, not a meal plan"],
+      note: "LA food is excellent at every price. The overrun is hotel restaurants and a rideshare to dinner across town."
     },
     oahu: {
       picks: ["Plate lunch, not resort breakfast every day", "Leonard’s malasadas once, not as a meal", "Grocery the condo if you booked one"],

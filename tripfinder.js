@@ -41,6 +41,7 @@
     vegas:                     { lat: 36.17, lng: -115.14 },
     denver:                    { lat: 39.74, lng: -104.99 },
     san_diego:                 { lat: 32.72, lng: -117.16 },
+    los_angeles:               { lat: 34.05, lng: -118.24 },
     charleston:                { lat: 32.78, lng: -79.93 },
     savannah:                  { lat: 32.08, lng: -81.10 },
     asheville:                 { lat: 35.60, lng: -82.55 },
