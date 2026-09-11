@@ -182,6 +182,26 @@
   color: var(--ink-soft, #5c564c);
   margin-top: 2px;
 }
+.plan-line-tip {
+  display: block;
+  font-weight: 400;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--ink-soft, #5c564c);
+  margin-top: 5px;
+  white-space: normal;
+}
+.plan-line-tip::before {
+  content: "Tip: ";
+  font-weight: 600;
+  color: var(--honey, #B07A1F);
+}
+.plan-line-tip a {
+  color: var(--navy, #0E2A47);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .plan-cut-list, .plan-upgrade-list, .plan-deep-links, .plan-faq-list {
   margin: 0.5rem 0 1.25rem;
   padding-left: 1.2rem;

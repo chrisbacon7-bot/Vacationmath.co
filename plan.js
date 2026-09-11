@@ -333,12 +333,252 @@
     };
   }
 
+  function originCode(opts) {
+    var id = opts.origin === "drive" ? "driving" : (opts.origin || "atl");
+    if (id === "driving") return "";
+    return id.toUpperCase();
+  }
+
+  function firstHotelExample(dest, styleKey) {
+    var curated = VM_PLAN_DATA.HOTEL_EXAMPLES && VM_PLAN_DATA.HOTEL_EXAMPLES[dest.id];
+    var items = curated && curated[styleKey];
+    if (items && items[0]) {
+      return items[0].replace(/\s*\((value|moderate|deluxe)\)\s*$/i, "").replace(/\.$/, "");
+    }
+    if (dest.kind === "ai" && dest.aiId && dataPack().AI_DESTINATIONS) {
+      var list = dataPack().AI_DESTINATIONS;
+      var tier = styleKey === "lux" ? "luxury" : styleKey;
+      for (var i = 0; i < list.length; i++) {
+        if (list[i].id === dest.aiId && list[i].brands) {
+          var raw = list[i].brands[tier] || list[i].brands.mid || "";
+          var names = raw.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+          if (names.length) return names.slice(0, 3).join(" / ");
+        }
+      }
+    }
+    if (dest.kind === "disney") {
+      var map = VM_PLAN_DATA.STYLE_MAP[styleKey] || {};
+      var resorts = (dataPack().DISNEY && dataPack().DISNEY.resorts) || {};
+      var row = resorts[map.disneyResort];
+      return row && row.label ? row.label.split(" (")[0] : "On-property resort matching this style";
+    }
+    var generic = { budget: "2-star / limited-service class", mid: "3–4 star neighborhood hotel", lux: "4–5 star flagship class" };
+    return generic[styleKey] || generic.mid;
+  }
+
+  function firstFoodPick(dest) {
+    var curated = VM_PLAN_DATA.FOOD_PICKS && VM_PLAN_DATA.FOOD_PICKS[dest.id];
+    if (curated && curated.picks && curated.picks[0]) return curated.picks[0].replace(/\.$/, "");
+    return "";
+  }
+
+  function flightTipRegion(dest) {
+    var name = String((dest && dest.region) || "").toLowerCase();
+    if (name === "asia") return "asia";
+    if (name === "hawaii") return "hawaii";
+    if (name === "caribbean") return "caribbean";
+    if (name === "europe") return "europe";
+    if (name === "oceania") return "oceania";
+    if (name === "africa") return "africa";
+    if (name === "middle east") return "middleeast";
+    if (name === "mexico" || name === "central america" || name === "south america") {
+      return dest.flightRegion || "latam";
+    }
+    if (name === "domestic us" || name === "featured") return dest.flightRegion || "domestic";
+    return (dest && dest.flightRegion) || "domestic";
+  }
+
+  function flightTipText(dest, opts) {
+    var originId = opts.origin === "drive" ? "driving" : (opts.origin || "atl");
+    var region = flightTipRegion(dest);
+    var driving = originId === "driving";
+    if (driving && isFlyOnlyRegion(region)) {
+      return "Driving does not replace this flight. Pick an origin airport or add airfare.";
+    }
+    if (driving) {
+      return "Budget fuel, wear, and a possible night on the road — not just the gas receipt.";
+    }
+    var code = originCode(opts);
+    if (region === "domestic") {
+      return "From " + code + ", midweek nonstops usually beat Friday/Sunday. Price the week of travel 6–8 weeks out for domestic.";
+    }
+    if (region === "caribbean") {
+      return "From " + code + ", Southeast and Texas origins see the most Caribbean nonstops. Shoulder weeks cut this line.";
+    }
+    if (region === "hawaii") {
+      return "From " + code + ", West Coast origins win. A neighbor-island hop is a second ticket — not in the Honolulu fare.";
+    }
+    if (region === "europe") {
+      return "From " + code + ", book about 2–4 months out. Midweek Atlantic crossings; open-jaw often beats two one-ways.";
+    }
+    if (region === "latam") {
+      return "From " + code + ", MIA / IAH / DFW / ATL are the usual doors. Shoulder months move this line more than the airline brand.";
+    }
+    if (region === "asia") {
+      return "From " + code + ", one-stop via SFO, LAX, SEA, or ORD is the usual East Coast pattern. No flight numbers — those change weekly.";
+    }
+    if (region === "oceania") {
+      return "From " + code + ", this is a 2–6 month booking via the West Coast, not a 3-week fare hunt.";
+    }
+    if (region === "africa") {
+      return "From " + code + ", usually one European or Middle East connect. Price door-to-door, not the cheap first segment.";
+    }
+    if (region === "middleeast") {
+      return "From " + code + ", JFK / IAD / IAH / ORD have the most one-stop patterns. Summer is cheap and extremely hot.";
+    }
+    return "From " + code + ", midweek usually beats Sunday. We do not list flight numbers — price two nearby dates.";
+  }
+
+  function lineKind(label) {
+    var s = String(label || "").toLowerCase();
+    if (/lightning|genie/.test(s)) return "ll";
+    if (/park ticket/.test(s)) return "tickets";
+    if (/memory maker|photopass/.test(s)) return "memory";
+    if (s.indexOf("souvenir") >= 0) return "souvenir";
+    if (s.indexOf("snack") >= 0) return "snacks";
+    if (s === "dining" || s === "food" || s.indexOf("food, transit") >= 0) return "food";
+    if (s.indexOf("drink") >= 0) return "drinks";
+    if (s.indexOf("gratu") >= 0 || s.indexOf("customary tip") >= 0 || s === "tips") return "tips";
+    if (s.indexOf("excursion") >= 0) return "excursions";
+    if (s.indexOf("port tax") >= 0) return "portfees";
+    if (s.indexOf("wi-fi") >= 0 || s.indexOf("wifi") >= 0) return "wifi";
+    if (s.indexOf("pre-cruise") >= 0) return "prehotel";
+    if (/\bspa\b/.test(s)) return "spa";
+    if (/rental car/.test(s)) return "car";
+    if (/buffer/.test(s)) return "buffer";
+    if (/getting there|round-trip flight|airfare/.test(s)) return "flights";
+    if (/cabin fare/.test(s)) return "cabin";
+    if (/all-inclusive package/.test(s)) return "aipkg";
+    if (/lodging|resort/.test(s)) return "lodging";
+    return "other";
+  }
+
+  function tipForLine(ln, dest, opts, styleKey) {
+    var kind = lineKind(ln.label);
+    var styleLabel = ((VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label) || "Mid-range";
+    var nights = opts.nights || 5;
+    var promo = nights >= 5 ? " Book 5+ nights if a room promo is live." : " Midweek check-in usually beats a Friday arrival.";
+    var hotel = firstHotelExample(dest, styleKey);
+    var foodPick = firstFoodPick(dest);
+    var included = ln.amount > 0;
+
+    if (kind === "lodging") {
+      return { text: styleLabel + " class — " + hotel + "." + promo };
+    }
+    if (kind === "cabin") {
+      return { text: styleLabel + " cabin — " + hotel + ". Guarantee cabin if you can live without picking the deck." };
+    }
+    if (kind === "aipkg") {
+      return { text: styleLabel + " AI — " + hotel + ". Confirm the airport transfer is in the rate, not an add-on." };
+    }
+    if (kind === "flights") {
+      return { text: flightTipText(dest, opts) };
+    }
+    if (kind === "tickets") {
+      return { text: "Skip Park Hopper unless you’ll change parks midday. One park per day is already in this number." };
+    }
+    if (kind === "ll") {
+      return { text: included
+        ? "Genie+/LL is optional speed — don’t treat it as required. Cut this first if the plan is Tight."
+        : "Left off the budget plan. Add Lightning Lane only if you’ll otherwise lose a park day to waits." };
+    }
+    if (kind === "food") {
+      if (dest.kind === "disney") {
+        return { text: "Grocery breakfasts cut this line ~30%. One table-service dinner, rest QS." };
+      }
+      if (dest.kind === "ai") {
+        return { text: "Meals are in the package. The leak is the night you leave the property and the à-la-carte upsell." };
+      }
+      return { text: (foodPick ? foodPick + ". " : "") + "Grocery breakfasts, one sit-down dinner, skip hotel restaurants." };
+    }
+    if (kind === "snacks") {
+      return { text: "A grocery water case and a refillable mug beat $5 in-park bottles." };
+    }
+    if (kind === "drinks") {
+      if (dest.kind === "cruise") {
+        return {
+          text: included
+            ? "Run the break-even before buying CHEERS! / Deluxe — packages only win if you’ll actually use them."
+            : "Pay-as-you-go until you run the break-even. A package is not automatic.",
+          href: "/blog/cruise-drink-package-break-even-2026",
+          label: "Drink-package math"
+        };
+      }
+      return { text: "Price the drink package only after you know your daily habit. À-la-carte often wins." };
+    }
+    if (kind === "tips") {
+      if (dest.kind === "cruise") {
+        return { text: "Automatic and not optional in practice. Do not bury this in the cabin fare." };
+      }
+      if (dest.kind === "ai") {
+        return { text: "Cash in small bills. The package does not replace this habit." };
+      }
+      return { text: "Housekeeping $1–2/person/night plus table-service. This is the habit, not a fee." };
+    }
+    if (kind === "excursions") {
+      if (dest.kind === "cruise") {
+        return { text: "Book one ship excursion and research one independent port day. The third dock kiosk is the overrun." };
+      }
+      return { text: "Two is enough. The dock-priced third excursion is where AI savings go to die." };
+    }
+    if (kind === "portfees") {
+      return { text: "Not optional — government and port charges, not a cruise-line add-on." };
+    }
+    if (kind === "wifi") {
+      return { text: included
+        ? "Two devices is enough. A third login is how this line doubles."
+        : "Left off budget/mid. Add it only if you have to work from the ship." };
+    }
+    if (kind === "prehotel") {
+      return { text: included
+        ? "Worth it if you fly in the same day as embarkation. Same-day travel is how people miss the ship."
+        : "Skipped because you’re driving to port." };
+    }
+    if (kind === "spa") {
+      return { text: included
+        ? "One spa or specialty night — leftover only. The package does not include this."
+        : "Left off budget/mid. Spend leftover here only after the rest of the plan fits." };
+    }
+    if (kind === "memory") {
+      return { text: included
+        ? "Advance PhotoPass. Only if leftover covers it — your phone already takes the pictures."
+        : "Not required to walk the parks. Add Memory Maker only as leftover." };
+    }
+    if (kind === "souvenir") {
+      return { text: "Set a hard cap before Main Street. This line is conservative and easy to double." };
+    }
+    if (kind === "car") {
+      return { text: "Island trips without a car look cheaper on paper and get expensive in Ubers. Parking is its own line at the resort." };
+    }
+    if (kind === "buffer") {
+      return { text: "Keep this; it’s the line that prevents a credit-card surprise. Cut it last, not first, unless you are Over." };
+    }
+    return { text: "Price this line before you book the next one. Optional lines are the first cut if you’re Over." };
+  }
+
+  function annotateLineTips(plan, dest, opts, styleKey) {
+    if (!plan || !plan.lines) return plan;
+    for (var i = 0; i < plan.lines.length; i++) {
+      var tip = tipForLine(plan.lines[i], dest, opts, styleKey);
+      if (tip && tip.text) {
+        plan.lines[i].tip = tip.text;
+        if (tip.href) {
+          plan.lines[i].tipHref = tip.href;
+          plan.lines[i].tipHrefLabel = tip.label || "Read the math";
+        }
+      }
+    }
+    return plan;
+  }
+
   function buildPlan(destId, opts, styleKey) {
     var dest = destById(destId);
-    if (dest.kind === "disney" || destId === "disney") return disneyPlan(opts, styleKey);
-    if (dest.kind === "cruise" || destId === "cruise") return cruisePlan(opts, styleKey);
-    if (dest.kind === "ai") return aiPlan(opts, styleKey, dest);
-    return tfPlan(opts, styleKey, dest);
+    var plan;
+    if (dest.kind === "disney" || destId === "disney") plan = disneyPlan(opts, styleKey);
+    else if (dest.kind === "cruise" || destId === "cruise") plan = cruisePlan(opts, styleKey);
+    else if (dest.kind === "ai") plan = aiPlan(opts, styleKey, dest);
+    else plan = tfPlan(opts, styleKey, dest);
+    return annotateLineTips(plan, dest, opts, styleKey);
   }
 
   function verdictFor(total, budget) {
@@ -896,10 +1136,19 @@
       : (VM_PLAN_DATA.MONTH_NAMES[parseInt(o.month, 10)] || "typical season");
 
     var rows = model.recommended.lines.map(function (ln) {
-      if (ln.amount <= 0) {
-        return "<tr><th>" + esc(ln.label) + (ln.note ? "<span class=\"plan-line-note\">" + esc(ln.note) + "</span>" : "") + "</th><td>Not in this plan</td></tr>";
+      var note = ln.note ? "<span class=\"plan-line-note\">" + esc(ln.note) + "</span>" : "";
+      var tip = "";
+      if (ln.tip) {
+        tip = "<span class=\"plan-line-tip\">" + esc(ln.tip);
+        if (ln.tipHref) {
+          tip += " <a href=\"" + esc(ln.tipHref) + "\">" + esc(ln.tipHrefLabel || "Read the math") + "</a>";
+        }
+        tip += "</span>";
       }
-      return "<tr><th>" + esc(ln.label) + (ln.note ? "<span class=\"plan-line-note\">" + esc(ln.note) + "</span>" : "") + "</th><td>" + money(ln.amount) + "</td></tr>";
+      if (ln.amount <= 0) {
+        return "<tr><th>" + esc(ln.label) + note + tip + "</th><td>Not in this plan</td></tr>";
+      }
+      return "<tr><th>" + esc(ln.label) + note + tip + "</th><td>" + money(ln.amount) + "</td></tr>";
     }).join("");
 
     var tierCards = model.tiers.map(function (t) {
@@ -956,6 +1205,7 @@
       "<p class=\"plan-section-sub\">Solid is the style you picked. Lean steps down one lodging/style band when one exists. Stretch steps up.</p>" +
       "<div class=\"plan-tiers\">" + tierCards + "</div>" +
       "<h3 class=\"panel-title\">Itemized recommended plan</h3>" +
+      "<p class=\"plan-section-sub\">Each line has a one-line tip — what to book, skip, or save. The gray note is the assumption; the tip is the move.</p>" +
       "<table class=\"plan-itemize\"><thead><tr><th>Line</th><th>Amount</th></tr></thead><tbody>" +
         rows +
         "<tr class=\"plan-itemize-total\"><th>Estimated total</th><td>" + money(model.total) + "</td></tr>" +
@@ -1147,6 +1397,7 @@
     compute: compute,
     buildPlan: buildPlan,
     buildRecs: buildRecs,
+    tipForLine: tipForLine,
     destById: destById,
     catalog: catalog,
     filterDestinations: filterDestinations
