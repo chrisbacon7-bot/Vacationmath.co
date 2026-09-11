@@ -814,7 +814,9 @@
       title: title,
       body: note,
       items: items,
-      impact: (body && dest.kind !== "disney" && dest.kind !== "cruise" && dest.kind !== "ai" ? body + " " : (dest.kind === "disney" || dest.kind === "cruise" || dest.kind === "ai" ? body + " " : "")) + impact
+      impact: (dest.kind === "disney" || dest.kind === "cruise" || dest.kind === "ai")
+        ? impact
+        : (body ? body + " " : "") + impact
     };
   }
 
