@@ -150,7 +150,7 @@
     appendFood("cancun", "lux", ["Puerto Morelos dinner leftover — a different transfer", "Le Blanc / Zilara specialty rooms leftover-only"]);
     appendFood("los_angeles", "budget", ["Stay in Koreatown / DTLA / the beach you picked — do not cross the basin for tacos", "Mariscos Jalisco or a taco truck is lunch, not a food tour"]);
     appendFood("los_angeles", "mid", ["Quarter / Kang Ho Dong K-Town BBQ or Bestia if you booked ahead", "Langer’s deli over a hotel restaurant"]);
-    appendFood("los_angeles", "lux", ["Providence or n/naka — book before you fly", "Hotel restaurants and a WeHo-to-Santa-Monica dinner are the overrun"]);
+    appendFood("los_angeles", "lux", ["Providence or n/naka — book before you fly", "Gjusta or a westside bakery if you slept at the beach — still skip the hotel dining room"]);
     appendFood("nyc", "budget", ["Xi’an Famous Foods, a $1–3 slice, or Flushing / Chinatown — not three Midtown salads", "Bodega egg-and-cheese is breakfast; the hotel dining room is a tax"]);
     appendFood("nyc", "mid", ["Katz’s (share) or Russ & Daughters — then a park", "Jackson Heights / Flushing / Chinatown over Midtown"]);
     appendFood("nyc", "lux", ["Carbone, Lilia, or Le Bernardin class — leftover only", "One tasting, not a tasting every night"]);
@@ -231,7 +231,7 @@
     appendAct("cruise", "lux", ["A quieter private beach or small-group tour on one island (tour)", "Spa leftover-only — already its own line"]);
     appendAct("los_angeles", "budget", ["The Broad or a free museum night Downtown (free / timed)", "Do not stack Universal and Disneyland into this lodging week"]);
     appendAct("los_angeles", "mid", ["Huntington or Getty Villa — pick one garden day (ticketed / timed)", "Venice + Santa Monica in the neighborhood you booked (free)"]);
-    appendAct("los_angeles", "lux", ["Universal Express leftover-only (ticketed)", "A private architecture walk if leftover covers a guide (tour)"]);
+    appendAct("los_angeles", "lux", ["Academy Museum or LACMA — one Miracle Mile afternoon (ticketed)", "A private architecture walk if leftover covers a guide (tour)"]);
     appendAct("nyc", "budget", ["A pay-what-you-wish museum night or a timed free hour (cheap)", "Times Square is a pass-through, not a day"]);
     appendAct("nyc", "mid", ["Met or MoMA — pick one (ticketed)", "Central Park is free; a carriage is not required"]);
     appendAct("nyc", "lux", ["Broadway reserved seat + one observatory (ticketed)", "Skip stacking three observatories"]);

@@ -566,7 +566,7 @@
     if (trips.length === 0) {
       var emptyMsg;
       if (opts.driving) {
-        emptyMsg = '<div class="result-note"><strong>No drivable destinations available.</strong> Driving mode covers 12 US destinations within driving range of the continental US (NYC, New Orleans, Vegas, Denver, San Diego, Charleston, Savannah, Asheville, Yellowstone, Utah Mighty 5, Smoky Mountains, Miami). Try adjusting your vibes filter, or pick an airport origin for a wider set.</div>';
+        emptyMsg = '<div class="result-note"><strong>No drivable destinations available.</strong> Driving mode ranks continental US destinations within range of your ZIP — including the newer vacation cities (Anaheim, Philadelphia, Key West, and the rest of the Domestic US catalog). Try a wider month range, fewer vibe filters, or pick an airport origin for a wider set.</div>';
       } else {
         emptyMsg = '<div class="result-note"><strong>No destinations matched.</strong> Try a wider month range, fewer vibe filters, or a different style tier.</div>';
       }
@@ -664,7 +664,10 @@
     }
     html += aboutNote;
 
-    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? '12 drivable US destinations' : '100 destinations') + ' &middot; last refreshed September 2026</div>';
+    var driveableN = DESTS.filter(function (d) {
+      return DRIVE_COORDS[d.id] && String(d.region || "").toLowerCase() !== "hawaii";
+    }).length;
+    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? (driveableN + ' drivable US destinations') : (DESTS.length + ' destinations')) + ' &middot; last refreshed September 2026</div>';
 
     $("tf-results").innerHTML = html;
     $("tf-results").classList.add("has-results");
