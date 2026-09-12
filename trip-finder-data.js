@@ -1725,7 +1725,449 @@ window.VM_TRIPFINDER_DATA = (function () {
     {id:"italy_sicily",name:"Sicily",country:"Italy",region:"Europe",vibes:["food","beach","culture","budget","romantic"],regionFlight:"europe",flightSurcharge:1.0,dailyGround:{budget:75,mid:140,lux:290},visaUS:"none",tzOffset:6,notes:"Mt. Etna, ancient temples, the best food in Italy. May and September beat the summer crowds.",monthly:[m("low",130,200,380,"mixed","low"),m("low",130,200,380,"mixed","low"),m("shoulder",160,250,480,"good","med"),m("shoulder",190,300,580,"great","med"),m("peak",240,380,740,"great","high"),m("peak",280,450,880,"great","high"),m("peak",330,530,1040,"hot","high"),m("peak",320,510,1000,"hot","high"),m("peak",270,430,840,"great","high"),m("shoulder",200,320,620,"great","med"),m("low",150,240,460,"mixed","low"),m("low",130,200,380,"mixed","low")]},
     {id:"peru_lima",name:"Lima & Amazon",country:"Peru",region:"South America",vibes:["food","culture","adventure","budget"],regionFlight:"latam",flightSurcharge:1.0,dailyGround:{budget:50,mid:95,lux:210},visaUS:"none",tzOffset:0,notes:"Lima is the food capital of South America. Combine with the Amazon for a complete Peru trip.",monthly:[m("shoulder",120,200,400,"mixed","med"),m("shoulder",120,200,400,"mixed","med"),m("shoulder",120,200,400,"mixed","med"),m("shoulder",115,190,380,"mixed","med"),m("shoulder",110,185,370,"mixed","med"),m("peak",130,215,430,"good","high"),m("peak",140,230,460,"good","high"),m("peak",140,230,460,"good","high"),m("peak",130,215,430,"good","high"),m("shoulder",115,190,380,"mixed","med"),m("shoulder",115,190,380,"mixed","med"),m("shoulder",120,200,400,"mixed","med")]},
     {id:"dominican_republic_samana",name:"Samaná, Dominican Republic",country:"Dominican Republic",region:"Caribbean",vibes:["beach","budget","romantic","outdoors"],regionFlight:"caribbean",flightSurcharge:1.0,dailyGround:{budget:55,mid:105,lux:220},visaUS:"none",tzOffset:-1,notes:"Whale watching January-March, jungle waterfalls, far fewer crowds than Punta Cana.",monthly:[m("peak",160,260,500,"great","high"),m("peak",170,270,520,"great","high"),m("peak",170,270,520,"great","high"),m("shoulder",140,220,440,"great","med"),m("shoulder",130,210,420,"great","med"),m("low",100,170,340,"hot","low"),m("low",110,180,360,"hot","low"),m("low",110,180,360,"hot","low"),m("low",100,165,330,"stormy","low"),m("low",100,165,330,"stormy","low"),m("shoulder",130,210,420,"great","med"),m("peak",160,260,500,"great","high")]},
-    {id:"colombia_bogota",name:"Bogotá & Coffee Region",country:"Colombia",region:"South America",vibes:["city","food","culture","budget","adventure"],regionFlight:"latam",flightSurcharge:0.95,dailyGround:{budget:40,mid:80,lux:180},visaUS:"none",tzOffset:0,notes:"Bogotá's world-class museums, coffee-region hiking, and one of the best culinary scenes in South America.",monthly:[m("shoulder",100,165,330,"mixed","med"),m("shoulder",100,165,330,"mixed","med"),m("peak",115,190,380,"good","high"),m("peak",120,200,400,"great","high"),m("shoulder",105,175,350,"rainy","med"),m("low",85,145,290,"rainy","low"),m("peak",115,190,380,"good","high"),m("peak",115,190,380,"good","high"),m("shoulder",100,165,330,"rainy","med"),m("shoulder",105,175,350,"good","med"),m("peak",115,190,380,"great","high"),m("peak",120,200,400,"great","high")]}
+    {id:"colombia_bogota",name:"Bogotá & Coffee Region",country:"Colombia",region:"South America",vibes:["city","food","culture","budget","adventure"],regionFlight:"latam",flightSurcharge:0.95,dailyGround:{budget:40,mid:80,lux:180},visaUS:"none",tzOffset:0,notes:"Bogotá's world-class museums, coffee-region hiking, and one of the best culinary scenes in South America.",monthly:[m("shoulder",100,165,330,"mixed","med"),m("shoulder",100,165,330,"mixed","med"),m("peak",115,190,380,"good","high"),m("peak",120,200,400,"great","high"),m("shoulder",105,175,350,"rainy","med"),m("low",85,145,290,"rainy","low"),m("peak",115,190,380,"good","high"),m("peak",115,190,380,"good","high"),m("shoulder",100,165,330,"rainy","med"),m("shoulder",105,175,350,"good","med"),m("peak",115,190,380,"great","high"),m("peak",120,200,400,"great","high")]},
+
+    // ============== BATCH 4 — high-demand US vacation cities ==============
+    {
+      id: "anaheim", name: "Anaheim / Disneyland", country: "USA", region: "Domestic US",
+      vibes: ["familyfriendly", "city", "budget"],
+      regionFlight: "domestic", flightSurcharge: 1.0,
+      dailyGround: { budget: 95, mid: 170, lux: 340 },
+      visaUS: "none", tzOffset: -3,
+      notes: "Disneyland and California Adventure are this lodging math — not Los Angeles. SNA is the door; Harbor Blvd value rooms beat a Santa Monica hotel plus a 90-minute transfer. Summer, Halloween Time, and Christmas are the expensive weeks; mid-January–early March and after Labor Day (skip Labor Day weekend) are the value windows.",
+      monthly: [
+        m("shoulder", 160, 250, 480, "good", "med"),   // Jan
+        m("shoulder", 170, 270, 520, "good", "med"),   // Feb
+        m("peak", 220, 350, 660, "great", "high"),     // Mar — spring break
+        m("peak", 230, 360, 680, "great", "high"),     // Apr — Easter / spring
+        m("shoulder", 200, 320, 600, "great", "med"),  // May
+        m("peak", 250, 390, 740, "hot", "high"),       // Jun
+        m("peak", 270, 420, 800, "hot", "high"),       // Jul
+        m("peak", 260, 410, 780, "hot", "high"),       // Aug
+        m("shoulder", 190, 300, 560, "great", "med"),  // Sep
+        m("peak", 230, 360, 680, "great", "high"),     // Oct — Halloween Time
+        m("peak", 240, 380, 720, "good", "high"),      // Nov — Thanksgiving
+        m("peak", 280, 440, 840, "mixed", "high")      // Dec — holidays
+      ]
+    },
+    {
+      id: "key_west", name: "Key West / Florida Keys", country: "USA", region: "Domestic US",
+      vibes: ["beach", "food", "romantic", "culture"],
+      regionFlight: "domestic", flightSurcharge: 1.1,
+      dailyGround: { budget: 90, mid: 165, lux: 340 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Old Town is walkable; a car is a parking tax. EYW fares run hot — MIA or FLL plus the Overseas Highway is a valid Lean plan. December–April is snowbird peak; September–October is the value window and hurricane watch.",
+      monthly: [
+        m("peak", 260, 400, 760, "great", "high"),
+        m("peak", 280, 430, 820, "great", "high"),
+        m("peak", 290, 450, 860, "great", "high"),
+        m("peak", 260, 400, 760, "great", "high"),
+        m("shoulder", 210, 330, 620, "hot", "med"),
+        m("low", 180, 280, 520, "hot", "low"),
+        m("low", 180, 280, 520, "hot", "low"),
+        m("low", 170, 270, 500, "hot", "low"),
+        m("low", 160, 250, 470, "stormy", "low"),
+        m("low", 170, 260, 490, "stormy", "low"),
+        m("shoulder", 210, 330, 620, "great", "med"),
+        m("peak", 280, 430, 820, "great", "high")
+      ]
+    },
+    {
+      id: "philadelphia", name: "Philadelphia", country: "USA", region: "Domestic US",
+      vibes: ["city", "food", "culture", "familyfriendly", "budget"],
+      regionFlight: "domestic", flightSurcharge: 0.9,
+      dailyGround: { budget: 85, mid: 150, lux: 300 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Independence Hall is timed-entry, not a sidewalk glance. Reading Terminal and Museum Mile are the cheap-rich days. January–February is the value window; July 4 week and fall convention spikes are not.",
+      monthly: [
+        m("low", 130, 200, 380, "cold", "low"),
+        m("low", 130, 200, 380, "cold", "low"),
+        m("shoulder", 160, 250, 470, "mixed", "med"),
+        m("shoulder", 180, 280, 520, "good", "med"),
+        m("peak", 210, 330, 620, "great", "high"),
+        m("peak", 220, 350, 660, "hot", "high"),
+        m("peak", 240, 380, 720, "hot", "high"),
+        m("shoulder", 190, 300, 560, "hot", "med"),
+        m("peak", 220, 340, 640, "great", "high"),
+        m("peak", 230, 360, 680, "great", "high"),
+        m("shoulder", 180, 280, 530, "mixed", "med"),
+        m("peak", 210, 330, 620, "cold", "high")
+      ]
+    },
+    {
+      id: "atlanta", name: "Atlanta", country: "USA", region: "Domestic US",
+      vibes: ["city", "food", "culture", "familyfriendly"],
+      regionFlight: "domestic", flightSurcharge: 0.85,
+      dailyGround: { budget: 80, mid: 145, lux: 300 },
+      visaUS: "none", tzOffset: 0,
+      notes: "BeltLine + Ponce City Market is the walkable midtown product. The Aquarium is a ticketed morning, not a whole trip. ATL nonstops are the airfare win; downtown convention weeks and March/April cherry-blossom weekends lift rooms.",
+      monthly: [
+        m("low", 120, 180, 340, "mixed", "low"),
+        m("low", 120, 180, 340, "mixed", "low"),
+        m("peak", 180, 280, 520, "great", "high"),
+        m("peak", 190, 300, 560, "great", "high"),
+        m("shoulder", 170, 260, 490, "hot", "med"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("shoulder", 170, 260, 490, "great", "med"),
+        m("peak", 190, 300, 560, "great", "high"),
+        m("shoulder", 160, 250, 470, "good", "med"),
+        m("peak", 180, 280, 530, "mixed", "high")
+      ]
+    },
+    {
+      id: "dallas", name: "Dallas", country: "USA", region: "Domestic US",
+      vibes: ["city", "food", "culture"],
+      regionFlight: "domestic", flightSurcharge: 0.85,
+      dailyGround: { budget: 75, mid: 140, lux: 290 },
+      visaUS: "none", tzOffset: -1,
+      notes: "Downtown / Deep Ellum / Bishop Arts — pick one pocket. DFW is the American fortress; Love Field is the Southwest door. State Fair (Oct) and big convention weeks are the room spikes; August is hot and discounted.",
+      monthly: [
+        m("shoulder", 130, 200, 380, "mixed", "med"),
+        m("shoulder", 140, 210, 400, "mixed", "med"),
+        m("peak", 180, 280, 520, "good", "high"),
+        m("shoulder", 160, 250, 470, "great", "med"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("low", 140, 220, 420, "hot", "low"),
+        m("low", 140, 220, 420, "hot", "low"),
+        m("low", 140, 220, 420, "hot", "low"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("peak", 200, 320, 600, "great", "high"),
+        m("shoulder", 160, 250, 470, "good", "med"),
+        m("peak", 180, 280, 530, "mixed", "high")
+      ]
+    },
+    {
+      id: "houston", name: "Houston", country: "USA", region: "Domestic US",
+      vibes: ["city", "food", "culture", "budget"],
+      regionFlight: "domestic", flightSurcharge: 0.85,
+      dailyGround: { budget: 70, mid: 130, lux: 270 },
+      visaUS: "none", tzOffset: -1,
+      notes: "Museum District + Montrose + a taco day is the trip. IAH is United's Latin America door. Rodeo (late Feb–Mar) is the room spike; August humidity is the discount.",
+      monthly: [
+        m("shoulder", 120, 190, 360, "mixed", "med"),
+        m("peak", 170, 270, 500, "good", "high"),
+        m("peak", 180, 280, 520, "good", "high"),
+        m("shoulder", 150, 230, 440, "hot", "med"),
+        m("shoulder", 140, 220, 420, "hot", "med"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("low", 130, 200, 380, "hot", "low"),
+        m("shoulder", 150, 230, 440, "good", "med"),
+        m("shoulder", 150, 230, 440, "good", "med"),
+        m("shoulder", 140, 220, 420, "mixed", "med")
+      ]
+    },
+    {
+      id: "san_antonio", name: "San Antonio", country: "USA", region: "Domestic US",
+      vibes: ["city", "culture", "food", "familyfriendly", "budget"],
+      regionFlight: "domestic", flightSurcharge: 0.9,
+      dailyGround: { budget: 70, mid: 130, lux: 270 },
+      visaUS: "none", tzOffset: -1,
+      notes: "The River Walk is the lodging product; a room two bridges off the postcard is the Lean move. The Alamo is a timed morning, not a day. Fiesta (April) and summer weekends lift rates; August heat is the discount.",
+      monthly: [
+        m("low", 110, 180, 340, "mixed", "low"),
+        m("shoulder", 130, 210, 400, "good", "med"),
+        m("shoulder", 150, 240, 450, "great", "med"),
+        m("peak", 200, 320, 600, "great", "high"),
+        m("peak", 190, 300, 560, "hot", "high"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("low", 140, 220, 420, "hot", "low"),
+        m("low", 140, 220, 420, "hot", "low"),
+        m("shoulder", 160, 250, 470, "hot", "med"),
+        m("shoulder", 170, 260, 490, "great", "med"),
+        m("shoulder", 150, 240, 450, "good", "med"),
+        m("peak", 170, 270, 510, "mixed", "high")
+      ]
+    },
+    {
+      id: "palm_springs", name: "Palm Springs", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "luxury", "romantic", "culture"],
+      regionFlight: "domestic", flightSurcharge: 1.0,
+      dailyGround: { budget: 80, mid: 150, lux: 320 },
+      visaUS: "none", tzOffset: -3,
+      notes: "Desert winter is the product; July–September is cheap and brutal. Modernism Week (Feb) and Coachella/Stagecoach (Apr) are not the value weeks. PSP is the door — do not confuse this lodging with LA.",
+      monthly: [
+        m("peak", 220, 340, 640, "great", "high"),
+        m("peak", 260, 400, 760, "great", "high"),
+        m("peak", 250, 390, 740, "great", "high"),
+        m("peak", 280, 440, 840, "great", "high"),
+        m("shoulder", 180, 280, 520, "hot", "med"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("low", 110, 170, 330, "hot", "low"),
+        m("low", 110, 170, 330, "hot", "low"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("shoulder", 170, 260, 490, "great", "med"),
+        m("peak", 210, 330, 620, "great", "high"),
+        m("peak", 230, 360, 680, "great", "high")
+      ]
+    },
+    {
+      id: "lake_tahoe", name: "Lake Tahoe", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "adventure", "familyfriendly", "romantic"],
+      regionFlight: "domestic", flightSurcharge: 1.05,
+      dailyGround: { budget: 85, mid: 155, lux: 320 },
+      visaUS: "none", tzOffset: -3,
+      notes: "Ski (Dec–Mar) and July–August lake weeks are two different peaks. April–May and November are the value / mud-shoulder. RNO is closer for the North Shore; South Shore often prices a Reno shuttle. A car is assumed once you leave the village.",
+      monthly: [
+        m("peak", 240, 380, 720, "cold", "high"),
+        m("peak", 250, 400, 760, "cold", "high"),
+        m("peak", 230, 360, 680, "cold", "high"),
+        m("shoulder", 160, 250, 470, "mixed", "med"),
+        m("low", 140, 220, 420, "good", "low"),
+        m("shoulder", 180, 280, 530, "great", "med"),
+        m("peak", 260, 420, 800, "great", "high"),
+        m("peak", 260, 420, 800, "great", "high"),
+        m("shoulder", 190, 300, 560, "great", "med"),
+        m("shoulder", 170, 260, 490, "good", "med"),
+        m("low", 140, 220, 420, "cold", "low"),
+        m("peak", 250, 400, 760, "cold", "high")
+      ]
+    },
+    {
+      id: "napa", name: "Napa / Sonoma", country: "USA", region: "Domestic US",
+      vibes: ["food", "romantic", "luxury", "outdoors"],
+      regionFlight: "domestic", flightSurcharge: 1.0,
+      dailyGround: { budget: 95, mid: 180, lux: 380 },
+      visaUS: "none", tzOffset: -3,
+      notes: "Tasting-room fees are the hidden line — book a couple, do not walk in blind. Harvest (Sep–Oct) and summer weekends are peak; January–February is the value window. SFO/OAK plus a bus or one rental-car day; a car parked at a tasting-room hotel is a tax.",
+      monthly: [
+        m("low", 180, 280, 520, "mixed", "low"),
+        m("low", 180, 280, 520, "mixed", "low"),
+        m("shoulder", 210, 330, 620, "good", "med"),
+        m("shoulder", 230, 360, 680, "great", "med"),
+        m("peak", 270, 420, 800, "great", "high"),
+        m("peak", 290, 460, 880, "hot", "high"),
+        m("peak", 300, 480, 920, "hot", "high"),
+        m("peak", 300, 480, 920, "hot", "high"),
+        m("peak", 320, 520, 980, "great", "high"),
+        m("peak", 310, 500, 960, "great", "high"),
+        m("shoulder", 230, 360, 680, "good", "med"),
+        m("shoulder", 220, 340, 640, "mixed", "med")
+      ]
+    },
+    {
+      id: "monterey", name: "Monterey / Carmel / Big Sur", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "romantic", "food", "familyfriendly"],
+      regionFlight: "domestic", flightSurcharge: 1.05,
+      dailyGround: { budget: 90, mid: 165, lux: 340 },
+      visaUS: "none", tzOffset: -3,
+      notes: "Aquarium + 17-Mile Drive + one Big Sur day is the honest week. Car Week (August) is not the value window. SJC or SFO plus a shuttle; Highway 1 closures happen — check before you lock a Big Sur night.",
+      monthly: [
+        m("shoulder", 170, 270, 500, "mixed", "med"),
+        m("shoulder", 170, 270, 500, "mixed", "med"),
+        m("shoulder", 190, 300, 560, "good", "med"),
+        m("shoulder", 210, 330, 620, "great", "med"),
+        m("peak", 240, 380, 720, "great", "high"),
+        m("peak", 260, 410, 780, "great", "high"),
+        m("peak", 280, 440, 840, "great", "high"),
+        m("peak", 320, 500, 960, "great", "high"),
+        m("peak", 260, 410, 780, "great", "high"),
+        m("peak", 240, 380, 720, "great", "high"),
+        m("shoulder", 200, 320, 600, "good", "med"),
+        m("shoulder", 190, 300, 560, "mixed", "med")
+      ]
+    },
+    {
+      id: "destin_30a", name: "Destin / 30A", country: "USA", region: "Domestic US",
+      vibes: ["beach", "familyfriendly", "food"],
+      regionFlight: "domestic", flightSurcharge: 0.95,
+      dailyGround: { budget: 85, mid: 155, lux: 320 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Sugar-sand Gulf week. Destin is the condo-and-harbor product; 30A (Seaside, Rosemary, WaterColor) is the pricier planned-town product. June–August and spring break are peak; January–February is the value window. VPS is the door.",
+      monthly: [
+        m("low", 130, 200, 380, "mixed", "low"),
+        m("low", 130, 200, 380, "mixed", "low"),
+        m("peak", 230, 360, 680, "good", "high"),
+        m("peak", 240, 380, 720, "great", "high"),
+        m("peak", 250, 400, 760, "great", "high"),
+        m("peak", 280, 450, 860, "hot", "high"),
+        m("peak", 300, 480, 920, "hot", "high"),
+        m("peak", 280, 450, 860, "hot", "high"),
+        m("shoulder", 190, 300, 560, "great", "med"),
+        m("shoulder", 170, 260, 490, "good", "med"),
+        m("low", 140, 220, 420, "good", "low"),
+        m("shoulder", 180, 280, 530, "mixed", "med")
+      ]
+    },
+    {
+      id: "outer_banks", name: "Outer Banks", country: "USA", region: "Domestic US",
+      vibes: ["beach", "outdoors", "familyfriendly"],
+      regionFlight: "domestic", flightSurcharge: 1.0,
+      dailyGround: { budget: 80, mid: 145, lux: 290 },
+      visaUS: "none", tzOffset: 0,
+      notes: "A house-rental week, not a hotel-strip week. Nags Head / Kill Devil Hills is the Lean corridor; Duck and Corolla price higher. Summer is the only realistic family window; hurricane weeks and winter closures are real. ORF plus a drive — there is no cheap jet onto Hatteras.",
+      monthly: [
+        m("low", 100, 160, 300, "cold", "low"),
+        m("low", 100, 160, 300, "cold", "low"),
+        m("shoulder", 140, 220, 420, "mixed", "med"),
+        m("shoulder", 180, 280, 520, "good", "med"),
+        m("peak", 230, 360, 680, "great", "high"),
+        m("peak", 270, 430, 820, "great", "high"),
+        m("peak", 290, 460, 880, "hot", "high"),
+        m("peak", 270, 430, 820, "hot", "high"),
+        m("shoulder", 190, 300, 560, "great", "med"),
+        m("shoulder", 160, 250, 470, "good", "med"),
+        m("low", 120, 190, 360, "mixed", "low"),
+        m("low", 110, 170, 320, "cold", "low")
+      ]
+    },
+    {
+      id: "grand_canyon", name: "Grand Canyon South Rim", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "adventure", "familyfriendly"],
+      regionFlight: "domestic", flightSurcharge: 1.05,
+      dailyGround: { budget: 75, mid: 130, lux: 260 },
+      visaUS: "none", tzOffset: -2,
+      notes: "South Rim is the year-round rim. Stay in the park or Tusayan — Flagstaff is a different commute. Summer and holidays fill El Tovar months out; January–February is quiet and cold. A Las Vegas day-trip is a rushed product, not this lodging.",
+      monthly: [
+        m("low", 110, 170, 320, "cold", "low"),
+        m("low", 110, 170, 320, "cold", "low"),
+        m("shoulder", 150, 230, 440, "mixed", "med"),
+        m("shoulder", 180, 280, 520, "good", "med"),
+        m("peak", 220, 340, 640, "great", "high"),
+        m("peak", 240, 370, 700, "hot", "high"),
+        m("peak", 250, 390, 740, "hot", "high"),
+        m("peak", 240, 370, 700, "hot", "high"),
+        m("peak", 220, 340, 640, "great", "high"),
+        m("shoulder", 180, 280, 520, "good", "med"),
+        m("low", 130, 200, 380, "cold", "low"),
+        m("low", 120, 190, 360, "cold", "low")
+      ]
+    },
+    {
+      id: "jackson_hole", name: "Jackson Hole / Grand Teton", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "adventure", "luxury", "romantic"],
+      regionFlight: "domestic", flightSurcharge: 1.15,
+      dailyGround: { budget: 95, mid: 175, lux: 360 },
+      visaUS: "none", tzOffset: -2,
+      notes: "Ski (Dec–Mar) and July–August Teton weeks are two peaks. April and November are mud season and the value window. JAC is a weather airport — build a buffer night in ski season. This is Jackson / Teton Village, not a Yellowstone in-park lodge.",
+      monthly: [
+        m("peak", 320, 520, 980, "cold", "high"),
+        m("peak", 340, 560, 1060, "cold", "high"),
+        m("peak", 300, 480, 920, "cold", "high"),
+        m("low", 160, 250, 480, "mixed", "low"),
+        m("shoulder", 200, 320, 600, "good", "med"),
+        m("peak", 260, 420, 800, "great", "high"),
+        m("peak", 300, 480, 920, "great", "high"),
+        m("peak", 290, 460, 880, "great", "high"),
+        m("shoulder", 220, 350, 660, "great", "med"),
+        m("shoulder", 190, 300, 560, "mixed", "med"),
+        m("low", 150, 240, 460, "cold", "low"),
+        m("peak", 330, 540, 1020, "cold", "high")
+      ]
+    },
+    {
+      id: "phoenix", name: "Phoenix", country: "USA", region: "Domestic US",
+      vibes: ["city", "outdoors", "food", "budget"],
+      regionFlight: "domestic", flightSurcharge: 0.95,
+      dailyGround: { budget: 75, mid: 140, lux: 290 },
+      visaUS: "none", tzOffset: -2,
+      notes: "Downtown / Roosevelt Row / a desert trail — this is not Scottsdale resort math. PHX is the door. November–April is peak; June–August is cheap and dangerous-hot. Light rail beats a rental if you stay in the core.",
+      monthly: [
+        m("peak", 180, 280, 520, "great", "high"),
+        m("peak", 200, 310, 580, "great", "high"),
+        m("peak", 210, 330, 620, "great", "high"),
+        m("shoulder", 170, 260, 490, "hot", "med"),
+        m("low", 120, 190, 360, "hot", "low"),
+        m("low", 100, 160, 300, "hot", "low"),
+        m("low", 95, 150, 280, "hot", "low"),
+        m("low", 95, 150, 280, "hot", "low"),
+        m("low", 110, 170, 320, "hot", "low"),
+        m("shoulder", 160, 250, 470, "great", "med"),
+        m("peak", 190, 300, 560, "great", "high"),
+        m("peak", 190, 300, 560, "great", "high")
+      ]
+    },
+    {
+      id: "memphis", name: "Memphis", country: "USA", region: "Domestic US",
+      vibes: ["food", "culture", "city", "budget"],
+      regionFlight: "domestic", flightSurcharge: 0.9,
+      dailyGround: { budget: 65, mid: 120, lux: 240 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Beale is a night, not a lodging address. Barbecue and the National Civil Rights Museum are the trip. Elvis Week (August) and barbecue-fest weekends lift rooms; midsummer otherwise is the discount.",
+      monthly: [
+        m("low", 110, 170, 320, "mixed", "low"),
+        m("low", 110, 170, 320, "mixed", "low"),
+        m("shoulder", 130, 200, 380, "good", "med"),
+        m("shoulder", 150, 230, 440, "great", "med"),
+        m("peak", 180, 280, 520, "hot", "high"),
+        m("shoulder", 150, 230, 440, "hot", "med"),
+        m("low", 130, 200, 380, "hot", "low"),
+        m("peak", 180, 280, 520, "hot", "high"),
+        m("shoulder", 150, 230, 440, "hot", "med"),
+        m("shoulder", 150, 230, 440, "good", "med"),
+        m("shoulder", 140, 220, 420, "good", "med"),
+        m("shoulder", 140, 220, 420, "mixed", "med")
+      ]
+    },
+    {
+      id: "portland_me", name: "Portland, ME", country: "USA", region: "Domestic US",
+      vibes: ["food", "city", "romantic", "outdoors"],
+      regionFlight: "domestic", flightSurcharge: 0.95,
+      dailyGround: { budget: 80, mid: 150, lux: 300 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Old Port + a lobster roll + one Casco Bay ferry is the weekend. July–August and foliage weekends are peak; January–March is the value window. PWM nonstops beat connecting into Boston and backtracking. This is not Portland, Oregon.",
+      monthly: [
+        m("low", 120, 190, 360, "cold", "low"),
+        m("low", 120, 190, 360, "cold", "low"),
+        m("low", 130, 200, 380, "cold", "low"),
+        m("shoulder", 160, 250, 470, "mixed", "med"),
+        m("shoulder", 190, 300, 560, "good", "med"),
+        m("peak", 240, 380, 720, "great", "high"),
+        m("peak", 280, 440, 840, "great", "high"),
+        m("peak", 280, 440, 840, "great", "high"),
+        m("peak", 250, 400, 760, "great", "high"),
+        m("peak", 230, 360, 680, "great", "high"),
+        m("shoulder", 160, 250, 470, "mixed", "med"),
+        m("low", 130, 210, 400, "cold", "low")
+      ]
+    },
+    {
+      id: "bar_harbor", name: "Bar Harbor / Acadia", country: "USA", region: "Domestic US",
+      vibes: ["outdoors", "romantic", "food", "familyfriendly"],
+      regionFlight: "domestic", flightSurcharge: 1.1,
+      dailyGround: { budget: 80, mid: 150, lux: 300 },
+      visaUS: "none", tzOffset: 0,
+      notes: "Acadia is the product; Bar Harbor is the bed. Cadillac sunrise is a reservation in peak season. July–October is the window; many inns go dark in winter. BGR is the closest jet; Boston plus a drive is the Lean backup. Cruise-ship mornings crowd the village — hike early.",
+      monthly: [
+        m("low", 100, 160, 300, "cold", "low"),
+        m("low", 100, 160, 300, "cold", "low"),
+        m("low", 110, 170, 320, "cold", "low"),
+        m("shoulder", 150, 240, 450, "mixed", "med"),
+        m("shoulder", 190, 300, 560, "good", "med"),
+        m("peak", 250, 400, 760, "great", "high"),
+        m("peak", 300, 480, 920, "great", "high"),
+        m("peak", 300, 480, 920, "great", "high"),
+        m("peak", 280, 450, 860, "great", "high"),
+        m("peak", 240, 380, 720, "great", "high"),
+        m("low", 130, 200, 380, "cold", "low"),
+        m("low", 110, 170, 320, "cold", "low")
+      ]
+    },
+    {
+      id: "santa_fe", name: "Santa Fe", country: "USA", region: "Domestic US",
+      vibes: ["culture", "food", "romantic", "outdoors"],
+      regionFlight: "domestic", flightSurcharge: 1.05,
+      dailyGround: { budget: 80, mid: 150, lux: 310 },
+      visaUS: "none", tzOffset: -2,
+      notes: "Plaza-adjacent lodging is the walkable product; Canyon Road is a morning, not a hotel address. Indian Market (August) and winter holidays lift rooms; late fall after market is the value window. SAF if the fare is close; ABQ plus Rail Runner is the usual Lean door. Altitude is real.",
+      monthly: [
+        m("shoulder", 140, 220, 420, "cold", "med"),
+        m("shoulder", 140, 220, 420, "cold", "med"),
+        m("shoulder", 160, 250, 470, "good", "med"),
+        m("shoulder", 180, 280, 530, "great", "med"),
+        m("peak", 210, 330, 620, "great", "high"),
+        m("peak", 220, 350, 660, "hot", "high"),
+        m("peak", 240, 380, 720, "hot", "high"),
+        m("peak", 260, 410, 780, "great", "high"),
+        m("peak", 230, 360, 680, "great", "high"),
+        m("shoulder", 180, 280, 530, "great", "med"),
+        m("low", 140, 220, 420, "mixed", "low"),
+        m("peak", 200, 320, 600, "cold", "high")
+      ]
+    }
   ];
 
   return {
