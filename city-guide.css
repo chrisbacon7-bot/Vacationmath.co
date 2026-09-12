@@ -1,0 +1,504 @@
+/* =====================================================================
+   Vacation Math — printable city briefs
+   Screen + print. Honey / navy tips box sits at the bottom on purpose.
+   ===================================================================== */
+
+.cg-page {
+  background: var(--cream, #FBF7EF);
+  color: var(--ink, #1A1A1A);
+}
+
+.cg-wrap {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 1.5rem var(--gutter, clamp(20px, 5vw, 56px)) 4rem;
+}
+
+.cg-print-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 0 12px;
+  margin: 0 0 8px;
+  background: var(--cream, #FBF7EF);
+  border-bottom: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
+}
+
+.cg-print-bar-note {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted, #6B6660);
+  line-height: 1.45;
+}
+
+.cg-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--honey, #E6A340);
+  color: var(--navy, #0E2A47);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cg-print-btn:hover,
+.cg-print-btn:focus-visible {
+  background: var(--honey-soft, #F2C879);
+}
+
+.cg-hero {
+  padding: 1.4rem 0 1.6rem;
+}
+
+.cg-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--honey, #E6A340);
+  margin: 0 0 8px;
+}
+
+.cg-h1 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 12px;
+}
+
+.cg-hook {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  margin: 0 0 14px;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-orient {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--navy, #0E2A47);
+  color: var(--cream, #FBF7EF);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.cg-crumb {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+}
+
+.cg-crumb a {
+  color: var(--navy, #0E2A47);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cg-section {
+  padding: 1.35rem 0 0.4rem;
+}
+
+.cg-h2 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.45rem;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 8px;
+}
+
+.cg-lede {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.cg-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.cg-list li {
+  margin: 0 0 8px;
+}
+
+.cg-tiers {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cg-tier {
+  background: #fff;
+  border: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
+  border-radius: 14px;
+  padding: 14px 16px 10px;
+}
+
+.cg-tier-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--honey, #E6A340);
+  margin: 0 0 4px;
+}
+
+.cg-tier h3 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.15rem;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 6px;
+}
+
+.cg-why {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-split {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 700px) {
+  .cg-split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cg-note {
+  margin: 0 0 10px;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-budget {
+  background: #fff;
+  border-left: 4px solid var(--honey, #E6A340);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 16px;
+}
+
+.cg-budget p {
+  margin: 0 0 10px;
+}
+
+.cg-budget p:last-child {
+  margin-bottom: 0;
+}
+
+/* Top money-saving tips — last, visually distinct */
+.cg-tips {
+  margin: 2rem 0 0.5rem;
+  padding: 1.25rem 1.25rem 1.1rem;
+  background: var(--navy, #0E2A47);
+  color: var(--cream, #FBF7EF);
+  border-radius: 16px;
+  border: 3px solid var(--honey, #E6A340);
+  box-shadow: 0 10px 30px rgba(8, 24, 42, 0.12);
+}
+
+.cg-tips-kicker {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--honey, #E6A340);
+}
+
+.cg-tips h2 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.55rem;
+  color: var(--cream, #FBF7EF);
+  margin: 0 0 10px;
+}
+
+.cg-tips ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.cg-tips li {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.cg-tips li:last-child {
+  margin-bottom: 0;
+}
+
+.cg-tips a {
+  color: var(--honey-soft, #F2C879);
+  font-weight: 650;
+}
+
+.cg-cta {
+  margin: 2rem 0 0;
+  padding: 1.4rem 1.25rem;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
+}
+
+.cg-cta h2 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.35rem;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 8px;
+}
+
+.cg-cta .capture input[type="email"] {
+  width: 100%;
+  max-width: 360px;
+  padding: 10px 12px;
+  border: 1.5px solid var(--hairline, rgba(14, 42, 71, 0.12));
+  border-radius: 10px;
+  font: inherit;
+}
+
+.cg-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 16px;
+}
+
+.cg-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cg-btn-primary {
+  background: var(--navy, #0E2A47);
+  color: var(--cream, #FBF7EF);
+}
+
+.cg-btn-ghost {
+  border: 1.5px solid var(--navy, #0E2A47);
+  color: var(--navy, #0E2A47);
+}
+
+.cg-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 14px;
+  list-style: none;
+}
+
+.cg-related a {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  background: #f0f4f8;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #1e3a5f;
+  font-size: 0.88rem;
+}
+
+.cg-more {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
+}
+
+.cg-more h2 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.2rem;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 10px;
+}
+
+.cg-more-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .cg-more-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cg-more a {
+  color: var(--navy, #0E2A47);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cg-more a:hover {
+  color: var(--honey, #E6A340);
+}
+
+.cg-fine {
+  margin: 1.5rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted, #6B6660);
+}
+
+/* Index cards */
+.cg-index-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .cg-index-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.cg-index-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
+  border-radius: 14px;
+  padding: 16px 16px 14px;
+  text-decoration: none;
+  color: inherit;
+  min-height: 100%;
+}
+
+.cg-index-card:hover {
+  border-color: var(--honey, #E6A340);
+}
+
+.cg-index-kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--honey, #E6A340);
+  margin: 0 0 4px;
+}
+
+.cg-index-card h3 {
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.2rem;
+  color: var(--navy, #0E2A47);
+  margin: 0 0 6px;
+}
+
+.cg-index-card p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: var(--ink-soft, #3D3A36);
+  flex: 1;
+}
+
+.cg-index-actions {
+  display: flex;
+  gap: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.cg-index-actions span,
+.cg-index-actions a {
+  color: var(--navy, #0E2A47);
+  text-decoration: none;
+}
+
+/* Print / Save as PDF */
+@media print {
+  @page {
+    margin: 0.55in;
+  }
+
+  html, body.cg-page {
+    background: #fff !important;
+  }
+
+  .vm-nav,
+  .vm-nav-toggle,
+  nav.vm-nav,
+  footer,
+  .related-articles,
+  .cg-print-bar,
+  .cg-no-print,
+  .cg-cta,
+  .cg-cta form,
+  .cg-more,
+  .cg-budget .cg-btn {
+    display: none !important;
+  }
+
+  .cg-wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  .cg-hero {
+    padding-top: 0;
+  }
+
+  .cg-orient {
+    background: #fff;
+    color: #0E2A47;
+    border: 1pt solid #0E2A47;
+  }
+
+  .cg-tier,
+  .cg-budget,
+  .cg-cta {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .cg-tips {
+    break-inside: avoid;
+    background: #fff !important;
+    color: #0E2A47 !important;
+    border: 2.5pt solid #E6A340;
+    box-shadow: none;
+    margin-top: 1.2rem;
+  }
+
+  .cg-tips-kicker {
+    color: #C4501A !important;
+  }
+
+  .cg-tips h2 {
+    color: #0E2A47 !important;
+  }
+
+  .cg-tips a {
+    color: #0E2A47 !important;
+    text-decoration: underline;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .cg-cta a.cg-btn-primary::after {
+    content: "  (vacationmath.co" attr(href) ")";
+    font-weight: 500;
+    font-size: 0.85em;
+  }
+}
