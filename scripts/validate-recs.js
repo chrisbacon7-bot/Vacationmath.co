@@ -85,3 +85,48 @@ fbKeys.forEach((k) => {
 
 const noHotel = [...ids].filter((id) => styles.every((s) => hotelCount(id, s) === 0));
 console.log("Dests without curated hotel (use fallback):", noHotel.length, noHotel.slice(0, 20).join(", "));
+
+const CHAIN = /marriott|hilton|hyatt|hampton|courtyard|fairfield|holiday inn|westin|sheraton|renaissance|canopy|conrad|waldorf|ritz-carlton|ritz carlton|st\.?\s*regis|\bedition\b|four seasons|fairmont|jw marriott|aloft|moxy|motto|tru\b|ibis|novotel|premier inn|travelodge|autograph|tribute|curio|garden inn|intercontinental|hotel indigo|crowne plaza|residence inn|springhill|home2|homewood|embassy|doubletree|andaz|grand hyatt|park hyatt|le m[eé]ridien|luxury collection|outrigger|all-star|pop century|art of animation|caribbean beach|port orleans|coronado|grand floridian|contemporary|polynesian|beach club|yacht club|boardwalk|grand californian|disneyland hotel|pixar place|sandals|royalton|riu |iberostar|hard rock|ziva|zilara|secrets |dreams |excellence|moon palace|live aqua|ac hotel|kimpton|drury|best western|omni |sofitel|nh collection|raffles|mandarin|langham|wynn|bellagio|venetian|park mgm|movenpick|mövenpick|belmond/i;
+const BOUTIQUE = /\bace hotel|\bace\b|proper |freehand|1 hotel|the hoxton|pendry/i;
+function brandHits(text) {
+  return CHAIN.test(text || "");
+}
+let chain = 0;
+let bout = 0;
+let bullets = 0;
+const pri = ["los_angeles", "anaheim", "nyc", "vegas", "chicago", "miami", "san_francisco", "san_diego", "philadelphia", "atlanta", "dallas", "houston", "seattle", "boston", "washington_dc", "london", "paris", "rome", "tokyo", "disney", "oahu", "maui", "key_west", "palm_springs", "napa"];
+pri.forEach((id) => {
+  let c = 0;
+  let n = 0;
+  styles.forEach((s) => {
+    const picks = (((P.HOTEL_EXAMPLES[id] || {})[s] || {}).picks) || [];
+    picks.forEach((p) => {
+      n += 1;
+      bullets += 1;
+      if (brandHits(p)) {
+        c += 1;
+        chain += 1;
+      }
+      if (BOUTIQUE.test(p)) bout += 1;
+    });
+  });
+  console.log("brands", id, "chain", c + "/" + n);
+});
+const allIds = Object.keys(P.HOTEL_EXAMPLES || {});
+let allChain = 0;
+let allN = 0;
+allIds.forEach((id) => {
+  styles.forEach((s) => {
+    const picks = (((P.HOTEL_EXAMPLES[id] || {})[s] || {}).picks) || [];
+    picks.forEach((p) => {
+      allN += 1;
+      if (brandHits(p)) allChain += 1;
+    });
+  });
+});
+console.log("ALL hotel bullets", allN, "chain hits", allChain);
+fbKeys.forEach((k) => {
+  const picks = styles.flatMap((s) => ((P.HOTEL_FALLBACKS[k][s] || {}).picks || []));
+  const c = picks.filter(brandHits).length;
+  console.log("fallback brands", k, c + "/" + picks.length);
+});
