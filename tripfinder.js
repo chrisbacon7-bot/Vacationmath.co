@@ -1,7 +1,7 @@
 /* =====================================================================
    Trip Finder — Where should we go?
    Given an origin, date range, party size, nights, budget, tier, and
-   vibes, rank 50 destinations across the user's travel window by total
+   vibes, rank destinations across the user's travel window by total
    trip cost. No live APIs — uses the curated 2026 pricing in
    trip-finder-data.js.
    ===================================================================== */
@@ -68,7 +68,28 @@
     oahu:                      { lat: 21.31, lng: -157.86 },
     maui:                      { lat: 20.80, lng: -156.33 },
     kauai:                     { lat: 22.09, lng: -159.53 },
-    hawaii_big_island:         { lat: 19.74, lng: -155.84 }
+    hawaii_big_island:         { lat: 19.74, lng: -155.84 },
+    // Batch 4 — high-demand US vacation cities
+    anaheim:                   { lat: 33.84, lng: -117.91 },
+    key_west:                  { lat: 24.56, lng: -81.78 },
+    philadelphia:              { lat: 39.95, lng: -75.17 },
+    atlanta:                   { lat: 33.75, lng: -84.39 },
+    dallas:                    { lat: 32.78, lng: -96.80 },
+    houston:                   { lat: 29.76, lng: -95.37 },
+    san_antonio:               { lat: 29.42, lng: -98.49 },
+    palm_springs:              { lat: 33.83, lng: -116.55 },
+    lake_tahoe:                { lat: 39.10, lng: -120.03 },
+    napa:                      { lat: 38.30, lng: -122.29 },
+    monterey:                  { lat: 36.60, lng: -121.89 },
+    destin_30a:                { lat: 30.39, lng: -86.50 },
+    outer_banks:               { lat: 35.56, lng: -75.47 },
+    grand_canyon:              { lat: 36.06, lng: -112.14 },
+    jackson_hole:              { lat: 43.48, lng: -110.76 },
+    phoenix:                   { lat: 33.45, lng: -112.07 },
+    memphis:                   { lat: 35.15, lng: -90.05 },
+    portland_me:               { lat: 43.66, lng: -70.26 },
+    bar_harbor:                { lat: 44.39, lng: -68.20 },
+    santa_fe:                  { lat: 35.69, lng: -105.94 }
   };
 
   // Approximate state population-weighted centers (best driving-origin proxies).

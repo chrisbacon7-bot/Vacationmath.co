@@ -1080,7 +1080,7 @@
   function buildHotelRec(dest, styleKey) {
     var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
     var band = hotelBandFor(dest, styleKey);
-    var items = band.picks.slice(0, 3);
+    var items = band.picks.slice(0, 6);
     var why = band.why;
     var kicker = dest.kind === "cruise" ? "Cabin" : "Hotel";
     var title = styleLabel + " class — " + dest.short;
@@ -1099,7 +1099,7 @@
       }
       var tier = styleKey === "lux" ? "luxury" : styleKey;
       var brandStr = ai && ai.brands ? (ai.brands[tier] || ai.brands.mid || "") : "";
-      items = brandStr ? brandStr.split(",").map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 3) : [];
+          items = brandStr ? brandStr.split(",").map(function (s) { return s.trim(); }).filter(Boolean).slice(0, 6) : [];
     }
     if (!items.length) {
       items = styleKey === "budget"
@@ -1133,7 +1133,22 @@
     if (hub.tip) items.push(hub.tip);
     if (!driving) items.push(regionTip);
     if (dest.id === "los_angeles") items.push("Compare BUR, LGB, and SNA on the same week as LAX.");
+    if (dest.id === "anaheim") items.push("SNA is the Disneyland door. LAX works if you already priced a BUR/LGB/SNA gap — do not assume LAX is cheaper.");
     if (dest.id === "nyc") items.push("Price JFK, EWR, and LGA the same week — the fare gap is often a subway ride.");
+    if (dest.id === "philadelphia") items.push("PHL is an American hub. Compare EWR on the same week if the fare gap covers a train.");
+    if (dest.id === "atlanta") items.push("ATL nonstops are the product. Midweek usually beats a Sunday-into-a-convention Monday.");
+    if (dest.id === "phoenix" || dest.id === "scottsdale") items.push("PHX is the door. Scottsdale is a different lodging math than downtown Phoenix.");
+    if (dest.id === "key_west") items.push("EYW is tiny and often pricey. MIA or FLL plus the Overseas Highway is a valid Lean plan.");
+    if (dest.id === "napa") items.push("SFO or OAK, then a Napa bus or one rental-car day — do not keep a car parked at a tasting-room hotel.");
+    if (dest.id === "monterey") items.push("SJC or SFO plus a Monterey Airbus / rental. Do not assume a cheap SFO fare includes Carmel.");
+    if (dest.id === "lake_tahoe") items.push("RNO is closer than SMF for the North Shore. South Shore often prices Reno + a shuttle.");
+    if (dest.id === "grand_canyon") items.push("FLG or PHX, then a shuttle. A Las Vegas day-trip is a different, rushed product.");
+    if (dest.id === "jackson_hole") items.push("JAC is the door and a weather airport. Build a buffer night in ski season.");
+    if (dest.id === "bar_harbor") items.push("BGR is the closest jet door. BOS plus a drive is the Lean backup.");
+    if (dest.id === "portland_me") items.push("PWM nonstops beat connecting into BOS and backtracking.");
+    if (dest.id === "destin_30a") items.push("VPS is the 30A door. PNS is the backup if the fare gap covers the extra drive.");
+    if (dest.id === "outer_banks") items.push("ORF or a drive. There is no cheap jet onto Hatteras — price the ferry and the hours.");
+    if (dest.id === "santa_fe") items.push("SAF if the fare is close; ABQ plus the Rail Runner / a shuttle is the usual Lean door.");
     if (dest.kind === "disney") items.push("MCO is the door. A later arrival plus a grocery stop beats a same-day park day.");
     if (dest.kind === "cruise") items.push("Fly in the day before if you can. Same-day embarkation is how people miss the ship.");
     items.push("No flight numbers on purpose — those change weekly. Use the hub pattern, then price two midweek dates.");
@@ -1157,14 +1172,16 @@
   function foodFallbackItems() {
     return [
       "Grocery or bakery breakfasts most mornings",
+      "Lunch: market, food hall, or a neighborhood counter",
       "One sit-down dinner, not one every night",
-      "Skip the hotel restaurant unless breakfast is already in the rate"
+      "Skip the hotel restaurant unless breakfast is already in the rate",
+      "Stay in the neighborhood you booked — a crosstown dinner is a second fare"
     ];
   }
 
   function buildFoodRec(dest, opts, styleKey) {
     var days = opts.nights + 1;
-    var items = foodPicksFor(dest, styleKey).slice(0, 4);
+    var items = foodPicksFor(dest, styleKey).slice(0, 6);
     if (!items.length) items = foodFallbackItems();
     var note = foodNoteFor(dest);
     var title;
@@ -1209,7 +1226,7 @@
 
   function buildActivitiesRec(dest, styleKey) {
     var styleLabel = (VM_PLAN_DATA.STYLE_MAP[styleKey] || {}).label || styleKey;
-    var items = activitiesPicksFor(dest, styleKey).slice(0, 4);
+    var items = activitiesPicksFor(dest, styleKey).slice(0, 6);
     var title = styleLabel + " days — " + dest.short;
     if (dest.kind === "disney") {
       title = styleKey === "budget"
@@ -1229,12 +1246,28 @@
         : styleKey === "lux"
           ? "Universal Express leftover — not Disneyland + Universal"
           : "Universal or beach or Getty — pick two";
+    } else if (dest.id === "anaheim") {
+      title = styleKey === "budget"
+        ? "One park per day — no Hopper"
+        : styleKey === "lux"
+          ? "Hopper + Lightning Lane — still not Universal"
+          : "Hopper only if you’ll switch parks";
+    } else if (dest.id === "philadelphia") {
+      title = styleKey === "budget"
+        ? "Independence timed + Terminal"
+        : styleKey === "lux"
+          ? "Barnes + a reserved food walk leftover"
+          : "Independence + one Museum Mile ticket";
     }
     var impact = "This card follows the Lean / Solid / Stretch tier you selected.";
     if (dest.kind === "cruise") {
       impact = "Drink-package break-even is linked under the drinks line.";
     } else if (dest.id === "los_angeles") {
       impact = "Disneyland is Anaheim — a separate day trip, not this lodging.";
+    } else if (dest.id === "anaheim") {
+      impact = "This lodging is Disneyland. Los Angeles is a different day trip.";
+    } else if (dest.id === "phoenix") {
+      impact = "This is Phoenix — not Scottsdale resort math.";
     } else if (dest.kind === "disney") {
       impact = "Hopper and Lightning Lane are add-ons — only Stretch prices both in.";
     }

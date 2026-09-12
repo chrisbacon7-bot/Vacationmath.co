@@ -65,6 +65,8 @@
     { id: "tokyo", label: "Tokyo" },
     { id: "vegas", label: "Las Vegas" },
     { id: "los_angeles", label: "Los Angeles" },
+    { id: "anaheim", label: "Anaheim / Disneyland" },
+    { id: "philadelphia", label: "Philadelphia" },
     { id: "oahu", label: "Oahu" }
   ];
 
@@ -84,6 +86,47 @@
   };
 
   var NYC_LODGING_TAX = 0.1475;
+
+  // City overrides when a published combined lodging tax is known (HVS / city finance).
+  // Percentage only — no per-night flat fees invented into the nightly band.
+  var LODGING_TAX_BY_ID = {
+    nyc: 0.1475,
+    philadelphia: 0.155,
+    atlanta: 0.169,
+    dallas: 0.15,
+    houston: 0.17,
+    san_antonio: 0.175,
+    anaheim: 0.17,
+    phoenix: 0.1257,
+    scottsdale: 0.1397,
+    memphis: 0.1825,
+    chicago: 0.1737,
+    seattle: 0.178,
+    boston: 0.1695,
+    los_angeles: 0.1545,
+    san_francisco: 0.16,
+    san_diego: 0.125,
+    miami: 0.13,
+    nola: 0.162,
+    vegas: 0.135,
+    austin: 0.15,
+    nashville: 0.154,
+    denver: 0.1475,
+    portland_oregon: 0.135,
+    washington_dc: 0.1595,
+    key_west: 0.125,
+    palm_springs: 0.135,
+    lake_tahoe: 0.13,
+    napa: 0.14,
+    monterey: 0.13,
+    destin_30a: 0.13,
+    outer_banks: 0.1275,
+    grand_canyon: 0.116,
+    jackson_hole: 0.10,
+    portland_me: 0.09,
+    bar_harbor: 0.09,
+    santa_fe: 0.155
+  };
 
   // Fallback city baselines if Trip Finder data is missing
   var CITY_BASE = {
@@ -108,7 +151,27 @@
       food:    { budget: 40,  mid: 65,  lux: 100 },
       act:     { budget: 25,  mid: 45,  lux: 75 },
       oneWayMiles: 450
-    }
+    },
+    anaheim:       { hotel: { budget: 160, mid: 280, lux: 520 }, food: { budget: 55, mid: 90, lux: 145 }, act: { budget: 45, mid: 80, lux: 130 } },
+    key_west:      { hotel: { budget: 180, mid: 320, lux: 580 }, food: { budget: 60, mid: 100, lux: 165 }, act: { budget: 35, mid: 65, lux: 110 } },
+    philadelphia:  { hotel: { budget: 150, mid: 230, lux: 400 }, food: { budget: 50, mid: 80, lux: 130 }, act: { budget: 30, mid: 55, lux: 90 } },
+    atlanta:       { hotel: { budget: 130, mid: 200, lux: 360 }, food: { budget: 45, mid: 75, lux: 125 }, act: { budget: 30, mid: 55, lux: 95 } },
+    dallas:        { hotel: { budget: 130, mid: 200, lux: 350 }, food: { budget: 45, mid: 75, lux: 120 }, act: { budget: 25, mid: 50, lux: 85 } },
+    houston:       { hotel: { budget: 120, mid: 190, lux: 340 }, food: { budget: 45, mid: 75, lux: 120 }, act: { budget: 25, mid: 50, lux: 85 } },
+    san_antonio:   { hotel: { budget: 130, mid: 210, lux: 380 }, food: { budget: 45, mid: 75, lux: 125 }, act: { budget: 30, mid: 55, lux: 90 } },
+    palm_springs:  { hotel: { budget: 140, mid: 240, lux: 450 }, food: { budget: 50, mid: 85, lux: 140 }, act: { budget: 30, mid: 55, lux: 100 } },
+    lake_tahoe:    { hotel: { budget: 150, mid: 260, lux: 480 }, food: { budget: 50, mid: 85, lux: 145 }, act: { budget: 40, mid: 70, lux: 125 } },
+    napa:          { hotel: { budget: 200, mid: 340, lux: 620 }, food: { budget: 60, mid: 110, lux: 185 }, act: { budget: 40, mid: 85, lux: 150 } },
+    monterey:      { hotel: { budget: 170, mid: 280, lux: 520 }, food: { budget: 55, mid: 95, lux: 155 }, act: { budget: 35, mid: 65, lux: 115 } },
+    destin_30a:    { hotel: { budget: 160, mid: 280, lux: 520 }, food: { budget: 55, mid: 95, lux: 155 }, act: { budget: 30, mid: 60, lux: 115 } },
+    outer_banks:   { hotel: { budget: 150, mid: 260, lux: 480 }, food: { budget: 50, mid: 85, lux: 140 }, act: { budget: 30, mid: 55, lux: 105 } },
+    grand_canyon:  { hotel: { budget: 130, mid: 210, lux: 380 }, food: { budget: 45, mid: 75, lux: 120 }, act: { budget: 30, mid: 50, lux: 95 } },
+    jackson_hole:  { hotel: { budget: 180, mid: 320, lux: 620 }, food: { budget: 55, mid: 95, lux: 165 }, act: { budget: 45, mid: 80, lux: 145 } },
+    phoenix:       { hotel: { budget: 120, mid: 200, lux: 380 }, food: { budget: 45, mid: 75, lux: 125 }, act: { budget: 30, mid: 55, lux: 95 } },
+    memphis:       { hotel: { budget: 120, mid: 180, lux: 320 }, food: { budget: 40, mid: 70, lux: 115 }, act: { budget: 25, mid: 50, lux: 85 } },
+    portland_me:   { hotel: { budget: 150, mid: 250, lux: 450 }, food: { budget: 50, mid: 85, lux: 140 }, act: { budget: 30, mid: 55, lux: 95 } },
+    bar_harbor:    { hotel: { budget: 160, mid: 280, lux: 500 }, food: { budget: 50, mid: 85, lux: 140 }, act: { budget: 35, mid: 60, lux: 105 } },
+    santa_fe:      { hotel: { budget: 140, mid: 230, lux: 420 }, food: { budget: 50, mid: 85, lux: 140 }, act: { budget: 30, mid: 55, lux: 95 } }
   };
 
   var STYLE_MAP = {
@@ -190,15 +253,20 @@
 
   function lodgingTaxFor(dest) {
     if (!dest) return 0.12;
-    if (dest.id === "nyc") return NYC_LODGING_TAX;
     if (dest.kind === "disney") return 0.125;
+    if (dest.id && LODGING_TAX_BY_ID[dest.id] != null) return LODGING_TAX_BY_ID[dest.id];
+    if (dest.id === "nyc") return NYC_LODGING_TAX;
     return LODGING_TAX[dest.region] != null ? LODGING_TAX[dest.region] : 0.12;
   }
 
   // Named lodging / food / activities by dest + style (budget | mid | lux).
   // Orientation for Lean / Solid / Stretch — not live rates, not a ranking, no star scores.
-  function H(why, a, b, c) {
-    return { why: why, picks: [a, b, c].filter(Boolean) };
+  function H(why) {
+    var picks = [];
+    for (var i = 1; i < arguments.length; i++) {
+      if (arguments[i]) picks.push(arguments[i]);
+    }
+    return { why: why, picks: picks };
   }
   function F(note, budget, mid, lux) {
     return { note: note, budget: budget, mid: mid, lux: lux };
@@ -2430,6 +2498,7 @@
     AI_ID_MAP: AI_ID_MAP,
     POPULAR: POPULAR,
     LODGING_TAX: LODGING_TAX,
+    LODGING_TAX_BY_ID: LODGING_TAX_BY_ID,
     NYC_LODGING_TAX: NYC_LODGING_TAX,
     DESTINATIONS: DESTINATIONS,
     CITY_BASE: CITY_BASE,
