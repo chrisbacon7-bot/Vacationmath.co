@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="../styles.css?v20260530c">
 <link rel="stylesheet" href="../tentpole.css?v20260530c">
 <link rel="stylesheet" href="../site-nav.css?v20260530">
-<script src="../site-nav.js?v20260910b" defer></script>
+<link rel="stylesheet" href="../city-guide.css?v20260912g">
+<script src="../site-nav.js?v20260912g" defer></script>
 <script src="../nav-fix.js" defer></script>
 <link rel="canonical" href="https://vacationmath.co/guides" />
 <meta property="og:url" content="https://vacationmath.co/guides" />
@@ -58,11 +59,20 @@
   <div class="tp-hero-inner">
     <div class="tp-kicker">Guides</div>
     <h1 class="tp-h1">Real cost breakdowns. <em>No fluff.</em></h1>
-    <p class="tp-lede">Actual numbers for Disney World, cruises, all-inclusives, and budgeting. Written by someone who's been to most of these places more than once.</p>
+    <p class="tp-lede">Printable city briefs for 20 destinations — stay, eat, get around, money-saving tips — plus the longer cost guides for Disney, cruises, and all-inclusives.</p>
     <div class="tp-hero-cta-row">
-      <a href="/calculators" class="tp-btn-primary">See all calculators &rarr;</a>
-      <a href="/card-finder" class="tp-btn-ghost">Card Finder</a>
+      <a href="#city-briefs" class="tp-btn-primary">20 city briefs &rarr;</a>
+      <a href="/plan" class="tp-btn-ghost">Trip Plan</a>
     </div>
+  </div>
+</section>
+
+<section class="tp-section" id="city-briefs">
+  <div class="tp-section-inner">
+    <div class="tp-section-kicker">Printable destination briefs</div>
+    <h2 class="tp-section-h2">Twenty cities. Open, read, save as PDF.</h2>
+    <p class="tp-section-sub">Short VacationMath orientation — hotel / food / activities aligned with Trip Plan. Each brief ends with city-specific money-saving tips. Not live rates.</p>
+    <div class="cg-index-grid" id="city-briefs-grid"></div>
   </div>
 </section>
 
@@ -70,7 +80,7 @@
 <section class="tp-section">
   <div class="tp-section-inner">
     <div class="tp-section-kicker">Cost guides</div>
-    <h2 class="tp-section-h2">Six guides. Six real numbers.</h2>
+    <h2 class="tp-section-h2">Longer breakdowns with real line items.</h2>
     <div class="tp-calc-grid">
 
       <a href="disney-world-vacation-cost" class="tp-calc-card" style="text-decoration:none;">
@@ -139,7 +149,7 @@
     <h2 class="tp-section-h2" style="color:var(--cream);">Don't read about it. Calculate it.</h2>
     <p style="color:rgba(251,247,239,0.75);max-width:540px;margin:0 auto 2rem;font-family:var(--font-body);font-size:1.05rem;line-height:1.65;">Plug in your actual trip, party size, and origin city. The calculator gives you a line-item estimate in under 60 seconds.</p>
     <div class="tp-hero-cta-row" style="justify-content:center;">
-      <a href="/calculators" class="tp-btn-primary" data-source="guides-index-cta">See all calculators &rarr;</a>
+      <a href="/plan" class="tp-btn-primary" data-source="guides-index-cta">Build a hard-budget plan &rarr;</a>
       <a href="/card-finder" class="tp-btn-ghost">Find the right travel card</a>
     </div>
   </div>
@@ -177,5 +187,8 @@
   </div>
 </footer>
 
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3e22a2edf5b',t:'MTc4MDM2NjU1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a052f3e22a2edf5b',t:'MTc4MDM2NjU1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script src="../city-guides-data.js?v20260912g"></script>
+<script src="../city-guide.js?v20260912g"></script>
+</body>
 </html>

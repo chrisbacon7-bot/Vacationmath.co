@@ -26,6 +26,10 @@
     { href: '/cruise-math',  label: 'Cruise Math' },
     { href: '/big-trip',     label: 'The Big Trip' },
     { href: '/guides',            label: '— Cost Guides —', divider: true },
+    { href: '/guides#city-briefs',                     label: 'Printable city briefs (20)' },
+    { href: '/guides/disney',                          label: 'Walt Disney World brief' },
+    { href: '/guides/los_angeles',                     label: 'Los Angeles brief' },
+    { href: '/guides/cruise',                          label: 'Caribbean cruise brief' },
     { href: '/guides/disney-world-vacation-cost',      label: 'Disney World Cost Guide' },
     { href: '/guides/how-much-does-a-cruise-cost',     label: 'How Much Does a Cruise Cost' },
     { href: '/guides/all-inclusive-resort-cost-guide', label: 'All-Inclusive Cost Guide' },
@@ -241,6 +245,7 @@
       { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
     ],
     '/plan': [
+      { href: '/guides#city-briefs', label: 'Printable city briefs' },
       { href: '/guides/how-much-to-budget-for-vacation', label: 'How much to budget for vacation' },
       { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
       { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }

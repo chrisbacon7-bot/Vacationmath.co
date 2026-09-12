@@ -144,10 +144,31 @@
 
   <url>
     <loc>https://vacationmath.co/guides</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
+
+  <url><loc>https://vacationmath.co/guides/disney</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/anaheim</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/los_angeles</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/nyc</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/vegas</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/miami</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/san_francisco</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/chicago</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/nola</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/philadelphia</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/atlanta</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/paris</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/london</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/rome</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/tokyo</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/cancun</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/oahu</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/maui</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/cruise</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://vacationmath.co/guides/key_west</loc><lastmod>2026-09-12</lastmod><changefreq>monthly</changefreq><priority>0.75</priority></url>
 
   <url>
     <loc>https://vacationmath.co/guides/disney-world-vacation-cost</loc>

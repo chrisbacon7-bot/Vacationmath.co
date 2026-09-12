@@ -1614,6 +1614,7 @@
     var wrap = $("p-dest-shortcuts");
     if (!wrap || !window.VM_PLAN_DATA) return;
     wrap.innerHTML = "";
+    var current = ($("p-dest") && $("p-dest").value) || "disney";
     (VM_PLAN_DATA.POPULAR || []).forEach(function (p) {
       var list = catalog();
       var exists = false;
@@ -1621,7 +1622,7 @@
       if (!exists) return;
       var btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "plan-shortcut" + (p.id === "disney" ? " is-active" : "");
+      btn.className = "plan-shortcut" + (p.id === current ? " is-active" : "");
       btn.setAttribute("data-dest", p.id);
       btn.textContent = p.label;
       btn.addEventListener("click", function () {
@@ -1633,16 +1634,58 @@
         var blurb = $("p-dest-blurb");
         var d = destById(p.id);
         if (blurb) blurb.textContent = d.blurb || "";
+        updateCityGuideLink(p.id);
         render(compute());
       });
       wrap.appendChild(btn);
     });
   }
 
+  var CITY_GUIDE_IDS = {
+    disney: 1, anaheim: 1, los_angeles: 1, nyc: 1, vegas: 1, miami: 1,
+    san_francisco: 1, chicago: 1, nola: 1, philadelphia: 1, atlanta: 1,
+    paris: 1, london: 1, rome: 1, tokyo: 1, cancun: 1, oahu: 1, maui: 1,
+    cruise: 1, key_west: 1
+  };
+
+  function updateCityGuideLink(destId) {
+    var el = $("p-dest-guide-link");
+    if (!el) return;
+    if (CITY_GUIDE_IDS[destId]) {
+      el.hidden = false;
+      el.href = "/guides/" + destId;
+      el.textContent = "Read the printable city brief →";
+    } else {
+      el.hidden = true;
+    }
+  }
+
+  function applyDestFromQuery() {
+    var dest = "";
+    try {
+      dest = (new URLSearchParams(window.location.search).get("dest") ||
+              new URLSearchParams(window.location.search).get("destination") || "").trim();
+    } catch (e) {
+      dest = "";
+    }
+    if (!dest) return;
+    var list = catalog();
+    var found = null;
+    for (var i = 0; i < list.length; i++) if (list[i] && list[i].id === dest) found = list[i];
+    if (!found) return;
+    var sel = $("p-dest");
+    if (sel) sel.value = dest;
+    var blurb = $("p-dest-blurb");
+    if (blurb) blurb.textContent = found.blurb || "";
+  }
+
   function bind() {
     if (window.VM_PLAN_DATA && VM_PLAN_DATA.refreshCatalog) VM_PLAN_DATA.refreshCatalog();
     populateDestinations();
+    applyDestFromQuery();
     renderShortcuts();
+    var destSel = $("p-dest");
+    updateCityGuideLink(destSel ? destSel.value : "disney");
     if (window.VM_OriginPicker) {
       VM_OriginPicker.buildOriginDropdown($("origin"), "atl");
       VM_OriginPicker.wireZipAutoSelect($("origin-zip"), $("origin"), $("origin-zip-status"));
@@ -1680,6 +1723,7 @@
           for (var c = 0; c < chips.length; c++) {
             chips[c].classList.toggle("is-active", chips[c].getAttribute("data-dest") === node.value);
           }
+          updateCityGuideLink(node.value);
         }
         render(compute());
       });
