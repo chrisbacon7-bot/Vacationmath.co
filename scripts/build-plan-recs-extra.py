@@ -1113,6 +1113,7 @@ NEW["anaheim"] = rec(
 # Remaining 19 new US dests live in recs_new_us.py so this file stays importable.
 from recs_new_us import NEW as NEW_MORE
 from recs_rest import REST, ACTS_ONLY
+from recs_hotel_brands import HOTEL_REBALANCE, FALLBACK_REBALANCE
 
 NEW.update(NEW_MORE)
 NEW.update(REST)
@@ -1475,6 +1476,32 @@ ACT_PATCH = {
 }
 
 
+def emit_rebalance() -> str:
+    lines = [
+        "  function rebalanceHotels() {",
+        "    function replaceHotel(id, style, picks) {",
+        "      var dest = P.HOTEL_EXAMPLES && P.HOTEL_EXAMPLES[id];",
+        "      if (!dest || !dest[style]) return;",
+        "      dest[style].picks = picks.slice();",
+        "    }",
+        "    function replaceFallbackHotel(key, style, picks) {",
+        "      var fb = P.HOTEL_FALLBACKS && P.HOTEL_FALLBACKS[key];",
+        "      if (!fb || !fb[style]) return;",
+        "      fb[style].picks = picks.slice();",
+        "    }",
+    ]
+    for dest, bands in HOTEL_REBALANCE.items():
+        for style, picks in bands.items():
+            extras_js = ", ".join(js_str(x) for x in picks)
+            lines.append(f"    replaceHotel({js_str(dest)}, {js_str(style)}, [{extras_js}]);")
+    for key, bands in FALLBACK_REBALANCE.items():
+        for style, picks in bands.items():
+            extras_js = ", ".join(js_str(x) for x in picks)
+            lines.append(f"    replaceFallbackHotel({js_str(key)}, {js_str(style)}, [{extras_js}]);")
+    lines.append("  }")
+    return "\n".join(lines)
+
+
 def emit_patches() -> str:
     lines = ["  function patchUniques() {"]
     for dest, bands in HOTEL_PATCH.items():
@@ -1566,6 +1593,7 @@ FOOTER = r'''
   installFullRecs();
   installActsOnly();
   patchUniques();
+  rebalanceHotels();
 })(typeof window !== "undefined" ? window : this);
 '''
 
@@ -1586,6 +1614,8 @@ def main() -> None:
         emit_acts_only(),
         "",
         emit_patches(),
+        "",
+        emit_rebalance(),
         FOOTER,
     ]
     OUT.write_text("\n".join(parts) + "\n", encoding="utf-8")

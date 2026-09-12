@@ -844,20 +844,20 @@
     domestic: {
       budget: H(
         "Limited-service on a transit line or a walkable neighborhood inn. Skip airport lodging except the night you fly.",
-        "Freehand / HI hostel-plus or a Pod / citizenM-class compact room — walk to a train or bus",
-        "Hampton / Tru / Premier Inn-class near downtown, not the interstate cloverleaf",
-        "Neighborhood 2-star on the good side of the tracks — grocery in walking distance"
+        "Hampton Inn or Tru by Hilton downtown — not the interstate cloverleaf",
+        "Holiday Inn Express or Fairfield Inn near a transit stop — grocery in walking distance",
+        "Courtyard or Motto/Aloft when present — walk to a train or bus"
       ),
       mid: H(
-        "Walkable-core boutique or a 3–4 star near transit. Location over a rooftop pool you will use twice.",
-        "Ace / Hoxton / Proper-adjacent boutique in the walkable district",
-        "Hilton / Marriott neighborhood 4-star — one room, not a suite",
-        "Inn or 3-star in the restaurant neighborhood — skip the convention tower"
+        "Walkable-core 3–4 star near transit. Location over a rooftop pool you will use twice.",
+        "Marriott, Hilton, or Hyatt Place / Hyatt Regency in the walkable district",
+        "Westin, Sheraton, Renaissance, or Canopy — one room, not a suite",
+        "Autograph / Tribute / Curio when a real property fits — skip the cloverleaf tower"
       ),
       lux: H(
         "Flagship in one district. Luxury is the room — do not also buy every paid tour.",
-        "1 Hotel / Edition / Proper class — walkable flagship",
-        "Historic grande dame or park-adjacent 5-star",
+        "JW Marriott, Grand Hyatt, Conrad, or Waldorf Astoria when the city has one",
+        "Ritz-Carlton, St. Regis, W, Edition, or Four Seasons / Fairmont leftover",
         "Suite only if leftover covers the jump from mid"
       )
     },
@@ -870,22 +870,22 @@
       ),
       mid: H(
         "3–4 star in the walkable centro, Left Bank, or canal district — one neighborhood.",
-        "Boutique 3-star near a Metro and a food market",
-        "Aparthotel 4-star if you will grocery two breakfasts",
+        "Hilton, Marriott, or Hyatt / Hotel Indigo near a Metro and a food market",
+        "Novotel or NH Collection 4-star if you will grocery two breakfasts",
         "Hotel near the main station only if you arrive late — then move, or own that pocket"
       ),
       lux: H(
         "Palace or design hotel only if leftover covers it. Mid in Europe already eats a US budget.",
-        "Palace / 5-star historic in the old city",
-        "Design flagship with a real neighborhood, not a ring-road spa",
+        "Park Hyatt, Conrad, Waldorf, or Four Seasons / Fairmont when the city has one",
+        "Palace / Luxury Collection historic in the old city",
         "Suite with a view leftover-only"
       )
     },
     hawaii: {
       budget: H(
         "Condo or limited-service on the bus grid. A kitchenette is the Lean product.",
-        "Waikiki / Kihei / Kona value tower or studio condo — grocery the first hour",
-        "Hostel-plus or 2-star a block off the sand — same beach, less resort fee",
+        "Hampton, Holiday Inn Express, or Outrigger value — grocery the first hour",
+        "Studio condo or 2-star a block off the sand — same beach, less resort fee",
         "Skip a rental car if the bus or a bike reaches the beach and the store"
       ),
       mid: H(
