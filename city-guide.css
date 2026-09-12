@@ -436,12 +436,15 @@
 
   .vm-nav,
   .vm-nav-toggle,
+  nav.vm-nav,
   footer,
   .related-articles,
   .cg-print-bar,
   .cg-no-print,
+  .cg-cta,
   .cg-cta form,
-  .cg-more {
+  .cg-more,
+  .cg-budget .cg-btn {
     display: none !important;
   }
 
