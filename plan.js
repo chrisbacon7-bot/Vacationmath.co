@@ -682,7 +682,7 @@
             ? "Run the break-even before buying CHEERS! / Deluxe — packages only win if you’ll actually use them."
             : "Pay-as-you-go until you run the break-even. A package is not automatic.",
           detail: included
-            ? "Lean drops the package. Stretch keeps it. Specialty dining is still leftover-only."
+            ? "Lean drops the package. Stretch keeps it. Specialty dining only if you're spending more."
             : "Three drinks a day is already in this pay-as-you-go line.",
           href: "/blog/cruise-drink-package-break-even-2026",
           label: "Drink-package math"
@@ -736,16 +736,16 @@
     if (kind === "spa") {
       return {
         text: included
-          ? "One spa or specialty night — leftover only. The package does not include this."
-          : "Left off budget/mid. Spend leftover here only after the rest of the plan fits.",
+          ? "One spa or specialty night — only if you're spending more. The package does not include this."
+          : "Left off budget/mid. Add this only after the rest of the plan fits.",
         detail: "This is the Stretch treat, not a nightly habit."
       };
     }
     if (kind === "memory") {
       return {
         text: included
-          ? "Advance PhotoPass. Only if leftover covers it — your phone already takes the pictures."
-          : "Not required to walk the parks. Add Memory Maker only as leftover.",
+          ? "Advance PhotoPass. Only if you have room in the budget — your phone already takes the pictures."
+          : "Not required to walk the parks. Add Memory Maker only if you're spending more.",
         detail: "Stretch includes it. Lean and Solid skip it."
       };
     }
@@ -856,7 +856,7 @@
     if (dest.kind === "disney") {
       if (missing("lightning")) ideas.push({ label: "Add Lightning Lane Multi Pass", cost: Math.round(VM_DATA.DISNEY.lightningLanePerDay * (opts.adults + opts.kids) * Math.max(1, opts.nights - 1) * (1 + VM_PLAN_DATA.FL_SALES_TAX)), why: "The add-on most families wish they had priced before day two." });
       if (missing("memory")) ideas.push({ label: "Add Memory Maker", cost: VM_DATA.DISNEY.memoryMaker, why: "Advance PhotoPass — only if the rest of the plan already fits." });
-      if (styleKey !== "lux") ideas.push({ label: "Step up one resort tier", cost: Math.round(room * 0.7), why: "Value → Moderate or Moderate → Deluxe, if the leftover covers the nightly jump." });
+      if (styleKey !== "lux") ideas.push({ label: "Step up one resort tier", cost: Math.round(room * 0.7), why: "Value → Moderate or Moderate → Deluxe, if you have room in the budget for the nightly jump." });
     } else if (dest.kind === "cruise") {
       if (styleKey === "budget") ideas.push({ label: "Add an unlimited drink package (adults)", cost: Math.round((VM_DATA.CRUISE.drinkPackagePerLine.carnival.unlimited) * opts.nights * opts.adults), why: "Only if you will actually use it. See the cruise calculator for break-even." });
       ideas.push({ label: "Upgrade the cabin one step", cost: VM_DATA.CRUISE.cabinUpgrade.balcony / 2 * Math.min(2, opts.adults + opts.kids), why: "Interior → oceanview or balcony, priced per person on the first two guests." });
@@ -864,9 +864,9 @@
       ideas.push({ label: "One specialty / off-resort dinner", cost: VM_DATA.ALLINC.aiHiddenAdditions.premiumDining * (opts.adults + opts.kids), why: "The package covers most meals. This is the night you leave the property." });
       if (missing("spa")) ideas.push({ label: "Add a spa visit", cost: VM_DATA.ALLINC.aiHiddenAdditions.spaPerTrip, why: "Not included in the all-inclusive rate." });
     } else {
-      ideas.push({ label: "One nicer dinner + a paid attraction", cost: Math.round(90 * (opts.adults + opts.kids * 0.7)), why: "Spend leftover on the trip, not on a vaguely bigger hotel." });
+      ideas.push({ label: "One nicer dinner + a paid attraction", cost: Math.round(90 * (opts.adults + opts.kids * 0.7)), why: "Spend extra on the trip, not on a vaguely bigger hotel." });
     }
-    ideas.push({ label: "Park the leftover in the funding plan", cost: Math.round(room), why: "If you do not need to spend it, do not. The funding calculator turns slack into a weekly target." });
+    ideas.push({ label: "Park unused budget in the funding plan", cost: Math.round(room), why: "If you do not need to spend it, do not. The funding calculator turns slack into a weekly target." });
     return ideas.filter(function (u) { return u.cost > 0 && u.cost <= room * 1.15; }).slice(0, 4);
   }
 
@@ -1129,8 +1129,8 @@
       items = styleKey === "budget"
         ? ["Limited-service or guesthouse on transit", "Walk-to-bakery beats a cheap room far from everything", "Skip hotel breakfast if a bakery is on the block"]
         : styleKey === "lux"
-          ? ["Flagship in one district", "Only if leftover covers the jump from mid-range", "Luxury is the room — do not also buy every paid tour"]
-          : ["Neighborhood 3–4 star", "One room, not a suite, unless leftover is real", "Location over a rooftop pool you will use twice"];
+          ? ["Flagship in one district", "Only if you have room in the budget for the jump from mid-range", "Luxury is the room — do not also buy every paid tour"]
+          : ["Neighborhood 3–4 star", "One room, not a suite, unless you're spending more", "Location over a rooftop pool you will use twice"];
     }
     return {
       kicker: kicker,
@@ -1225,7 +1225,7 @@
       title = "Main dining is in the fare";
       impact = styleKey === "budget"
         ? "This plan prices pay-as-you-go drinks, not a package. Run the break-even before you tap yes."
-        : "Unlimited adult drinks + kids soda are in the itemized plan. Specialty dining is leftover-only.";
+        : "Unlimited adult drinks + kids soda are in the itemized plan. Specialty dining only if you're spending more.";
     } else if (dest.kind === "ai") {
       var extra = Math.round((styleKey === "lux" ? 45 : 25) * (opts.adults + opts.kids) * Math.min(2, opts.nights / 3));
       title = "Meals are in the package";
@@ -1268,7 +1268,7 @@
       title = styleKey === "budget"
         ? "Getty, Griffith, beach — skip the stack"
         : styleKey === "lux"
-          ? "Universal Express leftover — not Disneyland + Universal"
+          ? "Universal Express only if you're spending more — not Disneyland + Universal"
           : "Universal or beach or Getty — pick two";
     } else if (dest.id === "anaheim") {
       title = styleKey === "budget"
@@ -1280,7 +1280,7 @@
       title = styleKey === "budget"
         ? "Independence timed + Terminal"
         : styleKey === "lux"
-          ? "Barnes + a reserved food walk leftover"
+          ? "Barnes + a reserved food walk only if you're spending more"
           : "Independence + one Museum Mile ticket";
     }
     var impact = "This card follows the Lean / Solid / Stretch tier you selected.";
@@ -1507,7 +1507,7 @@
 
     var upHtml = "";
     if (model.upgrades.length && v.key !== "over") {
-      upHtml = "<h3 class=\"panel-title\">If you have leftover</h3><ul class=\"plan-upgrade-list\">" +
+      upHtml = "<h3 class=\"panel-title\">If you have room in the budget</h3><ul class=\"plan-upgrade-list\">" +
         model.upgrades.map(function (u) {
           return "<li><strong>" + esc(u.label) + "</strong> (~" + money(u.cost) + ") — " + esc(u.why) + "</li>";
         }).join("") + "</ul>";

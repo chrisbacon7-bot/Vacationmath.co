@@ -1346,7 +1346,7 @@
         "Leonard’s malasadas once, not as a meal"
       ],
       [
-        "Breakfast: café or leftover plate lunch",
+        "Breakfast: café or yesterday's plate lunch",
         "Lunch: plate lunch or poke",
         "Dinner: one sit-down (Marukame or a neighborhood Japanese / seafood)",
         "Skip nightly Kalakaua restaurant rows"
