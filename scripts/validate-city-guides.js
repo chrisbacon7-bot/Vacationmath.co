@@ -1,4 +1,4 @@
-/* Validate city briefs: 20 dests, editorial fields, static HTML, 5–8 tips. */
+/* Validate money guides: 20 dests, editorial fields, static HTML, 5–8 tips. */
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
@@ -79,16 +79,33 @@ REQUIRED.forEach(function (id) {
     if (src.indexOf("FILE_PLACEHOLDER") >= 0) errors.push(id + ": FILE_PLACEHOLDER");
     if (src.indexOf("★") >= 0 || src.indexOf("⭐") >= 0) errors.push(id + ": star scores");
     if (src.indexOf("Loading the printable brief") >= 0) errors.push(id + ": still a JS shell");
+    if (src.indexOf("Printable City Brief") >= 0) errors.push(id + ": title still says Printable City Brief");
+    if (src.indexOf(g.label + " Money Guide 2026") < 0) errors.push(id + ": title should say Money Guide 2026");
+    if (/city brief/i.test(src) && src.indexOf("Tuesday brief") < 0) {
+      /* allow Tuesday brief newsletter name */
+    }
+    if (/\bcity brief\b/i.test(src.replace(/Tuesday brief/g, ""))) errors.push(id + ": city brief still in HTML");
     if (src.indexOf("data-cg-static") < 0 && src.indexOf("cg-hero") < 0) errors.push(id + ": missing static hero");
     if (src.indexOf("Top money-saving tips") < 0) errors.push(id + ": tips missing from HTML");
     if (src.indexOf("/plan?dest=" + id) < 0) errors.push(id + ": missing /plan?dest=");
+    if (src.indexOf("Download / Print money guide") < 0) errors.push(id + ": missing print money guide CTA");
+    if (src.indexOf("Estimates for planning — not live hotel quotes") < 0) {
+      errors.push(id + ": missing planning disclaimer");
+    }
     const tipPos = src.lastIndexOf("money-saving-tips");
     const stayPos = src.indexOf("id=\"stay\"");
     if (tipPos < 0 || stayPos < 0 || tipPos < stayPos) errors.push(id + ": tips should follow stay/eat/do");
     const body = src.split("<article id=\"city-guide-root\">")[1] || src;
     const article = body.split("</article>")[0] || body;
-    const orientCount = (article.match(/VacationMath orientation/g) || []).length;
-    if (orientCount > 1) errors.push(id + ": orientation badge repeated " + orientCount + " times in article");
+    const orientCount = (article.match(/Estimates for planning — not live hotel quotes/g) || []).length;
+    if (orientCount > 2) errors.push(id + ": disclaimer repeated " + orientCount + " times in article");
+    const leftoverHits = (article.match(/leftover/gi) || []).filter(function (w) {
+      return !/Terminal leftovers/i.test(article);
+    });
+    const leftoverBare = (article.match(/\bleftover\b/gi) || []).length;
+    const leftoverFood = (article.match(/Terminal leftovers/gi) || []).length;
+    if (leftoverBare - leftoverFood > 0) errors.push(id + ": leftover jargon still in HTML (" + leftoverBare + ")");
+    if (id === "los_angeles" && /basin/i.test(article)) errors.push("los_angeles: basin still in HTML");
     if (DEEP.indexOf(id) >= 0) {
       if (src.indexOf("cg-days") < 0) errors.push(id + ": 3-day skeleton missing from HTML");
       if (src.indexOf("cg-base") < 0) errors.push(id + ": base callout missing from HTML");
@@ -124,4 +141,4 @@ if (errors.length) {
   console.error("FAIL\n" + errors.join("\n"));
   process.exit(1);
 }
-console.log("ok 20 city briefs — editorial fields, static HTML, 5–8 tips, Lean/Solid/Stretch hotels");
+console.log("ok 20 money guides — editorial fields, static HTML, 5–8 tips, Budget/Mid-range/Splurge hotels");

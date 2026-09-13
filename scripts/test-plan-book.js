@@ -121,4 +121,10 @@ P.selectRecTab("food");
 const foodHtml = P.bookHtml(solid);
 assert.ok(/plan-book-tab-food"[\s\S]*?aria-selected="true"/.test(foodHtml) || /id="plan-book-tab-food"[^>]*aria-selected="true"/.test(foodHtml));
 
+const guideCard = P.moneyGuideCard(dest);
+assert.ok(/Open the Los Angeles money guide/.test(guideCard), "results CTA names the dest money guide");
+assert.ok(/Download \/ Print money guide/.test(guideCard), "results CTA includes download/print");
+assert.ok(/href="\/guides\/los_angeles"/.test(guideCard));
+assert.ok(!P.moneyGuideCard({ id: "unknown_place", label: "Nope" }), "no card for dests without a guide");
+
 console.log("test-plan-book: ok");

@@ -260,7 +260,7 @@
   }
 
   // Named lodging / food / activities by dest + style (budget | mid | lux).
-  // Orientation for Lean / Solid / Stretch — not live rates, not a ranking, no star scores.
+  // Named lodging / food / activities — estimates for planning, not live hotel quotes. Not a ranking, no star scores.
   function H(why) {
     var picks = [];
     for (var i = 1; i < arguments.length; i++) {
@@ -290,7 +290,7 @@
         "Coronado Springs / Fort Wilderness cabin — Moderate; Gran Destino tower is the nicer Coronado ask"
       ),
       lux: H(
-        "Deluxe or DVC villa — monorail, boat, or walk to a park. Club level only if leftover is real.",
+        "Deluxe or DVC villa — monorail, boat, or walk to a park. Club level only if you have room in the budget.",
         "Grand Floridian / Contemporary / Polynesian — Deluxe monorail, Magic Kingdom boat or walk",
         "Beach Club / Yacht Club / BoardWalk — Deluxe, walk to Epcot and Hollywood Studios",
         "DVC villa class — Bay Lake Tower, Riviera, Polynesian Villas, or Copper Creek if you need a kitchen"
@@ -332,13 +332,13 @@
       lux: H(
         "Adults-only or beach-premium AI — one property, not a hotel hop.",
         "Hyatt Zilara Cancún — adults-only Hotel Zone",
-        "Le Blanc Spa Resort — Stretch only if leftover is real",
+        "Le Blanc Spa Resort — Stretch only if you have room in the budget",
         "Nizuc or Rosewood Mayakobá class — south of the Zone; a different transfer"
       )
     },
     los_angeles: {
       budget: H(
-        "One walkable pocket + Metro/bus. A cheap Valley room becomes a $40 Uber habit.",
+        "One walkable neighborhood + Metro/bus. A cheap Valley room becomes a $40 Uber habit.",
         "Freehand Downtown — hostel-plus, walk to the Arts District and Metro",
         "The Line or Hotel Normandie — Koreatown, late food, one rideshare zone",
         "HI Los Angeles / Santa Monica hostel class — beach grid if you skip a car"
@@ -367,7 +367,7 @@
         "Walk-to-a-borough-train beats a fancy lobby. Resort-style fees still show up.",
         "Ace Hotel NoMad — walk to the 6 / R / W, neighborhood restaurants",
         "The Beekman or The Hoxton Williamsburg — Downtown or north Brooklyn, not Times Square",
-        "Arlo Nomad or The Ludlow — compact 3–4 star, subway in the building’s pocket"
+        "Arlo Nomad or The Ludlow — compact 3–4 star, subway in the building’s neighborhood"
       ),
       lux: H(
         "Flagship in a walkable district. NYC “resort fees” are not optional — add them in your head.",
@@ -390,10 +390,10 @@
         "Hotel near Luxembourg or Bastille — one neighborhood, skip changing arrondissements nightly"
       ),
       lux: H(
-        "Palace or design hotel only if leftover covers it — Paris mid already eats a budget.",
-        "Hôtel de Crillon or Cheval Blanc class — Place de la Concorde / Pont Neuf pocket",
+        "Palace or design hotel only if you have room in the budget — Paris mid already eats a budget.",
+        "Hôtel de Crillon or Cheval Blanc class — Place de la Concorde / Pont Neuf area",
         "Ritz or Le Bristol class — 1st / 8th, you are paying for the address",
-        "Left Bank palace-adjacent (Lutetia class) — stay if the leftover is real, not because the name is famous"
+        "Left Bank palace-adjacent (Lutetia class) — stay if you have room in the budget, not because the name is famous"
       )
     },
     vegas: {
@@ -420,7 +420,7 @@
       budget: H(
         "Transit-first. Union Square tourist hotels are the expensive version of a Muni pass.",
         "HI San Francisco Downtown or City Center — hostel-plus, walk to BART",
-        "Hotel Zephyr or a Fisherman’s Wharf 2-star only if you want that pocket",
+        "Hotel Zephyr or a Fisherman’s Wharf 2-star only if you want that neighborhood",
         "The Marker or a Tenderloin-adjacent limited-service — cheaper, know the block"
       ),
       mid: H(
@@ -486,14 +486,14 @@
       mid: H(
         "South Bank, Bloomsbury, or Kensington — one neighborhood, no rental car.",
         "The Hoxton Southwark or Shoreditch — walk to a Tube, restaurants on the block",
-        "Kimpton Fitzroy or a Bloomsbury 4-star — museum pocket, Russell Square",
+        "Kimpton Fitzroy or a Bloomsbury 4-star — museum area, Russell Square",
         "The Resident Kensington or a South Ken 3–4 star — museums + Tube, not Mayfair prices"
       ),
       lux: H(
         "Mayfair or Covent Garden flagship. Luxury is the room rate plus £8 pints.",
         "The Savoy or The Ned class — river or City, walk to a station",
-        "Claridge’s or The Connaught class — Mayfair, leftover only",
-        "Covent Garden Hotel or One Aldwych class — theatre pocket without a palace rate"
+        "Claridge’s or The Connaught class — Mayfair, only if you're spending more",
+        "Covent Garden Hotel or One Aldwych class — theatre area without a palace rate"
       )
     },
     rome: {
@@ -505,7 +505,7 @@
       ),
       mid: H(
         "Walk-to-the-Pantheon is the product, not a rooftop pool.",
-        "Hotel Nazionale or a Centro Storico 3-star — Piazza Navona / Pantheon pocket",
+        "Hotel Nazionale or a Centro Storico 3-star — Piazza Navona / Pantheon area",
         "Hotel de’ Ricci or a Campo de’ Fiori boutique — walk everywhere, skip taxis",
         "Prati 4-star near Ottaviano — Metro + calmer nights if the centro is sold out"
       ),
@@ -513,7 +513,7 @@
         "Rome mid plus one dinner often beats a palace room.",
         "Hotel de Russie — Piazza del Popolo, walk the centro",
         "Hassler or Hotel Eden class — Spanish Steps / Via Veneto above the crush",
-        "Kamea or a Pantheon-adjacent 5-star — leftover only"
+        "Kamea or a Pantheon-adjacent 5-star — only if you're spending more"
       )
     },
     tokyo: {
@@ -552,7 +552,7 @@
       lux: H(
         "Kahala or Ko Olina — a rental car becomes mandatory once you leave Waikiki.",
         "The Kahala Hotel & Resort — east of Waikiki, quieter beach",
-        "Four Seasons Ko Olina or Aulani (if leftover + kids) — west side, car assumed",
+        "Four Seasons Ko Olina or Aulani (if you have room in the budget + kids) — west side, car assumed",
         "Halekulani or Royal Hawaiian class — Waikiki luxury if you refuse to leave the grid"
       )
     },
@@ -572,7 +572,7 @@
       lux: H(
         "Wailea is the room. Do not also buy every excursion.",
         "Grand Wailea — Wailea Beach, the Stretch default",
-        "Andaz Maui or Four Seasons Maui — same pocket, leftover only",
+        "Andaz Maui or Four Seasons Maui — same area, only if you're spending more",
         "Hotel Wailea adults-only — quieter hill, you will still drive to dinner"
       )
     },
@@ -584,16 +584,16 @@
         "Grand Palladium-adjacent value — confirm the transfer is in the rate"
       ),
       mid: H(
-        "Hard Rock or Iberostar Selection class. Cap Cana is a different, pricier pocket.",
+        "Hard Rock or Iberostar Selection class. Cap Cana is a different, pricier area.",
         "Hard Rock Punta Cana — family mid, huge campus",
         "Iberostar Selection Bávaro — all-inclusive, beach",
         "Secrets Cap Cana is Stretch-adjacent; mid stays in Bávaro"
       ),
       lux: H(
-        "Cap Cana or adults-only. Eden Roc only as leftover.",
+        "Cap Cana or adults-only. Eden Roc only as only if you're spending more.",
         "Excellence Punta Cana or Secrets Cap Cana — adults-only",
         "Eden Roc at Cap Cana — Stretch villa class",
-        "Sanctuary Cap Cana — same pocket, not a second island hop"
+        "Sanctuary Cap Cana — same area, not a second island hop"
       )
     },
     jamaica: {
@@ -613,7 +613,7 @@
         "Sandals / Couples / Secrets class. Adults-only pricing assumes no kids.",
         "Sandals South Coast or Montego Bay — couples AI",
         "Round Hill or Half Moon class — villa stretch, MoBay side",
-        "Rockhouse or a Negril cliff boutique — leftover, not a fake rate"
+        "Rockhouse or a Negril cliff boutique — only if you're spending more, not a fake rate"
       )
     },
     barcelona: {
@@ -652,8 +652,8 @@
       lux: H(
         "CDMX luxury is the restaurant reservation more than the room.",
         "Four Seasons Reforma — walkable spine",
-        "St. Regis or Las Alcobas Polanco class — leftover",
-        "Casa Polanco or a design flagship — one pocket"
+        "St. Regis or Las Alcobas Polanco class — only if you're spending more",
+        "Casa Polanco or a design flagship — one neighborhood"
       )
     },
     thailand: {
@@ -671,7 +671,7 @@
       ),
       lux: H(
         "One river hotel, not three island hops.",
-        "Mandarin Oriental Bangkok — river, leftover",
+        "Mandarin Oriental Bangkok — river, only if you're spending more",
         "Capella Bangkok — same river, Stretch",
         "Four Seasons Chiang Mai if the north is the point — do not also buy Phuket mid-trip"
       )
@@ -692,7 +692,7 @@
       lux: H(
         "The trip is the food, not the courtyard.",
         "Windsor Court — CBD, quiet luxury",
-        "Hotel Monteleone — Quarter flagship, leftover",
+        "Hotel Monteleone — Quarter flagship, only if you're spending more",
         "Maison de la Luz or The Chloe class — design Stretch"
       )
     },
@@ -711,7 +711,7 @@
       ),
       lux: H(
         "Winter rates are the value window. Summer weekends are not.",
-        "The Langham Chicago — river, leftover",
+        "The Langham Chicago — river, only if you're spending more",
         "The Peninsula Chicago — Mag Mile flagship",
         "St. Regis or Four Seasons class — one tower"
       )
@@ -732,7 +732,7 @@
       lux: H(
         "King’s Day and August are the skip months.",
         "Hotel Pulitzer — canal houses stitched together",
-        "Conservatorium — Museumplein leftover",
+        "Conservatorium — Museumplein only if you're spending more",
         "De L’Europe or Waldorf Astoria class — one flagship"
       )
     },
@@ -751,7 +751,7 @@
       ),
       lux: H(
         "Lisbon mid already feels like a Stretch in Paris.",
-        "Bairro Alto Hotel — Chiado leftover",
+        "Bairro Alto Hotel — Chiado only if you're spending more",
         "Four Seasons Ritz Lisbon — park-adjacent flagship",
         "Tivoli Avenida Liberdade class — one boulevard"
       )
@@ -771,7 +771,7 @@
       ),
       lux: H(
         "Luxury here is the soak, not the minibar.",
-        "ION Adventure — Golden Circle leftover",
+        "ION Adventure — Golden Circle only if you're spending more",
         "The Retreat at Blue Lagoon — soak + room, Stretch only",
         "Edition Reykjavík — 101 flagship if you skip the countryside"
       )
@@ -791,7 +791,7 @@
       ),
       lux: H(
         "One nice villa beats three mediocre resorts.",
-        "Mandapa or Capella Ubud — jungle leftover",
+        "Mandapa or Capella Ubud — jungle only if you're spending more",
         "Bulgari or Alila Villas Uluwatu — cliff Stretch",
         "Como Uma or a Seminyak villa — one property"
       )
@@ -811,9 +811,9 @@
       ),
       lux: H(
         "Dubai luxury is a weekend, not a week.",
-        "Armani Hotel Dubai — Burj Khalifa, leftover",
+        "Armani Hotel Dubai — Burj Khalifa, only if you're spending more",
         "Atlantis The Palm — Palm Stretch, kids assumed",
-        "Burj Al Arab or One&Only — name-brand leftover only"
+        "Burj Al Arab or One&Only — name-brand only if you're spending more"
       )
     }
   };
@@ -835,9 +835,9 @@
         "Adults-only 4-star if there are no kids — Secrets / Dreams class"
       ),
       lux: H(
-        "Adults-only or villa AI — leftover only, still no invented nightly rate.",
+        "Adults-only or villa AI — only if you're spending more, still no invented nightly rate.",
         "Hyatt Zilara / Excellence / Secrets stretch class — beach premium",
-        "Overwater or swim-up suite only if leftover covers the jump",
+        "Overwater or swim-up suite only if you have room in the budget for the jump",
         "One flagship, not a two-resort hop"
       )
     },
@@ -857,8 +857,8 @@
       lux: H(
         "Flagship in one district. Luxury is the room — do not also buy every paid tour.",
         "JW Marriott, Grand Hyatt, Conrad, or Waldorf Astoria when the city has one",
-        "Ritz-Carlton, St. Regis, W, Edition, or Four Seasons / Fairmont leftover",
-        "Suite only if leftover covers the jump from mid"
+        "Ritz-Carlton, St. Regis, W, Edition, or Four Seasons / Fairmont only if you're spending more",
+        "Suite only if you have room in the budget for the jump from mid"
       )
     },
     europe: {
@@ -872,18 +872,18 @@
         "3–4 star in the walkable centro, Left Bank, or canal district — one neighborhood.",
         "Hilton, Marriott, or Hyatt / Hotel Indigo near a Metro and a food market",
         "Novotel or NH Collection 4-star if you will grocery two breakfasts",
-        "Hotel near the main station only if you arrive late — then move, or own that pocket"
+        "Hotel near the main station only if you arrive late — then move, or stay in that neighborhood"
       ),
       lux: H(
-        "Palace or design hotel only if leftover covers it. Mid in Europe already eats a US budget.",
+        "Palace or design hotel only if you have room in the budget for it. Mid in Europe already eats a US budget.",
         "Park Hyatt, Conrad, Waldorf, or Four Seasons / Fairmont when the city has one",
         "Palace / Luxury Collection historic in the old city",
-        "Suite with a view leftover-only"
+        "Suite with a view only if you're spending more"
       )
     },
     hawaii: {
       budget: H(
-        "Condo or limited-service on the bus grid. A kitchenette is the Lean product.",
+        "Condo or limited-service on the bus grid. A kitchenette is the cheaper way.",
         "Hampton, Holiday Inn Express, or Outrigger value — grocery the first hour",
         "Studio condo or 2-star a block off the sand — same beach, less resort fee",
         "Skip a rental car if the bus or a bike reaches the beach and the store"
@@ -896,8 +896,8 @@
       ),
       lux: H(
         "Wailea / Ko Olina / Four Seasons class. The car becomes mandatory once you leave town.",
-        "Beach-premium flagship in one pocket",
-        "Adults-only or villa if leftover is real",
+        "Beach-premium flagship in one neighborhood",
+        "Adults-only or villa if you have room in the budget",
         "Do not also book every snorkel and helicopter"
       )
     },
@@ -917,7 +917,7 @@
       lux: H(
         "Adults-only or villa stretch. Still no invented fare.",
         "Excellence / Secrets / Sandals class",
-        "Overwater or cliff villa leftover-only",
+        "Overwater or cliff villa only if you're spending more",
         "One island, one resort"
       )
     },
@@ -945,7 +945,7 @@
       budget: H(
         "Business hotel or capsule next to a Metro or JR station.",
         "APA / Super Hotel / Tune / capsule class — station downstairs",
-        "Hostel-plus in the old city or night-market pocket",
+        "Hostel-plus in the old city or night-market area",
         "Convenience-store breakfast is the plan, not a compromise"
       ),
       mid: H(
@@ -958,7 +958,7 @@
         "Palace / Park Hyatt / Mandarin class. The room or the counter dinner — rarely both.",
         "Flagship in the central ward",
         "Ryokan or courtyard hotel if that is the point of the trip",
-        "Suite leftover-only"
+        "Suite only if you're spending more"
       )
     },
     oceania: {
@@ -977,7 +977,7 @@
       lux: H(
         "Waterfront or lodge flagship. Do not stack every adventure add-on.",
         "Harbor or sound-view flagship",
-        "Wilderness lodge leftover-only",
+        "Wilderness lodge only if you're spending more",
         "One base"
       )
     },
@@ -995,7 +995,7 @@
         "One city, then a separate lodge line if you add safari"
       ),
       lux: H(
-        "Lodge or palace leftover. The game drive is the product.",
+        "Lodge or palace only if you're spending more. The game drive is the product.",
         "Palace / safari-lodge class",
         "Cape or Nile flagship",
         "Do not double-pay for every optional excursion"
@@ -1011,14 +1011,14 @@
       mid: H(
         "Downtown or Marina 4-star. Summer is cheap and brutal.",
         "4-star on the Metro or tram",
-        "Palm or Downtown — pick one pocket",
+        "Palm or Downtown — pick one neighborhood",
         "Hotel breakfast only when it is in the rate"
       ),
       lux: H(
         "Icon hotel as a weekend, not a week.",
         "Burj / Atlantis / Armani class",
         "Palm or Downtown flagship — one",
-        "Desert camp only if leftover covers a night out of the city"
+        "Desert camp only if you have room in the budget for a night out of the city"
       )
     },
     latam: {
@@ -1037,7 +1037,7 @@
       lux: H(
         "Casa-hotel or adults-only beach. The tasting menu is often the better Stretch.",
         "Flagship in the centro or beach premium",
-        "Relais-style casa leftover",
+        "Relais-style casa only if you're spending more",
         "One property"
       )
     },
@@ -1055,7 +1055,7 @@
         "Location over a rooftop you will use twice"
       ),
       lux: H(
-        "Flagship in one district. Leftover only.",
+        "Flagship in one district. Only if you're spending more.",
         "Design or historic 5-star",
         "Park- or water-adjacent flagship",
         "Do not also buy every paid tour"
@@ -1073,13 +1073,13 @@
         "Snack: Dole Whip or a bakery once, not as a meal plan"
       ],
       [
-        "Breakfast: food court most mornings, one hotel buffet if leftover",
+        "Breakfast: food court most mornings, one hotel buffet if only if you're spending more",
         "Lunch: mobile-order QS (Satu’li, Cosmic Ray’s, Columbia Harbour House)",
         "Dinner: one table-service — Sci-Fi Dine-In, 50’s Prime Time, or ‘Ohana",
         "Skip the dining plan; pay as you go"
       ],
       [
-        "Breakfast: one character meal (Chef Mickey’s or Tusker House) if leftover",
+        "Breakfast: one character meal (Chef Mickey’s or Tusker House) if only if you're spending more",
         "Lunch: QS or a second table-service, not three sit-downs",
         "Dinner reservation: California Grill, Space 220, or Be Our Guest — book before you fly",
         "Dining plan is still usually a bad buy even on Stretch"
@@ -1095,15 +1095,15 @@
       ],
       [
         "Main dining room most nights — that is the product",
-        "One specialty night (Cagney’s / Chops / Teppanyaki class) if leftover covers it",
+        "One specialty night (Cagney’s / Chops / Teppanyaki class) if you have room in the budget for it",
         "Drink package only after you run the break-even",
         "Room service fees add up — use it as a backup, not breakfast"
       ],
       [
         "Dining room + one or two specialty reservations (Italian / steak / sushi)",
-        "Chef’s table or a specialty brunch leftover-only",
+        "Chef’s table or a specialty brunch only if you're spending more",
         "Unlimited adult drinks + kids soda are in this Stretch plan — still run the math",
-        "Specialty is leftover, not a nightly habit"
+        "Specialty is only if you're spending more, not a nightly habit"
       ]
     ),
     cancun: F(
@@ -1124,7 +1124,7 @@
         "On-property fine dining most nights — that is why you booked AI",
         "One reservation off-property (Puerto Morelos or a named Hotel Zone kitchen)",
         "Cenote-day lunch packed or a pre-booked club, not a dock kiosk",
-        "Le Blanc / Zilara specialty rooms leftover-only"
+        "Le Blanc / Zilara specialty rooms only if you're spending more"
       ]
     ),
     los_angeles: F(
@@ -1139,7 +1139,7 @@
         "Breakfast: Republique counter or a neighborhood café — no hotel restaurant",
         "Lunch: Grand Central Market or Langer’s deli",
         "Dinner: Koreatown BBQ (Quarter / Kang Ho Dong) or Bestia if you booked ahead",
-        "One neighborhood per night — do not cross the basin twice"
+        "One neighborhood per night — don't drive across the city for dinner"
       ],
       [
         "Breakfast: Republique or Gjusta — reservation or early walk-in",
@@ -1165,7 +1165,7 @@
       [
         "Breakfast: Balthazar or a good bakery — still skip the hotel dining room",
         "Lunch: a proper sit-down (Grand Central Oyster Bar or a Downtown spot)",
-        "Dinner reservation: Carbone, Lilia, or Le Bernardin class — leftover only",
+        "Dinner reservation: Carbone, Lilia, or Le Bernardin class — only if you're spending more",
         "One tasting, not a tasting every night"
       ]
     ),
@@ -1187,7 +1187,7 @@
         "Breakfast: bakery, then one café sit-down",
         "Lunch: a proper bistro, not a museum cafeteria",
         "Dinner reservation: Septime, Frenchie, or Le Comptoir — book before you fly",
-        "Palace-hotel dining only if leftover is silly"
+        "Palace-hotel dining only only if you're spending more"
       ]
     ),
     vegas: F(
@@ -1207,7 +1207,7 @@
       [
         "Breakfast: still skip the $40 buffet unless it is the point",
         "Lunch: a proper sit-down off-peak",
-        "Dinner reservation: a named steakhouse or tasting (Picasso / Guy Savoy class) leftover-only",
+        "Dinner reservation: a named steakhouse or tasting (Picasso / Guy Savoy class) only if you're spending more",
         "One splurge, not a steak every night"
       ]
     ),
@@ -1228,7 +1228,7 @@
       [
         "Breakfast: a good café, still not the hotel dining room",
         "Lunch: Ferry Building or a proper sit-down",
-        "Dinner reservation: Atelier Crenn, Benu, or State Bird — leftover only",
+        "Dinner reservation: Atelier Crenn, Benu, or State Bird — only if you're spending more",
         "One tasting, then neighborhood food"
       ]
     ),
@@ -1249,7 +1249,7 @@
       [
         "Breakfast: café, not a resort buffet",
         "Lunch: still tacos — Stretch does not require a steak at noon",
-        "Dinner reservation: Addison (Del Mar) or a waterfront table leftover-only",
+        "Dinner reservation: Addison (Del Mar) or a waterfront table only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1270,7 +1270,7 @@
       [
         "Breakfast: still a café",
         "Lunch: a proper sit-down off the sand",
-        "Dinner reservation: a named tasting or Joe’s if leftover covers it",
+        "Dinner reservation: a named tasting or Joe’s if you have room in the budget for it",
         "One beach-club afternoon is a day-price"
       ]
     ),
@@ -1291,7 +1291,7 @@
       [
         "Breakfast: a café sit-down once",
         "Lunch: a proper gastropub",
-        "Dinner reservation: Core, Kitchen Table, or a Mayfair table leftover-only",
+        "Dinner reservation: Core, Kitchen Table, or a Mayfair table only if you're spending more",
         "£8 pints are already in the luxury math"
       ]
     ),
@@ -1312,7 +1312,7 @@
       [
         "Breakfast: still the bar",
         "Lunch: a proper sit-down away from the pantheon doors",
-        "Dinner reservation: La Pergola, Roscioli, or a named tasting leftover-only",
+        "Dinner reservation: La Pergola, Roscioli, or a named tasting only if you're spending more",
         "One splurge, then trattoria"
       ]
     ),
@@ -1354,7 +1354,7 @@
       [
         "Breakfast: café once, grocery otherwise",
         "Lunch: still poke / plate lunch",
-        "Dinner reservation: Alan Wong’s, Senia, or a Halekulani table leftover-only",
+        "Dinner reservation: Alan Wong’s, Senia, or a Halekulani table only if you're spending more",
         "One splurge, not five fish dinners"
       ]
     ),
@@ -1375,7 +1375,7 @@
       [
         "Breakfast: condo still wins",
         "Lunch: a sit-down in Wailea only if you are already there",
-        "Dinner reservation: Mama’s Fish House or a Wailea table leftover-only",
+        "Dinner reservation: Mama’s Fish House or a Wailea table only if you're spending more",
         "One named reservation, then the kitchen"
       ]
     ),
@@ -1391,11 +1391,11 @@
         "On-property breakfast + better à-la-carte at night",
         "One pre-booked off-property dinner if the transfer is in the plan",
         "Premium à-la-carte nights inside the resort are the upgrade",
-        "Cap Cana restaurants are a different pocket"
+        "Cap Cana restaurants are a different part of town"
       ],
       [
         "On-property fine dining most nights",
-        "One Cap Cana or named tasting leftover",
+        "One Cap Cana or named tasting only if you're spending more",
         "Packed lunch on excursion days",
         "Still not a nightly off-property hop"
       ]
@@ -1416,7 +1416,7 @@
       ],
       [
         "On-property fine dining",
-        "One named off-property reservation leftover",
+        "One named off-property reservation only if you're spending more",
         "Sandals / Couples specialty rooms are the Stretch product",
         "Transfer time is still a cost"
       ]
@@ -1432,13 +1432,13 @@
       [
         "Breakfast: bakery",
         "Lunch: menú del día or a market",
-        "Dinner: one seafood dinner in Barceloneta if leftover exists",
+        "Dinner: one seafood dinner in Barceloneta if you have room in the budget",
         "Eixample or Born, not the Ramblas"
       ],
       [
         "Breakfast: café sit-down once",
         "Lunch: a proper restaurant",
-        "Dinner reservation: Disfrutar or a named tasting leftover-only",
+        "Dinner reservation: Disfrutar or a named tasting only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1459,7 +1459,7 @@
       [
         "Breakfast: café",
         "Lunch: Contramar or a proper sit-down",
-        "Dinner reservation: Pujol or Quintonil leftover-only",
+        "Dinner reservation: Pujol or Quintonil only if you're spending more",
         "One tasting"
       ]
     ),
@@ -1480,7 +1480,7 @@
       [
         "Breakfast: café once",
         "Lunch: still stalls — Stretch does not require a mall",
-        "Dinner reservation: a named riverside or tasting leftover",
+        "Dinner reservation: a named riverside or tasting only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1501,7 +1501,7 @@
       [
         "Breakfast: café",
         "Lunch: a proper sit-down",
-        "Dinner reservation: Commander’s, Galatoire’s, or a modern tasting leftover",
+        "Dinner reservation: Commander’s, Galatoire’s, or a modern tasting only if you're spending more",
         "Keep the reservations; cut something else"
       ]
     ),
@@ -1522,7 +1522,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: Alinea or a Fulton Market flagship leftover-only",
+        "Dinner reservation: Alinea or a Fulton Market flagship only if you're spending more",
         "One tasting"
       ]
     ),
@@ -1537,13 +1537,13 @@
       [
         "Breakfast: bakery + Albert Heijn",
         "Lunch: brown café",
-        "Dinner: one Indonesian rijsttafel if leftover covers it",
+        "Dinner: one Indonesian rijsttafel if you have room in the budget for it",
         "Two streets off the canal"
       ],
       [
         "Breakfast: café once",
         "Lunch: a proper sit-down",
-        "Dinner reservation: a named tasting or rijsttafel leftover",
+        "Dinner reservation: a named tasting or rijsttafel only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1564,7 +1564,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1585,7 +1585,7 @@
       [
         "Breakfast: grocery still wins on road days",
         "Lunch: a sit-down if you are in town",
-        "Dinner reservation: a named 101 or a lodge table leftover",
+        "Dinner reservation: a named 101 or a lodge table only if you're spending more",
         "Do not eat every meal out on a Ring Road week"
       ]
     ),
@@ -1606,7 +1606,7 @@
       [
         "Breakfast: café",
         "Lunch: still a warung at noon",
-        "Dinner reservation: a named Seminyak or Ubud table leftover",
+        "Dinner reservation: a named Seminyak or Ubud table only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1621,13 +1621,13 @@
       [
         "Breakfast: café or included buffet",
         "Lunch: a food hall or creekside",
-        "Dinner: one destination dinner if leftover is real",
+        "Dinner: one destination dinner if you have room in the budget",
         "Mall food courts are a fallback"
       ],
       [
         "Breakfast: café or buffet",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge weekend, not seven"
       ]
     )
@@ -1646,14 +1646,14 @@
       ],
       [
         "On-property breakfast + better à-la-carte at night",
-        "One off-resort dinner if leftover covers the transfer",
+        "One off-resort dinner if you have room in the budget for the transfer",
         "Premium in-resort nights are the mid upgrade",
         "Beach-club lunch is a day-price"
       ],
       [
         "On-property fine dining most nights",
-        "One named off-property reservation leftover",
-        "Specialty rooms leftover-only",
+        "One named off-property reservation only if you're spending more",
+        "Specialty rooms only if you're spending more",
         "Still not a nightly hop"
       ]
     ),
@@ -1674,7 +1674,7 @@
       [
         "Breakfast: café, still not the hotel dining room every day",
         "Lunch: a sit-down",
-        "Dinner reservation: one named tasting or flagship leftover-only",
+        "Dinner reservation: one named tasting or flagship only if you're spending more",
         "One splurge, not a tasting every night"
       ]
     ),
@@ -1696,7 +1696,7 @@
         "Breakfast: bakery, then one café sit-down",
         "Lunch: a proper restaurant",
         "Dinner reservation: a named table booked before you fly",
-        "Palace-hotel dining leftover-only"
+        "Palace-hotel dining only if you're spending more"
       ]
     ),
     hawaii: F(
@@ -1716,7 +1716,7 @@
       [
         "Breakfast: condo still wins",
         "Lunch: poke / plate lunch",
-        "Dinner reservation: one named table leftover",
+        "Dinner reservation: one named table only if you're spending more",
         "Do not stack every fish dinner"
       ]
     ),
@@ -1736,8 +1736,8 @@
       ],
       [
         "On-property fine dining",
-        "One named off-property reservation leftover",
-        "Specialty rooms leftover-only",
+        "One named off-property reservation only if you're spending more",
+        "Specialty rooms only if you're spending more",
         "One island"
       ]
     ),
@@ -1758,7 +1758,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1800,7 +1800,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1821,7 +1821,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "Lodge dinners are already priced — do not add a second tasting"
       ]
     ),
@@ -1842,7 +1842,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One weekend splurge"
       ]
     ),
@@ -1863,7 +1863,7 @@
       [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge"
       ]
     ),
@@ -1884,7 +1884,7 @@
       [
         "Breakfast: café, not the hotel every day",
         "Lunch: a sit-down",
-        "Dinner reservation: one named leftover",
+        "Dinner reservation: one named table only if you're spending more",
         "One splurge"
       ]
     )
@@ -1902,13 +1902,13 @@
         "Two parks that match the party — Hopper only if you will switch midday (ticketed)",
         "Lightning Lane on Magic Kingdom or Hollywood Studios day only (ticketed)",
         "One Disney Springs or resort-hop evening (free)",
-        "Skip a water-park add-on unless leftover is real (ticketed)"
+        "Skip a water-park add-on unless you have room in the budget (ticketed)"
       ],
       [
         "Park Hopper + Lightning Lane Multi Pass (ticketed)",
         "Early theme-park entry from Deluxe (included with that lodging)",
-        "Signature dinner + fireworks viewing leftover-only (ticketed)",
-        "Memory Maker / PhotoPass is in Stretch only if leftover covers it (ticketed)"
+        "Signature dinner + fireworks viewing only if you're spending more (ticketed)",
+        "Memory Maker / PhotoPass is in Stretch only if you have room in the budget for it (ticketed)"
       ]
     ),
     cruise: A(
@@ -1925,10 +1925,10 @@
         "Skip the third dock tour — that is the overrun (ticketed)"
       ],
       [
-        "Two ship excursions if leftover covers the “we wait for you” insurance (ticketed)",
+        "Two ship excursions if you have room in the budget for the “we wait for you” insurance (ticketed)",
         "Drink package is in this Stretch plan — still run the math (optional)",
         "A quieter private beach or small-group tour on one island (tour)",
-        "Spa or specialty night leftover-only — already its own line"
+        "Spa or specialty night only if you're spending more — already its own line"
       ]
     ),
     los_angeles: A(
@@ -1945,7 +1945,7 @@
         "Disneyland = Anaheim day trip with its own ticket and lodging math"
       ],
       [
-        "Universal with Express / a VIP studio tour leftover-only (ticketed)",
+        "Universal with Express / a VIP studio tour only if you're spending more (ticketed)",
         "Getty + a private or small-group architecture walk (free / tour)",
         "Beach club or a coastal dinner you already reserved (ticketed)",
         "Do not stack Universal, Disneyland, and a beach day in 5 nights"
@@ -1966,7 +1966,7 @@
       ],
       [
         "Broadway reserved seat + one observatory (ticketed)",
-        "A second museum or a guided food walk leftover (ticketed / tour)",
+        "A second museum or a guided food walk only if you're spending more (ticketed / tour)",
         "Neighborhood walk still — Stretch does not cancel the street (free)",
         "Skip stacking three observatories"
       ]
@@ -1986,15 +1986,15 @@
       ],
       [
         "Louvre timed + a second museum or Versailles half-day (ticketed)",
-        "Eiffel summit or a Seine dinner cruise leftover-only (ticketed)",
+        "Eiffel summit or a Seine dinner cruise only if you're spending more (ticketed)",
         "A neighborhood walk still earns its morning (free)",
-        "Catacombs or a reserved Sainte-Chapelle concert leftover (ticketed)"
+        "Catacombs or a reserved Sainte-Chapelle concert only if you're spending more (ticketed)"
       ]
     ),
     vegas: A(
       [
         "Fountains, Bellagio conservatory, and a Fremont walk (free)",
-        "One cheap daytime ticket if leftover — High Roller off-peak (ticketed)",
+        "One cheap daytime ticket if only if you're spending more — High Roller off-peak (ticketed)",
         "Skip a nightclub table on Lean",
         "Walk the Center-Strip; the monorail is a backup"
       ],
@@ -2006,8 +2006,8 @@
       ],
       [
         "A reserved Cirque or a flagship residency (ticketed)",
-        "A helicopter or Grand Canyon day leftover-only (tour)",
-        "One spa or pool-day cabana leftover (ticketed)",
+        "A helicopter or Grand Canyon day only if you're spending more (tour)",
+        "One spa or pool-day cabana only if you're spending more (ticketed)",
         "Still walk the Strip once at dusk (free)"
       ]
     ),
@@ -2025,7 +2025,7 @@
         "Napa is a day trip with a packed lunch, not a second hotel"
       ],
       [
-        "Alcatraz + a second ticketed thing leftover (ticketed)",
+        "Alcatraz + a second ticketed thing only if you're spending more (ticketed)",
         "A Muir Woods or Napa small-group tour (tour)",
         "One neighborhood walk still (free)",
         "Do not stack Alcatraz, Napa, and Yosemite in 5 nights"
@@ -2045,8 +2045,8 @@
         "La Jolla cove snorkel if you are already north (cheap / ticketed)"
       ],
       [
-        "Safari Park or a second ticketed day leftover (ticketed)",
-        "Zoo + Midway is a stack — only if leftover covers both",
+        "Safari Park or a second ticketed day only if you're spending more (ticketed)",
+        "Zoo + Midway is a stack — only if you have room in the budget for both",
         "A coastal walk still (free)",
         "Mexico day trip is a different budget"
       ]
@@ -2062,7 +2062,7 @@
         "Beach + one ticketed — Vizcaya or a boat (ticketed)",
         "Wynwood + Little Havana neighborhood time (free / cheap)",
         "Art Deco walk on Ocean Drive in daylight (free)",
-        "Everglades airboat only if leftover covers a half day (tour)"
+        "Everglades airboat only if you have room in the budget for a half day (tour)"
       ],
       [
         "A reserved boat or a named museum day (ticketed / tour)",
@@ -2086,7 +2086,7 @@
       ],
       [
         "West End reserved seat + one iconic ticket (ticketed)",
-        "A second museum or a day trip (Windsor / Bath) leftover (ticketed / tour)",
+        "A second museum or a day trip (Windsor / Bath) only if you're spending more (ticketed / tour)",
         "A neighborhood walk still (free)",
         "Do not stack three paid towers"
       ]
@@ -2106,7 +2106,7 @@
       ],
       [
         "Colosseum + Vatican timed, on different days (ticketed)",
-        "A small-group catacombs or food walk leftover (tour)",
+        "A small-group catacombs or food walk only if you're spending more (tour)",
         "A neighborhood morning still (free)",
         "Do not stack three ticketed interiors in one day"
       ]
@@ -2122,11 +2122,11 @@
         "One ticketed — teamLab, a tower, or a museum (ticketed)",
         "Shibuya / Shinjuku night walk (free)",
         "A neighborhood morning in Yanaka or Kichijoji (free)",
-        "Day trip to Kamakura or Nikko only if leftover covers the JR math (ticketed)"
+        "Day trip to Kamakura or Nikko only if you have room in the budget for the JR math (ticketed)"
       ],
       [
         "teamLab or a reserved cultural show + a tower (ticketed)",
-        "A guided food walk leftover (tour)",
+        "A guided food walk only if you're spending more (tour)",
         "A neighborhood walk still (free)",
         "Kyoto is a different trip — do not fake it as a Tokyo day"
       ]
@@ -2145,8 +2145,8 @@
         "North Shore is a car day, not a Waikiki walk"
       ],
       [
-        "A small-group snorkel or a sunrise hike leftover (tour)",
-        "Hanauma or a boat leftover, not both (ticketed)",
+        "A small-group snorkel or a sunrise hike only if you're spending more (tour)",
+        "Hanauma or a boat only if you're spending more, not both (ticketed)",
         "A second beach day still (free)",
         "Do not stack a neighbor-island hop into 5 nights without a second fare"
       ]
@@ -2165,7 +2165,7 @@
         "A second beach day still (free)"
       ],
       [
-        "A reserved boat (Molokini) leftover-only (tour)",
+        "A reserved boat (Molokini) only if you're spending more (tour)",
         "Haleakalā sunrise reservation + a quiet afternoon (ticketed)",
         "One beach day with no itinerary (free)",
         "Do not stack Hana, Haleakalā, and a boat in 4 days"
@@ -2181,11 +2181,11 @@
       [
         "One ticketed day — Isla Mujeres ferry or a cenote (ticketed / ferry)",
         "Beach days for the rest (included)",
-        "Chichén Itzá is a long day; only if leftover covers a trusted tour (tour)",
+        "Chichén Itzá is a long day; only if you have room in the budget for a trusted tour (tour)",
         "Skip a second dock kiosk"
       ],
       [
-        "A small-group ruin or whale-shark season tour leftover (tour)",
+        "A small-group ruin or whale-shark season tour only if you're spending more (tour)",
         "Isla Mujeres or a better boat, not both (ticketed)",
         "Beach still wins most days (included)",
         "Tulum ruins + beach is a different lodging math"
@@ -2210,10 +2210,10 @@
         "Nightlife on-property first"
       ],
       [
-        "A small-group tour leftover (tour)",
+        "A small-group tour only if you're spending more (tour)",
         "One better boat or ruin day, not three (ticketed)",
         "Beach still wins most days (included)",
-        "Spa leftover-only"
+        "Spa only if you're spending more"
       ]
     ),
     domestic: A(
@@ -2230,7 +2230,7 @@
         "Day trips need their own lunch and transfer"
       ],
       [
-        "A reserved show or a guided tour leftover (ticketed / tour)",
+        "A reserved show or a guided tour only if you're spending more (ticketed / tour)",
         "One iconic ticket (ticketed)",
         "A neighborhood walk still (free)",
         "Do not stack three paid towers"
@@ -2247,11 +2247,11 @@
         "One timed iconic (ticketed)",
         "One neighborhood walk (free)",
         "A second museum or a garden (ticketed / free)",
-        "Day trip only if leftover covers the train"
+        "Day trip only if you have room in the budget for the train"
       ],
       [
         "Two timed interiors on different days (ticketed)",
-        "A small-group walk leftover (tour)",
+        "A small-group walk only if you're spending more (tour)",
         "A neighborhood morning still (free)",
         "Do not stack a palace, a catacomb, and a dinner cruise in one day"
       ]
@@ -2270,7 +2270,7 @@
         "Sunrise tickets are a 2 a.m. choice — pick on purpose"
       ],
       [
-        "A reserved boat leftover (tour)",
+        "A reserved boat only if you're spending more (tour)",
         "One ticketed sunrise or bay, not both (ticketed)",
         "A beach day with no itinerary (free)",
         "Neighbor-island hops are a second fare"
@@ -2290,10 +2290,10 @@
         "Nightlife on-property first"
       ],
       [
-        "A small-group boat or ruin leftover (tour)",
+        "A small-group boat or ruin only if you're spending more (tour)",
         "One better day, not three (ticketed)",
         "Beach still wins (included)",
-        "Spa leftover-only"
+        "Spa only if you're spending more"
       ]
     ),
     mexico: A(
@@ -2310,7 +2310,7 @@
         "Long ruin days need a trusted driver"
       ],
       [
-        "A small-group ruin or tasting leftover (tour)",
+        "A small-group ruin or tasting only if you're spending more (tour)",
         "One ticketed extra (ticketed)",
         "A neighborhood morning still (free)",
         "Do not stack two ruin days and a beach club"
@@ -2326,11 +2326,11 @@
       [
         "One ticketed — museum, deck, or digital show (ticketed)",
         "A night market or neighborhood walk (free)",
-        "A short rail day trip only if leftover covers it (ticketed)",
+        "A short rail day trip only if you have room in the budget for it (ticketed)",
         "Skip a five-temple checklist"
       ],
       [
-        "A reserved show or a guided food walk leftover (ticketed / tour)",
+        "A reserved show or a guided food walk only if you're spending more (ticketed / tour)",
         "One ticketed iconic (ticketed)",
         "A neighborhood morning still (free)",
         "A second city is a different trip"
@@ -2346,11 +2346,11 @@
       [
         "One ticketed iconic or a short hike with a shuttle (ticketed)",
         "A harbor walk (free)",
-        "A day trip only if leftover covers it (tour / car)",
+        "A day trip only if you have room in the budget for it (tour / car)",
         "Wildlife tours are mid, not automatic"
       ],
       [
-        "A reserved boat, scenic flight, or lodge activity leftover (tour)",
+        "A reserved boat, scenic flight, or lodge activity only if you're spending more (tour)",
         "One ticketed iconic (ticketed)",
         "A free walk still (free)",
         "Do not stack every adventure"
@@ -2370,7 +2370,7 @@
         "Safari is a different lodging line"
       ],
       [
-        "A lodge game drive or a private guide leftover (tour)",
+        "A lodge game drive or a private guide only if you're spending more (tour)",
         "One city ticketed extra (ticketed)",
         "A walk still (free)",
         "Do not double-pay optional lodge extras"
@@ -2390,7 +2390,7 @@
         "Summer midday is indoor on purpose"
       ],
       [
-        "A private desert or a named icon leftover (tour / ticketed)",
+        "A private desert or a named icon only if you're spending more (tour / ticketed)",
         "One extra ticketed (ticketed)",
         "A heritage walk still (free)",
         "Luxury is a weekend of activities, not seven paid tours"
@@ -2410,7 +2410,7 @@
         "Trusted driver for longer hops"
       ],
       [
-        "A small-group ruin or tasting leftover (tour)",
+        "A small-group ruin or tasting only if you're spending more (tour)",
         "One extra ticketed (ticketed)",
         "A walk still (free)",
         "Do not stack two long tours and a late dinner"
@@ -2430,7 +2430,7 @@
         "Day trips need lunch and a transfer"
       ],
       [
-        "A reserved show or guided walk leftover (ticketed / tour)",
+        "A reserved show or guided walk only if you're spending more (ticketed / tour)",
         "One iconic ticket (ticketed)",
         "A neighborhood walk still (free)",
         "Do not stack three paid towers"

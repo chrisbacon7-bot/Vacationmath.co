@@ -1542,6 +1542,7 @@
         "<p class=\"plan-headline-total\">" + esc(model.selectedTier === "lean" ? "Lean" : model.selectedTier === "stretch" ? "Stretch" : "Solid") + " total " + money(model.total) + " vs " + money(o.budget) + " budget (" + money(model.total / Math.max(1, people)) + " per person).</p>" +
       "</div>" +
       "<div class=\"plan-verdict-lg " + v.key + "\"><span class=\"plan-verdict-word\">" + v.word + "</span><span class=\"plan-verdict-detail\">" + esc(v.detail) + "</span></div>" +
+      moneyGuideCard(model.dest) +
       "<h3 class=\"panel-title\" id=\"plan-tiers-title\">Lean / Solid / Stretch</h3>" +
       "<p class=\"plan-section-sub\">Click a tier to rebuild the itemized plan, verdict, tips, and Where to book. Solid is the style you picked. Lean steps down one band. Stretch steps up.</p>" +
       "<div class=\"plan-tiers\" role=\"radiogroup\" aria-labelledby=\"plan-tiers-title\">" + tierCards + "</div>" +
@@ -1772,13 +1773,63 @@
     cruise: 1, key_west: 1
   };
 
+  var CITY_GUIDE_LABELS = {
+    disney: "Walt Disney World",
+    anaheim: "Anaheim / Disneyland",
+    los_angeles: "Los Angeles",
+    nyc: "New York City",
+    vegas: "Las Vegas",
+    miami: "Miami",
+    san_francisco: "San Francisco",
+    chicago: "Chicago",
+    nola: "New Orleans",
+    philadelphia: "Philadelphia",
+    atlanta: "Atlanta",
+    paris: "Paris",
+    london: "London",
+    rome: "Rome",
+    tokyo: "Tokyo",
+    cancun: "Cancún",
+    oahu: "Oahu",
+    maui: "Maui",
+    cruise: "Caribbean cruise",
+    key_west: "Key West"
+  };
+
+  function moneyGuideName(dest) {
+    if (dest && CITY_GUIDE_LABELS[dest.id]) return CITY_GUIDE_LABELS[dest.id];
+    var raw = (dest && dest.label) || "destination";
+    return raw.replace(/\s*\([^)]*\)\s*$/, "").trim();
+  }
+
+  function moneyGuideHref(destId) {
+    return "/guides/" + destId;
+  }
+
+  function moneyGuideCard(dest) {
+    if (!dest || !CITY_GUIDE_IDS[dest.id]) return "";
+    var name = moneyGuideName(dest);
+    var href = moneyGuideHref(dest.id);
+    return ""
+      + "<aside class=\"plan-money-guide\" id=\"plan-money-guide\">"
+      +   "<p class=\"plan-money-guide-kicker\">Money guide</p>"
+      +   "<h3 class=\"plan-money-guide-title\">Open the " + esc(name) + " money guide</h3>"
+      +   "<p class=\"plan-money-guide-copy\">Stay, eat, get around, and what to skip — plus a download/print version you can save as a PDF.</p>"
+      +   "<div class=\"plan-money-guide-row\">"
+      +     "<a class=\"plan-money-guide-btn\" href=\"" + esc(href) + "\">Open the " + esc(name) + " money guide</a>"
+      +     "<a class=\"plan-money-guide-print\" href=\"" + esc(href) + "?print=1\">Download / Print money guide</a>"
+      +   "</div>"
+      + "</aside>";
+  }
+
   function updateCityGuideLink(destId) {
     var el = $("p-dest-guide-link");
     if (!el) return;
     if (CITY_GUIDE_IDS[destId]) {
+      var dest = destById(destId);
       el.hidden = false;
-      el.href = "/guides/" + destId;
-      el.textContent = "Read the printable city brief →";
+      el.href = moneyGuideHref(destId);
+      el.textContent = "Open the " + moneyGuideName(dest) + " money guide →";
     } else {
       el.hidden = true;
     }
@@ -1884,6 +1935,8 @@
     hotelExamplesFor: hotelExamplesFor,
     foodPicksFor: foodPicksFor,
     activitiesPicksFor: activitiesPicksFor,
-    fallbackKey: fallbackKey
+    fallbackKey: fallbackKey,
+    moneyGuideCard: moneyGuideCard,
+    CITY_GUIDE_IDS: CITY_GUIDE_IDS
   };
 })();
