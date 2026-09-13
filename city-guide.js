@@ -8,6 +8,8 @@
   "use strict";
 
   var POINTS_BRAND_RE = /\b(marriott|hilton|hyatt|ihg|sheraton|westin|ritz-carlton|st\.?\s*regis|kimpton|aloft|moxy|hampton|embassy|holiday inn|intercontinental|waldorf|fairmont|conrad|andaz|park hyatt|grand hyatt|jw marriott|courtyard|autograph|springhill|fairfield|residence inn|homewood|motto|canopy|renaissance|delta hotels|ac hotel|element |bonvoy|world of hyatt|hilton honors|ibis|novotel|premier inn)\b/i;
+  var COMPILED = "Compiled Sep 2026 from public rates, official calendars, and transit maps — orientation, not a field visit.";
+  var CAR_SHORT = { yes: "Usually", no: "No — transit", maybe: "Optional" };
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -30,8 +32,44 @@
     t = t.replace(/\bleftover\b(?!s)/gi, "Splurge");
     t = t.replace(/\bpocket\b/gi, "neighborhood");
     t = t.replace(/\bbasin\b/gi, "city");
+    t = t.replace(/Hopper on a short trip is usually a tax/gi, "Hopper on a short trip usually costs more than a second park day");
+    t = t.replace(/the Hopper tax/gi, "paying extra for Hopper");
+    t = t.replace(/Friday arrivals into Halloween Time are a tax/gi, "Friday arrivals into Halloween Time cost more");
+    t = t.replace(/Friday arrivals are a tax/gi, "Friday arrivals cost more");
+    t = t.replace(/Ocean Drive menus are a tourist tax/gi, "Ocean Drive menus are priced for tourists");
+    t = t.replace(/Mallory Square menus are a tax/gi, "Mallory Square menus cost extra for the same sunset");
+    t = t.replace(/Mallory menus are a tax/gi, "Mallory menus cost extra for the same sunset");
+    t = t.replace(/A tax on the same sunset/gi, "A markup on the same sunset");
+    t = t.replace(/room-service tax/gi, "room-service markup");
+    t = t.replace(/a parking tax/gi, "a parking surcharge");
+    t = t.replace(/Union Square tourist hotels are a tax/gi, "Union Square tourist hotels cost more for the same Muni ride");
+    t = t.replace(/a SEPTA tax you will resent/gi, "a SEPTA commute you will resent");
+    t = t.replace(/A SEPTA tax you will resent/gi, "A SEPTA commute you will resent");
+    t = t.replace(/is a tourist tax/gi, "is a tourist markup");
+    t = t.replace(/a tourist tax/gi, "a tourist markup");
+    t = t.replace(/holiday lights become a room tax/gi, "holiday lights become a room premium");
+    t = t.replace(/less restaurant-row tax/gi, "less restaurant-row markup");
+    t = t.replace(/\(a half-day tax\)/gi, "(a half-day you lose)");
+    t = t.replace(/A half-day tax with a smile/gi, "A half-day you lose, with a smile");
+    t = t.replace(/It is a half-day tax/gi, "It is a half-day you lose");
     t = t.replace(/\s{2,}/g, " ").replace(/\s+([,.;])/g, "$1").trim();
     return t;
+  }
+
+  function carLabel(guide) {
+    var raw = String((guide && guide.car) || "Optional").trim();
+    var mapped = CAR_SHORT[raw.toLowerCase()];
+    return mapped || raw;
+  }
+
+  function itemsToList(items) {
+    var list = (items || []).filter(Boolean);
+    if (!list.length) return "";
+    return "<ul class=\"cg-namewhy\">" + list.map(function (item) {
+      var nw = splitNameWhy(item);
+      if (!nw.why) return "<li>" + esc(nw.name) + "</li>";
+      return "<li><strong>" + esc(nw.name) + "</strong> <span>" + esc(nw.why) + "</span></li>";
+    }).join("") + "</ul>";
   }
 
   function guideId() {
@@ -158,24 +196,36 @@
 
   function staySection(guide, planHref) {
     var id = guide.id;
-    var budget = hotelBand(id, "budget");
-    var mid = hotelBand(id, "mid");
-    var lux = hotelBand(id, "lux");
+    var tiers = guide.stayTiers;
+    var budget = tiers && tiers.budget && tiers.budget.length
+      ? itemsToList(tiers.budget)
+      : nameWhyList(hotelBand(id, "budget").picks, 4, { points: true });
+    var mid = tiers && tiers.mid && tiers.mid.length
+      ? itemsToList(tiers.mid)
+      : nameWhyList(hotelBand(id, "mid").picks, 4, { points: true });
+    var lux = tiers && tiers.lux && tiers.lux.length
+      ? itemsToList(tiers.lux)
+      : nameWhyList(hotelBand(id, "lux").picks, 4, { points: true });
     return ""
       + "<section class=\"cg-section\" id=\"stay\">"
       +   "<h2 class=\"cg-h2\">Where to stay</h2>"
       +   "<p class=\"cg-rule\">" + esc(plainVoice(guide.stayRule)) + "</p>"
-      +   tierBlock("Budget", nameWhyList(budget.picks, 4, { points: true }))
-      +   tierBlock("Mid-range", nameWhyList(mid.picks, 4, { points: true }))
-      +   tierBlock("Splurge", nameWhyList(lux.picks, 4, { points: true }))
+      +   tierBlock("Budget", budget)
+      +   tierBlock("Mid-range", mid)
+      +   tierBlock("Splurge", lux)
       +   "<p class=\"cg-align\">Same names on <a href=\"" + planHref + "\">Trip Plan</a> — examples, not live inventory and not a ranking.</p>"
       + "</section>";
   }
 
   function eatSection(guide) {
     var food = foodSrc(guide.id);
+    var tiers = guide.eatTiers;
     var body = "";
-    if (food) {
+    if (tiers && (tiers.budget || tiers.mid || tiers.lux)) {
+      body += tierBlock("Budget", itemsToList(tiers.budget));
+      body += tierBlock("Mid-range", itemsToList(tiers.mid));
+      body += tierBlock("Splurge", itemsToList(tiers.lux));
+    } else if (food) {
       body += tierBlock("Budget", nameWhyList(food.budget, 4));
       body += tierBlock("Mid-range", nameWhyList(food.mid, 4));
       body += tierBlock("Splurge", nameWhyList(food.lux, 4));
@@ -189,31 +239,27 @@
   }
 
   function doSection(guide) {
+    var tiers = guide.doTiers;
     var acts = actSrc(guide.id);
     var body = "";
-    if (acts) {
-      var budget = splitActs(acts.budget || []);
-      var mid = splitActs(acts.mid || []);
-      var free = budget.free.length ? budget.free : mid.free;
-      var paid = mid.ticketed.length ? mid.ticketed : (acts.mid || []);
-      if (free.length) {
-        body += "<div class=\"cg-do-col\"><p class=\"cg-subhead\">Free / cheap</p>" + nameWhyList(free, 4) + "</div>";
-      }
-      if (paid.length) {
-        body += "<div class=\"cg-do-col\"><p class=\"cg-subhead\">Paid — pick one</p>" + nameWhyList(paid, 3) + "</div>";
-      }
+    if (tiers && (tiers.budget || tiers.mid || tiers.lux)) {
+      body += tierBlock("Budget", itemsToList(tiers.budget));
+      body += tierBlock("Mid-range", itemsToList(tiers.mid));
+      body += tierBlock("Splurge", itemsToList(tiers.lux));
+    } else if (acts) {
+      body += tierBlock("Budget", nameWhyList(acts.budget, 3));
+      body += tierBlock("Mid-range", nameWhyList(acts.mid, 3));
+      body += tierBlock("Splurge", nameWhyList(acts.lux, 3));
     }
     return ""
       + "<section class=\"cg-section\" id=\"do\">"
       +   "<h2 class=\"cg-h2\">Things to do</h2>"
       +   (guide.doRule ? "<p class=\"cg-rule\">" + esc(plainVoice(guide.doRule)) + "</p>" : "")
-      +   "<div class=\"cg-do-split\">" + body + "</div>"
+      +   body
       + "</section>";
   }
 
   function factsBox(guide) {
-    var car = String(guide.car || "maybe").toLowerCase();
-    var carLabel = car === "yes" ? "Yes" : car === "no" ? "No" : "Maybe";
     return ""
       + "<aside class=\"cg-facts\" id=\"facts\">"
       +   "<p class=\"cg-facts-kicker\">Quick facts</p>"
@@ -221,8 +267,26 @@
       +     "<div><dt>Nights that fit</dt><dd>" + esc(guide.nights) + "</dd></div>"
       +     "<div><dt>Mid-range posture</dt><dd>" + esc(plainVoice(guide.midrange)) + "</dd></div>"
       +     "<div><dt>Best months</dt><dd>" + esc(guide.months) + "</dd></div>"
-      +     "<div><dt>Need a car?</dt><dd>" + esc(carLabel) + "</dd></div>"
+      +     "<div><dt>Need a car?</dt><dd>" + esc(carLabel(guide)) + "</dd></div>"
       +   "</dl>"
+      + "</aside>";
+  }
+
+  function zonesStrip(guide) {
+    var zones = (guide.zones || []).slice(0, 5);
+    if (zones.length < 3) return "";
+    var cards = zones.map(function (z, i) {
+      return ""
+        + "<li class=\"cg-zone\">"
+        +   "<span class=\"cg-zone-n\" aria-hidden=\"true\">" + (i + 1) + "</span>"
+        +   "<p class=\"cg-zone-name\">" + esc(z.name) + "</p>"
+        +   "<p class=\"cg-zone-note\">" + esc(plainVoice(z.note)) + "</p>"
+        + "</li>";
+    }).join("");
+    return ""
+      + "<aside class=\"cg-zones\" id=\"base-zones\">"
+      +   "<p class=\"cg-zones-kicker\">Where to base yourself</p>"
+      +   "<ol class=\"cg-zone-strip\">" + cards + "</ol>"
       + "</aside>";
   }
 
@@ -317,7 +381,7 @@
   function renderGuide(guide) {
     var id = guide.id;
     var planHref = "/plan?dest=" + encodeURIComponent(id);
-    var updated = guide.updated || "Checked Sep 2026";
+    var updated = guide.updated || COMPILED;
 
     var tips = (guide.tips || []).map(function (t) {
       var html = linkify(t);
@@ -353,10 +417,14 @@
       +   "<p class=\"cg-kicker\">Money guide · " + esc(guide.place) + "</p>"
       +   "<h1 class=\"cg-h1\">" + esc(guide.label) + "</h1>"
       +   "<p class=\"cg-hook\">" + esc(plainVoice(guide.hook)) + "</p>"
+      +   (guide.startHere
+        ? "<p class=\"cg-start\"><span>Start here</span> " + esc(plainVoice(guide.startHere)) + "</p>"
+        : "")
       +   "<p class=\"cg-crumb\"><a href=\"/guides\">All money guides</a> · <a href=\"" + planHref + "\">Build a Trip Plan</a></p>"
       + "</header>"
 
       + factsBox(guide)
+      + zonesStrip(guide)
       + whoSection(guide)
       + aroundSection(guide)
       + staySection(guide, planHref)
@@ -454,14 +522,14 @@
         }
       } catch (e) {}
     }
-    var index = document.getElementById("city-briefs-grid");
+    var index = document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid");
     if (index && !index.querySelector(".cg-index-card")) {
       index.innerHTML = renderIndexCards();
     }
   }
 
   if (typeof document !== "undefined") {
-    if (document.getElementById("city-guide-root") || document.getElementById("city-briefs-grid")) {
+    if (document.getElementById("city-guide-root") || document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid")) {
       boot();
     } else if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", boot);

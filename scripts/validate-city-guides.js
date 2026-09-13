@@ -28,7 +28,10 @@ const REQUIRED = [
 
 const TRANSIT = ["nyc", "paris", "london", "tokyo", "chicago", "san_francisco", "philadelphia", "rome"];
 const CAR_FORK = ["los_angeles", "miami", "maui", "key_west"];
-const BANNED = /\b(basin|leftover|pocket|orientation)\b/i;
+const BANNED = /\b(basin|leftover|pocket|orientation data|scavenger|villages connected)\b/i;
+const TAX_META = /\b(are a tax|is usually a tax|Hopper tax|tourist tax|half-day tax|Friday arrivals are a tax|SEPTA tax|room-service tax|restaurant-row tax)\b/i;
+const CAR_OK = /^(Usually|Helpful|Optional|No — transit|No — ship)$/;
+const COMPILED = "Compiled Sep 2026 from public rates, official calendars, and transit maps — orientation, not a field visit.";
 
 const P = ctx.VM_PLAN_DATA;
 const G = ctx.VM_CITY_GUIDES;
@@ -48,7 +51,20 @@ REQUIRED.forEach(function (id) {
     if (!g[k] || String(g[k]).length < 12) errors.push(id + ": weak " + k);
   });
   if (!g.nights || String(g.nights).length < 6) errors.push(id + ": weak nights");
-  if (!/^(yes|no|maybe)$/i.test(String(g.car || ""))) errors.push(id + ": car must be yes/no/maybe");
+  if (!CAR_OK.test(String(g.car || ""))) errors.push(id + ": car must be Usually/Helpful/Optional/No — transit/No — ship");
+  if (!g.startHere || String(g.startHere).length < 18) errors.push(id + ": weak startHere");
+  const zones = g.zones || [];
+  if (zones.length < 3 || zones.length > 5) errors.push(id + ": zones " + zones.length + " (need 3–5)");
+  zones.forEach(function (z, i) {
+    if (!z.name || !z.note) errors.push(id + ": weak zone " + (i + 1));
+  });
+  ["stayTiers", "eatTiers", "doTiers"].forEach(function (key) {
+    const t = g[key];
+    if (!t || !t.budget || !t.mid || !t.lux) errors.push(id + ": missing " + key);
+    else if (t.budget.length < 2 || t.mid.length < 2 || t.lux.length < 2) {
+      errors.push(id + ": " + key + " needs 2 bullets per band");
+    }
+  });
   const who = (g.forWho || []).concat(g.notFor || []);
   if (who.length < 2 || who.length > 4) errors.push(id + ": who/not-for " + who.length + " (need 2–4)");
   if (!g.aroundKind) errors.push(id + ": missing aroundKind");
@@ -69,7 +85,14 @@ REQUIRED.forEach(function (id) {
   hooks[g.hook] = id;
 
   const blob = JSON.stringify(g);
-  if (BANNED.test(blob)) errors.push(id + ": banned jargon in data (basin/leftover/pocket/orientation)");
+  if (BANNED.test(blob)) errors.push(id + ": banned jargon in data");
+  if (TAX_META.test(blob)) errors.push(id + ": metaphorical tax still in data");
+  if (!g.updated || g.updated.indexOf("Compiled Sep 2026") < 0) {
+    errors.push(id + ": missing Compiled Sep 2026 footer");
+  }
+  if (g.updated && /field visit/i.test(g.updated) === false) {
+    errors.push(id + ": footer should say not a field visit");
+  }
 
   const html = path.join(root, "guides", id + ".html");
   if (!fs.existsSync(html)) errors.push(id + ": missing guides/" + id + ".html");
@@ -94,7 +117,11 @@ REQUIRED.forEach(function (id) {
     if (src.indexOf("Book before you go") < 0) errors.push(id + ": missing Book before you go");
     if (src.indexOf("Hidden costs") < 0) errors.push(id + ": missing Hidden costs");
     if (src.indexOf("Skip this") < 0) errors.push(id + ": missing Skip this");
-    if (src.indexOf("Checked Sep 2026") < 0) errors.push(id + ": missing Updated line");
+    if (src.indexOf("Compiled Sep 2026") < 0) errors.push(id + ": missing Compiled Sep 2026 line");
+    if (src.indexOf("Start here") < 0) errors.push(id + ": missing Start here");
+    if (src.indexOf("Where to base yourself") < 0) errors.push(id + ": missing base visual");
+    if (src.indexOf("not a field visit") < 0) errors.push(id + ": footer should deny a field visit");
+    if (/Need a car\?<\/dt><dd>Yes</.test(src)) errors.push(id + ": bare Yes car fact");
     if (src.indexOf("Budget") < 0 || src.indexOf("Mid-range") < 0 || src.indexOf("Splurge") < 0) {
       errors.push(id + ": missing Budget / Mid-range / Splurge labels");
     }
@@ -103,7 +130,8 @@ REQUIRED.forEach(function (id) {
     if (tipPos < 0 || stayPos < 0 || tipPos < stayPos) errors.push(id + ": tips should follow stay/eat/do");
     const body = src.split("<article id=\"city-guide-root\">")[1] || src;
     const article = body.split("</article>")[0] || body;
-    if (BANNED.test(article)) errors.push(id + ": banned jargon in HTML (basin/leftover/pocket/orientation)");
+    if (BANNED.test(article)) errors.push(id + ": banned jargon in HTML");
+    if (TAX_META.test(article)) errors.push(id + ": metaphorical tax still in HTML");
     if (/\bLean\b/.test(src) || /\bStretch\b/.test(src)) errors.push(id + ": leftover Lean/Stretch in HTML");
     if (TRANSIT.indexOf(id) >= 0) {
       if (article.indexOf("You usually don’t need a car") < 0 && article.indexOf("You usually don't need a car") < 0) {
@@ -138,10 +166,36 @@ REQUIRED.forEach(function (id) {
 const rendered = ctx.VM_CITY_GUIDE.render(G.BY_ID.los_angeles);
 if (rendered.indexOf("Loading") >= 0) errors.push("renderer still emits loading shell");
 if (rendered.indexOf("Where to stay") < 0) errors.push("LA render missing Where to stay");
-if (rendered.indexOf("Hyatt Regency") < 0 && rendered.indexOf("Ace Hotel") < 0) {
+if (rendered.indexOf("Start here") < 0) errors.push("LA render missing Start here");
+if (rendered.indexOf("Where to base yourself") < 0) errors.push("LA render missing base visual");
+if (rendered.indexOf("Usually") < 0) errors.push("LA car fact should say Usually");
+if (/Need a car\?<\/dt><dd>Yes</.test(rendered)) errors.push("LA car fact is still bare Yes");
+if (rendered.indexOf("Freehand Downtown") < 0 && rendered.indexOf("Ace Hotel Downtown") < 0) {
   errors.push("LA stay section missing named hotels");
 }
 if (BANNED.test(rendered)) errors.push("LA render still has banned jargon");
+if (TAX_META.test(rendered)) errors.push("LA render still has tax metaphors");
+if (rendered.indexOf(COMPILED) < 0) errors.push("LA render missing compiled footer");
+
+const tierSeen = {};
+REQUIRED.forEach(function (id) {
+  const g = G.BY_ID[id];
+  ["stayTiers", "eatTiers", "doTiers"].forEach(function (key) {
+    const t = g[key];
+    if (!t) return;
+    ["budget", "mid", "lux"].forEach(function (band) {
+      (t[band] || []).forEach(function (b) {
+        const norm = String(b).toLowerCase().replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
+        if (norm.length < 24) return;
+        if (tierSeen[norm] && tierSeen[norm] !== id + ":" + key) {
+          errors.push(id + ": " + key + " bullet repeats " + tierSeen[norm]);
+        } else {
+          tierSeen[norm] = id + ":" + key;
+        }
+      });
+    });
+  });
+});
 
 if (errors.length) {
   console.error("FAIL\n" + errors.join("\n"));

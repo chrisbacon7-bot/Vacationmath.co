@@ -86,9 +86,31 @@
 .cg-hook {
   font-size: 1.22rem;
   line-height: 1.55;
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: var(--ink-soft, #3D3A36);
   max-width: 40rem;
+}
+
+.cg-start {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid var(--navy, #0E2A47);
+  border-radius: 10px;
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--ink, #1A1A1A);
+  max-width: 40rem;
+}
+
+.cg-start span {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy, #0E2A47);
 }
 
 .cg-facts {
@@ -135,6 +157,87 @@
   line-height: 1.45;
   color: var(--navy, #0E2A47);
   font-weight: 600;
+}
+
+.cg-zones {
+  margin: 1.35rem 0 0.15rem;
+}
+
+.cg-zones-kicker {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy, #0E2A47);
+}
+
+.cg-zone-strip {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .cg-zone-strip {
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  }
+}
+
+.cg-zone {
+  margin: 0;
+  padding: 10px 10px 11px;
+  background: #fff;
+  border: 1px solid #1A1A1A;
+  border-radius: 0;
+}
+
+.cg-zone-n {
+  display: inline-block;
+  min-width: 1.15rem;
+  margin: 0 0 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1A1A1A;
+}
+
+.cg-zone-name {
+  margin: 0 0 4px;
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--navy, #0E2A47);
+  line-height: 1.25;
+}
+
+.cg-zone-note {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-index-how {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-index-how li {
+  padding-left: 0;
+}
+
+.cg-index-how strong {
+  color: var(--navy, #0E2A47);
 }
 
 .cg-rule {
@@ -780,7 +883,9 @@
   .cg-tips,
   .cg-day,
   .cg-band,
-  .cg-skip-list li {
+  .cg-skip-list li,
+  .cg-zones,
+  .cg-start {
     break-inside: avoid;
   }
 
@@ -788,8 +893,28 @@
   .cg-tier,
   .cg-fork-col,
   .cg-who,
-  .cg-updated {
+  .cg-updated,
+  .cg-zone {
     break-inside: avoid;
+  }
+
+  .cg-start,
+  .cg-zone,
+  .cg-facts {
+    background: #fff !important;
+    border-color: #1A1A1A !important;
+    box-shadow: none;
+  }
+
+  .cg-zones-kicker,
+  .cg-start span,
+  .cg-zone-name,
+  .cg-zone-n {
+    color: #1A1A1A !important;
+  }
+
+  .cg-zone-strip {
+    grid-template-columns: 1fr 1fr !important;
   }
 
   .cg-tier,

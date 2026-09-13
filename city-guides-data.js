@@ -1,8 +1,8 @@
 /* =====================================================================
    Vacation Math — printable money guides (top 20 destinations)
-   Unique editorial copy. Hotel / food / activity names come from
-   plan-data.js + plan-recs-extra.js so /guides and /plan stay aligned.
-   Not live rates, not star scores, no affiliates.
+   Unique editorial copy. Stay / Eat / Do tier bullets live on each
+   guide so cities do not share template phrasing. Hotel names stay
+   aligned with Trip Plan. Not live rates, not star scores, no affiliates.
    ===================================================================== */
 (function (global) {
   "use strict";
@@ -1420,6 +1420,1137 @@
       updated: "Checked Sep 2026"
     })
   ];
+
+  var COMPILED = "Compiled Sep 2026 from public rates, official calendars, and transit maps — orientation, not a field visit.";
+
+  var EXTRAS = {
+    disney: {
+      hook: "This is a park-ticket and lodging-grid trip. The overrun is Hopper plus the dining plan you should not buy.",
+      startHere: "Pick a Skyliner or bus grid · grocery the room · one park a day",
+      car: "Optional",
+      aroundRule: "Stay on property and the buses are the product. Skip a rental if you never leave Disney; I-Drive plus a car is a parking habit you bought on purpose.",
+      doRule: "Hopper on a short trip usually costs more than a second park day. One park a day unless you will switch after lunch on purpose.",
+      zones: [
+        { name: "Skyliner Value", note: "Pop or Art of Animation — gondola to Studios and Epcot" },
+        { name: "Bus-only Value", note: "All-Star — cheaper room, longer Magic Kingdom commute" },
+        { name: "Moderate campus", note: "Caribbean Beach or Port Orleans — still a bus to MK" },
+        { name: "Deluxe monorail", note: "Grand Floridian / Contemporary / Polynesian — you paid for that ride" },
+        { name: "I-Drive trap", note: "Cheap room + rental + daily park parking" }
+      ],
+      stayTiers: {
+        budget: [
+          "Pop Century or Art of Animation — Skyliner to Hollywood Studios and Epcot; food-court breakfast",
+          "All-Star Movies / Music / Sports — cheapest on-property bus grid, longer Magic Kingdom commute"
+        ],
+        mid: [
+          "Caribbean Beach — Skyliner hub; ask Riviera-side so the gondola is a walk",
+          "Port Orleans French Quarter — boat to Disney Springs, still a bus to Magic Kingdom"
+        ],
+        lux: [
+          "Grand Floridian / Contemporary / Polynesian — monorail to Magic Kingdom",
+          "Beach Club or Yacht Club — walk to Epcot; club level only if you already priced it"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Garden Grocer or Winn-Dixie the night you land — breakfast in the room",
+          "Cosmic Ray’s, Pecos Bill, or Satu’li Canteen — mobile-order lunch, sit in the shade"
+        ],
+        mid: [
+          "Sci-Fi Dine-In or 50’s Prime Time — one table-service, booked before you fly",
+          "Resort food-court dinner on the Skyliner night — you already paid for the commute"
+        ],
+        lux: [
+          "‘Ohana or a character breakfast — one morning you will not get back",
+          "California Grill or Space 220 — Splurge reservation, not a nightly habit"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Magic Kingdom as one park day — no Hopper",
+          "Disney Springs at night instead of a third park ticket"
+        ],
+        mid: [
+          "Hollywood Studios or Epcot on the Skyliner day",
+          "Animal Kingdom as the cheaper third park — not a throwaway"
+        ],
+        lux: [
+          "Lightning Lane Multi Pass on Magic Kingdom or Hollywood Studios in peak weeks only",
+          "Hopper only if you will switch after lunch — a second park day is usually cheaper"
+        ]
+      }
+    },
+    anaheim: {
+      hook: "Two parks from a Harbor Blvd bed is the whole product. The overrun is inventing a Los Angeles day — or buying the dining plan again.",
+      startHere: "Sleep on Harbor Blvd · grocery night one · one park a day",
+      car: "Optional",
+      aroundRule: "Walk or take ART. Skip a rental if you stay in Anaheim; a car is a parking line unless you leave the bubble on purpose.",
+      zones: [
+        { name: "Harbor Blvd", note: "Walk or ART to the gates; grocery in the room" },
+        { name: "Downtown Disney", note: "Pixar Place / Hotel Lulu — still Anaheim" },
+        { name: "Convention campus", note: "Hilton / Marriott — short shuttle, not Santa Monica" },
+        { name: "Westside trap", note: "Santa Monica hotel + 90-minute transfer" }
+      ],
+      stayTiers: {
+        budget: [
+          "Candy Cane Inn — Harbor Blvd courtyard; walk or a short shuttle to the gates",
+          "Tropicana Inn or Castle Inn — value room, request away from the boulevard if you can"
+        ],
+        mid: [
+          "Pixar Place Hotel — on-property walk to Downtown Disney",
+          "Hotel Lulu or Hilton Anaheim — walk or shuttle; still not a Los Angeles itinerary"
+        ],
+        lux: [
+          "Grand Californian — walk to California Adventure",
+          "Disneyland Hotel — on-property campus; do not add a Santa Monica night"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Albertsons or Target the night you land — breakfast in the room",
+          "Mobile-order QS in the park you already paid to enter"
+        ],
+        mid: [
+          "Downtown Disney sit-down — one dinner, not a dining plan",
+          "Carthay Circle or Lamplight Lounge — one table-service if you already priced it"
+        ],
+        lux: [
+          "Napa Rose — one reservation, booked before you fly",
+          "Character breakfast only if that morning is the trip — still pay as you go"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Disneyland park as day one — rope drop one land, no Hopper",
+          "Downtown Disney evening instead of a third ticket"
+        ],
+        mid: [
+          "California Adventure as the second park day",
+          "Lightning Lane on the Disneyland park day only"
+        ],
+        lux: [
+          "Hopper only if you will switch after lunch — the campus is walkable, the ticket is not free",
+          "World of Color dining only if you already priced it — Universal is a Los Angeles ticket"
+        ]
+      }
+    },
+    los_angeles: {
+      hook: "Excellent food at every price if you pick one neighborhood. The overrun is a rideshare to dinner across town.",
+      startHere: "Pick one base · bakery breakfast · one ticketed day",
+      car: "Usually",
+      aroundRule: "Metro plus rideshare can work if you pick ONE neighborhood. A car helps if you stack a beach day and Universal — hotel parking is $40–60/night.",
+      zones: [
+        { name: "Downtown", note: "Metro, Grand Central Market, late food" },
+        { name: "Koreatown", note: "B/D Lines, BBQ, one rideshare zone" },
+        { name: "Santa Monica", note: "Sand is the trip; Expo Line if you want DTLA once" },
+        { name: "near-LAX trap", note: "Airport lodging, not a vacation" }
+      ],
+      stayTiers: {
+        budget: [
+          "Freehand Downtown — hostel-plus, walk to the Arts District and Metro",
+          "The Line or Hotel Normandie — Koreatown late food, one rideshare zone"
+        ],
+        mid: [
+          "Ace Hotel Downtown — Grand Central Market and the Arts District on foot",
+          "Shore Hotel or Palihotel Santa Monica — sand plus the Expo Line"
+        ],
+        lux: [
+          "Proper Santa Monica or Casa del Mar — beach premium, stay west for dinner",
+          "1 Hotel West Hollywood — Sunset-adjacent; still one neighborhood, not a beach hop"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Porto’s or a neighborhood bakery — not the hotel dining room",
+          "Grand Central Market or Mariscos Jalisco-class tacos if you slept Downtown"
+        ],
+        mid: [
+          "Koreatown BBQ at Quarter or Kang Ho Dong — if that is the bed",
+          "Republique, Langer’s, or Bestia — one reservation, same neighborhood"
+        ],
+        lux: [
+          "Providence or n/naka — one tasting, not a WeHo-to-Santa-Monica transfer",
+          "Hotel restaurants in LA are airport-priced — skip them even on Splurge"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Getty Center — reserve free entry; bus or pay parking, not a $40 drop-off",
+          "Griffith Observatory plus the viewpoint — free, stay for sunset if you can"
+        ],
+        mid: [
+          "Universal or a studio tour — one ticketed day, pick it on purpose",
+          "Expo Line to another neighborhood for lunch, back before rush hour"
+        ],
+        lux: [
+          "Universal Express — Splurge, not a default",
+          "Huntington or Getty Villa — one garden day; Disneyland is Anaheim lodging"
+        ]
+      }
+    },
+    nyc: {
+      hook: "The subway is the plan; the borough you sleep in is the budget. The overrun is a Times Square hotel and a $28 Midtown salad every lunch.",
+      startHere: "Pick a borough on a train · bodega breakfast · one ticketed thing",
+      car: "No — transit",
+      zones: [
+        { name: "Downtown / LES", note: "Walk + subway; skip the neon premium" },
+        { name: "Brooklyn train-stop", note: "Cheaper nights, one river" },
+        { name: "NoMad / downtown mid", note: "Ace / Arlo — train in the neighborhood" },
+        { name: "Times Square trap", note: "You paid for neon and a resort-style fee" }
+      ],
+      stayTiers: {
+        budget: [
+          "Pod 39 or citizenM Bowery — small room, walk to a train",
+          "The Jane or a Brooklyn 2-star on the G or L — cheaper than Midtown west"
+        ],
+        mid: [
+          "Ace Hotel NoMad — walk to the 6 / R / W, neighborhood restaurants",
+          "The Hoxton Williamsburg or The Ludlow — Downtown or north Brooklyn, not Times Square"
+        ],
+        lux: [
+          "1 Hotel Central Park — park-adjacent, still a walk to Midtown",
+          "The Public or The Greenwich Hotel — Downtown flagship, not a second Midtown suite"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Bodega egg-and-cheese or a bakery — hotel dining is a Midtown salad with a room-service markup",
+          "Jackson Heights, Flushing, or Chinatown at night — one borough per dinner"
+        ],
+        mid: [
+          "Village or LES dinner on the same side of the river as the bed",
+          "One museum-neighborhood lunch — not a pre-theatre prix fixe every day"
+        ],
+        lux: [
+          "One reserved dinner you came for — then bodega breakfast the next morning",
+          "Broadway orchestra is the treat; do not also stack three observatories"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "High Line plus a neighborhood walk — Staten Island Ferry is the free skyline",
+          "One museum with pay-what-you-wish or a timed free night"
+        ],
+        mid: [
+          "Met or MoMA — pick one timed entry",
+          "Broadway rush or lottery before a full-price seat"
+        ],
+        lux: [
+          "One reserved Broadway seat — not three shows",
+          "Ellis or Summit only as the one paid view; the ferry already did the skyline"
+        ]
+      }
+    },
+    vegas: {
+      hook: "Midweek Center-Strip or downtown is the deal — after you add the resort fee. The overrun is Saturday rates plus a steakhouse every night.",
+      startHere: "Book Tue–Thu · add the resort fee · walk Center-Strip or downtown",
+      car: "Optional",
+      aroundRule: "Walk Center-Strip or own downtown lights. Skip a rental unless Red Rock is a planned day — hotel parking is a fee you do not need.",
+      zones: [
+        { name: "Center-Strip", note: "Park MGM / NYNY / Horseshoe — walk the fountains" },
+        { name: "Downtown / Fremont", note: "Cheaper lights; one rideshare to the Strip" },
+        { name: "Off-Strip", note: "Palms / Station — cheaper room, you will ride once" },
+        { name: "Airport / convention trap", note: "Saturday and trade-show weeks are a different hotel" }
+      ],
+      stayTiers: {
+        budget: [
+          "Ellis Island or Circa-adjacent downtown — walk Fremont, skip Strip tram math",
+          "The LINQ or Flamingo — Center-Strip bed, not a suite"
+        ],
+        mid: [
+          "Park MGM — no-casino-smoke tower, walk to the Bellagio fountains",
+          "New York-New York or Horseshoe — Center-Strip corridor on foot"
+        ],
+        lux: [
+          "Bellagio — fountain-adjacent, still a resort-fee hotel",
+          "Wynn / Encore or Cosmopolitan — one campus; weekends double midweek"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Park MGM or Cosmo food hall — ten minutes off the casino carpet",
+          "Chinatown or Downtown dinner — Strip steakhouses price like airports"
+        ],
+        mid: [
+          "One sit-down off the carpet — not a steakhouse every night",
+          "Pay-as-you-go drinks until you run the math; free drinks are not a meal plan"
+        ],
+        lux: [
+          "One steakhouse or a named chef counter — then food hall the rest",
+          "A nightclub table is Splurge, not mid"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Bellagio fountains and conservatory — free, walk there",
+          "Fremont Street walk if you slept downtown"
+        ],
+        mid: [
+          "High Roller off-peak or one mid-room show",
+          "Deuce or monorail if you stray north — one rideshare, not four"
+        ],
+        lux: [
+          "One Cirque or residency — the street is already a show",
+          "Red Rock only if you rented for that day on purpose"
+        ]
+      }
+    },
+    miami: {
+      hook: "Cuban breakfast and a few blocks off Ocean Drive win the week. The overrun is Ocean Drive menus and beach-club bottle service.",
+      startHere: "Sleep off Ocean Drive · Cuban breakfast · one neighborhood besides the sand",
+      car: "Helpful",
+      aroundRule: "Walk the South Beach grid you booked. Skip a rental if you stay a few blocks off Ocean Drive; a car helps for Everglades or Wynwood, not dinner two neighborhoods over.",
+      zones: [
+        { name: "Collins off Ocean Drive", note: "Same sand, less neon, better breakfast" },
+        { name: "Brickell", note: "Metromover; mainland restaurants; rideshare to sand once" },
+        { name: "Mid-Beach", note: "Quieter; still one base" },
+        { name: "Ocean Drive trap", note: "Postcard address, tourist menus" }
+      ],
+      stayTiers: {
+        budget: [
+          "The Gale or a Collins Avenue 2-star — same sand as the postcard, a few blocks off Ocean Drive",
+          "Freehand Miami — hostel-plus, walk to the beach and the bus"
+        ],
+        mid: [
+          "The Betsy or Essex House — South Beach walk to the sand",
+          "Kimpton EPIC or a Brickell 4-star — bay, not beach, better food walking"
+        ],
+        lux: [
+          "1 Hotel South Beach — beach premium; you will still pay for the cabana",
+          "Faena or The Setai — Mid-Beach, quieter than Ocean Drive"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Versailles or a ventanita — not the hotel, not Ocean Drive",
+          "Little Havana or Wynwood dinner — one neighborhood, then home"
+        ],
+        mid: [
+          "A sit-down a few blocks off Ocean Drive — same sand, honest plate",
+          "Joe’s Stone Crab as a share plate — not five fish dinners"
+        ],
+        lux: [
+          "One named seafood reservation — then Cuban breakfast the next morning",
+          "Bottle service is a day-price, not a snack"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "The beach grid you booked — Cuban breakfast, sand, dinner off Ocean Drive",
+          "Wynwood Walls from the sidewalk or a Little Havana walk — pick one"
+        ],
+        mid: [
+          "Brickell Metromover loop if you slept on the mainland",
+          "Everglades as a priced half-day — humidity included"
+        ],
+        lux: [
+          "A beach-club cabana only if you already priced the minimum",
+          "Do not split Mid-Beach and Brickell in three nights"
+        ]
+      }
+    },
+    san_francisco: {
+      hook: "Clipper, a bakery, and one timed ferry are the honest week. The overrun is a Union Square tourist hotel plus a Wharf seafood rack.",
+      startHere: "Clipper + Embarcadero · bakery breakfast · one timed ferry",
+      car: "No — transit",
+      zones: [
+        { name: "Embarcadero", note: "Ferry Building, water, walk or BART" },
+        { name: "Mission / neighborhood", note: "Bakery math; Muni, not a tourist lobby" },
+        { name: "Nob Hill / waterfront mid", note: "Flagship if you already priced it" },
+        { name: "Union Square trap", note: "Tourist hotel for the same Muni ride" }
+      ],
+      stayTiers: {
+        budget: [
+          "HI San Francisco Downtown — hostel-plus, walk to BART",
+          "Hotel Zephyr — only if Fisherman’s Wharf is the neighborhood you want"
+        ],
+        mid: [
+          "Hotel Emeline or a Jackson Square boutique — walk to the Ferry Building",
+          "Hotel Nikko — Union Square-adjacent with BART downstairs, not a tourist-menu lobby"
+        ],
+        lux: [
+          "Fairmont or Mark Hopkins — Nob Hill, cable car at the door",
+          "1 Hotel San Francisco — Embarcadero walk; parking is a line if you day-trip Napa"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Tartine or a Mission bakery — skip the hotel dining room",
+          "Ferry Building or a taqueria at lunch — not the Wharf seafood rack"
+        ],
+        mid: [
+          "State Bird or Zuni — one dinner if you booked it",
+          "Mission murals plus a taqueria — Napa is a packed-lunch day trip"
+        ],
+        lux: [
+          "One reserved dinner — then bakery breakfast the next morning",
+          "Napa for dinner is a transfer, not a reservation"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Embarcadero plus Golden Gate / Crissy Field — free",
+          "Mission murals on Muni — skip a paid cable-car loop as transit"
+        ],
+        mid: [
+          "Alcatraz timed ferry — book ahead; it sells out",
+          "SFMOMA as one ticketed indoor — not three museums"
+        ],
+        lux: [
+          "Alcatraz plus one other timed thing — not Alcatraz, Napa, and Yosemite",
+          "A souvenir cable-car ticket once, then a bus to the same hill"
+        ]
+      }
+    },
+    chicago: {
+      hook: "The L is cheaper than surge, and winter rooms are the value window. The overrun is a suburban hotel plus two museums and a cruise in one day.",
+      startHere: "Loop or River North on the L · diner breakfast · one ticketed indoor",
+      car: "No — transit",
+      stayRule: "Loop or River North so the L is downstairs. Fulton Market if you want restaurants over the Mag Mile.",
+      aroundRule: "The L is the plan. A suburban rate is a parking surcharge you will ride downtown to regret.",
+      zones: [
+        { name: "Loop", note: "L downstairs; walk the Riverwalk" },
+        { name: "River North", note: "Dinner neighborhood, still on the L" },
+        { name: "Fulton Market", note: "Restaurants over the Mag Mile" },
+        { name: "Suburban / O’Hare trap", note: "Cheap rate, parking, a downtown commute" }
+      ],
+      stayTiers: {
+        budget: [
+          "Freehand Chicago or HI Chicago — hostel-plus, walk to the L",
+          "Hampton in the Loop — trains downstairs, not a suburban cloverleaf"
+        ],
+        mid: [
+          "The Hoxton Chicago — Fulton Market, walk to dinner",
+          "LondonHouse or a River North 4-star — river walk, not a Mag Mile default"
+        ],
+        lux: [
+          "The Langham Chicago — river; winter is when this rate makes sense",
+          "The Peninsula Chicago — Mag Mile flagship, one tower"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Doughnut or diner breakfast — downtown hotel eggs are Chicago-priced",
+          "Italian beef or a Fulton Market casual — deep-dish once, then stop"
+        ],
+        mid: [
+          "One deep-dish if you must — then neighborhood dinner",
+          "River North or Fulton Market sit-down — Mag Mile is a walk-through"
+        ],
+        lux: [
+          "One reserved dinner — then diner breakfast the next morning",
+          "A river-cruise brunch is a ticket, not a daily habit"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Architecture from the sidewalk plus the Riverwalk — free",
+          "Lakefront if the weather allows; winter is the room rate"
+        ],
+        mid: [
+          "Art Institute or a river cruise — pick one",
+          "Ventra day pass; skip a second museum the same day"
+        ],
+        lux: [
+          "Art Institute and a river cruise on different days only",
+          "Lolla week and July 4th are a different city and a different room"
+        ]
+      }
+    },
+    nola: {
+      hook: "This is a food trip — cut the hotel class before you cut the reservation. The overrun is a French Quarter balcony you paid for instead of Galatoire’s.",
+      startHere: "Warehouse or Garden District · po’boy lunch · one old-school dinner",
+      car: "Optional",
+      aroundRule: "Walk or take the St. Charles car. Skip a rental in Old Town unless a plantation or swamp day is already on the card.",
+      zones: [
+        { name: "Warehouse District", note: "Streetcar, walk to dinner, skip the balcony premium" },
+        { name: "Garden District", note: "St. Charles line; quieter nights" },
+        { name: "Mid-City", note: "Canal streetcar to the Quarter" },
+        { name: "Quarter balcony trap", note: "You paid for a photo, not the plate" }
+      ],
+      stayTiers: {
+        budget: [
+          "HI New Orleans or a Warehouse District 2-star — streetcar, not a Bourbon balcony",
+          "The Drifter or a Mid-City motel-plus — Canal streetcar to the Quarter"
+        ],
+        mid: [
+          "Hotel Peter and Paul or The Eliza Jane — Marigny / CBD, walk to dinner",
+          "The Pontchartrain — Garden District on the St. Charles line"
+        ],
+        lux: [
+          "Windsor Court — CBD quiet; the trip is still the reservation",
+          "Hotel Monteleone — Quarter flagship only if you already priced the premium"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Neighborhood café breakfast — Café du Monde once, not Bourbon every morning",
+          "Parkway or a shop po’boy for lunch"
+        ],
+        mid: [
+          "Galatoire’s or Commander’s — book before you fly; that is the trip",
+          "One old-school dinner, not a tourist-menu courtyard every night"
+        ],
+        lux: [
+          "The reservation you came for — then a po’boy the next day",
+          "Jazz Fest or Mardi Gras overlap is a different budget; book it on purpose"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Daylight Quarter walk plus a streetcar hour",
+          "Garden District walk from the St. Charles car"
+        ],
+        mid: [
+          "One club or a street you can walk — not a haunted-tour stack",
+          "A plantation or swamp day only if you already priced the car"
+        ],
+        lux: [
+          "One music night you came for — then stop stacking festivals",
+          "Haunted tours are optional; the plate is the point"
+        ]
+      }
+    },
+    philadelphia: {
+      hook: "Reading Terminal is the cheap-rich lunch; Independence is timed. The overrun is an airport hotel plus treating cheesesteak as a pilgrimage.",
+      startHere: "Center City or Old City · Reading Terminal · one museum",
+      car: "No — transit",
+      aroundRule: "Walk Independence. Ride SEPTA for the rest. An airport hotel is a SEPTA commute you will resent every morning.",
+      zones: [
+        { name: "Old City", note: "Walk to Independence; evening on foot" },
+        { name: "Center City", note: "Reading Terminal, City Hall, SEPTA" },
+        { name: "Parkway / Rittenhouse", note: "Museum mile if that is the night" },
+        { name: "PHL airport trap", note: "Cheap room, train every morning" }
+      ],
+      stayTiers: {
+        budget: [
+          "Club Quarters or a compact 2-star near City Hall — walk to a Market-Frankford stop",
+          "Home2 or Hampton Center City — grocery downstairs, not an airport hotel"
+        ],
+        mid: [
+          "The Notary Hotel — City Hall area, walk to Reading Terminal",
+          "Kimpton Hotel Monaco — Independence Mall walking"
+        ],
+        lux: [
+          "Four Seasons Philadelphia — Logan Square if you already priced it",
+          "The Rittenhouse — square-adjacent; Independence timed entry is still the ticket"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Reading Terminal bakery breakfast — not the hotel",
+          "DiNic’s-class roast pork or a market plate for lunch"
+        ],
+        mid: [
+          "One cheesesteak, then stop — roast pork is the local argument",
+          "Neighborhood Italian at night — not three Rittenhouse salads"
+        ],
+        lux: [
+          "Zahav only if that is the dinner you came for",
+          "Hotel restaurants are the expensive version of the same plate"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Independence Hall timed entry plus the Bell — book the hall",
+          "Reading Terminal morning; skip a hop-on bus"
+        ],
+        mid: [
+          "Barnes or PMA — pick one",
+          "Old City evening walk; SEPTA Key if you will ride"
+        ],
+        lux: [
+          "Barnes and PMA on different days only",
+          "Eastern State as a half-day if you already priced it — not three interiors plus a cheesesteak tour"
+        ]
+      }
+    },
+    atlanta: {
+      hook: "MARTA from ATL and the BeltLine are the week. The overrun is a cheap airport hotel you Uber downtown twice a day.",
+      startHere: "Midtown or Ponce on MARTA · meat-and-three · one ticketed morning",
+      car: "Helpful",
+      aroundRule: "MARTA from ATL. Trail the rest. Skip a rental if you stay Midtown and eat on the BeltLine; a car helps for Buckhead or a planned day, not dinner two towers away.",
+      zones: [
+        { name: "Midtown", note: "MARTA + Piedmont; BeltLine evening" },
+        { name: "Ponce / Old Fourth", note: "Hotel Clermont, Ponce City Market, trail food" },
+        { name: "Downtown convention", note: "Only if that is the week — check the calendar" },
+        { name: "ATL-adjacent trap", note: "Cheap room, Uber downtown twice a day" }
+      ],
+      stayTiers: {
+        budget: [
+          "Hampton or Home2 Midtown — MARTA and grocery in walking distance",
+          "HI Atlanta or a Downtown hostel-plus — walk to a MARTA stop, skip Cumberland"
+        ],
+        mid: [
+          "Hotel Clermont — Ponce, walk to the BeltLine and Ponce City Market",
+          "The Georgian Terrace — Midtown, Fox Theatre area"
+        ],
+        lux: [
+          "Four Seasons Atlanta — Midtown if you already priced it",
+          "St. Regis Atlanta — Buckhead Splurge; you traded BeltLine walking"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "West Egg or a Midtown café — not the hotel",
+          "Mary Mac’s Tea Room — meat-and-three, the Budget classic"
+        ],
+        mid: [
+          "Ponce City Market or Krog Street Market for lunch",
+          "Fox Bros. Bar-B-Q or a BeltLine sit-down — one reservation"
+        ],
+        lux: [
+          "One named Midtown or Westside dinner — then a meat-and-three",
+          "A Buckhead steakhouse is a second fare from the trail"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "BeltLine Eastside — Ponce City Market to Krog Street",
+          "Piedmont Park or MLK National Historical Park"
+        ],
+        mid: [
+          "Georgia Aquarium or World of Coca-Cola — pick one morning",
+          "MARTA day pass; do not split Buckhead and the Aquarium hotel"
+        ],
+        lux: [
+          "Aquarium plus a Fox Theatre tour only if you already priced both",
+          "A Braves night is a ticket, not a third neighborhood"
+        ]
+      }
+    },
+    paris: {
+      hook: "Bakeries and one reserved dinner beat a week of tower-steps menus. The overrun is a four-museum day plus a formule on the steps.",
+      startHere: "Metro-line 10th–11th · bakery on the block · one timed museum",
+      car: "No — transit",
+      months: "Late January through March, November before holiday lights become a room premium",
+      stayRule: "Ibis or a walk-up on a Metro line in the 10th, 11th, 18th, or 19th. A tower-block view is a tourist markup.",
+      zones: [
+        { name: "10th–11th", note: "Canal, bakeries, Metro; restaurants on the block" },
+        { name: "18th–19th", note: "Cheaper Metro-line room; still a bakery downstairs" },
+        { name: "5th–6th", note: "Left Bank mid if you already priced it" },
+        { name: "Tower-view trap", note: "Tourist menu with a view surcharge" }
+      ],
+      stayTiers: {
+        budget: [
+          "Ibis or Hotel F1 on a Metro line in the 10th, 18th, or 19th — bakery downstairs",
+          "Generator Paris or a 2-star walk-up near République / Oberkampf"
+        ],
+        mid: [
+          "Hôtel Malte or an Odéon-class 3-star — walk to a Metro and a market street",
+          "Canal Saint-Martin boutique in the 10th–11th — dinner on the block"
+        ],
+        lux: [
+          "Lutetia-class Left Bank — only if the name is the point",
+          "Hôtel de Crillon or Le Bristol — 1st / 8th address; palace breakfast is a line"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Bakery plus coffee on your block — Du Pain et des Idées class if you slept in the 10th",
+          "Bouillon Chartier / Pigalle or a formule du midi — not the tower steps"
+        ],
+        mid: [
+          "Fromagerie plus wine as a valid dinner",
+          "One 10th–11th reservation — Septime / Frenchie / Le Comptoir if you booked it"
+        ],
+        lux: [
+          "Palace-hotel dining only if you already priced it",
+          "Skip anything on the tower, the hill, or the museum steps even on Splurge"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Eiffel from Trocadéro or Champ de Mars — dusk, no restaurant on the steps",
+          "Île de la Cité / Left Bank walk from your arrondissement"
+        ],
+        mid: [
+          "Louvre or Orsay — pick one timed ticket",
+          "Père Lachaise or a smaller room — not a third mega-museum"
+        ],
+        lux: [
+          "Versailles only if you accept the RER half-day",
+          "Tower summit or Sainte-Chapelle — pick one, not both stacked"
+        ]
+      }
+    },
+    london: {
+      hook: "Tesco or a bakery plus the daily Tube cap is the Budget plan. The overrun is Mayfair plus the Eye and the Tower on the same card.",
+      startHere: "Zone 1–2 · Tesco or bakery · one free museum",
+      car: "No — transit",
+      zones: [
+        { name: "South Bank", note: "River walk; Premier Inn County Hall class" },
+        { name: "Bloomsbury", note: "British Museum on foot; Tube cap" },
+        { name: "South Ken", note: "Museums + Tube, not Mayfair prices" },
+        { name: "Heathrow hotel trap", note: "Fine the night you land; sad as a week" }
+      ],
+      stayTiers: {
+        budget: [
+          "Premier Inn or Travelodge Zone 1–2 — Southwark, King’s Cross, or Earl’s Court",
+          "Generator London or a Bloomsbury hostel-plus — walk to the British Museum"
+        ],
+        mid: [
+          "The Hoxton Southwark or Shoreditch — restaurants on the block, Tube downstairs",
+          "Kimpton Fitzroy or The Resident Kensington — museums without a Mayfair rate"
+        ],
+        lux: [
+          "The Savoy or The Ned — river or City, walk to a station",
+          "Claridge’s or The Connaught — Mayfair; luxury is the room plus £8 pints"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Bakery or Tesco meal deal breakfast — hotel breakfast only if it is in the rate",
+          "Borough or Maltby lunch — Pret is a fallback, not a personality"
+        ],
+        mid: [
+          "Zone 2 Indian or Turkish dinner — not a West End prix fixe every night",
+          "One after-theatre sit-down if that is the night"
+        ],
+        lux: [
+          "One reserved West End dinner — then Tesco the next morning",
+          "£8 pints are already in the luxury math"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "British Museum or National Gallery — free",
+          "South Bank walk; skip a paid Eye ticket on Budget"
+        ],
+        mid: [
+          "West End rush or day seats — one show",
+          "South Ken museums if you slept there"
+        ],
+        lux: [
+          "One reserved orchestra seat — not three shows",
+          "The Eye or the Tower — pick one, not both"
+        ]
+      }
+    },
+    rome: {
+      hook: "Walk the centro and eat where the photo menus are not. The overrun is stacking Colosseum, Vatican, and a golf-cart in one day — plus coperto you forgot.",
+      startHere: "Trastevere or centro · cornetto at the bar · one timed ruin",
+      car: "No — transit",
+      zones: [
+        { name: "Trastevere", note: "Walk over the river; dinner without photo menus" },
+        { name: "Termini", note: "Fine the night you land late; move or own it" },
+        { name: "Prati / Ottaviano", note: "Metro to the Vatican; calmer than the centro" },
+        { name: "Navona-menu trap", note: "Carbonara priced for the piazza" }
+      ],
+      stayTiers: {
+        budget: [
+          "Trastevere 2-star or guesthouse — restaurants on the block, walk over the river",
+          "The Beehive or a Termini 2-star — trains the night you land late"
+        ],
+        mid: [
+          "Hotel Nazionale or a Centro Storico 3-star — Pantheon / Navona walking",
+          "Prati 4-star near Ottaviano — Metro to the Vatican if the centro is sold out"
+        ],
+        lux: [
+          "Hotel de Russie — Piazza del Popolo, walk the centro",
+          "Hassler or Hotel Eden — Spanish Steps / Via Veneto above the crush"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Cornetto standing at the bar — hotel breakfast is a tourist menu with orange juice",
+          "Trastevere or Testaccio at night — skip photo-menu carbonara on Navona"
+        ],
+        mid: [
+          "A named trattoria you booked — budget coperto as a line",
+          "Roscioli-adjacent or Testaccio — one sit-down, then bar coffee"
+        ],
+        lux: [
+          "La Pergola only if you already priced it",
+          "Bread you did not order can be a line too — ask"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Pantheon neighborhood in daylight — no taxi, no golf-cart",
+          "Walk Trastevere and the stones until they blur"
+        ],
+        mid: [
+          "Colosseum plus Forum timed — or Vatican Museums; pick a pace",
+          "Metro A/B hop; a 48- or 72-hour pass if you will ride"
+        ],
+        lux: [
+          "Colosseum and Vatican on different days only",
+          "A quieter Prati morning instead of a third ticketed ceiling"
+        ]
+      }
+    },
+    tokyo: {
+      hook: "A station business hotel and konbini breakfast can make Tokyo cheap. The overrun is a hotel buffet plus a JR Pass on a city-only week.",
+      startHere: "Station business hotel · konbini breakfast · one ward a day",
+      car: "No — transit",
+      zones: [
+        { name: "Shinjuku / Shibuya", note: "APA / Toyoko Inn over a JR or Metro line" },
+        { name: "Ueno / Asakusa", note: "Cheaper station hotel; Senso-ji morning" },
+        { name: "Ginza / Marunouchi", note: "Flagship if the room is the treat" },
+        { name: "Narita hotel trap", note: "Crash pad the night you land — not a Tokyo week" }
+      ],
+      stayTiers: {
+        budget: [
+          "APA, Super Hotel, or Toyoko Inn in Shinjuku or Ueno — station downstairs, konbini in the lobby",
+          "Sakura Hotel Jimbocho or a hostel-plus in Asakusa — walk to a Metro"
+        ],
+        mid: [
+          "Mitsui Garden Shibuya or Ginza Premier — Metro in the basement",
+          "Hotel Gracery Shinjuku or The Knot Tokyo — neighborhood walking, not a taxi"
+        ],
+        lux: [
+          "Park Hyatt Shinjuku — the view; you still take the Metro to dinner",
+          "Aman Tokyo or Palace Hotel — Otemachi / Imperial-garden quiet"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Onigiri and coffee from the konbini — hotel buffet is the expensive path",
+          "Conveyor sushi or ramen at lunch"
+        ],
+        mid: [
+          "One izakaya in the ward you booked",
+          "Book one sushi counter before you land if that is the treat"
+        ],
+        lux: [
+          "The room or the sushi counter — rarely both",
+          "A JR Pass is still a bad buy on a 5-night city trip"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "The ward you booked on foot — Shinjuku or Shibuya night walk",
+          "Yanaka or Shimokitazawa morning — free"
+        ],
+        mid: [
+          "Senso-ji early, then teamLab or one museum — off-peak if you can",
+          "IC card (Suica / PASMO); skip a JR Pass spreadsheet"
+        ],
+        lux: [
+          "Kamakura as a priced half-day — do not fake Kyoto as a Tokyo day",
+          "teamLab timed entry if that is the indoor"
+        ]
+      }
+    },
+    cancun: {
+      hook: "All-inclusive food is the product if the airport van is in the rate. The leak is tips, dock-kiosk water, and a timeshare morning.",
+      startHere: "Confirm the van is in the rate · eat on-property · one outing",
+      car: "Optional",
+      aroundRule: "The resort is the lodging and the transit. Skip a rental unless this is a ruin week you already priced; one pre-booked transfer is the week.",
+      zones: [
+        { name: "Hotel Zone value AI", note: "Riu / Oasis class; garden view on purpose" },
+        { name: "Hotel Zone 4-star", note: "Hyatt Ziva / Moon Palace — transfer in the rate" },
+        { name: "Downtown / Centro", note: "Only if you will eat out and skip the AI beach" },
+        { name: "Timeshare / dock trap", note: "“Free” morning plus a van surprise" }
+      ],
+      stayTiers: {
+        budget: [
+          "Riu Cancún or Riu Palace Peninsula class — Hotel Zone, walk the strip, garden view",
+          "Oasis or Krystal Grand class — all-inclusive, no swim-up-suite upsell"
+        ],
+        mid: [
+          "Hyatt Ziva Cancún — Hotel Zone, family-friendly, real beach",
+          "Moon Palace or Hard Rock Cancún class — confirm the airport transfer is in the rate"
+        ],
+        lux: [
+          "Hyatt Zilara or Le Blanc — adults-only Hotel Zone",
+          "Nizuc or Rosewood Mayakobá — south of the Zone; a different transfer"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "On-property buffet — that is the product you bought",
+          "Casual à-la-carte at night; skip bottled water at the dock kiosk"
+        ],
+        mid: [
+          "One downtown taco dinner only if the transfer is cheap",
+          "Stay on-property the other nights — you already paid for the food"
+        ],
+        lux: [
+          "Ocean-view or swim-up is an upsell, not a meal plan",
+          "A named chef night on-property — not a timeshare-day “free” lunch"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Beach days are the week — sit still",
+          "Hotel Zone bus (R-1) only if you hop; most AI weeks never need it"
+        ],
+        mid: [
+          "Isla Mujeres ferry or one cenote — pick one",
+          "Skip the timeshare-day “free” excursion — a half-day you lose"
+        ],
+        lux: [
+          "Chichén Itzá only with a trusted tour if you already priced the long day",
+          "Do not stack Isla, a cenote, and Chichén in four days"
+        ]
+      }
+    },
+    oahu: {
+      hook: "Waikiki on TheBus plus plate lunch is the honest week. The overrun is resort breakfast every morning and a rental you park for $40–55 a night.",
+      startHere: "Waikiki one block back · grocery or plate lunch · one reserved bay or Pearl Harbor",
+      car: "Helpful",
+      aroundRule: "TheBus until you leave on purpose. Skip a rental if you stay on Kalakaua and the #2 / #8 / #13; a car helps for North Shore or Hanauma — parking is $40–55/night if you never go.",
+      stayRule: "Waikiki midrise one block back. Same beach as Kalakaua, less restaurant-row markup. Skip the car if you will stay on TheBus.",
+      zones: [
+        { name: "Waikiki one block back", note: "Kuhio / Equus class — same beach, less Kalakaua" },
+        { name: "Kalakaua walk-to-beach", note: "Outrigger / Hilton Village — TheBus still works" },
+        { name: "Kahala / Ko Olina", note: "Quieter beach; a car becomes the default" },
+        { name: "Unused-rental trap", note: "Park a car in Waikiki for $40–55/night" }
+      ],
+      stayTiers: {
+        budget: [
+          "The Equus or a Kuhio Avenue 2-star — one block back, same beach as Kalakaua",
+          "Hostelling International Waikiki or a studio condo — kitchenette beats resort breakfast"
+        ],
+        mid: [
+          "Outrigger Waikiki or Reef Waikiki — Kalakaua walk, beach access",
+          "The Laylow or ‘Alohilani — Waikiki 4-star, still no car required"
+        ],
+        lux: [
+          "Halekulani or Royal Hawaiian — Waikiki luxury if you refuse to leave the grid",
+          "The Kahala or Four Seasons Ko Olina — east or west; a car is assumed"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Grocery the condo — resort breakfast is mainland prices plus a view surcharge",
+          "Rainbow Drive-In or L&L plate lunch, plus poke"
+        ],
+        mid: [
+          "Leonard’s malasadas once — not as a meal",
+          "One reserved dinner; plate lunch the other days"
+        ],
+        lux: [
+          "One hotel dinner if the view is the point — then grocery breakfast",
+          "Do not eat resort breakfast every morning even on Splurge"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "The sand in front of the midrise — you do not need a car for this day",
+          "TheBus / HOLO if you leave Waikiki twice"
+        ],
+        mid: [
+          "Hanauma Bay reserved and ticketed — or Pearl Harbor timed; pick one",
+          "A North Shore day only if you rented for that day on purpose"
+        ],
+        lux: [
+          "Hanauma and Pearl Harbor on different days only",
+          "A neighbor-island hop is a second ticket — do not stack Maui into five Oahu nights"
+        ]
+      }
+    },
+    maui: {
+      hook: "The condo kitchen is the budget; the beach in front is the product. The overrun is resort restaurants plus stacking Hana, Haleakalā, and Molokini.",
+      startHere: "Kihei kitchen · grocery the first hour · one big outing",
+      car: "Usually",
+      aroundRule: "A car is the island once you leave the condo path. You can skip it only if you booked a walk-to-beach condo and will not leave that path — most weeks should not try.",
+      zones: [
+        { name: "Kihei kitchen", note: "Condo first; walk to a food truck" },
+        { name: "Kaanapali path", note: "Walk-to-beach mid; add resort fee and parking" },
+        { name: "Wailea", note: "The room is the treat — do not also buy every boat" },
+        { name: "Coast-hop trap", note: "Hotel-hop for one dinner" }
+      ],
+      stayTiers: {
+        budget: [
+          "Kihei condo (Maui Coast / Punahoa class) — the kitchen is the budget",
+          "Kohea Kai or a South Kihei studio — walk to a food truck; grocery the first hour"
+        ],
+        mid: [
+          "Sheraton Maui or Westin Maui — Kaanapali Beach, walk the path",
+          "Wailea Ekahi or a Kihei-plus condo — kitchen still wins some dinners"
+        ],
+        lux: [
+          "Grand Wailea — Wailea Beach, the Splurge default",
+          "Andaz Maui or Four Seasons Maui — same coast; do not also buy every excursion"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Grocery at OGG before the condo — cook two nights",
+          "Food trucks in Kihei or Paia — one fish dinner, not five"
+        ],
+        mid: [
+          "Cook most nights; one casual plate out",
+          "Resort breakfast buffets are a second lodging charge — skip the habit"
+        ],
+        lux: [
+          "Mama’s Fish House — one reservation, not five fish dinners",
+          "Wailea resort restaurants after you already paid for the room"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "The beach in front of the condo — you already paid for this sand",
+          "Skip Road to Hana as a rushed Budget day"
+        ],
+        mid: [
+          "Hana as an early start — or Haleakalā sunrise as a 2 a.m. ticket; pick one",
+          "Come home to the same coast"
+        ],
+        lux: [
+          "Molokini only if you already priced the boat — not a default",
+          "Do not stack Hana, Haleakalā, and Molokini in four days"
+        ]
+      }
+    },
+    cruise: {
+      hook: "The fare includes the dining room and the deck. The trap is specialty, the drink package, and the dock-kiosk tour.",
+      startHere: "Cabin + gratuities · run drink-package math · one port walk",
+      car: "No — ship",
+      zones: [
+        { name: "Interior", note: "A bed. The deck is the trip" },
+        { name: "Oceanview / balcony", note: "The Caribbean product most people want" },
+        { name: "Suite / aft-wrap", note: "Space and a quieter corridor — plus suite gratuities" },
+        { name: "Pre-cruise hotel", note: "One night if the inbound flight cannot miss the ship" }
+      ],
+      stayTiers: {
+        budget: [
+          "Interior guarantee on Carnival or MSC — you pick the price, not the deck",
+          "Obstructed oceanview — a window if you get claustrophobic, still Budget"
+        ],
+        mid: [
+          "Oceanview midship — daylight without the balcony premium",
+          "Royal Caribbean or NCL balcony — central-ship beats a cheap aft if you get seasick"
+        ],
+        lux: [
+          "Large balcony or aft-wrap — the cabin people remember",
+          "NCL Haven / Royal suite-adjacent — suite gratuities are their own line"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Main dining room most nights — already in the fare",
+          "Buffet breakfast; room-service fees add up as a habit"
+        ],
+        mid: [
+          "One specialty night only if you already priced it",
+          "À-la-carte drinks until you run the break-even"
+        ],
+        lux: [
+          "Specialty more than once only if the math still works",
+          "Kids soda is often the only package that wins on a short sailing"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Sea days on deck — that is the product you bought",
+          "Independent port walk; skip the pier “tour” kiosk"
+        ],
+        mid: [
+          "One ship excursion plus one independent walk — not three dock tours",
+          "Run the drink-package break-even before you tap yes"
+        ],
+        lux: [
+          "A spa menu or a second excursion only if you already priced both",
+          "Automatic gratuities (age 2+) are a line — not buried in the fare"
+        ]
+      }
+    },
+    key_west: {
+      hook: "Old Town on foot, Cuban breakfast, sunset from the sidewalk. The overrun is Mallory menus and a Stock Island room plus a nightly cab.",
+      startHere: "Old Town walkable · Cuban breakfast · sunset from the sidewalk",
+      car: "Optional",
+      aroundRule: "Walk or bike Old Town. Skip a rental if you sleep there; a car helps for the Overseas Highway, not nightly Duval hops. Drive-down from Miami is a day you should price as a day.",
+      zones: [
+        { name: "Old Town walkable", note: "Guesthouse you can walk from; Duval is a street" },
+        { name: "Truman / quieter block", note: "Same island, less bar-strip noise" },
+        { name: "Casa Marina class", note: "Splurge if you already priced the beach" },
+        { name: "Stock Island trap", note: "Cheap room + a nightly cab is not Budget" }
+      ],
+      stayTiers: {
+        budget: [
+          "The Big Ruby Key West — guesthouse, walk to Duval, no car",
+          "Caribbean House or a Truman Annex-adjacent inn — quieter block, still Old Town"
+        ],
+        mid: [
+          "The Gardens Hotel — Old Town courtyard, walk to dinner",
+          "A boutique a block off Duval — parking is a line; most people should not rent"
+        ],
+        lux: [
+          "Casa Marina — beach-end Splurge, still walkable",
+          "Skip Stock Island even on Splurge unless you like the commute"
+        ]
+      },
+      eatTiers: {
+        budget: [
+          "Cuban Coffee Queen or a ventanita — Mallory Square menus cost extra for the same sunset",
+          "El Siboney or Garbo’s at night"
+        ],
+        mid: [
+          "Blue Heaven early if you already priced the wait",
+          "Key lime pie once; happy-hour conch fritters are a snack"
+        ],
+        lux: [
+          "One named dinner you came for — then a ventanita the next morning",
+          "Sunset from the sidewalk; a paid pier ticket is optional"
+        ]
+      },
+      doTiers: {
+        budget: [
+          "Sunset from the sidewalk — the sun does the same work as a paid pier",
+          "Fort Zach beach plus the fort — the cheap outdoor ticket"
+        ],
+        mid: [
+          "Walk Duval as a street, not a hotel strategy",
+          "Dry Tortugas ferry only if that is the full day"
+        ],
+        lux: [
+          "A sunset sail or a seaplane — pick one, not both plus Tortugas",
+          "Parasail is optional; Fantasy Fest is a different budget"
+        ]
+      }
+    }
+  };
+
+  function walkStrings(node, fn) {
+    if (typeof node === "string") return fn(node);
+    if (!node || typeof node !== "object") return node;
+    if (Array.isArray(node)) {
+      node.forEach(function (item, i) { node[i] = walkStrings(item, fn); });
+      return node;
+    }
+    Object.keys(node).forEach(function (k) {
+      if (k === "id" || k === "href") return;
+      node[k] = walkStrings(node[k], fn);
+    });
+    return node;
+  }
+
+  function scrubTaxMetaphor(s) {
+    return String(s)
+      .replace(/Hopper on a short trip is usually a tax/g, "Hopper on a short trip usually costs more than a second park day")
+      .replace(/the Hopper tax/g, "paying extra for Hopper")
+      .replace(/Friday arrivals into Halloween Time are a tax/g, "Friday arrivals into Halloween Time cost more")
+      .replace(/Friday arrivals are a tax/g, "Friday arrivals cost more")
+      .replace(/Ocean Drive menus are a tourist tax/g, "Ocean Drive menus are priced for tourists")
+      .replace(/Mallory Square menus are a tax/g, "Mallory Square menus cost extra for the same sunset")
+      .replace(/Mallory menus are a tax/g, "Mallory menus cost extra for the same sunset")
+      .replace(/A tax on the same sunset/g, "A markup on the same sunset")
+      .replace(/room-service tax/g, "room-service markup")
+      .replace(/a parking tax/g, "a parking surcharge")
+      .replace(/Union Square tourist hotels are a tax/g, "Union Square tourist hotels cost more for the same Muni ride")
+      .replace(/a SEPTA tax you will resent/g, "a SEPTA commute you will resent")
+      .replace(/A SEPTA tax you will resent/g, "A SEPTA commute you will resent")
+      .replace(/is a tourist tax/g, "is a tourist markup")
+      .replace(/a tourist tax/g, "a tourist markup")
+      .replace(/holiday lights become a room tax/g, "holiday lights become a room premium")
+      .replace(/less restaurant-row tax/g, "less restaurant-row markup")
+      .replace(/\(a half-day tax\)/g, "(a half-day you lose)")
+      .replace(/A half-day tax with a smile/g, "A half-day you lose, with a smile")
+      .replace(/It is a half-day tax/g, "It is a half-day you lose");
+  }
+
+  GUIDES.forEach(function (g) {
+    var x = EXTRAS[g.id];
+    if (x) {
+      Object.keys(x).forEach(function (k) { g[k] = x[k]; });
+    }
+    g.updated = COMPILED;
+    walkStrings(g, scrubTaxMetaphor);
+  });
 
   var BY_ID = {};
   GUIDES.forEach(function (g) { BY_ID[g.id] = g; });
