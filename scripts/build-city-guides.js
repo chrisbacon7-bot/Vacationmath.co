@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260913mg";
+const CACHE = "v20260913apass";
 const ctx = { window: {}, console };
 ctx.window = ctx;
 ctx.global = ctx;
