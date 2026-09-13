@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260913e";
+const CACHE = "v20260913t";
 const ctx = { window: {}, console };
 ctx.window = ctx;
 ctx.global = ctx;
@@ -38,7 +38,7 @@ function faqFor(g) {
     {
       "@type": "Question",
       name: "Where should I base myself in " + g.label + "?",
-      acceptedAnswer: { "@type": "Answer", text: (g.base && g.base.lean) || g.budgetNote }
+      acceptedAnswer: { "@type": "Answer", text: (g.base && (g.base.lede || (g.base.bullets && g.base.bullets[0]) || g.base.lean)) || g.budgetNote }
     },
     {
       "@type": "Question",

@@ -16,6 +16,14 @@
       .replace(/"/g, "&quot;");
   }
 
+  function tierLabel(key) {
+    var defs = (typeof VM_PLAN_DATA !== "undefined" && VM_PLAN_DATA.TIER_DEFS) || {};
+    if (defs[key] && defs[key].label) return defs[key].label;
+    if (key === "lean") return "Budget";
+    if (key === "stretch") return "Splurge";
+    return "Mid-range";
+  }
+
   function catalog() {
     var P = window.VM_PLAN_DATA;
     if (!P) return [];
@@ -651,7 +659,7 @@
           ? "Genie+/LL is optional speed — don’t treat it as required. Cut this first if the plan is Tight."
           : "Left off the budget plan. Add Lightning Lane only if you’ll otherwise lose a park day to waits.",
         detail: included
-          ? "Stretch keeps it. Lean drops it. Most families wish they had priced it before day two — not assumed it."
+          ? "Splurge keeps it. Budget drops it. Most families wish they had priced it before day two — not assumed it."
           : "If you add it later, use the Disney calculator for the Florida sales-tax line."
       };
     }
@@ -682,7 +690,7 @@
             ? "Run the break-even before buying CHEERS! / Deluxe — packages only win if you’ll actually use them."
             : "Pay-as-you-go until you run the break-even. A package is not automatic.",
           detail: included
-            ? "Lean drops the package. Stretch keeps it. Specialty dining is still leftover-only."
+            ? "Budget drops the package. Splurge keeps it. Specialty dining is still leftover-only."
             : "Three drinks a day is already in this pay-as-you-go line.",
           href: "/blog/cruise-drink-package-break-even-2026",
           label: "Drink-package math"
@@ -722,7 +730,7 @@
         text: included
           ? "Two devices is enough. A third login is how this line doubles."
           : "Left off budget/mid. Add it only if you have to work from the ship.",
-        detail: included ? "Stretch includes it. Lean and Solid skip it on purpose." : "The ship will sell it to you at the gangway. Price it here first."
+        detail: included ? "Splurge includes it. Budget and Mid-range skip it on purpose." : "The ship will sell it to you at the gangway. Price it here first."
       };
     }
     if (kind === "prehotel") {
@@ -738,7 +746,7 @@
         text: included
           ? "One spa or specialty night — leftover only. The package does not include this."
           : "Left off budget/mid. Spend leftover here only after the rest of the plan fits.",
-        detail: "This is the Stretch treat, not a nightly habit."
+        detail: "This is the Splurge treat, not a nightly habit."
       };
     }
     if (kind === "memory") {
@@ -746,13 +754,13 @@
         text: included
           ? "Advance PhotoPass. Only if leftover covers it — your phone already takes the pictures."
           : "Not required to walk the parks. Add Memory Maker only as leftover.",
-        detail: "Stretch includes it. Lean and Solid skip it."
+        detail: "Splurge includes it. Budget and Mid-range skip it."
       };
     }
     if (kind === "souvenir") {
       return {
         text: "Set a hard cap before Main Street. This line is conservative and easy to double.",
-        detail: styleKey === "budget" ? "Lean already cuts this. A popcorn bucket is a souvenir, not a meal plan." : "Pick one shop day. Wandering every store is how this line triples."
+        detail: styleKey === "budget" ? "Budget already cuts this. A popcorn bucket is a souvenir, not a meal plan." : "Pick one shop day. Wandering every store is how this line triples."
       };
     }
     if (kind === "car") {
@@ -1137,7 +1145,7 @@
       title: title,
       body: why || "Named lodging for this tier. Not a ranking and not live inventory.",
       items: items,
-      impact: "This card follows the Lean / Solid / Stretch tier you selected."
+      impact: "This card follows the Budget / Mid-range / Splurge style you selected."
     };
   }
 
@@ -1162,17 +1170,17 @@
     if (dest.id === "philadelphia") items.push("PHL is an American hub. Compare EWR on the same week if the fare gap covers a train.");
     if (dest.id === "atlanta") items.push("ATL nonstops are the product. Midweek usually beats a Sunday-into-a-convention Monday.");
     if (dest.id === "phoenix" || dest.id === "scottsdale") items.push("PHX is the door. Scottsdale is a different lodging math than downtown Phoenix.");
-    if (dest.id === "key_west") items.push("EYW is tiny and often pricey. MIA or FLL plus the Overseas Highway is a valid Lean plan.");
+    if (dest.id === "key_west") items.push("EYW is tiny and often pricey. MIA or FLL plus the Overseas Highway is a valid Budget plan.");
     if (dest.id === "napa") items.push("SFO or OAK, then a Napa bus or one rental-car day — do not keep a car parked at a tasting-room hotel.");
     if (dest.id === "monterey") items.push("SJC or SFO plus a Monterey Airbus / rental. Do not assume a cheap SFO fare includes Carmel.");
     if (dest.id === "lake_tahoe") items.push("RNO is closer than SMF for the North Shore. South Shore often prices Reno + a shuttle.");
     if (dest.id === "grand_canyon") items.push("FLG or PHX, then a shuttle. A Las Vegas day-trip is a different, rushed product.");
     if (dest.id === "jackson_hole") items.push("JAC is the door and a weather airport. Build a buffer night in ski season.");
-    if (dest.id === "bar_harbor") items.push("BGR is the closest jet door. BOS plus a drive is the Lean backup.");
+    if (dest.id === "bar_harbor") items.push("BGR is the closest jet door. BOS plus a drive is the Budget backup.");
     if (dest.id === "portland_me") items.push("PWM nonstops beat connecting into BOS and backtracking.");
     if (dest.id === "destin_30a") items.push("VPS is the 30A door. PNS is the backup if the fare gap covers the extra drive.");
     if (dest.id === "outer_banks") items.push("ORF or a drive. There is no cheap jet onto Hatteras — price the ferry and the hours.");
-    if (dest.id === "santa_fe") items.push("SAF if the fare is close; ABQ plus the Rail Runner / a shuttle is the usual Lean door.");
+    if (dest.id === "santa_fe") items.push("SAF if the fare is close; ABQ plus the Rail Runner / a shuttle is the usual Budget door.");
     if (dest.kind === "disney") items.push("MCO is the door. A later arrival plus a grocery stop beats a same-day park day.");
     if (dest.kind === "cruise") items.push("Fly in the day before if you can. Same-day embarkation is how people miss the ship.");
     items.push("No flight numbers on purpose — those change weekly. Use the hub pattern, then price two midweek dates.");
@@ -1283,7 +1291,7 @@
           ? "Barnes + a reserved food walk leftover"
           : "Independence + one Museum Mile ticket";
     }
-    var impact = "This card follows the Lean / Solid / Stretch tier you selected.";
+    var impact = "This card follows the Budget / Mid-range / Splurge style you selected.";
     if (dest.kind === "cruise") {
       impact = "Drink-package break-even is linked under the drinks line.";
     } else if (dest.id === "los_angeles") {
@@ -1293,7 +1301,7 @@
     } else if (dest.id === "phoenix") {
       impact = "This is Phoenix — not Scottsdale resort math.";
     } else if (dest.kind === "disney") {
-      impact = "Hopper and Lightning Lane are add-ons — only Stretch prices both in.";
+      impact = "Hopper and Lightning Lane are add-ons — only Splurge prices both in.";
     }
     return {
       kicker: "Activities",
@@ -1350,7 +1358,7 @@
 
   function bookHtml(model) {
     var recs = model.recs || {};
-    var tierWord = model.selectedTier === "lean" ? "Lean" : model.selectedTier === "stretch" ? "Stretch" : "Solid";
+    var tierWord = tierLabel(model.selectedTier);
     var styleLabel = ((model.tiers || []).filter(function (t) { return t.selected; })[0] || {}).styleLabel || "mid-range";
     var destLabel = (model.dest && (model.dest.short || model.dest.label)) || "this trip";
     var active = REC_TABS.indexOf(selectedRecTab) >= 0 ? selectedRecTab : "hotel";
@@ -1377,7 +1385,7 @@
           }).join("") + "</ul>"
         : "<p class=\"plan-book-empty\">No named picks for this tab — use the itemized plan.</p>";
       var lead = panelLead(r.body);
-      var note = r.impact && !/follows the Lean/.test(r.impact) ? r.impact : "";
+      var note = r.impact && !/follows the (Lean|Budget)/.test(r.impact) ? r.impact : "";
       return "<div class=\"plan-book-panel\" role=\"tabpanel\" id=\"plan-book-panel-" + tab.id + "\"" +
         " aria-labelledby=\"plan-book-tab-" + tab.id + "\" tabindex=\"0\"" +
         (tab.id === active ? "" : " hidden") + ">" +
@@ -1386,9 +1394,12 @@
         (note ? "<p class=\"plan-book-note\">" + esc(note) + "</p>" : "") +
         "</div>";
     }).join("");
+    var bookSub = esc(tierWord) + " picks for " + esc(destLabel);
+    if (styleLabel && String(styleLabel).toLowerCase() !== String(tierWord).toLowerCase()) {
+      bookSub = esc(tierWord) + " · " + esc(String(styleLabel).toLowerCase()) + " lodging for " + esc(destLabel);
+    }
     return "<h3 class=\"panel-title\" id=\"plan-book-title\">Where to book</h3>" +
-      "<p class=\"plan-section-sub\">" + esc(tierWord) + " " + esc(String(styleLabel).toLowerCase()) +
-      " picks for " + esc(destLabel) + ". Search these — not live rates, not affiliate links.</p>" +
+      "<p class=\"plan-section-sub\">" + bookSub + ". Search these — not live rates, not affiliate links.</p>" +
       "<div class=\"plan-book\" id=\"plan-book\">" +
         "<div class=\"plan-book-tabs\" role=\"tablist\" aria-labelledby=\"plan-book-title\">" + tabBtns + "</div>" +
         panels +
@@ -1493,7 +1504,7 @@
         "<p class=\"plan-tier-label\">" + esc(t.label) + " <span class=\"plan-tier-badge\">" + badge + "</span></p>" +
         "<p class=\"plan-tier-total\">" + money(t.total) + "</p>" +
         "<p class=\"plan-tier-meta\">" + esc(t.styleLabel) + " · " + vs + "</p>" +
-        "<p class=\"plan-tier-hint\">" + esc(t.hint) + ". Tap to itemize this plan.</p>" +
+        "<p class=\"plan-tier-hint\">" + esc(t.hint) + ".</p>" +
         "</button>";
     }).join("");
 
@@ -1535,18 +1546,18 @@
     el.classList.add("has-results");
     el.innerHTML =
       "<div class=\"plan-headline\">" +
-        "<p class=\"plan-kicker\">" + esc((model.selectedTier === "lean" ? "Lean" : model.selectedTier === "stretch" ? "Stretch" : "Solid") + " plan") +
+        "<p class=\"plan-kicker\">" + esc(tierLabel(model.selectedTier) + " plan") +
           (model.selectedTier === model.suggestedTier ? " · suggested" : " · you picked this") + "</p>" +
         "<h2 class=\"plan-dest-title\">" + esc(model.dest.label) + "</h2>" +
         "<p class=\"plan-headline-sub\">" + esc(model.recommended.summary) + " · " + people + " traveler" + (people === 1 ? "" : "s") + " · " + o.nights + " night" + (o.nights === 1 ? "" : "s") + " · " + esc(monthLabel) + "</p>" +
-        "<p class=\"plan-headline-total\">" + esc(model.selectedTier === "lean" ? "Lean" : model.selectedTier === "stretch" ? "Stretch" : "Solid") + " total " + money(model.total) + " vs " + money(o.budget) + " budget (" + money(model.total / Math.max(1, people)) + " per person).</p>" +
+        "<p class=\"plan-headline-total\">" + esc(tierLabel(model.selectedTier)) + " total " + money(model.total) + " vs " + money(o.budget) + " budget (" + money(model.total / Math.max(1, people)) + " per person).</p>" +
       "</div>" +
       "<div class=\"plan-verdict-lg " + v.key + "\"><span class=\"plan-verdict-word\">" + v.word + "</span><span class=\"plan-verdict-detail\">" + esc(v.detail) + "</span></div>" +
-      "<h3 class=\"panel-title\" id=\"plan-tiers-title\">Lean / Solid / Stretch</h3>" +
-      "<p class=\"plan-section-sub\">Click a tier to rebuild the itemized plan, verdict, tips, and Where to book. Solid is the style you picked. Lean steps down one band. Stretch steps up.</p>" +
+      "<h3 class=\"panel-title\" id=\"plan-tiers-title\">Choose a plan style</h3>" +
+      "<p class=\"plan-section-sub\">Budget, Mid-range, or Splurge rebuilds the itemized numbers, verdict, and Where to book. Mid-range is the lodging you picked. Budget steps down one band. Splurge steps up.</p>" +
       "<div class=\"plan-tiers\" role=\"radiogroup\" aria-labelledby=\"plan-tiers-title\">" + tierCards + "</div>" +
       bookHtml(model) +
-      "<h3 class=\"panel-title\">Itemized " + esc(model.selectedTier === "lean" ? "Lean" : model.selectedTier === "stretch" ? "Stretch" : "Solid") + " plan</h3>" +
+      "<h3 class=\"panel-title\">Itemized " + esc(tierLabel(model.selectedTier)) + " plan</h3>" +
       "<p class=\"plan-section-sub\">The gray note is the assumption. A short suggestion sits under each line — longer lists live in Where to book.</p>" +
       "<table class=\"plan-itemize\"><thead><tr><th>Line</th><th>Amount</th></tr></thead><tbody>" +
         rows +
@@ -1879,6 +1890,7 @@
       return selectedRecTab;
     },
     destById: destById,
+    tierLabel: tierLabel,
     catalog: catalog,
     filterDestinations: filterDestinations,
     hotelExamplesFor: hotelExamplesFor,

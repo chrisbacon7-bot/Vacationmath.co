@@ -58,7 +58,7 @@ const dest = P.destById("los_angeles");
 assert.strictEqual(dest.id, "los_angeles");
 const midHotels = P.hotelExamplesFor(dest, "mid");
 assert.ok(midHotels.length >= 4, "LA mid has 4–6 hotel rows");
-assert.ok(/Hyatt Regency/.test(midHotels[0]), "LA Solid leads with a brand name");
+assert.ok(/Hyatt Regency/.test(midHotels[0]), "LA Mid-range leads with a brand name");
 
 const recs = P.buildRecs(dest, { origin: "atl", nights: 5, adults: 2, kids: 0, month: "" }, "mid");
 assert.ok(recs.hotel.items.length >= 4 && recs.hotel.items.length <= 6);
@@ -73,6 +73,8 @@ const solid = {
 };
 const html = P.bookHtml(solid);
 assert.ok(/Where to book/.test(html), "section title");
+assert.ok(/Mid-range/.test(html), "Where to book uses Mid-range label");
+assert.ok(!/\bLean\b/.test(html) && !/\bStretch\b/.test(html), "no old tier names in Where to book");
 assert.ok(/role="tablist"/.test(html));
 assert.ok(/data-book-tab="hotel"/.test(html));
 assert.ok(/data-book-tab="transit"/.test(html));
@@ -114,7 +116,7 @@ assert.ok(flyTip.text.length < 180, "flight tip stays one line");
 assert.ok(!flyTip.detail);
 
 const leanRecs = P.buildRecs(dest, { origin: "atl", nights: 5, adults: 2, kids: 0, month: "" }, "budget");
-assert.ok(/Hampton Inn/.test(leanRecs.hotel.items[0]), "Lean hotel list is a different band");
+assert.ok(/Hampton Inn/.test(leanRecs.hotel.items[0]), "Budget hotel list is a different band");
 assert.ok(leanRecs.hotel.items[0] !== recs.hotel.items[0], "tier switch swaps hotel rows");
 
 P.selectRecTab("food");

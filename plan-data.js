@@ -181,9 +181,9 @@
   };
 
   var TIER_DEFS = {
-    lean:   { label: "Lean",   hint: "Cut where it hurts least", styleShift: -1 },
-    solid:  { label: "Solid",  hint: "Balanced recommended plan", styleShift: 0 },
-    stretch:{ label: "Stretch",hint: "Nice-to-haves included",   styleShift: 1 }
+    lean:   { label: "Budget",    hint: "Cut extras. Keep the trip", styleShift: -1 },
+    solid:  { label: "Mid-range", hint: "The comfortable default",   styleShift: 0 },
+    stretch:{ label: "Splurge",   hint: "Nice-to-haves if leftover is real", styleShift: 1 }
   };
 
   var STYLE_ORDER = ["budget", "mid", "lux"];
@@ -260,7 +260,7 @@
   }
 
   // Named lodging / food / activities by dest + style (budget | mid | lux).
-  // Orientation for Lean / Solid / Stretch — not live rates, not a ranking, no star scores.
+  // Orientation for Budget / Mid-range / Splurge — not live rates, not a ranking, no star scores.
   function H(why) {
     var picks = [];
     for (var i = 1; i < arguments.length; i++) {
@@ -300,7 +300,7 @@
       budget: H(
         "Interior / guarantee — sleep and spend the day on deck. No fake fares here.",
         "Interior guarantee — Carnival or MSC, you pick the price not the deck",
-        "Obstructed oceanview — a window if you get claustrophobic, still Lean",
+        "Obstructed oceanview — a window if you get claustrophobic, still Budget",
         "Lower-deck interior midship — less motion if you chose the cheap cabin on purpose"
       ),
       mid: H(
@@ -311,7 +311,7 @@
       ),
       lux: H(
         "Balcony-plus / suite vibe — more space and a quieter corridor, not a private island.",
-        "Large balcony or aft-wrap — the Stretch cabin people remember",
+        "Large balcony or aft-wrap — the Splurge cabin people remember",
         "NCL Haven / Royal suite-adjacent — suite gratuities run higher; they are their own line",
         "Spa-deck cabin — quieter, still not a fare quote"
       )
@@ -332,7 +332,7 @@
       lux: H(
         "Adults-only or beach-premium AI — one property, not a hotel hop.",
         "Hyatt Zilara Cancún — adults-only Hotel Zone",
-        "Le Blanc Spa Resort — Stretch only if leftover is real",
+        "Le Blanc Spa Resort — Splurge only if leftover is real",
         "Nizuc or Rosewood Mayakobá class — south of the Zone; a different transfer"
       )
     },
@@ -373,7 +373,7 @@
         "Flagship in a walkable district. NYC “resort fees” are not optional — add them in your head.",
         "1 Hotel Central Park — park-adjacent, still a crosstown walk to Midtown meetings",
         "The Public or The Greenwich Hotel class — Downtown, not a Midtown tower",
-        "The Mark or a UES/Downtown flagship — Stretch is the room, not a second suite"
+        "The Mark or a UES/Downtown flagship — Splurge is the room, not a second suite"
       )
     },
     paris: {
@@ -450,7 +450,7 @@
         "La Jolla Shores Hotel class — beach mid, you gave up Gaslamp nightlife"
       ),
       lux: H(
-        "Waterfront or La Jolla. Hotel Circle is not Stretch.",
+        "Waterfront or La Jolla. Hotel Circle is not Splurge.",
         "Hotel del Coronado — ferry or bridge, the postcard lodging",
         "Fairmont Grand Del Mar or Lodge at Torrey Pines class — north, car assumed",
         "Pendry or 1 Hotel San Diego class — harbor walk"
@@ -466,7 +466,7 @@
       mid: H(
         "South Beach walkable or Brickell if you want mainland restaurants.",
         "The Betsy or Essex House class — South Beach, walk to the sand",
-        "1 Hotel South Beach is Stretch; mid is a renovated Art Deco 3–4 star on Collins",
+        "1 Hotel South Beach is Splurge; mid is a renovated Art Deco 3–4 star on Collins",
         "Kimpton EPIC or a Brickell 4-star — bay, not beach, better food walking"
       ),
       lux: H(
@@ -478,7 +478,7 @@
     },
     london: {
       budget: H(
-        "Zone 1–2 on a Tube line. Tesco meal deal + Oyster is the Lean plan.",
+        "Zone 1–2 on a Tube line. Tesco meal deal + Oyster is the Budget plan.",
         "Premier Inn or Travelodge Zone 1–2 — Southwark, King’s Cross, or Earl’s Court",
         "Generator London or a Bloomsbury hostel-plus — walk to the British Museum",
         "Premier Inn County Hall or a South Bank limited-service — river walk, not a West End rate"
@@ -520,7 +520,7 @@
       budget: H(
         "Business hotel next to a JR or Metro station. Capsule only if you packed light.",
         "APA / Super Hotel / Toyoko Inn in Shinjuku or Ueno — station downstairs, convenience store in the lobby",
-        "Nine Hours capsule in Shinjuku or Narita crash-pad — Lean only, pack a packing cube",
+        "Nine Hours capsule in Shinjuku or Narita crash-pad — Budget only, pack a packing cube",
         "Sakura Hotel Jimbocho or a hostel-plus in Asakusa — walk to a Metro, not a taxi habit"
       ),
       mid: H(
@@ -559,7 +559,7 @@
     maui: {
       budget: H(
         "Kihei / South Maui condo — the kitchen is the budget.",
-        "Aston Maui Kaanapali Villas is mid; Lean is a Kihei condo (Maui Coast / Punahoa class)",
+        "Aston Maui Kaanapali Villas is mid; Budget is a Kihei condo (Maui Coast / Punahoa class)",
         "Kohea Kai or a South Kihei studio — walk to a food truck, grocery the first hour",
         "Paia inn-adjacent 2-star — north shore if you will not sit in Kaanapali traffic"
       ),
@@ -571,7 +571,7 @@
       ),
       lux: H(
         "Wailea is the room. Do not also buy every excursion.",
-        "Grand Wailea — Wailea Beach, the Stretch default",
+        "Grand Wailea — Wailea Beach, the Splurge default",
         "Andaz Maui or Four Seasons Maui — same pocket, leftover only",
         "Hotel Wailea adults-only — quieter hill, you will still drive to dinner"
       )
@@ -587,12 +587,12 @@
         "Hard Rock or Iberostar Selection class. Cap Cana is a different, pricier pocket.",
         "Hard Rock Punta Cana — family mid, huge campus",
         "Iberostar Selection Bávaro — all-inclusive, beach",
-        "Secrets Cap Cana is Stretch-adjacent; mid stays in Bávaro"
+        "Secrets Cap Cana is Splurge-adjacent; mid stays in Bávaro"
       ),
       lux: H(
         "Cap Cana or adults-only. Eden Roc only as leftover.",
         "Excellence Punta Cana or Secrets Cap Cana — adults-only",
-        "Eden Roc at Cap Cana — Stretch villa class",
+        "Eden Roc at Cap Cana — Splurge villa class",
         "Sanctuary Cap Cana — same pocket, not a second island hop"
       )
     },
@@ -627,7 +627,7 @@
         "Eixample or Barceloneta-adjacent. Metro, not taxis.",
         "Hotel Casa Fuster-adjacent or a 3–4 star Eixample — Modernisme walking",
         "H10 Casa Mimosa or Cotton House class — Eixample, Metro in five minutes",
-        "W Barcelona is Stretch; mid is Barceloneta 3-star or Born boutique"
+        "W Barcelona is Splurge; mid is Barceloneta 3-star or Born boutique"
       ),
       lux: H(
         "Waterfront or Eixample flagship. Beach-club pricing is not in the room rate.",
@@ -672,7 +672,7 @@
       lux: H(
         "One river hotel, not three island hops.",
         "Mandarin Oriental Bangkok — river, leftover",
-        "Capella Bangkok — same river, Stretch",
+        "Capella Bangkok — same river, Splurge",
         "Four Seasons Chiang Mai if the north is the point — do not also buy Phuket mid-trip"
       )
     },
@@ -693,7 +693,7 @@
         "The trip is the food, not the courtyard.",
         "Windsor Court — CBD, quiet luxury",
         "Hotel Monteleone — Quarter flagship, leftover",
-        "Maison de la Luz or The Chloe class — design Stretch"
+        "Maison de la Luz or The Chloe class — design Splurge"
       )
     },
     chicago: {
@@ -727,7 +727,7 @@
         "Jordaan or De Pijp. Transit card, not a rental car.",
         "Pulitzer-adjacent or a Jordaan 3–4 star — canal walk",
         "Hotel Casa or a De Pijp boutique — restaurants on the block",
-        "Conservatorium is Stretch; mid is a canal 4-star without the garden rate"
+        "Conservatorium is Splurge; mid is a canal 4-star without the garden rate"
       ),
       lux: H(
         "King’s Day and August are the skip months.",
@@ -750,7 +750,7 @@
         "LX Boutique or a Cais do Sodré 3-star — river, nightlife on the block"
       ),
       lux: H(
-        "Lisbon mid already feels like a Stretch in Paris.",
+        "Lisbon mid already feels like a Splurge in Paris.",
         "Bairro Alto Hotel — Chiado leftover",
         "Four Seasons Ritz Lisbon — park-adjacent flagship",
         "Tivoli Avenida Liberdade class — one boulevard"
@@ -772,7 +772,7 @@
       lux: H(
         "Luxury here is the soak, not the minibar.",
         "ION Adventure — Golden Circle leftover",
-        "The Retreat at Blue Lagoon — soak + room, Stretch only",
+        "The Retreat at Blue Lagoon — soak + room, Splurge only",
         "Edition Reykjavík — 101 flagship if you skip the countryside"
       )
     },
@@ -792,14 +792,14 @@
       lux: H(
         "One nice villa beats three mediocre resorts.",
         "Mandapa or Capella Ubud — jungle leftover",
-        "Bulgari or Alila Villas Uluwatu — cliff Stretch",
+        "Bulgari or Alila Villas Uluwatu — cliff Splurge",
         "Como Uma or a Seminyak villa — one property"
       )
     },
     dubai: {
       budget: H(
         "Deira or Bur Dubai. Metro to the Marina; skip the desert-tour upsell on day one.",
-        "Rove Downtown or Rove City Walk — Lean-plus, Metro",
+        "Rove Downtown or Rove City Walk — Budget-plus, Metro",
         "Deira 3-star near a Metro — creek, cheaper nights",
         "Bur Dubai heritage-adjacent 3-star — walk the souk, Metro to Downtown"
       ),
@@ -812,7 +812,7 @@
       lux: H(
         "Dubai luxury is a weekend, not a week.",
         "Armani Hotel Dubai — Burj Khalifa, leftover",
-        "Atlantis The Palm — Palm Stretch, kids assumed",
+        "Atlantis The Palm — Palm Splurge, kids assumed",
         "Burj Al Arab or One&Only — name-brand leftover only"
       )
     }
@@ -883,7 +883,7 @@
     },
     hawaii: {
       budget: H(
-        "Condo or limited-service on the bus grid. A kitchenette is the Lean product.",
+        "Condo or limited-service on the bus grid. A kitchenette is the Budget product.",
         "Hampton, Holiday Inn Express, or Outrigger value — grocery the first hour",
         "Studio condo or 2-star a block off the sand — same beach, less resort fee",
         "Skip a rental car if the bus or a bike reaches the beach and the store"
@@ -1006,7 +1006,7 @@
         "Deira / downtown 3-star on a Metro. Desert tours are day-two, not day-one upsells.",
         "Rove / Ibis / 3-star near a Metro",
         "Heritage-district 3-star — souk walking",
-        "Skip the Marina address on a Lean week"
+        "Skip the Marina address on a Budget week"
       ),
       mid: H(
         "Downtown or Marina 4-star. Summer is cheap and brutal.",
@@ -1035,7 +1035,7 @@
         "One base — intercity buses need their own night"
       ),
       lux: H(
-        "Casa-hotel or adults-only beach. The tasting menu is often the better Stretch.",
+        "Casa-hotel or adults-only beach. The tasting menu is often the better Splurge.",
         "Flagship in the centro or beach premium",
         "Relais-style casa leftover",
         "One property"
@@ -1069,7 +1069,7 @@
       [
         "Breakfast: grocery run (Garden Grocer / Winn-Dixie) + resort food court",
         "Lunch: Cosmic Ray’s, Pecos Bill, or Satu’li Canteen — mobile-order QS",
-        "Dinner: one more QS, skip table-service on Lean",
+        "Dinner: one more QS, skip table-service on Budget",
         "Snack: Dole Whip or a bakery once, not as a meal plan"
       ],
       [
@@ -1082,14 +1082,14 @@
         "Breakfast: one character meal (Chef Mickey’s or Tusker House) if leftover",
         "Lunch: QS or a second table-service, not three sit-downs",
         "Dinner reservation: California Grill, Space 220, or Be Our Guest — book before you fly",
-        "Dining plan is still usually a bad buy even on Stretch"
+        "Dining plan is still usually a bad buy even on Splurge"
       ]
     ),
     cruise: F(
       "The fare includes the dining room. Specialty, drinks, and room-service fees are the trap.",
       [
         "Breakfast / lunch: buffet or dining room — already in the fare",
-        "Dinner: main dining room every night on Lean",
+        "Dinner: main dining room every night on Budget",
         "Drinks: pay-as-you-go; run the break-even before a package",
         "Skip specialty and the café latte habit"
       ],
@@ -1102,7 +1102,7 @@
       [
         "Dining room + one or two specialty reservations (Italian / steak / sushi)",
         "Chef’s table or a specialty brunch leftover-only",
-        "Unlimited adult drinks + kids soda are in this Stretch plan — still run the math",
+        "Unlimited adult drinks + kids soda are in this Splurge plan — still run the math",
         "Specialty is leftover, not a nightly habit"
       ]
     ),
@@ -1143,7 +1143,7 @@
       ],
       [
         "Breakfast: Republique or Gjusta — reservation or early walk-in",
-        "Lunch: n/naka adjacent is Stretch dinner; lunch is still a market or Langer’s",
+        "Lunch: n/naka adjacent is Splurge dinner; lunch is still a market or Langer’s",
         "Dinner reservation: Providence, Bestia, or n/naka — book before you fly",
         "Hotel restaurants and a WeHo-to-Santa-Monica dinner are the overrun"
       ]
@@ -1248,7 +1248,7 @@
       ],
       [
         "Breakfast: café, not a resort buffet",
-        "Lunch: still tacos — Stretch does not require a steak at noon",
+        "Lunch: still tacos — Splurge does not require a steak at noon",
         "Dinner reservation: Addison (Del Mar) or a waterfront table leftover-only",
         "One splurge"
       ]
@@ -1259,7 +1259,7 @@
         "Breakfast: Cuban café (Versailles or a ventanita), not Ocean Drive",
         "Lunch: Cuban sandwich or a food hall (Time Out Market)",
         "Dinner: Little Havana or Wynwood, not the hotel",
-        "Skip the beach-club bottle service on Lean"
+        "Skip the beach-club bottle service on Budget"
       ],
       [
         "Breakfast: Cuban coffee + toastado",
@@ -1417,7 +1417,7 @@
       [
         "On-property fine dining",
         "One named off-property reservation leftover",
-        "Sandals / Couples specialty rooms are the Stretch product",
+        "Sandals / Couples specialty rooms are the Splurge product",
         "Transfer time is still a cost"
       ]
     ),
@@ -1448,7 +1448,7 @@
         "Breakfast: panadería + coffee in Roma",
         "Lunch: mercado or street tacos",
         "Dinner: Condesa or Juárez, not the hotel",
-        "Skip Polanco hotel dining on Lean"
+        "Skip Polanco hotel dining on Budget"
       ],
       [
         "Breakfast: café in Roma",
@@ -1479,7 +1479,7 @@
       ],
       [
         "Breakfast: café once",
-        "Lunch: still stalls — Stretch does not require a mall",
+        "Lunch: still stalls — Splurge does not require a mall",
         "Dinner reservation: a named riverside or tasting leftover",
         "One splurge"
       ]
@@ -1616,7 +1616,7 @@
         "Breakfast: hotel-included only if it is in the rate",
         "Lunch: Creekside or Deira, not a mall every day",
         "Dinner: cheap eats in Bur Dubai",
-        "Skip the fountain-view restaurant on Lean"
+        "Skip the fountain-view restaurant on Budget"
       ],
       [
         "Breakfast: café or included buffet",
@@ -1908,7 +1908,7 @@
         "Park Hopper + Lightning Lane Multi Pass (ticketed)",
         "Early theme-park entry from Deluxe (included with that lodging)",
         "Signature dinner + fireworks viewing leftover-only (ticketed)",
-        "Memory Maker / PhotoPass is in Stretch only if leftover covers it (ticketed)"
+        "Memory Maker / PhotoPass is in Splurge only if leftover covers it (ticketed)"
       ]
     ),
     cruise: A(
@@ -1926,7 +1926,7 @@
       ],
       [
         "Two ship excursions if leftover covers the “we wait for you” insurance (ticketed)",
-        "Drink package is in this Stretch plan — still run the math (optional)",
+        "Drink package is in this Splurge plan — still run the math (optional)",
         "A quieter private beach or small-group tour on one island (tour)",
         "Spa or specialty night leftover-only — already its own line"
       ]
@@ -1967,7 +1967,7 @@
       [
         "Broadway reserved seat + one observatory (ticketed)",
         "A second museum or a guided food walk leftover (ticketed / tour)",
-        "Neighborhood walk still — Stretch does not cancel the street (free)",
+        "Neighborhood walk still — Splurge does not cancel the street (free)",
         "Skip stacking three observatories"
       ]
     ),
@@ -1976,7 +1976,7 @@
         "Île de la Cité + Left Bank walk — Notre-Dame exterior, Seine (free)",
         "Père Lachaise or Canal Saint-Martin walk (free)",
         "One museum: Orsay or a smaller one, not a four-museum day (ticketed)",
-        "Eiffel Tower from Trocadéro or Champ de Mars, not the summit on Lean (free)"
+        "Eiffel Tower from Trocadéro or Champ de Mars, not the summit on Budget (free)"
       ],
       [
         "Louvre or Orsay — pick one timed ticket (ticketed)",
@@ -1995,14 +1995,14 @@
       [
         "Fountains, Bellagio conservatory, and a Fremont walk (free)",
         "One cheap daytime ticket if leftover — High Roller off-peak (ticketed)",
-        "Skip a nightclub table on Lean",
+        "Skip a nightclub table on Budget",
         "Walk the Center-Strip; the monorail is a backup"
       ],
       [
         "One show (O, a mid-room, or a production) (ticketed)",
         "One daytime ticket — High Roller, a museum, or Red Rock if you have a car (ticketed / free)",
         "Fountains + Fremont still (free)",
-        "Club table is Stretch, not mid"
+        "Club table is Splurge, not mid"
       ],
       [
         "A reserved Cirque or a flagship residency (ticketed)",
@@ -2036,7 +2036,7 @@
         "Balboa Park gardens + a free museum day if the calendar lines up (free / ticketed)",
         "Harbor walk or Coronado ferry (cheap)",
         "One beach day in the town you booked (free)",
-        "Skip SeaWorld on Lean unless that is the trip"
+        "Skip SeaWorld on Budget unless that is the trip"
       ],
       [
         "Zoo or USS Midway — pick one (ticketed)",
@@ -2056,7 +2056,7 @@
         "Beach day in the town you booked (free)",
         "Wynwood Walls from the sidewalk; skip a bottle-service club (free / cheap)",
         "Little Havana walk + Cuban coffee (cheap)",
-        "Everglades is a half-day tour, not a Lean default"
+        "Everglades is a half-day tour, not a Budget default"
       ],
       [
         "Beach + one ticketed — Vizcaya or a boat (ticketed)",
@@ -2076,7 +2076,7 @@
         "South Bank walk: London Eye exterior, Tate Modern turbine hall (free)",
         "A national museum — British Museum or National Gallery (free)",
         "One neighborhood: Columbia Road or a market (free / cheap)",
-        "Skip a paid Eye ticket on Lean"
+        "Skip a paid Eye ticket on Budget"
       ],
       [
         "One paid iconic — Tower, Eye, or a West End rush (ticketed)",
@@ -2095,7 +2095,7 @@
       [
         "Centro walk: Pantheon exterior, Piazza Navona, Trevi as a pass-through (free)",
         "Trastevere evening walk (free)",
-        "One ticketed — Colosseum or Borghese, not both on Lean (ticketed)",
+        "One ticketed — Colosseum or Borghese, not both on Budget (ticketed)",
         "Skip the golf-cart forum tour"
       ],
       [
@@ -2136,7 +2136,7 @@
         "Waikiki Beach + a bus to Diamond Head or the lookout (cheap / ticketed)",
         "Grocery picnic at Kapiolani Park (free)",
         "Pearl Harbor is ticketed and somber — one morning, not a beach day",
-        "Skip a circle-island tour on Lean; the bus is slower and cheaper"
+        "Skip a circle-island tour on Budget; the bus is slower and cheaper"
       ],
       [
         "Hanauma Bay or a snorkel day — reserve Hanauma (ticketed)",
@@ -2155,7 +2155,7 @@
       [
         "The beach in front of the condo — that is the product (free)",
         "Grocery picnic and a snorkel from shore (cheap)",
-        "Skip Road to Hana as a rushed day on Lean",
+        "Skip Road to Hana as a rushed day on Budget",
         "Watch sunrise from the parking lot you already paid, not a tour van"
       ],
       [
@@ -2175,7 +2175,7 @@
       [
         "Beach in front of the resort — that is the product (free / included)",
         "One downtown or Hotel Zone walk, not a timeshare day (free)",
-        "Skip the dock-priced catamaran on Lean",
+        "Skip the dock-priced catamaran on Budget",
         "Snorkel from the property if the reef is there (included / cheap)"
       ],
       [
@@ -2200,7 +2200,7 @@
       [
         "Beach and the property — that is the product (included)",
         "One town walk with a pre-booked ride, not a timeshare day (cheap)",
-        "Skip the dock-priced catamaran on Lean",
+        "Skip the dock-priced catamaran on Budget",
         "Snorkel from the property if it exists (included / cheap)"
       ],
       [
@@ -2220,7 +2220,7 @@
       [
         "One iconic exterior + a neighborhood walk (free)",
         "A free museum night or a park (free / cheap)",
-        "Skip a hop-on bus on Lean",
+        "Skip a hop-on bus on Budget",
         "Transit day pass beats a rideshare loop"
       ],
       [
@@ -2261,7 +2261,7 @@
         "The beach in front of the room (free)",
         "A lookout or a short hike on the bus or a cheap parking lot (cheap)",
         "Grocery picnic (cheap)",
-        "Skip the circle-island van on Lean"
+        "Skip the circle-island van on Budget"
       ],
       [
         "One snorkel or a ticketed bay (ticketed)",
@@ -2341,7 +2341,7 @@
         "Harbor or trail walk (free)",
         "A city lookout that is free from the street (free)",
         "One cheap ferry if that is the postcard (cheap)",
-        "Skip every adventure add-on on Lean"
+        "Skip every adventure add-on on Budget"
       ],
       [
         "One ticketed iconic or a short hike with a shuttle (ticketed)",

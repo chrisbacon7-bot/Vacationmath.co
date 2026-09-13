@@ -49,7 +49,9 @@ REQUIRED.forEach(function (id) {
   ["stayLead", "eatLead", "doLead", "stayTitle", "eatTitle", "doTitle"].forEach(function (k) {
     if (!g[k] || String(g[k]).length < 12) errors.push(id + ": weak " + k);
   });
-  if (!g.base || !g.base.lean || !g.base.stretch) errors.push(id + ": need base.lean and base.stretch");
+  if (!g.base || !g.base.lede || String(g.base.lede).length < 20) errors.push(id + ": weak base.lede");
+  const bullets = (g.base && g.base.bullets) || [];
+  if (bullets.length !== 2) errors.push(id + ": base.bullets " + bullets.length + " (need 2)");
   if (!g.skip || g.skip.length < 1 || g.skip.length > 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 1–3)");
   const tips = g.tips || [];
   if (tips.length < 5 || tips.length > 8) errors.push(id + ": tips " + tips.length + " (need 5–8)");
@@ -61,15 +63,13 @@ REQUIRED.forEach(function (id) {
   if (hooks[g.hook]) errors.push(id + ": hook repeats " + hooks[g.hook]);
   hooks[g.hook] = id;
 
-  if (DEEP.indexOf(id) >= 0) {
-    if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
-    (g.days || []).forEach(function (d, i) {
-      if (!d.title || !d.body || d.body.length < 40) errors.push(id + ": weak day " + (i + 1));
-    });
-    ["stayProse", "eatProse", "doProse"].forEach(function (k) {
-      if (!g[k] || g[k].length < 1) errors.push(id + ": missing " + k);
-    });
-  }
+  if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
+  (g.days || []).forEach(function (d, i) {
+    if (!d.title || !d.body || d.body.length < 40) errors.push(id + ": weak day " + (i + 1));
+  });
+  ["stayProse", "eatProse", "doProse"].forEach(function (k) {
+    if (!g[k] || g[k].length < 1) errors.push(id + ": missing " + k);
+  });
 
   const html = path.join(root, "guides", id + ".html");
   if (!fs.existsSync(html)) errors.push(id + ": missing guides/" + id + ".html");
@@ -89,10 +89,17 @@ REQUIRED.forEach(function (id) {
     const article = body.split("</article>")[0] || body;
     const orientCount = (article.match(/VacationMath orientation/g) || []).length;
     if (orientCount > 1) errors.push(id + ": orientation badge repeated " + orientCount + " times in article");
-    if (DEEP.indexOf(id) >= 0) {
-      if (src.indexOf("cg-days") < 0) errors.push(id + ": 3-day skeleton missing from HTML");
-      if (src.indexOf("cg-base") < 0) errors.push(id + ": base callout missing from HTML");
-      if (src.indexOf("cg-skip") < 0) errors.push(id + ": skip section missing from HTML");
+    if (src.indexOf("cg-days") < 0) errors.push(id + ": 3-day skeleton missing from HTML");
+    if (src.indexOf("cg-base") < 0) errors.push(id + ": base callout missing from HTML");
+    if (src.indexOf("cg-skip") < 0) errors.push(id + ": skip section missing from HTML");
+    if (/\bLean\b/.test(src) || /\bStretch\b/.test(src) || /Solid stay|Solid list|Lean \/ Solid/.test(src)) {
+      errors.push(id + ": leftover Lean/Solid/Stretch in HTML");
+    }
+    if (src.indexOf("Same Lean") >= 0 || src.indexOf("Same Budget / Mid-range / Splurge hotel names") >= 0) {
+      errors.push(id + ": robotic hotel cross-link");
+    }
+    if ((src.match(/cg-band-label/g) || []).length >= 6) {
+      errors.push(id + ": still dumping triad band stacks");
     }
   }
 
@@ -124,4 +131,4 @@ if (errors.length) {
   console.error("FAIL\n" + errors.join("\n"));
   process.exit(1);
 }
-console.log("ok 20 city briefs — editorial fields, static HTML, 5–8 tips, Lean/Solid/Stretch hotels");
+console.log("ok 20 city briefs — editorial fields, static HTML, 5–8 tips, Budget/Mid-range/Splurge labels");
