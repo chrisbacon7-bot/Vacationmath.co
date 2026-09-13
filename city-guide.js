@@ -1,11 +1,13 @@
 /* =====================================================================
-   Vacation Math — city brief renderer
+   Vacation Math — money guide renderer
    Builds printable HTML from VM_CITY_GUIDES + VM_PLAN_DATA.
    Works in the browser and in Node (scripts/build-city-guides.js).
    If the page already has static .cg-hero content, JS only wires print.
    ===================================================================== */
 (function (global) {
   "use strict";
+
+  var DISCLAIMER = "Estimates for planning — not live hotel quotes";
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -114,7 +116,7 @@
         spend += "<p><strong>Need to spend less?</strong> Look at " + esc(less.join(" or ")) + ".</p>";
       }
       if (more.length) {
-        spend += "<p><strong>If leftover is real?</strong> " + esc(more.join(" or ")) + ". Still one base — do not hotel-hop.</p>";
+        spend += "<p><strong>If you have room in the budget?</strong> " + esc(more.join(" or ")) + ". Still one base — do not hotel-hop.</p>";
       }
       spend += "</div>";
     }
@@ -166,7 +168,7 @@
         body += "<p class=\"cg-subhead\">Free on purpose</p>" + nameWhyList(free, 4);
       }
       if (paid.length) {
-        body += "<p class=\"cg-subhead\">One ticket if leftover is real</p>" + nameWhyList(paid, 3);
+        body += "<p class=\"cg-subhead\">Worth a ticket if you have room in the budget</p>" + nameWhyList(paid, 3);
       }
     }
     return ""
@@ -243,18 +245,18 @@
 
     return ""
       + "<div class=\"cg-print-bar cg-no-print\">"
-      +   "<p class=\"cg-print-bar-note\">Printable brief. In the dialog, choose <strong>Save as PDF</strong>.</p>"
+      +   "<p class=\"cg-print-bar-note\">Download / Print money guide. In the dialog, choose <strong>Save as PDF</strong>.</p>"
       +   "<button type=\"button\" class=\"cg-print-btn\" data-cg-print>"
       +     "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"/></svg>"
-      +     "Download / Print guide"
+      +     "Download / Print money guide"
       +   "</button>"
       + "</div>"
 
       + "<header class=\"cg-hero\" data-cg-static=\"1\">"
-      +   "<p class=\"cg-kicker\">" + esc(guide.kicker || ("City brief · " + guide.place)) + "</p>"
+      +   "<p class=\"cg-kicker\">" + esc(guide.kicker || ("One neighborhood · " + guide.place)) + "</p>"
       +   "<h1 class=\"cg-h1\">" + esc(guide.label) + "</h1>"
       +   "<p class=\"cg-hook\">" + esc(guide.hook) + "</p>"
-      +   "<p class=\"cg-orient\">VacationMath orientation — not live rates</p>"
+      +   "<p class=\"cg-orient\">" + DISCLAIMER + "</p>"
       +   "<p class=\"cg-crumb\"><a href=\"/guides\">All guides</a> · <a href=\"" + planHref + "\">Build a hard-budget plan</a></p>"
       + "</header>"
 
@@ -320,7 +322,7 @@
       +   "<p>Same 2026 hotel, food, and activity lists — constrained to a number you can actually spend.</p>"
       +   "<div class=\"cg-cta-row\">"
       +     "<a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Plan " + esc(guide.short || guide.label) + " &rarr;</a>"
-      +     "<a class=\"cg-btn cg-btn-ghost\" href=\"/guides\">All city briefs</a>"
+      +     "<a class=\"cg-btn cg-btn-ghost\" href=\"/guides#money-guides\">All money guides</a>"
       +   "</div>"
       +   (related ? "<ul class=\"cg-related\">" + related + "</ul>" : "")
       +   "<form class=\"capture\" data-source=\"city-guide-" + esc(id) + "\" novalidate>"
@@ -332,12 +334,12 @@
       +   "</form>"
       + "</section>"
 
-      + "<nav class=\"cg-more cg-no-print\" aria-label=\"Other city briefs\">"
-      +   "<h2>Other destination briefs</h2>"
+      + "<nav class=\"cg-more cg-no-print\" aria-label=\"Other money guides\">"
+      +   "<h2>Other money guides</h2>"
       +   "<div class=\"cg-more-grid\">" + more + "</div>"
       + "</nav>"
 
-      + "<p class=\"cg-fine\">Vacation Math city brief · 2026 orientation data · estimates, not live quotes · "
+      + "<p class=\"cg-fine\">Vacation Math money guide · " + DISCLAIMER + " · "
       + esc(guide.label) + " · vacationmath.co/guides/" + esc(id) + "</p>";
   }
 
@@ -381,7 +383,7 @@
       var staticOk = root.querySelector("[data-cg-static], .cg-hero");
       if (!staticOk) {
         if (guide) root.innerHTML = renderGuide(guide);
-        else root.innerHTML = "<p>Unknown destination. <a href=\"/guides\">See all city briefs</a>.</p>";
+        else root.innerHTML = "<p>Unknown destination. <a href=\"/guides#money-guides\">See all money guides</a>.</p>";
       }
       wirePrint(root);
       try {
@@ -390,14 +392,14 @@
         }
       } catch (e) {}
     }
-    var index = document.getElementById("city-briefs-grid");
+    var index = document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid");
     if (index && !index.querySelector(".cg-index-card")) {
       index.innerHTML = renderIndexCards();
     }
   }
 
   if (typeof document !== "undefined") {
-    if (document.getElementById("city-guide-root") || document.getElementById("city-briefs-grid")) {
+    if (document.getElementById("city-guide-root") || document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid")) {
       boot();
     } else if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", boot);

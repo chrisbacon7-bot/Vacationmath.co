@@ -408,6 +408,60 @@ button.plan-tier-card:focus-visible {
   font-size: 0.88rem;
   color: var(--muted, #6B6660);
 }
+.plan-money-guide {
+  margin: 16px 0 22px;
+  padding: 16px 18px 18px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1.5px solid var(--hairline, #D9D5CC);
+  box-shadow: 0 1px 0 rgba(14, 42, 71, 0.04);
+}
+.plan-money-guide-kicker {
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--honey, #E6A340);
+}
+.plan-money-guide-title {
+  margin: 0 0 6px;
+  font-family: var(--font-display, 'Fraunces', serif);
+  font-size: 1.2rem;
+  color: var(--navy, #0E2A47);
+}
+.plan-money-guide-copy {
+  margin: 0 0 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted, #6B6660);
+}
+.plan-money-guide-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+}
+.plan-money-guide-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--honey, #E6A340);
+  color: var(--navy, #0E2A47);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+.plan-money-guide-btn:hover,
+.plan-money-guide-btn:focus-visible {
+  background: var(--honey-soft, #F2C879);
+}
+.plan-money-guide-print {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy, #0E2A47);
+}
 @media (max-width: 560px) {
   .plan-book { padding: 4px 12px 6px; }
   .plan-book-row {

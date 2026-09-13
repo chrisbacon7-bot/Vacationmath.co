@@ -1,6 +1,6 @@
 /* =====================================================================
-   Vacation Math — printable city briefs
-   Editorial brief, not form output. Honey / navy tips box sits last.
+   Vacation Math — printable money guides
+   Editorial money guide, not form output. Honey / navy tips box sits last.
    ===================================================================== */
 
 .cg-page {
@@ -640,7 +640,7 @@
   text-decoration: none;
 }
 
-/* Print / Save as PDF — full brief, tips kept */
+/* Print / Save as PDF — full money guide, tips kept */
 @media print {
   @page {
     margin: 0.55in;

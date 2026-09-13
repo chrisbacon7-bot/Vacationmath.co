@@ -55,30 +55,30 @@
   }
 
   function thickenHotels() {
-    appendHotel("disney", "budget", ["All-Star Music — Value, same bus grid, sometimes quieter than Movies", "Pop Century preferred-view only if leftover covers the walk you will not take"]);
-    appendHotel("disney", "mid", ["Port Orleans Riverside — Moderate, request Magnolia Bend if leftover is real", "Caribbean Beach Riviera-side — Skyliner without the Deluxe rate"]);
-    appendHotel("disney", "lux", ["Wilderness Lodge / Boulder Ridge — Deluxe, boat to Magic Kingdom", "Club level only if leftover is a nightly number you already priced"]);
+    appendHotel("disney", "budget", ["All-Star Music — Value, same bus grid, sometimes quieter than Movies", "Pop Century preferred-view only if you have room in the budget for the walk you will not take"]);
+    appendHotel("disney", "mid", ["Port Orleans Riverside — Moderate, request Magnolia Bend if you have room in the budget", "Caribbean Beach Riviera-side — Skyliner without the Deluxe rate"]);
+    appendHotel("disney", "lux", ["Wilderness Lodge / Boulder Ridge — Deluxe, boat to Magic Kingdom", "Club level only if that is a nightly number you already priced"]);
     appendHotel("cruise", "budget", ["Guarantee interior on a 7-night Caribbean — you bought the itinerary, not the porthole", "Skip the drink-package upsell at check-in; the cabin is not the leak"]);
-    appendHotel("cruise", "mid", ["Balcony midship on the itinerary you already chose — not a second ship hop", "Oceanview if the balcony jump eats the leftover you wanted for a port day"]);
-    appendHotel("cruise", "lux", ["Aft-wrap balcony leftover — the wake is the product", "Suite gratuities are a line; price them before you tap yes"]);
+    appendHotel("cruise", "mid", ["Balcony midship on the itinerary you already chose — not a second ship hop", "Oceanview if the balcony jump eats the extra budget you wanted for a port day"]);
+    appendHotel("cruise", "lux", ["Aft-wrap balcony only if you're spending more — the wake is the product", "Suite gratuities are a line; price them before you tap yes"]);
     appendHotel("cancun", "budget", ["Hotel Zone 3-star on the bus strip — garden view on purpose", "Skip the timeshare-day “free” upgrade; it is a half-day tax"]);
     appendHotel("cancun", "mid", ["Dreams or Secrets Hotel Zone class — adults-only mid if there are no kids", "Confirm the airport transfer is in the rate, not a dock surprise"]);
     appendHotel("cancun", "lux", ["Nizuc / Rosewood Mayakobá class — south of the Zone; a different transfer", "One property. Two resorts in a week is a transfer tax"]);
     appendHotel("los_angeles", "budget", ["Moxy or a compact Downtown 2-star — walk to Grand Central Market and the Metro", "Silver Lake / Echo Park 2-star only if that is the neighborhood you will eat in"]);
-    appendHotel("los_angeles", "mid", ["The LINE Koreatown — late food, one rideshare zone, skip the Valley commute", "Kimpton La Peer or a WeHo 3–4 star — one pocket, not beach-plus-hills"]);
+    appendHotel("los_angeles", "mid", ["The LINE Koreatown — late food, one rideshare zone, skip the Valley commute", "Kimpton La Peer or a WeHo 3–4 star — one neighborhood, not beach-plus-hills"]);
     appendHotel("los_angeles", "lux", ["Pendry West Hollywood — Sunset-adjacent; you will still rideshare to dinner", "Shutters or Casa del Mar if the beach is the point — not a WeHo-and-Santa-Monica hop"]);
     appendHotel("nyc", "budget", ["citizenM Bowery or a LES compact room — walk to a train, skip Times Square", "A Brooklyn 2-star on the G or L — cheaper nights, one subway zone"]);
-    appendHotel("nyc", "mid", ["The Hoxton Williamsburg — north Brooklyn restaurants, not a Midtown tower", "Arlo Nomad or The Ludlow — compact 3–4 star, subway in the pocket"]);
-    appendHotel("nyc", "lux", ["The Greenwich Hotel or The Public class — Downtown, leftover only", "One flagship. A second Midtown suite is not Splurge, it is a mistake"]);
-    appendHotel("paris", "budget", ["2-star near République or Oberkampf — bakery downstairs, Metro in five minutes", "Hotel F1 / Ibis Budget on a Metro line if you land late — then own that pocket"]);
+    appendHotel("nyc", "mid", ["The Hoxton Williamsburg — north Brooklyn restaurants, not a Midtown tower", "Arlo Nomad or The Ludlow — compact 3–4 star, subway in the neighborhood"]);
+    appendHotel("nyc", "lux", ["The Greenwich Hotel or The Public class — Downtown, only if you're spending more", "One flagship. A second Midtown suite is not Splurge, it is a mistake"]);
+    appendHotel("paris", "budget", ["2-star near République or Oberkampf — bakery downstairs, Metro in five minutes", "Hotel F1 / Ibis Budget on a Metro line if you land late — then stay in that neighborhood"]);
     appendHotel("paris", "mid", ["Hotel near Luxembourg or Bastille — one arrondissement, skip nightly hops", "Aparthotel 3–4 star if you will grocery two breakfasts"]);
-    appendHotel("paris", "lux", ["Lutetia-class Left Bank — leftover if the name is the point", "Palace breakfast is a line. Mid Paris already eats a US budget"]);
+    appendHotel("paris", "lux", ["Lutetia-class Left Bank — only if you're spending more and the name is the point", "Palace breakfast is a line. Mid Paris already eats a US budget"]);
     appendHotel("vegas", "budget", ["Downtown Circa-adjacent or a Fremont 2-star — walk the lights, skip the Strip tram math", "Palms or a Station property — cheaper room, one rideshare to the Center-Strip"]);
     appendHotel("vegas", "mid", ["Horseshoe or New York-New York — Center-Strip walk, not a suite", "Venetian mid-week — huge campus; you came to walk, not to Uber"]);
     appendHotel("vegas", "lux", ["Cosmopolitan or Aria class — Center-Strip suite vibe without inventing a rate", "Weekend and holiday weeks double midweek. Price Tuesday if you can"]);
     appendHotel("san_francisco", "budget", ["The Marker or a Union Square-adjacent limited-service — BART downstairs", "A Tenderloin-edge 2-star only if you know the block; grocery in walking distance"]);
     appendHotel("san_francisco", "mid", ["Hotel Emeline or a Jackson Square boutique — walk to the Ferry Building", "Inn at the Presidio class — quieter; you traded nightlife for the park"]);
-    appendHotel("san_francisco", "lux", ["1 Hotel San Francisco or a waterfront flagship — Embarcadero walk", "St. Regis / Four Seasons SoMa — walk to SFMOMA, leftover only"]);
+    appendHotel("san_francisco", "lux", ["1 Hotel San Francisco or a waterfront flagship — Embarcadero walk", "St. Regis / Four Seasons SoMa — walk to SFMOMA, only if you're spending more"]);
     appendHotel("san_diego", "budget", ["Gaslamp limited-service on the trolley — skip Hotel Circle / Mission Valley", "Pacific Beach motel class — beach grid if you will not Uber every meal"]);
     appendHotel("san_diego", "mid", ["Kona Kai or Shelter Island 3-star — water, still a rideshare to Downtown", "Little Italy 3–4 star — walk to dinner, trolley to the park"]);
     appendHotel("san_diego", "lux", ["Fairmont Grand Del Mar or Lodge at Torrey Pines — north, car assumed", "1 Hotel San Diego or Pendry harbor walk — one waterfront, not Hotel Circle"]);
@@ -86,44 +86,44 @@
     appendHotel("miami", "mid", ["Renovated Art Deco 3–4 star on Collins — South Beach walk, not Ocean Drive tax", "Kimpton EPIC or a Brickell 4-star — bay, better food walking"]);
     appendHotel("miami", "lux", ["Faena or The Setai — Mid-Beach, quieter than Ocean Drive", "Edition or Four Seasons Surf Club — one flagship, not two neighborhoods"]);
     appendHotel("london", "budget", ["Premier Inn County Hall or South Bank limited-service — river walk, not a West End rate", "Travelodge King’s Cross or Earl’s Court — Zone 1–2, Tesco downstairs"]);
-    appendHotel("london", "mid", ["The Resident Kensington or a South Ken 3–4 star — museums + Tube", "Kimpton Fitzroy / Bloomsbury 4-star — Russell Square pocket"]);
-    appendHotel("london", "lux", ["Claridge’s or The Connaught — Mayfair leftover only", "One Aldwych or Covent Garden Hotel — theatre pocket without a palace rate"]);
+    appendHotel("london", "mid", ["The Resident Kensington or a South Ken 3–4 star — museums + Tube", "Kimpton Fitzroy / Bloomsbury 4-star — Russell Square area"]);
+    appendHotel("london", "lux", ["Claridge’s or The Connaught — Mayfair only if you're spending more", "One Aldwych or Covent Garden Hotel — theatre area without a palace rate"]);
     appendHotel("rome", "budget", ["Prati guesthouse near Ottaviano — Metro to the Vatican, calmer than the centro", "The Beehive or a Termini 2-star — trains, louder nights, pack light"]);
     appendHotel("rome", "mid", ["Hotel de’ Ricci or Campo de’ Fiori boutique — walk everywhere, skip taxis", "Prati 4-star near Ottaviano if the centro is sold out"]);
-    appendHotel("rome", "lux", ["Hassler or Hotel Eden — Spanish Steps / Via Veneto above the crush", "Pantheon-adjacent 5-star leftover only — Rome mid plus one dinner often wins"]);
+    appendHotel("rome", "lux", ["Hassler or Hotel Eden — Spanish Steps / Via Veneto above the crush", "Pantheon-adjacent 5-star only if you're spending more — Rome mid plus one dinner often wins"]);
     appendHotel("tokyo", "budget", ["Sakura Hotel Jimbocho or an Asakusa hostel-plus — walk to a Metro", "Nine Hours capsule only if you packed a cube — Budget crash-pad, not a week"]);
     appendHotel("tokyo", "mid", ["The Knot Tokyo Shinjuku or a 4-star near Tokyo Station — trains, not a JR-pass spreadsheet", "Hotel Gracery Shinjuku / Shibuya Stream Excel — neighborhood walking"]);
     appendHotel("tokyo", "lux", ["Palace Hotel Tokyo or Hoshinoya Tokyo — Imperial-garden or courtyard quiet", "Park Hyatt Shinjuku — the view; you still take the Metro to dinner"]);
     appendHotel("oahu", "budget", ["The Equus or a Kuhio Avenue 2-star — one block back, same beach", "HI Waikiki or a studio condo — kitchenette beats resort breakfast"]);
     appendHotel("oahu", "mid", ["The Laylow or ‘Alohilani — Waikiki 4-star, still no car required", "Hilton Hawaiian Village — huge campus; you came for the lagoon, not the boutique"]);
-    appendHotel("oahu", "lux", ["Halekulani or Royal Hawaiian — Waikiki luxury if you refuse to leave the grid", "Four Seasons Ko Olina or Aulani — west side, car assumed, leftover + kids"]);
+    appendHotel("oahu", "lux", ["Halekulani or Royal Hawaiian — Waikiki luxury if you refuse to leave the grid", "Four Seasons Ko Olina or Aulani — west side, car assumed, if you have room in the budget + kids"]);
     appendHotel("maui", "budget", ["Kohea Kai or a South Kihei studio — walk to a food truck, grocery the first hour", "Paia 2-star — north shore if you will not sit in Kaanapali traffic"]);
     appendHotel("maui", "mid", ["Hyatt Regency Maui — Kaanapali Beach, bigger campus", "Wailea Ekahi or a Kihei-plus condo — kitchen still wins some dinners"]);
-    appendHotel("maui", "lux", ["Andaz Maui or Four Seasons Maui — same Wailea pocket, leftover only", "Hotel Wailea adults-only — quieter hill; you will still drive to dinner"]);
+    appendHotel("maui", "lux", ["Andaz Maui or Four Seasons Maui — same Wailea area, only if you're spending more", "Hotel Wailea adults-only — quieter hill; you will still drive to dinner"]);
     appendHotel("punta_cana", "budget", ["Grand Palladium-adjacent value — confirm the transfer is in the rate", "Skip Cap Cana on Budget; Bávaro is the value beach"]);
     appendHotel("punta_cana", "mid", ["Iberostar Selection Bávaro — all-inclusive, beach", "Secrets Cap Cana is Splurge-adjacent; mid stays in Bávaro"]);
-    appendHotel("punta_cana", "lux", ["Eden Roc at Cap Cana — Splurge villa class", "Sanctuary Cap Cana — same pocket, not a second island hop"]);
+    appendHotel("punta_cana", "lux", ["Eden Roc at Cap Cana — Splurge villa class", "Sanctuary Cap Cana — same area, not a second island hop"]);
     appendHotel("jamaica", "budget", ["Legends or a Negril 3-star walk-to-beach — skip the MoBay hotel restaurant", "Price the transfer as its own line; Negril is not next to the runway"]);
     appendHotel("jamaica", "mid", ["Moon Palace Jamaica — all-inclusive mid", "Couples Swept Away or a Negril 4-star — beach, adults or family by brand"]);
-    appendHotel("jamaica", "lux", ["Round Hill or Half Moon — villa stretch, MoBay side", "Rockhouse or a Negril cliff boutique — leftover, not a fake rate"]);
+    appendHotel("jamaica", "lux", ["Round Hill or Half Moon — villa stretch, MoBay side", "Rockhouse or a Negril cliff boutique — only if you're spending more, not a fake rate"]);
     appendHotel("barcelona", "budget", ["Hotel Jazz or a 2-star Eixample — walk to Passeig de Gràcia", "El Born guesthouse — restaurants on the block, skip the Ramblas address"]);
     appendHotel("barcelona", "mid", ["H10 Casa Mimosa or Cotton House class — Eixample, Metro in five minutes", "W Barcelona is Splurge; mid is Barceloneta 3-star or Born boutique"]);
     appendHotel("barcelona", "lux", ["Mandarin Oriental Barcelona — Passeig de Gràcia", "Hotel Arts or El Palace — one flagship"]);
     appendHotel("mexico_city", "budget", ["Hostal Regina or a Centro hostel-plus — Zócalo walking, noisier nights", "Condesa 2-star — park walks, street food on the block"]);
     appendHotel("mexico_city", "mid", ["The Hoxton Roma or Brick Hotel — walkable Roma", "Downtown México or a Centro 4-star — rooftop; you still eat in Roma"]);
-    appendHotel("mexico_city", "lux", ["St. Regis or Las Alcobas Polanco — leftover", "Casa Polanco or a design flagship — one pocket"]);
+    appendHotel("mexico_city", "lux", ["St. Regis or Las Alcobas Polanco — only if you're spending more", "Casa Polanco or a design flagship — one neighborhood"]);
     appendHotel("thailand", "budget", ["Lub d or a hostel-plus in Silom / Chiang Mai old city — walk to food stalls", "Boutique guesthouse on the Ping or Chao Phraya — fan room is fine"]);
     appendHotel("thailand", "mid", ["Shangri-La-adjacent riverside — river boat to dinner", "Chiang Mai Nimman 4-star if you split the trip — one city per stay"]);
     appendHotel("thailand", "lux", ["Capella Bangkok — same river, Splurge", "Four Seasons Chiang Mai if the north is the point — do not also buy Phuket mid-trip"]);
     appendHotel("nola", "budget", ["The Drifter or a Mid-City motel-plus — Canal streetcar to the Quarter", "Henry Howard-adjacent Garden District guesthouse — quieter, still a streetcar"]);
     appendHotel("nola", "mid", ["The Pontchartrain or a Garden District 3–4 star — St. Charles line", "Omni Royal Orleans class — Quarter if you accept the premium"]);
-    appendHotel("nola", "lux", ["Hotel Monteleone — Quarter flagship, leftover", "Maison de la Luz or The Chloe — design Splurge"]);
+    appendHotel("nola", "lux", ["Hotel Monteleone — Quarter flagship, only if you're spending more", "Maison de la Luz or The Chloe — design Splurge"]);
     appendHotel("chicago", "budget", ["Hampton or a Loop limited-service — trains downstairs", "Fulton Market 2–3 star if you want restaurants over the Mag Mile"]);
     appendHotel("chicago", "mid", ["Hotel Lincoln or a Gold Coast 3–4 star — park and bus", "LondonHouse or a River North 4-star — river walk, not a suburban rate"]);
     appendHotel("chicago", "lux", ["The Peninsula Chicago — Mag Mile flagship", "St. Regis or Four Seasons — one tower; winter rates are the value window"]);
     appendHotel("amsterdam", "budget", ["Ibis Budget near Sloterdijk or Amstel — tram to the center", "Hotel Not Hotel or a De Pijp 2-star — neighborhood, pack light"]);
     appendHotel("amsterdam", "mid", ["Hotel Casa or a De Pijp boutique — restaurants on the block", "Conservatorium is Splurge; mid is a canal 4-star without the garden rate"]);
-    appendHotel("amsterdam", "lux", ["Conservatorium — Museumplein leftover", "De L’Europe or Waldorf Astoria — one flagship; skip King’s Day and August if you can"]);
+    appendHotel("amsterdam", "lux", ["Conservatorium — Museumplein only if you're spending more", "De L’Europe or Waldorf Astoria — one flagship; skip King’s Day and August if you can"]);
     appendHotel("lisbon", "budget", ["The Independente or Intendente 2-star — neighborhood restaurants", "Alfama guesthouse — views, stairs, grocery the first morning"]);
     appendHotel("lisbon", "mid", ["Hotel da Baixa or a 4-star near Rossio — trains and trams", "LX Boutique or a Cais do Sodré 3-star — river, nightlife on the block"]);
     appendHotel("lisbon", "lux", ["Four Seasons Ritz Lisbon — park-adjacent flagship", "Tivoli Avenida Liberdade — one boulevard"]);
@@ -135,7 +135,7 @@
     appendHotel("bali", "lux", ["Bulgari or Alila Villas Uluwatu — cliff Splurge", "Como Uma or a Seminyak villa — one property"]);
     appendHotel("dubai", "budget", ["Deira 3-star near a Metro — creek, cheaper nights", "Bur Dubai heritage-adjacent 3-star — walk the souk, Metro to Downtown"]);
     appendHotel("dubai", "mid", ["Marina 4-star on the tram — walk the walkway", "Palm mid is a different transfer; stay Downtown unless the Palm is the point"]);
-    appendHotel("dubai", "lux", ["Atlantis The Palm — Palm Splurge, kids assumed", "Burj Al Arab or One&Only — name-brand leftover only"]);
+    appendHotel("dubai", "lux", ["Atlantis The Palm — Palm Splurge, kids assumed", "Burj Al Arab or One&Only — name-brand only if you're spending more"]);
   }
 
   function thickenFood() {
@@ -143,229 +143,229 @@
     appendFood("disney", "mid", ["One snack credit you already priced — Dole Whip or a bakery, not both as a habit", "Sci-Fi or 50’s Prime Time over a signature on mid"]);
     appendFood("disney", "lux", ["California Grill or Space 220 — book before you fly", "Dining plan is still usually a bad buy even on Splurge"]);
     appendFood("cruise", "budget", ["Skip the café latte habit and the gelato pass", "Room-service fees add up — use it as a backup, not breakfast"]);
-    appendFood("cruise", "mid", ["One specialty night if leftover covers it — not a nightly habit", "Kids soda package is often the only package that wins on a short sailing"]);
-    appendFood("cruise", "lux", ["Chef’s table leftover-only", "Unlimited drinks are in Splurge — still run the break-even"]);
+    appendFood("cruise", "mid", ["One specialty night if you have room in the budget for it — not a nightly habit", "Kids soda package is often the only package that wins on a short sailing"]);
+    appendFood("cruise", "lux", ["Chef’s table only if you're spending more", "Unlimited drinks are in Splurge — still run the break-even"]);
     appendFood("cancun", "budget", ["Coffee included; do not buy water you already paid for at the dock", "Parque de las Palapas only if the transfer is cheap"]);
     appendFood("cancun", "mid", ["La Habichuela or a Hotel Zone steakhouse — one off-resort night", "Beach-club lunch is a day-price, not a snack"]);
-    appendFood("cancun", "lux", ["Puerto Morelos dinner leftover — a different transfer", "Le Blanc / Zilara specialty rooms leftover-only"]);
-    appendFood("los_angeles", "budget", ["Stay in Koreatown / DTLA / the beach you picked — do not cross the basin for tacos", "Mariscos Jalisco or a taco truck is lunch, not a food tour"]);
+    appendFood("cancun", "lux", ["Puerto Morelos dinner only if you're spending more — a different transfer", "Le Blanc / Zilara specialty rooms only if you're spending more"]);
+    appendFood("los_angeles", "budget", ["Stay in Koreatown / DTLA / the beach you picked — don't drive across the city for tacos", "Mariscos Jalisco or a taco truck is lunch, not a food tour"]);
     appendFood("los_angeles", "mid", ["Quarter / Kang Ho Dong K-Town BBQ or Bestia if you booked ahead", "Langer’s deli over a hotel restaurant"]);
     appendFood("los_angeles", "lux", ["Providence or n/naka — book before you fly", "Hotel restaurants and a WeHo-to-Santa-Monica dinner are the overrun"]);
     appendFood("nyc", "budget", ["Xi’an Famous Foods, a $1–3 slice, or Flushing / Chinatown — not three Midtown salads", "Bodega egg-and-cheese is breakfast; the hotel dining room is a tax"]);
     appendFood("nyc", "mid", ["Katz’s (share) or Russ & Daughters — then a park", "Jackson Heights / Flushing / Chinatown over Midtown"]);
-    appendFood("nyc", "lux", ["Carbone, Lilia, or Le Bernardin class — leftover only", "One tasting, not a tasting every night"]);
+    appendFood("nyc", "lux", ["Carbone, Lilia, or Le Bernardin class — only if you're spending more", "One tasting, not a tasting every night"]);
     appendFood("paris", "budget", ["L’As du Fallafel or a neighborhood bistro — not the tower", "Skip restaurants on the hill, the museum steps, and the tower"]);
     appendFood("paris", "mid", ["Bouillon Julien or Marché des Enfants Rouges", "Fromagerie + wine is a valid dinner"]);
-    appendFood("paris", "lux", ["Septime, Frenchie, or Le Comptoir — book before you fly", "Palace-hotel dining only if leftover is silly"]);
+    appendFood("paris", "lux", ["Septime, Frenchie, or Le Comptoir — book before you fly", "Palace-hotel dining only only if you're spending more"]);
     appendFood("vegas", "budget", ["Chinatown or Downtown, not a Strip steakhouse", "Free drinks are not a meal plan"]);
     appendFood("vegas", "mid", ["Tacos El Gordo class or a food hall — walk ten minutes off the carpet", "Mon Ami Gabi or a neighborhood sit-down — one"]);
-    appendFood("vegas", "lux", ["Picasso / Guy Savoy class leftover-only", "One splurge, not a steak every night"]);
+    appendFood("vegas", "lux", ["Picasso / Guy Savoy class only if you're spending more", "One splurge, not a steak every night"]);
     appendFood("san_francisco", "budget", ["La Taqueria / El Farolito class — Mission, stay on BART / Muni", "Skip the Wharf seafood rack"]);
     appendFood("san_francisco", "mid", ["State Bird, Zuni, or a neighborhood Italian — one reservation", "Napa is a day trip with a packed lunch, not a dinner transfer"]);
-    appendFood("san_francisco", "lux", ["Atelier Crenn or Benu leftover-only", "One tasting, then neighborhood food"]);
+    appendFood("san_francisco", "lux", ["Atelier Crenn or Benu only if you're spending more", "One tasting, then neighborhood food"]);
     appendFood("san_diego", "budget", ["Fish tacos in PB or a Barrio Logan truck", "Skip the harbor dinner-cruise menu"]);
     appendFood("san_diego", "mid", ["Little Italy or North Park sit-down — one", "La Jolla dinner only if you are already there"]);
-    appendFood("san_diego", "lux", ["Addison (Del Mar) leftover-only", "One splurge; Splurge does not require a steak at noon"]);
+    appendFood("san_diego", "lux", ["Addison (Del Mar) only if you're spending more", "One splurge; Splurge does not require a steak at noon"]);
     appendFood("miami", "budget", ["Versailles or a ventanita — not Ocean Drive", "Skip beach-club bottle service on Budget"]);
     appendFood("miami", "mid", ["Joe’s Stone Crab (share) or a Wynwood table — one", "Brickell if that is where you slept"]);
-    appendFood("miami", "lux", ["A named tasting leftover", "One beach-club afternoon is a day-price"]);
+    appendFood("miami", "lux", ["A named tasting only if you're spending more", "One beach-club afternoon is a day-price"]);
     appendFood("london", "budget", ["Borough or Maltby market, or a pub pie", "Meal deal is allowed; a tourist-menu roast is not the plan"]);
     appendFood("london", "mid", ["Dishoom, a Soho table, or a neighborhood Indian — one reservation", "West End prix fixe only after theatre, not every night"]);
-    appendFood("london", "lux", ["Core or Kitchen Table leftover-only", "£8 pints are already in the luxury math"]);
+    appendFood("london", "lux", ["Core or Kitchen Table only if you're spending more", "£8 pints are already in the luxury math"]);
     appendFood("rome", "budget", ["Supplì or pizza al taglio in Testaccio or Trastevere", "Skip the photo-menu on a square"]);
     appendFood("rome", "mid", ["Roscioli-adjacent or a Testaccio table — one reserved trattoria", "Coperto is a line item, not a scam"]);
-    appendFood("rome", "lux", ["La Pergola leftover-only", "One splurge, then trattoria"]);
+    appendFood("rome", "lux", ["La Pergola only if you're spending more", "One splurge, then trattoria"]);
     appendFood("tokyo", "budget", ["Conveyor or standing sushi, or a ramen shop", "Skip the hotel breakfast buffet"]);
     appendFood("tokyo", "mid", ["Depachika lunch + one izakaya reservation", "Rail-station food halls are mid, not a tourist trap"]);
     appendFood("tokyo", "lux", ["A sushi counter booked before you land", "The room or the counter, rarely both"]);
     appendFood("oahu", "budget", ["Rainbow Drive-In / L&L plate lunch", "Leonard’s malasadas once, not as a meal"]);
     appendFood("oahu", "mid", ["Marukame or a neighborhood Japanese / seafood — one sit-down", "Skip nightly Kalakaua restaurant rows"]);
-    appendFood("oahu", "lux", ["Alan Wong’s or Senia leftover-only", "One splurge, not five fish dinners"]);
+    appendFood("oahu", "lux", ["Alan Wong’s or Senia only if you're spending more", "One splurge, not five fish dinners"]);
     appendFood("maui", "budget", ["Food truck in Kihei or Paia", "Cook two nights; skip the resort breakfast buffet"]);
     appendFood("maui", "mid", ["One fish dinner, not five", "Paia or Lahaina casual over the hotel dining room"]);
-    appendFood("maui", "lux", ["Mama’s Fish House leftover-only", "One named reservation, then the kitchen"]);
+    appendFood("maui", "lux", ["Mama’s Fish House only if you're spending more", "One named reservation, then the kitchen"]);
     appendFood("punta_cana", "budget", ["One beach-shack lunch is enough of a taste", "Skip dock-priced excursion food"]);
-    appendFood("punta_cana", "mid", ["One pre-booked off-property dinner if the transfer is in the plan", "Cap Cana restaurants are a different pocket"]);
-    appendFood("punta_cana", "lux", ["One Cap Cana or named tasting leftover", "Still not a nightly off-property hop"]);
+    appendFood("punta_cana", "mid", ["One pre-booked off-property dinner if the transfer is in the plan", "Cap Cana restaurants are a different part of town"]);
+    appendFood("punta_cana", "lux", ["One Cap Cana or named tasting only if you're spending more", "Still not a nightly off-property hop"]);
     appendFood("jamaica", "budget", ["Jerk lunch off-property once, with a trusted driver", "Buy rum as a bottle, not a round"]);
     appendFood("jamaica", "mid", ["One off-property dinner with a pre-booked driver", "Skip the dock kiosk"]);
     appendFood("jamaica", "lux", ["Sandals / Couples specialty rooms are the Splurge product", "Transfer time is still a cost"]);
     appendFood("barcelona", "budget", ["Vermut + conservas, not a Ramblas paella", "Mercado lunch is allowed"]);
-    appendFood("barcelona", "mid", ["One seafood dinner in Barceloneta if leftover exists", "Eixample or Born, not the Ramblas"]);
-    appendFood("barcelona", "lux", ["Disfrutar leftover-only", "One splurge"]);
+    appendFood("barcelona", "mid", ["One seafood dinner in Barceloneta if you have room in the budget", "Eixample or Born, not the Ramblas"]);
+    appendFood("barcelona", "lux", ["Disfrutar only if you're spending more", "One splurge"]);
     appendFood("mexico_city", "budget", ["Mercado or street tacos — Condesa or Juárez, not the hotel", "Skip Polanco hotel dining on Budget"]);
     appendFood("mexico_city", "mid", ["Contramar lunch or a neighborhood table — one reservation", "Street tacos still win one night"]);
-    appendFood("mexico_city", "lux", ["Pujol or Quintonil leftover-only", "One tasting"]);
+    appendFood("mexico_city", "lux", ["Pujol or Quintonil only if you're spending more", "One tasting"]);
     appendFood("thailand", "budget", ["Street stall + mango sticky rice", "Hotel breakfast buffets are optional"]);
     appendFood("thailand", "mid", ["One riverside or Sukhumvit sit-down", "Hotel Italian is the trap"]);
-    appendFood("thailand", "lux", ["A named riverside or tasting leftover", "One splurge; Splurge does not require a mall"]);
+    appendFood("thailand", "lux", ["A named riverside or tasting only if you're spending more", "One splurge; Splurge does not require a mall"]);
     appendFood("nola", "budget", ["Po’boy (Parkway or a neighborhood shop), not a Bourbon breakfast", "Café du Monde once"]);
     appendFood("nola", "mid", ["Galatoire’s or Commander’s Palace class — one old-school reservation", "Keep the reservation; cut the hotel class first"]);
-    appendFood("nola", "lux", ["Commander’s, Galatoire’s, or a modern tasting leftover", "Keep the reservations; cut something else"]);
+    appendFood("nola", "lux", ["Commander’s, Galatoire’s, or a modern tasting only if you're spending more", "Keep the reservations; cut something else"]);
     appendFood("chicago", "budget", ["Italian beef or a tavern — neighborhood, not the hotel", "One deep-dish if you must, then stop"]);
     appendFood("chicago", "mid", ["One reservation in Fulton Market or Logan Square", "Skip Mag Mile dining"]);
-    appendFood("chicago", "lux", ["Alinea leftover-only", "One tasting"]);
+    appendFood("chicago", "lux", ["Alinea only if you're spending more", "One tasting"]);
     appendFood("amsterdam", "budget", ["Brown café, not a canal-cruise buffet", "Skip the pancake-house on the Damrak"]);
-    appendFood("amsterdam", "mid", ["One Indonesian rijsttafel if leftover covers it", "Two streets off the canal"]);
-    appendFood("amsterdam", "lux", ["A named tasting leftover", "One splurge"]);
+    appendFood("amsterdam", "mid", ["One Indonesian rijsttafel if you have room in the budget for it", "Two streets off the canal"]);
+    appendFood("amsterdam", "lux", ["A named tasting only if you're spending more", "One splurge"]);
     appendFood("lisbon", "budget", ["Tasca in Graça or Campo de Ourique", "Pastel de nata is a snack, plus coffee — not a meal plan"]);
     appendFood("lisbon", "mid", ["One seafood dinner in Cais do Sodré or Belém", "Not every night"]);
-    appendFood("lisbon", "lux", ["A named tasting leftover", "One splurge"]);
+    appendFood("lisbon", "lux", ["A named tasting only if you're spending more", "One splurge"]);
     appendFood("iceland", "budget", ["Packed lunch on road days", "Skip the hotel breakfast buffet unless it is included"]);
     appendFood("iceland", "mid", ["One proper 101 fish dinner", "Hot-dog stand is allowed"]);
-    appendFood("iceland", "lux", ["A named 101 or a lodge table leftover", "Do not eat every meal out on a Ring Road week"]);
+    appendFood("iceland", "lux", ["A named 101 or a lodge table only if you're spending more", "Do not eat every meal out on a Ring Road week"]);
     appendFood("bali", "budget", ["Warung again at dinner — that is the good food", "Bintang on the beach is not a $40 cocktail program"]);
     appendFood("bali", "mid", ["One nice dinner in Seminyak or Ubud", "Hotel Italian is the trap"]);
-    appendFood("bali", "lux", ["A named Seminyak or Ubud table leftover", "One splurge"]);
+    appendFood("bali", "lux", ["A named Seminyak or Ubud table only if you're spending more", "One splurge"]);
     appendFood("dubai", "budget", ["Creekside or Deira, not a mall every day", "Skip the fountain-view restaurant on Budget"]);
-    appendFood("dubai", "mid", ["One destination dinner if leftover is real", "Mall food courts are a fallback"]);
-    appendFood("dubai", "lux", ["A named tasting leftover", "One splurge weekend, not seven"]);
+    appendFood("dubai", "mid", ["One destination dinner if you have room in the budget", "Mall food courts are a fallback"]);
+    appendFood("dubai", "lux", ["A named tasting only if you're spending more", "One splurge weekend, not seven"]);
   }
 
   function thickenActs() {
     appendAct("disney", "budget", ["One park per day — cheaper park after Magic Kingdom (ticketed)", "Skip a water-park add-on on Budget (ticketed)"]);
     appendAct("disney", "mid", ["Lightning Lane on Magic Kingdom or Hollywood Studios day only (ticketed)", "One Disney Springs evening (free)"]);
-    appendAct("disney", "lux", ["Signature dinner + fireworks leftover-only (ticketed)", "Memory Maker only if leftover covers it (ticketed)"]);
+    appendAct("disney", "lux", ["Signature dinner + fireworks only if you're spending more (ticketed)", "Memory Maker only if you have room in the budget for it (ticketed)"]);
     appendAct("cruise", "budget", ["Ship shows and the pool — already in the fare (free)", "Skip the spa menu on Budget"]);
     appendAct("cruise", "mid", ["Snorkel or beach-break on one island, not three (ticketed)", "Skip the third dock tour (ticketed)"]);
-    appendAct("cruise", "lux", ["A quieter private beach or small-group tour on one island (tour)", "Spa leftover-only — already its own line"]);
+    appendAct("cruise", "lux", ["A quieter private beach or small-group tour on one island (tour)", "Spa only if you're spending more — already its own line"]);
     appendAct("los_angeles", "budget", ["The Broad or a free museum night Downtown (free / timed)", "Do not stack Universal and Disneyland into this lodging week"]);
     appendAct("los_angeles", "mid", ["Huntington or Getty Villa — pick one garden day (ticketed / timed)", "Venice + Santa Monica in the neighborhood you booked (free)"]);
-    appendAct("los_angeles", "lux", ["Universal Express leftover-only (ticketed)", "A private architecture walk if leftover covers a guide (tour)"]);
+    appendAct("los_angeles", "lux", ["Universal Express only if you're spending more (ticketed)", "A private architecture walk if you have room in the budget for a guide (tour)"]);
     appendAct("nyc", "budget", ["A pay-what-you-wish museum night or a timed free hour (cheap)", "Times Square is a pass-through, not a day"]);
     appendAct("nyc", "mid", ["Met or MoMA — pick one (ticketed)", "Central Park is free; a carriage is not required"]);
     appendAct("nyc", "lux", ["Broadway reserved seat + one observatory (ticketed)", "Skip stacking three observatories"]);
     appendAct("paris", "budget", ["Eiffel from Trocadéro or Champ de Mars, not the summit on Budget (free)", "Père Lachaise or Canal Saint-Martin walk (free)"]);
     appendAct("paris", "mid", ["Sainte-Chapelle or a tower summit — pick one (ticketed)", "Marais or Latin Quarter neighborhood walk (free)"]);
-    appendAct("paris", "lux", ["Versailles half-day leftover (ticketed)", "Catacombs or a reserved Sainte-Chapelle concert leftover (ticketed)"]);
+    appendAct("paris", "lux", ["Versailles half-day only if you're spending more (ticketed)", "Catacombs or a reserved Sainte-Chapelle concert only if you're spending more (ticketed)"]);
     appendAct("vegas", "budget", ["Bellagio conservatory + Fremont walk (free)", "Skip a nightclub table on Budget"]);
     appendAct("vegas", "mid", ["One show — O, a mid-room, or a production (ticketed)", "Red Rock if you have a car (free / cheap)"]);
-    appendAct("vegas", "lux", ["A helicopter or Grand Canyon day leftover-only (tour)", "One spa or pool-day cabana leftover (ticketed)"]);
+    appendAct("vegas", "lux", ["A helicopter or Grand Canyon day only if you're spending more (tour)", "One spa or pool-day cabana only if you're spending more (ticketed)"]);
     appendAct("san_francisco", "budget", ["Mission murals or Chinatown walk (free)", "Skip the paid cable-car loop if a bus reaches the same hill"]);
     appendAct("san_francisco", "mid", ["SFMOMA or de Young — pick one (ticketed)", "Alcatraz timed ferry — book ahead (ticketed)"]);
-    appendAct("san_francisco", "lux", ["Muir Woods or a Napa small-group leftover (tour)", "Do not stack Alcatraz, Napa, and Yosemite in 5 nights"]);
+    appendAct("san_francisco", "lux", ["Muir Woods or a Napa small-group only if you're spending more (tour)", "Do not stack Alcatraz, Napa, and Yosemite in 5 nights"]);
     appendAct("san_diego", "budget", ["Harbor walk or Coronado ferry (cheap)", "Skip SeaWorld on Budget unless that is the trip"]);
     appendAct("san_diego", "mid", ["Zoo or USS Midway — pick one (ticketed)", "La Jolla cove snorkel if you are already north (cheap / ticketed)"]);
-    appendAct("san_diego", "lux", ["Safari Park leftover (ticketed)", "Mexico day trip is a different budget"]);
+    appendAct("san_diego", "lux", ["Safari Park only if you're spending more (ticketed)", "Mexico day trip is a different budget"]);
     appendAct("miami", "budget", ["Little Havana walk + Cuban coffee (cheap)", "Everglades is a half-day tour, not a Budget default"]);
     appendAct("miami", "mid", ["Vizcaya or a boat — pick one (ticketed)", "Art Deco walk on Ocean Drive in daylight (free)"]);
-    appendAct("miami", "lux", ["A reserved boat leftover (tour)", "Do not stack a cruise embarkation into this stay without a buffer night"]);
+    appendAct("miami", "lux", ["A reserved boat only if you're spending more (tour)", "Do not stack a cruise embarkation into this stay without a buffer night"]);
     appendAct("london", "budget", ["British Museum or National Gallery (free)", "Skip a paid Eye ticket on Budget"]);
     appendAct("london", "mid", ["Tower, Eye, or a West End rush — pick one (ticketed)", "Greenwich or Columbia Road (free / cheap)"]);
-    appendAct("london", "lux", ["West End reserved seat + one iconic ticket (ticketed)", "Windsor / Bath leftover (ticketed / tour)"]);
+    appendAct("london", "lux", ["West End reserved seat + one iconic ticket (ticketed)", "Windsor / Bath only if you're spending more (ticketed / tour)"]);
     appendAct("rome", "budget", ["Trastevere evening walk (free)", "Skip the golf-cart forum tour"]);
     appendAct("rome", "mid", ["Vatican Museums or Borghese — pick one (ticketed)", "Fountains at dusk are free"]);
-    appendAct("rome", "lux", ["Colosseum + Vatican on different days (ticketed)", "A small-group catacombs or food walk leftover (tour)"]);
+    appendAct("rome", "lux", ["Colosseum + Vatican on different days (ticketed)", "A small-group catacombs or food walk only if you're spending more (tour)"]);
     appendAct("tokyo", "budget", ["Senso-ji and the river — Asakusa (free)", "Convenience-store picnic in a park (cheap)"]);
-    appendAct("tokyo", "mid", ["teamLab, a tower, or a museum — pick one (ticketed)", "Kamakura or Nikko only if leftover covers the JR math (ticketed)"]);
-    appendAct("tokyo", "lux", ["A guided food walk leftover (tour)", "Kyoto is a different trip — do not fake it as a Tokyo day"]);
+    appendAct("tokyo", "mid", ["teamLab, a tower, or a museum — pick one (ticketed)", "Kamakura or Nikko only if you have room in the budget for the JR math (ticketed)"]);
+    appendAct("tokyo", "lux", ["A guided food walk only if you're spending more (tour)", "Kyoto is a different trip — do not fake it as a Tokyo day"]);
     appendAct("oahu", "budget", ["Pearl Harbor is ticketed and somber — one morning, not a beach day", "Skip a circle-island tour on Budget; the bus is slower and cheaper"]);
     appendAct("oahu", "mid", ["Hanauma Bay — reserve (ticketed)", "Lanikai lookout + Kailua is a car day (free / car)"]);
-    appendAct("oahu", "lux", ["A small-group snorkel leftover (tour)", "Do not stack a neighbor-island hop into 5 nights without a second fare"]);
+    appendAct("oahu", "lux", ["A small-group snorkel only if you're spending more (tour)", "Do not stack a neighbor-island hop into 5 nights without a second fare"]);
     appendAct("maui", "budget", ["Skip Road to Hana as a rushed day on Budget", "Sunrise from a parking lot you already paid, not a tour van"]);
     appendAct("maui", "mid", ["Haleakalā sunrise is ticketed and a 2 a.m. wake-up — pick it on purpose", "A second beach day still (free)"]);
-    appendAct("maui", "lux", ["Molokini boat leftover-only (tour)", "Do not stack Hana, Haleakalā, and a boat in 4 days"]);
+    appendAct("maui", "lux", ["Molokini boat only if you're spending more (tour)", "Do not stack Hana, Haleakalā, and a boat in 4 days"]);
     appendAct("cancun", "budget", ["Snorkel from the property if the reef is there (included / cheap)", "Skip the dock-priced catamaran on Budget"]);
-    appendAct("cancun", "mid", ["Isla Mujeres ferry or a cenote — pick one (ticketed / ferry)", "Chichén Itzá only if leftover covers a trusted tour (tour)"]);
-    appendAct("cancun", "lux", ["A small-group ruin or whale-shark season leftover (tour)", "Tulum ruins + beach is a different lodging math"]);
+    appendAct("cancun", "mid", ["Isla Mujeres ferry or a cenote — pick one (ticketed / ferry)", "Chichén Itzá only if you have room in the budget for a trusted tour (tour)"]);
+    appendAct("cancun", "lux", ["A small-group ruin or whale-shark season only if you're spending more (tour)", "Tulum ruins + beach is a different lodging math"]);
   }
 
   function thickenFallbacks() {
     appendFallbackHotel("ai", "budget", ["Garden-view on purpose — ocean-view is an upsell", "Confirm the airport transfer is in the rate"]);
     appendFallbackHotel("ai", "mid", ["Adults-only 4-star if there are no kids", "One property, not a two-resort hop"]);
-    appendFallbackHotel("ai", "lux", ["Overwater or swim-up leftover-only", "Villa only if leftover covers the jump from mid"]);
+    appendFallbackHotel("ai", "lux", ["Overwater or swim-up only if you're spending more", "Villa only if you have room in the budget for the jump from mid"]);
     appendFallbackHotel("domestic", "budget", ["Neighborhood 2-star with a grocery in walking distance", "Skip airport lodging except the night you fly"]);
-    appendFallbackHotel("domestic", "mid", ["Inn or 3-star in the restaurant neighborhood", "One room, not a suite, unless leftover is real"]);
+    appendFallbackHotel("domestic", "mid", ["Inn or 3-star in the restaurant neighborhood", "One room, not a suite, unless you have room in the budget"]);
     appendFallbackHotel("domestic", "lux", ["Historic grande dame or park-adjacent 5-star", "Do not also buy every paid tour"]);
     appendFallbackHotel("europe", "budget", ["2-star walk-up near a market street — pack light, stairs are common", "Airport-strip hotels are a taxi tax"]);
     appendFallbackHotel("europe", "mid", ["Aparthotel 4-star if you will grocery two breakfasts", "Hotel near the main station only if you arrive late"]);
-    appendFallbackHotel("europe", "lux", ["Design flagship with a real neighborhood, not a ring-road spa", "Suite with a view leftover-only"]);
+    appendFallbackHotel("europe", "lux", ["Design flagship with a real neighborhood, not a ring-road spa", "Suite with a view only if you're spending more"]);
     appendFallbackHotel("hawaii", "budget", ["2-star a block off the sand — same beach, less resort fee", "Skip a rental car if the bus reaches the beach and the store"]);
     appendFallbackHotel("hawaii", "mid", ["Condo-plus in the same beach town if you will cook two dinners", "Request garden vs ocean on purpose"]);
-    appendFallbackHotel("hawaii", "lux", ["Adults-only or villa if leftover is real", "Do not also book every snorkel and helicopter"]);
+    appendFallbackHotel("hawaii", "lux", ["Adults-only or villa if you have room in the budget", "Do not also book every snorkel and helicopter"]);
     appendFallbackHotel("caribbean", "budget", ["Garden-view AI — skip the ocean-view upsell", "Town guesthouse only if you will eat out and take local buses"]);
     appendFallbackHotel("caribbean", "mid", ["Adults-only 4-star if there are no kids", "Transfer in the rate, not a dock surprise"]);
-    appendFallbackHotel("caribbean", "lux", ["Overwater or cliff villa leftover-only", "One island, one resort"]);
+    appendFallbackHotel("caribbean", "lux", ["Overwater or cliff villa only if you're spending more", "One island, one resort"]);
     appendFallbackHotel("mexico", "budget", ["Riu / Palace-class AI if this is a beach week", "Skip the ocean-view upsell and the timeshare pitch"]);
     appendFallbackHotel("mexico", "mid", ["Hyatt Ziva / Live Aqua class if all-inclusive is the point", "One neighborhood — traffic is the hidden cost"]);
     appendFallbackHotel("mexico", "lux", ["Adults-only beach premium", "One property"]);
-    appendFallbackHotel("asia", "budget", ["Hostel-plus in the old city or night-market pocket", "Convenience-store breakfast is the plan, not a compromise"]);
+    appendFallbackHotel("asia", "budget", ["Hostel-plus in the old city or night-market area", "Convenience-store breakfast is the plan, not a compromise"]);
     appendFallbackHotel("asia", "mid", ["Riverside or night-market-adjacent boutique", "One city base — skip the three-island hop"]);
-    appendFallbackHotel("asia", "lux", ["Ryokan or courtyard hotel if that is the point of the trip", "Suite leftover-only"]);
+    appendFallbackHotel("asia", "lux", ["Ryokan or courtyard hotel if that is the point of the trip", "Suite only if you're spending more"]);
     appendFallbackHotel("oceania", "budget", ["Neighborhood 3-star, not the airport strip", "Apartment with a kitchen if the stay is 5+ nights"]);
     appendFallbackHotel("oceania", "mid", ["Boutique in the walkable core", "Campervan only if that is the trip — it replaces the hotel line"]);
-    appendFallbackHotel("oceania", "lux", ["Wilderness lodge leftover-only", "One base"]);
+    appendFallbackHotel("oceania", "lux", ["Wilderness lodge only if you're spending more", "One base"]);
     appendFallbackHotel("africa", "budget", ["City 3-star near a tram or BRT", "Skip the hotel dinner most nights"]);
     appendFallbackHotel("africa", "mid", ["4-star near the waterfront or medina edge", "One city, then a separate lodge line if you add safari"]);
     appendFallbackHotel("africa", "lux", ["Cape or Nile flagship", "Do not double-pay for every optional excursion"]);
     appendFallbackHotel("middleeast", "budget", ["Heritage-district 3-star — souk walking", "Skip the Marina address on a Budget week"]);
-    appendFallbackHotel("middleeast", "mid", ["Palm or Downtown — pick one pocket", "Hotel breakfast only when it is in the rate"]);
-    appendFallbackHotel("middleeast", "lux", ["Palm or Downtown flagship — one", "Desert camp only if leftover covers a night out of the city"]);
+    appendFallbackHotel("middleeast", "mid", ["Palm or Downtown — pick one neighborhood", "Hotel breakfast only when it is in the rate"]);
+    appendFallbackHotel("middleeast", "lux", ["Palm or Downtown flagship — one", "Desert camp only if you have room in the budget for a night out of the city"]);
     appendFallbackHotel("latam", "budget", ["Value AI only if this is a beach week", "Altitude and street food are the trip in the cities"]);
     appendFallbackHotel("latam", "mid", ["Iberostar / Hyatt Ziva class if all-inclusive", "One base — intercity buses need their own night"]);
-    appendFallbackHotel("latam", "lux", ["Relais-style casa leftover", "One property"]);
+    appendFallbackHotel("latam", "lux", ["Relais-style casa only if you're spending more", "One property"]);
     appendFallbackHotel("city", "budget", ["Airport hotel only the night you fly", "Kitchenette if grocery breakfasts are the plan"]);
     appendFallbackHotel("city", "mid", ["Brand 4-star on transit", "Location over a rooftop you will use twice"]);
     appendFallbackHotel("city", "lux", ["Park- or water-adjacent flagship", "Do not also buy every paid tour"]);
     appendFallbackFood("ai", "budget", ["Tips and bottled water you already paid for are the leak", "One beach-town lunch only with a pre-booked ride"]);
     appendFallbackFood("ai", "mid", ["Premium in-resort nights are the mid upgrade", "Beach-club lunch is a day-price"]);
-    appendFallbackFood("ai", "lux", ["Specialty rooms leftover-only", "Still not a nightly hop"]);
+    appendFallbackFood("ai", "lux", ["Specialty rooms only if you're spending more", "Still not a nightly hop"]);
     appendFallbackFood("domestic", "budget", ["Hotel restaurants are the expensive version of the same plate", "Food hall or a neighborhood counter at lunch"]);
     appendFallbackFood("domestic", "mid", ["One reserved neighborhood table", "Stay on transit — a crosstown dinner is a second fare"]);
-    appendFallbackFood("domestic", "lux", ["One named tasting leftover-only", "One splurge, not a tasting every night"]);
+    appendFallbackFood("domestic", "lux", ["One named tasting only if you're spending more", "One splurge, not a tasting every night"]);
     appendFallbackFood("europe", "budget", ["Grocery one picnic", "Neighborhood trattoria / tasca / bistro — not the monument square"]);
     appendFallbackFood("europe", "mid", ["Wine from a shop is a valid dinner", "One reserved bistro"]);
-    appendFallbackFood("europe", "lux", ["A named table booked before you fly", "Palace-hotel dining leftover-only"]);
+    appendFallbackFood("europe", "lux", ["A named table booked before you fly", "Palace-hotel dining only if you're spending more"]);
     appendFallbackFood("hawaii", "budget", ["Malasadas or shave ice once, not as a meal", "Plate lunch or a food truck"]);
     appendFallbackFood("hawaii", "mid", ["One fish sit-down", "Skip nightly resort rows"]);
-    appendFallbackFood("hawaii", "lux", ["One named table leftover", "Do not stack every fish dinner"]);
+    appendFallbackFood("hawaii", "lux", ["One named table only if you're spending more", "Do not stack every fish dinner"]);
     appendFallbackFood("caribbean", "budget", ["Coffee included", "Skip dock kiosks"]);
     appendFallbackFood("caribbean", "mid", ["Packed lunch on excursion days", "Transfer is part of the food price"]);
-    appendFallbackFood("caribbean", "lux", ["Specialty rooms leftover-only", "One island"]);
+    appendFallbackFood("caribbean", "lux", ["Specialty rooms only if you're spending more", "One island"]);
     appendFallbackFood("mexico", "budget", ["AI guests: eat on-property plus one taco night", "Dinner in the neighborhood, not the hotel"]);
     appendFallbackFood("mexico", "mid", ["One reservation", "Stay in one colonia"]);
-    appendFallbackFood("mexico", "lux", ["A named tasting leftover", "One splurge"]);
+    appendFallbackFood("mexico", "lux", ["A named tasting only if you're spending more", "One splurge"]);
     appendFallbackFood("asia", "budget", ["Skip the hotel buffet", "Izakaya / night market / neighborhood shop"]);
     appendFallbackFood("asia", "mid", ["Station depachika is mid, not a trap", "One reservation"]);
     appendFallbackFood("asia", "lux", ["A counter or tasting booked before you land", "The room or the counter, rarely both"]);
     appendFallbackFood("oceania", "budget", ["Skip hotel restaurants", "Food hall or a counter"]);
     appendFallbackFood("oceania", "mid", ["One reservation", "One city"]);
-    appendFallbackFood("oceania", "lux", ["A named table leftover", "One splurge"]);
+    appendFallbackFood("oceania", "lux", ["A named table only if you're spending more", "One splurge"]);
     appendFallbackFood("africa", "budget", ["Buy water in a shop", "Neighborhood, not the tourist row"]);
     appendFallbackFood("africa", "mid", ["One reservation", "Trusted driver if you leave the core"]);
-    appendFallbackFood("africa", "lux", ["A named table leftover", "Lodge dinners are already priced — do not add a second tasting"]);
+    appendFallbackFood("africa", "lux", ["A named table only if you're spending more", "Lodge dinners are already priced — do not add a second tasting"]);
     appendFallbackFood("middleeast", "budget", ["Skip the desert-tour buffet upsell", "Cheap eats away from the icon"]);
     appendFallbackFood("middleeast", "mid", ["One destination restaurant", "Metro, not a taxi to every meal"]);
-    appendFallbackFood("middleeast", "lux", ["A named tasting leftover", "One weekend splurge"]);
+    appendFallbackFood("middleeast", "lux", ["A named tasting only if you're spending more", "One weekend splurge"]);
     appendFallbackFood("latam", "budget", ["AI: on-property plus one local lunch", "Market or a counter"]);
     appendFallbackFood("latam", "mid", ["One reservation", "One distrito per night"]);
-    appendFallbackFood("latam", "lux", ["A named tasting leftover", "One splurge"]);
+    appendFallbackFood("latam", "lux", ["A named tasting only if you're spending more", "One splurge"]);
     appendFallbackFood("city", "budget", ["Transit card beats taxis to dinner", "Market or food hall"]);
     appendFallbackFood("city", "mid", ["One reserved table", "Stay in one neighborhood"]);
-    appendFallbackFood("city", "lux", ["One named leftover", "One splurge"]);
+    appendFallbackFood("city", "lux", ["One named table only if you're spending more", "One splurge"]);
     appendFallbackAct("ai", "budget", ["Snorkel from the property if it exists (included / cheap)", "Skip the dock-priced catamaran on Budget"]);
     appendFallbackAct("ai", "mid", ["A second dock tour is the overrun", "Nightlife on-property first"]);
-    appendFallbackAct("ai", "lux", ["One better boat or ruin day, not three (ticketed)", "Spa leftover-only"]);
+    appendFallbackAct("ai", "lux", ["One better boat or ruin day, not three (ticketed)", "Spa only if you're spending more"]);
     appendFallbackAct("domestic", "budget", ["Transit day pass beats a rideshare loop", "Skip a hop-on bus on Budget"]);
     appendFallbackAct("domestic", "mid", ["A second cheap / free morning (free)", "Day trips need their own lunch and transfer"]);
     appendFallbackAct("domestic", "lux", ["A neighborhood walk still (free)", "Do not stack three paid towers"]);
     appendFallbackAct("europe", "budget", ["A neighborhood that is not the postcard square (free)", "Skip the hop-on bus"]);
-    appendFallbackAct("europe", "mid", ["A second museum or a garden (ticketed / free)", "Day trip only if leftover covers the train"]);
-    appendFallbackAct("europe", "lux", ["A small-group walk leftover (tour)", "Do not stack a palace, a catacomb, and a dinner cruise in one day"]);
+    appendFallbackAct("europe", "mid", ["A second museum or a garden (ticketed / free)", "Day trip only if you have room in the budget for the train"]);
+    appendFallbackAct("europe", "lux", ["A small-group walk only if you're spending more (tour)", "Do not stack a palace, a catacomb, and a dinner cruise in one day"]);
     appendFallbackAct("hawaii", "budget", ["Grocery picnic (cheap)", "Skip the circle-island van on Budget"]);
     appendFallbackAct("hawaii", "mid", ["A scenic drive only if you already have the car (car)", "Sunrise tickets are a 2 a.m. choice — pick on purpose"]);
     appendFallbackAct("hawaii", "lux", ["One ticketed sunrise or bay, not both (ticketed)", "Neighbor-island hops are a second fare"]);
     appendFallbackAct("caribbean", "budget", ["Skip the first dock kiosk", "Snorkel from shore if the reef is there (cheap)"]);
     appendFallbackAct("caribbean", "mid", ["A second tour is the overrun", "Nightlife on-property first"]);
-    appendFallbackAct("caribbean", "lux", ["Beach still wins (included)", "Spa leftover-only"]);
+    appendFallbackAct("caribbean", "lux", ["Beach still wins (included)", "Spa only if you're spending more"]);
     appendFallbackAct("mexico", "budget", ["One museum if the city has a great free or cheap one (ticketed / cheap)", "Skip timeshare-day tours"]);
     appendFallbackAct("mexico", "mid", ["Beach or centro for the rest", "Long ruin days need a trusted driver"]);
     appendFallbackAct("mexico", "lux", ["A neighborhood morning still (free)", "Do not stack two ruin days and a beach club"]);
     appendFallbackAct("asia", "budget", ["Convenience-store picnic in a park (cheap)", "A neighborhood that is not the first postcard (free)"]);
-    appendFallbackAct("asia", "mid", ["A short rail day trip only if leftover covers it (ticketed)", "Skip a five-temple checklist"]);
+    appendFallbackAct("asia", "mid", ["A short rail day trip only if you have room in the budget for it (ticketed)", "Skip a five-temple checklist"]);
     appendFallbackAct("asia", "lux", ["A neighborhood morning still (free)", "A second city is a different trip"]);
     appendFallbackAct("oceania", "budget", ["One cheap ferry if that is the postcard (cheap)", "Skip every adventure add-on on Budget"]);
-    appendFallbackAct("oceania", "mid", ["A day trip only if leftover covers it (tour / car)", "Wildlife tours are mid, not automatic"]);
+    appendFallbackAct("oceania", "mid", ["A day trip only if you have room in the budget for it (tour / car)", "Wildlife tours are mid, not automatic"]);
     appendFallbackAct("oceania", "lux", ["A free walk still (free)", "Do not stack every adventure"]);
     appendFallbackAct("africa", "budget", ["Skip a safari-priced day if this is a city week", "Trusted driver > random taxis for longer hops"]);
     appendFallbackAct("africa", "mid", ["A second cheap morning (free / cheap)", "Safari is a different lodging line"]);
@@ -397,7 +397,7 @@
         "Desert Palms Hotel & Suites — suite-ish mid if the party will share a kitchenette",
         "Stay in Anaheim. Los Angeles lodging is a different day trip"
       ] },
-      lux: { why: "Grand Californian or Disneyland Hotel — leftover only. Club level is a nightly number.", picks: [
+      lux: { why: "Grand Californian or Disneyland Hotel — only if you're spending more. Club level is a nightly number.", picks: [
         "Disney’s Grand Californian — Deluxe, walk to California Adventure",
         "Disneyland Hotel — on-property, monorail-adjacent campus",
         "JW Marriott Anaheim Resort — off-property Splurge with a real pool",
@@ -417,14 +417,14 @@
       mid: [
         "Breakfast: food-court or hotel included only if it is in the rate",
         "Lunch: QS + one snack you already priced",
-        "Dinner: one table-service — Carthay Circle or Lamplight Lounge if leftover covers it",
+        "Dinner: one table-service — Carthay Circle or Lamplight Lounge if you have room in the budget for it",
         "Downtown Disney sit-down over a character breakfast on mid",
         "Skip the dining plan; pay as you go"
       ],
       lux: [
-        "Breakfast: one character meal leftover-only — book before you fly",
+        "Breakfast: one character meal only if you're spending more — book before you fly",
         "Lunch: QS or a second table-service, not three sit-downs",
-        "Dinner reservation: Napa Rose or Carthay Circle — leftover",
+        "Dinner reservation: Napa Rose or Carthay Circle — only if you're spending more",
         "Club 33 is not a plan",
         "Dining plan is still usually a bad buy on Splurge"
       ]
@@ -447,7 +447,7 @@
       lux: [
         "Park Hopper + Lightning Lane (ticketed)",
         "Early entry from a Deluxe hotel (included with that lodging)",
-        "World of Color / fireworks dining leftover-only (ticketed)",
+        "World of Color / fireworks dining only if you're spending more (ticketed)",
         "A second park day still beats a Hollywood add-on from Anaheim",
         "Do not stack Disneyland, Universal, and a beach day in 4 nights"
       ]
@@ -455,7 +455,7 @@
     P.HOTEL_EXAMPLES["key_west"] = {
       budget: { why: "Old Town walkable. A cheap room on Stock Island plus a nightly cab is not Budget.", picks: [
         "The Big Ruby Key West — guesthouse, walk to Duval, no car",
-        "Caribbean House or a Truman Annex-adjacent inn — quieter pocket",
+        "Caribbean House or a Truman Annex-adjacent inn — quieter neighborhood",
         "Key West hostel / Seashell Motel class — Budget only, pack light",
         "Duval House-adjacent 2-star a block off the bar strip",
         "Skip an EYW-adjacent motel if you will Uber downtown every meal"
@@ -464,13 +464,13 @@
         "The Gardens Hotel — Old Town, pool courtyard, walk to dinner",
         "Marquesa Hotel — Duval-adjacent, quieter than the bar block",
         "Island House or Kimpton Palms — walkable mid",
-        "Ocean Key Resort — Sunset Pier pocket if leftover covers the address",
+        "Ocean Key Resort — Sunset Pier area if you have room in the budget for the address",
         "One neighborhood. Stock Island is a different commute"
       ] },
       lux: { why: "Waterfront flagship. Sunset is free from the sidewalk; the room is the Splurge.", picks: [
         "Casa Marina — beach-adjacent historic, south of Duval",
         "The Reach Key West — Waldorf, walk to the sand",
-        "Pier House or The Marker Waterfront — Old Town leftover",
+        "Pier House or The Marker Waterfront — Old Town only if you're spending more",
         "Oceans Edge if you want a marina campus and a shuttle",
         "Do not also book a Miami night unless this is a drive-down"
       ] }
@@ -487,15 +487,15 @@
       mid: [
         "Breakfast: Cuban coffee + toastado",
         "Lunch: Pepe’s Café or a harbor casual",
-        "Dinner: Blue Heaven — go early, leftover covers the wait",
+        "Dinner: Blue Heaven — go early, if you have room in the budget for the wait",
         "One Duval sit-down, not five",
         "Grocery a beach day if you are at Fort Zach"
       ],
       lux: [
         "Breakfast: still a café",
         "Lunch: a proper sit-down off the square",
-        "Dinner reservation: Louie’s Backyard or Hot Tin Roof leftover",
-        "Nine One Five if leftover is real",
+        "Dinner reservation: Louie’s Backyard or Hot Tin Roof only if you're spending more",
+        "Nine One Five if you have room in the budget",
         "One splurge, then Cuban"
       ]
     };
@@ -510,13 +510,13 @@
       mid: [
         "Fort Zach snorkel or a cheap boat — pick one (ticketed)",
         "Hemingway House timed ticket (ticketed)",
-        "Sunset sail leftover if the sidewalk sunset was not enough (tour)",
-        "Dry Tortugas is a full ferry day — only if leftover covers it (ticketed)",
+        "Sunset sail only if you're spending more if the sidewalk sunset was not enough (tour)",
+        "Dry Tortugas is a full ferry day — only if you have room in the budget for it (ticketed)",
         "A second beach morning still (free)"
       ],
       lux: [
-        "Private sunset sail leftover (tour)",
-        "Dry Tortugas Yankee Freedom day leftover (ticketed)",
+        "Private sunset sail only if you're spending more (tour)",
+        "Dry Tortugas Yankee Freedom day only if you're spending more (ticketed)",
         "A second historic ticket — Custom House or Fort Zach (ticketed)",
         "Do not stack Tortugas, a sunset sail, and a seaplane in 3 nights",
         "Old Town walk still earns dusk (free)"
@@ -531,16 +531,16 @@
         "Skip University City unless that is the neighborhood you will eat in"
       ] },
       mid: { why: "Walk-to-Independence or walk-to-Rittenhouse. SEPTA beats a rental car.", picks: [
-        "The Notary Hotel — City Hall pocket, walk to Reading Terminal",
+        "The Notary Hotel — City Hall area, walk to Reading Terminal",
         "Kimpton Hotel Monaco — Independence Mall walking",
         "The Logan Philadelphia — Benjamin Franklin Parkway, museum mile",
         "Canopy by Hilton Center City or The Independent — one neighborhood",
         "Do not split Old City and University City in a 3-night stay"
       ] },
       lux: { why: "Rittenhouse or Parkway flagship. Hotel tax is already in the plan.", picks: [
-        "Four Seasons Philadelphia — Logan Square leftover",
+        "Four Seasons Philadelphia — Logan Square only if you're spending more",
         "The Rittenhouse — square-adjacent",
-        "The Bellevue or Fitler Club — Splurge if leftover is real",
+        "The Bellevue or Fitler Club — Splurge if you have room in the budget",
         "One flagship. A second suite is not the weekend",
         "Independence timed entry is the ticket, not a palace breakfast"
       ] }
@@ -557,14 +557,14 @@
       mid: [
         "Breakfast: café most mornings",
         "Lunch: Reading Terminal or a proper casual",
-        "Dinner: one reservation — Zahav leftover-adjacent, or a neighborhood Italian",
+        "Dinner: one reservation — Zahav only if you're spending more, or a neighborhood Italian",
         "Cheesesteak once; roast pork is the local argument",
         "Stay on SEPTA — a crosstown dinner is a second fare"
       ],
       lux: [
         "Breakfast: still a café",
         "Lunch: a sit-down on the Parkway or Old City",
-        "Dinner reservation: Zahav or a named tasting leftover-only",
+        "Dinner reservation: Zahav or a named tasting only if you're spending more",
         "One splurge, then Terminal leftovers",
         "Hotel restaurants are the expensive version of the same plate"
       ]
@@ -579,14 +579,14 @@
       ],
       mid: [
         "Independence timed + one Museum Mile ticket — Barnes or PMA (ticketed)",
-        "Eastern State Penitentiary if leftover covers a half day (ticketed)",
+        "Eastern State Penitentiary if you have room in the budget for a half day (ticketed)",
         "Old City evening walk (free)",
         "Franklin Institute only if the party is kids-first (ticketed)",
         "SEPTA day pass beats a rideshare loop"
       ],
       lux: [
-        "Barnes + PMA on different days leftover (ticketed)",
-        "A reserved food walk leftover (tour)",
+        "Barnes + PMA on different days only if you're spending more (ticketed)",
+        "A reserved food walk only if you're spending more (tour)",
         "Independence still — Splurge does not cancel the hall (timed)",
         "Do not stack three interiors and a cheesesteak tour in one day",
         "Spruce Street Harbor Park in season is free"
@@ -595,22 +595,22 @@
     P.HOTEL_EXAMPLES["atlanta"] = {
       budget: { why: "Downtown or Midtown on the BeltLine / MARTA. A cheap airport hotel is a rideshare habit.", picks: [
         "HI Atlanta or a Downtown hostel-plus — walk to a MARTA stop",
-        "Glenn Hotel-adjacent limited-service Downtown — Centennial pocket",
+        "Glenn Hotel-adjacent limited-service Downtown — Centennial area",
         "Hampton or Home2 Midtown — limited-service, grocery in walking distance",
         "Hotel Indigo Midtown-adjacent 2–3 star if you will walk Piedmont",
         "Skip a Cumberland / Buckhead interstate cloverleaf on Budget"
       ] },
-      mid: { why: "Midtown or Ponce / Inman pocket. The BeltLine is the walk; MARTA is the backup.", picks: [
+      mid: { why: "Midtown or Ponce / Inman area. The BeltLine is the walk; MARTA is the backup.", picks: [
         "Hotel Clermont — Ponce, walk to the BeltLine and Ponce City Market",
         "The Ellis or Kimpton Sylvan — Downtown / Midtown walkable",
-        "The Georgian Terrace — Midtown, Fox Theatre pocket",
+        "The Georgian Terrace — Midtown, Fox Theatre area",
         "Graduate Atlanta or a Midtown 3–4 star — one neighborhood",
         "Do not split Buckhead and the Aquarium hotel in a 3-night stay"
       ] },
       lux: { why: "Midtown flagship. Convention weeks are not the value window.", picks: [
-        "Four Seasons Atlanta — Midtown leftover",
+        "Four Seasons Atlanta — Midtown only if you're spending more",
         "St. Regis Atlanta — Buckhead Splurge; you traded BeltLine walking",
-        "The Whitley — Buckhead flagship if leftover is real",
+        "The Whitley — Buckhead flagship if you have room in the budget",
         "One tower. Two neighborhoods is a parking tax",
         "Piedmont Park is free; the room does not need a spa"
       ] }
@@ -634,7 +634,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down in Midtown",
-        "Dinner reservation: a named Midtown or Westside tasting leftover",
+        "Dinner reservation: a named Midtown or Westside tasting only if you're spending more",
         "One splurge, then a meat-and-three",
         "Hotel restaurants are Atlanta-priced for people who will not walk"
       ]
@@ -650,20 +650,20 @@
       mid: [
         "Aquarium or World of Coca-Cola — pick one (ticketed)",
         "BeltLine + Krog Street (free / cheap)",
-        "Atlanta History Center or a Fox Theatre tour leftover (ticketed)",
+        "Atlanta History Center or a Fox Theatre tour only if you're spending more (ticketed)",
         "Piedmont still (free)",
         "MARTA day pass beats a rideshare loop"
       ],
       lux: [
-        "Aquarium + a second ticketed leftover (ticketed)",
-        "A reserved food walk leftover (tour)",
+        "Aquarium + a second ticketed only if you're spending more (ticketed)",
+        "A reserved food walk only if you're spending more (tour)",
         "BeltLine morning still (free)",
         "Do not stack Aquarium, Coca-Cola, and a studio tour in one day",
-        "A Braves game is a night-price if leftover covers it (ticketed)"
+        "A Braves game is a night-price if you have room in the budget for it (ticketed)"
       ]
     };
     P.HOTEL_EXAMPLES["dallas"] = {
-      budget: { why: "Downtown / Deep Ellum / Bishop Arts — pick one pocket. DFW-adjacent is a car tax.", picks: [
+      budget: { why: "Downtown / Deep Ellum / Bishop Arts — pick one neighborhood. DFW-adjacent is a car tax.", picks: [
         "Hampton or Homewood Downtown — limited-service, DART downstairs",
         "The Statler-adjacent 2-star — walk to Downtown",
         "Deep Ellum 2-star if that is the night you came for",
@@ -672,16 +672,16 @@
       ] },
       mid: { why: "Walkable Downtown or a Bishop Arts / Oak Cliff night. DART beats surge pricing.", picks: [
         "The Statler Dallas — Downtown historic, walk to the Arts District",
-        "Hotel ZaZa or a Uptown 3–4 star — one pocket",
+        "Hotel ZaZa or a Uptown 3–4 star — one neighborhood",
         "Graduate Dallas or Hall Arts-adjacent mid",
         "The Adolphus — Downtown grande dame without a suite",
         "Do not split Frisco and Downtown in a 3-night stay"
       ] },
       lux: { why: "Arts District or Uptown flagship. State Fair week is not the value window.", picks: [
-        "The Ritz-Carlton Dallas — Uptown leftover",
+        "The Ritz-Carlton Dallas — Uptown only if you're spending more",
         "Hall Arts Hotel — Arts District Splurge",
         "The Joule — Downtown design flagship",
-        "Rosewood Mansion on Turtle Creek — leftover, car assumed",
+        "Rosewood Mansion on Turtle Creek — only if you're spending more, car assumed",
         "One flagship"
       ] }
     };
@@ -691,20 +691,20 @@
         "Breakfast: café or a kolache, not the hotel",
         "Lunch: Trinity Groves or a food hall — counter",
         "Dinner: Tex-Mex in the neighborhood you booked",
-        "Pecan Lodge leftover-adjacent; Budget is a taco plate",
+        "Pecan Lodge if you're spending more; Budget is a taco plate",
         "Skip a tourist steakhouse on Budget"
       ],
       mid: [
         "Breakfast: café",
         "Lunch: a proper casual in Deep Ellum or Bishop Arts",
         "Dinner: one reservation — Pecan Lodge or a neighborhood steak",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Uptown dinner only if you slept Uptown"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named steakhouse leftover-only",
+        "Dinner reservation: a named steakhouse only if you're spending more",
         "One splurge, then Tex-Mex",
         "Hotel restaurants are the overrun"
       ]
@@ -725,8 +725,8 @@
         "DART day pass beats a rideshare loop"
       ],
       lux: [
-        "A reserved Arts District ticket leftover (ticketed)",
-        "Perot + Sixth Floor on different days leftover",
+        "A reserved Arts District ticket only if you're spending more (ticketed)",
+        "Perot + Sixth Floor on different days only if you're spending more",
         "A neighborhood walk still (free)",
         "Do not stack Fair Park, a stadium, and two museums in one day",
         "State Fair is a day-price in October (ticketed)"
@@ -742,14 +742,14 @@
       ] },
       mid: { why: "Walk-to-museums or walk-to-Montrose. Humidity is free; a rental car is not required in the core.", picks: [
         "Hotel ICON — Downtown historic, walk to rail",
-        "The Lancaster — Downtown theater pocket",
+        "The Lancaster — Downtown theater area",
         "Le Méridien Houston Downtown or a Midtown 3–4 star",
         "Hotel ZaZa Houston — Museum District mid-plus",
-        "One pocket. The Galleria is a different commute"
+        "One area. The Galleria is a different commute"
       ] },
       lux: { why: "Museum District or Downtown flagship. Rodeo weeks are not the value window.", picks: [
         "The Post Oak Hotel — Galleria-adjacent Splurge, car assumed",
-        "Four Seasons Houston — Downtown leftover",
+        "Four Seasons Houston — Downtown only if you're spending more",
         "Hotel Alessandra — Downtown flagship",
         "One tower",
         "The reservation is often the better splurge"
@@ -768,13 +768,13 @@
         "Breakfast: café",
         "Lunch: a proper casual in Montrose",
         "Dinner: one reservation — Underbelly-class or a neighborhood table",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Katy Freeway dinner is a transfer"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "Hotel dining rooms are Houston-priced for people who will not drive 15 minutes"
       ]
@@ -790,13 +790,13 @@
       mid: [
         "MFAH or Houston Museum of Natural Science — pick one (ticketed)",
         "Hermann Park + Bayou (free)",
-        "Space Center only if leftover covers the half day (ticketed)",
+        "Space Center only if you have room in the budget for the half day (ticketed)",
         "Menil Collection is free — go (free)",
         "Metro rail beats a rental in the core"
       ],
       lux: [
-        "MFAH + Menil leftover (ticketed / free)",
-        "Space Center leftover (ticketed)",
+        "MFAH + Menil only if you're spending more (ticketed / free)",
+        "Space Center only if you're spending more (ticketed)",
         "A neighborhood walk still (free)",
         "Do not stack NASA, a stadium, and two museums in one day",
         "Rodeo is a night-price in season (ticketed)"
@@ -815,12 +815,12 @@
         "Hotel Valencia Riverwalk — walkable mid",
         "Mokara Hotel & Spa — River Walk 4-star",
         "Hotel Havana — quieter bend, still a river walk",
-        "One pocket. The Mission Trail is a morning, not a second hotel"
+        "One area. The Mission Trail is a morning, not a second hotel"
       ] },
       lux: { why: "Historic flagship. Fiesta week is not the value window.", picks: [
-        "The St. Anthony Hotel — Downtown grande dame leftover",
-        "Hotel Emma Splurge suite if leftover covers the jump",
-        "Thompson San Antonio — Pearl leftover",
+        "The St. Anthony Hotel — Downtown grande dame only if you're spending more",
+        "Hotel Emma Splurge suite if you have room in the budget for the jump",
+        "Thompson San Antonio — Pearl only if you're spending more",
         "Fairmount — historic Splurge",
         "One property"
       ] }
@@ -844,7 +844,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down at Pearl",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge, then tacos",
         "Hotel restaurants on the river are a tax"
       ]
@@ -860,12 +860,12 @@
       mid: [
         "Alamo + one mission on the trail (ticketed / cheap)",
         "Pearl campus walk (free)",
-        "Tower of the Americas leftover (ticketed)",
+        "Tower of the Americas only if you're spending more (ticketed)",
         "River Walk still (free)",
         "A VIA day pass beats a rideshare loop"
       ],
       lux: [
-        "A second mission or a food walk leftover (tour / cheap)",
+        "A second mission or a food walk only if you're spending more (tour / cheap)",
         "Japanese Tea Garden + a river evening (free / cheap)",
         "Do not stack SeaWorld, the Alamo, and a barge in one day",
         "Fiesta week is a crowd tax (ticketed / peak)",
@@ -875,7 +875,7 @@
     P.HOTEL_EXAMPLES["palm_springs"] = {
       budget: { why: "Walkable Palm Canyon / Downtown. A cheap I-10 motel plus nightly Ubers is not Budget.", picks: [
         "Movie Colony Hotel or a mid-century motel on Palm Canyon — pool, walk to dinner",
-        "Ingleside Inn-adjacent 2-star — quieter pocket",
+        "Ingleside Inn-adjacent 2-star — quieter neighborhood",
         "A Uptown Design District motel-plus — mid-century, grocery nearby",
         "Ace is mid-plus; Budget is a renovated motel courtyard",
         "Skip a desert-edge chain unless you have a car and a trail plan"
@@ -885,10 +885,10 @@
         "Ace Hotel & Swim Club — mid-century campus, still a rideshare to trails",
         "Holiday House — adults-leaning mid",
         "Kimpton Rowan — Downtown rooftop mid",
-        "One pocket. Palm Desert / Indian Wells is a different drive"
+        "One area. Palm Desert / Indian Wells is a different drive"
       ] },
       lux: { why: "Design flagship. Modernism Week and Coachella are not the value window.", picks: [
-        "The Parker Palm Springs — leftover, a campus",
+        "The Parker Palm Springs — only if you're spending more, a campus",
         "Colony Palms Hotel — historic Splurge",
         "Sparrows Lodge or La Serena Villas — smaller Splurge",
         "One property. Do not also buy every spa add-on",
@@ -914,7 +914,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "Resort dining rooms are a second lodging charge"
       ]
@@ -935,9 +935,9 @@
         "Coachella is a different budget"
       ],
       lux: [
-        "Tram + a guided canyon leftover (ticketed / tour)",
-        "A spa afternoon leftover (ticketed)",
-        "Joshua Tree sunrise leftover (car)",
+        "Tram + a guided canyon only if you're spending more (ticketed / tour)",
+        "A spa afternoon only if you're spending more (ticketed)",
+        "Joshua Tree sunrise only if you're spending more (car)",
         "Do not stack Tram, Joshua Tree, and a festival in 3 nights",
         "Downtown dusk still (free)"
       ]
@@ -945,7 +945,7 @@
     P.HOTEL_EXAMPLES["lake_tahoe"] = {
       budget: { why: "One shore. A cheap room in Reno plus a nightly drive is a different trip.", picks: [
         "South Lake motel / Basecamp class — walk to a bus if you can",
-        "Stateline value tower — cheaper NV side, one pocket",
+        "Stateline value tower — cheaper NV side, one neighborhood",
         "North Shore 2-star in Kings Beach or Tahoe Vista — grocery the first hour",
         "A hostel-plus in summer only",
         "Skip a ski-in marketing photo on Budget; the bus is slower and cheaper"
@@ -958,9 +958,9 @@
         "Pick North or South. Do not commute the lake twice a day"
       ] },
       lux: { why: "Lakefront or ski-in flagship. Holiday weeks are not the value window.", picks: [
-        "The Ritz-Carlton Lake Tahoe — Northstar leftover",
+        "The Ritz-Carlton Lake Tahoe — Northstar only if you're spending more",
         "Edgewood Tahoe — South Shore Splurge",
-        "The Village at Palisades Tahoe — Olympic Valley leftover",
+        "The Village at Palisades Tahoe — Olympic Valley only if you're spending more",
         "One base. A second lodge is a transfer",
         "April and November are the mud-season discount"
       ] }
@@ -984,7 +984,7 @@
       lux: [
         "Breakfast: condo still wins on ski days",
         "Lunch: a sit-down if you are in the village",
-        "Dinner reservation: Edgewood or a named table leftover",
+        "Dinner reservation: Edgewood or a named table only if you're spending more",
         "One splurge",
         "Do not eat every meal out on a ski week"
       ]
@@ -994,22 +994,22 @@
         "The lake path or a beach in the town you booked (free)",
         "A short hike with a cheap parking lot (cheap)",
         "Skip a snowmobile or lake-cruise upsell on Budget (tour)",
-        "Gondola sightseeing is a ticket — only if leftover covers it (ticketed)",
+        "Gondola sightseeing is a ticket — only if you have room in the budget for it (ticketed)",
         "Grocery picnic (cheap)"
       ],
       mid: [
         "One lift day or a longer hike — pick the season (ticketed / free)",
         "Emerald Bay viewpoint if you already have the car (free / cheap)",
         "A second beach or snow day still (free / ticketed)",
-        "A lake cruise leftover (tour)",
+        "A lake cruise only if you're spending more (tour)",
         "Do not stack ski, a cruise, and a Tahoe-rim drive in 3 days"
       ],
       lux: [
-        "A reserved boat or a guided snow day leftover (tour)",
-        "One extra lift ticket leftover (ticketed)",
+        "A reserved boat or a guided snow day only if you're spending more (tour)",
+        "One extra lift ticket only if you're spending more (ticketed)",
         "A quiet beach morning still (free)",
         "Do not stack every adventure add-on",
-        "Caldera / private-guide leftover only"
+        "Caldera / private-guide only if you're spending more"
       ]
     };
     P.HOTEL_EXAMPLES["napa"] = {
@@ -1023,15 +1023,15 @@
       mid: { why: "Walkable plaza or river inn. Book two tastings; do not walk in blind.", picks: [
         "Napa River Inn — walkable downtown Napa",
         "El Dorado Hotel — Sonoma plaza",
-        "Carneros Resort-adjacent mid if leftover covers a quieter base",
+        "Carneros Resort-adjacent mid if you have room in the budget for a quieter base",
         "A Yountville 3–4 star — you came to walk to dinner",
         "One town. St. Helena plus Sonoma plus Napa is a transfer week"
       ] },
       lux: { why: "Auberge / Meadowood class. Harvest weekends are not the value window.", picks: [
-        "Auberge du Soleil — Rutherford leftover",
+        "Auberge du Soleil — Rutherford only if you're spending more",
         "Meadowood Napa Valley — Splurge",
-        "Solage Calistoga — leftover",
-        "The Estate Yountville — walk to French Laundry leftover-adjacent",
+        "Solage Calistoga — only if you're spending more",
+        "The Estate Yountville — walk to French Laundry only if you're spending more",
         "One property. Do not also buy every reserve tasting"
       ] }
     };
@@ -1054,7 +1054,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down in Yountville only if you are already there",
-        "Dinner reservation: French Laundry / SingleThread leftover-only",
+        "Dinner reservation: French Laundry / SingleThread only if you're spending more",
         "One tasting menu, then market food",
         "The room or the reservation, rarely both"
       ]
@@ -1069,14 +1069,14 @@
       ],
       mid: [
         "Two booked tastings, not five (ticketed)",
-        "A bike-between-wineries morning only if leftover covers the rental (cheap / tour)",
+        "A bike-between-wineries morning only if you have room in the budget for the rental (cheap / tour)",
         "Oxbow still (free / cheap)",
         "A Calistoga mud-adjacent hour is mid, not automatic (ticketed)",
         "Do not drive every tasting yourself if anyone is drinking"
       ],
       lux: [
-        "A reserved reserve tasting leftover (ticketed)",
-        "A hot-air balloon leftover — it is a dawn-price (tour)",
+        "A reserved reserve tasting only if you're spending more (ticketed)",
+        "A hot-air balloon only if you're spending more — it is a dawn-price (tour)",
         "One plaza walk still (free)",
         "Do not stack a balloon, three reserves, and French Laundry in one day",
         "Sonoma Coast is a different day and a different wind"
@@ -1090,7 +1090,7 @@
         "A Cannery Row limited-service a block off the aquarium",
         "Skip a Highway 1 cliff motel you will drive past anyway"
       ] },
-      mid: { why: "Cannery Row / downtown Monterey or a Carmel 3-star if leftover covers the village.", picks: [
+      mid: { why: "Cannery Row / downtown Monterey or a Carmel 3-star if you have room in the budget for the village.", picks: [
         "Hotel Pacific — downtown Monterey, walk to the wharf",
         "InterContinental The Clement Monterey — Cannery Row mid",
         "Monterey Plaza Hotel & Spa — water mid-plus",
@@ -1098,8 +1098,8 @@
         "Carmel-by-the-Sea mid only if the village is the point"
       ] },
       lux: { why: "Carmel or Big Sur flagship. Car Week is not the value window.", picks: [
-        "L’Auberge Carmel — village leftover",
-        "Post Ranch Inn or Ventana Big Sur — leftover, Highway 1 closures happen",
+        "L’Auberge Carmel — village only if you're spending more",
+        "Post Ranch Inn or Ventana Big Sur — only if you're spending more, Highway 1 closures happen",
         "Bernardus Lodge — Carmel Valley Splurge",
         "One base. Big Sur plus Monterey plus Carmel is three parking lots",
         "Check Highway 1 before you lock a Big Sur night"
@@ -1124,7 +1124,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named Carmel or Big Sur table leftover",
+        "Dinner reservation: a named Carmel or Big Sur table only if you're spending more",
         "One splurge",
         "Cliff restaurants are a sunset-price"
       ]
@@ -1140,12 +1140,12 @@
       mid: [
         "Aquarium + Rec Trail (ticketed / free)",
         "17-Mile Drive or a Point Lobos day — pick one (ticketed)",
-        "A whale watch leftover if seas are honest (tour)",
+        "A whale watch only if you're spending more if seas are honest (tour)",
         "Carmel beach walk (free)",
         "Do not stack aquarium, 17-Mile, and Big Sur in one day"
       ],
       lux: [
-        "Aquarium + Point Lobos leftover (ticketed)",
+        "Aquarium + Point Lobos only if you're spending more (ticketed)",
         "A Big Sur day with slack and a packed lunch (car)",
         "A second coastal walk still (free)",
         "Do not stack Post Ranch dinner and a dawn drive on the same night",
@@ -1156,7 +1156,7 @@
       budget: { why: "Destin condo or a 30A town you can walk. Harbor-view hotels are a parking tax if you came for the sand.", picks: [
         "Destin 1-bedroom condo off 98 — kitchen is the Budget product",
         "Hampton or Holiday Inn Express near the Harbor — limited-service, grocery the first hour",
-        "A 30A garage apartment in Seagrove or Santa Rosa if leftover is tight",
+        "A 30A garage apartment in Seagrove or Santa Rosa if the budget is tight",
         "Skip a high-rise you will Uber from to the beach every day",
         "Miramar / Sandestin value only if you will use that beach"
       ] },
@@ -1168,9 +1168,9 @@
         "Pick Destin or 30A. The drive along 98 is the hidden cost"
       ] },
       lux: { why: "30A flagship. Spring break and July are not the value window.", picks: [
-        "WaterColor Inn — 30A leftover",
+        "WaterColor Inn — 30A only if you're spending more",
         "The Pearl Hotel Rosemary Beach — Splurge",
-        "Henderson Park Inn or The Lodge 30A class — leftover",
+        "Henderson Park Inn or The Lodge 30A class — only if you're spending more",
         "One town. Do not hop Rosemary, Seaside, and Destin nightly",
         "January rooms are cheap because the gulf is a walk, not a swim"
       ] }
@@ -1194,7 +1194,7 @@
       lux: [
         "Breakfast: condo still wins",
         "Lunch: a sit-down if you are already in the village",
-        "Dinner reservation: a named 30A table leftover",
+        "Dinner reservation: a named 30A table only if you're spending more",
         "One splurge, then the kitchen",
         "Harbor restaurants are a second lodging charge"
       ]
@@ -1211,11 +1211,11 @@
         "One boat or a state-park day — pick one (ticketed / cheap)",
         "A second beach day still (free)",
         "Eden Gardens or a 30A town walk (cheap / free)",
-        "A sunset cruise leftover (tour)",
+        "A sunset cruise only if you're spending more (tour)",
         "Do not stack a boat, a water park, and a beach club in one day"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
+        "A reserved boat only if you're spending more (tour)",
         "A beach-club afternoon is a day-price (ticketed)",
         "A quiet beach morning still (free)",
         "Do not stack every water add-on",
@@ -1232,14 +1232,14 @@
       ] },
       mid: { why: "Oceanfront condo or a Duck / Corolla house. A car is assumed.", picks: [
         "Sanderling Resort-adjacent mid — Duck, quieter",
-        "The Inn at Corolla Light class — mid if leftover covers the north end",
+        "The Inn at Corolla Light class — mid if you have room in the budget for the north end",
         "Nags Head oceanfront condo — kitchen still wins dinners",
         "A Kill Devil Hills 3-star walk-to-beach",
         "Pick one village. Duck-to-Hatteras is not a casual dinner hop"
       ] },
       lux: { why: "Oceanfront house or Sanderling class. Summer is the window; winter closures are real.", picks: [
-        "Sanderling Resort — Duck leftover",
-        "Life House Nags Head or a design oceanfront leftover",
+        "Sanderling Resort — Duck only if you're spending more",
+        "Life House Nags Head or a design oceanfront only if you're spending more",
         "A Corolla oceanfront house — Splurge if the party fills it",
         "One village",
         "Hurricane weeks are not a discount you want to win"
@@ -1264,7 +1264,7 @@
       lux: [
         "Breakfast: house still wins",
         "Lunch: a sit-down if you are already in Duck",
-        "Dinner reservation: a named oceanfront leftover",
+        "Dinner reservation: a named oceanfront only if you're spending more",
         "One splurge, then the kitchen",
         "Do not eat every meal out on a house week"
       ]
@@ -1280,15 +1280,15 @@
       mid: [
         "Cape Hatteras lighthouse or Wright Brothers — pick one (ticketed)",
         "A second beach day still (free)",
-        "A wild-horse tour leftover if you slept north (tour)",
+        "A wild-horse tour only if you're spending more if you slept north (tour)",
         "Pea Island or a wildlife hour (free / cheap)",
         "Do not stack lighthouse, horses, and a ferry in one day"
       ],
       lux: [
-        "A reserved boat or a lighthouse climb leftover (ticketed / tour)",
-        "A second park site leftover (ticketed)",
+        "A reserved boat or a lighthouse climb only if you're spending more (ticketed / tour)",
+        "A second park site only if you're spending more (ticketed)",
         "A quiet beach morning still (free)",
-        "Ocracoke is a ferry day — leftover only",
+        "Ocracoke is a ferry day — only if you're spending more",
         "Hurricane season is a watch, not an itinerary"
       ]
     };
@@ -1307,8 +1307,8 @@
         "Bright Angel Lodge cabin class — historic mid",
         "Stay on the South Rim. North Rim is a different season and road"
       ] },
-      lux: { why: "El Tovar. Leftover only — and it still does not include a helicopter.", picks: [
-        "El Tovar Hotel — rim flagship leftover",
+      lux: { why: "El Tovar. Only if you're spending more — and it still does not include a helicopter.", picks: [
+        "El Tovar Hotel — rim flagship only if you're spending more",
         "Bright Angel historic cabin if El Tovar is sold",
         "A Tusayan 4-star is not Splurge if you wanted the rim at dawn",
         "One property. Phantom Ranch is a lottery, not a Splurge button",
@@ -1327,14 +1327,14 @@
       mid: [
         "Breakfast: lodge cafeteria + one sit-down",
         "Lunch: packed on longer rim walks",
-        "Dinner: one El Tovar dining-room night if leftover covers it",
+        "Dinner: one El Tovar dining-room night if you have room in the budget for it",
         "Stay on the rim at night",
         "Tusayan dinner only if you slept Tusayan"
       ],
       lux: [
         "Breakfast: still pack rim days",
         "Lunch: a sit-down if you are in the village",
-        "Dinner reservation: El Tovar leftover",
+        "Dinner reservation: El Tovar only if you're spending more",
         "One splurge",
         "Do not eat every meal in the dining room on a hiking week"
       ]
@@ -1351,11 +1351,11 @@
         "A longer rim walk or a short corridor hike — know your fitness (free with entry)",
         "Desert View Drive if you already have the car (free with entry)",
         "A ranger talk (free)",
-        "IMAX in Tusayan leftover (ticketed)",
+        "IMAX in Tusayan only if you're spending more (ticketed)",
         "Do not stack a helicopter, a train, and a rim hike in one day"
       ],
       lux: [
-        "A helicopter or a rim tour leftover-only (tour)",
+        "A helicopter or a rim tour only if you're spending more (tour)",
         "A longer inner-canyon day only if you are trained and permitted (permit / free)",
         "A second sunrise still (free)",
         "The train from Williams is a day-price (ticketed)",
@@ -1378,8 +1378,8 @@
         "Pick town or village. The pass commute is a winter line"
       ] },
       lux: { why: "Amangani / Four Seasons class. Holiday ski weeks are not the value window.", picks: [
-        "Four Seasons Jackson Hole — Teton Village leftover",
-        "Amangani — East Gros Ventre leftover",
+        "Four Seasons Jackson Hole — Teton Village only if you're spending more",
+        "Amangani — East Gros Ventre only if you're spending more",
         "Cloudveil or Caldera House — village Splurge",
         "One base. Do not also book a Yellowstone in-park night without a transfer day",
         "Build a buffer night in ski season"
@@ -1404,7 +1404,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down if you are already in the village",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "The room or the tasting, rarely both plus a guide day"
       ]
@@ -1414,7 +1414,7 @@
         "Town square + National Museum of Wildlife Art exterior (free / cheap)",
         "A Teton viewpoint from a public pull-off (free / park entry)",
         "Skip a snowmobile upsell on Budget (tour)",
-        "Town hill night-ski leftover only (ticketed)",
+        "Town hill night-ski only if you're spending more (ticketed)",
         "Grocery picnic (cheap)"
       ],
       mid: [
@@ -1425,30 +1425,30 @@
         "Yellowstone is a different lodging night if you add it"
       ],
       lux: [
-        "A private guide or a snow-coach leftover (tour)",
-        "A second park day leftover (ticketed)",
+        "A private guide or a snow-coach only if you're spending more (tour)",
+        "A second park day only if you're spending more (ticketed)",
         "A quiet town morning still (free)",
         "Do not stack Teton, Yellowstone, and a heli in 4 days",
-        "Amangani spa leftover-only"
+        "Amangani spa only if you're spending more"
       ]
     };
     P.HOTEL_EXAMPLES["phoenix"] = {
       budget: { why: "Downtown / Roosevelt Row on light rail. This is not Scottsdale resort math.", picks: [
         "HI Phoenix or a Downtown hostel-plus — light rail downstairs",
         "Hampton Downtown — limited-service, walk to Roosevelt",
-        "Found:Re-adjacent 2-star — arts pocket",
+        "Found:Re-adjacent 2-star — arts area",
         "Tempe limited-service on the rail if ASU / Mill is the night",
         "Skip a Scottsdale resort parking fee on a Phoenix Budget week"
       ] },
       mid: { why: "Downtown boutique or a midtown 3–4 star. Light rail beats a rental in the core.", picks: [
         "Hotel Palomar Phoenix — Downtown, walk to Roosevelt Row",
         "The Camby — midtown mid",
-        "Graduate Tempe — Mill Avenue if that is the pocket",
+        "Graduate Tempe — Mill Avenue if that is the neighborhood",
         "Kimpton or a Downtown 4-star — one neighborhood",
-        "Do not split Scottsdale and Downtown in a 3-night stay unless leftover covers two bases"
+        "Do not split Scottsdale and Downtown in a 3-night stay unless you have room in the budget for two bases"
       ] },
       lux: { why: "Biltmore or a design flagship. June–August is cheap because the air hurts.", picks: [
-        "Arizona Biltmore — historic leftover, car assumed for dinner",
+        "Arizona Biltmore — historic only if you're spending more, car assumed for dinner",
         "The Global Ambassador — Splurge",
         "Royal Palms is Scottsdale-adjacent — a different lodging math",
         "One property",
@@ -1469,12 +1469,12 @@
         "Lunch: a proper casual in Roosevelt or Downtown",
         "Dinner: one reservation — a neighborhood table, not a resort",
         "Stay on the rail",
-        "Scottsdale dinner only if leftover covers the rideshare"
+        "Scottsdale dinner only if you have room in the budget for the rideshare"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "Biltmore dining is a campus-price"
       ]
@@ -1491,15 +1491,15 @@
         "Heard or Musical Instrument Museum — pick one (ticketed)",
         "A sunrise trail before the heat (free / cheap)",
         "Roosevelt evening (free)",
-        "Desert Botanical Garden leftover (ticketed)",
+        "Desert Botanical Garden only if you're spending more (ticketed)",
         "Do not stack two museums and a trail at noon in July"
       ],
       lux: [
-        "A reserved desert tour leftover (tour)",
-        "Heard + Botanical leftover (ticketed)",
+        "A reserved desert tour only if you're spending more (tour)",
+        "Heard + Botanical only if you're spending more (ticketed)",
         "A second dawn trail still (free)",
         "Do not stack Sedona into a Phoenix lodging week without a transfer day",
-        "Scottsdale spa leftover is a different destination"
+        "Scottsdale spa only if you're spending more — it is a different destination"
       ]
     };
     P.HOTEL_EXAMPLES["memphis"] = {
@@ -1510,17 +1510,17 @@
         "A Midtown 2-star if Cooper-Young is the night you came for",
         "Skip a Beale balcony address on Budget; the trolley is cheaper"
       ] },
-      mid: { why: "Downtown boutique or The Peabody if leftover covers the ducks.", picks: [
+      mid: { why: "Downtown boutique or The Peabody if you have room in the budget for the ducks.", picks: [
         "Hu. Hotel — Downtown, walk to Beale",
         "The Central Station Hotel — South Main mid",
         "The Peabody Memphis — ducks, mid-plus",
-        "Graduate Memphis — mid if leftover covers the campus-adjacent pocket",
-        "One pocket. East Memphis is a car commute"
+        "Graduate Memphis — mid if you have room in the budget for the campus-adjacent area",
+        "One area. East Memphis is a car commute"
       ] },
       lux: { why: "The Peabody or a design flagship. Elvis Week is not the value window.", picks: [
-        "The Peabody Memphis — leftover if the ducks are the point",
+        "The Peabody Memphis — only if you're spending more if the ducks are the point",
         "Graduate Memphis Splurge suite",
-        "A South Main design hotel leftover",
+        "A South Main design hotel only if you're spending more",
         "One property",
         "Barbecue-fest weekends lift rooms"
       ] }
@@ -1538,15 +1538,15 @@
         "Breakfast: café",
         "Lunch: barbecue or a Midtown casual",
         "Dinner: one reservation — a neighborhood table, not Beale",
-        "Charlie Vergos’ Rendezvous leftover-adjacent",
+        "Charlie Vergos’ Rendezvous only if you're spending more",
         "Stay Downtown at night"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge, then another barbecue is allowed",
-        "The Peabody dining room is a leftover"
+        "The Peabody dining room is a only if you're spending more"
       ]
     };
     P.ACTIVITIES["memphis"] = {
@@ -1561,12 +1561,12 @@
         "Civil Rights Museum + Beale (ticketed / free)",
         "Graceland or Stax — pick one (ticketed)",
         "A second neighborhood walk — Cooper-Young (free)",
-        "Sun Studio leftover (ticketed)",
+        "Sun Studio only if you're spending more (ticketed)",
         "Do not stack Graceland, Stax, and Sun in one day"
       ],
       lux: [
-        "Graceland + a second music ticket leftover (ticketed)",
-        "A reserved music tour leftover (tour)",
+        "Graceland + a second music ticket only if you're spending more (ticketed)",
+        "A reserved music tour only if you're spending more (tour)",
         "Civil Rights Museum still (ticketed)",
         "Do not stack three interiors and a late Beale night",
         "Elvis Week is a crowd tax (peak)"
@@ -1585,12 +1585,12 @@
         "Portland Harbor Hotel — water mid",
         "The Francis — boutique mid-plus",
         "A West End 3–4 star — quieter nights",
-        "One pocket. Do not split Old Orchard Beach into this lodging"
+        "One area. Do not split Old Orchard Beach into this lodging"
       ] },
       lux: { why: "Harbor flagship. July–August is not the value window.", picks: [
-        "The Francis leftover",
+        "The Francis only if you're spending more",
         "The Press Hotel Splurge suite",
-        "Inn by the Sea (Cape Elizabeth) — leftover, car assumed",
+        "Inn by the Sea (Cape Elizabeth) — only if you're spending more, car assumed",
         "One property",
         "January rooms are cheap because the harbor wind is real"
       ] }
@@ -1599,7 +1599,7 @@
       note: "Lobster is one meal. Bakeries and a market beat a waterfront tourist menu.",
       budget: [
         "Breakfast: The Holy Donut or a bakery, not the hotel",
-        "Lunch: Eventide leftover-adjacent; Budget is a market or a roll shack",
+        "Lunch: Eventide if you're spending more; Budget is a market or a roll shack",
         "Dinner: Old Port casual off the first waterfront row",
         "Lobster roll once",
         "Skip a dinner cruise menu on Budget"
@@ -1614,7 +1614,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge, then another roll is allowed",
         "Cape Elizabeth dinner only if you slept there"
       ]
@@ -1625,7 +1625,7 @@
         "Eastern Promenade (free)",
         "One Casco Bay ferry — Peaks Island is the cheap postcard (cheap)",
         "Skip a lobster-boat upsell on Budget (tour)",
-        "Portland Museum of Art leftover (ticketed)"
+        "Portland Museum of Art only if you're spending more (ticketed)"
       ],
       mid: [
         "Casco Bay ferry + Promenade (cheap / free)",
@@ -1635,8 +1635,8 @@
         "Do not stack Head Light, a ferry, and a food tour in one day"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "Head Light + a second coastal stop leftover (car)",
+        "A reserved boat only if you're spending more (tour)",
+        "Head Light + a second coastal stop only if you're spending more (car)",
         "Old Port dusk still (free)",
         "Do not stack a lighthouses loop into a 2-night stay",
         "Foliage weekends are a crowd tax (peak)"
@@ -1658,9 +1658,9 @@
         "One village. Do not commute from Ellsworth every dawn"
       ] },
       lux: { why: "Claremont / Asticou class. July–October is the window.", picks: [
-        "Claremont Hotel — Southwest Harbor leftover",
+        "Claremont Hotel — Southwest Harbor only if you're spending more",
         "Asticou Inn — Northeast Harbor Splurge",
-        "West Street Hotel leftover suite",
+        "West Street Hotel suite only if you're spending more",
         "One property",
         "Cruise-ship mornings crowd the village — hike early"
       ] }
@@ -1684,7 +1684,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down only if you skipped the trail",
-        "Dinner reservation: Claremont or a named table leftover",
+        "Dinner reservation: Claremont or a named table only if you're spending more",
         "One splurge, then a pound",
         "Do not eat every meal out on an Acadia week"
       ]
@@ -1694,7 +1694,7 @@
         "Acadia park entry + one carriage road or shoreline walk (ticketed / cheap)",
         "Village walk after the ships leave (free)",
         "Skip Cadillac sunrise on Budget if you will not reserve a parking slot (ticketed / timed)",
-        "Jordan Pond path leftover (free with entry)",
+        "Jordan Pond path only if you're spending more (free with entry)",
         "Pack water; the island is not a café loop"
       ],
       mid: [
@@ -1705,8 +1705,8 @@
         "Do not stack Beehive, Cadillac, and a whale watch in one day"
       ],
       lux: [
-        "A whale watch leftover (tour)",
-        "A second reserved dawn leftover (timed)",
+        "A whale watch only if you're spending more (tour)",
+        "A second reserved dawn only if you're spending more (timed)",
         "A quiet carriage-road morning still (free with entry)",
         "Do not stack every peak trail into 3 nights",
         "Cruise-ship days are a crowd tax — hike early"
@@ -1716,7 +1716,7 @@
       budget: { why: "Plaza-adjacent walking. Canyon Road is a morning, not a cheap hotel.", picks: [
         "Santa Fe Motel & Inn or El Rey Court — classic courtyards, short drive or walk",
         "Silver Saddle Motel class — Budget, grocery nearby",
-        "A Railyard 2-star if that is the food pocket",
+        "A Railyard 2-star if that is the food area",
         "Skip an airport-adjacent Albuquerque room as this lodging",
         "La Fonda is mid-plus; Budget stays a few blocks off the Plaza"
       ] },
@@ -1725,12 +1725,12 @@
         "Hotel Chimayo de Santa Fe — Plaza-adjacent",
         "Drury Plaza Hotel — mid, breakfast-in-rate if that is the product",
         "Inn of the Five Graces is Splurge; mid is a courtyard 3–4 star",
-        "One pocket. Do not split Albuquerque and the Plaza in a 3-night stay"
+        "One area. Do not split Albuquerque and the Plaza in a 3-night stay"
       ] },
       lux: { why: "Canyon / Tesuque flagship. Indian Market week is not the value window.", picks: [
-        "Inn of the Five Graces — leftover",
+        "Inn of the Five Graces — only if you're spending more",
         "Four Seasons Resort Rancho Encantado — Tesuque Splurge, car assumed",
-        "Bishop’s Lodge — leftover",
+        "Bishop’s Lodge — only if you're spending more",
         "One property",
         "Late fall after Market is the value window"
       ] }
@@ -1754,7 +1754,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "Rancho Encantado dining is a drive-price"
       ]
@@ -1770,13 +1770,13 @@
       mid: [
         "O’Keeffe or Meow Wolf — pick one (ticketed)",
         "Canyon Road + Plaza (free)",
-        "A Bandelier or Tesuque day leftover if you have a car (ticketed / car)",
+        "A Bandelier or Tesuque day only if you're spending more if you have a car (ticketed / car)",
         "A second gallery morning still (free)",
         "Do not stack Meow Wolf, O’Keeffe, and Bandelier in one day"
       ],
       lux: [
-        "A reserved museum + a spa leftover (ticketed)",
-        "Bandelier leftover (ticketed / car)",
+        "A reserved museum + a spa only if you're spending more (ticketed)",
+        "Bandelier only if you're spending more (ticketed / car)",
         "Plaza dusk still (free)",
         "Do not stack Indian Market crowds and three interiors",
         "Taos is a different lodging night if you add it"
@@ -1786,7 +1786,7 @@
       budget: { why: "Grace Bay value. A cheap island-hop is still a transfer.", picks: [
         "Sibonné or a Grace Bay 3-star garden view",
         "Coral Gardens class — walk to the sand",
-        "A 2-star on Leeward if leftover is tight",
+        "A 2-star on Leeward if the budget is tight",
         "Skip a villa on Budget",
         "Confirm the transfer is in the rate"
       ] },
@@ -1797,10 +1797,10 @@
         "Adults-only mid if there are no kids",
         "One beach"
       ] },
-      lux: { why: "Amanyara / COMO leftover.", picks: [
-        "COMO Parrot Cay leftover",
+      lux: { why: "Amanyara / COMO only if you're spending more.", picks: [
+        "COMO Parrot Cay only if you're spending more",
         "Amanyara Splurge",
-        "Grace Bay Club penthouse leftover",
+        "Grace Bay Club penthouse only if you're spending more",
         "One island",
         "Do not also buy every excursion"
       ] }
@@ -1819,12 +1819,12 @@
         "Lunch: beach shack",
         "Dinner: one sit-down",
         "Stay on Grace Bay",
-        "One off-property night if leftover covers the ride"
+        "One off-property night if you have room in the budget for the ride"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Still one island"
       ]
@@ -1842,13 +1842,13 @@
         "Beach for the rest",
         "A second dock tour is the overrun",
         "Grace Bay still",
-        "Iguana island leftover"
+        "Iguana island only if you're spending more"
       ],
       lux: [
-        "A small-group boat leftover (tour)",
+        "A small-group boat only if you're spending more (tour)",
         "One better day, not three",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack every sandbar"
       ]
     };
@@ -1868,7 +1868,7 @@
         "Transfer in the rate"
       ] },
       lux: { why: "Adults-only or a flagship. One property.", picks: [
-        "Adults-only Palm Beach leftover",
+        "Adults-only Palm Beach only if you're spending more",
         "A villa Splurge",
         "One resort",
         "Do not also buy every sunset sail",
@@ -1893,8 +1893,8 @@
       ],
       lux: [
         "On-property fine dining",
-        "One named town reservation leftover",
-        "Specialty leftover-only",
+        "One named town reservation only if you're spending more",
+        "Specialty only if you're spending more",
         "One island",
         "Still not a nightly hop"
       ]
@@ -1912,18 +1912,18 @@
         "Beach for the rest",
         "A second dock tour is the overrun",
         "Town evening",
-        "California Lighthouse leftover"
+        "California Lighthouse only if you're spending more"
       ],
       lux: [
-        "A small-group boat leftover (tour)",
-        "Arikok leftover",
+        "A small-group boat only if you're spending more (tour)",
+        "Arikok only if you're spending more",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack every island tour"
       ]
     };
     P.HOTEL_EXAMPLES["bahamas"] = {
-      budget: { why: "Nassau value or Paradise Island if leftover covers Atlantis math.", picks: [
+      budget: { why: "Nassau value or Paradise Island if you have room in the budget for Atlantis math.", picks: [
         "Downtown Nassau 3-star — ferry to the beaches",
         "A Cable Beach value AI",
         "Skip Atlantis on Budget unless that is the trip",
@@ -1932,13 +1932,13 @@
       ] },
       mid: { why: "Cable Beach 4-star or Atlantis if the water park is the point.", picks: [
         "Baha Mar mid class",
-        "Atlantis Coral / Royal mid if leftover covers it",
+        "Atlantis Coral / Royal mid if you have room in the budget for it",
         "Cable Beach 4-star AI",
-        "One island pocket",
+        "One island area",
         "Transfer in the rate"
       ] },
       lux: { why: "Atlantis suite or Baha Mar flagship.", picks: [
-        "Atlantis Reef / suite leftover",
+        "Atlantis Reef / suite only if you're spending more",
         "Baha Mar Splurge",
         "One campus",
         "The water park is a day-price",
@@ -1959,12 +1959,12 @@
         "Premium à-la-carte",
         "Packed lunch on a boat day",
         "Stay on your campus at night",
-        "Arawak Cay leftover"
+        "Arawak Cay only if you're spending more"
       ],
       lux: [
         "On-property fine dining",
-        "One named reservation leftover",
-        "Specialty leftover-only",
+        "One named reservation only if you're spending more",
+        "Specialty only if you're spending more",
         "One campus",
         "Still not a nightly hop"
       ]
@@ -1981,14 +1981,14 @@
         "One boat or the water park — pick one (ticketed)",
         "Beach for the rest",
         "A second dock tour is the overrun",
-        "Downtown evening leftover",
+        "Downtown evening only if you're spending more",
         "Pig beach is a tour-price"
       ],
       lux: [
-        "A small-group boat leftover (tour)",
-        "Water park leftover if not included",
+        "A small-group boat only if you're spending more (tour)",
+        "Water park only if you're spending more if not included",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack two private islands"
       ]
     };
@@ -2004,11 +2004,11 @@
         "ME Cabo-adjacent or a Medano 4-star",
         "Hilton Los Cabos or a Corridor mid",
         "Adults-only mid if there are no kids",
-        "One pocket",
+        "One area",
         "Transfer in the rate"
       ] },
       lux: { why: "Adults-only or a Pedregal flagship.", picks: [
-        "Waldorf Pedregal leftover",
+        "Waldorf Pedregal only if you're spending more",
         "The Cape / a design Splurge",
         "One property",
         "Do not also buy every sunset sail",
@@ -2028,13 +2028,13 @@
         "Breakfast: café",
         "Lunch: tacos or a proper casual",
         "Dinner: one reservation in town",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Flora Farms is a transfer"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: Flora Farms or a named table leftover",
+        "Dinner reservation: Flora Farms or a named table only if you're spending more",
         "One splurge",
         "Marina restaurants are a tax"
       ]
@@ -2043,7 +2043,7 @@
       budget: [
         "Medano beach (free / included)",
         "Skip a party-boat upsell on Budget",
-        "Arch photo from a cheap water taxi leftover",
+        "Arch photo from a cheap water taxi only if you're spending more",
         "Town walk, not a timeshare day",
         "Sunset is free from the sand"
       ],
@@ -2052,13 +2052,13 @@
         "Beach for the rest",
         "A second dock tour is the overrun",
         "San José del Cabo is a different evening",
-        "Chileno leftover"
+        "Chileno only if you're spending more"
       ],
       lux: [
-        "A small-group boat leftover (tour)",
-        "Flora Farms day leftover",
+        "A small-group boat only if you're spending more (tour)",
+        "Flora Farms day only if you're spending more",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack Arch, a camel, and a sunset sail"
       ]
     };
@@ -2066,7 +2066,7 @@
       budget: { why: "Town (Aldea Zama / downtown) or a beach-road eco hotel. The beach road is a transfer.", picks: [
         "Downtown Tulum 2-star or a hostel-plus",
         "Aldea Zama limited-service",
-        "A beach-road 3-star only if leftover covers the jungle tax",
+        "A beach-road 3-star only if you have room in the budget for the jungle tax",
         "Skip a hotel-zone timeshare day",
         "Bike is the Budget car"
       ] },
@@ -2074,12 +2074,12 @@
         "A beach-road 3–4 star with bikes",
         "Aldea Zama boutique",
         "Adults-only mid if there are no kids",
-        "One pocket",
+        "One area",
         "Transfer in the rate"
       ] },
       lux: { why: "Beach-road flagship. One property.", picks: [
         "Be Tulum / a design Splurge",
-        "Azulik leftover only if you accept the stairs and the price",
+        "Azulik only if you're spending more if you accept the stairs and the price",
         "One property",
         "Do not also buy every cenote club",
         "Sargassum weeks happen"
@@ -2099,12 +2099,12 @@
         "Lunch: tacos or a proper casual",
         "Dinner: one reservation in town",
         "Beach-club lunch is a day-price",
-        "Stay in one pocket"
+        "Stay in one neighborhood"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named beach table leftover",
+        "Dinner reservation: a named beach table only if you're spending more",
         "One splurge",
         "Club bottles are not dinner"
       ]
@@ -2114,7 +2114,7 @@
         "Town bike loop (cheap)",
         "Tulum ruins in the morning (ticketed)",
         "Skip a beach-club day on Budget",
-        "A cenote leftover (ticketed)",
+        "A cenote only if you're spending more (ticketed)",
         "Sargassum: have a backup cenote"
       ],
       mid: [
@@ -2125,9 +2125,9 @@
         "Bike still"
       ],
       lux: [
-        "A small-group ruin leftover (tour)",
-        "A beach-club afternoon leftover",
-        "A second cenote leftover",
+        "A small-group ruin only if you're spending more (tour)",
+        "A beach-club afternoon only if you're spending more",
+        "A second cenote only if you're spending more",
         "Do not stack ruins, Coba, and a club",
         "Sian Ka’an is a different day"
       ]
@@ -2148,8 +2148,8 @@
         "Castle is a morning, not a second hotel"
       ] },
       lux: { why: "A design or historic flagship. Christmas markets are peak.", picks: [
-        "Augustine or a Malá Strana leftover",
-        "Four Seasons Prague leftover",
+        "Augustine or a Malá Strana only if you're spending more",
+        "Four Seasons Prague only if you're spending more",
         "One flagship",
         "Do not also buy every concert upsell",
         "January is the value window"
@@ -2174,7 +2174,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Square restaurants are a tax"
       ]
@@ -2189,14 +2189,14 @@
       ],
       mid: [
         "Castle timed + a neighborhood walk (ticketed / free)",
-        "One concert leftover (ticketed)",
-        "Jewish Quarter ticket leftover",
+        "One concert only if you're spending more (ticketed)",
+        "Jewish Quarter ticket only if you're spending more",
         "A second hill walk still",
         "Do not stack castle, bone church, and a cruise"
       ],
       lux: [
-        "A reserved concert leftover (ticketed)",
-        "Kutná Hora leftover (ticketed / train)",
+        "A reserved concert only if you're spending more (ticketed)",
+        "Kutná Hora only if you're spending more (ticketed / train)",
         "A dawn bridge still (free)",
         "Do not stack three interiors",
         "Christmas markets are a crowd tax"
@@ -2218,8 +2218,8 @@
         "Islands are a different lodging night"
       ] },
       lux: { why: "Syntagma flagship. August is hot.", picks: [
-        "Hotel Grande Bretagne leftover",
-        "A Plaka 5-star leftover",
+        "Hotel Grande Bretagne only if you're spending more",
+        "A Plaka 5-star only if you're spending more",
         "One flagship",
         "Do not also buy every island hop",
         "Shoulder weeks win"
@@ -2244,7 +2244,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Rooftops are a view-price"
       ]
@@ -2258,15 +2258,15 @@
         "Metro day pass"
       ],
       mid: [
-        "Acropolis + museum — pick the same pocket (ticketed)",
+        "Acropolis + museum — pick the same area (ticketed)",
         "One neighborhood walk (free)",
-        "Cape Sounion leftover (tour)",
-        "A second hill leftover",
+        "Cape Sounion only if you're spending more (tour)",
+        "A second hill only if you're spending more",
         "Do not stack Delphi into 2 nights"
       ],
       lux: [
-        "A small-group food walk leftover (tour)",
-        "Acropolis + a second site leftover",
+        "A small-group food walk only if you're spending more (tour)",
+        "Acropolis + a second site only if you're spending more",
         "A neighborhood morning still",
         "Islands need a ferry night",
         "August midday is indoor on purpose"
@@ -2283,12 +2283,12 @@
       mid: { why: "Old Town or New Town 3–4 star. Bus, not a car.", picks: [
         "The Principal or a New Town 3–4 star",
         "A Grassmarket boutique",
-        "Leith 4-star if leftover covers the shore",
+        "Leith 4-star if you have room in the budget for the shore",
         "One neighborhood",
         "Festival weeks are peak"
       ] },
       lux: { why: "New Town flagship. August Festival is not the value window.", picks: [
-        "The Balmoral leftover",
+        "The Balmoral only if you're spending more",
         "Fingal or a Leith Splurge",
         "One flagship",
         "Do not also buy every ghost tour",
@@ -2314,7 +2314,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Castle restaurants are a tax"
       ]
@@ -2330,13 +2330,13 @@
       mid: [
         "Castle or Holyrood — pick one (ticketed)",
         "Arthur’s Seat (free)",
-        "One whisky tasting leftover (ticketed)",
+        "One whisky tasting only if you're spending more (ticketed)",
         "A second hill still",
         "Do not stack castle, palace, and a day trip"
       ],
       lux: [
-        "A reserved Festival show leftover (ticketed)",
-        "A day trip leftover (tour / train)",
+        "A reserved Festival show only if you're spending more (ticketed)",
+        "A day trip only if you're spending more (tour / train)",
         "A hill morning still",
         "Do not stack three interiors",
         "August is a crowd tax"
@@ -2353,13 +2353,13 @@
       mid: { why: "Georgian or Docklands 3–4 star. Luas, not a car.", picks: [
         "The Merrion is Splurge; mid is a Georgian 3–4 star",
         "A Smithfield boutique",
-        "Docklands 4-star if leftover covers the river",
+        "Docklands 4-star if you have room in the budget for the river",
         "One neighborhood",
         "Rugby / concert weeks lift rooms"
       ] },
       lux: { why: "Merrion / Shelbourne class.", picks: [
-        "The Merrion leftover",
-        "The Shelbourne leftover",
+        "The Merrion only if you're spending more",
+        "The Shelbourne only if you're spending more",
         "One flagship",
         "Do not also buy every distillery tour",
         "January is the value window"
@@ -2384,7 +2384,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Temple Bar is a walk-through"
       ]
@@ -2393,20 +2393,20 @@
       budget: [
         "Trinity / a Georgian square walk (free)",
         "Guinness Storehouse is a ticket — Budget can skip (ticketed)",
-        "Kilmainham leftover (ticketed)",
+        "Kilmainham only if you're spending more (ticketed)",
         "Phoenix Park (free)",
         "Skip a hop-on bus"
       ],
       mid: [
         "Guinness or Kilmainham — pick one (ticketed)",
         "A neighborhood walk (free)",
-        "Howth leftover (train)",
+        "Howth only if you're spending more (train)",
         "A second park still",
         "Do not stack two distilleries and a castle"
       ],
       lux: [
-        "A reserved tasting leftover (ticketed)",
-        "A day trip leftover (train / tour)",
+        "A reserved tasting only if you're spending more (ticketed)",
+        "A day trip only if you're spending more (train / tour)",
         "A park morning still",
         "Do not stack three interiors",
         "Match days are a crowd tax"
@@ -2422,13 +2422,13 @@
       ] },
       mid: { why: "Fira / Imerovigli 3–4 star. One village.", picks: [
         "A Fira caldera-adjacent 3-star",
-        "Imerovigli mid if leftover covers the quieter rim",
+        "Imerovigli mid if you have room in the budget for the quieter rim",
         "Kamari 4-star if the beach is the point",
         "One village",
         "Cruise-ship days crowd Oia"
       ] },
-      lux: { why: "Oia cave suite. Leftover only.", picks: [
-        "Oia caldera suite leftover",
+      lux: { why: "Oia cave suite. Only if you're spending more.", picks: [
+        "Oia caldera suite only if you're spending more",
         "Canaves or a design Splurge",
         "One village",
         "Do not also buy every catamaran",
@@ -2447,14 +2447,14 @@
       mid: [
         "Breakfast: café",
         "Lunch: a proper taverna",
-        "Dinner: one caldera sit-down if leftover covers it",
+        "Dinner: one caldera sit-down if you have room in the budget for it",
         "Stay in one village",
         "Wine tasting is mid"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named caldera leftover",
+        "Dinner reservation: a named caldera only if you're spending more",
         "One splurge",
         "Sunset tables are a view-price"
       ]
@@ -2463,20 +2463,20 @@
       budget: [
         "Fira walk + a bus to Oia for sunset from a public terrace (cheap / free)",
         "Skip a donkey ride on Budget",
-        "A beach bus leftover",
-        "Akrotiri leftover (ticketed)",
+        "A beach bus only if you're spending more",
+        "Akrotiri only if you're spending more (ticketed)",
         "Water and a hat are the activity"
       ],
       mid: [
         "Oia sunset from a public spot + one ruin (free / ticketed)",
-        "A caldera hike leftover",
-        "One boat leftover",
+        "A caldera hike only if you're spending more",
+        "One boat only if you're spending more",
         "A second village bus still",
         "Do not stack a catamaran and two ruins"
       ],
       lux: [
-        "A catamaran leftover (tour)",
-        "A reserved Oia dinner leftover",
+        "A catamaran only if you're spending more (tour)",
+        "A reserved Oia dinner only if you're spending more",
         "A dawn walk still",
         "Do not stack every viewpoint",
         "Cruise mornings are a crowd tax"
@@ -2495,10 +2495,10 @@
         "A Kapaa 4-star if you want cheaper dinners",
         "Grand Hyatt is Splurge-adjacent; mid is a Poipu condo-plus",
         "One shore",
-        "North Shore mid only if leftover covers the drive"
+        "North Shore mid only if you have room in the budget for the drive"
       ] },
       lux: { why: "North Shore or a cliff flagship.", picks: [
-        "1 Hotel Hanalei Bay leftover",
+        "1 Hotel Hanalei Bay only if you're spending more",
         "Grand Hyatt Kauai Splurge",
         "One shore",
         "Do not also book every helicopter",
@@ -2524,7 +2524,7 @@
       lux: [
         "Breakfast: condo still wins",
         "Lunch: poke",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Do not stack every fish dinner"
       ]
@@ -2541,12 +2541,12 @@
         "One snorkel or a short boat (ticketed)",
         "A second beach (free)",
         "Waimea Canyon if you already have the car",
-        "A helicopter leftover",
+        "A helicopter only if you're spending more",
         "Do not stack canyon, Na Pali, and a heli"
       ],
       lux: [
-        "A reserved Na Pali boat leftover (tour)",
-        "A helicopter leftover",
+        "A reserved Na Pali boat only if you're spending more (tour)",
+        "A helicopter only if you're spending more",
         "A beach day with no itinerary (free)",
         "Neighbor-island hops are a second fare",
         "Do not stack every adventure"
@@ -2562,13 +2562,13 @@
       ] },
       mid: { why: "Aliʻi Drive midrise or a Kohala 3–4 star.", picks: [
         "Courtyard King Kamehameha or an Aliʻi 3–4 star",
-        "A Kohala mid if leftover covers the resort coast",
+        "A Kohala mid if you have room in the budget for the resort coast",
         "A Hilo 3-star if volcano mornings matter",
         "Pick Kona or Hilo",
         "Do not commute Saddle Road twice a day"
       ] },
       lux: { why: "Kohala Four Seasons class.", picks: [
-        "Four Seasons Hualalai leftover",
+        "Four Seasons Hualalai only if you're spending more",
         "Mauna Lani Splurge",
         "One coast",
         "Do not also book every manta and heli",
@@ -2594,7 +2594,7 @@
       lux: [
         "Breakfast: condo still wins",
         "Lunch: poke",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Manta dinner packages are a tour-price"
       ]
@@ -2609,14 +2609,14 @@
       ],
       mid: [
         "Volcano day + one beach (ticketed / free)",
-        "A manta night leftover (tour)",
+        "A manta night only if you're spending more (tour)",
         "A second beach still",
-        "Mauna Kea leftover — altitude is real",
+        "Mauna Kea only if you're spending more — altitude is real",
         "Do not stack volcano, manta, and a heli"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "A helicopter leftover",
+        "A reserved boat only if you're spending more (tour)",
+        "A helicopter only if you're spending more",
         "A quiet beach morning still",
         "Neighbor-island hops are a second fare",
         "Do not stack every night dive"
@@ -2628,18 +2628,18 @@
         "Hampton Downtown — limited-service, rail downstairs",
         "A RiNo 2-star if that is the night you came for",
         "Skip a Tech Center cloverleaf on Budget",
-        "Union Station pocket beats DIA lodging"
+        "Union Station area beats DIA lodging"
       ] },
       mid: { why: "LoDo or RiNo 3–4 star. Light rail beats a rental in the core.", picks: [
         "The Crawford or a Union Station 3–4 star",
         "A RiNo boutique",
         "The Maven or a Downtown 4-star",
-        "One pocket",
+        "One area",
         "Do not split Boulder into this lodging without a transfer"
       ] },
       lux: { why: "Union Station flagship.", picks: [
-        "The Oxford or a LoDo leftover",
-        "Four Seasons Denver leftover",
+        "The Oxford or a LoDo only if you're spending more",
+        "Four Seasons Denver only if you're spending more",
         "One tower",
         "Do not also buy every mountain tour",
         "January is cheap and icy"
@@ -2658,13 +2658,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation in RiNo",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Boulder dinner is a transfer"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel restaurants are a tax"
       ]
@@ -2678,15 +2678,15 @@
         "Light rail day pass"
       ],
       mid: [
-        "Red Rocks if leftover covers a show or the park (ticketed / cheap)",
+        "Red Rocks if you have room in the budget for a show or the park (ticketed / cheap)",
         "One museum — DAM (ticketed)",
         "A neighborhood walk still",
-        "A mountain day leftover — packed lunch",
+        "A mountain day only if you're spending more — packed lunch",
         "Do not stack Red Rocks, Boulder, and a 14er"
       ],
       lux: [
-        "A reserved mountain tour leftover (tour)",
-        "A Red Rocks show leftover",
+        "A reserved mountain tour only if you're spending more (tour)",
+        "A Red Rocks show only if you're spending more",
         "A city walk still",
         "Do not stack two 14ers",
         "Altitude slack is an activity"
@@ -2708,7 +2708,7 @@
         "Folly Beach is a different night"
       ] },
       lux: { why: "South of Broad flagship.", picks: [
-        "Zero George leftover",
+        "Zero George only if you're spending more",
         "The Spectator or a historic Splurge",
         "One property",
         "Do not also buy every carriage",
@@ -2734,7 +2734,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: FIG or a named table leftover",
+        "Dinner reservation: FIG or a named table only if you're spending more",
         "One splurge",
         "Market restaurants are a tax"
       ]
@@ -2750,13 +2750,13 @@
       mid: [
         "One plantation or a house museum — pick one (ticketed)",
         "A neighborhood walk still",
-        "A carriage leftover",
-        "Folly Beach leftover",
+        "A carriage only if you're spending more",
+        "Folly Beach only if you're spending more",
         "Do not stack two plantations"
       ],
       lux: [
-        "A reserved food walk leftover (tour)",
-        "A second house leftover",
+        "A reserved food walk only if you're spending more (tour)",
+        "A second house only if you're spending more",
         "A Battery morning still",
         "Do not stack three interiors",
         "Spoleto weeks are a crowd tax"
@@ -2778,8 +2778,8 @@
         "Tybee is a different night"
       ] },
       lux: { why: "A river or square flagship.", picks: [
-        "Perry Lane leftover",
-        "The Gastonian leftover",
+        "Perry Lane only if you're spending more",
+        "The Gastonian only if you're spending more",
         "One property",
         "Do not also buy every ghost tour",
         "August is hot and discounted"
@@ -2804,7 +2804,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "River Street is a tax"
       ]
@@ -2820,13 +2820,13 @@
       mid: [
         "One house or the Cathedral — pick one (ticketed)",
         "A square walk still",
-        "A ghost tour leftover",
-        "Tybee leftover",
+        "A ghost tour only if you're spending more",
+        "Tybee only if you're spending more",
         "Do not stack two house museums and a ghost night"
       ],
       lux: [
-        "A reserved food walk leftover (tour)",
-        "A second house leftover",
+        "A reserved food walk only if you're spending more (tour)",
+        "A second house only if you're spending more",
         "A dawn square still",
         "Do not stack three interiors",
         "St. Patrick’s week is a crowd tax"
@@ -2836,20 +2836,20 @@
       budget: { why: "Downtown or West Asheville. A cheap tunnel-road motel plus nightly Ubers is not Budget.", picks: [
         "HI-adjacent / a Downtown 2-star",
         "Foundry or a compact Downtown room",
-        "A West Asheville 2-star if that is the restaurant pocket",
+        "A West Asheville 2-star if that is the restaurant area",
         "Skip a Biltmore-gate hotel on Budget unless that is the trip",
         "A car helps for parkways; downtown walking does not need one"
       ] },
       mid: { why: "Downtown boutique or a Biltmore-adjacent mid.", picks: [
         "The Foundry or a Downtown 3–4 star",
         "Kimpton Arras or a Downtown 4-star",
-        "A Biltmore Village mid if leftover covers the estate",
-        "One pocket",
+        "A Biltmore Village mid if you have room in the budget for the estate",
+        "One area",
         "October leaf weeks are peak"
       ] },
       lux: { why: "Omni Grove Park or a design flagship.", picks: [
-        "Omni Grove Park Inn leftover",
-        "The Inn on Biltmore leftover",
+        "Omni Grove Park Inn only if you're spending more",
+        "The Inn on Biltmore only if you're spending more",
         "One property",
         "Do not also buy every spa add-on",
         "January is cheap and icy"
@@ -2868,15 +2868,15 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation Downtown",
-        "Stay in one pocket",
-        "Biltmore dinner only if leftover covers the estate"
+        "Stay in one neighborhood",
+        "Biltmore dinner only if you have room in the budget for the estate"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
-        "Grove Park dining is a leftover"
+        "Grove Park dining is a only if you're spending more"
       ]
     };
     P.ACTIVITIES["asheville"] = {
@@ -2890,13 +2890,13 @@
       mid: [
         "Biltmore or a parkway day — pick one (ticketed / car)",
         "A neighborhood walk still",
-        "A waterfall leftover",
+        "A waterfall only if you're spending more",
         "A second overlook still",
         "Do not stack Biltmore, a raft, and the parkway"
       ],
       lux: [
-        "A reserved estate leftover (ticketed)",
-        "A guided hike leftover (tour)",
+        "A reserved estate only if you're spending more (ticketed)",
+        "A guided hike only if you're spending more (tour)",
         "A downtown morning still",
         "Do not stack every waterfall",
         "Leaf weeks are a crowd tax"
@@ -2911,14 +2911,14 @@
         "June–August is the realistic family window"
       ] },
       mid: { why: "In-park mid lodge. Book months out.", picks: [
-        "Old Faithful Inn or Lake Yellowstone mid if leftover covers it",
+        "Old Faithful Inn or Lake Yellowstone mid if you have room in the budget for it",
         "Canyon Lodge mid",
         "A West Yellowstone 3-star if in-park is sold",
         "One gate",
         "Grand Teton is a different lodging night"
       ] },
-      lux: { why: "Old Faithful Inn suite or a Teton flagship leftover.", picks: [
-        "Old Faithful Inn leftover",
+      lux: { why: "Old Faithful Inn suite or a Teton flagship only if you're spending more.", picks: [
+        "Old Faithful Inn only if you're spending more",
         "Lake Yellowstone Splurge",
         "One park base",
         "Do not also buy every snowcoach in summer",
@@ -2944,14 +2944,14 @@
       lux: [
         "Breakfast: still pack loop days",
         "Lunch: a sit-down if you are in a village",
-        "Dinner reservation: a lodge leftover",
+        "Dinner reservation: a lodge only if you're spending more",
         "One splurge",
         "Do not eat every meal in a dining room"
       ]
     };
     P.ACTIVITIES["yellowstone"] = {
       budget: [
-        "One loop + a geyser basin walk (park entry)",
+        "One loop + a geyser city walk (park entry)",
         "Skip a guided snowmobile in summer",
         "A visitor-center hour (free with entry)",
         "Wildlife at dawn if you already have the car",
@@ -2959,16 +2959,16 @@
       ],
       mid: [
         "Two basins on different days (park entry)",
-        "A longer walk leftover",
-        "Grand Teton leftover — a transfer day",
+        "A longer walk only if you're spending more",
+        "Grand Teton only if you're spending more — a transfer day",
         "A second dawn still",
         "Do not stack two parks and a boat"
       ],
       lux: [
-        "A private guide leftover (tour)",
-        "A second park day leftover",
-        "A quiet basin morning still",
-        "Winter snowcoach leftover",
+        "A private guide only if you're spending more (tour)",
+        "A second park day only if you're spending more",
+        "A quiet city morning still",
+        "Winter snowcoach only if you're spending more",
         "Do not invent a 4-park week"
       ]
     };
@@ -2987,8 +2987,8 @@
         "One gateway",
         "Do not sleep in three towns in three nights"
       ] },
-      lux: { why: "Amangiri is a different budget. In-park leftover if it exists.", picks: [
-        "In-park lodge leftover at Zion or Bryce",
+      lux: { why: "Amangiri is a different budget. In-park lodge only if you have room in the budget.", picks: [
+        "In-park lodge only if you're spending more at Zion or Bryce",
         "A design desert Splurge",
         "One base",
         "Do not also buy every slot-canyon lottery as a sure thing",
@@ -3014,7 +3014,7 @@
       lux: [
         "Breakfast: still pack park days",
         "Lunch: a sit-down if you skipped a hike",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Do not eat every meal out on a 5-park loop"
       ]
@@ -3029,14 +3029,14 @@
       ],
       mid: [
         "Two parks with a transfer plan (park entry)",
-        "A longer hike leftover",
+        "A longer hike only if you're spending more",
         "A second sunrise still",
-        "Antelope leftover — it is a tour-price",
+        "Antelope only if you're spending more — it is a tour-price",
         "Do not stack three parks in two days"
       ],
       lux: [
-        "A slot-canyon tour leftover (tour)",
-        "A third park leftover",
+        "A slot-canyon tour only if you're spending more (tour)",
+        "A third park only if you're spending more",
         "A quiet trail morning still",
         "Do not stack every lottery",
         "Heat is the limiter in summer"
@@ -3053,13 +3053,13 @@
       mid: { why: "A cabin or a Gatlinburg 3-star. A car is assumed.", picks: [
         "A cabin mid with a kitchen",
         "The Park Vista or a Gatlinburg 3–4 star",
-        "A Townsend quieter mid if leftover covers the quiet",
+        "A Townsend quieter mid if you have room in the budget for the quiet",
         "One town",
         "Cades Cove is a morning, not a second hotel"
       ] },
-      lux: { why: "A nicer cabin or an in-park lodge leftover.", picks: [
+      lux: { why: "A nicer cabin or an in-park lodge only if you're spending more.", picks: [
         "LeConte Lodge is a hike lottery, not a Splurge button",
-        "A luxury cabin leftover",
+        "A luxury cabin only if you're spending more",
         "One base",
         "Do not also buy every show",
         "January is cheap and icy"
@@ -3084,7 +3084,7 @@
       lux: [
         "Breakfast: cabin still wins",
         "Lunch: a sit-down if you skipped the park",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Do not eat every meal on the strip"
       ]
@@ -3094,19 +3094,19 @@
         "Park entry is free — Cades Cove or a short trail (free)",
         "Skip a mini-golf stack on Budget",
         "A visitor-center hour",
-        "Clingmans leftover if the road is open",
+        "Clingmans only if you're spending more if the road is open",
         "Pack layers and a picnic"
       ],
       mid: [
         "A longer trail or Cades Cove loop (free / car)",
-        "One show leftover if that is the party (ticketed)",
+        "One show only if you're spending more if that is the party (ticketed)",
         "A second trail still",
-        "Dollywood leftover",
+        "Dollywood only if you're spending more",
         "Do not stack Dollywood, a show, and a 12-mile hike"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "Dollywood leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "Dollywood only if you're spending more",
         "A quiet trail morning still",
         "Do not stack every attraction",
         "Leaf weeks are a crowd tax"
@@ -3124,12 +3124,12 @@
         "The LINE or a Downtown 3–4 star",
         "Hotel Van Zandt or a Rainey 4-star",
         "An East Austin boutique",
-        "One pocket",
+        "One area",
         "SXSW / ACL weeks are not the value window"
       ] },
       lux: { why: "South Congress or Downtown flagship.", picks: [
-        "Hotel Saint Cecilia leftover",
-        "The Driskill leftover",
+        "Hotel Saint Cecilia only if you're spending more",
+        "The Driskill only if you're spending more",
         "One property",
         "Do not also buy every barbecue pilgrimage as a taxi loop",
         "August is hot and discounted"
@@ -3140,7 +3140,7 @@
       budget: [
         "Breakfast: taco, not the hotel",
         "Lunch: a food truck",
-        "Dinner: one barbecue plate — Franklin leftover-adjacent; Budget is a neighborhood shop",
+        "Dinner: one barbecue plate — Franklin if you're spending more; Budget is a neighborhood shop",
         "Skip Rainey cover-charge dinners on Budget",
         "Grocery a swim-day picnic"
       ],
@@ -3148,13 +3148,13 @@
         "Breakfast: tacos",
         "Lunch: a proper casual on East",
         "Dinner: one reservation",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Barbecue once, then tacos"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel restaurants are a tax"
       ]
@@ -3175,10 +3175,10 @@
         "Do not stack two shows and a boat"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A boat leftover (tour)",
+        "A reserved show only if you're spending more (ticketed)",
+        "A boat only if you're spending more (tour)",
         "A dawn swim still",
-        "Do not stack ACL into a 2-night stay without leftover",
+        "Do not stack ACL into a 2-night stay without only if you're spending more",
         "Formula 1 weeks are a crowd tax"
       ]
     };
@@ -3194,12 +3194,12 @@
         "Graduate Nashville or a Gulch 3–4 star",
         "The Hermitage is Splurge-adjacent; mid is a Downtown 4-star off Broadway",
         "An East Nashville boutique",
-        "One pocket",
+        "One area",
         "CMA Fest weeks are not the value window"
       ] },
       lux: { why: "A historic flagship. Bachelorette weekends lift rooms.", picks: [
-        "The Hermitage leftover",
-        "Thompson Nashville leftover",
+        "The Hermitage only if you're spending more",
+        "Thompson Nashville only if you're spending more",
         "One property",
         "Do not also buy every honky-tonk cover as a plan",
         "January is the value window"
@@ -3218,13 +3218,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation off Broadway",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Hot chicken once, then a meat-and-three"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Broadway menus are a tax"
       ]
@@ -3235,20 +3235,20 @@
         "Country Music Hall of Fame is a ticket (ticketed)",
         "Skip a pedal tavern on Budget",
         "East Nashville stroll (free)",
-        "Ryman leftover"
+        "Ryman only if you're spending more"
       ],
       mid: [
         "Hall of Fame or Ryman — pick one (ticketed)",
         "A neighborhood walk still",
-        "A show leftover",
-        "A second museum leftover",
+        "A show only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack three music interiors"
       ],
       lux: [
-        "A reserved Opry leftover (ticketed)",
-        "A second show leftover",
+        "A reserved Opry only if you're spending more (ticketed)",
+        "A second show only if you're spending more",
         "A dawn walk still",
-        "Do not stack CMA week without leftover",
+        "Do not stack CMA week without only if you're spending more",
         "Bachelorette weekends are a crowd tax"
       ]
     };
@@ -3256,7 +3256,7 @@
       budget: { why: "Walkable Division / Alberta / Downtown on MAX. A cheap airport room is a rideshare habit.", picks: [
         "HI Portland or a hostel-plus on MAX",
         "Hampton Downtown — limited-service",
-        "A Division 2-star if that is the food pocket",
+        "A Division 2-star if that is the food area",
         "Skip a Beaverton cloverleaf on Budget",
         "This is not Portland, Maine"
       ] },
@@ -3264,11 +3264,11 @@
         "The Hoxton Portland or a Downtown 3–4 star",
         "A Division / Belmont boutique",
         "Ace Portland is mid-plus",
-        "One pocket",
+        "One area",
         "Do not split the coast into this lodging without a transfer"
       ] },
       lux: { why: "A design flagship.", picks: [
-        "The Nines leftover",
+        "The Nines only if you're spending more",
         "Canopy or a Downtown Splurge",
         "One property",
         "Do not also buy every food-cart crawl as a taxi loop",
@@ -3288,13 +3288,13 @@
         "Breakfast: café",
         "Lunch: carts or a proper casual",
         "Dinner: one reservation on Division",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Carts still win one night"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel restaurants are a tax"
       ]
@@ -3309,14 +3309,14 @@
       ],
       mid: [
         "One museum — Portland Art Museum (ticketed)",
-        "A gorge waterfall leftover if you have a car",
+        "A gorge waterfall only if you're spending more if you have a car",
         "A second neighborhood still",
         "Powell’s still",
         "Do not stack gorge, Hood, and a coast day"
       ],
       lux: [
-        "A reserved food walk leftover (tour)",
-        "A gorge day leftover",
+        "A reserved food walk only if you're spending more (tour)",
+        "A gorge day only if you're spending more",
         "A dawn walk still",
         "Do not stack every waterfall",
         "Rose Festival weeks are a crowd tax"
@@ -3326,7 +3326,7 @@
       budget: { why: "Old Town walking. This is the resort-adjacent product — Phoenix is a different lodging math.", picks: [
         "An Old Town 2-star — walk to dinner",
         "Hampton Old Town-adjacent",
-        "A Motel 6-class only if leftover is tight and you have a car",
+        "A Motel 6-class only if the budget is tight and you have a car",
         "Skip a Phoenix Downtown hotel as this lodging",
         "Summer is cheap and dangerous-hot"
       ] },
@@ -3334,13 +3334,13 @@
         "Hotel Valley Ho — mid-century mid",
         "Andaz Scottsdale or a resort mid",
         "An Old Town 3–4 star",
-        "One pocket",
+        "One area",
         "Do not split Sedona into this lodging without a transfer day"
       ] },
       lux: { why: "A spa resort flagship. Winter weekends are peak.", picks: [
-        "The Phoenician leftover",
-        "Four Seasons Troon leftover",
-        "Sanctuary Camelback leftover",
+        "The Phoenician only if you're spending more",
+        "Four Seasons Troon only if you're spending more",
+        "Sanctuary Camelback only if you're spending more",
         "One campus",
         "June rooms are cheap because the air hurts"
       ] }
@@ -3359,12 +3359,12 @@
         "Lunch: a proper casual",
         "Dinner: one reservation in Old Town",
         "Stay Old Town at night",
-        "Resort dinner only if leftover covers the campus"
+        "Resort dinner only if you have room in the budget for the campus"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named resort table leftover",
+        "Dinner reservation: a named resort table only if you're spending more",
         "One splurge",
         "Resort dining is a second lodging charge"
       ]
@@ -3380,13 +3380,13 @@
       mid: [
         "Taliesin or a museum — pick one (ticketed)",
         "A dawn trail still",
-        "A spa leftover",
+        "A spa only if you're spending more",
         "Old Town evening still",
         "Do not stack Sedona and a spa day"
       ],
       lux: [
-        "A reserved spa leftover (ticketed)",
-        "A jeep tour leftover (tour)",
+        "A reserved spa only if you're spending more (ticketed)",
+        "A jeep tour only if you're spending more (tour)",
         "A dawn trail still",
         "Do not stack two resorts and Sedona",
         "Winter weekends are a crowd tax"
@@ -3404,12 +3404,12 @@
         "Thompson Seattle or a Belltown 3–4 star",
         "A Capitol Hill boutique",
         "Hotel Theodore or a Downtown 4-star",
-        "One pocket",
+        "One area",
         "July–August is peak and dry"
       ] },
       lux: { why: "A waterfront or downtown flagship.", picks: [
-        "Four Seasons Seattle leftover",
-        "Fairmont Olympic leftover",
+        "Four Seasons Seattle only if you're spending more",
+        "Fairmont Olympic only if you're spending more",
         "One tower",
         "Do not also buy every island ferry as a sure day",
         "January rain is the discount"
@@ -3428,13 +3428,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation on the Hill",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Market once, then the neighborhood"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Market restaurants are a tax"
       ]
@@ -3444,19 +3444,19 @@
         "Pike Place in the morning (free)",
         "A waterfront walk (free)",
         "Skip the paid Great Wheel on Budget (ticketed)",
-        "Chihuly leftover (ticketed)",
+        "Chihuly only if you're spending more (ticketed)",
         "Link day pass"
       ],
       mid: [
         "Chihuly or MoPOP — pick one (ticketed)",
         "A neighborhood walk still",
-        "A ferry leftover — Bainbridge (cheap)",
+        "A ferry only if you're spending more — Bainbridge (cheap)",
         "A second market morning still",
         "Do not stack Rainier, a ferry, and two museums"
       ],
       lux: [
-        "A reserved food walk leftover (tour)",
-        "A Rainier day leftover (car / tour)",
+        "A reserved food walk only if you're spending more (tour)",
+        "A Rainier day only if you're spending more (car / tour)",
         "A dawn walk still",
         "Do not stack every island",
         "Summer weekends are a crowd tax"
@@ -3467,19 +3467,19 @@
         "HI Boston or a hostel-plus on the T",
         "Hampton Back Bay — limited-service",
         "A Cambridge 2-star if that is the night you came for",
-        "Skip a Seaport convention rate on Budget unless leftover covers it",
+        "Skip a Seaport convention rate on Budget unless you have room in the budget",
         "The T beats a rental"
       ] },
       mid: { why: "Back Bay or Seaport 3–4 star. T, not a car.", picks: [
         "The Verb or a Back Bay 3–4 star",
-        "A Seaport 4-star if leftover covers the water",
+        "A Seaport 4-star if you have room in the budget for the water",
         "A Cambridge boutique",
-        "One pocket",
+        "One area",
         "Marathon / leaf weeks lift rooms"
       ] },
       lux: { why: "A historic flagship.", picks: [
-        "The Newbury leftover",
-        "Four Seasons leftover",
+        "The Newbury only if you're spending more",
+        "Four Seasons only if you're spending more",
         "One property",
         "Do not also buy every duck tour",
         "February is cheap and icy"
@@ -3498,13 +3498,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one North End reservation",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Cannoli once"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Faneuil restaurants are a tax"
       ]
@@ -3514,19 +3514,19 @@
         "Freedom Trail walk — pick a few interiors (free / ticketed)",
         "Boston Common (free)",
         "Skip a duck tour on Budget",
-        "Harvard Square leftover (T)",
+        "Harvard Square only if you're spending more (T)",
         "T day pass"
       ],
       mid: [
         "One museum — MFA or Isabella (ticketed)",
         "A trail walk still",
-        "A whale watch leftover",
+        "A whale watch only if you're spending more",
         "A second neighborhood still",
         "Do not stack MFA, Isabella, and a whale day"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A day trip leftover — Salem / Cape",
+        "A reserved show only if you're spending more (ticketed)",
+        "A day trip only if you're spending more — Salem / Cape",
         "A dawn walk still",
         "Do not stack three interiors",
         "Leaf weeks are a crowd tax"
@@ -3536,20 +3536,20 @@
       budget: { why: "Walkable National Mall-adjacent or a Metro neighborhood. Airport lodging is a taxi tax.", picks: [
         "HI Washington or a hostel-plus on Metro",
         "Hampton Downtown — limited-service",
-        "A Capitol Hill 2-star if that is the pocket",
-        "Skip a Crystal City cloverleaf on Budget unless leftover covers the Metro",
+        "A Capitol Hill 2-star if that is the neighborhood",
+        "Skip a Crystal City cloverleaf on Budget unless you have room in the budget for the Metro",
         "Smithsonian is free; the room does not need a view of it"
       ] },
       mid: { why: "Downtown or Penn Quarter 3–4 star. Metro, not a car.", picks: [
         "The Morrison-Clark or a Downtown 3–4 star",
         "A Penn Quarter 4-star",
         "A Capitol Hill boutique",
-        "One pocket",
+        "One area",
         "Cherry blossom weeks are peak"
       ] },
       lux: { why: "A historic flagship.", picks: [
-        "The Willard leftover",
-        "The Jefferson leftover",
+        "The Willard only if you're spending more",
+        "The Jefferson only if you're spending more",
         "One property",
         "Do not also buy every ticketed monument",
         "August is hot and discounted"
@@ -3574,7 +3574,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel restaurants are a tax"
       ]
@@ -3595,8 +3595,8 @@
         "Do not stack three interiors and Arlington in one day"
       ],
       lux: [
-        "A reserved timed ticket leftover (ticketed)",
-        "A food walk leftover (tour)",
+        "A reserved timed ticket only if you're spending more (ticketed)",
+        "A food walk only if you're spending more (tour)",
         "A dawn Mall still",
         "Do not stack every monument tour",
         "Cherry blossom weeks are a crowd tax"
@@ -3617,8 +3617,8 @@
         "One volcano base, one beach base",
         "Transfer is a line"
       ] },
-      lux: { why: "Nayara / a coastal flagship leftover.", picks: [
-        "Nayara leftover",
+      lux: { why: "Nayara / a coastal flagship only if you're spending more.", picks: [
+        "Nayara only if you're spending more",
         "A coastal Splurge",
         "One property per base",
         "Do not also buy every zip-line",
@@ -3644,7 +3644,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -3654,19 +3654,19 @@
         "Arenal hanging bridges or a waterfall (ticketed / cheap)",
         "Skip a zip-line stack on Budget",
         "A town walk",
-        "Manuel Antonio park leftover (ticketed)",
+        "Manuel Antonio park only if you're spending more (ticketed)",
         "Sloth-spotting is a walk, not a guarantee"
       ],
       mid: [
         "One park + one soak (ticketed)",
-        "A second waterfall leftover",
-        "A night walk leftover (tour)",
+        "A second waterfall only if you're spending more",
+        "A night walk only if you're spending more (tour)",
         "Beach for the rest",
         "Do not stack three tours in one day"
       ],
       lux: [
-        "A small-group wildlife leftover (tour)",
-        "A second park leftover",
+        "A small-group wildlife only if you're spending more (tour)",
+        "A second park only if you're spending more",
         "A quiet soak still",
         "Do not stack zip, raft, and a night walk",
         "Two bases need slack"
@@ -3688,7 +3688,7 @@
         "Transfer in the rate"
       ] },
       lux: { why: "Victoria House / a jungle Splurge.", picks: [
-        "Victoria House leftover",
+        "Victoria House only if you're spending more",
         "A jungle Splurge",
         "One base",
         "Do not also buy every dive as a sure day",
@@ -3714,7 +3714,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Cart dinners are a tax"
       ]
@@ -3723,20 +3723,20 @@
       budget: [
         "A beach / split hour (free / cheap)",
         "Skip a cave-tubing upsell on Budget if seas are the point",
-        "A snorkel from shore leftover",
+        "A snorkel from shore only if you're spending more",
         "Town walk",
         "Hol Chan is a ticket"
       ],
       mid: [
         "Hol Chan or a ruin day — pick one (ticketed / tour)",
         "Beach for the rest",
-        "A second dive leftover",
+        "A second dive only if you're spending more",
         "A town walk still",
         "Do not stack ATM cave and a full dive day"
       ],
       lux: [
-        "A small-group dive leftover (tour)",
-        "ATM cave leftover",
+        "A small-group dive only if you're spending more (tour)",
+        "ATM cave only if you're spending more",
         "A beach morning still",
         "Do not stack every site",
         "Two bases need a night"
@@ -3752,12 +3752,12 @@
       ] },
       mid: { why: "A restored casa in Antigua.", picks: [
         "A boutique casa 3–4 star",
-        "A lake mid if leftover covers the boat",
+        "A lake mid if you have room in the budget for the boat",
         "One town",
         "Do not hop three lake villages nightly",
         "Altitude is real"
       ] },
-      lux: { why: "A design casa leftover.", picks: [
+      lux: { why: "A design casa only if you're spending more.", picks: [
         "A restored Splurge casa",
         "A lake Splurge",
         "One base per stay",
@@ -3784,7 +3784,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Courtyards are a tax"
       ]
@@ -3799,14 +3799,14 @@
       ],
       mid: [
         "One volcano or a lake day — pick one (tour)",
-        "A second ruin leftover",
+        "A second ruin only if you're spending more",
         "A town walk still",
-        "Coffee tour leftover",
+        "Coffee tour only if you're spending more",
         "Do not stack two volcanoes"
       ],
       lux: [
-        "A private volcano leftover (tour)",
-        "A lake leftover",
+        "A private volcano only if you're spending more (tour)",
+        "A lake only if you're spending more",
         "A dawn walk still",
         "Do not stack every village",
         "Two bases need slack"
@@ -3827,8 +3827,8 @@
         "Do not fake MP as a Cusco afternoon",
         "Altitude is the limiter"
       ] },
-      lux: { why: "A design casa leftover.", picks: [
-        "Belmond leftover — it is a train-price",
+      lux: { why: "A design casa only if you're spending more.", picks: [
+        "Belmond only if you're spending more — it is a train-price",
         "A Sacred Valley Splurge",
         "One property",
         "Do not also buy every ruin",
@@ -3854,7 +3854,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Plaza restaurants are a tax"
       ]
@@ -3865,18 +3865,18 @@
         "Skip MP on a 2-night Budget if the train eats the budget",
         "Altitude slack is an activity",
         "A market hour",
-        "Qorikancha leftover"
+        "Qorikancha only if you're spending more"
       ],
       mid: [
         "MP timed day (ticketed / train)",
-        "A Sacred Valley leftover",
-        "A second Cusco ruin leftover",
+        "A Sacred Valley only if you're spending more",
+        "A second Cusco ruin only if you're spending more",
         "A dawn walk still",
         "Do not stack MP and Rainbow Mountain"
       ],
       lux: [
-        "A second MP mountain leftover (ticketed)",
-        "A private valley leftover (tour)",
+        "A second MP mountain only if you're spending more (ticketed)",
+        "A private valley only if you're spending more (tour)",
         "A quiet plaza morning still",
         "Do not stack three ruins and a hike",
         "Altitude first"
@@ -3892,13 +3892,13 @@
       ] },
       mid: { why: "Palermo Soho 3–4 star.", picks: [
         "A Palermo boutique",
-        "A Recoleta 4-star if leftover covers the quiet",
+        "A Recoleta 4-star if you have room in the budget for the quiet",
         "San Telmo 3-star if walking is the point",
         "One barrio",
         "Do not hop three barrios nightly"
       ] },
       lux: { why: "A Recoleta flagship.", picks: [
-        "Alvear leftover",
+        "Alvear only if you're spending more",
         "A Palacio Splurge",
         "One property",
         "Do not also buy every tango show as a dinner trap",
@@ -3924,7 +3924,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Puerto Madero is a tax"
       ]
@@ -3932,7 +3932,7 @@
     P.ACTIVITIES["buenos_aires"] = {
       budget: [
         "A barrio walk — San Telmo or Palermo (free)",
-        "One museum — MALBA leftover (ticketed)",
+        "One museum — MALBA only if you're spending more (ticketed)",
         "Skip a tourist tango on Budget",
         "Recoleta cemetery (cheap)",
         "Subte pass"
@@ -3940,13 +3940,13 @@
       mid: [
         "One ticketed — MALBA or Teatro Colón (ticketed)",
         "A barrio walk still",
-        "A tango show leftover",
+        "A tango show only if you're spending more",
         "A second cemetery / park still",
         "Do not stack three interiors"
       ],
       lux: [
-        "A reserved Colón leftover (ticketed)",
-        "A food walk leftover (tour)",
+        "A reserved Colón only if you're spending more (ticketed)",
+        "A food walk only if you're spending more (tour)",
         "A dawn walk still",
         "Do not stack every show",
         "Sunday market is free"
@@ -3963,13 +3963,13 @@
       mid: { why: "A Getsemaní or Centro 3–4 star.", picks: [
         "A boutique casa 3–4 star",
         "A Centro 4-star",
-        "Bocagrande mid if leftover covers the beach",
-        "One pocket",
+        "Bocagrande mid if you have room in the budget for the beach",
+        "One area",
         "Do not hop Rosario nightly"
       ] },
-      lux: { why: "A design casa leftover.", picks: [
+      lux: { why: "A design casa only if you're spending more.", picks: [
         "A restored Splurge casa",
-        "A beach Splurge leftover",
+        "A beach Splurge extra",
         "One property",
         "Do not also buy every island as a sure day",
         "Shoulder weeks win"
@@ -3994,7 +3994,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Plaza restaurants are a tax"
       ]
@@ -4008,15 +4008,15 @@
         "Heat slack midday"
       ],
       mid: [
-        "A Rosario boat leftover (tour)",
-        "A second museum leftover",
+        "A Rosario boat only if you're spending more (tour)",
+        "A second museum only if you're spending more",
         "A dawn walk still",
-        "A convent leftover",
+        "A convent only if you're spending more",
         "Do not stack two boats and a salsa night"
       ],
       lux: [
-        "A small-group food walk leftover (tour)",
-        "A second island leftover",
+        "A small-group food walk only if you're spending more (tour)",
+        "A second island only if you're spending more",
         "A dawn walk still",
         "Do not stack every fort",
         "Heat first"
@@ -4032,14 +4032,14 @@
       ] },
       mid: { why: "A machiya or a 4-star near a subway.", picks: [
         "Mitsui Garden or a 4-star near Shijo",
-        "A machiya mid if leftover covers the house",
+        "A machiya mid if you have room in the budget for the house",
         "Arashiyama mid only if that is the base",
         "One ward",
         "Cherry weeks are peak"
       ] },
-      lux: { why: "A ryokan leftover.", picks: [
-        "A kaiseki ryokan leftover",
-        "Hoshinoya leftover",
+      lux: { why: "A ryokan only if you're spending more.", picks: [
+        "A kaiseki ryokan only if you're spending more",
+        "Hoshinoya only if you're spending more",
         "One property",
         "The room or the kaiseki, rarely both plus every temple",
         "Shoulder weeks win"
@@ -4064,7 +4064,7 @@
       lux: [
         "Breakfast: still cheap most days",
         "Lunch: a sit-down",
-        "Dinner reservation: a kaiseki leftover",
+        "Dinner reservation: a kaiseki only if you're spending more",
         "One splurge",
         "The room or the counter"
       ]
@@ -4074,19 +4074,19 @@
         "Fushimi Inari early (free)",
         "One paid garden (ticketed)",
         "Skip a five-temple checklist",
-        "Philosopher’s Path leftover",
+        "Philosopher’s Path only if you're spending more",
         "Convenience-store picnic"
       ],
       mid: [
         "One garden + one temple (ticketed)",
         "Fushimi still",
-        "Arashiyama leftover",
+        "Arashiyama only if you're spending more",
         "A second neighborhood still",
         "Do not stack Nara and Arashiyama and Gion"
       ],
       lux: [
-        "A reserved garden leftover (ticketed)",
-        "A tea leftover",
+        "A reserved garden only if you're spending more (ticketed)",
+        "A tea only if you're spending more",
         "A dawn shrine still",
         "Do not stack every temple",
         "Cherry weeks are a crowd tax"
@@ -4107,7 +4107,7 @@
         "Halong is a day or a night, not both plus Sapa",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design hotel leftover.", picks: [
+      lux: { why: "A design hotel only if you're spending more.", picks: [
         "A Hanoi Splurge",
         "A Hoi An Splurge",
         "One property per city",
@@ -4129,12 +4129,12 @@
         "Lunch: still a stall",
         "Dinner: one sit-down",
         "Stay in the old town",
-        "Cooking class leftover"
+        "Cooking class only if you're spending more"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: still stalls",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel Italian is the trap"
       ]
@@ -4143,7 +4143,7 @@
       budget: [
         "Old Quarter walk (free)",
         "One museum (ticketed / cheap)",
-        "Skip a junk on Budget if leftover is tight",
+        "Skip a junk on Budget if the budget is tight",
         "A lake loop",
         "Street-food is lunch"
       ],
@@ -4151,12 +4151,12 @@
         "One day trip — Ninh Binh or Halong (tour)",
         "A second city walk still",
         "Hoi An lantern evening",
-        "A cooking class leftover",
+        "A cooking class only if you're spending more",
         "Do not stack two day trips"
       ],
       lux: [
-        "A small-group junk leftover (tour)",
-        "A second day trip leftover",
+        "A small-group junk only if you're spending more (tour)",
+        "A second day trip only if you're spending more",
         "A dawn walk still",
         "Do not stack Sapa and Halong into 5 nights",
         "Heat first"
@@ -4174,11 +4174,11 @@
         "A Circular Quay-adjacent 4-star",
         "A Surry Hills boutique",
         "Bondi mid if the beach is the point",
-        "One pocket",
+        "One area",
         "Do not hop Melbourne without a flight line"
       ] },
-      lux: { why: "A harbor flagship leftover.", picks: [
-        "Park Hyatt leftover",
+      lux: { why: "A harbor flagship only if you're spending more.", picks: [
+        "Park Hyatt only if you're spending more",
         "A Rocks Splurge",
         "One property",
         "Do not also buy every harbor cruise",
@@ -4198,13 +4198,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation",
-        "Stay in one pocket",
+        "Stay in one neighborhood",
         "Opera dinner is a ticket-price"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Harbor restaurants are a tax"
       ]
@@ -4214,19 +4214,19 @@
         "Harbor walk + Opera House exterior (free)",
         "One beach via bus (cheap)",
         "Skip a paid climb on Budget",
-        "A ferry leftover",
+        "A ferry only if you're spending more",
         "Opal day"
       ],
       mid: [
         "Opera House tour or a show — pick one (ticketed)",
         "A ferry still",
-        "Blue Mountains leftover",
+        "Blue Mountains only if you're spending more",
         "A second beach still",
         "Do not stack climb, mountains, and a show"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A scenic flight leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A scenic flight only if you're spending more",
         "A dawn walk still",
         "Do not stack every adventure",
         "Long-haul slack day one"
@@ -4242,14 +4242,14 @@
       ] },
       mid: { why: "A 4-star in town. One base.", picks: [
         "A Queenstown 4-star",
-        "A Wanaka mid if leftover covers the quieter lake",
+        "A Wanaka mid if you have room in the budget for the quieter lake",
         "One town",
         "Do not hop every adventure town nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A lodge leftover.", picks: [
+      lux: { why: "A lodge only if you're spending more.", picks: [
         "A lakefront Splurge",
-        "A wilderness lodge leftover",
+        "A wilderness lodge only if you're spending more",
         "One base",
         "Do not also buy every jump",
         "Winter and summer are different peaks"
@@ -4274,7 +4274,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Waterfront menus are a tax"
       ]
@@ -4290,13 +4290,13 @@
       mid: [
         "One adventure or Milford — pick one (ticketed / tour)",
         "A second walk still",
-        "A glen leftover",
-        "A second adventure leftover",
+        "A glen only if you're spending more",
+        "A second adventure only if you're spending more",
         "Do not stack bungy, Milford, and a flight"
       ],
       lux: [
-        "A reserved flight leftover (tour)",
-        "A second adventure leftover",
+        "A reserved flight only if you're spending more (tour)",
+        "A second adventure only if you're spending more",
         "A dawn walk still",
         "Do not stack every jump",
         "Campervan is a different lodging line"
@@ -4317,8 +4317,8 @@
         "Essaouira is a different night",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palace leftover.", picks: [
-        "La Mamounia leftover",
+      lux: { why: "A palace only if you're spending more.", picks: [
+        "La Mamounia only if you're spending more",
         "A palmeraie Splurge",
         "One property",
         "Do not also buy every desert as a sure night",
@@ -4344,7 +4344,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Square terraces are a tax"
       ]
@@ -4354,19 +4354,19 @@
         "Medina walk with a plan to ignore touts (free / cheap)",
         "One museum / palace (ticketed)",
         "Skip a desert upsell on day one",
-        "A garden leftover",
+        "A garden only if you're spending more",
         "Trusted driver > random taxis"
       ],
       mid: [
         "One guided half-day (tour)",
         "A garden still",
-        "Ourika leftover",
-        "A second palace leftover",
+        "Ourika only if you're spending more",
+        "A second palace only if you're spending more",
         "Do not stack desert and Ourika"
       ],
       lux: [
-        "A desert night leftover (tour)",
-        "A second day leftover",
+        "A desert night only if you're spending more (tour)",
+        "A second day only if you're spending more",
         "A dawn walk still",
         "Do not stack every kasbah",
         "Heat first"
@@ -4382,14 +4382,14 @@
       ] },
       mid: { why: "A 4-star in the Bowl or Gardens.", picks: [
         "A boutique 4-star",
-        "A waterfront mid if leftover covers the pier",
-        "One pocket",
+        "A waterfront mid if you have room in the budget for the pier",
+        "One area",
         "Stellenbosch is a day",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A lodge or waterfront flagship leftover.", picks: [
+      lux: { why: "A lodge or waterfront flagship only if you're spending more.", picks: [
         "A waterfront Splurge",
-        "A safari lodge leftover — different budget",
+        "A safari lodge only if you're spending more — different budget",
         "One city base",
         "Do not also buy every cape tour",
         "Wind is real"
@@ -4409,12 +4409,12 @@
         "Lunch: a proper casual",
         "Dinner: one reservation",
         "Stay in the Bowl at night",
-        "Wine-farm lunch leftover"
+        "Wine-farm lunch only if you're spending more"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Waterfront menus are a tax"
       ]
@@ -4430,13 +4430,13 @@
       mid: [
         "Table Mountain or a peninsula day — pick one (ticketed / tour)",
         "A second viewpoint still",
-        "Stellenbosch leftover",
-        "A colony leftover",
+        "Stellenbosch only if you're spending more",
+        "A colony only if you're spending more",
         "Do not stack mountain, cape, and wine"
       ],
       lux: [
-        "A reserved safari leftover (tour)",
-        "A second cape day leftover",
+        "A reserved safari only if you're spending more (tour)",
+        "A second cape day only if you're spending more",
         "A dawn walk still",
         "Do not stack every adventure",
         "Safari is a different line"
@@ -4457,9 +4457,9 @@
         "One city, then a separate cruise line",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palace leftover.", picks: [
+      lux: { why: "A palace only if you're spending more.", picks: [
         "A Nile Splurge",
-        "A cruise Splurge leftover",
+        "A cruise Splurge extra",
         "One property",
         "Do not also buy every optional temple",
         "Heat midday is indoor"
@@ -4484,7 +4484,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel buffets are a tax"
       ]
@@ -4499,14 +4499,14 @@
       ],
       mid: [
         "Pyramids or a museum day — pick the stack honestly (ticketed / tour)",
-        "A second site leftover",
-        "Luxor leftover — a flight",
+        "A second site only if you're spending more",
+        "Luxor only if you're spending more — a flight",
         "A dawn still",
         "Do not stack Giza, Saqqara, and a dinner cruise"
       ],
       lux: [
-        "A private guide leftover (tour)",
-        "A cruise leftover",
+        "A private guide only if you're spending more (tour)",
+        "A cruise only if you're spending more",
         "A dawn still",
         "Do not double-pay optional extras",
         "Heat first"
@@ -4522,17 +4522,17 @@
       ] },
       mid: { why: "Oceanview or balcony. Glacier days are the product.", picks: [
         "Oceanview midship",
-        "A balcony if leftover covers the glacier day",
+        "A balcony if you have room in the budget for the glacier day",
         "One ship",
         "Independent port walks beat the first dock kiosk",
         "Drink package only after the math"
       ] },
-      lux: { why: "A suite leftover. Still run the drink math.", picks: [
-        "A large balcony leftover",
+      lux: { why: "A suite only if you're spending more. Still run the drink math.", picks: [
+        "A large balcony only if you're spending more",
         "Suite-adjacent Splurge",
         "One ship",
         "Do not also buy every excursion",
-        "Spa leftover-only"
+        "Spa only if you're spending more"
       ] }
     };
     P.FOOD_PICKS["alaska_cruise"] = {
@@ -4546,7 +4546,7 @@
       ],
       mid: [
         "Main dining most nights",
-        "One specialty if leftover covers it",
+        "One specialty if you have room in the budget for it",
         "Drink package only after break-even",
         "Packed snacks on long port days",
         "Specialty is not nightly"
@@ -4554,7 +4554,7 @@
       lux: [
         "Dining room + one or two specialty nights",
         "Unlimited drinks are in Splurge — still run the math",
-        "Chef’s table leftover",
+        "Chef’s table only if you're spending more",
         "One splurge",
         "Ports have fish, not a second fare"
       ]
@@ -4571,14 +4571,14 @@
         "One ship excursion + one independent port (ticketed / free)",
         "A second walk still",
         "Skip the third dock tour",
-        "Train leftover in Skagway",
+        "Train only if you're spending more in Skagway",
         "Do not stack three tours"
       ],
       lux: [
-        "Two ship excursions leftover (ticketed)",
-        "A small-group port leftover",
+        "Two ship excursions only if you're spending more (ticketed)",
+        "A small-group port only if you're spending more",
         "A deck morning still",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack every glacier add-on"
       ]
     };
@@ -4594,11 +4594,11 @@
         "A 4-star AI in the north",
         "A Soufrière mid if the pitons are the point",
         "Adults-only mid if there are no kids",
-        "One pocket",
+        "One area",
         "Transfer in the rate"
       ] },
-      lux: { why: "A piton flagship leftover.", picks: [
-        "Jade Mountain leftover",
+      lux: { why: "A piton flagship only if you're spending more.", picks: [
+        "Jade Mountain only if you're spending more",
         "A piton Splurge",
         "One property",
         "Do not also buy every zip-line",
@@ -4623,8 +4623,8 @@
       ],
       lux: [
         "On-property fine dining",
-        "One named reservation leftover",
-        "Specialty leftover-only",
+        "One named reservation only if you're spending more",
+        "Specialty only if you're spending more",
         "One coast",
         "Still not a nightly hop"
       ]
@@ -4634,21 +4634,21 @@
         "The beach in front of the resort (included)",
         "Skip a zip-line on Budget",
         "A town walk, not a timeshare day",
-        "Piton photo from a public viewpoint leftover",
+        "Piton photo from a public viewpoint only if you're spending more",
         "Heat slack"
       ],
       mid: [
         "One boat or a drive-to-Soufrière — pick one (tour)",
         "Beach for the rest",
         "A second tour is the overrun",
-        "A waterfall leftover",
+        "A waterfall only if you're spending more",
         "Do not stack two coasts in one day"
       ],
       lux: [
-        "A small-group piton leftover (tour)",
-        "A second boat leftover",
+        "A small-group piton only if you're spending more (tour)",
+        "A second boat only if you're spending more",
         "A beach morning still",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Transfers are the limiter"
       ]
     };
@@ -4663,13 +4663,13 @@
       mid: { why: "Old San Juan or Condado 3–4 star.", picks: [
         "A boutique 3–4 star in Old SJ",
         "A Condado 4-star if the beach is the point",
-        "One pocket",
+        "One area",
         "El Yunque is a day",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design flagship leftover.", picks: [
+      lux: { why: "A design flagship only if you're spending more.", picks: [
         "A Condado Splurge",
-        "A Dorado leftover — a different drive",
+        "A Dorado only if you're spending more — a different drive",
         "One property",
         "Do not also buy every bio-bay as a sure night",
         "Hurricane weeks are a watch"
@@ -4688,13 +4688,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation",
-        "Stay in one pocket",
-        "Piñones leftover"
+        "Stay in one neighborhood",
+        "Piñones only if you're spending more"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Plaza restaurants are a tax"
       ]
@@ -4705,18 +4705,18 @@
         "A plaza loop (free)",
         "Skip a party-bike on Budget",
         "Beach in Condado if you slept there",
-        "El Yunque leftover"
+        "El Yunque only if you're spending more"
       ],
       mid: [
         "El Yunque or a bio-bay — pick one (ticketed / tour)",
-        "A second fort leftover",
+        "A second fort only if you're spending more",
         "A beach still",
-        "Culebra leftover — a ferry day",
+        "Culebra only if you're spending more — a ferry day",
         "Do not stack Yunque, bio-bay, and Culebra"
       ],
       lux: [
-        "A reserved bio-bay leftover (tour)",
-        "Culebra leftover",
+        "A reserved bio-bay only if you're spending more (tour)",
+        "Culebra only if you're spending more",
         "A dawn walk still",
         "Do not stack every island",
         "Cruise mornings crowd Old SJ"
@@ -4732,13 +4732,13 @@
       ] },
       mid: { why: "A 4-star on the beach you chose.", picks: [
         "A Magens or Frenchman’s 4-star",
-        "A St. John mid if leftover covers the ferry",
+        "A St. John mid if you have room in the budget for the ferry",
         "One island",
         "Transfer in the rate",
         "Cruise days crowd town"
       ] },
-      lux: { why: "A flagship leftover.", picks: [
-        "A Caneel leftover-adjacent / a Splurge resort",
+      lux: { why: "A flagship only if you're spending more.", picks: [
+        "A Caneel if you're spending more / a Splurge resort",
         "One island",
         "Do not also buy every sail",
         "Shoulder weeks win",
@@ -4764,7 +4764,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -4774,21 +4774,21 @@
         "A beach day (free / cheap)",
         "Skip a jet-ski on Budget",
         "A town walk, not a timeshare day",
-        "A ferry leftover",
+        "A ferry only if you're spending more",
         "Pack water"
       ],
       mid: [
         "St. John ferry + a beach (cheap / ferry)",
-        "A snorkel leftover",
+        "A snorkel only if you're spending more",
         "A second beach still",
-        "A sail leftover",
+        "A sail only if you're spending more",
         "Do not stack two islands and a sail"
       ],
       lux: [
-        "A reserved sail leftover (tour)",
-        "A second island leftover",
+        "A reserved sail only if you're spending more (tour)",
+        "A second island only if you're spending more",
         "A beach morning still",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Cruise days are a crowd tax"
       ]
     };
@@ -4802,14 +4802,14 @@
       ] },
       mid: { why: "A 4-star near a MRT interchange.", picks: [
         "A Chinatown or Tiong Bahru 4-star",
-        "A Marina mid if leftover covers the bay",
-        "One pocket",
+        "A Marina mid if you have room in the budget for the bay",
+        "One area",
         "Do not hop every island nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A Marina flagship leftover.", picks: [
-        "Marina Bay Sands leftover — it is a view-price",
-        "A Raffles leftover",
+      lux: { why: "A Marina flagship only if you're spending more.", picks: [
+        "Marina Bay Sands only if you're spending more — it is a view-price",
+        "A Raffles only if you're spending more",
         "One property",
         "Do not also buy every garden as a night ticket stack",
         "The hawker is still the dinner"
@@ -4834,7 +4834,7 @@
       lux: [
         "Breakfast: still cheap most days",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "The room or the tasting, rarely both"
       ]
@@ -4850,13 +4850,13 @@
       mid: [
         "One ticketed — Gardens Cloud Dome or a museum (ticketed)",
         "A second neighborhood still",
-        "Sentosa leftover",
-        "A night light leftover",
+        "Sentosa only if you're spending more",
+        "A night light only if you're spending more",
         "Do not stack two gardens and Sentosa"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A second ticketed leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A second ticketed only if you're spending more",
         "A dawn walk still",
         "Do not stack every icon",
         "Heat midday is indoor"
@@ -4872,13 +4872,13 @@
       ] },
       mid: { why: "A 4-star near a subway interchange.", picks: [
         "A Myeongdong or Hongdae 4-star",
-        "A Hanok mid if leftover covers the house",
+        "A Hanok mid if you have room in the budget for the house",
         "One ward",
         "Busan is a different trip",
         "Cherry / foliage weeks lift rooms"
       ] },
-      lux: { why: "A palace-adjacent flagship leftover.", picks: [
-        "A Park Hyatt leftover",
+      lux: { why: "A palace-adjacent flagship only if you're spending more.", picks: [
+        "A Park Hyatt only if you're spending more",
         "A hanok Splurge",
         "One property",
         "Do not also buy every palace as a sure interior",
@@ -4904,7 +4904,7 @@
       lux: [
         "Breakfast: still cheap most days",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "The room or the counter"
       ]
@@ -4914,19 +4914,19 @@
         "A palace exterior + a neighborhood walk (free / cheap)",
         "One paid palace interior (ticketed)",
         "Skip a five-palace checklist",
-        "A night market leftover",
+        "A night market only if you're spending more",
         "Convenience-store picnic"
       ],
       mid: [
         "One palace + one tower or museum (ticketed)",
         "A second neighborhood still",
-        "A day trip leftover — Suwon or DMZ",
+        "A day trip only if you're spending more — Suwon or DMZ",
         "A palace still at dusk",
         "Do not stack DMZ and three palaces"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A food walk leftover (tour)",
+        "A reserved show only if you're spending more (ticketed)",
+        "A food walk only if you're spending more (tour)",
         "A dawn walk still",
         "Do not stack every palace",
         "Cherry weeks are a crowd tax"
@@ -4947,9 +4947,9 @@
         "Do not hop every beach nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design villa leftover.", picks: [
+      lux: { why: "A design villa only if you're spending more.", picks: [
         "A Fort Splurge",
-        "A tea-bungalow leftover",
+        "A tea-bungalow only if you're spending more",
         "One property",
         "Do not also buy every safari as a sure day",
         "Two bases need slack"
@@ -4974,7 +4974,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel buffets are a tax"
       ]
@@ -4984,19 +4984,19 @@
         "A Fort walk (free)",
         "One temple (cheap)",
         "Skip a safari on Budget if seas are the point",
-        "A train ride leftover",
+        "A train ride only if you're spending more",
         "Heat slack"
       ],
       mid: [
         "A train + a Fort day (ticketed / cheap)",
-        "A safari leftover",
-        "A second temple leftover",
+        "A safari only if you're spending more",
+        "A second temple only if you're spending more",
         "A beach still",
         "Do not stack safari and a long train in one day"
       ],
       lux: [
-        "A reserved safari leftover (tour)",
-        "A second train leftover",
+        "A reserved safari only if you're spending more (tour)",
+        "A second train only if you're spending more",
         "A dawn walk still",
         "Do not stack every park",
         "Two bases need slack"
@@ -5017,9 +5017,9 @@
         "Uffizi is a timed morning",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palazzo leftover.", picks: [
+      lux: { why: "A palazzo only if you're spending more.", picks: [
         "A palazzo Splurge",
-        "A Four Seasons leftover",
+        "A Four Seasons only if you're spending more",
         "One property",
         "Do not also buy every tower",
         "August is hot"
@@ -5044,7 +5044,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Piazza restaurants are a tax"
       ]
@@ -5060,13 +5060,13 @@
       mid: [
         "Uffizi or Accademia — pick one (ticketed)",
         "A neighborhood walk still",
-        "A climb leftover",
-        "A second garden leftover",
+        "A climb only if you're spending more",
+        "A second garden only if you're spending more",
         "Do not stack Uffizi, Accademia, and a climb"
       ],
       lux: [
-        "A reserved Uffizi leftover (ticketed)",
-        "A Chianti leftover",
+        "A reserved Uffizi only if you're spending more (ticketed)",
+        "A Chianti only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "August is a crowd tax"
@@ -5077,18 +5077,18 @@
         "A Sorrento 2-star / hostel-plus",
         "A Salerno 2-star if trains matter",
         "Skip a cliff suite on Budget",
-        "Ferries beat hairpin buses if leftover covers it",
+        "Ferries beat hairpin buses if you have room in the budget for it",
         "Pack light — stairs"
       ] },
       mid: { why: "A Positano-adjacent 3-star or a Sorrento 4-star.", picks: [
         "A Sorrento 4-star",
-        "A Positano mid if leftover covers the cliff",
+        "A Positano mid if you have room in the budget for the cliff",
         "One town",
         "Do not hop three villages nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A cliff flagship leftover.", picks: [
-        "Le Sirenuse leftover",
+      lux: { why: "A cliff flagship only if you're spending more.", picks: [
+        "Le Sirenuse only if you're spending more",
         "A cliff Splurge",
         "One town",
         "Do not also buy every boat",
@@ -5114,7 +5114,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named cliff leftover",
+        "Dinner reservation: a named cliff only if you're spending more",
         "One splurge",
         "View tables are a tax"
       ]
@@ -5123,20 +5123,20 @@
       budget: [
         "A town walk + a beach access (free / cheap)",
         "Skip a private-boat on Budget",
-        "A ferry leftover",
-        "Path of the Gods leftover — fitness required",
+        "A ferry only if you're spending more",
+        "Path of the Gods only if you're spending more — fitness required",
         "Heat slack"
       ],
       mid: [
         "One ferry town or Capri — pick one (ticketed / ferry)",
         "A second walk still",
-        "A path leftover",
+        "A path only if you're spending more",
         "A beach still",
         "Do not stack Capri, a path, and a boat"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "A second ferry leftover",
+        "A reserved boat only if you're spending more (tour)",
+        "A second ferry only if you're spending more",
         "A dawn walk still",
         "Do not stack every village",
         "August is a crowd tax"
@@ -5148,7 +5148,7 @@
         "A Lapad 2-star",
         "Skip a wall-view suite on Budget",
         "Pack light — stairs",
-        "Ferry leftover"
+        "Ferry only if you're spending more"
       ] },
       mid: { why: "A 3–4 star in or just outside the walls.", picks: [
         "A boutique 3–4 star",
@@ -5157,9 +5157,9 @@
         "Split is a different night",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A flagship leftover.", picks: [
+      lux: { why: "A flagship only if you're spending more.", picks: [
         "A wall-adjacent Splurge",
-        "An island Splurge leftover",
+        "An island Splurge extra",
         "One property",
         "Do not also buy every island as a sure day",
         "Cruise mornings are a crowd tax"
@@ -5184,7 +5184,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Stradun menus are a tax"
       ]
@@ -5194,19 +5194,19 @@
         "Old Town walk at dawn (free)",
         "Walls are a ticket — Budget can skip (ticketed)",
         "Skip a game-of-thrones upsell",
-        "A beach leftover",
+        "A beach only if you're spending more",
         "Cruise mornings: hike early"
       ],
       mid: [
         "Walls + one island ferry (ticketed / ferry)",
         "A second walk still",
-        "Lokrum leftover",
+        "Lokrum only if you're spending more",
         "A second beach still",
         "Do not stack walls, Lokrum, and a boat"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "A second island leftover",
+        "A reserved boat only if you're spending more (tour)",
+        "A second island only if you're spending more",
         "A dawn walk still",
         "Do not stack every island",
         "Cruise days are a crowd tax"
@@ -5227,9 +5227,9 @@
         "Do not hop every peak nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A lodge leftover.", picks: [
+      lux: { why: "A lodge only if you're spending more.", picks: [
         "A peak Splurge",
-        "A palace leftover",
+        "A palace only if you're spending more",
         "One base",
         "Do not also buy every peak ticket",
         "The room or the Jungfraujoch, rarely both"
@@ -5254,7 +5254,7 @@
       lux: [
         "Breakfast: still pack trail days",
         "Lunch: a sit-down if you skipped the peak",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Do not eat every meal out on a rail week"
       ]
@@ -5263,20 +5263,20 @@
       budget: [
         "A valley walk (free)",
         "One peak ticket — skip a stack (ticketed)",
-        "Skip Jungfraujoch on Budget if leftover is tight",
+        "Skip Jungfraujoch on Budget if the budget is tight",
         "A lake hour",
         "Layers are the activity"
       ],
       mid: [
         "One peak + one valley walk (ticketed / free)",
         "A second walk still",
-        "A second peak leftover",
+        "A second peak only if you're spending more",
         "A lake still",
         "Do not stack two peaks and a long rail"
       ],
       lux: [
-        "A reserved peak leftover (ticketed)",
-        "A second valley leftover",
+        "A reserved peak only if you're spending more (ticketed)",
+        "A second valley only if you're spending more",
         "A dawn walk still",
         "Do not stack every peak",
         "The pass is math"
@@ -5292,12 +5292,12 @@
       ] },
       mid: { why: "A Poblado 3–4 star.", picks: [
         "A Poblado boutique",
-        "A Laureles 4-star if leftover covers the quiet",
+        "A Laureles 4-star if you have room in the budget for the quiet",
         "One barrio",
         "Guatapé is a day",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A Poblado Splurge",
         "One property",
         "Do not also buy every comuna tour as a selfie loop",
@@ -5324,7 +5324,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Rooftops are a tax"
       ]
@@ -5334,19 +5334,19 @@
         "A barrio walk with a plan (free / cheap)",
         "One museum (ticketed / cheap)",
         "Skip a party-bike on Budget",
-        "Metro cable leftover",
+        "Metro cable only if you're spending more",
         "Nights: have a route"
       ],
       mid: [
         "A comuna tour or Guatapé — pick one (tour)",
         "A second walk still",
-        "A cable leftover",
-        "A second museum leftover",
+        "A cable only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack two tours"
       ],
       lux: [
-        "A small-group tour leftover (tour)",
-        "Guatapé leftover",
+        "A small-group tour only if you're spending more (tour)",
+        "Guatapé only if you're spending more",
         "A dawn walk still",
         "Do not stack every barrio",
         "Have a night plan"
@@ -5361,14 +5361,14 @@
         "Water and sun are a plan"
       ] },
       mid: { why: "A mid boat or a better island hotel.", picks: [
-        "A mid-range liveaboard if leftover covers the berth",
+        "A mid-range liveaboard if you have room in the budget for the berth",
         "A Santa Cruz 3–4 star + day boats",
         "One product — boat or land",
         "Do not mix three islands without transfers",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A luxury liveaboard leftover.", picks: [
-        "A luxury boat leftover",
+      lux: { why: "A luxury liveaboard only if you're spending more.", picks: [
+        "A luxury boat only if you're spending more",
         "One itinerary",
         "Do not also buy every extra dive",
         "The park fee is still a line",
@@ -5392,8 +5392,8 @@
         "Day-boat lunches are packed"
       ],
       lux: [
-        "Boat: included + one land leftover",
-        "A named table leftover on land nights",
+        "Boat: included + one land only if you're spending more",
+        "A named table only if you're spending more on land nights",
         "One splurge",
         "Do not fight the boat menu",
         "Land hotels are a second product"
@@ -5410,13 +5410,13 @@
       mid: [
         "Day boats or a liveaboard itinerary (ticketed / tour)",
         "A second site still",
-        "A highland leftover",
+        "A highland only if you're spending more",
         "A town still",
         "Do not stack every extra"
       ],
       lux: [
-        "A dive leftover (tour)",
-        "A longer itinerary leftover",
+        "A dive only if you're spending more (tour)",
+        "A longer itinerary only if you're spending more",
         "A dawn still",
         "Do not stack every island",
         "The fee is still a line"
@@ -5434,14 +5434,14 @@
         "A mid Mara lodge",
         "Nairobi only the night you fly",
         "One reserve",
-        "Balloon leftover",
+        "Balloon only if you're spending more",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A luxury camp leftover.", picks: [
-        "A luxury tent leftover",
+      lux: { why: "A luxury camp only if you're spending more.", picks: [
+        "A luxury tent only if you're spending more",
         "One reserve",
         "Do not also buy every optional drive",
-        "Balloon leftover",
+        "Balloon only if you're spending more",
         "The game drive is the product"
       ] }
     };
@@ -5458,12 +5458,12 @@
         "Lodge: included + one Nairobi sit-down",
         "Packed on transfer days",
         "Stay at the lodge at night",
-        "Sundowner leftover",
+        "Sundowner only if you're spending more",
         "Do not fight the lodge menu"
       ],
       lux: [
-        "Lodge: included + a tasting leftover",
-        "One Nairobi leftover",
+        "Lodge: included + a tasting only if you're spending more",
+        "One Nairobi only if you're spending more",
         "One splurge",
         "Balloon breakfast is a tour-price",
         "Do not double-pay extras"
@@ -5473,20 +5473,20 @@
       budget: [
         "Game drives included in the lodge (included / ticketed)",
         "Skip a balloon on Budget",
-        "Nairobi museum leftover",
+        "Nairobi museum only if you're spending more",
         "Park fees are the ticket",
         "Dawn is the activity"
       ],
       mid: [
         "Drives + one extra site (ticketed)",
-        "A balloon leftover",
-        "A second reserve leftover — a transfer",
+        "A balloon only if you're spending more",
+        "A second reserve only if you're spending more — a transfer",
         "A dawn still",
         "Do not stack two parks without a night"
       ],
       lux: [
-        "A balloon leftover (tour)",
-        "A private guide leftover",
+        "A balloon only if you're spending more (tour)",
+        "A private guide only if you're spending more",
         "A dawn still",
         "Do not double-pay optional extras",
         "The drive is the product"
@@ -5507,7 +5507,7 @@
         "Do not hop every cliff nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A cliff flagship leftover.", picks: [
+      lux: { why: "A cliff flagship only if you're spending more.", picks: [
         "A cliff Splurge",
         "One town",
         "Do not also buy every boat",
@@ -5534,7 +5534,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Marina menus are a tax"
       ]
@@ -5542,21 +5542,21 @@
     P.ACTIVITIES["portugal_algarve"] = {
       budget: [
         "A beach + a town walk (free)",
-        "Skip a grotto-boat on Budget if leftover is tight",
-        "A cliff path leftover",
+        "Skip a grotto-boat on Budget if the budget is tight",
+        "A cliff path only if you're spending more",
         "Pack water",
         "Heat slack"
       ],
       mid: [
         "One boat or a longer path — pick one (ticketed / free)",
         "A second beach still",
-        "A second town leftover",
+        "A second town only if you're spending more",
         "A path still",
         "Do not stack two boats and a path"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "A second path leftover",
+        "A reserved boat only if you're spending more (tour)",
+        "A second path only if you're spending more",
         "A dawn beach still",
         "Do not stack every grotto",
         "August is a crowd tax"
@@ -5577,9 +5577,9 @@
         "Taroko is a different night",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A flagship leftover.", picks: [
+      lux: { why: "A flagship only if you're spending more.", picks: [
         "A landmark Splurge",
-        "A hot-spring leftover",
+        "A hot-spring only if you're spending more",
         "One property",
         "Do not also buy every night market as a taxi loop",
         "The room or the night market, rarely both"
@@ -5604,7 +5604,7 @@
       lux: [
         "Breakfast: still cheap most days",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "The room or the tasting"
       ]
@@ -5612,7 +5612,7 @@
     P.ACTIVITIES["taiwan"] = {
       budget: [
         "A neighborhood walk — Dadaocheng or a temple (free / cheap)",
-        "One paid deck leftover (ticketed)",
+        "One paid deck only if you're spending more (ticketed)",
         "Skip a five-temple checklist",
         "A night market is dinner",
         "EasyCard"
@@ -5620,13 +5620,13 @@
       mid: [
         "One museum or a deck (ticketed)",
         "A second neighborhood still",
-        "Jiufen leftover",
-        "A hot spring leftover",
+        "Jiufen only if you're spending more",
+        "A hot spring only if you're spending more",
         "Do not stack 101, Jiufen, and Taroko"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "Taroko leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "Taroko only if you're spending more",
         "A dawn walk still",
         "Do not stack every mountain",
         "A second city is a different trip"
@@ -5647,9 +5647,9 @@
         "Baths are a morning",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palace leftover.", picks: [
-        "A Four Seasons leftover",
-        "A Gresham leftover",
+      lux: { why: "A palace only if you're spending more.", picks: [
+        "A Four Seasons only if you're spending more",
+        "A Gresham only if you're spending more",
         "One property",
         "Do not also buy every ruin bar as a night plan",
         "January is cheap and icy"
@@ -5674,7 +5674,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "River restaurants are a tax"
       ]
@@ -5684,19 +5684,19 @@
         "A Pest walk + a free viewpoint (free)",
         "One bath — Széchenyi or Rudas (ticketed)",
         "Skip a hop-on bus",
-        "Parliament leftover (ticketed)",
+        "Parliament only if you're spending more (ticketed)",
         "Tram pass"
       ],
       mid: [
         "One bath + one interior (ticketed)",
         "A second walk still",
-        "A ruin bar leftover",
-        "A second bath leftover",
+        "A ruin bar only if you're spending more",
+        "A second bath only if you're spending more",
         "Do not stack two baths and Parliament"
       ],
       lux: [
-        "A reserved bath leftover (ticketed)",
-        "A Danube leftover",
+        "A reserved bath only if you're spending more (ticketed)",
+        "A Danube only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "August is a crowd tax"
@@ -5717,9 +5717,9 @@
         "Tivoli is a ticket",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design flagship leftover.", picks: [
+      lux: { why: "A design flagship only if you're spending more.", picks: [
         "A harbor Splurge",
-        "A design leftover",
+        "A design only if you're spending more",
         "One property",
         "Do not also buy every tasting as a sure night",
         "July is peak"
@@ -5744,7 +5744,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Nyhavn menus are a tax"
       ]
@@ -5753,20 +5753,20 @@
       budget: [
         "A harbor walk (free)",
         "One free museum hour if the calendar lines up",
-        "Skip Tivoli on Budget if leftover is tight",
+        "Skip Tivoli on Budget if the budget is tight",
         "A neighborhood walk",
         "Metro pass"
       ],
       mid: [
         "Tivoli or a museum — pick one (ticketed)",
         "A second walk still",
-        "Louisiana leftover — a train",
+        "Louisiana only if you're spending more — a train",
         "A harbor still",
         "Do not stack Tivoli, Louisiana, and a canal"
       ],
       lux: [
-        "A reserved tasting leftover (ticketed)",
-        "A second museum leftover",
+        "A reserved tasting only if you're spending more (ticketed)",
+        "A second museum only if you're spending more",
         "A dawn walk still",
         "Do not stack every icon",
         "July is a crowd tax"
@@ -5787,9 +5787,9 @@
         "A palace is a morning",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palace leftover.", picks: [
+      lux: { why: "A palace only if you're spending more.", picks: [
         "A Ring Splurge",
-        "A Sacher leftover",
+        "A Sacher only if you're spending more",
         "One property",
         "Do not also buy every concert as a tourist trap",
         "January is cheap"
@@ -5814,7 +5814,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Palace cafés are a tax"
       ]
@@ -5824,19 +5824,19 @@
         "A Ring walk (free)",
         "One palace — skip a stack (ticketed)",
         "A free museum hour if the calendar lines up",
-        "A park leftover",
+        "A park only if you're spending more",
         "U-Bahn pass"
       ],
       mid: [
         "Schönbrunn or Belvedere — pick one (ticketed)",
         "A second walk still",
-        "A concert leftover",
-        "A second palace leftover",
+        "A concert only if you're spending more",
+        "A second palace only if you're spending more",
         "Do not stack two palaces and a concert"
       ],
       lux: [
-        "A reserved concert leftover (ticketed)",
-        "A second palace leftover",
+        "A reserved concert only if you're spending more (ticketed)",
+        "A second palace only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "Christmas markets are a crowd tax"
@@ -5857,9 +5857,9 @@
         "ABBA / Vasa are tickets",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A waterfront flagship leftover.", picks: [
+      lux: { why: "A waterfront flagship only if you're spending more.", picks: [
         "A waterfront Splurge",
-        "A Grand leftover",
+        "A Grand only if you're spending more",
         "One property",
         "Do not also buy every island as a sure day",
         "July is peak"
@@ -5884,7 +5884,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Gamla Stan menus are a tax"
       ]
@@ -5894,19 +5894,19 @@
         "A Gamla Stan walk (free)",
         "A waterfront loop (free)",
         "Skip a paid museum stack on Budget",
-        "A ferry leftover",
+        "A ferry only if you're spending more",
         "SL pass"
       ],
       mid: [
         "Vasa or ABBA — pick one (ticketed)",
         "A second walk still",
-        "An archipelago leftover",
-        "A second museum leftover",
+        "An archipelago only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack Vasa, ABBA, and a long ferry"
       ],
       lux: [
-        "A reserved archipelago leftover (tour)",
-        "A second museum leftover",
+        "A reserved archipelago only if you're spending more (tour)",
+        "A second museum only if you're spending more",
         "A dawn walk still",
         "Do not stack every island",
         "July is a crowd tax"
@@ -5927,7 +5927,7 @@
         "Monte Albán is a morning",
         "October–November is peak for a reason"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A Splurge casa",
         "One property",
         "Do not also buy every mezcal tour as a sure day",
@@ -5954,7 +5954,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Zócalo terraces are a tax"
       ]
@@ -5965,18 +5965,18 @@
         "One museum (ticketed / cheap)",
         "Skip a five-mezcal tour on Budget",
         "A market hour",
-        "Monte Albán leftover"
+        "Monte Albán only if you're spending more"
       ],
       mid: [
         "Monte Albán + a market (ticketed / cheap)",
         "A second walk still",
-        "A mezcal leftover",
-        "A second ruin leftover",
+        "A mezcal only if you're spending more",
+        "A second ruin only if you're spending more",
         "Do not stack two ruins and a tasting"
       ],
       lux: [
-        "A reserved tasting leftover (tour)",
-        "A second ruin leftover",
+        "A reserved tasting only if you're spending more (tour)",
+        "A second ruin only if you're spending more",
         "A dawn walk still",
         "Do not stack every village",
         "Altitude first"
@@ -5997,7 +5997,7 @@
         "Do not hop three islands nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A Casco Splurge",
         "A Bocas Splurge",
         "One property",
@@ -6024,7 +6024,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Rooftops are a tax"
       ]
@@ -6033,20 +6033,20 @@
       budget: [
         "Casco walk (free)",
         "One museum (ticketed / cheap)",
-        "Skip a canal tour on Budget if leftover is tight",
-        "A rooftop leftover",
-        "Bocas leftover"
+        "Skip a canal tour on Budget if the budget is tight",
+        "A rooftop only if you're spending more",
+        "Bocas only if you're spending more"
       ],
       mid: [
         "Canal or a Casco day — pick one (ticketed / tour)",
         "A second walk still",
-        "A boat leftover",
-        "A second museum leftover",
+        "A boat only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack canal and Bocas in one day"
       ],
       lux: [
-        "A reserved boat leftover (tour)",
-        "A second hop leftover",
+        "A reserved boat only if you're spending more (tour)",
+        "A second hop only if you're spending more",
         "A dawn walk still",
         "Do not stack every island",
         "Two products need slack"
@@ -6062,14 +6062,14 @@
       ] },
       mid: { why: "A 3–4 star in Copacabana or Ipanema.", picks: [
         "A Copacabana 3–4 star",
-        "An Ipanema mid if leftover covers the address",
+        "An Ipanema mid if you have room in the budget for the address",
         "One beach neighborhood",
         "Christ is a ticketed morning",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A flagship leftover.", picks: [
+      lux: { why: "A flagship only if you're spending more.", picks: [
         "A Copacabana Splurge",
-        "A Fasano leftover",
+        "A Fasano only if you're spending more",
         "One property",
         "Do not also buy every favela tour as a selfie loop",
         "Carnival is a different budget"
@@ -6094,7 +6094,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Beachfront menus are a tax"
       ]
@@ -6110,15 +6110,15 @@
       mid: [
         "Christ or Sugarloaf — pick one (ticketed)",
         "A second beach still",
-        "A samba leftover",
-        "A second viewpoint leftover",
+        "A samba only if you're spending more",
+        "A second viewpoint only if you're spending more",
         "Do not stack both hills and a favela"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A second hill leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A second hill only if you're spending more",
         "A dawn beach still",
-        "Do not stack Carnival without leftover",
+        "Do not stack Carnival without only if you're spending more",
         "Have a night plan"
       ]
     };
@@ -6137,7 +6137,7 @@
         "Do not hop every tour letter nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A luxury island leftover.", picks: [
+      lux: { why: "A luxury island only if you're spending more.", picks: [
         "A private-island Splurge",
         "One base",
         "Do not also buy every letter as a sure day",
@@ -6164,7 +6164,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down if you skipped the hop",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -6174,19 +6174,19 @@
         "A town beach (free)",
         "One island-hop (ticketed)",
         "Skip a second letter on Budget",
-        "A lagoon leftover",
+        "A lagoon only if you're spending more",
         "Sun slack"
       ],
       mid: [
         "One hop letter + a beach (ticketed / free)",
-        "A second letter leftover",
+        "A second letter only if you're spending more",
         "A town still",
         "A second beach still",
         "Do not stack two letters and a night dive"
       ],
       lux: [
-        "A reserved private hop leftover (tour)",
-        "A second letter leftover",
+        "A reserved private hop only if you're spending more (tour)",
+        "A second letter only if you're spending more",
         "A dawn beach still",
         "Do not stack every letter",
         "Weather first"
@@ -6207,8 +6207,8 @@
         "Temples are mornings",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A flagship leftover.", picks: [
-        "A Raffles leftover",
+      lux: { why: "A flagship only if you're spending more.", picks: [
+        "A Raffles only if you're spending more",
         "A Splurge resort",
         "One property",
         "Do not also buy every sunrise as a sure photo",
@@ -6234,7 +6234,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Pub Street menus are a tax"
       ]
@@ -6248,15 +6248,15 @@
         "Tuk-tuk is the transfer"
       ],
       mid: [
-        "A second temple day leftover (ticketed)",
-        "A floating village leftover",
+        "A second temple day only if you're spending more (ticketed)",
+        "A floating village only if you're spending more",
         "A dawn still",
         "A town still",
         "Do not stack two sunrises and a village"
       ],
       lux: [
-        "A private guide leftover (tour)",
-        "A second pass day leftover",
+        "A private guide only if you're spending more (tour)",
+        "A second pass day only if you're spending more",
         "A dawn still",
         "Do not stack every temple",
         "Heat first"
@@ -6272,13 +6272,13 @@
       ] },
       mid: { why: "A 3–4 star in Wadi Musa or a Rum camp mid.", picks: [
         "A 3–4 star near the gate",
-        "A Rum camp mid if leftover covers the desert",
+        "A Rum camp mid if you have room in the budget for the desert",
         "One base plus one camp",
-        "Two days in Petra if leftover covers the ticket",
+        "Two days in Petra if you have room in the budget for the ticket",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A Splurge camp leftover.", picks: [
-        "A luxury Rum camp leftover",
+      lux: { why: "A Splurge camp only if you're spending more.", picks: [
+        "A luxury Rum camp only if you're spending more",
         "A Petra Splurge",
         "One property per base",
         "Do not also buy every add-on donkey",
@@ -6304,7 +6304,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down if you skipped a long hike",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Gate restaurants are a tax"
       ]
@@ -6314,19 +6314,19 @@
         "Petra ticket + the Siq (ticketed)",
         "Skip a donkey upsell on Budget",
         "A town walk",
-        "Rum leftover",
+        "Rum only if you're spending more",
         "Water and a hat"
       ],
       mid: [
         "A second Petra day or Rum — pick one (ticketed / tour)",
         "A dawn still",
-        "A second hike leftover",
-        "A camp leftover",
+        "A second hike only if you're spending more",
+        "A camp only if you're spending more",
         "Do not stack Petra, Rum, and the Dead Sea"
       ],
       lux: [
-        "A private Rum leftover (tour)",
-        "A second Petra day leftover",
+        "A private Rum only if you're spending more (tour)",
+        "A second Petra day only if you're spending more",
         "A dawn still",
         "Do not stack every add-on",
         "Heat first"
@@ -6347,9 +6347,9 @@
         "Douro is a day",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A river flagship leftover.", picks: [
+      lux: { why: "A river flagship only if you're spending more.", picks: [
         "A river Splurge",
-        "A Yeatman leftover",
+        "A Yeatman only if you're spending more",
         "One property",
         "Do not also buy every cellar as a sure tasting",
         "August is packed"
@@ -6374,7 +6374,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Ribeira terraces are a tax"
       ]
@@ -6382,21 +6382,21 @@
     P.ACTIVITIES["portugal_porto"] = {
       budget: [
         "A Ribeira + Dom Luís walk (free)",
-        "One cellar leftover (ticketed)",
+        "One cellar only if you're spending more (ticketed)",
         "Skip a river-cruise on Budget",
         "A bookstore photo is a queue",
         "A neighborhood walk"
       ],
       mid: [
         "One cellar + a walk (ticketed / free)",
-        "A Douro leftover",
+        "A Douro only if you're spending more",
         "A second walk still",
-        "A cruise leftover",
+        "A cruise only if you're spending more",
         "Do not stack two cellars and a cruise"
       ],
       lux: [
-        "A reserved tasting leftover (ticketed)",
-        "A Douro leftover",
+        "A reserved tasting only if you're spending more (ticketed)",
+        "A Douro only if you're spending more",
         "A dawn walk still",
         "Do not stack every cellar",
         "August is a crowd tax"
@@ -6417,9 +6417,9 @@
         "Alcázar is timed",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palacio leftover.", picks: [
+      lux: { why: "A palacio only if you're spending more.", picks: [
         "A palacio Splurge",
-        "An Alfonso leftover",
+        "An Alfonso only if you're spending more",
         "One property",
         "Do not also buy every flamenco as a dinner trap",
         "July is brutal"
@@ -6444,7 +6444,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named table leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Cathedral lanes are a tax"
       ]
@@ -6459,14 +6459,14 @@
       ],
       mid: [
         "Alcázar + a neighborhood walk (ticketed / free)",
-        "A flamenco leftover",
-        "A second interior leftover",
+        "A flamenco only if you're spending more",
+        "A second interior only if you're spending more",
         "A plaza still",
         "Do not stack Alcázar, cathedral, and Itálica"
       ],
       lux: [
-        "A reserved flamenco leftover (ticketed)",
-        "A second interior leftover",
+        "A reserved flamenco only if you're spending more (ticketed)",
+        "A second interior only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "July is a heat tax"
@@ -6487,7 +6487,7 @@
         "Shoulder weeks win",
         "Midnight sun is a season"
       ] },
-      lux: { why: "A lodge leftover.", picks: [
+      lux: { why: "A lodge only if you're spending more.", picks: [
         "A fjord Splurge",
         "One base",
         "Do not also buy every scenic rail as a sure day",
@@ -6514,7 +6514,7 @@
       lux: [
         "Breakfast: still pack rail days",
         "Lunch: a sit-down if you skipped the boat",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Do not eat every meal out on a fjord week"
       ]
@@ -6523,20 +6523,20 @@
       budget: [
         "A waterfront walk (free)",
         "One scenic rail or ferry — skip a stack (ticketed)",
-        "Skip a second fjord on Budget if leftover is tight",
+        "Skip a second fjord on Budget if the budget is tight",
         "Layers are the activity",
         "Weather slack"
       ],
       mid: [
         "One rail + one ferry (ticketed)",
         "A second walk still",
-        "A second fjord leftover",
-        "A hike leftover",
+        "A second fjord only if you're spending more",
+        "A hike only if you're spending more",
         "Do not stack two rails and a flight"
       ],
       lux: [
-        "A reserved scenic leftover (ticketed)",
-        "A second fjord leftover",
+        "A reserved scenic only if you're spending more (ticketed)",
+        "A second fjord only if you're spending more",
         "A dawn walk still",
         "Do not stack every boat",
         "Weather first"
@@ -6557,7 +6557,7 @@
         "Do not hop every beach nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A villa leftover.", picks: [
+      lux: { why: "A villa only if you're spending more.", picks: [
         "A beach Splurge",
         "One property",
         "Do not also buy every dhow as a sure day",
@@ -6578,13 +6578,13 @@
         "Breakfast: café",
         "Lunch: a proper casual",
         "Dinner: one reservation",
-        "Stay in one pocket",
-        "Spice-tour lunch leftover"
+        "Stay in one neighborhood",
+        "Spice-tour lunch only if you're spending more"
       ],
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -6593,20 +6593,20 @@
       budget: [
         "Stone Town walk (free / cheap)",
         "One beach day (free)",
-        "Skip a spice tour on Budget if leftover is tight",
-        "A dhow leftover",
+        "Skip a spice tour on Budget if the budget is tight",
+        "A dhow only if you're spending more",
         "Sun slack"
       ],
       mid: [
         "A spice tour or a dhow — pick one (tour)",
         "A second beach still",
         "A second town walk still",
-        "Jozani leftover",
+        "Jozani only if you're spending more",
         "Do not stack spice, dhow, and Jozani"
       ],
       lux: [
-        "A reserved dhow leftover (tour)",
-        "A second tour leftover",
+        "A reserved dhow only if you're spending more (tour)",
+        "A second tour only if you're spending more",
         "A dawn beach still",
         "Do not stack every island",
         "Safari is a different line"
@@ -6627,7 +6627,7 @@
         "October is peak for a reason",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A luxury lodge leftover.", picks: [
+      lux: { why: "A luxury lodge only if you're spending more.", picks: [
         "A Splurge lodge",
         "One property",
         "Do not also buy every flight as a sure weather day",
@@ -6654,7 +6654,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down in the city",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel buffets are a tax"
       ]
@@ -6663,20 +6663,20 @@
       budget: [
         "A Durbar walk (ticketed / cheap)",
         "One stupa (cheap)",
-        "Skip a short-trek upsell on Budget if leftover is tight",
-        "A garden leftover",
+        "Skip a short-trek upsell on Budget if the budget is tight",
+        "A garden only if you're spending more",
         "Altitude slack"
       ],
       mid: [
         "A day hike or a Durbar square — pick one (ticketed / tour)",
-        "A second stupa leftover",
+        "A second stupa only if you're spending more",
         "A dawn still",
-        "A second square leftover",
+        "A second square only if you're spending more",
         "Do not stack two valleys"
       ],
       lux: [
-        "A reserved trek leftover (tour / permit)",
-        "A mountain flight leftover",
+        "A reserved trek only if you're spending more (tour / permit)",
+        "A mountain flight only if you're spending more",
         "A dawn still",
         "Do not stack every valley",
         "Weather first"
@@ -6697,11 +6697,11 @@
         "Do not hop three Gilis nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A villa leftover.", picks: [
+      lux: { why: "A villa only if you're spending more.", picks: [
         "A cliff Splurge",
         "One property",
         "Do not also buy every Gili as a sure day",
-        "Rinjani leftover",
+        "Rinjani only if you're spending more",
         "Ferry weather happens"
       ] }
     };
@@ -6724,7 +6724,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: still a warung",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Hotel Italian is the trap"
       ]
@@ -6732,21 +6732,21 @@
     P.ACTIVITIES["indonesia_lombok"] = {
       budget: [
         "A beach day (free)",
-        "Skip a Rinjani upsell on Budget if leftover is tight",
-        "A waterfall leftover",
-        "A Gili leftover",
+        "Skip a Rinjani upsell on Budget if the budget is tight",
+        "A waterfall only if you're spending more",
+        "A Gili only if you're spending more",
         "Sun slack"
       ],
       mid: [
         "One waterfall or a Gili hop — pick one (cheap / ferry)",
         "A second beach still",
-        "A snorkel leftover",
-        "A second waterfall leftover",
+        "A snorkel only if you're spending more",
+        "A second waterfall only if you're spending more",
         "Do not stack Rinjani and a Gili night"
       ],
       lux: [
-        "A reserved trek leftover (tour)",
-        "A second hop leftover",
+        "A reserved trek only if you're spending more (tour)",
+        "A second hop only if you're spending more",
         "A dawn beach still",
         "Do not stack every Gili",
         "Weather first"
@@ -6767,7 +6767,7 @@
         "Do not hop every west-coast beach nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A cliff Splurge",
         "One property",
         "Do not also buy every surf lesson as a sure day",
@@ -6794,7 +6794,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -6803,20 +6803,20 @@
       budget: [
         "A beach / surf hour (free)",
         "Skip a lesson on Budget if you already surf",
-        "A lighthouse leftover",
+        "A lighthouse only if you're spending more",
         "A second beach still",
         "Pack water"
       ],
       mid: [
-        "One lesson or a biolum leftover (ticketed / tour)",
+        "One lesson or a biolum only if you're spending more (ticketed / tour)",
         "A second beach still",
         "A lighthouse still",
-        "A second west beach leftover",
+        "A second west beach only if you're spending more",
         "Do not stack San Juan into this lodging without a night"
       ],
       lux: [
-        "A reserved bio leftover (tour)",
-        "A second lesson leftover",
+        "A reserved bio only if you're spending more (tour)",
+        "A second lesson only if you're spending more",
         "A dawn beach still",
         "Do not stack every west beach",
         "Hurricane watch"
@@ -6830,16 +6830,16 @@
         "Trains exist; a car helps the interior",
         "Pack light — heat"
       ] },
-      mid: { why: "A 3–4 star in one city, then a second if leftover covers it.", picks: [
+      mid: { why: "A 3–4 star in one city, then a second if you have room in the budget for it.", picks: [
         "A Palermo 3–4 star",
-        "A Taormina mid if leftover covers the cliff",
+        "A Taormina mid if you have room in the budget for the cliff",
         "One city per stay",
         "Etna is a day",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A palazzo leftover.", picks: [
+      lux: { why: "A palazzo only if you're spending more.", picks: [
         "A Taormina Splurge",
-        "A palazzo leftover",
+        "A palazzo only if you're spending more",
         "One property",
         "Do not also buy every ruin as a sure day",
         "August is packed"
@@ -6864,7 +6864,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Piazza restaurants are a tax"
       ]
@@ -6873,20 +6873,20 @@
       budget: [
         "A market + a centro walk (free / cheap)",
         "One ruin — skip a stack (ticketed)",
-        "Skip Etna on Budget if leftover is tight",
-        "A second market leftover",
+        "Skip Etna on Budget if the budget is tight",
+        "A second market only if you're spending more",
         "Heat slack"
       ],
       mid: [
         "One ruin + a neighborhood walk (ticketed / free)",
-        "Etna leftover",
-        "A second city leftover — a transfer",
-        "A second ruin leftover",
+        "Etna only if you're spending more",
+        "A second city only if you're spending more — a transfer",
+        "A second ruin only if you're spending more",
         "Do not stack two ruins and Etna"
       ],
       lux: [
-        "A reserved Etna leftover (tour)",
-        "A second ruin leftover",
+        "A reserved Etna only if you're spending more (tour)",
+        "A second ruin only if you're spending more",
         "A dawn walk still",
         "Do not stack every temple",
         "August is a crowd tax"
@@ -6907,11 +6907,11 @@
         "The malecón is the walk",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A Splurge hotel",
         "One property",
         "The reservation is often the better Splurge",
-        "Amazon leftover is a flight",
+        "Amazon is a flight only if you're spending more",
         "Fog is a season"
       ] }
     };
@@ -6934,7 +6934,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named tasting leftover",
+        "Dinner reservation: a named tasting only if you're spending more",
         "One splurge",
         "The room or the tasting"
       ]
@@ -6950,13 +6950,13 @@
       mid: [
         "One museum + a neighborhood walk (ticketed / free)",
         "A second barrio still",
-        "A food walk leftover",
-        "A second museum leftover",
+        "A food walk only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack two tastings and a museum"
       ],
       lux: [
-        "A reserved tasting leftover (ticketed)",
-        "An Amazon leftover — a flight",
+        "A reserved tasting only if you're spending more (ticketed)",
+        "An Amazon only if you're spending more — a flight",
         "A dawn walk still",
         "Do not stack every barrio",
         "The reservation is the Splurge"
@@ -6977,7 +6977,7 @@
         "Do not hop every peninsula beach nightly",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A villa leftover.", picks: [
+      lux: { why: "A villa only if you're spending more.", picks: [
         "A Splurge villa",
         "One property",
         "Do not also buy every whale as a sure day",
@@ -7004,7 +7004,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Resort rows are a tax"
       ]
@@ -7014,19 +7014,19 @@
         "A beach day (free)",
         "Skip a whale tour on Budget if it is not season",
         "A town walk",
-        "A waterfall leftover",
+        "A waterfall only if you're spending more",
         "Sun slack"
       ],
       mid: [
         "A whale tour in season or a waterfall — pick one (tour / cheap)",
         "A second beach still",
         "A second walk still",
-        "A boat leftover",
+        "A boat only if you're spending more",
         "Do not stack whale and two waterfalls"
       ],
       lux: [
-        "A reserved whale leftover (tour)",
-        "A second boat leftover",
+        "A reserved whale only if you're spending more (tour)",
+        "A second boat only if you're spending more",
         "A dawn beach still",
         "Do not stack every peninsula stop",
         "Season first"
@@ -7047,7 +7047,7 @@
         "Monserrate is a morning",
         "Shoulder weeks win"
       ] },
-      lux: { why: "A design leftover.", picks: [
+      lux: { why: "A design only if you're spending more.", picks: [
         "A Splurge hotel",
         "One property",
         "The reservation is often the better Splurge",
@@ -7074,7 +7074,7 @@
       lux: [
         "Breakfast: café",
         "Lunch: a sit-down",
-        "Dinner reservation: a named leftover",
+        "Dinner reservation: a named table only if you're spending more",
         "One splurge",
         "Rooftops are a tax"
       ]
@@ -7085,18 +7085,18 @@
         "One museum — Gold Museum (ticketed / cheap)",
         "Skip a second mountain on Budget",
         "Altitude slack",
-        "Monserrate leftover"
+        "Monserrate only if you're spending more"
       ],
       mid: [
         "Gold Museum + a neighborhood walk (ticketed / free)",
-        "Monserrate leftover",
-        "A second museum leftover",
+        "Monserrate only if you're spending more",
+        "A second museum only if you're spending more",
         "A dawn still",
         "Do not stack two mountains and a food tour"
       ],
       lux: [
-        "A reserved food walk leftover (tour)",
-        "A coffee-region leftover — a transfer",
+        "A reserved food walk only if you're spending more (tour)",
+        "A coffee-region only if you're spending more — a transfer",
         "A dawn walk still",
         "Do not stack every barrio",
         "Altitude first"
@@ -7114,17 +7114,17 @@
         "Timeshare days are a tax"
       ],
       mid: [
-        "One boat or a monkey-island leftover (ticketed / tour)",
+        "One boat or a monkey-island only if you're spending more (ticketed / tour)",
         "Beach for the rest",
         "A second dock tour is the overrun",
-        "Cap Cana is a different pocket",
+        "Cap Cana is a different part of town",
         "Nightlife on-property first"
       ],
       lux: [
-        "A small-group boat leftover (tour)",
+        "A small-group boat only if you're spending more (tour)",
         "One better day, not three",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack two islands"
       ]
     };
@@ -7140,14 +7140,14 @@
         "One boat or a falls day — pick one (ticketed / tour)",
         "Beach for the rest",
         "A second tour is the overrun",
-        "Negril sunset leftover",
+        "Negril sunset only if you're spending more",
         "Nightlife on-property first"
       ],
       lux: [
-        "A small-group tour leftover (tour)",
+        "A small-group tour only if you're spending more (tour)",
         "One better day, not three",
         "Beach still wins",
-        "Spa leftover-only",
+        "Spa only if you're spending more",
         "Do not stack Dunn’s and a second falls"
       ]
     };
@@ -7156,19 +7156,19 @@
         "A neighborhood walk — Gràcia or Born (free)",
         "One Gaudí exterior from the street (free)",
         "Skip a hop-on bus",
-        "A beach leftover",
+        "A beach only if you're spending more",
         "Metro pass"
       ],
       mid: [
         "One timed Gaudí — Sagrada or Park Güell (ticketed)",
         "A second neighborhood still",
         "A beach still",
-        "A second interior leftover",
+        "A second interior only if you're spending more",
         "Do not stack two Gaudís and a beach club"
       ],
       lux: [
-        "A reserved Sagrada leftover (ticketed)",
-        "A day trip leftover",
+        "A reserved Sagrada only if you're spending more (ticketed)",
+        "A day trip only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "August is a crowd tax"
@@ -7178,7 +7178,7 @@
       budget: [
         "A Roma / Condesa walk (free)",
         "A mercado morning (free / cheap)",
-        "One museum if leftover covers it (ticketed)",
+        "One museum if you have room in the budget for it (ticketed)",
         "Skip a tourist-taxi loop",
         "Altitude slack"
       ],
@@ -7186,12 +7186,12 @@
         "One ruin or museum — Anthropology or Teotihuacan (ticketed / tour)",
         "A second neighborhood still",
         "A mercado still",
-        "A second museum leftover",
+        "A second museum only if you're spending more",
         "Do not stack two ruins"
       ],
       lux: [
-        "A reserved tasting leftover (tour)",
-        "A second ruin leftover",
+        "A reserved tasting only if you're spending more (tour)",
+        "A second ruin only if you're spending more",
         "A dawn walk still",
         "Do not stack two ruins and a tasting",
         "Altitude first"
@@ -7200,7 +7200,7 @@
     P.ACTIVITIES["thailand"] = {
       budget: [
         "A temple + a neighborhood walk (free / cheap)",
-        "A river boat leftover",
+        "A river boat only if you're spending more",
         "Skip a five-temple checklist",
         "A night market is dinner",
         "Heat slack"
@@ -7208,13 +7208,13 @@
       mid: [
         "One ticketed — palace or a show (ticketed)",
         "A second neighborhood still",
-        "A floating market leftover",
-        "A second temple leftover",
+        "A floating market only if you're spending more",
+        "A second temple only if you're spending more",
         "Do not stack palace, market, and a show"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A second city leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A second city only if you're spending more",
         "A dawn walk still",
         "Do not stack every island",
         "Heat first"
@@ -7225,19 +7225,19 @@
         "A French Quarter walk in daylight (free)",
         "A streetcar hour (cheap)",
         "Skip a haunted tour on Budget",
-        "A park leftover",
+        "A park only if you're spending more",
         "The music is often free if you walk"
       ],
       mid: [
         "One house or a plantation — pick one (ticketed)",
         "A second neighborhood still — Marigny",
-        "A music ticket leftover",
+        "A music ticket only if you're spending more",
         "A streetcar still",
         "Do not stack two plantations"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A second house leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A second house only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "Mardi Gras is a different budget"
@@ -7254,13 +7254,13 @@
       mid: [
         "One ticketed — Art Institute or a river cruise (ticketed)",
         "A second neighborhood still",
-        "A second museum leftover",
+        "A second museum only if you're spending more",
         "A lakefront still",
         "Do not stack two museums and a cruise"
       ],
       lux: [
-        "A reserved show leftover (ticketed)",
-        "A second cruise leftover",
+        "A reserved show only if you're spending more (ticketed)",
+        "A second cruise only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "Summer weekends are a crowd tax"
@@ -7271,19 +7271,19 @@
         "A canal-belt walk (free)",
         "A neighborhood that is not Damrak (free)",
         "Skip a hop-on boat on Budget",
-        "A market leftover",
+        "A market only if you're spending more",
         "Tram pass"
       ],
       mid: [
         "One museum — Rijks or Van Gogh (ticketed)",
         "A second walk still",
-        "A canal leftover",
-        "A second museum leftover",
+        "A canal only if you're spending more",
+        "A second museum only if you're spending more",
         "Do not stack two museums and a cruise"
       ],
       lux: [
-        "A reserved museum leftover (ticketed)",
-        "A day trip leftover",
+        "A reserved museum only if you're spending more (ticketed)",
+        "A day trip only if you're spending more",
         "A dawn walk still",
         "Do not stack three interiors",
         "King’s Day is a crowd tax"
@@ -7300,13 +7300,13 @@
       mid: [
         "One interior — Jerónimos or a museum (ticketed)",
         "A second walk still",
-        "A Belém leftover",
+        "A Belém only if you're spending more",
         "A second miradouro still",
         "Do not stack two interiors and Sintra"
       ],
       lux: [
-        "A reserved Sintra leftover (ticketed / train)",
-        "A second interior leftover",
+        "A reserved Sintra only if you're spending more (ticketed / train)",
+        "A second interior only if you're spending more",
         "A dawn walk still",
         "Do not stack three palaces",
         "August is a crowd tax"
@@ -7316,20 +7316,20 @@
       budget: [
         "A 101 walk (free)",
         "A pool hour (cheap)",
-        "Skip the Blue Lagoon on Budget if leftover is tight",
+        "Skip the Blue Lagoon on Budget if the budget is tight",
         "Pack a Ring Road lunch if you drive",
         "Weather slack"
       ],
       mid: [
         "Golden Circle or a pool — pick one (tour / cheap)",
         "A second walk still",
-        "A second soak leftover",
+        "A second soak only if you're spending more",
         "A dawn still",
         "Do not stack Circle, South Coast, and a lagoon"
       ],
       lux: [
-        "A reserved lagoon leftover (ticketed)",
-        "A second day leftover",
+        "A reserved lagoon only if you're spending more (ticketed)",
+        "A second day only if you're spending more",
         "A dawn walk still",
         "Do not stack every waterfall",
         "Grocery first on road days"
@@ -7338,7 +7338,7 @@
     P.ACTIVITIES["bali"] = {
       budget: [
         "A beach or a rice-terrace walk (free / cheap)",
-        "A temple leftover (cheap)",
+        "A temple only if you're spending more (cheap)",
         "Skip a beach-club day on Budget",
         "Scooter math is real",
         "Nyepi dates matter"
@@ -7346,13 +7346,13 @@
       mid: [
         "One temple + a terrace (cheap / ticketed)",
         "A second beach still",
-        "A club leftover",
-        "A sunrise leftover",
+        "A club only if you're spending more",
+        "A sunrise only if you're spending more",
         "Do not stack two temples and a club"
       ],
       lux: [
-        "A reserved sunrise leftover (tour)",
-        "A second club leftover",
+        "A reserved sunrise only if you're spending more (tour)",
+        "A second club only if you're spending more",
         "A dawn walk still",
         "Do not stack every cliff",
         "Nyepi is a skip or a gift"
@@ -7368,14 +7368,14 @@
       ],
       mid: [
         "One icon ticket + a souk (ticketed / free)",
-        "A desert leftover",
+        "A desert only if you're spending more",
         "A second walk still",
         "A fountain hour still",
         "Do not stack two icons and a desert"
       ],
       lux: [
-        "A private desert leftover (tour)",
-        "A second icon leftover",
+        "A private desert only if you're spending more (tour)",
+        "A second icon only if you're spending more",
         "A heritage walk still",
         "Do not stack seven paid tours",
         "Luxury is a weekend"
@@ -7394,7 +7394,7 @@
     appendHotel("amsterdam", "mid", ["A canal 3–4 star two streets off Damrak", "De Pijp or Jordaan — pick one"]);
     appendHotel("iceland", "lux", ["One 101 flagship or one countryside lodge — not both in 4 nights"]);
     appendHotel("nola", "budget", ["A Warehouse District 2-star on the streetcar", "Skip a Bourbon balcony on Budget — the music is on the sidewalk"]);
-    appendHotel("nola", "mid", ["A Marigny or CBD 3–4 star — walk to dinner", "Garden District if leftover covers the quieter nights"]);
+    appendHotel("nola", "mid", ["A Marigny or CBD 3–4 star — walk to dinner", "Garden District if you have room in the budget for the quieter nights"]);
     appendHotel("thailand", "budget", ["A Khao San-adjacent guesthouse only as a crash pad — Silom / old city is quieter", "Fan room + a stall downstairs is the Budget product"]);
     appendHotel("thailand", "mid", ["A Sukhumvit 3–4 star near a BTS", "One city base — Bangkok or Chiang Mai, not a nightly hop"]);
     appendHotel("thailand", "lux", ["One river hotel. Three island hops are a different budget"]);
@@ -7402,7 +7402,7 @@
     appendHotel("bali", "mid", ["A Seminyak boutique if the beach clubs are the point", "One base — Ubud or the coast"]);
     appendHotel("bali", "lux", ["One villa. Three mediocre resorts is not Splurge"]);
     appendHotel("dubai", "budget", ["A Rove-class compact room on the Metro", "Skip a Marina address on Budget"]);
-    appendHotel("dubai", "mid", ["A Downtown 4-star near a Metro — not a taxi habit", "Palm or Downtown — pick one pocket"]);
+    appendHotel("dubai", "mid", ["A Downtown 4-star near a Metro — not a taxi habit", "Palm or Downtown — pick one neighborhood"]);
     appendHotel("dubai", "lux", ["One icon hotel as a weekend, not a week"]);
     appendHotel("chicago", "mid", ["A River North 4-star on the river walk", "Fulton Market if restaurants are the point"]);
     appendHotel("tokyo", "lux", ["One Ginza or Marunouchi flagship — you still take the Metro to dinner"]);
@@ -7411,7 +7411,7 @@
     appendFallbackHotel("hawaii", "lux", ["One beach-premium flagship. The car becomes mandatory once you leave town"]);
     appendFallbackHotel("caribbean", "budget", ["A value AI on the main beach — garden view on purpose"]);
     appendFallbackHotel("caribbean", "mid", ["A 4-star AI or a town boutique — one property"]);
-    appendFallbackHotel("caribbean", "lux", ["Adults-only or villa leftover. Still no invented fare"]);
+    appendFallbackHotel("caribbean", "lux", ["Adults-only or villa only if you're spending more. Still no invented fare"]);
     appendFallbackHotel("mexico", "budget", ["Centro guesthouse or a value AI — pick one product"]);
     appendFallbackHotel("mexico", "lux", ["Flagship or adults-only. The reservation is often the better splurge"]);
     appendFallbackHotel("asia", "budget", ["Business hotel or capsule next to a Metro — convenience-store breakfast"]);
@@ -7422,7 +7422,7 @@
     appendFallbackHotel("oceania", "lux", ["Waterfront or lodge flagship. Do not stack every adventure add-on"]);
     appendFallbackHotel("africa", "budget", ["Medina guesthouse or city 3-star. Day tours beat a safari-priced room you do not need"]);
     appendFallbackHotel("africa", "mid", ["Riad / boutique / 4-star in the walkable core. Safari lodges are a different budget"]);
-    appendFallbackHotel("africa", "lux", ["Lodge or palace leftover. The game drive is the product"]);
+    appendFallbackHotel("africa", "lux", ["Lodge or palace only if you're spending more. The game drive is the product"]);
     appendFallbackHotel("middleeast", "budget", ["Downtown 3-star on a Metro. Desert tours are day-two, not day-one upsells"]);
     appendFallbackHotel("middleeast", "mid", ["Downtown or Marina 4-star. Summer is cheap and brutal"]);
     appendFallbackHotel("middleeast", "lux", ["Icon hotel as a weekend, not a week"]);
@@ -7431,11 +7431,11 @@
     appendFallbackHotel("latam", "lux", ["Casa-hotel or adults-only beach. The tasting menu is often the better Splurge"]);
     appendFallbackHotel("city", "budget", ["Limited-service on transit. Walk-to-bakery beats a cheap room far from everything"]);
     appendFallbackHotel("city", "mid", ["3–4 star in the walkable core. One room, not a suite"]);
-    appendFallbackHotel("city", "lux", ["Flagship in one district. Leftover only"]);
-    appendFallbackHotel("domestic", "lux", ["Suite only if leftover covers the jump from mid"]);
+    appendFallbackHotel("city", "lux", ["Flagship in one district. Only if you're spending more"]);
+    appendFallbackHotel("domestic", "lux", ["Suite only if you have room in the budget for the jump from mid"]);
     appendAct("paris", "mid", ["A second cheap morning — a park or a covered passage (free)"]);
-    appendAct("tokyo", "budget", ["A second neighborhood if leftover covers the Metro hours (free)"]);
-    appendAct("tokyo", "lux", ["A second ticketed leftover — not a Kyoto fake-day (ticketed)"]);
+    appendAct("tokyo", "budget", ["A second neighborhood if you have room in the budget for the Metro hours (free)"]);
+    appendAct("tokyo", "lux", ["A second ticketed only if you're spending more — not a Kyoto fake-day (ticketed)"]);
     appendAct("cancun", "budget", ["A Hotel Zone walk at dusk, not a timeshare morning (free)"]);
   }
 
@@ -7450,405 +7450,405 @@
       if (!fb || !fb[style]) return;
       fb[style].picks = picks.slice();
     }
-    replaceHotel("los_angeles", "budget", ["Hampton Inn & Suites Los Angeles Downtown — walk to Metro and Grand Central Market", "Holiday Inn Express Downtown LA — limited-service, skip the Valley cloverleaf", "Courtyard Los Angeles L.A. LIVE — Pico station pocket, convention-adjacent", "Moxy Downtown Los Angeles — compact Marriott, Arts District walking", "Freehand Downtown — hostel-plus if the party will share a room"]);
+    replaceHotel("los_angeles", "budget", ["Hampton Inn & Suites Los Angeles Downtown — walk to Metro and Grand Central Market", "Holiday Inn Express Downtown LA — limited-service, skip the Valley cloverleaf", "Courtyard Los Angeles L.A. LIVE — Pico station area, convention-adjacent", "Moxy Downtown Los Angeles — compact Marriott, Arts District walking", "Freehand Downtown — hostel-plus if the party will share a room"]);
     replaceHotel("los_angeles", "mid", ["Hyatt Regency Los Angeles Downtown — L.A. LIVE, Metro in the block", "The Westin Bonaventure Downtown — Figueroa, one rideshare zone", "Sheraton Grand Los Angeles — Financial District, walk to Metro", "Hilton Checkers Los Angeles — compact Downtown, skip a Santa Monica commute", "Ace Hotel Downtown — boutique if you want Grand Central Market walking"]);
-    replaceHotel("los_angeles", "lux", ["JW Marriott Los Angeles L.A. LIVE — Splurge default for Marriott points", "Conrad Los Angeles — Grand LA, DTLA flagship", "The Ritz-Carlton Los Angeles — L.A. LIVE tower, leftover only", "Waldorf Astoria Beverly Hills — a different pocket; rideshare assumed", "1 Hotel West Hollywood or Proper Santa Monica — boutique if leftover is the neighborhood"]);
-    replaceHotel("anaheim", "budget", ["Hampton Inn & Suites Anaheim Resort Convention Center — Harbor Blvd shuttle or a short walk", "Holiday Inn Express Anaheim Disneyland — limited-service, grocery breakfast", "Fairfield Inn Anaheim Resort — Marriott value, Convention Center pocket", "Candy Cane Inn — local Harbor Blvd classic if you want a courtyard, not a points hotel", "Howard Johnson Anaheim — garden-court Budget, skip a Santa Monica hotel as this lodging"]);
+    replaceHotel("los_angeles", "lux", ["JW Marriott Los Angeles L.A. LIVE — Splurge default for Marriott points", "Conrad Los Angeles — Grand LA, DTLA flagship", "The Ritz-Carlton Los Angeles — L.A. LIVE tower, only if you're spending more", "Waldorf Astoria Beverly Hills — a different part of town; rideshare assumed", "1 Hotel West Hollywood or Proper Santa Monica — boutique if that is the neighborhood"]);
+    replaceHotel("anaheim", "budget", ["Hampton Inn & Suites Anaheim Resort Convention Center — Harbor Blvd shuttle or a short walk", "Holiday Inn Express Anaheim Disneyland — limited-service, grocery breakfast", "Fairfield Inn Anaheim Resort — Marriott value, Convention Center area", "Candy Cane Inn — local Harbor Blvd classic if you want a courtyard, not a points hotel", "Howard Johnson Anaheim — garden-court Budget, skip a Santa Monica hotel as this lodging"]);
     replaceHotel("anaheim", "mid", ["Hilton Anaheim — Convention Center campus, walk or a short shuttle to the gates", "Anaheim Marriott — same campus, one room not a suite", "Hyatt House at Anaheim Resort — kitchenette mid if the party will grocery dinners", "SpringHill Suites Anaheim Resort/Convention Center — Marriott suite-ish mid", "Pixar Place Hotel — Disney moderate-class, walk to Downtown Disney"]);
     replaceHotel("anaheim", "lux", ["Disney’s Grand Californian — Deluxe, walk to California Adventure", "Disneyland Hotel — on-property, monorail-adjacent campus", "JW Marriott Anaheim Resort — off-property Splurge with a real pool", "The Westin Anaheim Resort — newer tower, still a shuttle or walk", "Do not also book a Santa Monica night in the same 5-night week"]);
     replaceHotel("nyc", "budget", ["Hampton Inn Manhattan Times Square Central — train downstairs, skip paying for the neon view", "Motto by Hilton New York City Chelsea — compact Hilton, walk to the 1 / A / C / E", "Holiday Inn Express New York City – Chelsea — limited-service, grocery in walking distance", "Courtyard New York Manhattan/Chelsea — Marriott value, one subway zone", "Pod 39 or citizenM Bowery — boutique-compact if you packed light"]);
-    replaceHotel("nyc", "mid", ["New York Marriott Marquis — Times Square, you came for the trains not the lobby", "Hilton New York Midtown — Sixth Avenue, walk to a borough train", "Hyatt Grand Central New York — attached to Grand Central, skip a rental car", "The Westin New York Grand Central — midtown east, subway in the pocket", "Ace Hotel NoMad — boutique if you want the neighborhood over a convention tower"]);
-    replaceHotel("nyc", "lux", ["Park Hyatt New York — Midtown flagship, leftover only", "The Ritz-Carlton New York, Central Park — park-adjacent Splurge", "The St. Regis New York — Fifth Avenue, still a crosstown walk to meetings", "Conrad New York Downtown — Battery Park, not a Midtown tower", "1 Hotel Central Park — boutique flagship if leftover is the park address"]);
+    replaceHotel("nyc", "mid", ["New York Marriott Marquis — Times Square, you came for the trains not the lobby", "Hilton New York Midtown — Sixth Avenue, walk to a borough train", "Hyatt Grand Central New York — attached to Grand Central, skip a rental car", "The Westin New York Grand Central — midtown east, subway in the neighborhood", "Ace Hotel NoMad — boutique if you want the neighborhood over a convention tower"]);
+    replaceHotel("nyc", "lux", ["Park Hyatt New York — Midtown flagship, only if you're spending more", "The Ritz-Carlton New York, Central Park — park-adjacent Splurge", "The St. Regis New York — Fifth Avenue, still a crosstown walk to meetings", "Conrad New York Downtown — Battery Park, not a Midtown tower", "1 Hotel Central Park — boutique flagship if that is the park address"]);
     replaceHotel("vegas", "budget", ["Hampton Inn Tropicana — south Strip / University Center, one rideshare or bus to Center-Strip", "Hilton Garden Inn Las Vegas Strip South — limited-service, resort fee still applies", "Courtyard Las Vegas Convention Center — Marriott value off the Center-Strip crush", "The LINQ or Flamingo — Center-Strip bed, not a suite", "Ellis Island or a Fremont 2-star — downtown walking if you skip the Strip tram math"]);
     replaceHotel("vegas", "mid", ["Park MGM — no-casino-smoke tower, walk to the Bellagio fountains", "The Venetian / Palazzo — huge campus; you came to walk, not to Uber", "Renaissance Las Vegas — Convention Center, Marriott mid without a casino floor", "Hilton Grand Vacations on the Las Vegas Strip — points-friendly mid if the campus fits", "Horseshoe or New York-New York — Center-Strip walk, not a suite"]);
-    replaceHotel("vegas", "lux", ["Waldorf Astoria Las Vegas — Center-Strip, no casino on the lobby level", "Bellagio — fountain-adjacent, still a resort-fee hotel", "Wynn or Encore — north Strip, nicer rooms, you will still walk or tram", "Four Seasons Hotel Las Vegas — Mandalay Bay campus, quieter tower", "JW Marriott Las Vegas Resort & Spa — Summerlin leftover; a different commute than the Strip"]);
+    replaceHotel("vegas", "lux", ["Waldorf Astoria Las Vegas — Center-Strip, no casino on the lobby level", "Bellagio — fountain-adjacent, still a resort-fee hotel", "Wynn or Encore — north Strip, nicer rooms, you will still walk or tram", "Four Seasons Hotel Las Vegas — Mandalay Bay campus, quieter tower", "JW Marriott Las Vegas Resort & Spa — Summerlin only if you're spending more; a different commute than the Strip"]);
     replaceHotel("chicago", "budget", ["Hampton Inn Chicago Downtown/Magnificent Mile — trains downstairs", "Holiday Inn Express Chicago Magnificent Mile — limited-service, grocery in walking distance", "Courtyard Chicago Downtown/River North — Marriott value, walk to the L", "Motto by Hilton Chicago Downtown — compact, skip a suburban cloverleaf", "Freehand Chicago — hostel-plus if the party will share"]);
     replaceHotel("chicago", "mid", ["Chicago Marriott Downtown Magnificent Mile — Mag Mile, one room not a suite", "Hilton Chicago — Grant Park / South Loop, walk to the L", "Hyatt Regency Chicago — river, convention-adjacent", "The Westin Michigan Avenue Chicago — Mag Mile mid", "The Hoxton Chicago — Fulton Market boutique if restaurants are the point"]);
-    replaceHotel("chicago", "lux", ["Park Hyatt Chicago — Water Tower Splurge", "The St. Regis Chicago — lakeshore tower, leftover only", "Four Seasons Hotel Chicago — Mag Mile flagship", "Waldorf Astoria Chicago — Gold Coast, winter rates are the value window", "The Langham Chicago — river boutique-luxe if leftover is the address"]);
+    replaceHotel("chicago", "lux", ["Park Hyatt Chicago — Water Tower Splurge", "The St. Regis Chicago — lakeshore tower, only if you're spending more", "Four Seasons Hotel Chicago — Mag Mile flagship", "Waldorf Astoria Chicago — Gold Coast, winter rates are the value window", "The Langham Chicago — river boutique-luxe if that is the address"]);
     replaceHotel("miami", "budget", ["Hampton Inn Miami Beach — Mid-Beach, walk or a short bus to the sand", "Holiday Inn Express Miami Airport / Downtown — Budget only if you rideshare to the beach once", "Courtyard Miami Downtown/Brickell — Metromover, skip an Ocean Drive address", "Freehand Miami — hostel-plus, walk to the beach and the bus", "The Gale South Beach — Collins 2–3 star a few blocks off the water"]);
-    replaceHotel("miami", "mid", ["Miami Marriott Biscayne Bay — mainland mid, better food walking than Ocean Drive", "Hilton Miami Downtown — bay, Metromover, not a beach tax", "Hyatt Centric South Beach Miami — Collins walk-to-sand", "Kimpton EPIC Hotel — Brickell bay, one pocket", "The Confidante or a renovated Art Deco 3–4 star on Collins — South Beach without Ocean Drive tax"]);
+    replaceHotel("miami", "mid", ["Miami Marriott Biscayne Bay — mainland mid, better food walking than Ocean Drive", "Hilton Miami Downtown — bay, Metromover, not a beach tax", "Hyatt Centric South Beach Miami — Collins walk-to-sand", "Kimpton EPIC Hotel — Brickell bay, one neighborhood", "The Confidante or a renovated Art Deco 3–4 star on Collins — South Beach without Ocean Drive tax"]);
     replaceHotel("miami", "lux", ["1 Hotel South Beach — beach premium, you will still pay for the cabana", "The Ritz-Carlton, South Beach — Collins Splurge", "The Miami Beach EDITION — Mid-Beach flagship", "Four Seasons Hotel at The Surf Club — Surfside, quieter than Ocean Drive", "W South Beach or St. Regis Bal Harbour — one flagship, not two neighborhoods"]);
-    replaceHotel("san_francisco", "budget", ["Hampton Inn San Francisco Downtown/Convention Center — walk to BART", "Holiday Inn Express San Francisco Fisherman’s Wharf — only if that pocket is the trip", "Courtyard San Francisco Downtown — Marriott value, Union Square-adjacent", "Hotel Zephyr — Wharf 2–3 star if you want that grid", "HI San Francisco Downtown — hostel-plus, BART downstairs"]);
+    replaceHotel("san_francisco", "budget", ["Hampton Inn San Francisco Downtown/Convention Center — walk to BART", "Holiday Inn Express San Francisco Fisherman’s Wharf — only if that neighborhood is the trip", "Courtyard San Francisco Downtown — Marriott value, Union Square-adjacent", "Hotel Zephyr — Wharf 2–3 star if you want that grid", "HI San Francisco Downtown — hostel-plus, BART downstairs"]);
     replaceHotel("san_francisco", "mid", ["Hilton San Francisco Union Square — cable-car adjacent, BART downstairs", "San Francisco Marriott Marquis — Moscone / SoMa, one room not a suite", "Hyatt Regency San Francisco — Embarcadero, Ferry Building walk", "The Westin St. Francis — Union Square, cable car at the door", "Hotel Emeline — Jackson Square boutique if you want the neighborhood over a convention tower"]);
-    replaceHotel("san_francisco", "lux", ["Fairmont San Francisco — Nob Hill, cable car at the door", "St. Regis San Francisco — SoMa, walk to SFMOMA", "Four Seasons Hotel San Francisco — SoMa flagship", "JW Marriott San Francisco Union Square — Splurge without a palace rate", "1 Hotel San Francisco — waterfront boutique if leftover is the Embarcadero"]);
+    replaceHotel("san_francisco", "lux", ["Fairmont San Francisco — Nob Hill, cable car at the door", "St. Regis San Francisco — SoMa, walk to SFMOMA", "Four Seasons Hotel San Francisco — SoMa flagship", "JW Marriott San Francisco Union Square — Splurge without a palace rate", "1 Hotel San Francisco — waterfront boutique if that is the Embarcadero"]);
     replaceHotel("san_diego", "budget", ["Hampton Inn San Diego Downtown — trolley, skip Hotel Circle / Mission Valley", "Holiday Inn San Diego – Bayside — harbor-adjacent Budget, not a Gaslamp tax", "Courtyard San Diego Downtown/Gaslamp — Marriott value, walk the trolley", "HI San Diego Downtown — hostel-plus, harbor or Gaslamp bus", "Pacific Beach motel class — beach grid if you will not Uber every meal"]);
     replaceHotel("san_diego", "mid", ["Hilton San Diego Bayfront — convention / harbor, trolley adjacent", "San Diego Marriott Gaslamp Quarter — walk to the trolley and dinner", "Manchester Grand Hyatt San Diego — waterfront mid, one campus", "The Westin San Diego Gaslamp Quarter — walkable mid", "Hotel Palomar San Diego — Kimpton Gaslamp boutique if you want Little Italy walking"]);
-    replaceHotel("san_diego", "lux", ["Hotel del Coronado — Hilton historic, ferry or bridge, the postcard lodging", "Fairmont Grand Del Mar — north, car assumed", "Pendry San Diego — harbor walk Splurge", "1 Hotel San Diego — waterfront boutique leftover", "Grand Hyatt San Diego — bay flagship if leftover is the tower, not Hotel Circle"]);
+    replaceHotel("san_diego", "lux", ["Hotel del Coronado — Hilton historic, ferry or bridge, the postcard lodging", "Fairmont Grand Del Mar — north, car assumed", "Pendry San Diego — harbor walk Splurge", "1 Hotel San Diego — waterfront boutique only if you're spending more", "Grand Hyatt San Diego — bay flagship if that is the tower, not Hotel Circle"]);
     replaceHotel("philadelphia", "budget", ["Hampton Inn Philadelphia Center City-Convention Center — limited-service, grocery downstairs", "Home2 Suites Philadelphia Downtown — kitchenette if you will grocery breakfasts", "Holiday Inn Express Philadelphia – Midtown — walk to a Broad Street Line stop", "Courtyard Philadelphia Downtown — Marriott value near City Hall", "Apple Hostels or a Center City hostel-plus — Budget if the party will share"]);
-    replaceHotel("philadelphia", "mid", ["Philadelphia Marriott Downtown — Convention Center, walk to Reading Terminal", "The Notary Hotel — Hilton, City Hall pocket", "Canopy by Hilton Philadelphia Center City — one neighborhood, not University City", "Kimpton Hotel Monaco Philadelphia — Independence Mall walking", "Loews Philadelphia Hotel — Center City mid, SEPTA beats a rental car"]);
-    replaceHotel("philadelphia", "lux", ["Four Seasons Hotel Philadelphia — Logan Square leftover", "The Logan Philadelphia — Marriott Autograph, Benjamin Franklin Parkway", "The Rittenhouse — square-adjacent Splurge", "W Philadelphia — Center City flagship", "Independence timed entry is the ticket, not a palace breakfast"]);
-    replaceHotel("atlanta", "budget", ["Hampton Inn & Suites Atlanta-Midtown — limited-service, MARTA or BeltLine walking", "Home2 Suites Atlanta Downtown — kitchenette, skip a Cumberland cloverleaf", "Holiday Inn Express Atlanta Downtown — Centennial pocket, grocery in walking distance", "Courtyard Atlanta Downtown — Marriott value, walk to a MARTA stop", "HI Atlanta — hostel-plus if the party will share"]);
-    replaceHotel("atlanta", "mid", ["Atlanta Marriott Marquis — Downtown atrium, one room not a suite", "Hyatt Regency Atlanta — Downtown, Peachtree walking", "Hilton Atlanta — Downtown convention campus", "The Westin Peachtree Plaza — Midtown-adjacent tower, skip Buckhead unless leftover covers two pockets", "Hotel Clermont — Ponce boutique if you want BeltLine and Ponce City Market walking"]);
-    replaceHotel("atlanta", "lux", ["Four Seasons Hotel Atlanta — Midtown leftover", "St. Regis Atlanta — Buckhead Splurge; you traded BeltLine walking", "Grand Hyatt Atlanta in Buckhead — same pocket, leftover only", "JW Marriott Atlanta Buckhead — Splurge if leftover is Buckhead, not the Aquarium hotel", "The Whitley Atlanta Buckhead — Hyatt flagship, one tower"]);
+    replaceHotel("philadelphia", "mid", ["Philadelphia Marriott Downtown — Convention Center, walk to Reading Terminal", "The Notary Hotel — Hilton, City Hall area", "Canopy by Hilton Philadelphia Center City — one neighborhood, not University City", "Kimpton Hotel Monaco Philadelphia — Independence Mall walking", "Loews Philadelphia Hotel — Center City mid, SEPTA beats a rental car"]);
+    replaceHotel("philadelphia", "lux", ["Four Seasons Hotel Philadelphia — Logan Square only if you're spending more", "The Logan Philadelphia — Marriott Autograph, Benjamin Franklin Parkway", "The Rittenhouse — square-adjacent Splurge", "W Philadelphia — Center City flagship", "Independence timed entry is the ticket, not a palace breakfast"]);
+    replaceHotel("atlanta", "budget", ["Hampton Inn & Suites Atlanta-Midtown — limited-service, MARTA or BeltLine walking", "Home2 Suites Atlanta Downtown — kitchenette, skip a Cumberland cloverleaf", "Holiday Inn Express Atlanta Downtown — Centennial area, grocery in walking distance", "Courtyard Atlanta Downtown — Marriott value, walk to a MARTA stop", "HI Atlanta — hostel-plus if the party will share"]);
+    replaceHotel("atlanta", "mid", ["Atlanta Marriott Marquis — Downtown atrium, one room not a suite", "Hyatt Regency Atlanta — Downtown, Peachtree walking", "Hilton Atlanta — Downtown convention campus", "The Westin Peachtree Plaza — Midtown-adjacent tower, skip Buckhead unless you have room in the budget for two neighborhoods", "Hotel Clermont — Ponce boutique if you want BeltLine and Ponce City Market walking"]);
+    replaceHotel("atlanta", "lux", ["Four Seasons Hotel Atlanta — Midtown only if you're spending more", "St. Regis Atlanta — Buckhead Splurge; you traded BeltLine walking", "Grand Hyatt Atlanta in Buckhead — same area, only if you're spending more", "JW Marriott Atlanta Buckhead — Splurge if you have room in the budget is Buckhead, not the Aquarium hotel", "The Whitley Atlanta Buckhead — Hyatt flagship, one tower"]);
     replaceHotel("dallas", "budget", ["Hampton Inn & Suites Dallas Downtown — limited-service, DART downstairs", "Homewood Suites Dallas Downtown — kitchenette, skip a Las Colinas cloverleaf", "Holiday Inn Express Dallas Downtown — walk to Downtown", "Courtyard Dallas Downtown/Deep Ellum — Marriott value if that is the night you came for", "A Design District 2-star — grocery in walking distance"]);
-    replaceHotel("dallas", "mid", ["Dallas Marriott City Center — Downtown, walk to the Arts District", "Hyatt Regency Dallas — Reunion Tower pocket, DART adjacent", "Hilton Anatole — Design District-adjacent campus; a short DART or rideshare to Downtown", "The Adolphus — Marriott Autograph, Downtown grande dame without a suite", "The Statler Dallas — Hilton Curio, walk to the Arts District"]);
-    replaceHotel("dallas", "lux", ["The Ritz-Carlton, Dallas — Uptown leftover", "W Dallas Victory — Uptown / Victory Park Splurge", "The Joule — Downtown design flagship", "Hall Arts Hotel Dallas — Marriott Autograph, Arts District leftover", "Rosewood Mansion on Turtle Creek — leftover, car assumed"]);
+    replaceHotel("dallas", "mid", ["Dallas Marriott City Center — Downtown, walk to the Arts District", "Hyatt Regency Dallas — Reunion Tower area, DART adjacent", "Hilton Anatole — Design District-adjacent campus; a short DART or rideshare to Downtown", "The Adolphus — Marriott Autograph, Downtown grande dame without a suite", "The Statler Dallas — Hilton Curio, walk to the Arts District"]);
+    replaceHotel("dallas", "lux", ["The Ritz-Carlton, Dallas — Uptown only if you're spending more", "W Dallas Victory — Uptown / Victory Park Splurge", "The Joule — Downtown design flagship", "Hall Arts Hotel Dallas — Marriott Autograph, Arts District only if you're spending more", "Rosewood Mansion on Turtle Creek — only if you're spending more, car assumed"]);
     replaceHotel("houston", "budget", ["Hampton Inn & Suites Houston Downtown — limited-service, Metro rail", "Home2 Suites Houston Downtown — kitchenette, skip an Energy Corridor cloverleaf", "Holiday Inn Express Houston Downtown — walk to rail", "Courtyard Houston Downtown/Convention Center — Marriott value", "A Montrose 2-star if that is the restaurant neighborhood"]);
-    replaceHotel("houston", "mid", ["Houston Marriott Marquis — Downtown, walk to rail", "Hilton Americas-Houston — convention / Discovery Green", "Hyatt Regency Houston — Downtown mid, one pocket", "The Westin Houston Downtown — theater pocket", "Le Méridien Houston Downtown — Marriott, walk to rail; Galleria is a different commute"]);
-    replaceHotel("houston", "lux", ["Four Seasons Hotel Houston — Downtown leftover", "JW Marriott Houston Downtown — Splurge in the core", "The Post Oak Hotel at Uptown Houston — Galleria-adjacent, car assumed", "Hotel Alessandra — Marriott Autograph Downtown flagship", "The reservation is often the better splurge than a second tower"]);
+    replaceHotel("houston", "mid", ["Houston Marriott Marquis — Downtown, walk to rail", "Hilton Americas-Houston — convention / Discovery Green", "Hyatt Regency Houston — Downtown mid, one neighborhood", "The Westin Houston Downtown — theater area", "Le Méridien Houston Downtown — Marriott, walk to rail; Galleria is a different commute"]);
+    replaceHotel("houston", "lux", ["Four Seasons Hotel Houston — Downtown only if you're spending more", "JW Marriott Houston Downtown — Splurge in the core", "The Post Oak Hotel at Uptown Houston — Galleria-adjacent, car assumed", "Hotel Alessandra — Marriott Autograph Downtown flagship", "The reservation is often the better splurge than a second tower"]);
     replaceHotel("seattle", "budget", ["Hampton Inn Seattle Downtown Convention Center — walk or Link to Pioneer Square", "Motto by Hilton Seattle Downtown — compact, skip a Tukwila cloverleaf", "Holiday Inn Express Seattle City Center — limited-service, grocery nearby", "Courtyard Seattle Downtown/Pioneer Square — Marriott value, Link adjacent", "HI Seattle — hostel-plus on Link if the party will share"]);
     replaceHotel("seattle", "mid", ["Seattle Marriott Waterfront — walk the waterfront, not a Pike Place hotel address", "Hilton Seattle — Downtown, one room not a suite", "Hyatt at Olive 8 — Downtown mid, walk to a streetcar", "The Westin Seattle — Downtown tower, skip a rental in the core", "Sheraton Grand Seattle — Downtown mid, July–August is peak and dry"]);
-    replaceHotel("seattle", "lux", ["Fairmont Olympic Hotel — Downtown historic leftover", "Four Seasons Hotel Seattle — waterfront Splurge", "Thompson Seattle — Hyatt, Belltown leftover", "W Seattle — Downtown flagship", "Lotte Hotel Seattle — Splurge if leftover is the tower, not every island ferry"]);
-    replaceHotel("boston", "budget", ["Hampton Inn Boston Seaport — limited-service, Silver Line / T, skip a Logan hotel", "Holiday Inn Express Boston Garden — North Station pocket, grocery nearby", "Courtyard Boston Downtown/North Station — Marriott value, T downstairs", "YOTEL Boston — compact Seaport if you packed light", "HI Boston — hostel-plus on the T if the party will share"]);
-    replaceHotel("boston", "mid", ["Boston Marriott Copley Place — Back Bay, T not a car", "Hilton Boston Downtown/Faneuil Hall — walk to the waterfront, skip Faneuil dinner", "Hyatt Regency Boston — Downtown Crossing, one pocket", "The Westin Copley Place Boston — Back Bay mid", "Sheraton Boston Hotel — Prudential campus, Marathon / leaf weeks lift rooms"]);
-    replaceHotel("boston", "lux", ["Four Seasons Hotel Boston — Back Bay leftover", "The Newbury Boston — Fairmont-adjacent historic Splurge", "Mandarin Oriental, Boston — Boylston leftover", "Raffles Boston Back Bay — Splurge flagship", "The Langham, Boston — Financial District, February is cheap and icy"]);
+    replaceHotel("seattle", "lux", ["Fairmont Olympic Hotel — Downtown historic only if you're spending more", "Four Seasons Hotel Seattle — waterfront Splurge", "Thompson Seattle — Hyatt, Belltown only if you're spending more", "W Seattle — Downtown flagship", "Lotte Hotel Seattle — Splurge if you have room in the budget is the tower, not every island ferry"]);
+    replaceHotel("boston", "budget", ["Hampton Inn Boston Seaport — limited-service, Silver Line / T, skip a Logan hotel", "Holiday Inn Express Boston Garden — North Station area, grocery nearby", "Courtyard Boston Downtown/North Station — Marriott value, T downstairs", "YOTEL Boston — compact Seaport if you packed light", "HI Boston — hostel-plus on the T if the party will share"]);
+    replaceHotel("boston", "mid", ["Boston Marriott Copley Place — Back Bay, T not a car", "Hilton Boston Downtown/Faneuil Hall — walk to the waterfront, skip Faneuil dinner", "Hyatt Regency Boston — Downtown Crossing, one neighborhood", "The Westin Copley Place Boston — Back Bay mid", "Sheraton Boston Hotel — Prudential campus, Marathon / leaf weeks lift rooms"]);
+    replaceHotel("boston", "lux", ["Four Seasons Hotel Boston — Back Bay only if you're spending more", "The Newbury Boston — Fairmont-adjacent historic Splurge", "Mandarin Oriental, Boston — Boylston only if you're spending more", "Raffles Boston Back Bay — Splurge flagship", "The Langham, Boston — Financial District, February is cheap and icy"]);
     replaceHotel("washington_dc", "budget", ["Hampton Inn Washington DC Convention Center — limited-service, Metro downstairs", "Motto by Hilton Washington DC City Center — compact, skip a Crystal City cloverleaf", "Holiday Inn Express Washington DC Downtown — grocery in walking distance", "Courtyard Washington Downtown/Convention Center — Marriott value", "HI Washington DC — hostel-plus on Metro if the party will share"]);
-    replaceHotel("washington_dc", "mid", ["Washington Marriott at Metro Center — one room, Metro in the block", "Capital Hilton — Downtown, walk to the Mall", "Hyatt Place Washington DC/National Mall — limited-service-plus on Metro", "The Westin Washington, D.C. City Center — Downtown mid", "Canopy by Hilton Washington DC The Wharf — waterfront mid if leftover covers that pocket"]);
-    replaceHotel("washington_dc", "lux", ["Waldorf Astoria Washington DC — Pennsylvania Avenue leftover", "The Willard InterContinental — historic Splurge, walk to the Mall", "Conrad Washington DC — CityCenter, leftover only", "St. Regis Washington, D.C. — Downtown flagship", "Four Seasons Hotel Washington, DC — Georgetown Splurge; you traded Mall walking"]);
+    replaceHotel("washington_dc", "mid", ["Washington Marriott at Metro Center — one room, Metro in the block", "Capital Hilton — Downtown, walk to the Mall", "Hyatt Place Washington DC/National Mall — limited-service-plus on Metro", "The Westin Washington, D.C. City Center — Downtown mid", "Canopy by Hilton Washington DC The Wharf — waterfront mid if you have room in the budget for that neighborhood"]);
+    replaceHotel("washington_dc", "lux", ["Waldorf Astoria Washington DC — Pennsylvania Avenue only if you're spending more", "The Willard InterContinental — historic Splurge, walk to the Mall", "Conrad Washington DC — CityCenter, only if you're spending more", "St. Regis Washington, D.C. — Downtown flagship", "Four Seasons Hotel Washington, DC — Georgetown Splurge; you traded Mall walking"]);
     replaceHotel("london", "budget", ["Premier Inn London County Hall — South Bank river walk, not a West End rate", "Ibis London Euston St Pancras — Zone 1, Tesco downstairs", "Holiday Inn Express London – Southwark — Tube, skip a Heathrow hotel as this lodging", "Travelodge London Covent Garden — compact Zone 1 if you packed light", "Generator London — hostel-plus, Bloomsbury walking"]);
-    replaceHotel("london", "mid", ["London Marriott Hotel County Hall — South Bank, walk to a station", "Hilton London Bankside — Southwark mid, Tube in the pocket", "Hyatt Regency London – The Churchill — Portman Square, one neighborhood", "The Westin London City — City mid, not Mayfair prices", "Canopy by Hilton London City — Aldgate, restaurants on the block"]);
-    replaceHotel("london", "lux", ["The Savoy — Fairmont, river leftover", "Conrad London St. James — Splurge near Westminster", "The Langham, London — Portland Place leftover", "Raffles London at The OWO — Whitehall Splurge", "Claridge’s or The Connaught — Mayfair leftover only"]);
+    replaceHotel("london", "mid", ["London Marriott Hotel County Hall — South Bank, walk to a station", "Hilton London Bankside — Southwark mid, Tube in the neighborhood", "Hyatt Regency London – The Churchill — Portman Square, one neighborhood", "The Westin London City — City mid, not Mayfair prices", "Canopy by Hilton London City — Aldgate, restaurants on the block"]);
+    replaceHotel("london", "lux", ["The Savoy — Fairmont, river only if you're spending more", "Conrad London St. James — Splurge near Westminster", "The Langham, London — Portland Place only if you're spending more", "Raffles London at The OWO — Whitehall Splurge", "Claridge’s or The Connaught — Mayfair only if you're spending more"]);
     replaceHotel("paris", "budget", ["Ibis Paris Gare du Nord — Metro downstairs, not a tower-block view", "Ibis Styles Paris République — 10th/11th, bakery downstairs", "Holiday Inn Express Paris – Canal de la Villette — Metro line, Budget if you land late", "Generator Paris — hostel-plus, Canal Saint-Martin", "Novotel Paris Les Halles — more mid; Budget stays Ibis / Express on a Metro line"]);
-    replaceHotel("paris", "mid", ["Hilton Paris Opera — 8th/9th, Metro in five minutes", "Paris Marriott Opera Ambassador — Opera pocket, one arrondissement", "Hyatt Regency Paris Étoile — 17th, Metro / RER, skip changing arrondissements nightly", "The Westin Paris – Vendôme — 1st, mid-plus if leftover covers the address", "Hôtel Malte Opéra or a 3-star near Luxembourg — boutique if you want Left Bank walking"]);
-    replaceHotel("paris", "lux", ["Park Hyatt Paris-Vendôme — 1st leftover", "Four Seasons Hotel George V — 8th Splurge", "The Ritz Paris — Place Vendôme, leftover only", "Hôtel de Crillon — Rosewood, Place de la Concorde", "Lutetia Paris — Left Bank palace-adjacent if leftover is the name"]);
-    replaceHotel("rome", "budget", ["Ibis Styles Roma Vintage or Ibis Roma Centro — Metro, pack light, stairs are common", "Holiday Inn Rome – Eur — Budget only if leftover is tight; Prati/Termini is closer", "Best Western Plus Hotel Universo — Termini, trains and buses, louder nights", "The Beehive — Termini hostel-plus if the party will share", "A Prati guesthouse near Ottaviano — Metro to the Vatican, calmer than the centro"]);
-    replaceHotel("rome", "mid", ["Rome Marriott Grand Hotel Flora — Via Veneto, walk-adjacent to the Spanish Steps crush", "The Westin Excelsior, Rome — Via Veneto mid", "Hotel Indigo Rome – St. George — Centro, walk everywhere", "NH Collection Roma Palazzo Cinquecento — Termini-adjacent 4-star if you arrive late", "Hotel Nazionale or a Centro Storico 3-star — Piazza Navona / Pantheon pocket"]);
-    replaceHotel("rome", "lux", ["Waldorf Astoria Rome Cavalieri — hill campus, leftover, a taxi to the centro", "The St. Regis Rome — Via Vittorio Emanuele Orlando Splurge", "Hotel de Russie — Rocco Forte, Piazza del Popolo, walk the centro", "Hassler Roma — Spanish Steps above the crush", "Hotel Eden — Dorchester, Via Veneto leftover only"]);
-    replaceHotel("tokyo", "budget", ["APA Hotel Shinjuku-Kabukicho or APA Guesthouse — station downstairs, convenience store in the lobby", "Toyoko Inn Shinjuku or Ueno — business-hotel Budget, skip a taxi habit", "Super Hotel Lohas Ikebukuro or Ueno — limited-service, Metro in the block", "Ibis Styles Tokyo Ginza — Accor value if leftover covers a central ward", "Nine Hours capsule in Shinjuku — Budget crash-pad only, pack a cube"]);
+    replaceHotel("paris", "mid", ["Hilton Paris Opera — 8th/9th, Metro in five minutes", "Paris Marriott Opera Ambassador — Opera neighborhood, one arrondissement", "Hyatt Regency Paris Étoile — 17th, Metro / RER, skip changing arrondissements nightly", "The Westin Paris – Vendôme — 1st, mid-plus if you have room in the budget for the address", "Hôtel Malte Opéra or a 3-star near Luxembourg — boutique if you want Left Bank walking"]);
+    replaceHotel("paris", "lux", ["Park Hyatt Paris-Vendôme — 1st only if you're spending more", "Four Seasons Hotel George V — 8th Splurge", "The Ritz Paris — Place Vendôme, only if you're spending more", "Hôtel de Crillon — Rosewood, Place de la Concorde", "Lutetia Paris — Left Bank palace-adjacent if that is the name"]);
+    replaceHotel("rome", "budget", ["Ibis Styles Roma Vintage or Ibis Roma Centro — Metro, pack light, stairs are common", "Holiday Inn Rome – Eur — Budget only if the budget is tight; Prati/Termini is closer", "Best Western Plus Hotel Universo — Termini, trains and buses, louder nights", "The Beehive — Termini hostel-plus if the party will share", "A Prati guesthouse near Ottaviano — Metro to the Vatican, calmer than the centro"]);
+    replaceHotel("rome", "mid", ["Rome Marriott Grand Hotel Flora — Via Veneto, walk-adjacent to the Spanish Steps crush", "The Westin Excelsior, Rome — Via Veneto mid", "Hotel Indigo Rome – St. George — Centro, walk everywhere", "NH Collection Roma Palazzo Cinquecento — Termini-adjacent 4-star if you arrive late", "Hotel Nazionale or a Centro Storico 3-star — Piazza Navona / Pantheon area"]);
+    replaceHotel("rome", "lux", ["Waldorf Astoria Rome Cavalieri — hill campus, only if you're spending more, a taxi to the centro", "The St. Regis Rome — Via Vittorio Emanuele Orlando Splurge", "Hotel de Russie — Rocco Forte, Piazza del Popolo, walk the centro", "Hassler Roma — Spanish Steps above the crush", "Hotel Eden — Dorchester, Via Veneto only if you're spending more"]);
+    replaceHotel("tokyo", "budget", ["APA Hotel Shinjuku-Kabukicho or APA Guesthouse — station downstairs, convenience store in the lobby", "Toyoko Inn Shinjuku or Ueno — business-hotel Budget, skip a taxi habit", "Super Hotel Lohas Ikebukuro or Ueno — limited-service, Metro in the block", "Ibis Styles Tokyo Ginza — Accor value if you have room in the budget for a central ward", "Nine Hours capsule in Shinjuku — Budget crash-pad only, pack a cube"]);
     replaceHotel("tokyo", "mid", ["Hilton Tokyo — Shinjuku, Metro in the basement", "Tokyo Marriott Hotel — Shinagawa / Gotanda, JR adjacent", "Hyatt Regency Tokyo — Shinjuku mid, neighborhood walking", "The Westin Tokyo — Ebisu, one train zone", "Hotel Gracery Shinjuku or Mitsui Garden Shibuya — Japanese 4-star, trains not a JR-pass spreadsheet"]);
-    replaceHotel("tokyo", "lux", ["Park Hyatt Tokyo — Shinjuku, the view; you still take the Metro to dinner", "Conrad Tokyo — Shiodome Splurge", "The Ritz-Carlton, Tokyo — Roppongi leftover", "Aman Tokyo — Otemachi, station downstairs", "Palace Hotel Tokyo — Imperial-garden quiet, leftover only"]);
+    replaceHotel("tokyo", "lux", ["Park Hyatt Tokyo — Shinjuku, the view; you still take the Metro to dinner", "Conrad Tokyo — Shiodome Splurge", "The Ritz-Carlton, Tokyo — Roppongi only if you're spending more", "Aman Tokyo — Otemachi, station downstairs", "Palace Hotel Tokyo — Imperial-garden quiet, only if you're spending more"]);
     replaceHotel("oahu", "budget", ["Hampton Inn & Suites Honolulu/Waikiki — limited-service, walk to the sand", "Holiday Inn Express Waikiki — one block back, same beach", "Aqua Oasis or Shoreline Hotel Waikiki — Outrigger-adjacent value, skip a rental car", "The Equus — Kuhio Avenue 2-star, kitchenette beats resort breakfast", "Hostelling International Waikiki — hostel-plus if the party will share"]);
     replaceHotel("oahu", "mid", ["Hilton Hawaiian Village — huge campus, you came for the lagoon not the boutique", "Sheraton Waikiki — Kalakaua walk, beach access", "Hyatt Regency Waikiki Beach Resort — same grid, still no car required", "Outrigger Waikiki Beach Resort — walk-to-beach mid", "Embassy Suites by Hilton Waikiki Beach Walk — kitchenette mid if you will grocery dinners"]);
-    replaceHotel("oahu", "lux", ["The Royal Hawaiian — Marriott Luxury Collection, Waikiki luxury if you refuse to leave the grid", "Halekulani — Waikiki leftover", "The Kahala Hotel & Resort — east of Waikiki, quieter beach", "Four Seasons Resort Oahu at Ko Olina — west side, car assumed", "Aulani, A Disney Resort & Spa — west side leftover + kids"]);
-    replaceHotel("maui", "budget", ["Holiday Inn Express Kahului — crash-pad only the night you fly; Budget lodging is a Kihei condo", "Maui Coast Hotel — Kihei, walk to a food truck, grocery the first hour", "Aston Maui Kamaole or a South Kihei studio — kitchen is the Budget product", "Kohea Kai Maui — South Kihei boutique-value if leftover is tight", "Paia inn-adjacent 2-star — north shore if you will not sit in Kaanapali traffic"]);
-    replaceHotel("maui", "mid", ["Sheraton Maui Resort & Spa — Kaanapali Beach, walk the path", "The Westin Maui Resort & Spa — same beach, resort fees will show up", "Hyatt Regency Maui Resort and Spa — Kaanapali, bigger campus", "Marriott’s Maui Ocean Club — points-friendly mid if the kitchen still wins dinners", "Wailea Ekahi or a Kihei-plus condo — one pocket, not three islands"]);
-    replaceHotel("maui", "lux", ["Grand Wailea, A Waldorf Astoria Resort — Wailea Beach, the Splurge default", "Andaz Maui at Wailea — Hyatt, same pocket, leftover only", "Four Seasons Resort Maui at Wailea — leftover", "The Ritz-Carlton Maui, Kapalua — west side, a different drive", "Hotel Wailea — adults-only hill, you will still drive to dinner"]);
-    replaceHotel("key_west", "budget", ["Hampton Inn Key West — Old Town-adjacent, walk or a short hop to Duval", "Holiday Inn Express Key West — limited-service, skip an EYW motel if you will Uber downtown every meal", "The Big Ruby Key West — guesthouse, walk to Duval, no car", "Key West hostel / Seashell Motel class — Budget only, pack light", "Caribbean House or a Truman Annex-adjacent inn — quieter pocket"]);
-    replaceHotel("key_west", "mid", ["Hyatt Centric Key West Resort & Spa — Old Town water, walk to dinner", "Courtyard Key West Waterfront — Marriott, one neighborhood", "Hilton Garden Inn Key West — walkable mid if leftover covers it", "Kimpton Palms Hotel Key West — walkable boutique mid", "The Gardens Hotel — Old Town courtyard if you want inn over a chain campus"]);
-    replaceHotel("key_west", "lux", ["Casa Marina Key West, A Waldorf Astoria Resort — beach-adjacent historic, south of Duval", "The Reach Key West, Curio Collection — Waldorf-adjacent, walk to the sand", "Ocean Key Resort — Sunset Pier pocket if leftover covers the address", "Pier House Resort & Spa — Old Town leftover", "Oceans Edge — marina campus and a shuttle; Stock Island is a different commute"]);
-    replaceHotel("palm_springs", "budget", ["Hampton Inn & Suites Palm Springs — limited-service, walk or a short hop to Palm Canyon", "Holiday Inn Express Palm Springs — Budget courtyard, grocery nearby", "Movie Colony Hotel — mid-century motel, pool, walk to dinner", "A Uptown Design District motel-plus — skip a desert-edge interstate chain unless you have a trail plan", "Ingleside Inn-adjacent 2-star — quieter pocket"]);
-    replaceHotel("palm_springs", "mid", ["Hilton Palm Springs — Downtown, walk to dinner", "Hyatt Palm Springs — Downtown mid, one pocket", "Renaissance Palm Springs Hotel — Marriott, Convention Center-adjacent", "Kimpton Rowan Palm Springs — Downtown rooftop mid", "Ace Hotel & Swim Club — boutique mid-century campus, still a rideshare to trails"]);
-    replaceHotel("palm_springs", "lux", ["The Ritz-Carlton, Rancho Mirage — leftover, car assumed", "La Quinta Resort & Club, A Waldorf Astoria Resort — valley Splurge, a different drive than Downtown", "The Parker Palm Springs — leftover campus", "Omni Rancho Las Palmas — Rancho Mirage leftover", "Colony Palms Hotel — historic Splurge if leftover is the neighborhood"]);
-    replaceHotel("napa", "budget", ["Hampton Inn & Suites Napa — limited-service, walk or a short hop to a grocery", "Holiday Inn Express Napa Valley — town Budget, skip an American Canyon highway motel unless you land late", "Napa Valley Marriott Hotel & Spa is mid; Budget stays Hampton / Express in Napa town", "A Calistoga value inn — walk to a grocery if Calistoga is the base", "Sonoma plaza-adjacent 2-star if Sonoma is the pocket you will eat in"]);
+    replaceHotel("oahu", "lux", ["The Royal Hawaiian — Marriott Luxury Collection, Waikiki luxury if you refuse to leave the grid", "Halekulani — Waikiki only if you're spending more", "The Kahala Hotel & Resort — east of Waikiki, quieter beach", "Four Seasons Resort Oahu at Ko Olina — west side, car assumed", "Aulani, A Disney Resort & Spa — west side if you have room in the budget + kids"]);
+    replaceHotel("maui", "budget", ["Holiday Inn Express Kahului — crash-pad only the night you fly; Budget lodging is a Kihei condo", "Maui Coast Hotel — Kihei, walk to a food truck, grocery the first hour", "Aston Maui Kamaole or a South Kihei studio — kitchen is the Budget product", "Kohea Kai Maui — South Kihei boutique-value if the budget is tight", "Paia inn-adjacent 2-star — north shore if you will not sit in Kaanapali traffic"]);
+    replaceHotel("maui", "mid", ["Sheraton Maui Resort & Spa — Kaanapali Beach, walk the path", "The Westin Maui Resort & Spa — same beach, resort fees will show up", "Hyatt Regency Maui Resort and Spa — Kaanapali, bigger campus", "Marriott’s Maui Ocean Club — points-friendly mid if the kitchen still wins dinners", "Wailea Ekahi or a Kihei-plus condo — one neighborhood, not three islands"]);
+    replaceHotel("maui", "lux", ["Grand Wailea, A Waldorf Astoria Resort — Wailea Beach, the Splurge default", "Andaz Maui at Wailea — Hyatt, same area, only if you're spending more", "Four Seasons Resort Maui at Wailea — only if you're spending more", "The Ritz-Carlton Maui, Kapalua — west side, a different drive", "Hotel Wailea — adults-only hill, you will still drive to dinner"]);
+    replaceHotel("key_west", "budget", ["Hampton Inn Key West — Old Town-adjacent, walk or a short hop to Duval", "Holiday Inn Express Key West — limited-service, skip an EYW motel if you will Uber downtown every meal", "The Big Ruby Key West — guesthouse, walk to Duval, no car", "Key West hostel / Seashell Motel class — Budget only, pack light", "Caribbean House or a Truman Annex-adjacent inn — quieter neighborhood"]);
+    replaceHotel("key_west", "mid", ["Hyatt Centric Key West Resort & Spa — Old Town water, walk to dinner", "Courtyard Key West Waterfront — Marriott, one neighborhood", "Hilton Garden Inn Key West — walkable mid if you have room in the budget for it", "Kimpton Palms Hotel Key West — walkable boutique mid", "The Gardens Hotel — Old Town courtyard if you want inn over a chain campus"]);
+    replaceHotel("key_west", "lux", ["Casa Marina Key West, A Waldorf Astoria Resort — beach-adjacent historic, south of Duval", "The Reach Key West, Curio Collection — Waldorf-adjacent, walk to the sand", "Ocean Key Resort — Sunset Pier area if you have room in the budget for the address", "Pier House Resort & Spa — Old Town only if you're spending more", "Oceans Edge — marina campus and a shuttle; Stock Island is a different commute"]);
+    replaceHotel("palm_springs", "budget", ["Hampton Inn & Suites Palm Springs — limited-service, walk or a short hop to Palm Canyon", "Holiday Inn Express Palm Springs — Budget courtyard, grocery nearby", "Movie Colony Hotel — mid-century motel, pool, walk to dinner", "A Uptown Design District motel-plus — skip a desert-edge interstate chain unless you have a trail plan", "Ingleside Inn-adjacent 2-star — quieter neighborhood"]);
+    replaceHotel("palm_springs", "mid", ["Hilton Palm Springs — Downtown, walk to dinner", "Hyatt Palm Springs — Downtown mid, one neighborhood", "Renaissance Palm Springs Hotel — Marriott, Convention Center-adjacent", "Kimpton Rowan Palm Springs — Downtown rooftop mid", "Ace Hotel & Swim Club — boutique mid-century campus, still a rideshare to trails"]);
+    replaceHotel("palm_springs", "lux", ["The Ritz-Carlton, Rancho Mirage — only if you're spending more, car assumed", "La Quinta Resort & Club, A Waldorf Astoria Resort — valley Splurge, a different drive than Downtown", "The Parker Palm Springs — only if you're spending more campus", "Omni Rancho Las Palmas — Rancho Mirage only if you're spending more", "Colony Palms Hotel — historic Splurge if you have room in the budget is the neighborhood"]);
+    replaceHotel("napa", "budget", ["Hampton Inn & Suites Napa — limited-service, walk or a short hop to a grocery", "Holiday Inn Express Napa Valley — town Budget, skip an American Canyon highway motel unless you land late", "Napa Valley Marriott Hotel & Spa is mid; Budget stays Hampton / Express in Napa town", "A Calistoga value inn — walk to a grocery if Calistoga is the base", "Sonoma plaza-adjacent 2-star if Sonoma is the neighborhood you will eat in"]);
     replaceHotel("napa", "mid", ["Napa Valley Marriott Hotel & Spa — Downtown Napa, one town", "Andaz Napa — Hyatt, walkable downtown mid", "The Westin Verasa Napa — river mid, walk to Oxbow", "Archer Hotel Napa — Downtown mid-plus", "Napa River Inn — boutique if you want the river walk over a campus"]);
-    replaceHotel("napa", "lux", ["Four Seasons Resort and Residences Napa Valley — Calistoga leftover", "Auberge du Soleil — Rutherford Splurge", "Solage, Auberge Resorts — Calistoga leftover", "Meadowood Napa Valley — Splurge if leftover is real", "The Estate Yountville — walk to dinner leftover-adjacent; do not also buy every reserve tasting"]);
+    replaceHotel("napa", "lux", ["Four Seasons Resort and Residences Napa Valley — Calistoga only if you're spending more", "Auberge du Soleil — Rutherford Splurge", "Solage, Auberge Resorts — Calistoga only if you're spending more", "Meadowood Napa Valley — Splurge if you have room in the budget", "The Estate Yountville — walk to dinner only if you're spending more; do not also buy every reserve tasting"]);
     replaceHotel("san_antonio", "budget", ["Hampton Inn & Suites San Antonio Downtown/Riverwalk — limited-service, walk the river", "Drury Inn & Suites San Antonio Riverwalk — breakfast-in-rate if that is the product", "Holiday Inn Express San Antonio N-Riverwalk Area — a block off the postcard row", "Courtyard San Antonio Riverwalk — Marriott value", "Crockett Hotel — Alamo-adjacent local if you want historic over points"]);
-    replaceHotel("san_antonio", "mid", ["San Antonio Marriott Riverwalk — walkable mid, one pocket", "Hilton Palacio del Rio — River Walk, skip a Fiesta Texas cloverleaf", "Hyatt Regency San Antonio — river-adjacent mid", "The Westin Riverwalk, San Antonio — 4-star on the water", "Hotel Emma — Pearl boutique if leftover covers the food-hall walk"]);
-    replaceHotel("san_antonio", "lux", ["The St. Anthony Hotel — Marriott Autograph, Downtown grande dame leftover", "Thompson San Antonio — Pearl leftover", "Mokara Hotel & Spa — Destination by Hyatt, River Walk Splurge", "Fairmount Hotel San Antonio — historic Splurge, one property", "Hotel Emma Splurge suite if leftover covers the jump from mid"]);
-    replaceHotel("lake_tahoe", "budget", ["Hampton Inn & Suites Tahoe-Truckee — Budget if North Shore is the plan, grocery the first hour", "Holiday Inn Express & Suites South Lake Tahoe — Stateline-adjacent value", "Basecamp Hotel South Lake Tahoe — walk to a bus if you can", "A Kings Beach or Tahoe Vista 2-star — North Shore grocery pocket", "Skip a Reno hotel plus a nightly drive as this lodging"]);
+    replaceHotel("san_antonio", "mid", ["San Antonio Marriott Riverwalk — walkable mid, one neighborhood", "Hilton Palacio del Rio — River Walk, skip a Fiesta Texas cloverleaf", "Hyatt Regency San Antonio — river-adjacent mid", "The Westin Riverwalk, San Antonio — 4-star on the water", "Hotel Emma — Pearl boutique if you have room in the budget for the food-hall walk"]);
+    replaceHotel("san_antonio", "lux", ["The St. Anthony Hotel — Marriott Autograph, Downtown grande dame only if you're spending more", "Thompson San Antonio — Pearl only if you're spending more", "Mokara Hotel & Spa — Destination by Hyatt, River Walk Splurge", "Fairmount Hotel San Antonio — historic Splurge, one property", "Hotel Emma Splurge suite if you have room in the budget for the jump from mid"]);
+    replaceHotel("lake_tahoe", "budget", ["Hampton Inn & Suites Tahoe-Truckee — Budget if North Shore is the plan, grocery the first hour", "Holiday Inn Express & Suites South Lake Tahoe — Stateline-adjacent value", "Basecamp Hotel South Lake Tahoe — walk to a bus if you can", "A Kings Beach or Tahoe Vista 2-star — North Shore grocery area", "Skip a Reno hotel plus a nightly drive as this lodging"]);
     replaceHotel("lake_tahoe", "mid", ["Marriott's Timber Lodge — Heavenly village, walk to the gondola", "Hyatt Regency Lake Tahoe Resort, Spa and Casino — North Shore mid-plus", "The Landing Resort & Spa Lake Tahoe — South Shore water mid", "Homewood Suites by Hilton South Lake Tahoe — kitchenette mid if you will grocery ski dinners", "A South Lake 3–4 star on the transit line — pick North or South, do not commute the lake twice a day"]);
-    replaceHotel("lake_tahoe", "lux", ["The Ritz-Carlton, Lake Tahoe — Northstar leftover", "Edgewood Tahoe Resort — South Shore Splurge", "The Village at Palisades Tahoe — Olympic Valley leftover", "One base. A second lodge is a transfer", "April and November are the mud-season discount"]);
+    replaceHotel("lake_tahoe", "lux", ["The Ritz-Carlton, Lake Tahoe — Northstar only if you're spending more", "Edgewood Tahoe Resort — South Shore Splurge", "The Village at Palisades Tahoe — Olympic Valley only if you're spending more", "One base. A second lodge is a transfer", "April and November are the mud-season discount"]);
     replaceHotel("monterey", "budget", ["Hampton Inn Monterey — limited-service, skip a Highway 1 cliff motel you will drive past", "Holiday Inn Express Monterey — Cannery Row-adjacent Budget", "Best Western Plus Monterey Inn — downtown value", "A Pacific Grove 2-star — quieter, grocery nearby", "A Cannery Row limited-service a block off the aquarium"]);
     replaceHotel("monterey", "mid", ["InterContinental The Clement Monterey — IHG, Cannery Row mid", "Portola Hotel & Spa at Monterey Bay — downtown mid", "Monterey Plaza Hotel & Spa — water mid-plus", "Hotel Pacific — downtown boutique if you want the wharf walk", "Carmel-by-the-Sea mid only if the village is the point"]);
-    replaceHotel("monterey", "lux", ["L’Auberge Carmel — Relais, village leftover", "Bernardus Lodge & Spa — Carmel Valley Splurge", "Post Ranch Inn or Ventana Big Sur — leftover, Highway 1 closures happen", "One base in Monterey or Carmel — Big Sur plus both towns is three parking lots", "Check Highway 1 before you lock a Big Sur night"]);
-    replaceHotel("destin_30a", "budget", ["Hampton Inn Destin — limited-service, grocery the first hour", "Holiday Inn Express Destin — Harbor-adjacent Budget, skip a high-rise you will Uber from to the beach", "A Destin 1-bedroom condo off 98 — kitchen is the Budget product", "A 30A garage apartment in Seagrove or Santa Rosa if leftover is tight", "Miramar / Sandestin value only if you will use that beach"]);
+    replaceHotel("monterey", "lux", ["L’Auberge Carmel — Relais, village only if you're spending more", "Bernardus Lodge & Spa — Carmel Valley Splurge", "Post Ranch Inn or Ventana Big Sur — only if you're spending more, Highway 1 closures happen", "One base in Monterey or Carmel — Big Sur plus both towns is three parking lots", "Check Highway 1 before you lock a Big Sur night"]);
+    replaceHotel("destin_30a", "budget", ["Hampton Inn Destin — limited-service, grocery the first hour", "Holiday Inn Express Destin — Harbor-adjacent Budget, skip a high-rise you will Uber from to the beach", "A Destin 1-bedroom condo off 98 — kitchen is the Budget product", "A 30A garage apartment in Seagrove or Santa Rosa if the budget is tight", "Miramar / Sandestin value only if you will use that beach"]);
     replaceHotel("destin_30a", "mid", ["Hilton Sandestin Beach Golf Resort & Spa — walk-to-gulf mid", "A renovated Destin condo a block off the gulf — mid if The Henderson is Splurge", "A Destin Harbor 3–4 star if you came for the boats, not the quiet", "30A condo in Seaside-adjacent / WaterColor village — kitchen still wins dinners", "Pick Destin or 30A. The drive along 98 is the hidden cost"]);
-    replaceHotel("destin_30a", "lux", ["WaterColor Inn & Resort — 30A leftover", "The Pearl Hotel Rosemary Beach — Splurge", "Hilton Sandestin Splurge suite if leftover covers the gulf-front jump", "Henderson Park Inn — Destin leftover", "One town. Do not hop Rosemary, Seaside, and Destin nightly"]);
+    replaceHotel("destin_30a", "lux", ["WaterColor Inn & Resort — 30A only if you're spending more", "The Pearl Hotel Rosemary Beach — Splurge", "Hilton Sandestin Splurge suite if you have room in the budget for the gulf-front jump", "Henderson Park Inn — Destin only if you're spending more", "One town. Do not hop Rosemary, Seaside, and Destin nightly"]);
     replaceHotel("outer_banks", "budget", ["Hampton Inn & Suites Outer Banks / Corolla — north-end Budget only if that village is the plan", "Holiday Inn Express Nags Head — Budget corridor, grocery the first hour", "A Nags Head or Kill Devil Hills motel / 2-star — walk or a short drive to the sand", "A house share with a kitchen — the Budget product if the party will cook", "Skip a Corolla oceanfront on Budget; the drive is longer and the rate is not"]);
     replaceHotel("outer_banks", "mid", ["Hilton Garden Inn Outer Banks/Kitty Hawk — walk-to-beach mid", "Courtyard Outer Banks Kill Devil Hills — Marriott mid", "Sanderling Resort-adjacent mid — Duck, quieter", "A Nags Head oceanfront condo — kitchen still wins dinners", "Pick one village. Duck-to-Hatteras is not a casual dinner hop"]);
-    replaceHotel("outer_banks", "lux", ["The Sanderling Resort — Duck leftover", "A Corolla oceanfront house — Splurge if the party fills it", "Life House Nags Head — design oceanfront leftover", "One village", "Hurricane weeks are not a discount you want to win"]);
+    replaceHotel("outer_banks", "lux", ["The Sanderling Resort — Duck only if you're spending more", "A Corolla oceanfront house — Splurge if the party fills it", "Life House Nags Head — design oceanfront only if you're spending more", "One village", "Hurricane weeks are not a discount you want to win"]);
     replaceHotel("grand_canyon", "budget", ["Holiday Inn Express Grand Canyon — Tusayan, short drive to the gate", "Maswik Lodge — in-park, cafeteria, walk or shuttle to the rim", "Yavapai Lodge — in-park mid-lean, shuttle", "Skip a Las Vegas hotel plus a 5-hour day-trip as this lodging"]);
     replaceHotel("grand_canyon", "mid", ["Best Western Premier Grand Canyon Squire Inn — Tusayan mid, indoor extras for kids", "The Grand Hotel at the Grand Canyon — Tusayan Hilton-adjacent mid", "Thunderbird or Kachina Lodge — rim-adjacent mid", "Bright Angel Lodge cabin class — historic mid", "Stay on the South Rim. North Rim is a different season and road"]);
-    replaceHotel("grand_canyon", "lux", ["El Tovar Hotel — rim flagship leftover", "Bright Angel historic cabin if El Tovar is sold", "A Tusayan 4-star is not Splurge if you wanted the rim at dawn", "One property. Phantom Ranch is a lottery, not a Splurge button", "January is quiet and cold — that is the value window"]);
-    replaceHotel("jackson_hole", "budget", ["Hampton Inn Jackson Hole — town Budget, grocery the first hour", "Holiday Inn Express Jackson — limited-service, skip a ski-in marketing rate on Budget", "The Hostel (Teton Village) — ski-season Budget if leftover is tight", "49’er Inn or a Motel 6-class in town — the bus exists", "April and November are mud season — that is the discount"]);
+    replaceHotel("grand_canyon", "lux", ["El Tovar Hotel — rim flagship only if you're spending more", "Bright Angel historic cabin if El Tovar is sold", "A Tusayan 4-star is not Splurge if you wanted the rim at dawn", "One property. Phantom Ranch is a lottery, not a Splurge button", "January is quiet and cold — that is the value window"]);
+    replaceHotel("jackson_hole", "budget", ["Hampton Inn Jackson Hole — town Budget, grocery the first hour", "Holiday Inn Express Jackson — limited-service, skip a ski-in marketing rate on Budget", "The Hostel (Teton Village) — ski-season Budget if the budget is tight", "49’er Inn or a Motel 6-class in town — the bus exists", "April and November are mud season — that is the discount"]);
     replaceHotel("jackson_hole", "mid", ["The Wort Hotel — town square mid", "Snow King Resort — town hill, walkable", "Homewood Suites by Hilton Jackson — kitchenette mid if you will grocery ski dinners", "A Teton Village 3–4 star if skiing is the point", "Pick town or village. The pass commute is a winter line"]);
-    replaceHotel("jackson_hole", "lux", ["Four Seasons Resort and Residences Jackson Hole — Teton Village leftover", "Amangani — East Gros Ventre leftover", "Hotel Terra Jackson Hole, Teton Village — Marriott Autograph Splurge", "Cloudveil or Caldera House — village leftover", "One base. Do not also book a Yellowstone in-park night without a transfer day"]);
+    replaceHotel("jackson_hole", "lux", ["Four Seasons Resort and Residences Jackson Hole — Teton Village only if you're spending more", "Amangani — East Gros Ventre only if you're spending more", "Hotel Terra Jackson Hole, Teton Village — Marriott Autograph Splurge", "Cloudveil or Caldera House — village only if you're spending more", "One base. Do not also book a Yellowstone in-park night without a transfer day"]);
     replaceHotel("phoenix", "budget", ["Hampton Inn & Suites Phoenix Downtown — limited-service, light rail downstairs", "Holiday Inn Express Phoenix Downtown — walk to Roosevelt", "Courtyard Phoenix Downtown — Marriott value, skip a Scottsdale resort parking fee", "HI Phoenix — hostel-plus on the rail", "Tempe limited-service on the rail if ASU / Mill is the night"]);
-    replaceHotel("phoenix", "mid", ["Hyatt Regency Phoenix — Downtown, light rail", "Hilton Garden Inn Phoenix Downtown — mid, walk to Roosevelt Row", "Renaissance Phoenix Downtown Hotel — Marriott mid", "Hotel Palomar Phoenix — Kimpton, Downtown boutique if you want the arts pocket", "Do not split Scottsdale and Downtown in a 3-night stay unless leftover covers two bases"]);
-    replaceHotel("phoenix", "lux", ["Arizona Biltmore, A Waldorf Astoria Resort — historic leftover, car assumed for dinner", "The Global Ambassador — Splurge", "JW Marriott Phoenix Desert Ridge Resort & Spa — north leftover, car assumed", "Winter weekends are peak; summer is the discount"]);
+    replaceHotel("phoenix", "mid", ["Hyatt Regency Phoenix — Downtown, light rail", "Hilton Garden Inn Phoenix Downtown — mid, walk to Roosevelt Row", "Renaissance Phoenix Downtown Hotel — Marriott mid", "Hotel Palomar Phoenix — Kimpton, Downtown boutique if you want the arts area", "Do not split Scottsdale and Downtown in a 3-night stay unless you have room in the budget for two bases"]);
+    replaceHotel("phoenix", "lux", ["Arizona Biltmore, A Waldorf Astoria Resort — historic only if you're spending more, car assumed for dinner", "The Global Ambassador — Splurge", "JW Marriott Phoenix Desert Ridge Resort & Spa — north only if you're spending more, car assumed", "Winter weekends are peak; summer is the discount"]);
     replaceHotel("memphis", "budget", ["Hampton Inn & Suites Memphis Beale Street — limited-service, trolley, skip a Beale balcony on Budget", "Holiday Inn Memphis – Downtown (Beale St. Area) — walk to a trolley", "Sleep Inn Downtown or a South Main 2-star — grocery nearby", "The Guest House at Graceland only if Graceland is the whole trip", "A Midtown 2-star if Cooper-Young is the night you came for"]);
-    replaceHotel("memphis", "mid", ["The Peabody Memphis — historic mid-plus, ducks", "Hu. Hotel Memphis — Hilton Tapestry, Downtown walk to Beale", "Central Station Hotel, Tribute Portfolio — Marriott, South Main mid", "Graduate Memphis — mid if leftover covers the campus-adjacent pocket"]);
-    replaceHotel("memphis", "lux", ["The Peabody Memphis — leftover if the ducks are the point", "Graduate Memphis Splurge suite", "Hu. Hotel leftover suite", "One property. East Memphis is a car commute", "Barbecue-fest weekends lift rooms"]);
+    replaceHotel("memphis", "mid", ["The Peabody Memphis — historic mid-plus, ducks", "Hu. Hotel Memphis — Hilton Tapestry, Downtown walk to Beale", "Central Station Hotel, Tribute Portfolio — Marriott, South Main mid", "Graduate Memphis — mid if you have room in the budget for the campus-adjacent area"]);
+    replaceHotel("memphis", "lux", ["The Peabody Memphis — only if you're spending more if the ducks are the point", "Graduate Memphis Splurge suite", "Hu. Hotel suite only if you're spending more", "One property. East Memphis is a car commute", "Barbecue-fest weekends lift rooms"]);
     replaceHotel("portland_me", "budget", ["Hampton Inn Portland Downtown – Waterfront — Old Port-adjacent limited-service", "Holiday Inn Express Portland — skip a jetport hotel unless you land late", "Inn at St. John or a West End 2-star — walk or a short bus to Old Port", "A hostel-plus or compact Downtown room — grocery nearby", "The Press Hotel is mid; Budget stays a block off the cobblestones"]);
     replaceHotel("portland_me", "mid", ["The Press Hotel, Autograph Collection — Marriott, Old Port mid", "Portland Harbor Hotel — water mid", "Hyatt Place Portland Old Port — mid, walk to dinner", "The Francis — boutique mid-plus", "A West End 3–4 star — quieter nights; this is not Portland, Oregon"]);
-    replaceHotel("portland_me", "lux", ["The Francis leftover", "The Press Hotel Splurge suite", "Inn by the Sea (Cape Elizabeth) — leftover, car assumed", "One property", "January rooms are cheap because the harbor wind is real"]);
-    replaceHotel("bar_harbor", "budget", ["Holiday Inn Express Ellsworth-Bar Harbor — gateway Budget only if leftover is tight; in-village is better", "Aurora Inn or Highbrook Motel class — walk or a short bus to the village", "A Mount Desert 2-star off the cruise-ship dock line", "A cabin court with a kitchenette — grocery the first hour", "Skip a winter-closed inn in January; many go dark"]);
+    replaceHotel("portland_me", "lux", ["The Francis only if you're spending more", "The Press Hotel Splurge suite", "Inn by the Sea (Cape Elizabeth) — only if you're spending more, car assumed", "One property", "January rooms are cheap because the harbor wind is real"]);
+    replaceHotel("bar_harbor", "budget", ["Holiday Inn Express Ellsworth-Bar Harbor — gateway Budget only if the budget is tight; in-village is better", "Aurora Inn or Highbrook Motel class — walk or a short bus to the village", "A Mount Desert 2-star off the cruise-ship dock line", "A cabin court with a kitchenette — grocery the first hour", "Skip a winter-closed inn in January; many go dark"]);
     replaceHotel("bar_harbor", "mid", ["Bar Harbor Inn — walk-to-village mid", "West Street Hotel — harbor mid", "A Northeast Harbor 3-star if you want fewer cruise mornings", "Balance Rock Inn — quieter mid-plus", "One village. Do not commute from Ellsworth every dawn"]);
-    replaceHotel("bar_harbor", "lux", ["Claremont Hotel — Southwest Harbor leftover", "Asticou Inn — Northeast Harbor Splurge", "West Street Hotel leftover suite", "One property", "Cruise-ship mornings crowd the village — hike early"]);
-    replaceHotel("santa_fe", "budget", ["Hampton Inn Santa Fe — limited-service, short drive or walk toward the Plaza", "Holiday Inn Express Santa Fe — Budget courtyard, grocery nearby", "Santa Fe Motel & Inn or El Rey Court — classic courtyards", "A Railyard 2-star if that is the food pocket", "Skip an airport-adjacent Albuquerque room as this lodging"]);
-    replaceHotel("santa_fe", "mid", ["Drury Plaza Hotel Santa Fe — mid, breakfast-in-rate if that is the product", "Hilton Santa Fe Historic Plaza — Plaza-adjacent mid", "La Fonda on the Plaza — walkable mid-plus", "Hotel Chimayo de Santa Fe — Plaza-adjacent boutique", "One pocket. Do not split Albuquerque and the Plaza in a 3-night stay"]);
-    replaceHotel("santa_fe", "lux", ["Four Seasons Resort Rancho Encantado — Tesuque Splurge, car assumed", "Inn of the Five Graces — leftover", "Bishop’s Lodge, Auberge Resorts Collection — leftover", "One property", "Late fall after Market is the value window"]);
-    replaceHotel("denver", "budget", ["Hampton Inn & Suites Denver Downtown — limited-service, light rail", "Holiday Inn Express Denver Downtown — skip a DIA hotel as this lodging", "Courtyard Denver Downtown — Marriott value, walk to the Mall", "HI Denver — hostel-plus if the party will share", "A RiNo 2-star if that is the restaurant pocket"]);
-    replaceHotel("denver", "mid", ["Denver Marriott City Center — Downtown mid", "Hilton Denver City Center — walk to the 16th Street Mall", "Hyatt Regency Denver at Colorado Convention Center — one room not a suite", "The Westin Denver Downtown — mid, skip a mountain commute nightly", "The Crawford Hotel — Marriott Autograph, Union Station boutique if leftover covers it"]);
-    replaceHotel("denver", "lux", ["The Ritz-Carlton, Denver — Downtown leftover", "Four Seasons Hotel Denver — Splurge", "Hotel Teatro — Downtown flagship", "One tower. The mountains are a day trip, not a second hotel", "January is cheap and icy"]);
-    replaceHotel("charleston", "budget", ["Hampton Inn Charleston – Historic District — limited-service, walk or a short hop to King", "Holiday Inn Charleston Historic Downtown — Budget, skip a North Charleston cloverleaf", "Courtyard Charleston Historic District — Marriott value", "A downtown 2-star a few blocks off the Battery tourist row", "An inn-adjacent guesthouse if leftover is tight"]);
-    replaceHotel("charleston", "mid", ["Francis Marion Hotel — Historic District mid", "HarbourView Inn — water mid", "The Dewberry Charleston — mid-plus", "Hyatt House Charleston / Historic District — kitchenette mid", "One pocket. Folly Beach is a different lodging night"]);
-    replaceHotel("charleston", "lux", ["The Restoration — leftover", "Planters Inn — Splurge", "The Spectator Hotel — leftover", "One property. Spoleto weeks lift rooms", "August is cheap and humid"]);
+    replaceHotel("bar_harbor", "lux", ["Claremont Hotel — Southwest Harbor only if you're spending more", "Asticou Inn — Northeast Harbor Splurge", "West Street Hotel suite only if you're spending more", "One property", "Cruise-ship mornings crowd the village — hike early"]);
+    replaceHotel("santa_fe", "budget", ["Hampton Inn Santa Fe — limited-service, short drive or walk toward the Plaza", "Holiday Inn Express Santa Fe — Budget courtyard, grocery nearby", "Santa Fe Motel & Inn or El Rey Court — classic courtyards", "A Railyard 2-star if that is the food area", "Skip an airport-adjacent Albuquerque room as this lodging"]);
+    replaceHotel("santa_fe", "mid", ["Drury Plaza Hotel Santa Fe — mid, breakfast-in-rate if that is the product", "Hilton Santa Fe Historic Plaza — Plaza-adjacent mid", "La Fonda on the Plaza — walkable mid-plus", "Hotel Chimayo de Santa Fe — Plaza-adjacent boutique", "One area. Do not split Albuquerque and the Plaza in a 3-night stay"]);
+    replaceHotel("santa_fe", "lux", ["Four Seasons Resort Rancho Encantado — Tesuque Splurge, car assumed", "Inn of the Five Graces — only if you're spending more", "Bishop’s Lodge, Auberge Resorts Collection — only if you're spending more", "One property", "Late fall after Market is the value window"]);
+    replaceHotel("denver", "budget", ["Hampton Inn & Suites Denver Downtown — limited-service, light rail", "Holiday Inn Express Denver Downtown — skip a DIA hotel as this lodging", "Courtyard Denver Downtown — Marriott value, walk to the Mall", "HI Denver — hostel-plus if the party will share", "A RiNo 2-star if that is the restaurant area"]);
+    replaceHotel("denver", "mid", ["Denver Marriott City Center — Downtown mid", "Hilton Denver City Center — walk to the 16th Street Mall", "Hyatt Regency Denver at Colorado Convention Center — one room not a suite", "The Westin Denver Downtown — mid, skip a mountain commute nightly", "The Crawford Hotel — Marriott Autograph, Union Station boutique if you have room in the budget for it"]);
+    replaceHotel("denver", "lux", ["The Ritz-Carlton, Denver — Downtown only if you're spending more", "Four Seasons Hotel Denver — Splurge", "Hotel Teatro — Downtown flagship", "One tower. The mountains are a day trip, not a second hotel", "January is cheap and icy"]);
+    replaceHotel("charleston", "budget", ["Hampton Inn Charleston – Historic District — limited-service, walk or a short hop to King", "Holiday Inn Charleston Historic Downtown — Budget, skip a North Charleston cloverleaf", "Courtyard Charleston Historic District — Marriott value", "A downtown 2-star a few blocks off the Battery tourist row", "An inn-adjacent guesthouse if the budget is tight"]);
+    replaceHotel("charleston", "mid", ["Francis Marion Hotel — Historic District mid", "HarbourView Inn — water mid", "The Dewberry Charleston — mid-plus", "Hyatt House Charleston / Historic District — kitchenette mid", "One area. Folly Beach is a different lodging night"]);
+    replaceHotel("charleston", "lux", ["The Restoration — only if you're spending more", "Planters Inn — Splurge", "The Spectator Hotel — only if you're spending more", "One property. Spoleto weeks lift rooms", "August is cheap and humid"]);
     replaceHotel("savannah", "budget", ["Hampton Inn Savannah Historic District — limited-service, walk the squares", "Holiday Inn Express Savannah Historic District — Budget, skip an airport hotel", "Courtyard Savannah Downtown/Historic District — Marriott value", "A Historic District 2-star a square off the riverfront tourist row", "A hostel-plus if the party will share"]);
-    replaceHotel("savannah", "mid", ["Hyatt Regency Savannah — riverfront mid", "The DeSoto Savannah — Hilton Historic District", "Marriott Savannah Riverfront — one pocket", "Kimpton Brice or a Historic District 4-star — squares walking", "One pocket. Tybee is a morning, not a second hotel"]);
-    replaceHotel("savannah", "lux", ["The Perry Lane Hotel — leftover", "JW Marriott Savannah Plant Riverside — Splurge", "The Gastonian or a Historic Splurge inn", "One property. St. Patrick’s week is a crowd tax", "January is the value window"]);
-    replaceHotel("asheville", "budget", ["Hampton Inn Asheville Downtown — limited-service, walk or a short hop to downtown", "Holiday Inn Express Asheville Downtown — skip a tunnel-road motel plus nightly Ubers", "A Downtown 2-star or Foundry-adjacent compact room", "A West Asheville 2-star if that is the restaurant pocket", "Skip a Biltmore-gate hotel on Budget unless that is the trip"]);
-    replaceHotel("asheville", "mid", ["Kimpton Hotel Arras — Downtown 4-star", "Hilton Asheville Biltmore Park — mid if leftover covers the south campus", "The Foundry Hotel — Downtown boutique mid", "A Biltmore Village mid if leftover covers the estate", "October leaf weeks are peak"]);
-    replaceHotel("asheville", "lux", ["Omni Grove Park Inn — leftover", "The Inn on Biltmore Estate — leftover", "One property. Do not also buy every spa add-on", "January is cheap and icy", "Leaf weeks are a crowd tax"]);
+    replaceHotel("savannah", "mid", ["Hyatt Regency Savannah — riverfront mid", "The DeSoto Savannah — Hilton Historic District", "Marriott Savannah Riverfront — one neighborhood", "Kimpton Brice or a Historic District 4-star — squares walking", "One area. Tybee is a morning, not a second hotel"]);
+    replaceHotel("savannah", "lux", ["The Perry Lane Hotel — only if you're spending more", "JW Marriott Savannah Plant Riverside — Splurge", "The Gastonian or a Historic Splurge inn", "One property. St. Patrick’s week is a crowd tax", "January is the value window"]);
+    replaceHotel("asheville", "budget", ["Hampton Inn Asheville Downtown — limited-service, walk or a short hop to downtown", "Holiday Inn Express Asheville Downtown — skip a tunnel-road motel plus nightly Ubers", "A Downtown 2-star or Foundry-adjacent compact room", "A West Asheville 2-star if that is the restaurant area", "Skip a Biltmore-gate hotel on Budget unless that is the trip"]);
+    replaceHotel("asheville", "mid", ["Kimpton Hotel Arras — Downtown 4-star", "Hilton Asheville Biltmore Park — mid if you have room in the budget for the south campus", "The Foundry Hotel — Downtown boutique mid", "A Biltmore Village mid if you have room in the budget for the estate", "October leaf weeks are peak"]);
+    replaceHotel("asheville", "lux", ["Omni Grove Park Inn — only if you're spending more", "The Inn on Biltmore Estate — only if you're spending more", "One property. Do not also buy every spa add-on", "January is cheap and icy", "Leaf weeks are a crowd tax"]);
     replaceHotel("austin", "budget", ["Hampton Inn & Suites Austin Downtown/Convention Center — limited-service, skip a Domain cloverleaf", "Holiday Inn Express Austin Downtown — walk or a scooter is not a plan", "Courtyard Austin Downtown/Convention Center — Marriott value", "HI Austin — hostel-plus on a bus line", "An East Austin 2-star if that is the night you came for"]);
-    replaceHotel("austin", "mid", ["Austin Marriott Downtown — one room not a suite", "Hilton Austin — convention / Downtown mid", "Fairmont Austin — mid-plus if leftover covers the water", "Hotel Van Zandt — Kimpton Rainey 4-star", "The LINE Austin — boutique if you want Downtown over a convention tower"]);
-    replaceHotel("austin", "lux", ["The Driskill — historic leftover", "Fairmont Austin Splurge suite", "Hotel Saint Cecilia — leftover", "W Austin — Downtown flagship", "SXSW / ACL weeks are not the value window"]);
+    replaceHotel("austin", "mid", ["Austin Marriott Downtown — one room not a suite", "Hilton Austin — convention / Downtown mid", "Fairmont Austin — mid-plus if you have room in the budget for the water", "Hotel Van Zandt — Kimpton Rainey 4-star", "The LINE Austin — boutique if you want Downtown over a convention tower"]);
+    replaceHotel("austin", "lux", ["The Driskill — historic only if you're spending more", "Fairmont Austin Splurge suite", "Hotel Saint Cecilia — only if you're spending more", "W Austin — Downtown flagship", "SXSW / ACL weeks are not the value window"]);
     replaceHotel("nashville", "budget", ["Hampton Inn & Suites Nashville Downtown — limited-service, skip a Broadway balcony on Budget", "Holiday Inn Express Nashville Downtown — walk off Broadway", "Courtyard Nashville Downtown — Marriott value", "A Downtown hostel-plus or a 2-star off Broadway", "An East Nashville 2-star if that is the night you came for"]);
-    replaceHotel("nashville", "mid", ["Nashville Marriott at Vanderbilt University — mid, one pocket", "Hilton Nashville Downtown — walk off Broadway", "Hyatt Centric Downtown Nashville — Gulch-adjacent mid", "Graduate Nashville — Gulch 3–4 star", "The Gulch or East — pick one; CMA Fest weeks are not the value window"]);
-    replaceHotel("nashville", "lux", ["The Hermitage Hotel — leftover", "Thompson Nashville — Hyatt Splurge", "Four Seasons Hotel Nashville — leftover", "Conrad Nashville — Splurge flagship", "January is the value window; bachelorette weekends lift rooms"]);
-    replaceHotel("portland_oregon", "budget", ["Hampton Inn Portland Downtown Waterfront — limited-service, MAX, skip a Beaverton cloverleaf", "Holiday Inn Express Portland South — Budget only if leftover is tight; Downtown is the walk", "Courtyard Portland City Center — Marriott value, MAX / streetcar", "HI Portland — hostel-plus on MAX", "A Division 2-star if that is the food pocket — this is not Portland, Maine"]);
+    replaceHotel("nashville", "mid", ["Nashville Marriott at Vanderbilt University — mid, one neighborhood", "Hilton Nashville Downtown — walk off Broadway", "Hyatt Centric Downtown Nashville — Gulch-adjacent mid", "Graduate Nashville — Gulch 3–4 star", "The Gulch or East — pick one; CMA Fest weeks are not the value window"]);
+    replaceHotel("nashville", "lux", ["The Hermitage Hotel — only if you're spending more", "Thompson Nashville — Hyatt Splurge", "Four Seasons Hotel Nashville — only if you're spending more", "Conrad Nashville — Splurge flagship", "January is the value window; bachelorette weekends lift rooms"]);
+    replaceHotel("portland_oregon", "budget", ["Hampton Inn Portland Downtown Waterfront — limited-service, MAX, skip a Beaverton cloverleaf", "Holiday Inn Express Portland South — Budget only if the budget is tight; Downtown is the walk", "Courtyard Portland City Center — Marriott value, MAX / streetcar", "HI Portland — hostel-plus on MAX", "A Division 2-star if that is the food area — this is not Portland, Maine"]);
     replaceHotel("portland_oregon", "mid", ["Portland Marriott Downtown Waterfront — one room not a suite", "Hilton Portland Downtown — MAX adjacent", "Hyatt Regency Portland — Convention Center mid", "The Nines, a Luxury Collection Hotel — mid-plus", "The Hoxton Portland — boutique if you want Downtown over a convention tower"]);
-    replaceHotel("portland_oregon", "lux", ["The Nines — leftover", "Canopy by Hilton Portland Pearl District — Splurge", "The Ritz-Carlton, Portland — leftover", "One property. Do not also buy every food-cart crawl as a taxi loop", "January rain is the discount"]);
-    replaceHotel("scottsdale", "budget", ["Hampton Inn Scottsdale/Old Town area — limited-service, walk to dinner", "Holiday Inn Express Scottsdale Old Town — Budget, skip a Phoenix Downtown hotel as this lodging", "An Old Town 2-star — summer is cheap and dangerous-hot", "Motel 6-class only if leftover is tight and you have a car", "This is the resort-adjacent product — Phoenix is a different lodging math"]);
-    replaceHotel("scottsdale", "mid", ["Hotel Valley Ho — mid-century mid", "Andaz Scottsdale Resort & Bungalows — Hyatt resort mid", "Hilton Scottsdale Resort & Villas — mid campus", "Westin Kierland Resort & Spa — north mid-plus", "An Old Town 3–4 star — one pocket; do not split Sedona without a transfer day"]);
-    replaceHotel("scottsdale", "lux", ["The Phoenician, a Luxury Collection Resort — leftover", "Four Seasons Resort Scottsdale at Troon North — leftover", "Sanctuary Camelback Mountain — leftover", "The Canyon Suites at The Phoenician — Splurge campus", "June rooms are cheap because the air hurts"]);
-    replaceHotel("kauai", "budget", ["Hilton Garden Inn Kauai Wailua Bay — east-side Budget, grocery the first hour", "Holiday Inn Express Kauai — limited-service if leftover is tight", "A Kapaa 2-star or studio condo — kitchen beats resort breakfast", "A Poipu value condo a block off the sand", "Skip a North Shore rate on Budget; the drive is the hidden cost"]);
-    replaceHotel("kauai", "mid", ["Sheraton Kauai Resort — Poipu mid, walk-to-beach", "Marriott’s Kaua'i Beach Club or Kauai Marriott Resort — Kalapaki mid", "A Kapaa 4-star if you want cheaper dinners", "A Poipu condo-plus — kitchen still wins some dinners", "One shore. North Shore mid only if leftover covers the drive"]);
-    replaceHotel("kauai", "lux", ["Grand Hyatt Kauai Resort & Spa — Poipu Splurge", "1 Hotel Hanalei Bay — North Shore leftover", "Koa Kea Hotel & Resort — Poipu leftover if Grand Hyatt is sold", "One shore. Do not also book every helicopter", "Na Pali is a boat or a hard hike, not both"]);
+    replaceHotel("portland_oregon", "lux", ["The Nines — only if you're spending more", "Canopy by Hilton Portland Pearl District — Splurge", "The Ritz-Carlton, Portland — only if you're spending more", "One property. Do not also buy every food-cart crawl as a taxi loop", "January rain is the discount"]);
+    replaceHotel("scottsdale", "budget", ["Hampton Inn Scottsdale/Old Town area — limited-service, walk to dinner", "Holiday Inn Express Scottsdale Old Town — Budget, skip a Phoenix Downtown hotel as this lodging", "An Old Town 2-star — summer is cheap and dangerous-hot", "Motel 6-class only if the budget is tight and you have a car", "This is the resort-adjacent product — Phoenix is a different lodging math"]);
+    replaceHotel("scottsdale", "mid", ["Hotel Valley Ho — mid-century mid", "Andaz Scottsdale Resort & Bungalows — Hyatt resort mid", "Hilton Scottsdale Resort & Villas — mid campus", "Westin Kierland Resort & Spa — north mid-plus", "An Old Town 3–4 star — one neighborhood; do not split Sedona without a transfer day"]);
+    replaceHotel("scottsdale", "lux", ["The Phoenician, a Luxury Collection Resort — only if you're spending more", "Four Seasons Resort Scottsdale at Troon North — only if you're spending more", "Sanctuary Camelback Mountain — only if you're spending more", "The Canyon Suites at The Phoenician — Splurge campus", "June rooms are cheap because the air hurts"]);
+    replaceHotel("kauai", "budget", ["Hilton Garden Inn Kauai Wailua Bay — east-side Budget, grocery the first hour", "Holiday Inn Express Kauai — limited-service if the budget is tight", "A Kapaa 2-star or studio condo — kitchen beats resort breakfast", "A Poipu value condo a block off the sand", "Skip a North Shore rate on Budget; the drive is the hidden cost"]);
+    replaceHotel("kauai", "mid", ["Sheraton Kauai Resort — Poipu mid, walk-to-beach", "Marriott’s Kaua'i Beach Club or Kauai Marriott Resort — Kalapaki mid", "A Kapaa 4-star if you want cheaper dinners", "A Poipu condo-plus — kitchen still wins some dinners", "One shore. North Shore mid only if you have room in the budget for the drive"]);
+    replaceHotel("kauai", "lux", ["Grand Hyatt Kauai Resort & Spa — Poipu Splurge", "1 Hotel Hanalei Bay — North Shore only if you're spending more", "Koa Kea Hotel & Resort — Poipu only if you're spending more if Grand Hyatt is sold", "One shore. Do not also book every helicopter", "Na Pali is a boat or a hard hike, not both"]);
     replaceHotel("hawaii_big_island", "budget", ["Hampton Inn & Suites Kona — limited-service, grocery the first hour", "Holiday Inn Express Kailua-Kona — walk-adjacent Budget", "A Kailua-Kona 2-star or studio condo — kitchen is the Budget product", "A Hilo 2-star only if volcano mornings are the point", "Skip a Kohala resort rate on Budget"]);
-    replaceHotel("hawaii_big_island", "mid", ["Courtyard King Kamehameha's Kona Beach Hotel — Marriott, town mid", "Royal Kona Resort — walk-to-town mid", "Outrigger Kona Resort & Spa at Keauhou — south-town mid", "A Waikoloa condo-plus if leftover covers the Kohala drive", "One coast. Hilo plus Kona nightly is a transfer tax"]);
-    replaceHotel("hawaii_big_island", "lux", ["Four Seasons Resort Hualalai — Kohala leftover", "Mauna Lani, Auberge Resorts Collection — Splurge", "Fairmont Orchid — Kohala leftover", "The Westin Hapuna Beach Resort — Hyatt-adjacent Splurge if leftover is the beach", "One campus. Do not also book every helicopter and snorkel"]);
-    replaceHotel("yellowstone", "budget", ["Holiday Inn West Yellowstone — gateway Budget, grocery the first hour", "Hampton Inn West Yellowstone — limited-service if leftover covers it", "A Gardiner 2-star if the north gate is the plan", "Old Faithful Lodge cabin class if you booked early", "Skip a Jackson hotel as this lodging"]);
-    replaceHotel("yellowstone", "mid", ["Old Faithful Inn or Lake Yellowstone Hotel — in-park mid if leftover covers it", "Canyon Lodge mid — in-park", "Best Western Desert Inn West Yellowstone — gateway mid if in-park is sold", "A West Yellowstone 3-star — one gate", "Grand Teton is a different lodging night"]);
-    replaceHotel("yellowstone", "lux", ["Old Faithful Inn leftover — historic Splurge", "Lake Yellowstone Hotel Splurge suite", "One park base", "Do not also buy every snowcoach in summer", "Winter is a different product"]);
+    replaceHotel("hawaii_big_island", "mid", ["Courtyard King Kamehameha's Kona Beach Hotel — Marriott, town mid", "Royal Kona Resort — walk-to-town mid", "Outrigger Kona Resort & Spa at Keauhou — south-town mid", "A Waikoloa condo-plus if you have room in the budget for the Kohala drive", "One coast. Hilo plus Kona nightly is a transfer tax"]);
+    replaceHotel("hawaii_big_island", "lux", ["Four Seasons Resort Hualalai — Kohala only if you're spending more", "Mauna Lani, Auberge Resorts Collection — Splurge", "Fairmont Orchid — Kohala only if you're spending more", "The Westin Hapuna Beach Resort — Hyatt-adjacent Splurge if you have room in the budget is the beach", "One campus. Do not also book every helicopter and snorkel"]);
+    replaceHotel("yellowstone", "budget", ["Holiday Inn West Yellowstone — gateway Budget, grocery the first hour", "Hampton Inn West Yellowstone — limited-service if you have room in the budget for it", "A Gardiner 2-star if the north gate is the plan", "Old Faithful Lodge cabin class if you booked early", "Skip a Jackson hotel as this lodging"]);
+    replaceHotel("yellowstone", "mid", ["Old Faithful Inn or Lake Yellowstone Hotel — in-park mid if you have room in the budget for it", "Canyon Lodge mid — in-park", "Best Western Desert Inn West Yellowstone — gateway mid if in-park is sold", "A West Yellowstone 3-star — one gate", "Grand Teton is a different lodging night"]);
+    replaceHotel("yellowstone", "lux", ["Old Faithful Inn only if you're spending more — historic Splurge", "Lake Yellowstone Hotel Splurge suite", "One park base", "Do not also buy every snowcoach in summer", "Winter is a different product"]);
     replaceHotel("national_parks_southwest", "budget", ["Holiday Inn Express Springdale – Zion National Park Area — if Zion is the lead", "Hampton Inn & Suites Springdale Zion National Park — gateway Budget", "A Moab motel if Arches / Canyonlands is the lead — Holiday Inn Express Moab", "A Kanab 2-star if you are looping", "Skip a Las Vegas hotel as this lodging"]);
     replaceHotel("national_parks_southwest", "mid", ["Cable Mountain Lodge or a Springdale mid — Zion walking", "Hyatt Place Moab / Courtyard Moab — if Arches is the lead", "Best Western Plus Bryce Canyon Grand — if Bryce is the lead", "One gateway. Do not sleep in three towns in three nights", "A car is the plan"]);
-    replaceHotel("national_parks_southwest", "lux", ["Zion Lodge leftover — in-park if it exists and you booked months out", "Amangiri is a different budget", "A design desert Splurge in one gateway", "One base. Do not also buy every slot-canyon lottery as a sure thing", "Summer is brutally hot"]);
+    replaceHotel("national_parks_southwest", "lux", ["Zion Lodge only if you're spending more — in-park if it exists and you booked months out", "Amangiri is a different budget", "A design desert Splurge in one gateway", "One base. Do not also buy every slot-canyon lottery as a sure thing", "Summer is brutally hot"]);
     replaceHotel("smoky_mountains", "budget", ["Hampton Inn Gatlinburg — limited-service off the main drag", "Holiday Inn Express Pigeon Forge — if the shows are the point", "A Gatlinburg 2-star off the strip", "A cabin with a kitchen if the party will cook", "Skip a downtown balcony on Budget; October leaf weeks double rooms"]);
-    replaceHotel("smoky_mountains", "mid", ["The Park Vista, a Tribute Portfolio Hotel — Gatlinburg 3–4 star", "Hilton Garden Inn Gatlinburg Downtown — mid, still a car for the park", "A cabin mid with a kitchen", "A Townsend quieter mid if leftover covers the quiet", "One town. Cades Cove is a morning, not a second hotel"]);
-    replaceHotel("smoky_mountains", "lux", ["A luxury cabin leftover — one base", "The Park Vista Splurge suite", "LeConte Lodge is a hike lottery, not a Splurge button", "Do not also buy every show", "January is cheap and icy"]);
+    replaceHotel("smoky_mountains", "mid", ["The Park Vista, a Tribute Portfolio Hotel — Gatlinburg 3–4 star", "Hilton Garden Inn Gatlinburg Downtown — mid, still a car for the park", "A cabin mid with a kitchen", "A Townsend quieter mid if you have room in the budget for the quiet", "One town. Cades Cove is a morning, not a second hotel"]);
+    replaceHotel("smoky_mountains", "lux", ["A luxury cabin only if you're spending more — one base", "The Park Vista Splurge suite", "LeConte Lodge is a hike lottery, not a Splurge button", "Do not also buy every show", "January is cheap and icy"]);
     replaceHotel("nola", "budget", ["Hampton Inn & Suites New Orleans Convention Center — Warehouse District, streetcar", "Holiday Inn New Orleans – Downtown Superdome — limited-service, skip a Bourbon balcony on Budget", "Courtyard New Orleans Downtown/Convention Center — Marriott value", "HI New Orleans — hostel-plus, streetcar not a Bourbon balcony", "The Drifter or a Mid-City motel-plus — Canal streetcar to the Quarter"]);
-    replaceHotel("nola", "mid", ["New Orleans Marriott — Canal, walk or streetcar", "Hilton New Orleans Riverside — Convention Center mid", "The Westin New Orleans — Canal mid", "Omni Royal Orleans — Quarter if you accept the premium", "Hotel Peter and Paul — Marigny boutique if leftover covers the walk to dinner"]);
-    replaceHotel("nola", "lux", ["Windsor Court Hotel — CBD leftover", "The Roosevelt New Orleans, A Waldorf Astoria Hotel — Splurge", "Hotel Monteleone — Quarter flagship leftover", "Four Seasons Hotel New Orleans — leftover", "The trip is the food, not a second courtyard suite"]);
+    replaceHotel("nola", "mid", ["New Orleans Marriott — Canal, walk or streetcar", "Hilton New Orleans Riverside — Convention Center mid", "The Westin New Orleans — Canal mid", "Omni Royal Orleans — Quarter if you accept the premium", "Hotel Peter and Paul — Marigny boutique if you have room in the budget for the walk to dinner"]);
+    replaceHotel("nola", "lux", ["Windsor Court Hotel — CBD only if you're spending more", "The Roosevelt New Orleans, A Waldorf Astoria Hotel — Splurge", "Hotel Monteleone — Quarter flagship only if you're spending more", "Four Seasons Hotel New Orleans — only if you're spending more", "The trip is the food, not a second courtyard suite"]);
     replaceHotel("cancun", "budget", ["Riu Cancún or Riu Palace Peninsula — Hotel Zone, walk the strip", "Holiday Inn Resort Cancún — Hotel Zone value, garden view on purpose", "Hampton Inn by Hilton Cancun Cumbres — mainland Budget only if you will eat out", "Oasis or Krystal Grand class — all-inclusive, no swim-up-suite upsell", "Downtown Cancún 3-star if you will eat out — cheaper room, you give up the AI beach"]);
-    replaceHotel("cancun", "mid", ["Hyatt Ziva Cancún — Hotel Zone, family-friendly, real beach", "Marriott Cancun Resort — Hotel Zone mid, points-friendly if leftover covers a non-AI week", "Hilton Cancun, an All-Inclusive Resort — Hotel Zone mid", "Moon Palace or Hard Rock Cancún — all-inclusive, watch the transfer add-on", "Live Aqua or Secrets The Vine — adults-only mid if there are no kids"]);
-    replaceHotel("cancun", "lux", ["Hyatt Zilara Cancún — adults-only Hotel Zone", "Le Blanc Spa Resort Cancún — Splurge only if leftover is real", "JW Marriott Cancun Resort & Spa — Hotel Zone leftover", "Nizuc or Rosewood Mayakobá — south of the Zone; a different transfer", "One property. Two resorts in a week is a transfer tax"]);
+    replaceHotel("cancun", "mid", ["Hyatt Ziva Cancún — Hotel Zone, family-friendly, real beach", "Marriott Cancun Resort — Hotel Zone mid, points-friendly if you have room in the budget for a non-AI week", "Hilton Cancun, an All-Inclusive Resort — Hotel Zone mid", "Moon Palace or Hard Rock Cancún — all-inclusive, watch the transfer add-on", "Live Aqua or Secrets The Vine — adults-only mid if there are no kids"]);
+    replaceHotel("cancun", "lux", ["Hyatt Zilara Cancún — adults-only Hotel Zone", "Le Blanc Spa Resort Cancún — Splurge only if you have room in the budget", "JW Marriott Cancun Resort & Spa — Hotel Zone only if you're spending more", "Nizuc or Rosewood Mayakobá — south of the Zone; a different transfer", "One property. Two resorts in a week is a transfer tax"]);
     replaceHotel("punta_cana", "budget", ["Riu Republic or Riu Bávaro — all-inclusive, beach shuttle on property", "Holiday Inn Resort Punta Cana — Bávaro value, confirm the transfer is in the rate", "Bávaro Princess or Catalonia Bávaro — family value, skip Cap Cana", "Grand Palladium-adjacent value — garden view on purpose", "Skip Cap Cana on Budget; Bávaro is the value beach"]);
-    replaceHotel("punta_cana", "mid", ["Hard Rock Hotel Punta Cana — family mid, huge campus", "Iberostar Selection Bávaro — all-inclusive, beach", "Westin Puntacana Resort & Club — Marriott mid if leftover covers a non-full-AI week", "Mid stays in Bávaro — Cap Cana and Hyatt Ziva are leftover-adjacent"]);
-    replaceHotel("punta_cana", "lux", ["Excellence Punta Cana or Secrets Cap Cana — adults-only leftover", "Eden Roc at Cap Cana — Splurge villa class", "Sanctuary Cap Cana — same pocket, not a second island hop", "Hyatt Zilara Cap Cana — adults-only Splurge", "One Cap Cana or Bávaro campus. A second resort hop is a transfer tax"]);
+    replaceHotel("punta_cana", "mid", ["Hard Rock Hotel Punta Cana — family mid, huge campus", "Iberostar Selection Bávaro — all-inclusive, beach", "Westin Puntacana Resort & Club — Marriott mid if you have room in the budget for a non-full-AI week", "Mid stays in Bávaro — Cap Cana and Hyatt Ziva are only if you're spending more"]);
+    replaceHotel("punta_cana", "lux", ["Excellence Punta Cana or Secrets Cap Cana — adults-only only if you're spending more", "Eden Roc at Cap Cana — Splurge villa class", "Sanctuary Cap Cana — same area, not a second island hop", "Hyatt Zilara Cap Cana — adults-only Splurge", "One Cap Cana or Bávaro campus. A second resort hop is a transfer tax"]);
     replaceHotel("jamaica", "budget", ["Holiday Inn Resort Montego Bay — closer to the airport, lesser beach", "Riu Negril — Seven Mile Beach, value AI", "Riu Montego Bay class — value AI if you will not transfer to Negril", "Legends or a Negril 3-star walk-to-beach — skip the MoBay hotel restaurant", "Price the transfer as its own line; Negril is not next to the runway"]);
     replaceHotel("jamaica", "mid", ["Hilton Rose Hall Resort & Spa — MoBay side, shorter transfer", "Hyatt Ziva Rose Hall — family mid", "Iberostar Rose Hall — all-inclusive mid", "Moon Palace Jamaica — all-inclusive mid", "Couples Swept Away or a Negril 4-star — beach, adults or family by brand"]);
-    replaceHotel("jamaica", "lux", ["Sandals South Coast or Sandals Montego Bay — couples AI leftover", "Hyatt Zilara Rose Hall — adults-only Splurge", "Round Hill Hotel and Villas — villa stretch, MoBay side", "Half Moon — Splurge, MoBay side", "Rockhouse or a Negril cliff boutique — leftover, not a fake rate"]);
+    replaceHotel("jamaica", "lux", ["Sandals South Coast or Sandals Montego Bay — couples AI only if you're spending more", "Hyatt Zilara Rose Hall — adults-only Splurge", "Round Hill Hotel and Villas — villa stretch, MoBay side", "Half Moon — Splurge, MoBay side", "Rockhouse or a Negril cliff boutique — only if you're spending more, not a fake rate"]);
     replaceHotel("cabo", "budget", ["Holiday Inn Resort Los Cabos — Corridor value, garden view on purpose", "Hampton Inn by Hilton Los Cabos — San José-adjacent Budget if you will eat in town", "Downtown Cabo 3-star — walk to Medano", "A Corridor 3-star garden view — skip a sunset-cruise hotel on Budget", "Timeshare pitches are a half-day tax"]);
-    replaceHotel("cabo", "mid", ["Hilton Los Cabos Beach & Golf Resort — Corridor mid", "Hyatt Ziva Los Cabos — family mid", "ME Cabo or a Medano 4-star if town walking is the point", "A Medano 4-star — walk-to-beach mid", "Adults-only mid if there are no kids — one pocket"]);
-    replaceHotel("cabo", "lux", ["Waldorf Astoria Los Cabos Pedregal — leftover", "The Cape, a Thompson Hotel — Hyatt Splurge", "Chileno Bay Resort & Residences, Auberge — leftover", "One property. Do not also buy every sunset sail", "September is cheap and humid"]);
+    replaceHotel("cabo", "mid", ["Hilton Los Cabos Beach & Golf Resort — Corridor mid", "Hyatt Ziva Los Cabos — family mid", "ME Cabo or a Medano 4-star if town walking is the point", "A Medano 4-star — walk-to-beach mid", "Adults-only mid if there are no kids — one neighborhood"]);
+    replaceHotel("cabo", "lux", ["Waldorf Astoria Los Cabos Pedregal — only if you're spending more", "The Cape, a Thompson Hotel — Hyatt Splurge", "Chileno Bay Resort & Residences, Auberge — only if you're spending more", "One property. Do not also buy every sunset sail", "September is cheap and humid"]);
     replaceHotel("aruba", "budget", ["Riu Palace Antillas-adjacent value — Palm Beach garden view", "Holiday Inn Resort Aruba — Palm Beach value", "A Palm Beach 3-star garden view — skip a timeshare pitch day", "Oranjestad 2-star if you will eat out", "Confirm the transfer"]);
     replaceHotel("aruba", "mid", ["Hyatt Regency Aruba Resort, Spa and Casino — Palm Beach mid", "Hilton Aruba Caribbean Resort & Casino — same strip", "Marriott's Aruba Surf Club or Aruba Marriott Resort — points mid", "Adults-only 4-star if there are no kids", "One strip. Transfer in the rate"]);
-    replaceHotel("aruba", "lux", ["Adults-only Palm Beach leftover — Hyatt or Hilton suite jump", "The Ritz-Carlton, Aruba — Splurge", "A villa Splurge — one resort", "Do not also buy every sunset sail", "September is cheap for a reason — heat, not storms"]);
+    replaceHotel("aruba", "lux", ["Adults-only Palm Beach only if you're spending more — Hyatt or Hilton suite jump", "The Ritz-Carlton, Aruba — Splurge", "A villa Splurge — one resort", "Do not also buy every sunset sail", "September is cheap for a reason — heat, not storms"]);
     replaceHotel("bahamas", "budget", ["Holiday Inn Nassau — downtown value, ferry to the beaches", "A Cable Beach value AI — garden view on purpose", "Downtown Nassau 3-star — ferry to the beaches", "Skip Atlantis on Budget unless that is the trip", "Confirm the transfer"]);
-    replaceHotel("bahamas", "mid", ["Baha Mar mid class — Cable Beach", "Grand Hyatt Baha Mar — mid if leftover covers the campus", "Atlantis Coral / Royal — mid if leftover covers the water-park math", "Cable Beach 4-star AI — one island pocket", "Transfer in the rate"]);
-    replaceHotel("bahamas", "lux", ["The Coral at Atlantis suite leftover", "Grand Hyatt Baha Mar Splurge", "Rosewood Baha Mar leftover", "One campus. The water park is a day-price", "Do not also buy every excursion"]);
-    replaceHotel("turks_caicos", "budget", ["Sibonné or a Grace Bay 3-star garden view", "Coral Gardens class — walk to the sand", "A 2-star on Leeward if leftover is tight", "Skip a villa on Budget", "Confirm the transfer is in the rate"]);
+    replaceHotel("bahamas", "mid", ["Baha Mar mid class — Cable Beach", "Grand Hyatt Baha Mar — mid if you have room in the budget for the campus", "Atlantis Coral / Royal — mid if you have room in the budget for the water-park math", "Cable Beach 4-star AI — one island area", "Transfer in the rate"]);
+    replaceHotel("bahamas", "lux", ["The Coral at Atlantis suite only if you're spending more", "Grand Hyatt Baha Mar Splurge", "Rosewood Baha Mar only if you're spending more", "One campus. The water park is a day-price", "Do not also buy every excursion"]);
+    replaceHotel("turks_caicos", "budget", ["Sibonné or a Grace Bay 3-star garden view", "Coral Gardens class — walk to the sand", "A 2-star on Leeward if the budget is tight", "Skip a villa on Budget", "Confirm the transfer is in the rate"]);
     replaceHotel("turks_caicos", "mid", ["The Palms Turks and Caicos or The Somerset — Grace Bay 4-star", "Beaches Turks & Caicos — family mid-plus", "Wymara Resort & Villas — Grace Bay mid", "A Grace Bay Club-adjacent 4-star — adults-only mid if there are no kids", "One beach"]);
-    replaceHotel("turks_caicos", "lux", ["COMO Parrot Cay leftover", "Amanyara Splurge", "Grace Bay Club leftover", "One island", "Do not also buy every excursion"]);
-    replaceHotel("tulum", "budget", ["Downtown Tulum 2-star or a hostel-plus — bike is the Budget car", "Aldea Zama limited-service — Holiday Inn-class if you find one", "A beach-road 3-star only if leftover covers the jungle tax", "Skip a hotel-zone timeshare day", "Confirm the transfer"]);
-    replaceHotel("tulum", "mid", ["A beach-road 4-star eco mid — one property", "Dreams Tulum or a family AI mid if leftover covers it", "Aldea Zama 3–4 star if town is the point", "Adults-only mid if there are no kids", "The beach road is a transfer every dinner if you slept town"]);
-    replaceHotel("tulum", "lux", ["Be Tulum or a beach-road Splurge leftover", "Azulik is a different product", "One property", "Do not also buy every cenote as a taxi loop", "Sargassum weeks are not a discount you want to win"]);
-    replaceHotel("st_lucia", "budget", ["A Rodney Bay 3-star garden view — value, confirm the transfer", "Coconut Bay or a south-island value AI if leftover is tight", "A Castries 2-star only the night you fly", "Skip a piton-view suite on Budget", "The transfer is a mountain line"]);
-    replaceHotel("st_lucia", "mid", ["A Rodney Bay 4-star or Coconut Bay mid — one pocket", "A Rodney Bay 4-star — one pocket", "Adults-only mid if there are no kids", "One valley. Soufrière is a different transfer", "Transfer in the rate"]);
-    replaceHotel("st_lucia", "lux", ["Jade Mountain leftover", "Sugar Beach, A Viceroy Resort — Splurge", "Sandals Grande St. Lucian leftover", "One property", "Do not also buy every zip-line"]);
+    replaceHotel("turks_caicos", "lux", ["COMO Parrot Cay only if you're spending more", "Amanyara Splurge", "Grace Bay Club only if you're spending more", "One island", "Do not also buy every excursion"]);
+    replaceHotel("tulum", "budget", ["Downtown Tulum 2-star or a hostel-plus — bike is the Budget car", "Aldea Zama limited-service — Holiday Inn-class if you find one", "A beach-road 3-star only if you have room in the budget for the jungle tax", "Skip a hotel-zone timeshare day", "Confirm the transfer"]);
+    replaceHotel("tulum", "mid", ["A beach-road 4-star eco mid — one property", "Dreams Tulum or a family AI mid if you have room in the budget for it", "Aldea Zama 3–4 star if town is the point", "Adults-only mid if there are no kids", "The beach road is a transfer every dinner if you slept town"]);
+    replaceHotel("tulum", "lux", ["Be Tulum or a beach-road Splurge extra", "Azulik is a different product", "One property", "Do not also buy every cenote as a taxi loop", "Sargassum weeks are not a discount you want to win"]);
+    replaceHotel("st_lucia", "budget", ["A Rodney Bay 3-star garden view — value, confirm the transfer", "Coconut Bay or a south-island value AI if the budget is tight", "A Castries 2-star only the night you fly", "Skip a piton-view suite on Budget", "The transfer is a mountain line"]);
+    replaceHotel("st_lucia", "mid", ["A Rodney Bay 4-star or Coconut Bay mid — one neighborhood", "A Rodney Bay 4-star — one neighborhood", "Adults-only mid if there are no kids", "One valley. Soufrière is a different transfer", "Transfer in the rate"]);
+    replaceHotel("st_lucia", "lux", ["Jade Mountain only if you're spending more", "Sugar Beach, A Viceroy Resort — Splurge", "Sandals Grande St. Lucian only if you're spending more", "One property", "Do not also buy every zip-line"]);
     replaceHotel("puerto_rico", "budget", ["Hampton Inn & Suites San Juan — Condado-adjacent Budget", "Holiday Inn Express San Juan Condado — limited-service, walk or a short hop to the beach", "A Condado 2-star a block off the sand", "Old San Juan guesthouse — walk the walls, louder nights", "Skip an Isla Verde airport hotel unless you land late"]);
-    replaceHotel("puerto_rico", "mid", ["San Juan Marriott Resort & Stellaris Casino — Condado mid", "La Concha Renaissance San Juan — Marriott, Condado walk", "Condado Vanderbilt Hotel — mid-plus", "Hyatt Place San Juan / City Center — if leftover is tight for mid", "One pocket. El Yunque is a morning, not a second hotel"]);
-    replaceHotel("puerto_rico", "lux", ["Condado Vanderbilt leftover", "St. Regis Bahia Beach Resort — Splurge, car assumed", "Dorado Beach, A Ritz-Carlton Reserve — leftover", "One property", "Do not also buy every bioluminescent-bay tour as a sure night"]);
+    replaceHotel("puerto_rico", "mid", ["San Juan Marriott Resort & Stellaris Casino — Condado mid", "La Concha Renaissance San Juan — Marriott, Condado walk", "Condado Vanderbilt Hotel — mid-plus", "Hyatt Place San Juan / City Center — if the budget is tight for mid", "One area. El Yunque is a morning, not a second hotel"]);
+    replaceHotel("puerto_rico", "lux", ["Condado Vanderbilt only if you're spending more", "St. Regis Bahia Beach Resort — Splurge, car assumed", "Dorado Beach, A Ritz-Carlton Reserve — only if you're spending more", "One property", "Do not also buy every bioluminescent-bay tour as a sure night"]);
     replaceHotel("us_virgin_islands", "budget", ["A Charlotte Amalie 3-star or Red Hook value inn", "A St. John 2-star / guest house if the ferry is the plan", "A Cruz Bay inn — grocery the first hour", "Skip a villa on Budget", "Confirm the ferry or transfer"]);
-    replaceHotel("us_virgin_islands", "mid", ["The Westin St. John Resort Villas — mid if leftover covers St. John", "A Charlotte Amalie 4-star on the south shore", "A St. Thomas 4-star on the south shore", "One island. St. John plus St. Thomas nightly is a ferry tax", "Transfer in the rate"]);
-    replaceHotel("us_virgin_islands", "lux", ["Caneel Bay is a rebuild story — Splurge is a St. John villa leftover", "The Ritz-Carlton, St. Thomas — leftover", "One island", "Do not also buy every day-sail", "Hurricane weeks are not a discount you want to win"]);
-    replaceHotel("amsterdam", "budget", ["Ibis Amsterdam Centre — tram to the canal belt, pack light", "Ibis Budget Amsterdam City South or Sloterdijk — tram to the center", "Holiday Inn Express Amsterdam – Sloterdijk — Budget if leftover is tight", "Generator Amsterdam or ClinkNOORD — hostel-plus, walk or ferry", "Hotel Not Hotel or a De Pijp 2-star — neighborhood, stairs are the elevator"]);
+    replaceHotel("us_virgin_islands", "mid", ["The Westin St. John Resort Villas — mid if you have room in the budget for St. John", "A Charlotte Amalie 4-star on the south shore", "A St. Thomas 4-star on the south shore", "One island. St. John plus St. Thomas nightly is a ferry tax", "Transfer in the rate"]);
+    replaceHotel("us_virgin_islands", "lux", ["Caneel Bay is a rebuild story — Splurge is a St. John villa treat", "The Ritz-Carlton, St. Thomas — only if you're spending more", "One island", "Do not also buy every day-sail", "Hurricane weeks are not a discount you want to win"]);
+    replaceHotel("amsterdam", "budget", ["Ibis Amsterdam Centre — tram to the canal belt, pack light", "Ibis Budget Amsterdam City South or Sloterdijk — tram to the center", "Holiday Inn Express Amsterdam – Sloterdijk — Budget if the budget is tight", "Generator Amsterdam or ClinkNOORD — hostel-plus, walk or ferry", "Hotel Not Hotel or a De Pijp 2-star — neighborhood, stairs are the elevator"]);
     replaceHotel("amsterdam", "mid", ["Amsterdam Marriott Hotel — Leidseplein-adjacent mid", "Hilton Amsterdam — Apollolaan, tram mid", "Hyatt Regency Amsterdam — mid, one neighborhood", "Hotel Casa Amsterdam — De Pijp boutique-adjacent 4-star", "A Jordaan 3–4 star — canal walk without the garden rate"]);
-    replaceHotel("amsterdam", "lux", ["Waldorf Astoria Amsterdam — leftover", "De L’Europe Amsterdam — one flagship", "Conservatorium Hotel — Museumplein leftover", "Hotel Pulitzer, a Luxury Collection Hotel — canal houses stitched together", "Skip King’s Day and August if you can"]);
+    replaceHotel("amsterdam", "lux", ["Waldorf Astoria Amsterdam — only if you're spending more", "De L’Europe Amsterdam — one flagship", "Conservatorium Hotel — Museumplein only if you're spending more", "Hotel Pulitzer, a Luxury Collection Hotel — canal houses stitched together", "Skip King’s Day and August if you can"]);
     replaceHotel("barcelona", "budget", ["Ibis Barcelona Centro — Eixample, Metro downstairs", "Holiday Inn Express Barcelona – City 22@ — Metro, skip Las Ramblas addresses on Budget", "Generator Barcelona — hostel-plus, Gràcia / Gothic", "Hotel Jazz or a 2-star Eixample — walk to Passeig de Gràcia", "El Born guesthouse — restaurants on the block"]);
-    replaceHotel("barcelona", "mid", ["Hilton Diagonal Mar Barcelona — Metro mid if leftover covers the beach-edge pocket", "Hotel Indigo Barcelona – Plaza Catalunya — Eixample mid", "H10 Casa Mimosa or Cotton House — Eixample, Metro in five minutes", "One neighborhood — Born or Eixample, not both"]);
-    replaceHotel("barcelona", "lux", ["W Barcelona — Barceloneta beach premium", "Mandarin Oriental Barcelona — Passeig de Gràcia leftover", "Hotel Arts Barcelona — one flagship", "El Palace Hotel Barcelona — leftover", "Beach-club pricing is not in the room rate"]);
-    replaceHotel("lisbon", "budget", ["Ibis Lisboa Centro Liberdade or Ibis Styles Lisboa Centro — Metro, bakery downstairs", "Holiday Inn Express Lisbon – Plaza Saldanha — Budget if leftover is tight", "Home Lisbon Hostel or a Baixa-adjacent hostel-plus — walk to a tram", "The Independente or Intendente 2-star — neighborhood restaurants", "Alfama guesthouse — views, stairs, grocery the first morning"]);
-    replaceHotel("lisbon", "mid", ["Lisbon Marriott Hotel — mid if leftover covers the uptown pocket", "Hotel da Baixa or a 4-star near Rossio — trains and trams", "Memmo Príncipe Real or a Chiado 3–4 star — walk downhill to dinner", "LX Boutique or a Cais do Sodré 3-star — river, nightlife on the block", "One neighborhood. Do not change hills nightly"]);
-    replaceHotel("lisbon", "lux", ["Four Seasons Hotel Ritz Lisbon — park-adjacent leftover", "Bairro Alto Hotel — Chiado leftover", "Tivoli Avenida Liberdade Lisboa — one boulevard", "Olissippo Lapa Palace — Splurge", "Lisbon mid already feels like a Splurge in Paris"]);
-    replaceHotel("prague", "budget", ["Ibis Praha Wenceslas Square — Metro, skip a castle-view rate on Budget", "Holiday Inn Prague Congress Centre — Metro Budget", "Moxy Prague — Marriott compact if leftover covers a central pocket", "Generator Prague or a Vinohrady hostel-plus", "A 2-star walk-up near a tram and a bakery"]);
+    replaceHotel("barcelona", "mid", ["Hilton Diagonal Mar Barcelona — Metro mid if you have room in the budget for the beach-edge area", "Hotel Indigo Barcelona – Plaza Catalunya — Eixample mid", "H10 Casa Mimosa or Cotton House — Eixample, Metro in five minutes", "One neighborhood — Born or Eixample, not both"]);
+    replaceHotel("barcelona", "lux", ["W Barcelona — Barceloneta beach premium", "Mandarin Oriental Barcelona — Passeig de Gràcia only if you're spending more", "Hotel Arts Barcelona — one flagship", "El Palace Hotel Barcelona — only if you're spending more", "Beach-club pricing is not in the room rate"]);
+    replaceHotel("lisbon", "budget", ["Ibis Lisboa Centro Liberdade or Ibis Styles Lisboa Centro — Metro, bakery downstairs", "Holiday Inn Express Lisbon – Plaza Saldanha — Budget if the budget is tight", "Home Lisbon Hostel or a Baixa-adjacent hostel-plus — walk to a tram", "The Independente or Intendente 2-star — neighborhood restaurants", "Alfama guesthouse — views, stairs, grocery the first morning"]);
+    replaceHotel("lisbon", "mid", ["Lisbon Marriott Hotel — mid if you have room in the budget for the uptown area", "Hotel da Baixa or a 4-star near Rossio — trains and trams", "Memmo Príncipe Real or a Chiado 3–4 star — walk downhill to dinner", "LX Boutique or a Cais do Sodré 3-star — river, nightlife on the block", "One neighborhood. Do not change hills nightly"]);
+    replaceHotel("lisbon", "lux", ["Four Seasons Hotel Ritz Lisbon — park-adjacent only if you're spending more", "Bairro Alto Hotel — Chiado only if you're spending more", "Tivoli Avenida Liberdade Lisboa — one boulevard", "Olissippo Lapa Palace — Splurge", "Lisbon mid already feels like a Splurge in Paris"]);
+    replaceHotel("prague", "budget", ["Ibis Praha Wenceslas Square — Metro, skip a castle-view rate on Budget", "Holiday Inn Prague Congress Centre — Metro Budget", "Moxy Prague — Marriott compact if you have room in the budget for a central area", "Generator Prague or a Vinohrady hostel-plus", "A 2-star walk-up near a tram and a bakery"]);
     replaceHotel("prague", "mid", ["Hilton Prague — Karlín / river mid", "Prague Marriott Hotel — Old Town-adjacent mid", "Hotel Indigo Prague Old Town — IHG, walkable mid", "A Vinohrady 3–4 star — restaurants on the block", "One neighborhood. The castle is a morning, not a second hotel"]);
-    replaceHotel("prague", "lux", ["Four Seasons Hotel Prague — river leftover", "Augustine, a Luxury Collection Hotel — Malá Strana Splurge", "Mandarin Oriental, Prague — leftover", "One flagship", "Christmas weeks lift rooms"]);
-    replaceHotel("dublin", "budget", ["Ibis Dublin City Centre or Ibis Styles Dublin City Centre — walk or LUAS", "Holiday Inn Express Dublin City Centre — Budget, skip an airport hotel", "Generator Dublin — hostel-plus", "A Temple Bar-adjacent 2-star a block off the tourist row", "A Smithfield 2-star if that is the pocket"]);
+    replaceHotel("prague", "lux", ["Four Seasons Hotel Prague — river only if you're spending more", "Augustine, a Luxury Collection Hotel — Malá Strana Splurge", "Mandarin Oriental, Prague — only if you're spending more", "One flagship", "Christmas weeks lift rooms"]);
+    replaceHotel("dublin", "budget", ["Ibis Dublin City Centre or Ibis Styles Dublin City Centre — walk or LUAS", "Holiday Inn Express Dublin City Centre — Budget, skip an airport hotel", "Generator Dublin — hostel-plus", "A Temple Bar-adjacent 2-star a block off the tourist row", "A Smithfield 2-star if that is the neighborhood"]);
     replaceHotel("dublin", "mid", ["The Westin Dublin — College Green mid", "Conrad Dublin — mid-plus", "Hilton Garden Inn Dublin Custom House — river mid", "A Georgian 3–4 star south of the Liffey", "One neighborhood. Rugby / concert weeks lift rooms"]);
-    replaceHotel("dublin", "lux", ["The Merrion Hotel — leftover", "The Shelbourne, Autograph Collection — Splurge", "The Westbury — leftover", "One property", "Do not also buy every Guinness-and-castle stack"]);
-    replaceHotel("edinburgh", "budget", ["Ibis Edinburgh Centre Royal Mile – Hunter Square — walk the Mile, skip a castle-view rate on Budget", "Holiday Inn Express Edinburgh – Royal Mile — limited-service", "Premier Inn Edinburgh Central — Budget compact", "A hostel-plus on the Cowgate or Leith Walk", "A Leith 2-star if that is the restaurant pocket"]);
-    replaceHotel("edinburgh", "mid", ["The Balmoral — mid-plus if leftover covers it; otherwise a New Town 4-star", "Waldorf Astoria Edinburgh - The Caledonian — mid-plus", "Kimpton Charlotte Square — New Town mid", "A Grassmarket or New Town 3–4 star — one pocket", "Festival weeks are not the value window"]);
-    replaceHotel("edinburgh", "lux", ["The Balmoral leftover", "Waldorf Astoria Edinburgh - The Caledonian Splurge suite", "Gleneagles is a different trip", "One property", "August Festival is a crowd tax"]);
+    replaceHotel("dublin", "lux", ["The Merrion Hotel — only if you're spending more", "The Shelbourne, Autograph Collection — Splurge", "The Westbury — only if you're spending more", "One property", "Do not also buy every Guinness-and-castle stack"]);
+    replaceHotel("edinburgh", "budget", ["Ibis Edinburgh Centre Royal Mile – Hunter Square — walk the Mile, skip a castle-view rate on Budget", "Holiday Inn Express Edinburgh – Royal Mile — limited-service", "Premier Inn Edinburgh Central — Budget compact", "A hostel-plus on the Cowgate or Leith Walk", "A Leith 2-star if that is the restaurant area"]);
+    replaceHotel("edinburgh", "mid", ["The Balmoral — mid-plus if you have room in the budget for it; otherwise a New Town 4-star", "Waldorf Astoria Edinburgh - The Caledonian — mid-plus", "Kimpton Charlotte Square — New Town mid", "A Grassmarket or New Town 3–4 star — one neighborhood", "Festival weeks are not the value window"]);
+    replaceHotel("edinburgh", "lux", ["The Balmoral only if you're spending more", "Waldorf Astoria Edinburgh - The Caledonian Splurge suite", "Gleneagles is a different trip", "One property", "August Festival is a crowd tax"]);
     replaceHotel("florence", "budget", ["Ibis Firenze Centro or Ibis Styles Firenze — walk or bus, pack light", "A Santa Croce or San Lorenzo 2-star — bakery downstairs", "A hostel-plus near Santa Maria Novella if you arrive by train", "Skip an airport hotel as this lodging", "Hotel Indigo Florence is mid; Budget stays Ibis or a walk-up"]);
-    replaceHotel("florence", "mid", ["Hotel Indigo Florence — IHG, walkable mid", "Hilton Garden Inn Florence Novoli — only if leftover is tight; centro is the walk", "NH Collection Firenze Palazzo Gaddi — centro mid", "A Oltrarno 3–4 star — one neighborhood", "The Duomo is a morning, not a hotel address tax"]);
-    replaceHotel("florence", "lux", ["Four Seasons Hotel Firenze — leftover", "Portrait Firenze — Splurge", "Hotel Savoy, a Rocco Forte Hotel — leftover", "One property", "Do not also buy every skip-the-line as a sure interior"]);
-    replaceHotel("amalfi", "budget", ["Ibis Styles Sorrento if you base in Sorrento — stairs, pack light", "A Centro 2-star in Amalfi or Maiori — ferry or bus, not a car habit", "A Sorrento 3-star a block off the corso — stairs, pack light", "A Positano 2-star only if leftover is real; stairs are the elevator", "Skip a cliff suite on Budget"]);
+    replaceHotel("florence", "mid", ["Hotel Indigo Florence — IHG, walkable mid", "Hilton Garden Inn Florence Novoli — only if the budget is tight; centro is the walk", "NH Collection Firenze Palazzo Gaddi — centro mid", "A Oltrarno 3–4 star — one neighborhood", "The Duomo is a morning, not a hotel address tax"]);
+    replaceHotel("florence", "lux", ["Four Seasons Hotel Firenze — only if you're spending more", "Portrait Firenze — Splurge", "Hotel Savoy, a Rocco Forte Hotel — only if you're spending more", "One property", "Do not also buy every skip-the-line as a sure interior"]);
+    replaceHotel("amalfi", "budget", ["Ibis Styles Sorrento if you base in Sorrento — stairs, pack light", "A Centro 2-star in Amalfi or Maiori — ferry or bus, not a car habit", "A Sorrento 3-star a block off the corso — stairs, pack light", "A Positano 2-star only if you have room in the budget; stairs are the elevator", "Skip a cliff suite on Budget"]);
     replaceHotel("amalfi", "mid", ["Hilton Sorrento Palace — Sorrento mid, bus or ferry to Amalfi towns", "NH Collection Grand Hotel Convento di Amalfi — mid-plus", "A Positano 3–4 star if that village is the point", "One town. Amalfi plus Positano plus Ravello nightly is three parking lots", "The ferry is the plan in season"]);
-    replaceHotel("amalfi", "lux", ["Hotel Santa Caterina — Amalfi leftover", "Le Sirenuse — Positano Splurge", "Belmond Hotel Caruso — Ravello leftover", "One village", "July–August is a crowd tax"]);
+    replaceHotel("amalfi", "lux", ["Hotel Santa Caterina — Amalfi only if you're spending more", "Le Sirenuse — Positano Splurge", "Belmond Hotel Caruso — Ravello only if you're spending more", "One village", "July–August is a crowd tax"]);
     replaceHotel("greece_athens", "budget", ["Ibis Styles Athens and Ibis Budget Athens — Metro, skip a Plaka tourist-menu hotel", "An airport hotel only the night you fly — then own a Metro neighborhood", "A Koukaki 2-star — walk to the Acropolis Museum", "A hostel-plus in Psyri or Monastiraki", "Islands are a different lodging night"]);
-    replaceHotel("greece_athens", "mid", ["Athens Marriott Hotel — mid if leftover covers the uptown pocket", "A Plaka-adjacent 3–4 star — walk to the museum", "A Syntagma 4-star — one neighborhood", "A Koukaki boutique — walk to the museum", "One neighborhood"]);
-    replaceHotel("greece_athens", "lux", ["Hotel Grande Bretagne, a Luxury Collection Hotel — Syntagma leftover", "Hotel King George, a Luxury Collection Hotel — Splurge", "Four Seasons Astir Palace — coast leftover, a different commute", "One property", "Do not also buy every island hop as a sure day trip"]);
+    replaceHotel("greece_athens", "mid", ["Athens Marriott Hotel — mid if you have room in the budget for the uptown area", "A Plaka-adjacent 3–4 star — walk to the museum", "A Syntagma 4-star — one neighborhood", "A Koukaki boutique — walk to the museum", "One neighborhood"]);
+    replaceHotel("greece_athens", "lux", ["Hotel Grande Bretagne, a Luxury Collection Hotel — Syntagma only if you're spending more", "Hotel King George, a Luxury Collection Hotel — Splurge", "Four Seasons Astir Palace — coast only if you're spending more, a different commute", "One property", "Do not also buy every island hop as a sure day trip"]);
     replaceHotel("santorini", "budget", ["A Fira 2-star a block off the caldera edge — Budget, pack light", "A Perissa or Kamari 2-star on the bus grid — beach Budget", "Skip a cave suite on Budget", "Confirm the transfer from the port or airport", "Oia is mid-plus"]);
-    replaceHotel("santorini", "mid", ["A Fira 3–4 star — walk to the bus, one village", "A Kamari 4-star if the beach is the point", "Mid stays off the first caldera row — Canaves is leftover", "One village. Fira plus Oia nightly is a transfer", "Ferry days need slack"]);
-    replaceHotel("santorini", "lux", ["Canaves Oia leftover", "Mystique, a Luxury Collection Hotel — Splurge", "Grace Hotel Santorini, Auberge — leftover", "One village", "August is a crowd tax"]);
-    replaceHotel("copenhagen", "budget", ["Ibis Copenhagen City or Ibis Styles Copenhagen — Metro, bakery downstairs", "Wakeup Copenhagen — compact Budget", "Generator Copenhagen — hostel-plus", "A Nørrebro 2-star if that is the restaurant pocket", "Skip an airport hotel as this lodging"]);
+    replaceHotel("santorini", "mid", ["A Fira 3–4 star — walk to the bus, one village", "A Kamari 4-star if the beach is the point", "Mid stays off the first caldera row — Canaves is only if you're spending more", "One village. Fira plus Oia nightly is a transfer", "Ferry days need slack"]);
+    replaceHotel("santorini", "lux", ["Canaves Oia only if you're spending more", "Mystique, a Luxury Collection Hotel — Splurge", "Grace Hotel Santorini, Auberge — only if you're spending more", "One village", "August is a crowd tax"]);
+    replaceHotel("copenhagen", "budget", ["Ibis Copenhagen City or Ibis Styles Copenhagen — Metro, bakery downstairs", "Wakeup Copenhagen — compact Budget", "Generator Copenhagen — hostel-plus", "A Nørrebro 2-star if that is the restaurant area", "Skip an airport hotel as this lodging"]);
     replaceHotel("copenhagen", "mid", ["Copenhagen Marriott Hotel — harbor mid", "Hilton Copenhagen Airport is a transfer; mid in-town is NH Collection Copenhagen", "NH Collection Copenhagen — mid", "A Vesterbro 3–4 star — one neighborhood", "July is peak and bright"]);
-    replaceHotel("copenhagen", "lux", ["Hotel d'Angleterre — leftover", "Nimb Hotel — Splurge", "Villa Copenhagen — leftover", "One property", "Christmas weeks lift rooms"]);
-    replaceHotel("vienna", "budget", ["Ibis Wien Mariahilf or Ibis Styles Wien City — U-Bahn, bakery downstairs", "Holiday Inn Express Vienna – Schönbrunn — Budget if leftover is tight", "A Neubau or Mariahilf 2-star — walk to a market street", "A hostel-plus near the Westbahnhof", "Skip an airport hotel as this lodging"]);
+    replaceHotel("copenhagen", "lux", ["Hotel d'Angleterre — only if you're spending more", "Nimb Hotel — Splurge", "Villa Copenhagen — only if you're spending more", "One property", "Christmas weeks lift rooms"]);
+    replaceHotel("vienna", "budget", ["Ibis Wien Mariahilf or Ibis Styles Wien City — U-Bahn, bakery downstairs", "Holiday Inn Express Vienna – Schönbrunn — Budget if the budget is tight", "A Neubau or Mariahilf 2-star — walk to a market street", "A hostel-plus near the Westbahnhof", "Skip an airport hotel as this lodging"]);
     replaceHotel("vienna", "mid", ["Vienna Marriott Hotel — Ring mid", "Hilton Vienna Park — Stadtpark mid", "Hotel Indigo Vienna – Naschmarkt — IHG, walkable mid", "A 7th-district 3–4 star — one neighborhood", "The Ring is a walk, not a hotel-address tax every night"]);
-    replaceHotel("vienna", "lux", ["Hotel Sacher Wien — leftover", "The Ritz-Carlton, Vienna — Splurge", "Park Hyatt Vienna — leftover", "One property", "Ball season and Christmas weeks lift rooms"]);
-    replaceHotel("stockholm", "budget", ["Ibis Styles Stockholm Odenplan or Ibis Stockholm Solna — T-bana", "Generator Stockholm — hostel-plus", "A Södermalm 2-star if that is the restaurant pocket", "A compact Norrmalm 2-star — grocery nearby", "Skip an Arlanda hotel as this lodging"]);
+    replaceHotel("vienna", "lux", ["Hotel Sacher Wien — only if you're spending more", "The Ritz-Carlton, Vienna — Splurge", "Park Hyatt Vienna — only if you're spending more", "One property", "Ball season and Christmas weeks lift rooms"]);
+    replaceHotel("stockholm", "budget", ["Ibis Styles Stockholm Odenplan or Ibis Stockholm Solna — T-bana", "Generator Stockholm — hostel-plus", "A Södermalm 2-star if that is the restaurant area", "A compact Norrmalm 2-star — grocery nearby", "Skip an Arlanda hotel as this lodging"]);
     replaceHotel("stockholm", "mid", ["Stockholm Marriott Hotel — mid", "Hilton Stockholm Slussen — Södermalm mid", "Hotel At Six or a Norrmalm 4-star", "A Södermalm 3–4 star — one island", "Do not hop Gamla Stan addresses nightly"]);
-    replaceHotel("stockholm", "lux", ["Grand Hôtel Stockholm — leftover", "Ett Hem — Splurge", "Nobis Hotel Stockholm — leftover", "One property", "Midsummer weeks are a plan, not a discount"]);
+    replaceHotel("stockholm", "lux", ["Grand Hôtel Stockholm — only if you're spending more", "Ett Hem — Splurge", "Nobis Hotel Stockholm — only if you're spending more", "One property", "Midsummer weeks are a plan, not a discount"]);
     replaceHotel("budapest", "budget", ["Ibis Budapest City or Ibis Styles Budapest City — Metro, skip a castle-view rate on Budget", "Holiday Inn Budapest – Budaörs is a commute; Budget is a District VII 2-star", "A Jewish Quarter 2-star — walk to dinner", "A hostel-plus near the Astoria Metro", "Pest walking beats a Buda hill taxi habit"]);
-    replaceHotel("budapest", "mid", ["Budapest Marriott Hotel — Danube mid", "Hilton Budapest — Castle Hill mid-plus if leftover covers the hill", "A District V 3–4 star — one neighborhood", "A ruin-bar-adjacent 4-star in VII", "The baths are a ticket, not a hotel requirement"]);
-    replaceHotel("budapest", "lux", ["Four Seasons Hotel Gresham Palace — leftover", "The Ritz-Carlton, Budapest — Splurge", "Aria Hotel Budapest, a Tribute Portfolio Hotel — leftover", "One property", "Christmas weeks lift rooms"]);
+    replaceHotel("budapest", "mid", ["Budapest Marriott Hotel — Danube mid", "Hilton Budapest — Castle Hill mid-plus if you have room in the budget for the hill", "A District V 3–4 star — one neighborhood", "A ruin-bar-adjacent 4-star in VII", "The baths are a ticket, not a hotel requirement"]);
+    replaceHotel("budapest", "lux", ["Four Seasons Hotel Gresham Palace — only if you're spending more", "The Ritz-Carlton, Budapest — Splurge", "Aria Hotel Budapest, a Tribute Portfolio Hotel — only if you're spending more", "One property", "Christmas weeks lift rooms"]);
     replaceHotel("iceland", "budget", ["Kex Hostel or Loft — 101 Reykjavík, walk to the pool", "A 101 guesthouse with a kitchenette — breakfast is Bónus, not the buffet", "Keflavík Airport Hotel — only the night you land or fly", "A compact 101 2-star — walk to the pool", "The Ring Road is a different trip and budget"]);
     replaceHotel("iceland", "mid", ["Canopy by Hilton Reykjavik City Centre — 101 mid", "Reykjavik Konsulat Hotel, Curio Collection — Hilton mid", "Hotel Borg — 101, walk downtown", "ION City or a harbor 4-star — still not the Blue Lagoon hotel", "Selfoss or Vík mid only if this is a road trip"]);
-    replaceHotel("iceland", "lux", ["The Reykjavik EDITION — 101 leftover", "The Retreat at Blue Lagoon — soak + room, Splurge only", "ION Adventure Hotel — Golden Circle leftover", "One 101 flagship or one countryside lodge — not both in 4 nights", "Luxury here is the soak, not the minibar"]);
+    replaceHotel("iceland", "lux", ["The Reykjavik EDITION — 101 only if you're spending more", "The Retreat at Blue Lagoon — soak + room, Splurge only", "ION Adventure Hotel — Golden Circle only if you're spending more", "One 101 flagship or one countryside lodge — not both in 4 nights", "Luxury here is the soak, not the minibar"]);
     replaceHotel("switzerland", "budget", ["Ibis Zürich City West or Ibis Budget Genève — train downstairs", "Holiday Inn Express Zürich – Airport is a transfer; Budget is a city 2-star near the HB", "A hostel-plus near the Hauptbahnhof", "A 2-star in the neighborhood you will eat in", "Long-haul is the expensive line, not a palace breakfast"]);
     replaceHotel("switzerland", "mid", ["Zürich Marriott Hotel — mid", "Hilton Zurich Airport is a transfer; mid in-town is a 4-star near the lake or HB", "A lake-adjacent 4-star — one city; Alps lodges are a different night", "A Geneva 4-star near Cornavin if Geneva is the base", "One city. Alps lodges are a different night"]);
-    replaceHotel("switzerland", "lux", ["Baur au Lac leftover", "The Dolder Grand — Splurge", "Four Seasons Hotel des Bergues Geneva — leftover if Geneva is the base", "One property", "Do not also buy every mountain add-on"]);
+    replaceHotel("switzerland", "lux", ["Baur au Lac only if you're spending more", "The Dolder Grand — Splurge", "Four Seasons Hotel des Bergues Geneva — only if you're spending more if Geneva is the base", "One property", "Do not also buy every mountain add-on"]);
     replaceHotel("croatia", "budget", ["A Split or Dubrovnik 2-star off the wall — pack light", "A Split Old Town-adjacent 2-star — walk, pack light", "A Dubrovnik Lapad 2-star — bus to the walls", "Skip a wall-view suite on Budget", "Islands are a ferry night"]);
     replaceHotel("croatia", "mid", ["Hilton Imperial Dubrovnik — mid if Dubrovnik is the base", "Hotel Excelsior Dubrovnik — mid-plus", "A Split 3–4 star near the Riva", "One city. Split plus Dubrovnik nightly is a transfer day", "Cruise mornings crowd the walls"]);
-    replaceHotel("croatia", "lux", ["Villa Dubrovnik leftover", "Hotel Bellevue Dubrovnik — Splurge", "One property", "Do not also buy every island hop", "July–August is a crowd tax"]);
+    replaceHotel("croatia", "lux", ["Villa Dubrovnik only if you're spending more", "Hotel Bellevue Dubrovnik — Splurge", "One property", "Do not also buy every island hop", "July–August is a crowd tax"]);
     replaceHotel("spain_seville", "budget", ["Ibis Sevilla or Ibis Budget Sevilla — tram / bus, bakery downstairs", "Holiday Inn Express Sevilla – Aljarafe is a commute; Budget is a Centro 2-star", "A Santa Cruz-adjacent 2-star a block off the postcard alleys", "A hostel-plus near Plaza de Armas", "Skip a cathedral-view rate on Budget"]);
     replaceHotel("spain_seville", "mid", ["Hotel Indigo Seville – Historic Quarter — walkable mid", "NH Collection Sevilla — mid", "A Triana 3–4 star — one neighborhood", "The Alcázar is a timed morning, not a hotel address"]);
-    replaceHotel("spain_seville", "lux", ["Hotel Alfonso XIII, a Luxury Collection Hotel — leftover", "Hotel Palacio Villapanés — Splurge", "One property", "Feria and Easter weeks are a crowd tax", "July is cheap and brutal"]);
+    replaceHotel("spain_seville", "lux", ["Hotel Alfonso XIII, a Luxury Collection Hotel — only if you're spending more", "Hotel Palacio Villapanés — Splurge", "One property", "Feria and Easter weeks are a crowd tax", "July is cheap and brutal"]);
     replaceHotel("portugal_porto", "budget", ["Ibis Porto Centro São Bento or Ibis Porto São João — Metro / train", "InterContinental Porto – Palacio das Cardosas — mid-plus; Budget stays Ibis", "A Cedofeita 2-star — restaurants on the block", "A hostel-plus near São Bento", "Hills + cobbles; pack light"]);
     replaceHotel("portugal_porto", "mid", ["A Ribeira 3–4 star or Hotel Infante Sagres-adjacent — walk downhill to dinner", "A Baixa / Aliados 4-star — walk downhill to dinner", "A Gaia 3–4 star if the caves are the point", "One bank of the river at night", "Lisbon is a different lodging night"]);
-    replaceHotel("portugal_porto", "lux", ["The Yeatman leftover", "Pestana Palácio do Freixo — Splurge", "One property", "Do not also buy every cave tasting as a taxi loop", "São João weeks lift rooms"]);
+    replaceHotel("portugal_porto", "lux", ["The Yeatman only if you're spending more", "Pestana Palácio do Freixo — Splurge", "One property", "Do not also buy every cave tasting as a taxi loop", "São João weeks lift rooms"]);
     replaceHotel("portugal_algarve", "budget", ["Holiday Inn Algarve – Monte Gordo-class or an Albufeira 2-star off the strip", "A Lagos 2-star — walk to a grocery", "A Tavira 2-star if the east is the point", "Skip a cliff suite on Budget", "A car helps; the train is slower and cheaper"]);
-    replaceHotel("portugal_algarve", "mid", ["Tivoli or a Vilamoura 4-star — mid if leftover covers the marina pocket", "A Lagos 3–4 star — one town", "A Albufeira 4-star off the first strip", "One town. Sagres plus Tavira nightly is a transfer", "July–August is peak"]);
-    replaceHotel("portugal_algarve", "lux", ["Vila Vita Parc leftover", "Conrad Algarve — Splurge", "One property", "Do not also buy every boat cave as a sure day", "Winter is cheap because the water is a walk, not a swim"]);
+    replaceHotel("portugal_algarve", "mid", ["Tivoli or a Vilamoura 4-star — mid if you have room in the budget for the marina neighborhood", "A Lagos 3–4 star — one town", "A Albufeira 4-star off the first strip", "One town. Sagres plus Tavira nightly is a transfer", "July–August is peak"]);
+    replaceHotel("portugal_algarve", "lux", ["Vila Vita Parc only if you're spending more", "Conrad Algarve — Splurge", "One property", "Do not also buy every boat cave as a sure day", "Winter is cheap because the water is a walk, not a swim"]);
     replaceHotel("norway_fjords", "budget", ["Ibis Bergen or a Bergen 2-star near the station — Budget before the fjord hop", "A Flåm or Aurland 2-star if the train is the point", "A hostel-plus in Bergen", "Skip a fjord-view suite on Budget", "The boat is the lodging plan some nights"]);
-    replaceHotel("norway_fjords", "mid", ["A Bergen 3–4 star — one night, then one fjord base", "A Flåm mid lodge", "A Balestrand or Loen 3–4 star if leftover covers that pocket", "One fjord base. Do not hop every village nightly", "July is bright and peak"]);
-    replaceHotel("norway_fjords", "lux", ["Hotel Ullensvang leftover", "A Loen or Geiranger Splurge lodge", "One property per base", "Do not also buy every scenic rail as a sure connection", "Shoulder weeks win"]);
+    replaceHotel("norway_fjords", "mid", ["A Bergen 3–4 star — one night, then one fjord base", "A Flåm mid lodge", "A Balestrand or Loen 3–4 star if you have room in the budget for that neighborhood", "One fjord base. Do not hop every village nightly", "July is bright and peak"]);
+    replaceHotel("norway_fjords", "lux", ["Hotel Ullensvang only if you're spending more", "A Loen or Geiranger Splurge lodge", "One property per base", "Do not also buy every scenic rail as a sure connection", "Shoulder weeks win"]);
     replaceHotel("mexico_city", "budget", ["Ibis Mexico City Reforma or Ibis Budget Mexico City Reforma — Metro, skip a Polanco rate on Budget", "Holiday Inn Express Mexico City – Reforma — limited-service", "Casa Decu or a Roma Norte guesthouse — walk to cafés", "Hostal Regina or a Centro hostel-plus — Zócalo walking, noisier nights", "Condesa 2-star — park walks, street food on the block"]);
     replaceHotel("mexico_city", "mid", ["Mexico City Marriott Reforma Hotel — Reforma mid", "Hilton Mexico City Reforma — walkable spine", "The Westin Santa Fe Mexico City is a commute; mid is Camino Real Polanco or The Hoxton Roma", "The Hoxton Roma — walkable Roma boutique", "One neighborhood — CDMX traffic is the hidden cost"]);
-    replaceHotel("mexico_city", "lux", ["Four Seasons Hotel Mexico City — Reforma leftover", "The St. Regis Mexico City — leftover", "Las Alcobas, a Luxury Collection Hotel — Polanco Splurge", "Casa Polanco — design leftover", "The reservation is often the better splurge than a second tower"]);
+    replaceHotel("mexico_city", "lux", ["Four Seasons Hotel Mexico City — Reforma only if you're spending more", "The St. Regis Mexico City — only if you're spending more", "Las Alcobas, a Luxury Collection Hotel — Polanco Splurge", "Casa Polanco — design only if you're spending more", "The reservation is often the better splurge than a second tower"]);
     replaceHotel("thailand", "budget", ["Ibis Bangkok Sukhumvit 4 or Ibis Styles Bangkok Sukhumvit Phra Khanong — BTS, not a taxi habit", "Holiday Inn Express Bangkok Siam — limited-service, BTS", "A Khao San-adjacent guesthouse only as a crash pad", "Lub d or a hostel-plus in Silom / Chiang Mai old city — walk to food stalls", "Fan room + a stall downstairs is the Budget product"]);
     replaceHotel("thailand", "mid", ["Bangkok Marriott Marquis Queen's Park — Sukhumvit mid, BTS", "Hilton Sukhumvit Bangkok — Asok mid", "Hyatt Place Bangkok Sukhumvit — mid", "Shangri-La Bangkok — riverside mid-plus, river boat to dinner", "One city base — Bangkok or Chiang Mai, not a nightly hop"]);
-    replaceHotel("thailand", "lux", ["Mandarin Oriental, Bangkok — river leftover", "Capella Bangkok — same river, Splurge", "Park Hyatt Bangkok — leftover", "Four Seasons Chiang Mai if the north is the point — do not also buy Phuket mid-trip", "One river hotel. Three island hops are a different budget"]);
+    replaceHotel("thailand", "lux", ["Mandarin Oriental, Bangkok — river only if you're spending more", "Capella Bangkok — same river, Splurge", "Park Hyatt Bangkok — only if you're spending more", "Four Seasons Chiang Mai if the north is the point — do not also buy Phuket mid-trip", "One river hotel. Three island hops are a different budget"]);
     replaceHotel("kyoto", "budget", ["Ibis Styles Kyoto Station — station downstairs, convenience-store breakfast", "Toyoko Inn Kyoto Gojo or APA Kyoto Ekimae — business-hotel Budget", "A hostel-plus in Kawaramachi or near Kyoto Station", "A guesthouse in the neighborhood you will walk at night", "Skip a ryokan rate on Budget; that is mid-plus"]);
-    replaceHotel("kyoto", "mid", ["Hilton Garden Inn Kyoto Shijo Karasuma — mid, subway", "Hotel Granvia Kyoto — station mid", "Hyatt Place Kyoto — mid", "Mitsui Garden Kyoto Sanjo — Japanese 4-star, one pocket", "A ryokan mid only if leftover covers it — then that is the product"]);
-    replaceHotel("kyoto", "lux", ["Four Seasons Hotel Kyoto — leftover", "The Ritz-Carlton, Kyoto — Splurge", "Park Hyatt Kyoto — leftover", "Hoshinoya Kyoto — river Splurge", "The room or the kaiseki, rarely both plus every temple taxi"]);
+    replaceHotel("kyoto", "mid", ["Hilton Garden Inn Kyoto Shijo Karasuma — mid, subway", "Hotel Granvia Kyoto — station mid", "Hyatt Place Kyoto — mid", "Mitsui Garden Kyoto Sanjo — Japanese 4-star, one neighborhood", "A ryokan mid only if you have room in the budget for it — then that is the product"]);
+    replaceHotel("kyoto", "lux", ["Four Seasons Hotel Kyoto — only if you're spending more", "The Ritz-Carlton, Kyoto — Splurge", "Park Hyatt Kyoto — only if you're spending more", "Hoshinoya Kyoto — river Splurge", "The room or the kaiseki, rarely both plus every temple taxi"]);
     replaceHotel("singapore", "budget", ["Ibis Singapore on Bencoolen or Ibis Budget Singapore Crystal — MRT", "Holiday Inn Express Singapore Clarke Quay — limited-service", "Moxy Singapore Clarke Quay — Marriott compact", "A hostel-plus in Bugis or Chinatown", "Skip an Orchard palace on Budget"]);
-    replaceHotel("singapore", "mid", ["Hilton Singapore Orchard — mid, MRT", "Singapore Marriott Tang Plaza Hotel — Orchard mid", "Hotel Indigo Singapore Katong — neighborhood mid", "One pocket. Sentosa is a different night if you split"]);
-    replaceHotel("singapore", "lux", ["Marina Bay Sands leftover", "Raffles Singapore — Splurge", "The Fullerton Hotel Singapore — leftover", "Capella Singapore — Sentosa Splurge", "One property. Do not also buy every observation deck"]);
+    replaceHotel("singapore", "mid", ["Hilton Singapore Orchard — mid, MRT", "Singapore Marriott Tang Plaza Hotel — Orchard mid", "Hotel Indigo Singapore Katong — neighborhood mid", "One area. Sentosa is a different night if you split"]);
+    replaceHotel("singapore", "lux", ["Marina Bay Sands only if you're spending more", "Raffles Singapore — Splurge", "The Fullerton Hotel Singapore — only if you're spending more", "Capella Singapore — Sentosa Splurge", "One property. Do not also buy every observation deck"]);
     replaceHotel("south_korea", "budget", ["Ibis Styles Ambassador Seoul Myeongdong or Ibis Budget Seoul Dongdaemun — subway", "Holiday Inn Express Seoul Hongdae — if that is the night you came for", "A hostel-plus in Hongdae or Jongno", "A compact Myeongdong 2-star — grocery in the block", "Skip a palace-view rate on Budget"]);
-    replaceHotel("south_korea", "mid", ["Hilton Garden Inn Seoul/Gangnam — mid, subway", "Hotel Indigo Seoul Gangnam — IHG mid", "A Jongno 4-star — one neighborhood", "One pocket. Busan is a different lodging night"]);
-    replaceHotel("south_korea", "lux", ["Four Seasons Hotel Seoul — leftover", "Park Hyatt Seoul — Splurge", "The Shilla Seoul — leftover", "A hanok Splurge if that is the point", "The room or the BBQ, rarely both plus every palace as a sure interior"]);
-    replaceHotel("taiwan", "budget", ["Ibis Taipei Daan or Ibis Styles Taipei Station — MRT", "Holiday Inn Express Taipei Zhonghua — limited-service", "A hostel-plus in Ximending", "A compact Taipei 2-star near a night market", "Skip a Tamsui rate on Budget unless that is the pocket"]);
-    replaceHotel("taiwan", "mid", ["Taipei Marriott Hotel — mid", "Hilton Taipei Sinban is New Taipei; mid in-town is Humble House or a Xinyi 4-star", "A Xinyi 4-star — MRT, one pocket", "A Daan 3–4 star — restaurants on the block", "Kaohsiung is a different lodging night"]);
-    replaceHotel("taiwan", "lux", ["Mandarin Oriental, Taipei — leftover", "W Taipei — Splurge", "Grand Hyatt Taipei — leftover", "One property", "Do not also buy every day-trip as a sure connection"]);
+    replaceHotel("south_korea", "mid", ["Hilton Garden Inn Seoul/Gangnam — mid, subway", "Hotel Indigo Seoul Gangnam — IHG mid", "A Jongno 4-star — one neighborhood", "One area. Busan is a different lodging night"]);
+    replaceHotel("south_korea", "lux", ["Four Seasons Hotel Seoul — only if you're spending more", "Park Hyatt Seoul — Splurge", "The Shilla Seoul — only if you're spending more", "A hanok Splurge if that is the point", "The room or the BBQ, rarely both plus every palace as a sure interior"]);
+    replaceHotel("taiwan", "budget", ["Ibis Taipei Daan or Ibis Styles Taipei Station — MRT", "Holiday Inn Express Taipei Zhonghua — limited-service", "A hostel-plus in Ximending", "A compact Taipei 2-star near a night market", "Skip a Tamsui rate on Budget unless that is the neighborhood"]);
+    replaceHotel("taiwan", "mid", ["Taipei Marriott Hotel — mid", "Hilton Taipei Sinban is New Taipei; mid in-town is Humble House or a Xinyi 4-star", "A Xinyi 4-star — MRT, one neighborhood", "A Daan 3–4 star — restaurants on the block", "Kaohsiung is a different lodging night"]);
+    replaceHotel("taiwan", "lux", ["Mandarin Oriental, Taipei — only if you're spending more", "W Taipei — Splurge", "Grand Hyatt Taipei — only if you're spending more", "One property", "Do not also buy every day-trip as a sure connection"]);
     replaceHotel("vietnam", "budget", ["Ibis Saigon Airport is a transfer; Budget is a District 1 2-star or Hanoi Old Quarter guesthouse", "Holiday Inn & Suites Saigon Airport — only the night you fly", "A Hanoi Old Quarter hostel-plus — walk to food stalls", "A Hoi An Old Town 2-star if the center is the trip", "One city base — Hanoi or Saigon, not a nightly hop"]);
     replaceHotel("vietnam", "mid", ["Hotel des Arts Saigon, MGallery — mid-plus", "A District 1 4-star near a Metro / Grab zone", "A Hoi An 3–4 star inside or just off the Old Town", "One city, then a separate night if you add Ha Long", "Grab is cheap; tourist-taxi menus are not"]);
-    replaceHotel("vietnam", "lux", ["Park Hyatt Saigon leftover", "Capella Hanoi leftover", "Four Seasons The Nam Hai — Hoi An Splurge", "One property per base", "Do not also buy every lantern-boat as a sure night"]);
+    replaceHotel("vietnam", "lux", ["Park Hyatt Saigon only if you're spending more", "Capella Hanoi only if you're spending more", "Four Seasons The Nam Hai — Hoi An Splurge", "One property per base", "Do not also buy every lantern-boat as a sure night"]);
     replaceHotel("australia", "budget", ["Ibis Sydney World Square or Ibis Budget Sydney Airport — train, skip a Harbour-view rate on Budget", "Holiday Inn Express Sydney Macquarie Park is a commute; Budget is a Surry Hills or Haymarket 2-star", "YHA Sydney Harbour or a hostel-plus near a station", "A Melbourne hostel-plus on a tram if Melbourne is the base", "Long-haul is the expensive line, not the room"]);
     replaceHotel("australia", "mid", ["Sydney Harbour Marriott Hotel at Circular Quay — mid", "Hilton Sydney — mid", "Hyatt Regency Sydney — Darling Harbour mid", "A Melbourne 4-star on a tram if that city is the base", "One city, then a separate island or alps budget if you split"]);
-    replaceHotel("australia", "lux", ["Park Hyatt Sydney leftover", "Four Seasons Hotel Sydney — Splurge", "Crown Towers Melbourne leftover if Melbourne is the base", "One property", "Do not stack every harbour cruise and every zoo"]);
-    replaceHotel("new_zealand", "budget", ["Ibis Wellington or Ibis Budget Auckland Airport — train / bus, skip a lakefront rate on Budget", "Crowne Plaza Auckland — IHG if leftover covers a CBD Budget-plus night", "A Wellington 2-star on the waterfront bus", "A Queenstown hostel-plus if the south is the point", "Long-haul is the expensive line"]);
-    replaceHotel("new_zealand", "mid", ["Cordis Auckland or a CBD 4-star — mid", "QT Wellington or a waterfront 4-star", "A Queenstown 3–4 star if leftover covers the south", "One city, then a separate south-island budget", "Campervan only if that is the trip — it replaces the hotel line"]);
-    replaceHotel("new_zealand", "lux", ["Hotel Britomart leftover", "Eichardt's Private Hotel — Queenstown Splurge", "One property per island base", "Do not also buy every adventure add-on", "Shoulder weeks win"]);
+    replaceHotel("australia", "lux", ["Park Hyatt Sydney only if you're spending more", "Four Seasons Hotel Sydney — Splurge", "Crown Towers Melbourne only if you're spending more if Melbourne is the base", "One property", "Do not stack every harbour cruise and every zoo"]);
+    replaceHotel("new_zealand", "budget", ["Ibis Wellington or Ibis Budget Auckland Airport — train / bus, skip a lakefront rate on Budget", "Crowne Plaza Auckland — IHG if you have room in the budget for a CBD Budget-plus night", "A Wellington 2-star on the waterfront bus", "A Queenstown hostel-plus if the south is the point", "Long-haul is the expensive line"]);
+    replaceHotel("new_zealand", "mid", ["Cordis Auckland or a CBD 4-star — mid", "QT Wellington or a waterfront 4-star", "A Queenstown 3–4 star if you have room in the budget for the south", "One city, then a separate south-island budget", "Campervan only if that is the trip — it replaces the hotel line"]);
+    replaceHotel("new_zealand", "lux", ["Hotel Britomart only if you're spending more", "Eichardt's Private Hotel — Queenstown Splurge", "One property per island base", "Do not also buy every adventure add-on", "Shoulder weeks win"]);
     replaceHotel("dubai", "budget", ["Ibis Dubai Al Rigga or Ibis One Central — Metro, skip a Marina address on Budget", "Rove Downtown or Rove City Walk — Budget-plus, Metro", "Holiday Inn Express Dubai – Safa Park — limited-service, Metro-adjacent", "Deira 3-star near a Metro — creek, cheaper nights", "Bur Dubai heritage-adjacent 3-star — walk the souk, Metro to Downtown"]);
-    replaceHotel("dubai", "mid", ["A Downtown 4-star near Burj Khalifa — Metro, not a taxi habit", "Hilton Dubai Al Habtoor City — mid, tram / Metro", "Hyatt Regency Dubai Creek Heights — mid", "Marina 4-star on the tram — walk the walkway", "Palm or Downtown — pick one pocket"]);
-    replaceHotel("dubai", "lux", ["Armani Hotel Dubai — Burj Khalifa leftover", "Atlantis The Palm — Palm Splurge, kids assumed", "Bulgari Resort Dubai leftover", "Burj Al Arab or One&Only — name-brand leftover only", "Dubai luxury is a weekend, not a week"]);
+    replaceHotel("dubai", "mid", ["A Downtown 4-star near Burj Khalifa — Metro, not a taxi habit", "Hilton Dubai Al Habtoor City — mid, tram / Metro", "Hyatt Regency Dubai Creek Heights — mid", "Marina 4-star on the tram — walk the walkway", "Palm or Downtown — pick one neighborhood"]);
+    replaceHotel("dubai", "lux", ["Armani Hotel Dubai — Burj Khalifa only if you're spending more", "Atlantis The Palm — Palm Splurge, kids assumed", "Bulgari Resort Dubai only if you're spending more", "Burj Al Arab or One&Only — name-brand only if you're spending more", "Dubai luxury is a weekend, not a week"]);
     replaceHotel("bali", "budget", ["Ibis Bali Kuta or Ibis Styles Bali Benoa — crash-pad near the airport or a Kuta 2-star", "A Canggu homestay — walk to a warung, scooter for the beach", "An Ubud jungle guesthouse — rice-terrace walk, not Seminyak prices", "Kuta 2-star only as a crash pad near the airport", "Scooter math is real — insure it"]);
-    replaceHotel("bali", "mid", ["Marriott's Bali Nusa Dua Gardens or Westin Resort Nusa Dua — mid campus if leftover covers the south", "Hyatt Regency Bali — Sanur mid", "A Seminyak boutique if the beach clubs are the point", "Maya Ubud or a riverside 4-star — one base", "One base — Ubud or the coast"]);
-    replaceHotel("bali", "lux", ["Four Seasons Resort Bali at Sayan leftover", "Capella Ubud — Splurge", "Bulgari Resort Bali — cliff leftover", "Mandapa, a Ritz-Carlton Reserve — leftover", "One villa. Three mediocre resorts is not Splurge"]);
+    replaceHotel("bali", "mid", ["Marriott's Bali Nusa Dua Gardens or Westin Resort Nusa Dua — mid campus if you have room in the budget for the south", "Hyatt Regency Bali — Sanur mid", "A Seminyak boutique if the beach clubs are the point", "Maya Ubud or a riverside 4-star — one base", "One base — Ubud or the coast"]);
+    replaceHotel("bali", "lux", ["Four Seasons Resort Bali at Sayan only if you're spending more", "Capella Ubud — Splurge", "Bulgari Resort Bali — cliff only if you're spending more", "Mandapa, a Ritz-Carlton Reserve — only if you're spending more", "One villa. Three mediocre resorts is not Splurge"]);
     replaceHotel("alaska_cruise", "budget", ["Interior guarantee — Holland America or Princess, you picked the itinerary not the porthole", "Lower-deck interior midship — less motion if you chose the cheap cabin on purpose", "A pre-cruise Hampton Inn or Holiday Inn Express near the Seattle or Vancouver dock — one night only", "Skip a suite upsell at check-in; the cabin is not the leak", "You bought daylight and a deck, not a hotel"]);
     replaceHotel("alaska_cruise", "mid", ["Oceanview or balcony midship — Princess, Holland America, or Royal, Central-ship beats a cheap aft if you get seasick", "Covered balcony on a 7-night — sit outside without paying suite gratuities", "A pre-cruise Seattle Marriott Waterfront or Vancouver downtown 4-star — one night", "One cabin category. A second ship hop is not this trip", "Port days are the product"]);
-    replaceHotel("alaska_cruise", "lux", ["Large balcony or aft-wrap leftover — the wake is the product", "Haven / suite-adjacent on the line you already chose — suite gratuities run higher", "A pre-cruise Fairmont or Four Seasons night in Vancouver leftover-only", "Spa-deck cabin — quieter, still not a fare quote", "Do not also buy every glacier flightsee as a sure day"]);
+    replaceHotel("alaska_cruise", "lux", ["Large balcony or aft-wrap only if you're spending more — the wake is the product", "Haven / suite-adjacent on the line you already chose — suite gratuities run higher", "A pre-cruise Fairmont or Four Seasons night in Vancouver only if you're spending more", "Spa-deck cabin — quieter, still not a fare quote", "Do not also buy every glacier flightsee as a sure day"]);
     replaceHotel("costa_rica", "budget", ["Holiday Inn Express San José Airport — only the night you fly", "A La Fortuna 2-star / hostel-plus — walk to town", "A Manuel Antonio 2-star off the hill", "Skip a volcano-view suite on Budget", "A car is optional if you buy transfers"]);
     replaceHotel("costa_rica", "mid", ["An Arenal 3–4 star with a hot-spring hour included or cheap", "A Manuel Antonio 3–4 star walk-to-town", "Adults-only mid if there are no kids", "One volcano base, one beach base — transfer is a line"]);
-    replaceHotel("costa_rica", "lux", ["Nayara Tented Camp or Nayara Springs leftover", "Four Seasons Resort Costa Rica at Peninsula Papagayo — Splurge", "Andaz Costa Rica Resort at Peninsula Papagayo — Hyatt leftover", "One property per base", "Do not also buy every zip-line"]);
+    replaceHotel("costa_rica", "lux", ["Nayara Tented Camp or Nayara Springs only if you're spending more", "Four Seasons Resort Costa Rica at Peninsula Papagayo — Splurge", "Andaz Costa Rica Resort at Peninsula Papagayo — Hyatt only if you're spending more", "One property per base", "Do not also buy every zip-line"]);
     replaceHotel("belize", "budget", ["Best Western Plus Belize Biltmore Plaza — Belize City Budget only the night you fly", "A San Pedro 2-star a block off the sand — golf cart, not a water-taxi habit every meal", "A Caye Caulker hostel-plus — Budget island", "Skip a villa on Budget", "Confirm the water taxi"]);
     replaceHotel("belize", "mid", ["An Ambergris 3–4 star — walk-to-town, one island", "A Hopkins 3–4 star if the south is the point", "Adults-only mid if there are no kids", "The reef is a boat day, not a second hotel"]);
-    replaceHotel("belize", "lux", ["Victoria House leftover", "Itz'ana or a Placencia Splurge", "One island or one coast", "Do not also buy every atoll as a sure day", "Hurricane weeks are not a discount you want to win"]);
+    replaceHotel("belize", "lux", ["Victoria House only if you're spending more", "Itz'ana or a Placencia Splurge", "One island or one coast", "Do not also buy every atoll as a sure day", "Hurricane weeks are not a discount you want to win"]);
     replaceHotel("guatemala", "budget", ["A Antigua 2-star or guesthouse — walk the cobbles, pack light", "A Lake Atitlán 2-star in the town you will eat in", "A Guatemala City 2-star only the night you fly", "Skip a lake-view suite on Budget", "Altitude is real"]);
     replaceHotel("guatemala", "mid", ["Hotel Museo Casa Santo Domingo — Antigua mid", "A Lake Atitlán 3–4 star in one village", "Porta Hotel Antigua or a centro 4-star", "One town. Antigua plus the lake nightly is a transfer", "Trusted shuttles beat a rental in the core"]);
-    replaceHotel("guatemala", "lux", ["A Lake Atitlán Splurge lodge — one village leftover", "An Antigua courtyard leftover", "One property per base", "Do not also buy every volcano as a sure sunrise"]);
+    replaceHotel("guatemala", "lux", ["A Lake Atitlán Splurge lodge — one village extra", "An Antigua courtyard only if you're spending more", "One property per base", "Do not also buy every volcano as a sure sunrise"]);
     replaceHotel("peru", "budget", ["Ibis Cusco or a San Blas 2-star — walk, pack light, altitude slack", "A Cusco hostel-plus near Plaza de Armas a block off the postcard row", "A Lima Miraflores 2-star if you overnight the coast", "Skip a Sacred Valley suite on Budget", "Aguas Calientes 2-star the night before Machu Picchu"]);
-    replaceHotel("peru", "mid", ["Hilton Garden Inn Cusco — mid, walkable", "A San Blas 3–4 star — walkable Cusco mid", "A Sacred Valley 3–4 star if leftover covers that base", "A Miraflores 4-star if Lima is a real night", "One altitude base. Do not hop valley plus Cusco nightly"]);
-    replaceHotel("peru", "lux", ["Belmond Hotel Monasterio leftover", "Belmond Sanctuary Lodge — Machu Picchu Splurge", "Palacio del Inka, a Luxury Collection Hotel — Cusco leftover", "One property per altitude", "The ruin is the product, not a second suite"]);
-    replaceHotel("peru_lima", "budget", ["Ibis Lima Reducto Miraflores — walk or a short hop to the malecón", "Holiday Inn Lima Airport — only the night you fly", "A Miraflores 2-star — grocery nearby", "A Barranco hostel-plus if that is the restaurant pocket", "Skip a cliff-view suite on Budget"]);
-    replaceHotel("peru_lima", "mid", ["Hilton Lima Miraflores — mid, malecón walking", "A Miraflores 4-star — one pocket", "A Barranco 3–4 star if leftover covers that night", "Mid stays a block off the first cliff row — JW is leftover", "Cusco is a different lodging night and a different altitude"]);
-    replaceHotel("peru_lima", "lux", ["JW Marriott Hotel Lima leftover", "Hotel B — Barranco Splurge", "Belmond Miraflores Park leftover", "One pocket", "The tasting menu is often the better Splurge"]);
-    replaceHotel("buenos_aires", "budget", ["Ibis Buenos Aires Congreso or Ibis Budget Recoleta — Subte, bakery downstairs", "Holiday Inn Buenos Aires Ezeiza Airport — only the night you fly", "A Palermo 2-star if that is the restaurant pocket", "A San Telmo hostel-plus — walk the Sunday fair", "Skip a Recoleta palace on Budget"]);
-    replaceHotel("buenos_aires", "mid", ["Hilton Buenos Aires — Puerto Madero mid", "Hotel Indigo Buenos Aires — mid", "A Palermo 3–4 star — one neighborhood", "A Recoleta 4-star if leftover covers that pocket", "One barrio. Do not hop Palermo and San Telmo nightly"]);
-    replaceHotel("buenos_aires", "lux", ["Four Seasons Hotel Buenos Aires leftover", "Palacio Duhau - Park Hyatt Buenos Aires — Splurge", "Alvear Palace Hotel leftover", "One property", "The steakhouse is often the better Splurge than a second suite"]);
-    replaceHotel("colombia", "budget", ["Ibis Cartagena Marbella or a Getsemaní 2-star — walk the walls, pack light", "A Centro hostel-plus — louder nights", "A Bocagrande 2-star if leftover is tight", "Skip a walled-city palace on Budget", "Confirm the transfer from the airport"]);
-    replaceHotel("colombia", "mid", ["Hilton Cartagena — Bocagrande mid", "Movich Cartagena de Indias or a Centro 4-star", "A Getsemaní 3–4 star — restaurants on the block", "One pocket. The islands are a boat day", "Humidity is free; a taxi loop is not"]);
-    replaceHotel("colombia", "lux", ["Sofitel Legend Santa Clara leftover", "Casa San Agustín Splurge", "One property", "Do not also buy every Rosario island as a sure day", "New Year weeks lift rooms"]);
-    replaceHotel("colombia_medellin", "budget", ["Ibis Medellín or a Poblado 2-star — Metro, skip El Poblado palace on Budget", "A Laureles 2-star if that is the restaurant pocket", "A hostel-plus near a Metro stop", "Altitude slack is an activity", "Comuna 13 is a morning, not a hotel address"]);
-    replaceHotel("colombia_medellin", "mid", ["A Poblado 3–4 star or Click Clack — one neighborhood", "A Laureles 4-star if leftover covers that pocket", "One barrio. Guatapé is a day trip", "Metro / taxi beats a rental in the core"]);
-    replaceHotel("colombia_medellin", "lux", ["The Charlee leftover", "A Poblado Splurge boutique", "One property", "Do not also buy every coffee tour as a sure day", "The tasting menu is often the better Splurge"]);
-    replaceHotel("colombia_bogota", "budget", ["Ibis Bogotá Museo or a Candelaria-adjacent 2-star — walk, altitude slack", "Holiday Inn Bogotá Airport — only the night you fly", "A Chapinero 2-star if that is the restaurant pocket", "A hostel-plus near a TransMilenio stop", "Skip a Zona G palace on Budget"]);
-    replaceHotel("colombia_bogota", "mid", ["Bogota Marriott Hotel — mid", "Hilton Bogotá — mid", "A Zona G / Zona T 3–4 star — one pocket", "A Candelaria 4-star only if leftover covers the tourist-row tax", "One neighborhood. Monserrate is a morning"]);
-    replaceHotel("colombia_bogota", "lux", ["Four Seasons Hotel Casa Medina Bogotá leftover", "Sofitel Bogotá Victoria Regia — Splurge", "One property", "Altitude plus street food is the trip", "The reservation is often the better Splurge"]);
+    replaceHotel("peru", "mid", ["Hilton Garden Inn Cusco — mid, walkable", "A San Blas 3–4 star — walkable Cusco mid", "A Sacred Valley 3–4 star if you have room in the budget for that base", "A Miraflores 4-star if Lima is a real night", "One altitude base. Do not hop valley plus Cusco nightly"]);
+    replaceHotel("peru", "lux", ["Belmond Hotel Monasterio only if you're spending more", "Belmond Sanctuary Lodge — Machu Picchu Splurge", "Palacio del Inka, a Luxury Collection Hotel — Cusco only if you're spending more", "One property per altitude", "The ruin is the product, not a second suite"]);
+    replaceHotel("peru_lima", "budget", ["Ibis Lima Reducto Miraflores — walk or a short hop to the malecón", "Holiday Inn Lima Airport — only the night you fly", "A Miraflores 2-star — grocery nearby", "A Barranco hostel-plus if that is the restaurant area", "Skip a cliff-view suite on Budget"]);
+    replaceHotel("peru_lima", "mid", ["Hilton Lima Miraflores — mid, malecón walking", "A Miraflores 4-star — one neighborhood", "A Barranco 3–4 star if you have room in the budget for that night", "Mid stays a block off the first cliff row — JW is only if you're spending more", "Cusco is a different lodging night and a different altitude"]);
+    replaceHotel("peru_lima", "lux", ["JW Marriott Hotel Lima only if you're spending more", "Hotel B — Barranco Splurge", "Belmond Miraflores Park only if you're spending more", "One area", "The tasting menu is often the better Splurge"]);
+    replaceHotel("buenos_aires", "budget", ["Ibis Buenos Aires Congreso or Ibis Budget Recoleta — Subte, bakery downstairs", "Holiday Inn Buenos Aires Ezeiza Airport — only the night you fly", "A Palermo 2-star if that is the restaurant area", "A San Telmo hostel-plus — walk the Sunday fair", "Skip a Recoleta palace on Budget"]);
+    replaceHotel("buenos_aires", "mid", ["Hilton Buenos Aires — Puerto Madero mid", "Hotel Indigo Buenos Aires — mid", "A Palermo 3–4 star — one neighborhood", "A Recoleta 4-star if you have room in the budget for that neighborhood", "One barrio. Do not hop Palermo and San Telmo nightly"]);
+    replaceHotel("buenos_aires", "lux", ["Four Seasons Hotel Buenos Aires only if you're spending more", "Palacio Duhau - Park Hyatt Buenos Aires — Splurge", "Alvear Palace Hotel only if you're spending more", "One property", "The steakhouse is often the better Splurge than a second suite"]);
+    replaceHotel("colombia", "budget", ["Ibis Cartagena Marbella or a Getsemaní 2-star — walk the walls, pack light", "A Centro hostel-plus — louder nights", "A Bocagrande 2-star if the budget is tight", "Skip a walled-city palace on Budget", "Confirm the transfer from the airport"]);
+    replaceHotel("colombia", "mid", ["Hilton Cartagena — Bocagrande mid", "Movich Cartagena de Indias or a Centro 4-star", "A Getsemaní 3–4 star — restaurants on the block", "One area. The islands are a boat day", "Humidity is free; a taxi loop is not"]);
+    replaceHotel("colombia", "lux", ["Sofitel Legend Santa Clara only if you're spending more", "Casa San Agustín Splurge", "One property", "Do not also buy every Rosario island as a sure day", "New Year weeks lift rooms"]);
+    replaceHotel("colombia_medellin", "budget", ["Ibis Medellín or a Poblado 2-star — Metro, skip El Poblado palace on Budget", "A Laureles 2-star if that is the restaurant area", "A hostel-plus near a Metro stop", "Altitude slack is an activity", "Comuna 13 is a morning, not a hotel address"]);
+    replaceHotel("colombia_medellin", "mid", ["A Poblado 3–4 star or Click Clack — one neighborhood", "A Laureles 4-star if you have room in the budget for that neighborhood", "One barrio. Guatapé is a day trip", "Metro / taxi beats a rental in the core"]);
+    replaceHotel("colombia_medellin", "lux", ["The Charlee only if you're spending more", "A Poblado Splurge boutique", "One property", "Do not also buy every coffee tour as a sure day", "The tasting menu is often the better Splurge"]);
+    replaceHotel("colombia_bogota", "budget", ["Ibis Bogotá Museo or a Candelaria-adjacent 2-star — walk, altitude slack", "Holiday Inn Bogotá Airport — only the night you fly", "A Chapinero 2-star if that is the restaurant area", "A hostel-plus near a TransMilenio stop", "Skip a Zona G palace on Budget"]);
+    replaceHotel("colombia_bogota", "mid", ["Bogota Marriott Hotel — mid", "Hilton Bogotá — mid", "A Zona G / Zona T 3–4 star — one neighborhood", "A Candelaria 4-star only if you have room in the budget for the tourist-row tax", "One neighborhood. Monserrate is a morning"]);
+    replaceHotel("colombia_bogota", "lux", ["Four Seasons Hotel Casa Medina Bogotá only if you're spending more", "Sofitel Bogotá Victoria Regia — Splurge", "One property", "Altitude plus street food is the trip", "The reservation is often the better Splurge"]);
     replaceHotel("brazil_rio", "budget", ["Ibis Rio de Janeiro Santos Dumont or Ibis Budget Copacabana — Metro / bus", "A Copacabana 2-star a block off the first beach row", "A hostel-plus in Botafogo or Lapa", "Skip an Ipanema palace on Budget"]);
-    replaceHotel("brazil_rio", "mid", ["Hilton Copacabana Rio de Janeiro — beach mid", "Windsor Copa or a Copacabana 4-star", "A Ipanema 3–4 star if leftover covers that pocket", "One beach. Do not hop Copacabana and Ipanema nightly", "Metro / Uber beats a rental in the core"]);
-    replaceHotel("brazil_rio", "lux", ["Belmond Copacabana Palace leftover", "Fairmont Rio de Janeiro Copacabana — Splurge", "Hotel Fasano Rio de Janeiro leftover", "One property", "Carnival weeks are not the value window"]);
+    replaceHotel("brazil_rio", "mid", ["Hilton Copacabana Rio de Janeiro — beach mid", "Windsor Copa or a Copacabana 4-star", "A Ipanema 3–4 star if you have room in the budget for that neighborhood", "One beach. Do not hop Copacabana and Ipanema nightly", "Metro / Uber beats a rental in the core"]);
+    replaceHotel("brazil_rio", "lux", ["Belmond Copacabana Palace only if you're spending more", "Fairmont Rio de Janeiro Copacabana — Splurge", "Hotel Fasano Rio de Janeiro only if you're spending more", "One property", "Carnival weeks are not the value window"]);
     replaceHotel("panama", "budget", ["Ibis Panama City or a Casco 2-star — walk the walls", "An El Cangrejo 2-star — grid streets, grocery nearby", "A hostel-plus in Casco Viejo", "Skip a Causeway palace on Budget", "The canal is a morning, not a hotel address"]);
-    replaceHotel("panama", "mid", ["Hilton Panama — downtown mid", "The Westin Panama — mid", "A Casco 3–4 star — one pocket", "One neighborhood. Bocas is a different lodging night", "Uber is cheap; tourist-taxi menus are not"]);
-    replaceHotel("panama", "lux", ["American Trade Hotel leftover", "The Bristol Panama — Splurge", "One property", "Do not also buy every island hop as a sure day", "The canal transit is a ticket, not a room upgrade"]);
+    replaceHotel("panama", "mid", ["Hilton Panama — downtown mid", "The Westin Panama — mid", "A Casco 3–4 star — one neighborhood", "One neighborhood. Bocas is a different lodging night", "Uber is cheap; tourist-taxi menus are not"]);
+    replaceHotel("panama", "lux", ["American Trade Hotel only if you're spending more", "The Bristol Panama — Splurge", "One property", "Do not also buy every island hop as a sure day", "The canal transit is a ticket, not a room upgrade"]);
     replaceHotel("mexico_oaxaca", "budget", ["A Centro 2-star or guesthouse — walk to a market, pack light", "A hostel-plus near Santo Domingo", "Skip a rooftop-suite on Budget", "Altitude plus street food is the trip", "Hierve el Agua is a day, not a second hotel"]);
     replaceHotel("mexico_oaxaca", "mid", ["Hotel Casa Oaxaca or a Centro 3–4 star", "A design 4-star in the walkable centro", "One neighborhood", "Monte Albán is a morning", "Do not hop Puebla into this lodging without a transfer night"]);
-    replaceHotel("mexico_oaxaca", "lux", ["Hacienda Los Laureles leftover", "A Centro Splurge courtyard", "One property", "The tasting menu is often the better Splurge", "Guelaguetza weeks lift rooms"]);
+    replaceHotel("mexico_oaxaca", "lux", ["Hacienda Los Laureles only if you're spending more", "A Centro Splurge courtyard", "One property", "The tasting menu is often the better Splurge", "Guelaguetza weeks lift rooms"]);
     replaceHotel("morocco", "budget", ["Ibis Marrakech Centre Gare or Ibis Budget Marrakech — walk or petit taxi, skip a palace riad on Budget", "A Medina guesthouse — pack light, trusted drivers", "A Gueliz 2-star if you want grid streets", "Skip the hotel dinner most nights", "Fes is a different lodging night"]);
     replaceHotel("morocco", "mid", ["A Gueliz 4-star or a restored riad 3–4 star in the walkable medina", "Sofitel Marrakech Palais Imperial — mid-plus", "One city. The desert camp is a different night", "Day tours beat a safari-priced room you do not need"]);
-    replaceHotel("morocco", "lux", ["Royal Mansour Marrakech leftover", "La Mamounia Splurge", "Four Seasons Resort Marrakech leftover", "One property", "The riad or the desert camp — rarely both plus every souk guide"]);
+    replaceHotel("morocco", "lux", ["Royal Mansour Marrakech only if you're spending more", "La Mamounia Splurge", "Four Seasons Resort Marrakech only if you're spending more", "One property", "The riad or the desert camp — rarely both plus every souk guide"]);
     replaceHotel("south_africa", "budget", ["Ibis Cape Town Waterfront or a City Bowl 2-star — MyCiTi, skip a Camps Bay palace on Budget", "A hostel-plus near Long Street / Gardens", "A Johannesburg Sandton 2-star if you overnight inland", "Skip a safari-priced room you do not need in the city", "The mountain is a morning, not a hotel address"]);
-    replaceHotel("south_africa", "mid", ["Cape Town Marriott Hotel Crystal Towers is a commute; mid is a V&A / City Bowl 4-star", "The Westin Cape Town — convention / waterfront mid", "A City Bowl 3–4 star — one pocket", "Safari lodges are a different budget and night", "Uber beats a rental in the core; the peninsula is a car day"]);
-    replaceHotel("south_africa", "lux", ["One&Only Cape Town leftover", "The Silo Hotel Splurge", "Belmond Mount Nelson leftover", "A safari lodge leftover is a different trip line", "The game drive is the product if you add the bush"]);
+    replaceHotel("south_africa", "mid", ["Cape Town Marriott Hotel Crystal Towers is a commute; mid is a V&A / City Bowl 4-star", "The Westin Cape Town — convention / waterfront mid", "A City Bowl 3–4 star — one neighborhood", "Safari lodges are a different budget and night", "Uber beats a rental in the core; the peninsula is a car day"]);
+    replaceHotel("south_africa", "lux", ["One&Only Cape Town only if you're spending more", "The Silo Hotel Splurge", "Belmond Mount Nelson only if you're spending more", "A safari lodge only if you're spending more is a different trip line", "The game drive is the product if you add the bush"]);
     replaceHotel("egypt", "budget", ["Ibis Cairo Citystars or a Downtown 2-star — Metro / trusted driver", "A Giza 2-star only if sunrise at the pyramids is the point", "A Luxor 2-star on the east bank if the south is the trip", "Skip a Nile-view suite on Budget", "Day tours beat a palace room you will not sit in"]);
     replaceHotel("egypt", "mid", ["Cairo Marriott Hotel & Omar Khayyam Casino — Zamalek mid", "Hilton Cairo Zamalek Residences — mid", "A Luxor 4-star on the east bank", "One city, then a separate night if you add Aswan", "The site is the product, not a second tower"]);
-    replaceHotel("egypt", "lux", ["Four Seasons Hotel Cairo at Nile Plaza leftover", "Sofitel Legend Old Cataract Aswan Splurge", "A Nile cruise cabin leftover is a different product", "One property per city", "Do not also buy every optional tomb as a sure interior"]);
+    replaceHotel("egypt", "lux", ["Four Seasons Hotel Cairo at Nile Plaza only if you're spending more", "Sofitel Legend Old Cataract Aswan Splurge", "A Nile cruise cabin is a different product only if you're spending more", "One property per city", "Do not also buy every optional tomb as a sure interior"]);
     replaceHotel("kenya_safari", "budget", ["A Nairobi 2-star near Wilson or a city guesthouse — only the night you fly", "Ibis Styles Nairobi Westlands — city Budget", "A budget tented camp with honest transfers", "Skip a balloon-and-suite stack on Budget", "The game drive is the product"]);
     replaceHotel("kenya_safari", "mid", ["Nairobi Serena or a city 4-star the night before camp", "A mid tented camp in one reserve", "One park base. Do not hop every reserve nightly", "Transfer days need slack", "Park fees are a line"]);
-    replaceHotel("kenya_safari", "lux", ["Angama Mara leftover", "Giraffe Manor is a different product and waitlist", "A Splurge tented camp in one reserve", "One property", "Do not also buy every balloon as a sure dawn"]);
+    replaceHotel("kenya_safari", "lux", ["Angama Mara only if you're spending more", "Giraffe Manor is a different product and waitlist", "A Splurge tented camp in one reserve", "One property", "Do not also buy every balloon as a sure dawn"]);
     replaceHotel("tanzania_zanzibar", "budget", ["A Stone Town 2-star or guesthouse — walk the alleys", "A Nungwi or Paje 2-star a block off the sand", "Skip a villa on Budget", "Confirm the transfer from the airport or ferry", "Safari is a different lodging night if you add the mainland"]);
-    replaceHotel("tanzania_zanzibar", "mid", ["Park Hyatt Zanzibar — Stone Town mid-plus", "A Nungwi 3–4 star — one beach", "A Stone Town 4-star if the town is the point", "One pocket. Do not hop both coasts nightly", "Transfer in the rate"]);
-    replaceHotel("tanzania_zanzibar", "lux", ["andBeyond Mnemba leftover", "A Nungwi Splurge villa", "Park Hyatt Zanzibar leftover suite", "One property", "Do not also buy every spice tour as a sure day"]);
+    replaceHotel("tanzania_zanzibar", "mid", ["Park Hyatt Zanzibar — Stone Town mid-plus", "A Nungwi 3–4 star — one beach", "A Stone Town 4-star if the town is the point", "One area. Do not hop both coasts nightly", "Transfer in the rate"]);
+    replaceHotel("tanzania_zanzibar", "lux", ["andBeyond Mnemba only if you're spending more", "A Nungwi Splurge villa", "Park Hyatt Zanzibar suite only if you're spending more", "One property", "Do not also buy every spice tour as a sure day"]);
     replaceHotel("jordan", "budget", ["Ibis Amman or a Downtown 2-star — the night you fly", "A Wadi Musa 2-star — walk or a short hop to the Petra gate", "A hostel-plus in Amman", "Skip a Petra-view suite on Budget", "The site is the product"]);
-    replaceHotel("jordan", "mid", ["Amman Marriott Hotel — city mid the night before Petra", "Mövenpick Resort Petra — gate-adjacent mid", "A Wadi Musa 3–4 star", "One base for Petra. Wadi Rum is a different night", "Dead Sea mid is a separate pocket"]);
-    replaceHotel("jordan", "lux", ["Four Seasons Hotel Amman leftover", "Mövenpick Nabatean Castle leftover", "A Wadi Rum Splurge camp", "One property per pocket", "Do not also buy every add-on tomb as a sure interior"]);
+    replaceHotel("jordan", "mid", ["Amman Marriott Hotel — city mid the night before Petra", "Mövenpick Resort Petra — gate-adjacent mid", "A Wadi Musa 3–4 star", "One base for Petra. Wadi Rum is a different night", "Dead Sea mid is a separate area"]);
+    replaceHotel("jordan", "lux", ["Four Seasons Hotel Amman only if you're spending more", "Mövenpick Nabatean Castle only if you're spending more", "A Wadi Rum Splurge camp", "One property per area", "Do not also buy every add-on tomb as a sure interior"]);
     replaceHotel("nepal", "budget", ["A Thamel 2-star or guesthouse — walk to food, altitude slack", "A hostel-plus in Thamel", "Skip a mountain-view suite on Budget", "Pokhara is a different lodging night", "The trek lodge is a different product"]);
-    replaceHotel("nepal", "mid", ["Hyatt Regency Kathmandu — mid if leftover covers the city campus", "A Thamel 3–4 star — one pocket", "A Pokhara 3–4 star if the lake is the point", "One city base, then a separate trek line", "Trusted drivers beat a rental"]);
-    replaceHotel("nepal", "lux", ["Dwarika's Hotel leftover", "A Pokhara Splurge lake lodge", "One property per base", "The trek is the product if you add it", "Do not also buy every scenic flight as a sure dawn"]);
+    replaceHotel("nepal", "mid", ["Hyatt Regency Kathmandu — mid if you have room in the budget for the city campus", "A Thamel 3–4 star — one neighborhood", "A Pokhara 3–4 star if the lake is the point", "One city base, then a separate trek line", "Trusted drivers beat a rental"]);
+    replaceHotel("nepal", "lux", ["Dwarika's Hotel only if you're spending more", "A Pokhara Splurge lake lodge", "One property per base", "The trek is the product if you add it", "Do not also buy every scenic flight as a sure dawn"]);
     replaceHotel("cambodia", "budget", ["Ibis Phnom Penh or a Siem Reap 2-star near Pub Street a block off the row", "A Siem Reap hostel-plus — tuk-tuk to the temples", "Skip a temple-view suite on Budget", "The temples are the product", "Phnom Penh is a different lodging night"]);
     replaceHotel("cambodia", "mid", ["Courtyard Siem Reap Resort — Marriott mid", "A Siem Reap 3–4 star with a pool you will actually use after temples", "One town. Angkor is a sunrise, not a second hotel", "Tuk-tuks beat a rental in town", "Park tickets are a line"]);
-    replaceHotel("cambodia", "lux", ["Raffles Grand Hotel d'Angkor leftover", "Park Hyatt Siem Reap Splurge", "One property", "Do not also buy every sunrise as a sure interior", "The temples still start early on Splurge"]);
+    replaceHotel("cambodia", "lux", ["Raffles Grand Hotel d'Angkor only if you're spending more", "Park Hyatt Siem Reap Splurge", "One property", "Do not also buy every sunrise as a sure interior", "The temples still start early on Splurge"]);
     replaceHotel("philippines_palawan", "budget", ["An El Nido town 2-star — walk to the pier, grocery the first hour", "A Puerto Princesa 2-star the night you fly", "Skip a cliff villa on Budget", "Island hops are boat days", "Confirm the van or flight transfer"]);
-    replaceHotel("philippines_palawan", "mid", ["A El Nido 3–4 star in town or Corong-Corong", "A Port Barton mid if leftover covers that pocket", "One town. El Nido plus Coron nightly is a transfer day", "The lagoon is a boat, not a hotel pool requirement", "One island base"]);
-    replaceHotel("philippines_palawan", "lux", ["El Nido Resorts Miniloc or Pangulasian leftover", "A Splurge island resort — one property", "Do not also buy every island hop", "Monsoon weeks are not a discount you want to win", "One base"]);
+    replaceHotel("philippines_palawan", "mid", ["A El Nido 3–4 star in town or Corong-Corong", "A Port Barton mid if you have room in the budget for that neighborhood", "One town. El Nido plus Coron nightly is a transfer day", "The lagoon is a boat, not a hotel pool requirement", "One island base"]);
+    replaceHotel("philippines_palawan", "lux", ["El Nido Resorts Miniloc or Pangulasian only if you're spending more", "A Splurge island resort — one property", "Do not also buy every island hop", "Monsoon weeks are not a discount you want to win", "One base"]);
     replaceHotel("indonesia_lombok", "budget", ["A Senggigi 2-star or a Kuta Lombok 2-star — grocery the first hour", "A hostel-plus on the south if surf is the point", "Skip a Gili villa on Budget unless that island is the trip", "The Gili boat is a transfer", "Bali is a different lodging night"]);
     replaceHotel("indonesia_lombok", "mid", ["A Senggigi 3–4 star or Kuta Lombok midrise — one coast", "A Gili Trawangan 3–4 star if that island is the point", "One island. Lombok plus Gili nightly is a boat tax", "Scooter math is real"]);
-    replaceHotel("indonesia_lombok", "lux", ["The Oberoi Beach Resort, Lombok leftover", "A Gili Splurge villa", "One property", "Do not also buy every island hop", "One coast"]);
+    replaceHotel("indonesia_lombok", "lux", ["The Oberoi Beach Resort, Lombok only if you're spending more", "A Gili Splurge villa", "One property", "Do not also buy every island hop", "One coast"]);
     replaceHotel("sri_lanka", "budget", ["A Colombo 2-star near a train or a Galle Fort guesthouse — pick one coast start", "A hostel-plus in Galle or Ella", "Skip a tea-bungalow suite on Budget", "The train is the lodging plan some days", "Confirm transfers; the island is longer than the map"]);
-    replaceHotel("sri_lanka", "mid", ["Shangri-La Colombo or a Colombo 4-star if the city is a real night", "A Galle Fort 3–4 star — one pocket", "An Ella or Nuwara Eliya 3–4 star if the hills are the point", "One coast or one hill base, then a transfer day", "The train is mid when leftover covers a reserved seat"]);
-    replaceHotel("sri_lanka", "lux", ["Amangalla leftover", "Ceylon Tea Trails Splurge", "One property per pocket", "Do not also buy every safari as a sure dawn", "Monsoon coasts flip; pick the dry side"]);
+    replaceHotel("sri_lanka", "mid", ["Shangri-La Colombo or a Colombo 4-star if the city is a real night", "A Galle Fort 3–4 star — one neighborhood", "An Ella or Nuwara Eliya 3–4 star if the hills are the point", "One coast or one hill base, then a transfer day", "The train is mid when you have room in the budget for a reserved seat"]);
+    replaceHotel("sri_lanka", "lux", ["Amangalla only if you're spending more", "Ceylon Tea Trails Splurge", "One property per area", "Do not also buy every safari as a sure dawn", "Monsoon coasts flip; pick the dry side"]);
     replaceHotel("italy_sicily", "budget", ["Ibis Styles Palermo or a Centro 2-star — walk, pack light", "A Catania 2-star if Etna is the start", "A Syracuse Ortigia 2-star — grocery nearby", "Skip a cliff suite on Budget", "One city base; the island is a transfer week"]);
-    replaceHotel("italy_sicily", "mid", ["NH Collection Palermo or a Centro 4-star", "A Taormina 3–4 star if leftover covers that pocket", "An Ortigia 3–4 star — one neighborhood", "One town at night. Palermo plus Taormina nightly is a transfer", "A car helps outside the cores"]);
-    replaceHotel("italy_sicily", "lux", ["Belmond Grand Hotel Timeo leftover", "Four Seasons San Domenico Palace Taormina Splurge", "One property", "Do not also buy every ruin as a sure interior", "August is a crowd tax"]);
+    replaceHotel("italy_sicily", "mid", ["NH Collection Palermo or a Centro 4-star", "A Taormina 3–4 star if you have room in the budget for that neighborhood", "An Ortigia 3–4 star — one neighborhood", "One town at night. Palermo plus Taormina nightly is a transfer", "A car helps outside the cores"]);
+    replaceHotel("italy_sicily", "lux", ["Belmond Grand Hotel Timeo only if you're spending more", "Four Seasons San Domenico Palace Taormina Splurge", "One property", "Do not also buy every ruin as a sure interior", "August is a crowd tax"]);
     replaceHotel("puerto_rico_rincon", "budget", ["A Rincón 2-star or guesthouse — walk or a short hop to the beach you booked", "A studio condo with a kitchen — grocery the first hour", "Skip a cliff villa on Budget", "San Juan is a different lodging night", "A car is assumed once you leave town"]);
-    replaceHotel("puerto_rico_rincon", "mid", ["A Rincón 3–4 star walk-to-beach", "A condo-plus in the same pocket if you will cook dinners", "One town. Do not hop Rincón and San Juan nightly", "Surf is a morning, not a hotel requirement", "Parking is a line"]);
-    replaceHotel("puerto_rico_rincon", "lux", ["A Rincón Splurge inn leftover", "Dorado Beach is the north coast — a different drive", "One property", "Do not also buy every sunset-sail", "Hurricane weeks are not a discount you want to win"]);
+    replaceHotel("puerto_rico_rincon", "mid", ["A Rincón 3–4 star walk-to-beach", "A condo-plus in the same area if you will cook dinners", "One town. Do not hop Rincón and San Juan nightly", "Surf is a morning, not a hotel requirement", "Parking is a line"]);
+    replaceHotel("puerto_rico_rincon", "lux", ["A Rincón Splurge inn extra", "Dorado Beach is the north coast — a different drive", "One property", "Do not also buy every sunset-sail", "Hurricane weeks are not a discount you want to win"]);
     replaceHotel("dominican_republic_samana", "budget", ["A Las Terrenas 2-star or guesthouse — walk to a grocery", "A Samaná town 2-star if the ferry is the point", "Skip a villa on Budget", "Punta Cana is a different lodging night and a different airport", "Confirm the transfer"]);
-    replaceHotel("dominican_republic_samana", "mid", ["A Las Terrenas 3–4 star — one beach", "Adults-only mid if there are no kids", "One pocket. Las Galeras is a different drive", "Whale season is a boat day", "Transfer in the rate"]);
-    replaceHotel("dominican_republic_samana", "lux", ["A Samaná Splurge villa leftover", "One property", "Do not also buy every whale trip as a sure dawn", "Cap Cana is a different island pocket", "One beach"]);
+    replaceHotel("dominican_republic_samana", "mid", ["A Las Terrenas 3–4 star — one beach", "Adults-only mid if there are no kids", "One area. Las Galeras is a different drive", "Whale season is a boat day", "Transfer in the rate"]);
+    replaceHotel("dominican_republic_samana", "lux", ["A Samaná Splurge villa treat", "One property", "Do not also buy every whale trip as a sure dawn", "Cap Cana is a different island area", "One beach"]);
     replaceHotel("ecuador_galapagos", "budget", ["A Puerto Ayora 2-star — walk to the pier, grocery the first hour", "A hostel-plus on Santa Cruz", "Skip a yacht suite on Budget; land-based is the Budget product", "Quito is a different lodging night and altitude", "Park fees are a line"]);
     replaceHotel("ecuador_galapagos", "mid", ["A Puerto Ayora 3–4 star — one island base", "A land-based mid with day boats", "One island. Do not hop every island nightly without a cruise product", "The boat day is the product", "Transfer in the rate"]);
-    replaceHotel("ecuador_galapagos", "lux", ["A small-ship cabin leftover — that is the Splurge product", "Finch Bay or a Splurge land lodge", "One ship or one lodge", "Do not also buy every extra island as a sure day", "The park rules are the itinerary"]);
+    replaceHotel("ecuador_galapagos", "lux", ["A small-ship cabin only if you're spending more — that is the Splurge product", "Finch Bay or a Splurge land lodge", "One ship or one lodge", "Do not also buy every extra island as a sure day", "The park rules are the itinerary"]);
     replaceFallbackHotel("domestic", "budget", ["Hampton Inn or Tru by Hilton downtown — limited-service, not the interstate cloverleaf", "Holiday Inn Express or Fairfield Inn near a transit stop — grocery in walking distance", "Courtyard by Marriott value downtown — one room, skip airport lodging except the night you fly", "Motto or Aloft when present — compact, walk to a train or bus", "A neighborhood 2-star on the good side of the tracks if the chain block is sold"]);
     replaceFallbackHotel("domestic", "mid", ["Marriott or Hilton downtown / convention — one room, not a suite", "Hyatt Place or Hyatt Regency in the walkable core — transit over a rooftop pool you will use twice", "Westin, Sheraton, or Renaissance neighborhood 4-star", "Canopy, Autograph, Tribute, or Curio when a real property fits the district", "A boutique in the restaurant neighborhood — skip the cloverleaf tower"]);
-    replaceFallbackHotel("domestic", "lux", ["JW Marriott or Grand Hyatt in one district — leftover only", "Conrad, Waldorf Astoria, or Park Hyatt when the city has one", "Ritz-Carlton, St. Regis, W, or Edition — one flagship", "Four Seasons or Fairmont where that address is honest", "Suite only if leftover covers the jump from mid — do not also buy every paid tour"]);
+    replaceFallbackHotel("domestic", "lux", ["JW Marriott or Grand Hyatt in one district — only if you're spending more", "Conrad, Waldorf Astoria, or Park Hyatt when the city has one", "Ritz-Carlton, St. Regis, W, or Edition — one flagship", "Four Seasons or Fairmont where that address is honest", "Suite only if you have room in the budget for the jump from mid — do not also buy every paid tour"]);
     replaceFallbackHotel("europe", "budget", ["Ibis, Ibis Styles, or Ibis Budget on a Metro or tram — not the airport strip", "Holiday Inn Express or Novotel when present — bakery downstairs beats hotel breakfast", "Premier Inn or Travelodge Zone 1–2 in the UK", "Generator or hostel-plus in a neighborhood with night trams", "A 2-star walk-up near a market street — pack light, stairs are common"]);
     replaceFallbackHotel("europe", "mid", ["Hilton, Marriott, or Hyatt in the walkable centro — one neighborhood", "Hotel Indigo, NH Collection, or a 4-star near a Metro and a food market", "Westin or Canopy when the city has one", "Aparthotel 4-star if you will grocery two breakfasts", "A boutique 3-star near a Metro — skip the ring-road spa"]);
-    replaceFallbackHotel("europe", "lux", ["Park Hyatt, Conrad, or Waldorf Astoria when the city has one", "Four Seasons, Fairmont, or a palace historic in the old city", "Ritz-Carlton or Luxury Collection leftover", "Design flagship with a real neighborhood, not a ring-road spa", "Suite with a view leftover-only — mid Europe already eats a US budget"]);
+    replaceFallbackHotel("europe", "lux", ["Park Hyatt, Conrad, or Waldorf Astoria when the city has one", "Four Seasons, Fairmont, or a palace historic in the old city", "Ritz-Carlton or Luxury Collection only if you're spending more", "Design flagship with a real neighborhood, not a ring-road spa", "Suite with a view only if you're spending more — mid Europe already eats a US budget"]);
     replaceFallbackHotel("hawaii", "budget", ["Hampton Inn or Holiday Inn Express on the bus grid — kitchenette if you can get one", "Outrigger value or a studio condo a block off the sand — grocery the first hour", "A 2-star a block off the beach — same sand, less resort fee", "Skip a rental car if the bus reaches the beach and the store", "Airport lodging only the night you fly"]);
-    replaceFallbackHotel("hawaii", "mid", ["Hilton, Sheraton, or Hyatt Regency walk-to-beach — one resort path, not three islands", "Marriott beach-class or Outrigger mid — request garden vs ocean on purpose", "Condo-plus in the same beach town if you will cook two dinners", "Embassy Suites or a kitchenette mid if leftover covers it", "Parking and resort fees are their own lines"]);
-    replaceFallbackHotel("hawaii", "lux", ["Grand Hyatt, Andaz, or Four Seasons in one pocket", "Ritz-Carlton, Waldorf, or Luxury Collection beach-premium", "Aulani or a Disney deluxe-class only if leftover + kids", "Adults-only or villa if leftover is real", "The car becomes mandatory once you leave town — do not also book every snorkel and helicopter"]);
+    replaceFallbackHotel("hawaii", "mid", ["Hilton, Sheraton, or Hyatt Regency walk-to-beach — one resort path, not three islands", "Marriott beach-class or Outrigger mid — request garden vs ocean on purpose", "Condo-plus in the same beach town if you will cook two dinners", "Embassy Suites or a kitchenette mid if you have room in the budget for it", "Parking and resort fees are their own lines"]);
+    replaceFallbackHotel("hawaii", "lux", ["Grand Hyatt, Andaz, or Four Seasons in one neighborhood", "Ritz-Carlton, Waldorf, or Luxury Collection beach-premium", "Aulani or a Disney deluxe-class only if you have room in the budget + kids", "Adults-only or villa if you have room in the budget", "The car becomes mandatory once you leave town — do not also book every snorkel and helicopter"]);
     replaceFallbackHotel("city", "budget", ["Hampton, Holiday Inn Express, or Ibis on transit — walk-to-bakery beats a cheap room far from everything", "Fairfield, Courtyard value, or Motto when present", "Airport hotel only the night you fly", "Kitchenette if grocery breakfasts are the plan", "A neighborhood 2-star on the good side of the tracks"]);
-    replaceFallbackHotel("city", "mid", ["Marriott, Hilton, or Hyatt Place / Hyatt Regency on transit", "Westin, Sheraton, or Hotel Indigo in the walkable core", "One room, not a suite, unless leftover is real", "Location over a rooftop you will use twice", "A boutique in the restaurant neighborhood"]);
-    replaceFallbackHotel("city", "lux", ["JW Marriott, Grand Hyatt, or Conrad in one district", "Park Hyatt, Ritz-Carlton, St. Regis, or Edition when the city has one", "Four Seasons or Fairmont leftover", "Park- or water-adjacent flagship", "Do not also buy every paid tour"]);
-    replaceFallbackHotel("asia", "budget", ["APA, Toyoko Inn, Super Hotel, or Ibis next to a Metro or JR station", "Holiday Inn Express or Fairfield when present — convenience-store breakfast", "Capsule only if you packed light", "Hostel-plus in the old city or night-market pocket", "Skip a palace-view rate on Budget"]);
-    replaceFallbackHotel("asia", "mid", ["Hilton, Marriott, or Hyatt Regency near a Metro interchange", "Westin, Hotel Indigo, or Mitsui Garden / neighborhood 4-star", "Rail passes are often a bad buy on a short city trip", "One city base — skip the three-island hop", "A riverside or night-market-adjacent boutique if leftover covers it"]);
-    replaceFallbackHotel("asia", "lux", ["Park Hyatt, Conrad, or The Ritz-Carlton in the central ward", "Four Seasons, Mandarin Oriental, or Aman leftover", "The room or the counter dinner — rarely both", "Ryokan or courtyard hotel if that is the point of the trip", "Suite leftover-only"]);
+    replaceFallbackHotel("city", "mid", ["Marriott, Hilton, or Hyatt Place / Hyatt Regency on transit", "Westin, Sheraton, or Hotel Indigo in the walkable core", "One room, not a suite, unless you have room in the budget", "Location over a rooftop you will use twice", "A boutique in the restaurant neighborhood"]);
+    replaceFallbackHotel("city", "lux", ["JW Marriott, Grand Hyatt, or Conrad in one district", "Park Hyatt, Ritz-Carlton, St. Regis, or Edition when the city has one", "Four Seasons or Fairmont only if you're spending more", "Park- or water-adjacent flagship", "Do not also buy every paid tour"]);
+    replaceFallbackHotel("asia", "budget", ["APA, Toyoko Inn, Super Hotel, or Ibis next to a Metro or JR station", "Holiday Inn Express or Fairfield when present — convenience-store breakfast", "Capsule only if you packed light", "Hostel-plus in the old city or night-market area", "Skip a palace-view rate on Budget"]);
+    replaceFallbackHotel("asia", "mid", ["Hilton, Marriott, or Hyatt Regency near a Metro interchange", "Westin, Hotel Indigo, or Mitsui Garden / neighborhood 4-star", "Rail passes are often a bad buy on a short city trip", "One city base — skip the three-island hop", "A riverside or night-market-adjacent boutique if you have room in the budget for it"]);
+    replaceFallbackHotel("asia", "lux", ["Park Hyatt, Conrad, or The Ritz-Carlton in the central ward", "Four Seasons, Mandarin Oriental, or Aman only if you're spending more", "The room or the counter dinner — rarely both", "Ryokan or courtyard hotel if that is the point of the trip", "Suite only if you're spending more"]);
     replaceFallbackHotel("oceania", "budget", ["Ibis or Ibis Budget near a station — not the airport strip", "YHA / hostel-plus or a neighborhood 3-star on a train", "Apartment with a kitchen if the stay is 5+ nights", "Long-haul is the expensive line, not the room", "Airport lodging only the night you fly"]);
     replaceFallbackHotel("oceania", "mid", ["Hilton, Marriott, or Hyatt Regency harbor or CBD", "A 4-star on a ferry or train", "One city, then a separate island or alps budget if you split", "Boutique in the walkable core", "Campervan only if that is the trip — it replaces the hotel line"]);
-    replaceFallbackHotel("oceania", "lux", ["Park Hyatt, Four Seasons, or a waterfront flagship", "Harbor or sound-view leftover", "Wilderness lodge leftover-only", "One base", "Do not stack every adventure add-on"]);
+    replaceFallbackHotel("oceania", "lux", ["Park Hyatt, Four Seasons, or a waterfront flagship", "Harbor or sound-view only if you're spending more", "Wilderness lodge only if you're spending more", "One base", "Do not stack every adventure add-on"]);
     replaceFallbackHotel("caribbean", "budget", ["Riu, Princess, or Palace class on the main beach — garden view on purpose", "Holiday Inn Resort or a value AI — confirm the airport transfer", "Town guesthouse only if you will eat out and take local buses", "Skip the ocean-view upsell", "Downtown limited-service only if you skip the AI product"]);
     replaceFallbackHotel("caribbean", "mid", ["Hyatt Ziva, Hilton, or Marriott beach-class when the island has one", "Iberostar Selection or Hard Rock — 4-star AI, one property", "Adults-only 4-star if there are no kids — Secrets / Dreams class", "Transfer in the rate, not a dock surprise", "A town boutique if this is not an AI week"]);
-    replaceFallbackHotel("caribbean", "lux", ["Hyatt Zilara, Sandals, or Excellence class — leftover only", "Waldorf, Ritz-Carlton, or Four Seasons when the island has one", "Overwater or cliff villa leftover-only", "One island, one resort", "Still no invented fare"]);
+    replaceFallbackHotel("caribbean", "lux", ["Hyatt Zilara, Sandals, or Excellence class — only if you're spending more", "Waldorf, Ritz-Carlton, or Four Seasons when the island has one", "Overwater or cliff villa only if you're spending more", "One island, one resort", "Still no invented fare"]);
     replaceFallbackHotel("mexico", "budget", ["Riu / Palace-class AI if this is a beach week — garden view on purpose", "Holiday Inn Express or Ibis in the centro if you will eat out", "Roma / Centro / Zona Hotelera value room — walk or ADO bus", "Skip the ocean-view upsell and the timeshare pitch", "Pick one product — centro guesthouse or value AI"]);
     replaceFallbackHotel("mexico", "mid", ["Hyatt Ziva, Hilton, or Marriott hotel-zone when present", "Live Aqua or a 4-star AI if all-inclusive is the point", "Design 3–4 star in Roma, Polanco, or the hotel zone", "One neighborhood — traffic is the hidden cost", "Adults-only 4-star if there are no kids"]);
-    replaceFallbackHotel("mexico", "lux", ["Four Seasons, St. Regis, or JW Marriott leftover", "Rosewood / Le Blanc class — adults-only beach premium", "One property", "The reservation is often the better splurge", "Villa only if leftover covers the jump from mid"]);
+    replaceFallbackHotel("mexico", "lux", ["Four Seasons, St. Regis, or JW Marriott only if you're spending more", "Rosewood / Le Blanc class — adults-only beach premium", "One property", "The reservation is often the better splurge", "Villa only if you have room in the budget for the jump from mid"]);
     replaceFallbackHotel("africa", "budget", ["Ibis or a city 3-star near a tram or BRT", "Medina guesthouse or township-adjacent 2-star — walk to food, use trusted drivers", "Skip the hotel dinner most nights", "Day tours beat a safari-priced room you do not need", "Airport lodging only the night you fly"]);
     replaceFallbackHotel("africa", "mid", ["Hilton, Marriott, or Westin near the waterfront or medina edge", "Restored riad or city 4-star in the walkable core", "One city, then a separate lodge line if you add safari", "Safari lodges are a different budget", "Trusted drivers beat a rental in the core"]);
-    replaceFallbackHotel("africa", "lux", ["Four Seasons, Sofitel Legend, or a palace leftover", "Cape or Nile flagship", "Lodge leftover — the game drive is the product", "One property per pocket", "Do not double-pay for every optional excursion"]);
+    replaceFallbackHotel("africa", "lux", ["Four Seasons, Sofitel Legend, or a palace only if you're spending more", "Cape or Nile flagship", "Lodge only if you're spending more — the game drive is the product", "One property per area", "Do not double-pay for every optional excursion"]);
     replaceFallbackHotel("middleeast", "budget", ["Ibis, Rove, or Holiday Inn Express near a Metro", "Deira / downtown 3-star — souk walking", "Skip the Marina address on a Budget week", "Desert tours are day-two, not day-one upsells", "Airport lodging only the night you fly"]);
-    replaceFallbackHotel("middleeast", "mid", ["Hilton, Marriott, or Hyatt Regency on the Metro or tram", "Downtown or Marina 4-star — pick one pocket", "Hotel breakfast only when it is in the rate", "Palm mid is a different transfer", "Summer is cheap and brutal"]);
-    replaceFallbackHotel("middleeast", "lux", ["Park Hyatt, Conrad, JW Marriott, or an icon hotel as a weekend, not a week", "Atlantis / Armani / Burj class leftover", "Palm or Downtown flagship — one", "Desert camp only if leftover covers a night out of the city", "Do not also buy every desert-tour upsell on day one"]);
+    replaceFallbackHotel("middleeast", "mid", ["Hilton, Marriott, or Hyatt Regency on the Metro or tram", "Downtown or Marina 4-star — pick one neighborhood", "Hotel breakfast only when it is in the rate", "Palm mid is a different transfer", "Summer is cheap and brutal"]);
+    replaceFallbackHotel("middleeast", "lux", ["Park Hyatt, Conrad, JW Marriott, or an icon hotel as a weekend, not a week", "Atlantis / Armani / Burj class only if you're spending more", "Palm or Downtown flagship — one", "Desert camp only if you have room in the budget for a night out of the city", "Do not also buy every desert-tour upsell on day one"]);
     replaceFallbackHotel("latam", "budget", ["Ibis or Holiday Inn Express in the walkable centro", "Hostel-plus or 2-star in the zona colonial", "Value AI only if this is a beach week", "Uber is cheap; tourist-taxi menus are not", "Altitude and street food are the trip in the cities"]);
     replaceFallbackHotel("latam", "mid", ["Hilton, Marriott, or Hyatt in the restaurant neighborhood", "Iberostar / Hyatt Ziva class if all-inclusive", "Design 3–4 star in the walkable distrito", "One base — intercity buses need their own night", "A 4-star AI on the beach if that is the product"]);
-    replaceFallbackHotel("latam", "lux", ["Four Seasons, Park Hyatt, or a casa-hotel leftover", "Adults-only beach premium", "Flagship in the centro or beach leftover", "The tasting menu is often the better Splurge", "One property"]);
+    replaceFallbackHotel("latam", "lux", ["Four Seasons, Park Hyatt, or a casa-hotel only if you're spending more", "Adults-only beach premium", "Flagship in the centro or beach only if you're spending more", "The tasting menu is often the better Splurge", "One property"]);
     replaceFallbackHotel("ai", "budget", ["Riu / Palace / Krystal class — on-property shuttle or a short hotel-zone walk", "Holiday Inn Resort or a 3-star AI on the main beach strip — garden view on purpose", "Confirm the airport transfer is in the rate", "Downtown limited-service only if you will eat out and skip the AI product", "Skip the swim-up-suite upsell"]);
     replaceFallbackHotel("ai", "mid", ["Hyatt Ziva / Hilton / Marriott all-inclusive when the strip has one", "Iberostar Selection / Hard Rock class — beach, kids club if you need it", "Moon Palace or Live Aqua class — all-inclusive mid", "Adults-only 4-star if there are no kids — Secrets / Dreams class", "One property, not a two-resort hop"]);
-    replaceFallbackHotel("ai", "lux", ["Hyatt Zilara / Excellence / Secrets stretch class — beach premium", "Sandals or a villa AI leftover only", "Overwater or swim-up suite only if leftover covers the jump", "One flagship, not a two-resort hop", "Still no invented nightly rate"]);
+    replaceFallbackHotel("ai", "lux", ["Hyatt Zilara / Excellence / Secrets stretch class — beach premium", "Sandals or a villa AI only if you're spending more", "Overwater or swim-up suite only if you have room in the budget for the jump", "One flagship, not a two-resort hop", "Still no invented nightly rate"]);
   }
 
   thickenHotels();
