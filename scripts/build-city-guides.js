@@ -1,11 +1,11 @@
-/* Generate one static HTML money guide per city. Content is pre-rendered so
+/* Generate one static HTML brief per city. Content is pre-rendered so
    print / PDF / no-JS still show the full page — city-guide.js only wires print. */
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260913money3";
+const CACHE = "v20260913mg";
 const ctx = { window: {}, console };
 ctx.window = ctx;
 ctx.global = ctx;
@@ -33,12 +33,12 @@ function faqFor(g) {
     {
       "@type": "Question",
       name: "When should I go to " + g.label + " to save money?",
-      acceptedAnswer: { "@type": "Answer", text: g.whenGo }
+      acceptedAnswer: { "@type": "Answer", text: g.months }
     },
     {
       "@type": "Question",
       name: "Where should I base myself in " + g.label + "?",
-      acceptedAnswer: { "@type": "Answer", text: (g.base && (g.base.lede || (g.base.bullets && g.base.bullets[0]) || g.base.lean)) || g.budgetNote }
+      acceptedAnswer: { "@type": "Answer", text: g.stayRule || g.blurb }
     },
     {
       "@type": "Question",
@@ -50,8 +50,8 @@ function faqFor(g) {
 
 function page(g) {
   const url = "https://vacationmath.co/guides/" + g.id;
-  const title = g.label + " Money Guide 2026 | Vacation Math";
-  const desc = g.hook + " Stay, eat, get around, and top money-saving tips. Estimates for planning — not live hotel quotes.";
+  const title = g.label + " Money Guide 2026 | Printable | Vacation Math";
+  const desc = g.hook + " Stay, eat, get around, hidden costs, and top money-saving tips. Not live rates.";
   const body = ctx.VM_CITY_GUIDE.render(g);
 
   return `<!doctype html>
@@ -91,12 +91,12 @@ function page(g) {
 <script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: g.label + " Money Guide 2026",
+    headline: g.label + " money guide",
     description: desc,
     author: { "@type": "Person", name: "Chris Bacon", url: "https://vacationmath.co/how-it-works" },
     publisher: { "@type": "Organization", name: "Vacation Math", url: "https://vacationmath.co" },
     datePublished: "2026-09-12",
-    dateModified: "2026-09-12",
+    dateModified: "2026-09-13",
     mainEntityOfPage: url
   })}</script>
 <script type="application/ld+json">${JSON.stringify({
@@ -150,11 +150,9 @@ function injectIndex(filePath) {
   const cards = ctx.VM_CITY_GUIDE.renderIndex(GUIDES);
   const startMark = "<!-- MONEY_GUIDES_START -->";
   const endMark = "<!-- MONEY_GUIDES_END -->";
-  const oldStart = "<!-- CITY_BRIEFS_START -->";
-  const oldEnd = "<!-- CITY_BRIEFS_END -->";
   let next = src
-    .replace(oldStart, startMark)
-    .replace(oldEnd, endMark)
+    .replace(/<!-- CITY_BRIEFS_START -->/g, startMark)
+    .replace(/<!-- CITY_BRIEFS_END -->/g, endMark)
     .replace(/id="city-briefs-grid"/g, "id=\"money-guides-grid\"");
   if (next.indexOf(startMark) >= 0 && next.indexOf(endMark) >= 0) {
     next = next.replace(
@@ -167,7 +165,7 @@ function injectIndex(filePath) {
       "<div class=\"cg-index-grid\" id=\"money-guides-grid\">\n        " + startMark + "\n        " + cards + "\n        " + endMark + "\n      </div>"
     );
   }
-  if (next === src) {
+  if (next === src || next.indexOf(startMark) < 0) {
     console.warn("did not find money-guides-grid in", path.relative(root, filePath));
     return;
   }

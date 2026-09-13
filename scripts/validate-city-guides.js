@@ -1,4 +1,4 @@
-/* Validate money guides: 20 dests, editorial fields, static HTML, 5–8 tips. */
+/* Validate money guides: 20 dests, locked outline, static HTML, 5–8 tips. */
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
@@ -26,13 +26,16 @@ const REQUIRED = [
   "cruise", "key_west"
 ];
 
+const TRANSIT = ["nyc", "paris", "london", "tokyo", "chicago", "san_francisco", "philadelphia", "rome"];
+const CAR_FORK = ["los_angeles", "miami", "maui", "key_west"];
+const BANNED = /\b(basin|leftover|pocket|orientation)\b/i;
+
 const P = ctx.VM_PLAN_DATA;
 const G = ctx.VM_CITY_GUIDES;
 const errors = [];
 
 if (G.ALL.length !== 20) errors.push("expected 20 guides, got " + G.ALL.length);
 
-const stayTitles = {};
 const hooks = {};
 
 REQUIRED.forEach(function (id) {
@@ -41,33 +44,32 @@ REQUIRED.forEach(function (id) {
     errors.push(id + ": missing guide copy");
     return;
   }
-  ["hook", "blurb", "whenGo", "whenSkip", "whenNote", "around", "budgetNote", "works"].forEach(function (k) {
-    if (!g[k] || String(g[k]).length < 20) errors.push(id + ": weak " + k);
-  });
-  ["stayLead", "eatLead", "doLead", "stayTitle", "eatTitle", "doTitle"].forEach(function (k) {
+  ["hook", "blurb", "midrange", "months", "stayRule", "eatRule", "aroundRule"].forEach(function (k) {
     if (!g[k] || String(g[k]).length < 12) errors.push(id + ": weak " + k);
   });
-  if (!g.base || !g.base.lede || String(g.base.lede).length < 20) errors.push(id + ": weak base.lede");
-  const bullets = (g.base && g.base.bullets) || [];
-  if (bullets.length !== 2) errors.push(id + ": base.bullets " + bullets.length + " (need 2)");
-  if (!g.skip || g.skip.length < 1 || g.skip.length > 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 1–3)");
+  if (!g.nights || String(g.nights).length < 6) errors.push(id + ": weak nights");
+  if (!/^(yes|no|maybe)$/i.test(String(g.car || ""))) errors.push(id + ": car must be yes/no/maybe");
+  const who = (g.forWho || []).concat(g.notFor || []);
+  if (who.length < 2 || who.length > 4) errors.push(id + ": who/not-for " + who.length + " (need 2–4)");
+  if (!g.aroundKind) errors.push(id + ": missing aroundKind");
+  if (!g.aroundNoCar || g.aroundNoCar.length < 2) errors.push(id + ": need aroundNoCar bullets");
+  if ((g.aroundKind === "fork" || g.aroundKind === "car") && (!g.aroundCar || g.aroundCar.length < 2)) {
+    errors.push(id + ": fork dest needs aroundCar bullets");
+  }
+  if (!g.skip || g.skip.length !== 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 3)");
   const tips = g.tips || [];
   if (tips.length < 5 || tips.length > 8) errors.push(id + ": tips " + tips.length + " (need 5–8)");
-  if ((g.aroundBullets || []).length < 2) errors.push(id + ": need around bullets");
-
-  const st = g.stayTitle;
-  if (stayTitles[st]) errors.push(id + ": stayTitle repeats " + stayTitles[st]);
-  stayTitles[st] = id;
+  if (!g.book || g.book.length < 3) errors.push(id + ": need book-before checklist");
+  if (!g.hidden || g.hidden.length < 3) errors.push(id + ": need hidden costs");
+  if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
+  (g.days || []).forEach(function (d, i) {
+    if (!d.title || !d.bullets || d.bullets.length < 2) errors.push(id + ": weak day " + (i + 1));
+  });
   if (hooks[g.hook]) errors.push(id + ": hook repeats " + hooks[g.hook]);
   hooks[g.hook] = id;
 
-  if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
-  (g.days || []).forEach(function (d, i) {
-    if (!d.title || !d.body || d.body.length < 40) errors.push(id + ": weak day " + (i + 1));
-  });
-  ["stayProse", "eatProse", "doProse"].forEach(function (k) {
-    if (!g[k] || g[k].length < 1) errors.push(id + ": missing " + k);
-  });
+  const blob = JSON.stringify(g);
+  if (BANNED.test(blob)) errors.push(id + ": banned jargon in data (basin/leftover/pocket/orientation)");
 
   const html = path.join(root, "guides", id + ".html");
   if (!fs.existsSync(html)) errors.push(id + ": missing guides/" + id + ".html");
@@ -77,41 +79,42 @@ REQUIRED.forEach(function (id) {
     if (src.indexOf("FILE_PLACEHOLDER") >= 0) errors.push(id + ": FILE_PLACEHOLDER");
     if (src.indexOf("★") >= 0 || src.indexOf("⭐") >= 0) errors.push(id + ": star scores");
     if (src.indexOf("Loading the printable brief") >= 0) errors.push(id + ": still a JS shell");
-    if (src.indexOf("Printable City Brief") >= 0) errors.push(id + ": title still says Printable City Brief");
-    if (src.indexOf(g.label + " Money Guide 2026") < 0) errors.push(id + ": title should say Money Guide 2026");
-    if (/city brief/i.test(src) && src.indexOf("Tuesday brief") < 0) {
-      /* allow Tuesday brief newsletter name */
-    }
-    if (/\bcity brief\b/i.test(src.replace(/Tuesday brief/g, ""))) errors.push(id + ": city brief still in HTML");
     if (src.indexOf("data-cg-static") < 0 && src.indexOf("cg-hero") < 0) errors.push(id + ": missing static hero");
     if (src.indexOf("Top money-saving tips") < 0) errors.push(id + ": tips missing from HTML");
     if (src.indexOf("/plan?dest=" + id) < 0) errors.push(id + ": missing /plan?dest=");
-    if (src.indexOf("Download / Print money guide") < 0) errors.push(id + ": missing print money guide CTA");
-    if (src.indexOf("Estimates for planning — not live hotel quotes") < 0) {
-      errors.push(id + ": missing planning disclaimer");
+    if (src.indexOf("Download / Print money guide") < 0) errors.push(id + ": print bar should say money guide");
+    if (src.indexOf("Money guide") < 0) errors.push(id + ": missing Money guide kicker");
+    if (src.indexOf("Quick facts") < 0) errors.push(id + ": missing Quick facts");
+    if (src.indexOf("Who this is for") < 0) errors.push(id + ": missing Who this is for");
+    if (src.indexOf("Getting around") < 0) errors.push(id + ": missing Getting around");
+    if (src.indexOf("Where to stay") < 0) errors.push(id + ": missing Where to stay");
+    if (src.indexOf("Where to eat") < 0) errors.push(id + ": missing Where to eat");
+    if (src.indexOf("Things to do") < 0) errors.push(id + ": missing Things to do");
+    if (src.indexOf("3-day skeleton") < 0) errors.push(id + ": missing 3-day skeleton");
+    if (src.indexOf("Book before you go") < 0) errors.push(id + ": missing Book before you go");
+    if (src.indexOf("Hidden costs") < 0) errors.push(id + ": missing Hidden costs");
+    if (src.indexOf("Skip this") < 0) errors.push(id + ": missing Skip this");
+    if (src.indexOf("Checked Sep 2026") < 0) errors.push(id + ": missing Updated line");
+    if (src.indexOf("Budget") < 0 || src.indexOf("Mid-range") < 0 || src.indexOf("Splurge") < 0) {
+      errors.push(id + ": missing Budget / Mid-range / Splurge labels");
     }
     const tipPos = src.lastIndexOf("money-saving-tips");
     const stayPos = src.indexOf("id=\"stay\"");
     if (tipPos < 0 || stayPos < 0 || tipPos < stayPos) errors.push(id + ": tips should follow stay/eat/do");
     const body = src.split("<article id=\"city-guide-root\">")[1] || src;
     const article = body.split("</article>")[0] || body;
-    const orientCount = (article.match(/Estimates for planning — not live hotel quotes/g) || []).length;
-    if (orientCount > 2) errors.push(id + ": disclaimer repeated " + orientCount + " times in article");
-    const leftoverBare = (article.match(/\bleftover\b/gi) || []).length;
-    const leftoverFood = (article.match(/Terminal leftovers/gi) || []).length;
-    if (leftoverBare - leftoverFood > 0) errors.push(id + ": leftover jargon still in HTML (" + leftoverBare + ")");
-    if (id === "los_angeles" && /basin/i.test(article)) errors.push("los_angeles: basin still in HTML");
-    if (src.indexOf("cg-days") < 0) errors.push(id + ": 3-day skeleton missing from HTML");
-    if (src.indexOf("cg-base") < 0) errors.push(id + ": base callout missing from HTML");
-    if (src.indexOf("cg-skip") < 0) errors.push(id + ": skip section missing from HTML");
-    if (/\bLean\b/.test(src) || /\bStretch\b/.test(src) || /Solid stay|Solid list|Lean \/ Solid/.test(src)) {
-      errors.push(id + ": leftover Lean/Solid/Stretch in HTML");
+    if (BANNED.test(article)) errors.push(id + ": banned jargon in HTML (basin/leftover/pocket/orientation)");
+    if (/\bLean\b/.test(src) || /\bStretch\b/.test(src)) errors.push(id + ": leftover Lean/Stretch in HTML");
+    if (TRANSIT.indexOf(id) >= 0) {
+      if (article.indexOf("You usually don’t need a car") < 0 && article.indexOf("You usually don't need a car") < 0) {
+        errors.push(id + ": transit city should say you usually don’t need a car");
+      }
+      if (/Need a car\?<\/dt><dd>Yes</.test(article)) errors.push(id + ": transit city should not push a car");
     }
-    if (src.indexOf("Same Lean") >= 0 || src.indexOf("Same Budget / Mid-range / Splurge hotel names") >= 0) {
-      errors.push(id + ": robotic hotel cross-link");
-    }
-    if ((src.match(/cg-band-label/g) || []).length >= 6) {
-      errors.push(id + ": still dumping triad band stacks");
+    if (CAR_FORK.indexOf(id) >= 0) {
+      if (article.indexOf("No rental") < 0 || article.indexOf("With a rental") < 0) {
+        errors.push(id + ": car-heavy dest needs rental fork");
+      }
     }
   }
 
@@ -132,15 +135,16 @@ REQUIRED.forEach(function (id) {
   });
 });
 
-const rendered = ctx.VM_CITY_GUIDE.render(G.BY_ID.disney);
+const rendered = ctx.VM_CITY_GUIDE.render(G.BY_ID.los_angeles);
 if (rendered.indexOf("Loading") >= 0) errors.push("renderer still emits loading shell");
-if (rendered.indexOf("Where to stay") >= 0 && G.BY_ID.disney.stayTitle !== "Where to stay") {
-  /* disney should use a custom stay title */
+if (rendered.indexOf("Where to stay") < 0) errors.push("LA render missing Where to stay");
+if (rendered.indexOf("Hyatt Regency") < 0 && rendered.indexOf("Ace Hotel") < 0) {
+  errors.push("LA stay section missing named hotels");
 }
-if (rendered.indexOf(G.BY_ID.disney.stayTitle) < 0) errors.push("disney render missing stayTitle");
+if (BANNED.test(rendered)) errors.push("LA render still has banned jargon");
 
 if (errors.length) {
   console.error("FAIL\n" + errors.join("\n"));
   process.exit(1);
 }
-console.log("ok 20 money guides — editorial fields, static HTML, 5–8 tips, Budget/Mid-range/Splurge labels");
+console.log("ok 20 money guides — locked outline, static HTML, 5–8 tips, Budget/Mid-range/Splurge");

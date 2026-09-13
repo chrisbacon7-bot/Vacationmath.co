@@ -7,7 +7,7 @@
 (function (global) {
   "use strict";
 
-  var DISCLAIMER = "Estimates for planning — not live hotel quotes";
+  var POINTS_BRAND_RE = /\b(marriott|hilton|hyatt|ihg|sheraton|westin|ritz-carlton|st\.?\s*regis|kimpton|aloft|moxy|hampton|embassy|holiday inn|intercontinental|waldorf|fairmont|conrad|andaz|park hyatt|grand hyatt|jw marriott|courtyard|autograph|springhill|fairfield|residence inn|homewood|motto|canopy|renaissance|delta hotels|ac hotel|element |bonvoy|world of hyatt|hilton honors|ibis|novotel|premier inn)\b/i;
 
   function esc(s) {
     return String(s == null ? "" : s)
@@ -17,10 +17,21 @@
       .replace(/"/g, "&quot;");
   }
 
-  function paras(list) {
-    return (list || []).map(function (p) {
-      return "<p class=\"cg-prose\">" + esc(p) + "</p>";
-    }).join("");
+  function plainVoice(s) {
+    var t = String(s == null ? "" : s);
+    t = t.replace(/\bleftover-only\b/gi, "Splurge only");
+    t = t.replace(/\bleftover only\b/gi, "Splurge only");
+    t = t.replace(/\bif leftover is real\b/gi, "if you already priced it");
+    t = t.replace(/\bif leftover covers it\b/gi, "if you already priced it");
+    t = t.replace(/\bif leftover covers\b/gi, "if you already priced");
+    t = t.replace(/\bif leftover\b/gi, "if the budget still has room");
+    t = t.replace(/\bas leftover\b/gi, "as Splurge");
+    t = t.replace(/,\s*leftover\b/gi, "");
+    t = t.replace(/\bleftover\b(?!s)/gi, "Splurge");
+    t = t.replace(/\bpocket\b/gi, "neighborhood");
+    t = t.replace(/\bbasin\b/gi, "city");
+    t = t.replace(/\s{2,}/g, " ").replace(/\s+([,.;])/g, "$1").trim();
+    return t;
   }
 
   function guideId() {
@@ -54,7 +65,7 @@
   }
 
   function splitNameWhy(item) {
-    var s = String(item || "").trim();
+    var s = plainVoice(String(item || "").trim());
     if (!s) return { name: "", why: "" };
     var dash = s.indexOf(" — ");
     if (dash < 0) dash = s.indexOf(" – ");
@@ -68,14 +79,54 @@
     return { name: s, why: "" };
   }
 
-  function nameWhyList(items, limit) {
-    var list = (items || []).slice(0, limit || 3);
+  function looksLikePick(item) {
+    var nw = splitNameWhy(item);
+    var n = nw.name;
+    if (!n) return false;
+    if (/^(Do not|Stay in|Skip |This lodging|One property|One base|One flagship|One neighborhood|The trip is|Independence timed|Check |April and|A second )/i.test(n)) return false;
+    if (/is mid;|is Splurge;|Budget stays /i.test(item)) return false;
+    return true;
+  }
+
+  function isPointsBrand(name) {
+    return POINTS_BRAND_RE.test(name || "");
+  }
+
+  function pickStayItems(items, limit) {
+    var list = (items || []).filter(looksLikePick);
+    var brands = [];
+    var local = [];
+    list.forEach(function (item) {
+      if (isPointsBrand(splitNameWhy(item).name)) brands.push(item);
+      else local.push(item);
+    });
+    var max = limit || 4;
+    var out = brands.slice(0, local.length ? max - 1 : max);
+    if (local.length) out.push(local[0]);
+    return out.slice(0, max);
+  }
+
+  function nameWhyList(items, limit, opts) {
+    opts = opts || {};
+    var list = opts.points
+      ? pickStayItems(items, limit || 4)
+      : (items || []).filter(looksLikePick).slice(0, limit || 4);
     if (!list.length) return "";
     return "<ul class=\"cg-namewhy\">" + list.map(function (item) {
       var nw = splitNameWhy(item);
-      if (!nw.why) return "<li>" + esc(nw.name) + "</li>";
-      return "<li><strong>" + esc(nw.name) + "</strong> <span>" + esc(nw.why) + "</span></li>";
+      var points = opts.points && isPointsBrand(nw.name)
+        ? " <em class=\"cg-points\">points-friendly</em>"
+        : "";
+      if (!nw.why) return "<li><strong>" + esc(nw.name) + "</strong>" + points + "</li>";
+      return "<li><strong>" + esc(nw.name) + "</strong>" + points + " <span>" + esc(nw.why) + "</span></li>";
     }).join("") + "</ul>";
+  }
+
+  function bulletList(items, cls) {
+    var list = (items || []).map(function (b) {
+      return "<li>" + esc(plainVoice(b)) + "</li>";
+    }).join("");
+    return list ? "<ul class=\"" + (cls || "cg-plain") + "\">" + list + "</ul>" : "";
   }
 
   function splitActs(items) {
@@ -90,137 +141,183 @@
   }
 
   function linkify(text) {
-    var safe = esc(text);
+    var safe = esc(plainVoice(text));
     return safe
       .replace(/drink-package break-even/gi, "<a href=\"/blog/cruise-drink-package-break-even-2026\">drink-package break-even</a>")
       .replace(/hard-budget plan/gi, "<a href=\"/plan\">hard-budget plan</a>");
   }
 
-  function shortNames(items, limit) {
-    return (items || []).slice(0, limit || 2).map(function (item) {
-      return splitNameWhy(item).name;
-    }).filter(Boolean);
+  function tierBlock(label, html) {
+    if (!html) return "";
+    return ""
+      + "<div class=\"cg-tier\">"
+      +   "<p class=\"cg-tier-label\">" + esc(label) + "</p>"
+      +   html
+      + "</div>";
   }
 
   function staySection(guide, planHref) {
     var id = guide.id;
-    var mid = hotelBand(id, "mid");
     var budget = hotelBand(id, "budget");
+    var mid = hotelBand(id, "mid");
     var lux = hotelBand(id, "lux");
-    var less = shortNames(budget.picks, 2);
-    var more = shortNames(lux.picks, 2);
-    var spend = "";
-    if (less.length || more.length) {
-      spend = "<div class=\"cg-spend\">";
-      if (less.length) {
-        spend += "<p><strong>Need to spend less?</strong> Look at " + esc(less.join(" or ")) + ".</p>";
-      }
-      if (more.length) {
-        spend += "<p><strong>If you have room in the budget?</strong> " + esc(more.join(" or ")) + ". Still one base — do not hotel-hop.</p>";
-      }
-      spend += "</div>";
-    }
-
     return ""
       + "<section class=\"cg-section\" id=\"stay\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.stayTitle || "Where to stay") + "</h2>"
-      +   (guide.stayLead ? "<p class=\"cg-lede\">" + esc(guide.stayLead) + "</p>" : "")
-      +   paras(guide.stayProse)
-      +   (mid.picks && mid.picks.length
-        ? "<p class=\"cg-subhead\">A few places to search</p>" + nameWhyList(mid.picks, 4)
-        : "")
-      +   spend
-      +   "<p class=\"cg-align\">Search these on <a href=\"" + planHref + "\">Trip Plan</a> — same example properties, not live inventory and not a ranking.</p>"
+      +   "<h2 class=\"cg-h2\">Where to stay</h2>"
+      +   "<p class=\"cg-rule\">" + esc(plainVoice(guide.stayRule)) + "</p>"
+      +   tierBlock("Budget", nameWhyList(budget.picks, 4, { points: true }))
+      +   tierBlock("Mid-range", nameWhyList(mid.picks, 4, { points: true }))
+      +   tierBlock("Splurge", nameWhyList(lux.picks, 4, { points: true }))
+      +   "<p class=\"cg-align\">Same names on <a href=\"" + planHref + "\">Trip Plan</a> — examples, not live inventory and not a ranking.</p>"
       + "</section>";
   }
 
   function eatSection(guide) {
     var food = foodSrc(guide.id);
-    var body = paras(guide.eatProse);
+    var body = "";
     if (food) {
-      var picks = (food.mid && food.mid.length) ? food.mid : food.budget;
-      if (picks && picks.length) {
-        body += "<p class=\"cg-subhead\">What we would eat</p>" + nameWhyList(picks, 4);
-      }
-      var lux = shortNames(food.lux, 2);
-      if (lux.length) {
-        body += "<p class=\"cg-note\">If you want to spend more, one reservation — " + esc(lux.join(" or ")) + " — is enough. Do not make every meal the treat.</p>";
-      }
-      if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
+      body += tierBlock("Budget", nameWhyList(food.budget, 4));
+      body += tierBlock("Mid-range", nameWhyList(food.mid, 4));
+      body += tierBlock("Splurge", nameWhyList(food.lux, 4));
     }
     return ""
       + "<section class=\"cg-section\" id=\"eat\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.eatTitle || "Where to eat") + "</h2>"
-      +   (guide.eatLead ? "<p class=\"cg-lede\">" + esc(guide.eatLead) + "</p>" : "")
+      +   "<h2 class=\"cg-h2\">Where to eat</h2>"
+      +   "<p class=\"cg-rule\">" + esc(plainVoice(guide.eatRule)) + "</p>"
       +   body
       + "</section>";
   }
 
   function doSection(guide) {
     var acts = actSrc(guide.id);
-    var body = paras(guide.doProse);
+    var body = "";
     if (acts) {
       var budget = splitActs(acts.budget || []);
       var mid = splitActs(acts.mid || []);
       var free = budget.free.length ? budget.free : mid.free;
       var paid = mid.ticketed.length ? mid.ticketed : (acts.mid || []);
       if (free.length) {
-        body += "<p class=\"cg-subhead\">Free on purpose</p>" + nameWhyList(free, 4);
+        body += "<div class=\"cg-do-col\"><p class=\"cg-subhead\">Free / cheap</p>" + nameWhyList(free, 4) + "</div>";
       }
       if (paid.length) {
-        body += "<p class=\"cg-subhead\">Worth a ticket if you have room in the budget</p>" + nameWhyList(paid, 3);
+        body += "<div class=\"cg-do-col\"><p class=\"cg-subhead\">Paid — pick one</p>" + nameWhyList(paid, 3) + "</div>";
       }
     }
     return ""
       + "<section class=\"cg-section\" id=\"do\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.doTitle || "What to do") + "</h2>"
-      +   (guide.doLead ? "<p class=\"cg-lede\">" + esc(guide.doLead) + "</p>" : "")
-      +   body
+      +   "<h2 class=\"cg-h2\">Things to do</h2>"
+      +   (guide.doRule ? "<p class=\"cg-rule\">" + esc(plainVoice(guide.doRule)) + "</p>" : "")
+      +   "<div class=\"cg-do-split\">" + body + "</div>"
       + "</section>";
   }
 
-  function baseSection(guide) {
-    var base = guide.base;
-    if (!base) return "";
-    var bullets = base.bullets;
-    if (!bullets || !bullets.length) {
-      bullets = [];
-      if (base.lean) bullets.push(base.lean);
-      if (base.stretch) bullets.push(base.stretch);
-    }
-    bullets = bullets.slice(0, 2);
-    if (!base.lede && !bullets.length) return "";
+  function factsBox(guide) {
+    var car = String(guide.car || "maybe").toLowerCase();
+    var carLabel = car === "yes" ? "Yes" : car === "no" ? "No" : "Maybe";
     return ""
-      + "<aside class=\"cg-base\" id=\"base\">"
-      +   "<p class=\"cg-base-kicker\">Base yourself here</p>"
-      +   (base.lede ? "<p class=\"cg-base-lede\">" + esc(base.lede) + "</p>" : "")
-      +   (bullets.length ? "<ul class=\"cg-plain\">" + bullets.map(function (b) {
-        return "<li>" + esc(b) + "</li>";
-      }).join("") + "</ul>" : "")
+      + "<aside class=\"cg-facts\" id=\"facts\">"
+      +   "<p class=\"cg-facts-kicker\">Quick facts</p>"
+      +   "<dl class=\"cg-facts-grid\">"
+      +     "<div><dt>Nights that fit</dt><dd>" + esc(guide.nights) + "</dd></div>"
+      +     "<div><dt>Mid-range posture</dt><dd>" + esc(plainVoice(guide.midrange)) + "</dd></div>"
+      +     "<div><dt>Best months</dt><dd>" + esc(guide.months) + "</dd></div>"
+      +     "<div><dt>Need a car?</dt><dd>" + esc(carLabel) + "</dd></div>"
+      +   "</dl>"
       + "</aside>";
+  }
+
+  function whoSection(guide) {
+    var forWho = (guide.forWho || []).map(function (b) {
+      return "<li>" + esc(plainVoice(b)) + "</li>";
+    }).join("");
+    var notFor = (guide.notFor || []).map(function (b) {
+      return "<li>" + esc(plainVoice(b)) + "</li>";
+    }).join("");
+    return ""
+      + "<section class=\"cg-section\" id=\"who\">"
+      +   "<h2 class=\"cg-h2\">Who this is for</h2>"
+      +   "<div class=\"cg-who\">"
+      +     "<div><p class=\"cg-subhead\">For</p><ul class=\"cg-plain\">" + forWho + "</ul></div>"
+      +     "<div><p class=\"cg-subhead\">Not for</p><ul class=\"cg-plain\">" + notFor + "</ul></div>"
+      +   "</div>"
+      + "</section>";
+  }
+
+  function aroundSection(guide) {
+    var kind = guide.aroundKind || "fork";
+    var transitLead = kind === "transit"
+      ? "<p class=\"cg-around-callout\">You usually don’t need a car.</p>"
+      : "";
+    var noCar = "";
+    var withCar = "";
+    if (kind === "transit") {
+      noCar = "<div class=\"cg-fork-col\"><p class=\"cg-subhead\">Transit-first</p>" + bulletList(guide.aroundNoCar) + "</div>";
+    } else if (kind === "ship") {
+      noCar = "<div class=\"cg-fork-col\"><p class=\"cg-subhead\">No rental</p>" + bulletList(guide.aroundNoCar) + "</div>";
+    } else {
+      noCar = "<div class=\"cg-fork-col\"><p class=\"cg-subhead\">No rental</p>" + bulletList(guide.aroundNoCar) + "</div>";
+      withCar = "<div class=\"cg-fork-col\"><p class=\"cg-subhead\">With a rental</p>" + bulletList(guide.aroundCar) + "</div>";
+    }
+    return ""
+      + "<section class=\"cg-section\" id=\"around\">"
+      +   "<h2 class=\"cg-h2\">Getting around</h2>"
+      +   "<p class=\"cg-rule\">" + esc(plainVoice(guide.aroundRule)) + "</p>"
+      +   transitLead
+      +   "<div class=\"cg-fork\">" + noCar + withCar + "</div>"
+      + "</section>";
+  }
+
+  function daysSection(guide) {
+    var days = (guide.days || []).map(function (d, i) {
+      var bullets = (d.bullets || []).map(function (b) {
+        return "<li>" + esc(plainVoice(b)) + "</li>";
+      }).join("");
+      return ""
+        + "<article class=\"cg-day\">"
+        +   "<p class=\"cg-day-kicker\">Day " + (d.n || (i + 1)) + "</p>"
+        +   "<h3>" + esc(plainVoice(d.title)) + "</h3>"
+        +   "<ul class=\"cg-plain\">" + bullets + "</ul>"
+        + "</article>";
+    }).join("");
+    return ""
+      + "<section class=\"cg-section\" id=\"days\">"
+      +   "<h2 class=\"cg-h2\">3-day skeleton</h2>"
+      +   "<div class=\"cg-days\">" + days + "</div>"
+      + "</section>";
+  }
+
+  function bookSection(guide) {
+    return ""
+      + "<section class=\"cg-section\" id=\"book\">"
+      +   "<h2 class=\"cg-h2\">Book before you go</h2>"
+      +   bulletList(guide.book, "cg-check")
+      + "</section>";
+  }
+
+  function hiddenSection(guide) {
+    return ""
+      + "<section class=\"cg-section\" id=\"hidden\">"
+      +   "<h2 class=\"cg-h2\">Hidden costs</h2>"
+      +   bulletList(guide.hidden)
+      + "</section>";
+  }
+
+  function skipSection(guide) {
+    var skip = (guide.skip || []).map(function (s) {
+      if (typeof s === "string") return "<li>" + esc(plainVoice(s)) + "</li>";
+      return "<li><strong>" + esc(plainVoice(s.name)) + "</strong> — " + esc(plainVoice(s.why)) + "</li>";
+    }).join("");
+    return ""
+      + "<section class=\"cg-section cg-skip\" id=\"skip\">"
+      +   "<h2 class=\"cg-h2\">Skip this</h2>"
+      +   "<ul class=\"cg-skip-list\">" + skip + "</ul>"
+      + "</section>";
   }
 
   function renderGuide(guide) {
     var id = guide.id;
     var planHref = "/plan?dest=" + encodeURIComponent(id);
-
-    var days = (guide.days || []).map(function (d, i) {
-      return ""
-        + "<article class=\"cg-day\">"
-        +   "<p class=\"cg-day-kicker\">Day " + (d.n || (i + 1)) + "</p>"
-        +   "<h3>" + esc(d.title) + "</h3>"
-        +   "<p>" + esc(d.body) + "</p>"
-        + "</article>";
-    }).join("");
-
-    var skip = (guide.skip || []).map(function (s) {
-      if (typeof s === "string") return "<li>" + esc(s) + "</li>";
-      return "<li><strong>" + esc(s.name) + "</strong> — " + esc(s.why) + "</li>";
-    }).join("");
-
-    var around = (guide.aroundBullets || []).map(function (b) {
-      return "<li>" + esc(b) + "</li>";
-    }).join("");
+    var updated = guide.updated || "Checked Sep 2026";
 
     var tips = (guide.tips || []).map(function (t) {
       var html = linkify(t);
@@ -245,7 +342,7 @@
 
     return ""
       + "<div class=\"cg-print-bar cg-no-print\">"
-      +   "<p class=\"cg-print-bar-note\">Download / Print money guide. In the dialog, choose <strong>Save as PDF</strong>.</p>"
+      +   "<p class=\"cg-print-bar-note\">Printable money guide. In the dialog, choose <strong>Save as PDF</strong>.</p>"
       +   "<button type=\"button\" class=\"cg-print-btn\" data-cg-print>"
       +     "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" aria-hidden=\"true\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"/></svg>"
       +     "Download / Print money guide"
@@ -253,63 +350,22 @@
       + "</div>"
 
       + "<header class=\"cg-hero\" data-cg-static=\"1\">"
-      +   "<p class=\"cg-kicker\">" + esc(guide.kicker || ("One neighborhood · " + guide.place)) + "</p>"
+      +   "<p class=\"cg-kicker\">Money guide · " + esc(guide.place) + "</p>"
       +   "<h1 class=\"cg-h1\">" + esc(guide.label) + "</h1>"
-      +   "<p class=\"cg-hook\">" + esc(guide.hook) + "</p>"
-      +   "<p class=\"cg-orient\">" + DISCLAIMER + "</p>"
-      +   "<p class=\"cg-crumb\"><a href=\"/guides\">All guides</a> · <a href=\"" + planHref + "\">Build a hard-budget plan</a></p>"
+      +   "<p class=\"cg-hook\">" + esc(plainVoice(guide.hook)) + "</p>"
+      +   "<p class=\"cg-crumb\"><a href=\"/guides\">All money guides</a> · <a href=\"" + planHref + "\">Build a Trip Plan</a></p>"
       + "</header>"
 
-      + (guide.works
-        ? "<section class=\"cg-section cg-works\" id=\"works\">"
-          + "<h2 class=\"cg-h2\">" + esc(guide.worksTitle || "How this city actually works") + "</h2>"
-          + "<p class=\"cg-prose\">" + esc(guide.works) + "</p>"
-          + "</section>"
-        : "")
-
-      + baseSection(guide)
-
-      + (days
-        ? "<section class=\"cg-section\" id=\"days\">"
-          + "<h2 class=\"cg-h2\">" + esc(guide.daysTitle || "A 3-day skeleton") + "</h2>"
-          + (guide.daysLead ? "<p class=\"cg-lede\">" + esc(guide.daysLead) + "</p>" : "")
-          + "<div class=\"cg-days\">" + days + "</div>"
-          + "</section>"
-        : "")
-
-      + "<section class=\"cg-section\" id=\"when\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.whenTitle || "When to go") + "</h2>"
-      +   (guide.whenLead ? "<p class=\"cg-lede\">" + esc(guide.whenLead) + "</p>" : "")
-      +   "<p class=\"cg-when-line\"><span>Go</span> " + esc(guide.whenGo) + "</p>"
-      +   "<p class=\"cg-when-line\"><span>Skip unless that is the trip</span> " + esc(guide.whenSkip) + "</p>"
-      +   "<p class=\"cg-prose\">" + esc(guide.whenNote) + "</p>"
-      + "</section>"
-
+      + factsBox(guide)
+      + whoSection(guide)
+      + aroundSection(guide)
       + staySection(guide, planHref)
       + eatSection(guide)
       + doSection(guide)
-
-      + (skip
-        ? "<section class=\"cg-section cg-skip\" id=\"skip\">"
-          + "<h2 class=\"cg-h2\">" + esc(guide.skipTitle || "Skip this") + "</h2>"
-          + (guide.skipLead ? "<p class=\"cg-lede\">" + esc(guide.skipLead) + "</p>" : "")
-          + "<ul class=\"cg-skip-list\">" + skip + "</ul>"
-          + "</section>"
-        : "")
-
-      + "<section class=\"cg-section\" id=\"around\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.aroundTitle || "Getting around") + "</h2>"
-      +   "<p class=\"cg-lede\">" + esc(guide.around) + "</p>"
-      +   "<ul class=\"cg-plain\">" + around + "</ul>"
-      + "</section>"
-
-      + "<section class=\"cg-section\" id=\"budget\">"
-      +   "<h2 class=\"cg-h2\">" + esc(guide.budgetTitle || "Rough budget posture") + "</h2>"
-      +   "<div class=\"cg-budget\">"
-      +     "<p>" + esc(guide.budgetNote) + "</p>"
-      +     "<p><a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Open Trip Plan with " + esc(guide.label) + " selected &rarr;</a></p>"
-      +   "</div>"
-      + "</section>"
+      + daysSection(guide)
+      + bookSection(guide)
+      + hiddenSection(guide)
+      + skipSection(guide)
 
       + "<section class=\"cg-tips\" id=\"money-saving-tips\">"
       +   "<p class=\"cg-tips-kicker\">Keep the number honest</p>"
@@ -317,15 +373,16 @@
       +   "<ol>" + tips + "</ol>"
       + "</section>"
 
-      + "<section class=\"cg-cta cg-no-print\" id=\"plan-cta\">"
-      +   "<h2>Build a hard-budget plan</h2>"
-      +   "<p>Same 2026 hotel, food, and activity lists — constrained to a number you can actually spend.</p>"
+      + "<section class=\"cg-cta\" id=\"plan-cta\">"
+      +   "<h2>Next step</h2>"
+      +   "<p>Same hotel, food, and activity names — constrained to a number you can actually spend.</p>"
       +   "<div class=\"cg-cta-row\">"
-      +     "<a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Plan " + esc(guide.short || guide.label) + " &rarr;</a>"
-      +     "<a class=\"cg-btn cg-btn-ghost\" href=\"/guides#money-guides\">All money guides</a>"
+      +     "<a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Trip Plan for " + esc(guide.short || guide.label) + " &rarr;</a>"
+      +     "<button type=\"button\" class=\"cg-print-btn cg-no-print\" data-cg-print>Download / Print money guide</button>"
+      +     "<a class=\"cg-btn cg-btn-ghost cg-no-print\" href=\"/guides\">All money guides</a>"
       +   "</div>"
-      +   (related ? "<ul class=\"cg-related\">" + related + "</ul>" : "")
-      +   "<form class=\"capture\" data-source=\"city-guide-" + esc(id) + "\" novalidate>"
+      +   (related ? "<ul class=\"cg-related cg-no-print\">" + related + "</ul>" : "")
+      +   "<form class=\"capture cg-no-print\" data-source=\"city-guide-" + esc(id) + "\" novalidate>"
       +     "<label class=\"sr-only\" for=\"" + emailId + "\">Email address</label>"
       +     "<input id=\"" + emailId + "\" name=\"email\" type=\"email\" inputmode=\"email\" autocomplete=\"email\" placeholder=\"your@email.com\" required />"
       +     "<button type=\"submit\" class=\"cg-print-btn\" style=\"margin-top:10px;\">Get the Tuesday brief</button>"
@@ -334,12 +391,14 @@
       +   "</form>"
       + "</section>"
 
+      + "<p class=\"cg-updated\">" + esc(updated) + "</p>"
+
       + "<nav class=\"cg-more cg-no-print\" aria-label=\"Other money guides\">"
       +   "<h2>Other money guides</h2>"
       +   "<div class=\"cg-more-grid\">" + more + "</div>"
       + "</nav>"
 
-      + "<p class=\"cg-fine\">Vacation Math money guide · " + DISCLAIMER + " · "
+      + "<p class=\"cg-fine\">Vacation Math money guide · estimates, not live quotes · "
       + esc(guide.label) + " · vacationmath.co/guides/" + esc(id) + "</p>";
   }
 
@@ -350,7 +409,7 @@
         + "<article class=\"cg-index-card\">"
         +   "<p class=\"cg-index-kicker\">" + esc(g.place) + "</p>"
         +   "<h3>" + esc(g.label) + "</h3>"
-        +   "<p>" + esc(g.blurb) + "</p>"
+        +   "<p>" + esc(plainVoice(g.blurb)) + "</p>"
         +   "<div class=\"cg-index-actions\">"
         +     "<a href=\"/guides/" + encodeURIComponent(g.id) + "\">Open</a>"
         +     "<a href=\"/guides/" + encodeURIComponent(g.id) + "?print=1\">Download / Print</a>"
@@ -362,14 +421,17 @@
 
   function wirePrint(root) {
     if (!root || typeof root.querySelector !== "function") return;
-    var btn = root.querySelector("[data-cg-print]");
-    if (!btn || btn.getAttribute("data-cg-wired") === "1") return;
-    btn.setAttribute("data-cg-wired", "1");
-    btn.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        gtag("event", "guide_print", { dest: guideId(), method: "window.print" });
-      }
-      global.print();
+    var btns = root.querySelectorAll("[data-cg-print]");
+    if (!btns.length) return;
+    Array.prototype.forEach.call(btns, function (btn) {
+      if (btn.getAttribute("data-cg-wired") === "1") return;
+      btn.setAttribute("data-cg-wired", "1");
+      btn.addEventListener("click", function () {
+        if (typeof gtag === "function") {
+          gtag("event", "guide_print", { dest: guideId(), method: "window.print" });
+        }
+        global.print();
+      });
     });
   }
 
@@ -383,7 +445,7 @@
       var staticOk = root.querySelector("[data-cg-static], .cg-hero");
       if (!staticOk) {
         if (guide) root.innerHTML = renderGuide(guide);
-        else root.innerHTML = "<p>Unknown destination. <a href=\"/guides#money-guides\">See all money guides</a>.</p>";
+        else root.innerHTML = "<p>Unknown destination. <a href=\"/guides\">See all money guides</a>.</p>";
       }
       wirePrint(root);
       try {
@@ -392,14 +454,14 @@
         }
       } catch (e) {}
     }
-    var index = document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid");
+    var index = document.getElementById("city-briefs-grid");
     if (index && !index.querySelector(".cg-index-card")) {
       index.innerHTML = renderIndexCards();
     }
   }
 
   if (typeof document !== "undefined") {
-    if (document.getElementById("city-guide-root") || document.getElementById("money-guides-grid") || document.getElementById("city-briefs-grid")) {
+    if (document.getElementById("city-guide-root") || document.getElementById("city-briefs-grid")) {
       boot();
     } else if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", boot);
@@ -412,6 +474,7 @@
     render: renderGuide,
     renderIndex: renderIndexCards,
     boot: boot,
-    id: guideId
+    id: guideId,
+    plainVoice: plainVoice
   };
 })(typeof window !== "undefined" ? window : this);
