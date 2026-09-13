@@ -132,9 +132,9 @@
 
 .cg-lede,
 .cg-prose {
-  margin: 0 0 14px;
-  line-height: 1.68;
-  font-size: 1.02rem;
+  margin: 0 0 16px;
+  line-height: 1.7;
+  font-size: 1.08rem;
 }
 
 .cg-prose + .cg-prose {
@@ -142,11 +142,12 @@
 }
 
 .cg-subhead {
-  margin: 1.15rem 0 8px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  margin: 1.35rem 0 8px;
+  font-family: var(--font-display, Fraunces, Georgia, serif);
+  font-size: 1.12rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  text-transform: none;
   color: var(--navy, #0E2A47);
 }
 
@@ -168,12 +169,37 @@
 }
 
 .cg-base {
-  margin: 1.6rem 0 0.4rem;
-  padding: 1.15rem 1.2rem 1rem;
-  background: #fff;
-  border: 1px solid var(--hairline, rgba(14, 42, 71, 0.12));
-  border-left: 5px solid var(--honey, #E6A340);
-  border-radius: 0 14px 14px 0;
+  margin: 1.8rem 0 0.2rem;
+  padding: 0.2rem 0 0.1rem;
+  background: transparent;
+  border: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.cg-base .cg-plain {
+  margin: 10px 0 0;
+}
+
+.cg-spend {
+  margin: 1.1rem 0 0;
+  padding: 0;
+}
+
+.cg-spend p {
+  margin: 0 0 8px;
+  line-height: 1.6;
+  font-size: 1.02rem;
+  color: var(--ink-soft, #3D3A36);
+}
+
+.cg-spend p:last-child {
+  margin-bottom: 0;
+}
+
+.cg-spend strong {
+  color: var(--navy, #0E2A47);
+  font-weight: 650;
 }
 
 .cg-base-kicker {
@@ -209,10 +235,16 @@
 }
 
 .cg-day {
-  background: #fff;
-  border: 1px solid var(--hairline, rgba(14, 42, 71, 0.1));
-  border-radius: 14px;
-  padding: 16px 18px 14px;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--hairline, rgba(14, 42, 71, 0.1));
+  border-radius: 0;
+  padding: 16px 0 6px;
+}
+
+.cg-day:first-child {
+  border-top: 0;
+  padding-top: 8px;
 }
 
 .cg-day-kicker {

@@ -7,12 +7,6 @@
 (function (global) {
   "use strict";
 
-  var TIER = [
-    { key: "budget", label: "Lean" },
-    { key: "mid", label: "Solid" },
-    { key: "lux", label: "Stretch" }
-  ];
-
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;")
@@ -100,25 +94,41 @@
       .replace(/hard-budget plan/gi, "<a href=\"/plan\">hard-budget plan</a>");
   }
 
+  function shortNames(items, limit) {
+    return (items || []).slice(0, limit || 2).map(function (item) {
+      return splitNameWhy(item).name;
+    }).filter(Boolean);
+  }
+
   function staySection(guide, planHref) {
     var id = guide.id;
-    var bands = TIER.map(function (t) {
-      var band = hotelBand(id, t.key);
-      return ""
-        + "<article class=\"cg-band\">"
-        +   "<p class=\"cg-band-label\">" + t.label + "</p>"
-        +   (band.why ? "<p class=\"cg-why\">" + esc(band.why) + "</p>" : "")
-        +   nameWhyList(band.picks, 3)
-        + "</article>";
-    }).join("");
+    var mid = hotelBand(id, "mid");
+    var budget = hotelBand(id, "budget");
+    var lux = hotelBand(id, "lux");
+    var less = shortNames(budget.picks, 2);
+    var more = shortNames(lux.picks, 2);
+    var spend = "";
+    if (less.length || more.length) {
+      spend = "<div class=\"cg-spend\">";
+      if (less.length) {
+        spend += "<p><strong>Need to spend less?</strong> Look at " + esc(less.join(" or ")) + ".</p>";
+      }
+      if (more.length) {
+        spend += "<p><strong>If leftover is real?</strong> " + esc(more.join(" or ")) + ". Still one base — do not hotel-hop.</p>";
+      }
+      spend += "</div>";
+    }
 
     return ""
       + "<section class=\"cg-section\" id=\"stay\">"
       +   "<h2 class=\"cg-h2\">" + esc(guide.stayTitle || "Where to stay") + "</h2>"
       +   (guide.stayLead ? "<p class=\"cg-lede\">" + esc(guide.stayLead) + "</p>" : "")
       +   paras(guide.stayProse)
-      +   "<div class=\"cg-bands\">" + bands + "</div>"
-      +   "<p class=\"cg-align\">Same Lean / Solid / Stretch hotel names as <a href=\"" + planHref + "\">Trip Plan</a> — brand stays plus a boutique, not live inventory.</p>"
+      +   (mid.picks && mid.picks.length
+        ? "<p class=\"cg-subhead\">A few places to search</p>" + nameWhyList(mid.picks, 4)
+        : "")
+      +   spend
+      +   "<p class=\"cg-align\">Search these on <a href=\"" + planHref + "\">Trip Plan</a> — same example properties, not live inventory and not a ranking.</p>"
       + "</section>";
   }
 
@@ -126,20 +136,15 @@
     var food = foodSrc(guide.id);
     var body = paras(guide.eatProse);
     if (food) {
-      if (guide.eatProse && guide.eatProse.length) {
-        body += "<p class=\"cg-subhead\">Named plates from the Solid list</p>";
-        body += nameWhyList(food.mid, 4);
-        if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
-      } else {
-        if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
-        body += "<div class=\"cg-bands cg-bands-food\">" + TIER.map(function (t) {
-          return ""
-            + "<article class=\"cg-band\">"
-            +   "<p class=\"cg-band-label\">" + t.label + "</p>"
-            +   nameWhyList(food[t.key], 4)
-            + "</article>";
-        }).join("") + "</div>";
+      var picks = (food.mid && food.mid.length) ? food.mid : food.budget;
+      if (picks && picks.length) {
+        body += "<p class=\"cg-subhead\">What we would eat</p>" + nameWhyList(picks, 4);
       }
+      var lux = shortNames(food.lux, 2);
+      if (lux.length) {
+        body += "<p class=\"cg-note\">If you want to spend more, one reservation — " + esc(lux.join(" or ")) + " — is enough. Do not make every meal the treat.</p>";
+      }
+      if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
     }
     return ""
       + "<section class=\"cg-section\" id=\"eat\">"
@@ -153,26 +158,15 @@
     var acts = actSrc(guide.id);
     var body = paras(guide.doProse);
     if (acts) {
+      var budget = splitActs(acts.budget || []);
       var mid = splitActs(acts.mid || []);
-      var lean = splitActs(acts.budget || []);
-      if (guide.doProse && guide.doProse.length) {
-        if (lean.free.length) {
-          body += "<p class=\"cg-subhead\">Free on purpose</p>" + nameWhyList(lean.free, 4);
-        }
-        if (mid.ticketed.length) {
-          body += "<p class=\"cg-subhead\">Worth a ticket if leftover is real</p>" + nameWhyList(mid.ticketed, 3);
-        }
-      } else {
-        body += "<div class=\"cg-do-split\">";
-        var free = lean.free.length ? lean.free : mid.free;
-        var paid = mid.ticketed.length ? mid.ticketed : (acts.mid || []);
-        if (free.length) {
-          body += "<div><p class=\"cg-subhead\">Free / cheap</p>" + nameWhyList(free, 4) + "</div>";
-        }
-        if (paid.length) {
-          body += "<div><p class=\"cg-subhead\">Ticketed / leftover</p>" + nameWhyList(paid, 4) + "</div>";
-        }
-        body += "</div>";
+      var free = budget.free.length ? budget.free : mid.free;
+      var paid = mid.ticketed.length ? mid.ticketed : (acts.mid || []);
+      if (free.length) {
+        body += "<p class=\"cg-subhead\">Free on purpose</p>" + nameWhyList(free, 4);
+      }
+      if (paid.length) {
+        body += "<p class=\"cg-subhead\">One ticket if leftover is real</p>" + nameWhyList(paid, 3);
       }
     }
     return ""
@@ -181,6 +175,27 @@
       +   (guide.doLead ? "<p class=\"cg-lede\">" + esc(guide.doLead) + "</p>" : "")
       +   body
       + "</section>";
+  }
+
+  function baseSection(guide) {
+    var base = guide.base;
+    if (!base) return "";
+    var bullets = base.bullets;
+    if (!bullets || !bullets.length) {
+      bullets = [];
+      if (base.lean) bullets.push(base.lean);
+      if (base.stretch) bullets.push(base.stretch);
+    }
+    bullets = bullets.slice(0, 2);
+    if (!base.lede && !bullets.length) return "";
+    return ""
+      + "<aside class=\"cg-base\" id=\"base\">"
+      +   "<p class=\"cg-base-kicker\">Base yourself here</p>"
+      +   (base.lede ? "<p class=\"cg-base-lede\">" + esc(base.lede) + "</p>" : "")
+      +   (bullets.length ? "<ul class=\"cg-plain\">" + bullets.map(function (b) {
+        return "<li>" + esc(b) + "</li>";
+      }).join("") + "</ul>" : "")
+      + "</aside>";
   }
 
   function renderGuide(guide) {
@@ -225,7 +240,6 @@
     });
 
     var emailId = "email-guide-" + id;
-    var base = guide.base || null;
 
     return ""
       + "<div class=\"cg-print-bar cg-no-print\">"
@@ -251,14 +265,7 @@
           + "</section>"
         : "")
 
-      + (base
-        ? "<aside class=\"cg-base\" id=\"base\">"
-          + "<p class=\"cg-base-kicker\">Base yourself here</p>"
-          + (base.lede ? "<p class=\"cg-base-lede\">" + esc(base.lede) + "</p>" : "")
-          + "<p><strong>Lean:</strong> " + esc(base.lean) + "</p>"
-          + "<p><strong>Stretch:</strong> " + esc(base.stretch) + "</p>"
-          + "</aside>"
-        : "")
+      + baseSection(guide)
 
       + (days
         ? "<section class=\"cg-section\" id=\"days\">"
