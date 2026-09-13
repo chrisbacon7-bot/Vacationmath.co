@@ -1,15 +1,16 @@
 /* =====================================================================
    Vacation Math — city brief renderer
-   Fills #city-guide-root from VM_CITY_GUIDES + VM_PLAN_DATA hotel/food/acts.
-   Print button = window.print() (Save as PDF in the browser dialog).
+   Builds printable HTML from VM_CITY_GUIDES + VM_PLAN_DATA.
+   Works in the browser and in Node (scripts/build-city-guides.js).
+   If the page already has static .cg-hero content, JS only wires print.
    ===================================================================== */
 (function (global) {
   "use strict";
 
   var TIER = [
-    { key: "budget", label: "Lean", hint: "Cut where it hurts least" },
-    { key: "mid", label: "Solid", hint: "Balanced recommended plan" },
-    { key: "lux", label: "Stretch", hint: "Nice-to-haves included" }
+    { key: "budget", label: "Lean" },
+    { key: "mid", label: "Solid" },
+    { key: "lux", label: "Stretch" }
   ];
 
   function esc(s) {
@@ -20,8 +21,15 @@
       .replace(/"/g, "&quot;");
   }
 
+  function paras(list) {
+    return (list || []).map(function (p) {
+      return "<p class=\"cg-prose\">" + esc(p) + "</p>";
+    }).join("");
+  }
+
   function guideId() {
     if (global.VM_CITY_GUIDE_ID) return global.VM_CITY_GUIDE_ID;
+    if (typeof location === "undefined") return "";
     var path = (location.pathname || "").replace(/\/+$/, "").replace(/\.html$/i, "");
     var slug = path.split("/").pop() || "";
     if (slug && slug !== "guides" && slug !== "city") return slug;
@@ -49,11 +57,28 @@
     return (P && P.ACTIVITIES && P.ACTIVITIES[id]) || null;
   }
 
-  function picksList(items, limit) {
-    var list = (items || []).slice(0, limit || 4);
-    if (!list.length) return "<p class=\"cg-why\">Same neighborhood rule as Trip Plan — walkable first, airport lodging last.</p>";
-    return "<ul class=\"cg-list\">" + list.map(function (item) {
-      return "<li>" + esc(item) + "</li>";
+  function splitNameWhy(item) {
+    var s = String(item || "").trim();
+    if (!s) return { name: "", why: "" };
+    var dash = s.indexOf(" — ");
+    if (dash < 0) dash = s.indexOf(" – ");
+    if (dash > 0) {
+      return { name: s.slice(0, dash).trim(), why: s.slice(dash + 3).trim() };
+    }
+    var colon = s.indexOf(": ");
+    if (colon > 0 && colon < 28) {
+      return { name: s.slice(0, colon).trim(), why: s.slice(colon + 2).trim() };
+    }
+    return { name: s, why: "" };
+  }
+
+  function nameWhyList(items, limit) {
+    var list = (items || []).slice(0, limit || 3);
+    if (!list.length) return "";
+    return "<ul class=\"cg-namewhy\">" + list.map(function (item) {
+      var nw = splitNameWhy(item);
+      if (!nw.why) return "<li>" + esc(nw.name) + "</li>";
+      return "<li><strong>" + esc(nw.name) + "</strong> <span>" + esc(nw.why) + "</span></li>";
     }).join("") + "</ul>";
   }
 
@@ -68,19 +93,6 @@
     return { free: free, ticketed: ticketed };
   }
 
-  function boutiqueLine(id) {
-    var mid = hotelBand(id, "mid");
-    var picks = (mid && mid.picks) || [];
-    var hit = null;
-    var re = /boutique|inn|house|casa|gardens|hoxton|ace|line |clermont|peter and paul| marquésa|marquesa|de’|de'|knot |freehand|generator|pod /i;
-    for (var i = 0; i < picks.length; i++) {
-      if (re.test(picks[i])) { hit = picks[i]; break; }
-    }
-    if (!hit && picks[2]) hit = picks[2];
-    if (!hit) return "";
-    return "<p class=\"cg-note\"><strong>Boutique pick (from the Solid list):</strong> " + esc(hit) + "</p>";
-  }
-
   function linkify(text) {
     var safe = esc(text);
     return safe
@@ -88,54 +100,106 @@
       .replace(/hard-budget plan/gi, "<a href=\"/plan\">hard-budget plan</a>");
   }
 
-  function renderGuide(guide) {
+  function staySection(guide, planHref) {
     var id = guide.id;
-    var planHref = "/plan?dest=" + encodeURIComponent(id);
-    var food = foodSrc(id);
-    var acts = actSrc(id);
-
-    var hotelHtml = TIER.map(function (t) {
+    var bands = TIER.map(function (t) {
       var band = hotelBand(id, t.key);
       return ""
-        + "<article class=\"cg-tier\">"
-        +   "<p class=\"cg-tier-label\">" + t.label + " · " + esc(t.hint) + "</p>"
-        +   "<h3>Where to stay</h3>"
+        + "<article class=\"cg-band\">"
+        +   "<p class=\"cg-band-label\">" + t.label + "</p>"
         +   (band.why ? "<p class=\"cg-why\">" + esc(band.why) + "</p>" : "")
-        +   picksList(band.picks, 4)
+        +   nameWhyList(band.picks, 3)
         + "</article>";
     }).join("");
 
-    var foodHtml = "";
-    if (food) {
-      foodHtml = (food.note ? "<p class=\"cg-note\">" + esc(food.note) + "</p>" : "")
-        + TIER.map(function (t) {
-          return ""
-            + "<article class=\"cg-tier\">"
-            +   "<p class=\"cg-tier-label\">" + t.label + "</p>"
-            +   "<h3>Named picks</h3>"
-            +   picksList(food[t.key], 5)
-            + "</article>";
-        }).join("");
-    }
+    return ""
+      + "<section class=\"cg-section\" id=\"stay\">"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.stayTitle || "Where to stay") + "</h2>"
+      +   (guide.stayLead ? "<p class=\"cg-lede\">" + esc(guide.stayLead) + "</p>" : "")
+      +   paras(guide.stayProse)
+      +   "<div class=\"cg-bands\">" + bands + "</div>"
+      +   "<p class=\"cg-align\">Same Lean / Solid / Stretch hotel names as <a href=\"" + planHref + "\">Trip Plan</a> — brand stays plus a boutique, not live inventory.</p>"
+      + "</section>";
+  }
 
-    var actHtml = "";
-    if (acts) {
-      actHtml = TIER.map(function (t) {
-        var split = splitActs(acts[t.key]);
-        var cols = "";
-        if (split.free.length) {
-          cols += "<div><p class=\"cg-tier-label\">Free / cheap</p>" + picksList(split.free, 6) + "</div>";
-        }
-        if (split.ticketed.length) {
-          cols += "<div><p class=\"cg-tier-label\">Ticketed / leftover</p>" + picksList(split.ticketed, 6) + "</div>";
-        }
-        return ""
-          + "<article class=\"cg-tier\">"
-          +   "<p class=\"cg-tier-label\">" + t.label + "</p>"
-          +   "<div class=\"cg-split\">" + cols + "</div>"
-          + "</article>";
-      }).join("");
+  function eatSection(guide) {
+    var food = foodSrc(guide.id);
+    var body = paras(guide.eatProse);
+    if (food) {
+      if (guide.eatProse && guide.eatProse.length) {
+        body += "<p class=\"cg-subhead\">Named plates from the Solid list</p>";
+        body += nameWhyList(food.mid, 4);
+        if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
+      } else {
+        if (food.note) body += "<p class=\"cg-note\">" + esc(food.note) + "</p>";
+        body += "<div class=\"cg-bands cg-bands-food\">" + TIER.map(function (t) {
+          return ""
+            + "<article class=\"cg-band\">"
+            +   "<p class=\"cg-band-label\">" + t.label + "</p>"
+            +   nameWhyList(food[t.key], 4)
+            + "</article>";
+        }).join("") + "</div>";
+      }
     }
+    return ""
+      + "<section class=\"cg-section\" id=\"eat\">"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.eatTitle || "Where to eat") + "</h2>"
+      +   (guide.eatLead ? "<p class=\"cg-lede\">" + esc(guide.eatLead) + "</p>" : "")
+      +   body
+      + "</section>";
+  }
+
+  function doSection(guide) {
+    var acts = actSrc(guide.id);
+    var body = paras(guide.doProse);
+    if (acts) {
+      var mid = splitActs(acts.mid || []);
+      var lean = splitActs(acts.budget || []);
+      if (guide.doProse && guide.doProse.length) {
+        if (lean.free.length) {
+          body += "<p class=\"cg-subhead\">Free on purpose</p>" + nameWhyList(lean.free, 4);
+        }
+        if (mid.ticketed.length) {
+          body += "<p class=\"cg-subhead\">Worth a ticket if leftover is real</p>" + nameWhyList(mid.ticketed, 3);
+        }
+      } else {
+        body += "<div class=\"cg-do-split\">";
+        var free = lean.free.length ? lean.free : mid.free;
+        var paid = mid.ticketed.length ? mid.ticketed : (acts.mid || []);
+        if (free.length) {
+          body += "<div><p class=\"cg-subhead\">Free / cheap</p>" + nameWhyList(free, 4) + "</div>";
+        }
+        if (paid.length) {
+          body += "<div><p class=\"cg-subhead\">Ticketed / leftover</p>" + nameWhyList(paid, 4) + "</div>";
+        }
+        body += "</div>";
+      }
+    }
+    return ""
+      + "<section class=\"cg-section\" id=\"do\">"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.doTitle || "What to do") + "</h2>"
+      +   (guide.doLead ? "<p class=\"cg-lede\">" + esc(guide.doLead) + "</p>" : "")
+      +   body
+      + "</section>";
+  }
+
+  function renderGuide(guide) {
+    var id = guide.id;
+    var planHref = "/plan?dest=" + encodeURIComponent(id);
+
+    var days = (guide.days || []).map(function (d, i) {
+      return ""
+        + "<article class=\"cg-day\">"
+        +   "<p class=\"cg-day-kicker\">Day " + (d.n || (i + 1)) + "</p>"
+        +   "<h3>" + esc(d.title) + "</h3>"
+        +   "<p>" + esc(d.body) + "</p>"
+        + "</article>";
+    }).join("");
+
+    var skip = (guide.skip || []).map(function (s) {
+      if (typeof s === "string") return "<li>" + esc(s) + "</li>";
+      return "<li><strong>" + esc(s.name) + "</strong> — " + esc(s.why) + "</li>";
+    }).join("");
 
     var around = (guide.aroundBullets || []).map(function (b) {
       return "<li>" + esc(b) + "</li>";
@@ -154,13 +218,14 @@
     }).join("");
 
     var more = "";
-    var all = (global.VM_CITY_GUIDES && VM_CITY_GUIDES.ALL) || [];
+    var all = (global.VM_CITY_GUIDES && global.VM_CITY_GUIDES.ALL) || [];
     all.forEach(function (g) {
       if (g.id === id) return;
       more += "<a href=\"/guides/" + encodeURIComponent(g.id) + "\">" + esc(g.label) + "</a>";
     });
 
     var emailId = "email-guide-" + id;
+    var base = guide.base || null;
 
     return ""
       + "<div class=\"cg-print-bar cg-no-print\">"
@@ -171,47 +236,66 @@
       +   "</button>"
       + "</div>"
 
-      + "<header class=\"cg-hero\">"
-      +   "<p class=\"cg-kicker\">City brief · " + esc(guide.place) + "</p>"
+      + "<header class=\"cg-hero\" data-cg-static=\"1\">"
+      +   "<p class=\"cg-kicker\">" + esc(guide.kicker || ("City brief · " + guide.place)) + "</p>"
       +   "<h1 class=\"cg-h1\">" + esc(guide.label) + "</h1>"
       +   "<p class=\"cg-hook\">" + esc(guide.hook) + "</p>"
       +   "<p class=\"cg-orient\">VacationMath orientation — not live rates</p>"
       +   "<p class=\"cg-crumb\"><a href=\"/guides\">All guides</a> · <a href=\"" + planHref + "\">Build a hard-budget plan</a></p>"
       + "</header>"
 
+      + (guide.works
+        ? "<section class=\"cg-section cg-works\" id=\"works\">"
+          + "<h2 class=\"cg-h2\">" + esc(guide.worksTitle || "How this city actually works") + "</h2>"
+          + "<p class=\"cg-prose\">" + esc(guide.works) + "</p>"
+          + "</section>"
+        : "")
+
+      + (base
+        ? "<aside class=\"cg-base\" id=\"base\">"
+          + "<p class=\"cg-base-kicker\">Base yourself here</p>"
+          + (base.lede ? "<p class=\"cg-base-lede\">" + esc(base.lede) + "</p>" : "")
+          + "<p><strong>Lean:</strong> " + esc(base.lean) + "</p>"
+          + "<p><strong>Stretch:</strong> " + esc(base.stretch) + "</p>"
+          + "</aside>"
+        : "")
+
+      + (days
+        ? "<section class=\"cg-section\" id=\"days\">"
+          + "<h2 class=\"cg-h2\">" + esc(guide.daysTitle || "A 3-day skeleton") + "</h2>"
+          + (guide.daysLead ? "<p class=\"cg-lede\">" + esc(guide.daysLead) + "</p>" : "")
+          + "<div class=\"cg-days\">" + days + "</div>"
+          + "</section>"
+        : "")
+
       + "<section class=\"cg-section\" id=\"when\">"
-      +   "<h2 class=\"cg-h2\">When to go</h2>"
-      +   "<p class=\"cg-lede\"><strong>Go:</strong> " + esc(guide.whenGo) + "</p>"
-      +   "<p class=\"cg-lede\"><strong>Skip unless that is the trip:</strong> " + esc(guide.whenSkip) + "</p>"
-      +   "<p class=\"cg-lede\">" + esc(guide.whenNote) + "</p>"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.whenTitle || "When to go") + "</h2>"
+      +   (guide.whenLead ? "<p class=\"cg-lede\">" + esc(guide.whenLead) + "</p>" : "")
+      +   "<p class=\"cg-when-line\"><span>Go</span> " + esc(guide.whenGo) + "</p>"
+      +   "<p class=\"cg-when-line\"><span>Skip unless that is the trip</span> " + esc(guide.whenSkip) + "</p>"
+      +   "<p class=\"cg-prose\">" + esc(guide.whenNote) + "</p>"
       + "</section>"
 
-      + "<section class=\"cg-section\" id=\"stay\">"
-      +   "<h2 class=\"cg-h2\">Where to stay</h2>"
-      +   "<p class=\"cg-lede\">Lean / Solid / Stretch from the same hotel lists as <a href=\"" + planHref + "\">Trip Plan</a> — brand hotels plus a boutique, not live inventory, no star scores.</p>"
-      +   boutiqueLine(id)
-      +   "<div class=\"cg-tiers\">" + hotelHtml + "</div>"
-      + "</section>"
+      + staySection(guide, planHref)
+      + eatSection(guide)
+      + doSection(guide)
 
-      + "<section class=\"cg-section\" id=\"eat\">"
-      +   "<h2 class=\"cg-h2\">Where to eat</h2>"
-      +   "<div class=\"cg-tiers\">" + foodHtml + "</div>"
-      + "</section>"
-
-      + "<section class=\"cg-section\" id=\"do\">"
-      +   "<h2 class=\"cg-h2\">What to do</h2>"
-      +   "<p class=\"cg-lede\">Free / cheap first. Ticketed leftover. Same activity lists as Trip Plan.</p>"
-      +   "<div class=\"cg-tiers\">" + actHtml + "</div>"
-      + "</section>"
+      + (skip
+        ? "<section class=\"cg-section cg-skip\" id=\"skip\">"
+          + "<h2 class=\"cg-h2\">" + esc(guide.skipTitle || "Skip this") + "</h2>"
+          + (guide.skipLead ? "<p class=\"cg-lede\">" + esc(guide.skipLead) + "</p>" : "")
+          + "<ul class=\"cg-skip-list\">" + skip + "</ul>"
+          + "</section>"
+        : "")
 
       + "<section class=\"cg-section\" id=\"around\">"
-      +   "<h2 class=\"cg-h2\">Getting around</h2>"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.aroundTitle || "Getting around") + "</h2>"
       +   "<p class=\"cg-lede\">" + esc(guide.around) + "</p>"
-      +   "<ul class=\"cg-list\">" + around + "</ul>"
+      +   "<ul class=\"cg-plain\">" + around + "</ul>"
       + "</section>"
 
       + "<section class=\"cg-section\" id=\"budget\">"
-      +   "<h2 class=\"cg-h2\">Rough budget posture</h2>"
+      +   "<h2 class=\"cg-h2\">" + esc(guide.budgetTitle || "Rough budget posture") + "</h2>"
       +   "<div class=\"cg-budget\">"
       +     "<p>" + esc(guide.budgetNote) + "</p>"
       +     "<p><a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Open Trip Plan with " + esc(guide.label) + " selected &rarr;</a></p>"
@@ -250,21 +334,9 @@
       + esc(guide.label) + " · vacationmath.co/guides/" + esc(id) + "</p>";
   }
 
-  function wirePrint(root) {
-    var btn = root.querySelector("[data-cg-print]");
-    if (!btn) return;
-    btn.addEventListener("click", function () {
-      if (typeof gtag === "function") {
-        gtag("event", "guide_print", { dest: guideId(), method: "window.print" });
-      }
-      global.print();
-    });
-  }
-
-  function renderIndex(root) {
-    var all = (global.VM_CITY_GUIDES && VM_CITY_GUIDES.ALL) || [];
-    if (!root || !all.length) return;
-    root.innerHTML = all.map(function (g) {
+  function renderIndexCards(all) {
+    var list = all || (global.VM_CITY_GUIDES && global.VM_CITY_GUIDES.ALL) || [];
+    return list.map(function (g) {
       return ""
         + "<article class=\"cg-index-card\">"
         +   "<p class=\"cg-index-kicker\">" + esc(g.place) + "</p>"
@@ -279,33 +351,58 @@
     }).join("");
   }
 
+  function wirePrint(root) {
+    if (!root || typeof root.querySelector !== "function") return;
+    var btn = root.querySelector("[data-cg-print]");
+    if (!btn || btn.getAttribute("data-cg-wired") === "1") return;
+    btn.setAttribute("data-cg-wired", "1");
+    btn.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "guide_print", { dest: guideId(), method: "window.print" });
+      }
+      global.print();
+    });
+  }
+
   function boot() {
+    if (typeof document === "undefined") return;
     var id = guideId();
     var pack = global.VM_CITY_GUIDES;
     var guide = pack && pack.BY_ID && pack.BY_ID[id];
     var root = document.getElementById("city-guide-root");
-    if (root && guide) {
-      root.innerHTML = renderGuide(guide);
+    if (root) {
+      var staticOk = root.querySelector("[data-cg-static], .cg-hero");
+      if (!staticOk) {
+        if (guide) root.innerHTML = renderGuide(guide);
+        else root.innerHTML = "<p>Unknown destination. <a href=\"/guides\">See all city briefs</a>.</p>";
+      }
       wirePrint(root);
       try {
-        if (new URLSearchParams(location.search).get("print") === "1") {
+        if (typeof location !== "undefined" && new URLSearchParams(location.search).get("print") === "1") {
           setTimeout(function () { global.print(); }, 250);
         }
       } catch (e) {}
-    } else if (root && !guide) {
-      root.innerHTML = "<p>Unknown destination. <a href=\"/guides\">See all city briefs</a>.</p>";
     }
     var index = document.getElementById("city-briefs-grid");
-    if (index) renderIndex(index);
+    if (index && !index.querySelector(".cg-index-card")) {
+      index.innerHTML = renderIndexCards();
+    }
   }
 
-  if (document.getElementById("city-guide-root") || document.getElementById("city-briefs-grid")) {
-    boot();
-  } else if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
-  } else {
-    boot();
+  if (typeof document !== "undefined") {
+    if (document.getElementById("city-guide-root") || document.getElementById("city-briefs-grid")) {
+      boot();
+    } else if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
   }
 
-  global.VM_CITY_GUIDE = { render: renderGuide, boot: boot, id: guideId };
-})(window);
+  global.VM_CITY_GUIDE = {
+    render: renderGuide,
+    renderIndex: renderIndexCards,
+    boot: boot,
+    id: guideId
+  };
+})(typeof window !== "undefined" ? window : this);

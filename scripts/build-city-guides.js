@@ -1,14 +1,25 @@
-/* Generate one HTML shell per city brief. Content is filled by city-guide.js. */
+/* Generate one static HTML brief per city. Content is pre-rendered so
+   print / PDF / no-JS still show the full page — city-guide.js only wires print. */
 const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
+const CACHE = "v20260913e";
 const ctx = { window: {}, console };
 ctx.window = ctx;
 ctx.global = ctx;
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync(path.join(root, "city-guides-data.js"), "utf8"), ctx);
+
+function run(file) {
+  vm.runInContext(fs.readFileSync(path.join(root, file), "utf8"), ctx, { filename: file });
+}
+
+run("trip-finder-data.js");
+run("plan-data.js");
+run("plan-recs-extra.js");
+run("city-guides-data.js");
+run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
 
@@ -16,27 +27,32 @@ function esc(s) {
   return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 
+function faqFor(g) {
+  const tip = (g.tips || [])[0] || g.hook;
+  return [
+    {
+      "@type": "Question",
+      name: "When should I go to " + g.label + " to save money?",
+      acceptedAnswer: { "@type": "Answer", text: g.whenGo }
+    },
+    {
+      "@type": "Question",
+      name: "Where should I base myself in " + g.label + "?",
+      acceptedAnswer: { "@type": "Answer", text: (g.base && g.base.lean) || g.budgetNote }
+    },
+    {
+      "@type": "Question",
+      name: "What is a concrete money-saving tip for " + g.label + "?",
+      acceptedAnswer: { "@type": "Answer", text: tip }
+    }
+  ];
+}
+
 function page(g) {
   const url = "https://vacationmath.co/guides/" + g.id;
   const title = g.label + " Travel Guide 2026 | Printable City Brief | Vacation Math";
   const desc = g.hook + " Stay, eat, get around, and top money-saving tips. VacationMath orientation — not live rates.";
-  const tips = (g.tips || []).slice(0, 3).map(function (t) {
-    return '{"@type":"Question","name":' + JSON.stringify("Money-saving tip for " + g.label + "?") + ',"acceptedAnswer":{"@type":"Answer","text":' + JSON.stringify(t) + "}}";
-  });
-  // unique FAQ names
-  const faq = (g.tips || []).slice(0, 3).map(function (t, i) {
-    const names = [
-      "When should I go to " + g.label + " to save money?",
-      "What is the Lean stay in " + g.label + "?",
-      "What is a concrete money-saving tip for " + g.label + "?"
-    ];
-    const answers = [g.whenGo, g.budgetNote, t];
-    return {
-      "@type": "Question",
-      name: names[i],
-      acceptedAnswer: { "@type": "Answer", text: answers[i] }
-    };
-  });
+  const body = ctx.VM_CITY_GUIDE.render(g);
 
   return `<!doctype html>
 <html lang="en">
@@ -49,9 +65,9 @@ function page(g) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../styles.css?v20260912g">
+<link rel="stylesheet" href="../styles.css?${CACHE}">
 <link rel="stylesheet" href="../site-nav.css?v20260530">
-<link rel="stylesheet" href="../city-guide.css?v20260912g">
+<link rel="stylesheet" href="../city-guide.css?${CACHE}">
 <link rel="canonical" href="${url}" />
 <meta property="og:url" content="${url}" />
 <meta property="og:site_name" content="Vacation Math" />
@@ -95,24 +111,13 @@ function page(g) {
 <script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faq
+    mainEntity: faqFor(g)
   })}</script>
 </head>
 <body class="cg-page">
 <div class="cg-wrap">
   <article id="city-guide-root">
-    <p class="cg-kicker">City brief</p>
-    <h1 class="cg-h1">${esc(g.label)}</h1>
-    <p class="cg-hook">${esc(g.hook)}</p>
-    <p>Loading the printable brief&hellip;</p>
-    <noscript>
-      <p class="cg-orient">VacationMath orientation — not live rates</p>
-      <h2>When to go</h2>
-      <p>${esc(g.whenGo)}</p>
-      <h2>Top money-saving tips</h2>
-      <ol>${(g.tips || []).map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("")}</ol>
-      <p><a href="/plan?dest=${esc(g.id)}">Build a hard-budget plan</a></p>
-    </noscript>
+${body}
   </article>
 </div>
 <footer class="footer cg-no-print">
@@ -123,11 +128,7 @@ function page(g) {
   </div>
 </footer>
 <script>window.VM_CITY_GUIDE_ID = ${JSON.stringify(g.id)};</script>
-<script src="../trip-finder-data.js?v20260912us20"></script>
-<script src="../plan-data.js?v20260912brands"></script>
-<script src="../plan-recs-extra.js?v20260912brands"></script>
-<script src="../city-guides-data.js?v20260912g"></script>
-<script src="../city-guide.js?v20260912g"></script>
+<script src="../city-guide.js?${CACHE}"></script>
 <script src="../main.js"></script>
 <script src="../site-nav.js?v20260912g" defer></script>
 <script src="../nav-fix.js" defer></script>
@@ -143,4 +144,36 @@ GUIDES.forEach(function (g) {
   console.log("wrote", path.relative(root, out));
 });
 
-console.log("ok", GUIDES.length, "city briefs");
+function injectIndex(filePath) {
+  if (!fs.existsSync(filePath)) return;
+  let src = fs.readFileSync(filePath, "utf8");
+  const cards = ctx.VM_CITY_GUIDE.renderIndex(GUIDES);
+  const startMark = "<!-- CITY_BRIEFS_START -->";
+  const endMark = "<!-- CITY_BRIEFS_END -->";
+  let next;
+  if (src.indexOf(startMark) >= 0 && src.indexOf(endMark) >= 0) {
+    next = src.replace(
+      /<!-- CITY_BRIEFS_START -->[\s\S]*?<!-- CITY_BRIEFS_END -->/,
+      startMark + "\n        " + cards + "\n        " + endMark
+    );
+  } else {
+    next = src.replace(
+      /<div class="cg-index-grid" id="city-briefs-grid">[\s\S]*?<\/div>/,
+      "<div class=\"cg-index-grid\" id=\"city-briefs-grid\">\n        " + startMark + "\n        " + cards + "\n        " + endMark + "\n      </div>"
+    );
+  }
+  if (next === src) {
+    console.warn("did not find city-briefs-grid in", path.relative(root, filePath));
+    return;
+  }
+  next = next.replace(/city-guide\.css\?v[0-9a-z]+/g, "city-guide.css?" + CACHE);
+  next = next.replace(/city-guide\.js\?v[0-9a-z]+/g, "city-guide.js?" + CACHE);
+  next = next.replace(/city-guides-data\.js\?v[0-9a-z]+/g, "city-guides-data.js?" + CACHE);
+  fs.writeFileSync(filePath, next);
+  console.log("updated index", path.relative(root, filePath));
+}
+
+injectIndex(path.join(root, "guides.html"));
+injectIndex(path.join(root, "guides", "index.html"));
+
+console.log("ok", GUIDES.length, "city briefs pre-rendered");
