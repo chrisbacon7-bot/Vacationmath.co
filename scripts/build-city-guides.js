@@ -38,7 +38,7 @@ function faqFor(g) {
     {
       "@type": "Question",
       name: "Where should I base myself in " + g.label + "?",
-      acceptedAnswer: { "@type": "Answer", text: (g.base && g.base.lean) || g.budgetNote }
+      acceptedAnswer: { "@type": "Answer", text: (g.base && (g.base.lede || (g.base.bullets && g.base.bullets[0]) || g.base.lean)) || g.budgetNote }
     },
     {
       "@type": "Question",
