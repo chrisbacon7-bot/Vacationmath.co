@@ -165,7 +165,7 @@ function injectIndex(filePath) {
       "<div class=\"cg-index-grid\" id=\"money-guides-grid\">\n        " + startMark + "\n        " + cards + "\n        " + endMark + "\n      </div>"
     );
   }
-  if (next === src || next.indexOf(startMark) < 0) {
+  if (next.indexOf(startMark) < 0) {
     console.warn("did not find money-guides-grid in", path.relative(root, filePath));
     return;
   }
