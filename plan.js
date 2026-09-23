@@ -656,11 +656,13 @@
     if (kind === "ll") {
       return {
         text: included
-          ? "Genie+/LL is optional speed — don’t treat it as required. Cut this first if the plan is Tight."
+          ? "Lightning Lane is optional speed — don’t treat it as required. Cut this first if the plan is Tight."
           : "Left off the budget plan. Add Lightning Lane only if you’ll otherwise lose a park day to waits.",
         detail: included
           ? "Splurge keeps it. Budget drops it. Most families wish they had priced it before day two — not assumed it."
-          : "If you add it later, use the Disney calculator for the Florida sales-tax line."
+          : "If you add it later, use the Disney calculator for the Florida sales-tax line.",
+        href: "/blog/lightning-lane-multi-pass-math-2026",
+        label: "Lightning Lane math"
       };
     }
     if (kind === "food") {

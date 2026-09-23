@@ -54,7 +54,8 @@
     { href: '/blog/hurricane-season-travel-insurance-2026', label: 'Issue #14 · Hurricane Season Insurance' },
     { href: '/blog/should-you-buy-travel-insurance-2026', label: 'Issue #15 · Should You Buy Insurance' },
     { href: '/blog/disney-fall-room-promo-math-2026', label: 'Issue #16 · Disney Fall Room Promo' },
-    { href: '/blog/cruise-drink-package-break-even-2026', label: 'Issue #17 · Cruise Drink Package Break-Even' }
+    { href: '/blog/cruise-drink-package-break-even-2026', label: 'Issue #17 · Cruise Drink Package Break-Even' },
+    { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Issue #18 · Lightning Lane Multi Pass Math' }
   ];
 
   // Page detection so we can highlight active nav item
@@ -211,12 +212,14 @@
 
   const RELATED_ARTICLES = {
     '/disney': [
+      { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Lightning Lane Multi Pass math 2026' },
       { href: '/blog/disney-fall-room-promo-math-2026', label: 'Disney fall room promo math 2026' },
       { href: '/blog/should-you-buy-travel-insurance-2026', label: 'Should you buy travel insurance 2026' },
       { href: '/blog/disney-food-snacks-cost-2026', label: 'Disney food &amp; snacks 2026' },
       { href: '/guides/hidden-costs-disney-world', label: 'Hidden costs of Disney World' }
     ],
     '/themeparks': [
+      { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Lightning Lane Multi Pass math 2026' },
       { href: '/blog/disney-fall-room-promo-math-2026', label: 'Disney fall room promo math 2026' },
       { href: '/blog/disney-food-snacks-cost-2026', label: 'Disney food &amp; snacks 2026' },
       { href: '/blog/halloween-events-cost-2026', label: 'Halloween events cost 2026' },
