@@ -5,7 +5,9 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260913apass";
+const CACHE = "v20260923seo";
+const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
+const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
 ctx.window = ctx;
 ctx.global = ctx;
@@ -50,9 +52,22 @@ function faqFor(g) {
 
 function page(g) {
   const url = "https://vacationmath.co/guides/" + g.id;
-  const title = g.label + " Money Guide 2026 | Printable | Vacation Math";
-  const desc = g.hook + " Stay, eat, get around, hidden costs, and top money-saving tips. Not live rates.";
+  const seo = ctx.VM_CITY_GUIDE.seo(g);
+  const title = seo.title;
+  const desc = seo.desc;
+  if (!title || title.indexOf("Vacation Math") < 0 || title.indexOf("Printable") >= 0) {
+    throw new Error(g.id + ": bad title " + title);
+  }
+  if (!desc || desc.length > 160 || !/\.$/.test(desc) || desc.indexOf("Not live rates") < 0) {
+    throw new Error(g.id + ": bad meta (" + desc.length + ") " + desc);
+  }
+  if (!seo.h1 || seo.h1.indexOf("2026") < 0) {
+    throw new Error(g.id + ": bad h1 " + seo.h1);
+  }
   const body = ctx.VM_CITY_GUIDE.render(g);
+  if (body.indexOf("<h1 class=\"cg-h1\">" + esc(seo.h1) + "</h1>") < 0) {
+    throw new Error(g.id + ": rendered h1 mismatch");
+  }
 
   return `<!doctype html>
 <html lang="en">
@@ -91,12 +106,12 @@ function page(g) {
 <script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: g.label + " money guide",
+    headline: seo.h1,
     description: desc,
     author: { "@type": "Person", name: "Chris Bacon", url: "https://vacationmath.co/how-it-works" },
     publisher: { "@type": "Organization", name: "Vacation Math", url: "https://vacationmath.co" },
     datePublished: "2026-09-12",
-    dateModified: "2026-09-13",
+    dateModified: "2026-09-23",
     mainEntityOfPage: url
   })}</script>
 <script type="application/ld+json">${JSON.stringify({
@@ -144,9 +159,36 @@ GUIDES.forEach(function (g) {
   console.log("wrote", path.relative(root, out));
 });
 
+function collectionLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Vacation Money Guides 2026",
+    description: HUB_DESC,
+    url: "https://vacationmath.co/guides",
+    isPartOf: { "@type": "WebSite", name: "Vacation Math", url: "https://vacationmath.co" },
+    mainEntity: {
+      "@type": "ItemList",
+      name: "20 destination money guides",
+      numberOfItems: GUIDES.length,
+      itemListElement: GUIDES.map(function (g, i) {
+        return {
+          "@type": "ListItem",
+          position: i + 1,
+          name: g.label,
+          url: "https://vacationmath.co/guides/" + g.id
+        };
+      })
+    }
+  };
+}
+
 function injectIndex(filePath) {
   if (!fs.existsSync(filePath)) return;
   let src = fs.readFileSync(filePath, "utf8");
+  if (src.indexOf(HUB_TITLE) < 0 || src.indexOf(HUB_DESC) < 0) {
+    throw new Error("hub title/meta missing in " + path.relative(root, filePath));
+  }
   const cards = ctx.VM_CITY_GUIDE.renderIndex(GUIDES);
   const startMark = "<!-- MONEY_GUIDES_START -->";
   const endMark = "<!-- MONEY_GUIDES_END -->";
@@ -172,6 +214,14 @@ function injectIndex(filePath) {
   next = next.replace(/city-guide\.css\?v[0-9a-z]+/g, "city-guide.css?" + CACHE);
   next = next.replace(/city-guide\.js\?v[0-9a-z]+/g, "city-guide.js?" + CACHE);
   next = next.replace(/city-guides-data\.js\?v[0-9a-z]+/g, "city-guides-data.js?" + CACHE);
+  const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
+    + JSON.stringify(collectionLd())
+    + "</script>\n<!-- GUIDES_JSONLD_END -->";
+  if (next.indexOf("<!-- GUIDES_JSONLD_START -->") >= 0) {
+    next = next.replace(/<!-- GUIDES_JSONLD_START -->[\s\S]*?<!-- GUIDES_JSONLD_END -->/, ld);
+  } else {
+    throw new Error("GUIDES_JSONLD markers missing in " + path.relative(root, filePath));
+  }
   fs.writeFileSync(filePath, next);
   console.log("updated index", path.relative(root, filePath));
 }

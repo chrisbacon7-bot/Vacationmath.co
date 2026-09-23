@@ -11,6 +11,85 @@
   var COMPILED = "Compiled Sep 2026 from public rates, official calendars, and transit maps — orientation, not a field visit.";
   var CAR_SHORT = { yes: "Usually", no: "No — transit", maybe: "Optional" };
 
+  /* SERP title / H1 / meta. Label stays the short city name for cards and crumbs. */
+  var SEO = {
+    disney: {
+      title: "Disney World Vacation Cost Guide 2026 | Tickets, Stay, Hidden Costs | Vacation Math",
+      h1: "Disney World vacation costs: tickets, stay, eat (2026)",
+      desc: "Disney World in Budget, Mid-range, and Splurge: value resort, food court, and one park a day. Printable 2026 guide. Not live rates."
+    },
+    anaheim: {
+      title: "Disneyland Vacation Cost Guide 2026 | Stay, Eat, Hidden Costs | Vacation Math",
+      h1: "Disneyland vacation costs: stay, eat, get around (2026)",
+      desc: "Disneyland in Budget, Mid-range, and Splurge: Harbor Blvd stay, grocery breakfast, one park a day. Printable. Not live rates."
+    },
+    los_angeles: {
+      desc: "Los Angeles in Budget, Mid-range, and Splurge: one neighborhood, local dinners, one ticketed day. Printable 2026 guide. Not live rates."
+    },
+    nyc: {
+      desc: "New York in Budget, Mid-range, and Splurge: subway, a train-stop hotel, one ticketed thing. Printable 2026 guide. Not live rates."
+    },
+    vegas: {
+      desc: "Las Vegas in Budget, Mid-range, and Splurge: midweek Strip or downtown, after the resort fee. Printable. Not live rates."
+    },
+    miami: {
+      desc: "Miami in Budget, Mid-range, and Splurge: a few blocks off Ocean Drive, Cuban breakfast, neighborhood dinner. Printable. Not live rates."
+    },
+    san_francisco: {
+      desc: "San Francisco in Budget, Mid-range, and Splurge: Clipper, a bakery, one timed ferry. Printable 2026 guide. Not live rates."
+    },
+    chicago: {
+      desc: "Chicago in Budget, Mid-range, and Splurge: the L, a downtown room, one indoor ticket. Printable 2026 guide. Not live rates."
+    },
+    nola: {
+      desc: "New Orleans in Budget, Mid-range, and Splurge: cut the hotel class, keep the reservation. Printable. Not live rates."
+    },
+    philadelphia: {
+      desc: "Philadelphia in Budget, Mid-range, and Splurge: Center City, Reading Terminal, one museum. Printable. Not live rates."
+    },
+    atlanta: {
+      desc: "Atlanta in Budget, Mid-range, and Splurge: MARTA from the airport, BeltLine, meat-and-three. Printable. Not live rates."
+    },
+    paris: {
+      desc: "Paris in Budget, Mid-range, and Splurge: Metro hotel, bakery breakfast, one reserved dinner. Printable. Not live rates."
+    },
+    london: {
+      desc: "London in Budget, Mid-range, and Splurge: Tube cap, bakery or Tesco, one free museum. Printable 2026 guide. Not live rates."
+    },
+    rome: {
+      desc: "Rome in Budget, Mid-range, and Splurge: walk the center, one timed ruin, dinner off the photo menus. Printable. Not live rates."
+    },
+    tokyo: {
+      desc: "Tokyo in Budget, Mid-range, and Splurge: station hotel, konbini breakfast, one sushi counter. Printable. Not live rates."
+    },
+    cancun: {
+      desc: "Cancún in Budget, Mid-range, and Splurge: all-inclusive rate with the airport van included. Printable. Not live rates."
+    },
+    oahu: {
+      desc: "Oahu in Budget, Mid-range, and Splurge: Waikiki on TheBus, plate lunch, one reserved bay. Printable. Not live rates."
+    },
+    maui: {
+      desc: "Maui in Budget, Mid-range, and Splurge: condo kitchen, one beach base, skip stacking every island day. Printable. Not live rates."
+    },
+    cruise: {
+      title: "Caribbean Cruise Vacation Cost Guide 2026 | Fare, Drinks, Hidden Costs | Vacation Math",
+      h1: "Caribbean cruise costs: cabin, drinks, get to port (2026)",
+      desc: "Caribbean cruise in Budget, Mid-range, and Splurge: cabin, gratuities, drinks, and flights to port. Printable. Not live rates."
+    },
+    key_west: {
+      desc: "Key West in Budget, Mid-range, and Splurge: Old Town on foot, Cuban breakfast, one named dinner. Printable. Not live rates."
+    }
+  };
+
+  function seoPack(guide) {
+    var custom = SEO[guide.id] || {};
+    var name = guide.label;
+    var title = custom.title || (name + " Vacation Cost Guide 2026 | Stay, Eat, Hidden Costs | Vacation Math");
+    var h1 = custom.h1 || (name + " vacation costs: stay, eat, get around (2026)");
+    var desc = custom.desc || "";
+    return { title: title, h1: h1, desc: desc };
+  }
+
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;")
@@ -382,6 +461,7 @@
     var id = guide.id;
     var planHref = "/plan?dest=" + encodeURIComponent(id);
     var updated = guide.updated || COMPILED;
+    var seo = seoPack(guide);
 
     var tips = (guide.tips || []).map(function (t) {
       var html = linkify(t);
@@ -415,7 +495,7 @@
 
       + "<header class=\"cg-hero\" data-cg-static=\"1\">"
       +   "<p class=\"cg-kicker\">Money guide · " + esc(guide.place) + "</p>"
-      +   "<h1 class=\"cg-h1\">" + esc(guide.label) + "</h1>"
+      +   "<h1 class=\"cg-h1\">" + esc(seo.h1) + "</h1>"
       +   "<p class=\"cg-hook\">" + esc(plainVoice(guide.hook)) + "</p>"
       +   (guide.startHere
         ? "<p class=\"cg-start\"><span>Start here</span> " + esc(plainVoice(guide.startHere)) + "</p>"
@@ -541,6 +621,7 @@
   global.VM_CITY_GUIDE = {
     render: renderGuide,
     renderIndex: renderIndexCards,
+    seo: seoPack,
     boot: boot,
     id: guideId,
     plainVoice: plainVoice
