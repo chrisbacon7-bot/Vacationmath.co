@@ -79,6 +79,7 @@
       ],
       related: [
         { href: "/disney", label: "Disney World Cost Calculator" },
+        { href: "/blog/lightning-lane-multi-pass-math-2026", label: "Lightning Lane Multi Pass math" },
         { href: "/guides/disney-world-vacation-cost", label: "Disney World cost guide" },
         { href: "/guides/hidden-costs-disney-world", label: "Hidden Disney costs" }
       ],
