@@ -371,6 +371,17 @@
   font-size: 0.86rem;
   color: rgba(251, 247, 239, 0.6);
 }
+.tp-cta-trust a { color: var(--honey); }
+
+/* Tuesday signup inside a navy tentpole hero */
+.tp-hero .capture.capture-atf {
+  margin-top: 18px;
+  max-width: 560px;
+}
+.tp-hero .capture.capture-atf .trust {
+  color: rgba(251, 247, 239, 0.75);
+}
+.tp-hero .capture.capture-atf .form-msg.error { color: #ffb4a2; }
 
 @media (max-width: 720px) {
   .tp-hero { padding: 72px 0 64px; }
