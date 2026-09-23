@@ -272,6 +272,11 @@
     html += '<tr class="row-total"><td>Estimated total</td><td class="amount">' + money(r.total) + '</td></tr>';
     html += '</tbody></table>';
     html += '<div class="result-note"><strong>Why the gap?</strong> When most families budget a Disney trip, they price-shop the two big line items (resort + tickets) and forget the rest. Disney publishes every price in this calculator &mdash; nothing here is hidden. The gap shows up because dining, Lightning Lane, snacks, transport, tips, and photos get added at the park, not at the booking page. Predictable. Mostly avoidable.</div>';
+    html += '<div class="result-next">';
+    html += '<p><strong>Next:</strong> lock this total to a hard budget. Trip Plan says Fits, Tight, or Over, and what to cut first.</p>';
+    html += '<a class="btn btn-honey" href="/plan?dest=disney">Build a Disney Trip Plan &rarr;</a>';
+    html += '<p class="trust">2026 estimates. Not live rates. Free.</p>';
+    html += '</div>';
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
     if (typeof VM_ANALYTICS !== "undefined") {

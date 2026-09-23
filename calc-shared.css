@@ -2196,3 +2196,64 @@
   .rt-num { font-size: 24px; }
   .rt-meta { font-size: 12px; }
 }
+
+/* Above-the-fold signup on cream calculator heroes.
+   Shared .capture styles assume a navy panel; this keeps the field readable. */
+.calc-hero .capture.capture-atf {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: stretch;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  max-width: 560px;
+  text-align: left;
+}
+.calc-hero .capture.capture-atf input[type="email"] {
+  flex: none;
+  width: 100%;
+  background: #fff;
+  color: var(--ink);
+  border: 1.5px solid rgba(14, 42, 71, 0.18);
+  border-radius: 12px;
+}
+.calc-hero .capture.capture-atf input[type="email"]::placeholder { color: #A39E97; }
+.calc-hero .capture.capture-atf input[type="email"]:focus {
+  background: #fff;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(14, 42, 71, 0.12);
+}
+.calc-hero .capture.capture-atf .trust,
+.calc-hero .capture.capture-atf .form-msg {
+  flex: none;
+  grid-column: 1 / -1;
+  text-align: left;
+  color: var(--muted);
+}
+.calc-hero .capture.capture-atf .form-msg.error { color: var(--coral); }
+@media (max-width: 600px) {
+  .calc-hero .capture.capture-atf { grid-template-columns: 1fr; }
+  .calc-hero .capture.capture-atf .btn { width: 100%; }
+}
+
+.result-next {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1.5px solid rgba(230, 163, 64, 0.55);
+  border-radius: 12px;
+}
+.result-next p {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.result-next .btn {
+  text-decoration: none;
+  display: inline-flex;
+}
+.result-next .trust {
+  margin: 8px 0 0;
+  font-size: 13px;
+}

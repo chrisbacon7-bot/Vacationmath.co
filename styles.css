@@ -1542,3 +1542,31 @@ a { color: inherit; }
   .method-table .method-source { font-size: 0.78rem; }
 }
 /* === END SEO ROUND 3 fix === */
+
+/* Above-the-fold Tuesday Travel Math signup (cream heroes) */
+.hero-inner:has(.capture-atf) {
+  padding-top: clamp(28px, 4vw, 52px);
+}
+.capture-atf {
+  margin-top: 14px;
+  margin-bottom: 2px;
+  max-width: 560px;
+}
+.capture-atf .trust {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.hero-ctas + .capture-atf { margin-top: 16px; }
+@media (max-width: 760px) {
+  .hero-inner:has(.capture-atf) { padding-top: 12px; }
+  .hero-inner:has(.capture-atf) .pill { margin-bottom: 14px; }
+  .hero-inner:has(.capture-atf) .hero-headline { margin-bottom: 12px; }
+  .hero-inner:has(.capture-atf) .hero-sub { margin-bottom: 10px; }
+  .hero-inner:has(.capture-atf) .hero-ctas { margin-top: 14px; }
+  .hero-ctas + .capture-atf { margin-top: 12px; }
+  .hero-inner:has(.capture-atf) .capture-atf .trust {
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
