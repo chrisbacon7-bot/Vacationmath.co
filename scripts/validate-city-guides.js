@@ -107,6 +107,14 @@ REQUIRED.forEach(function (id) {
     if (src.indexOf("/plan?dest=" + id) < 0) errors.push(id + ": missing /plan?dest=");
     if (src.indexOf("Download / Print money guide") < 0) errors.push(id + ": print bar should say money guide");
     if (src.indexOf("Money guide") < 0) errors.push(id + ": missing Money guide kicker");
+    const seo = ctx.VM_CITY_GUIDE.seo(g);
+    if (src.indexOf("<title>" + seo.title + "</title>") < 0) errors.push(id + ": title drift");
+    if (src.indexOf("content=\"" + seo.desc + "\"") < 0) errors.push(id + ": meta drift");
+    if (src.indexOf("<h1 class=\"cg-h1\">" + seo.h1 + "</h1>") < 0) errors.push(id + ": h1 drift");
+    if (seo.desc.length > 160) errors.push(id + ": meta over 160");
+    if (seo.title.indexOf("VacationMath") >= 0 || seo.title.indexOf("| Printable |") >= 0) {
+      errors.push(id + ": weak title pattern");
+    }
     if (src.indexOf("Quick facts") < 0) errors.push(id + ": missing Quick facts");
     if (src.indexOf("Who this is for") < 0) errors.push(id + ": missing Who this is for");
     if (src.indexOf("Getting around") < 0) errors.push(id + ": missing Getting around");
