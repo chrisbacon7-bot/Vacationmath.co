@@ -1412,6 +1412,54 @@ a { color: inherit; }
   text-decoration: none;
   border-bottom: 2px solid #E6A340;
 }
+.money-guide-index {
+  background: #fff;
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid rgba(14, 42, 71, 0.08);
+}
+.money-guide-index .kicker { color: #b07a1f; }
+.money-guide-index .section-headline { color: #0E2A47; margin: 0 0 10px; }
+.money-guide-index .money-guide-lede {
+  max-width: 40rem;
+  margin: 0 0 1.25rem;
+  color: #243044;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.money-guide-index .money-guide-lede a {
+  color: #0E2A47;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.money-guide-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px 22px;
+}
+.money-guide-links a {
+  color: #0E2A47;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  line-height: 1.35;
+}
+.calc-related-links {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.calc-related-links a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 /* === END SEO ROUND 2 === */
 
 

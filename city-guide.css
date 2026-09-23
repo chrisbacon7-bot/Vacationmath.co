@@ -824,6 +824,10 @@
   color: var(--navy, #0E2A47);
   margin: 0 0 6px;
 }
+.cg-index-card h3 a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
 
 .cg-index-card p {
   margin: 0 0 12px;

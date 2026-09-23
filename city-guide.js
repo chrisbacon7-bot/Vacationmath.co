@@ -556,12 +556,12 @@
       return ""
         + "<article class=\"cg-index-card\">"
         +   "<p class=\"cg-index-kicker\">" + esc(g.place) + "</p>"
-        +   "<h3>" + esc(g.label) + "</h3>"
+        +   "<h3><a href=\"/guides/" + encodeURIComponent(g.id) + "\">" + esc(g.label) + " vacation cost guide</a></h3>"
         +   "<p>" + esc(plainVoice(g.blurb)) + "</p>"
         +   "<div class=\"cg-index-actions\">"
-        +     "<a href=\"/guides/" + encodeURIComponent(g.id) + "\">Open</a>"
+        +     "<a href=\"/guides/" + encodeURIComponent(g.id) + "\">Read the cost guide</a>"
         +     "<a href=\"/guides/" + encodeURIComponent(g.id) + "?print=1\">Download / Print</a>"
-        +     "<a href=\"/plan?dest=" + encodeURIComponent(g.id) + "\">Plan</a>"
+        +     "<a href=\"/plan?dest=" + encodeURIComponent(g.id) + "\">Vacation budget planner</a>"
         +   "</div>"
         + "</article>";
     }).join("");
