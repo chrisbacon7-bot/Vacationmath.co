@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vacation Budget Planner 2026 | Destination + Hard Budget | Vacation Math</title>
-<meta name="description" content="Vacation budget planner for 2026. Pick a destination and a hard budget — the verdict is Fits, Tight, or Over. Not live rates." />
+<title>Vacation Budget Planner 2026 | Fits, Tight, or Over | Vacation Math</title>
+<meta name="description" content="Vacation budget planner for 2026. One destination, one hard budget. The verdict is Fits (8% under), Tight (within 8%), or Over. Itemized, shareable, not a live quote." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,19 +12,20 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css?v20260530">
 <link rel="stylesheet" href="calc-shared.css">
+<link rel="stylesheet" href="calc-quality.css?v20260924b">
 <link rel="stylesheet" href="site-nav.css?v20260530">
-<link rel="stylesheet" href="plan.css?v20260913money3">
+<link rel="stylesheet" href="plan.css?v20260924b">
 
 <link rel="canonical" href="https://vacationmath.co/plan" />
 <meta property="og:url" content="https://vacationmath.co/plan" />
 <meta property="og:site_name" content="Vacation Math" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Vacation Budget Planner 2026 | Destination + Hard Budget | Vacation Math" />
-<meta property="og:description" content="Vacation budget planner for 2026. Pick a destination and a hard budget — the verdict is Fits, Tight, or Over. Not live rates." />
+<meta property="og:title" content="Vacation Budget Planner 2026 | Fits, Tight, or Over | Vacation Math" />
+<meta property="og:description" content="One destination, one hard budget. Fits means 8% under, Tight means within 8%, Over means do not book that version." />
 <meta property="og:image" content="https://vacationmath.co/og-image.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Vacation Budget Planner 2026 | Destination + Hard Budget | Vacation Math" />
-<meta name="twitter:description" content="Vacation budget planner for 2026. Pick a destination and a hard budget — the verdict is Fits, Tight, or Over. Not live rates." />
+<meta name="twitter:title" content="Vacation Budget Planner 2026 | Fits, Tight, or Over | Vacation Math" />
+<meta name="twitter:description" content="One destination, one hard budget. Fits means 8% under, Tight means within 8%, Over means do not book that version." />
 <meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="author" content="Chris Bacon" />
@@ -49,15 +50,13 @@
   <div class="container">
     <a href="/calculators" class="back-link">&larr; All calculators</a>
     <p class="kicker honey">Trip Plan</p>
-    <h1 class="calc-h1">Vacation budget planner: one destination, one hard budget.</h1>
-    <p class="calc-sub">You already know where you want to go. The question is whether the number works. Pick from 70+ destinations (same 2026 catalog as Trip Finder), enter a hard budget, and we&rsquo;ll build one constrained plan &mdash; Fits / Tight / Over, Budget / Mid-range / Splurge, season / hotel / airline / food recommendations, and what to cut first if you&rsquo;re over. Disney World, Caribbean cruises, and major all-inclusives still use the dedicated calculator math.</p>
-    <form class="capture capture-atf" data-source="plan-hero" novalidate>
-      <label class="sr-only" for="email-plan-hero">Email address</label>
-      <input id="email-plan-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
-      <button type="submit" class="btn btn-honey">Get Tuesday Travel Math</button>
-      <p class="trust">One Tuesday email. Real trip math. Free. We won&rsquo;t sell your email.</p>
-      <p class="form-msg" aria-live="polite"></p>
-    </form>
+    <h1 class="calc-h1">Vacation budget planner: one destination, one hard budget, a Fits / Tight / Over verdict.</h1>
+    <p class="calc-sub">You already know where you want to go. The question is whether the number works. Pick from 70+ destinations (same 2026 catalog as Trip Finder), enter a hard budget, and we&rsquo;ll build one constrained plan. Disney World, Caribbean cruises, and major all-inclusives still use the dedicated calculator math.</p>
+    <ul class="plan-verdict-key" aria-label="What the verdict means">
+      <li><strong>Fits</strong> — the plan is at least 8% under your number. Upgrade, or keep the cash.</li>
+      <li><strong>Tight</strong> — within 8% either side. One optional line is the decision.</li>
+      <li><strong>Over</strong> — more than 8% above the budget. Cut before you book.</li>
+    </ul>
 
     <div class="plan-diff" aria-label="How this calculator is different">
       <article class="plan-diff-card is-here">
@@ -335,8 +334,9 @@
 <script src="trip-finder-data.js?v20260912us20"></script>
 <script src="plan-data.js?v20260913money3"></script>
 <script src="plan-recs-extra.js?v20260913money3"></script>
-<script src="plan.js?v20260913money3"></script>
-<script src="site-nav.js?v20260913h"></script>
+<script src="plan.js?v20260924b"></script>
+<script src="calc-quality.js?v20260924b" defer></script>
+<script src="site-nav.js?v20260924b"></script>
 <script src="trust-block.js" defer></script>
 <script src="analytics.js" defer></script>
 <script src="main.js" defer></script>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Best Travel Credit Card Finder | Vacation Math</title>
-<meta name="description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
+<title>Best Travel Credit Card Finder 2026 | First-Year Value, Not Commissions | Vacation Math</title>
+<meta name="description" content="Travel credit card finder for 2026. See a conservative first-year estimate first, then rank 18 cards on your spend. Affiliates off. Not a live offer." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="calc-shared.css">
+<link rel="stylesheet" href="calc-quality.css?v20260924b">
 <link rel="stylesheet" href="site-nav.css">
 
 <style>
@@ -512,11 +513,11 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Vacation Math — Math it before you book it." />
-<meta property="og:title" content="Best Travel Credit Card Finder | Vacation Math" />
-<meta property="og:description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
+<meta property="og:title" content="Best Travel Credit Card Finder 2026 | First-Year Value, Not Commissions | Vacation Math" />
+<meta property="og:description" content="Estimate-first card ranking. 18 cards, conservative 2026 value, affiliates off. Confirm every offer on the issuer page." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Best Travel Credit Card Finder | Vacation Math" />
-<meta name="twitter:description" content="Answer 3 questions. We rank travel cards by conservative first-year value, not commissions." />
+<meta name="twitter:title" content="Best Travel Credit Card Finder 2026 | First-Year Value, Not Commissions | Vacation Math" />
+<meta name="twitter:description" content="Estimate-first card ranking. 18 cards, conservative 2026 value, affiliates off. Confirm every offer on the issuer page." />
 <meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="author" content="Chris Bacon" />
@@ -541,8 +542,11 @@
 <header class="calc-hero">
   <div class="container cf-hero">
     <p class="kicker">Credit Card Finder</p>
-    <h1>Travel credit card finder: find your card in 60 seconds.</h1>
-    <p class="lede">Answer 3 questions. We rank travel cards by conservative first-year value, not commissions. No aspirational point math.</p>
+    <h1>Travel credit card finder 2026: rank the card by first-year value, not the commission.</h1>
+    <p class="lede">A starting estimate is on the page before you answer. Three questions replace it. Rankings ignore what a network would pay us — affiliates are off. The dollar figure is a September 2026 model, not a live bonus.</p>
+    <aside class="vm-peer-gap">
+      <p><strong>Why this is not The Points Guy or NerdWallet’s list.</strong> Those pages rank a catalog. This one scores your grocery, dining, and fee ceiling, then hides the issuer link behind “Optional: see card math.”</p>
+    </aside>
     <div class="cf-meta">
       <span class="cf-meta-pill">3 questions</span>
       <span class="cf-meta-pill">18 cards scored</span>
@@ -642,7 +646,22 @@
       </div>
     </section>
 
-    <section class="cf-results-section" id="cf-results" hidden></section>
+    <section class="cf-results-section calc-results" id="cf-results" hidden></section>
+
+    <section class="post-results" id="email-section" hidden>
+      <div class="email-card">
+        <p class="kicker">Free</p>
+        <h2 class="email-h2">The ranking is the result. The email is optional.</h2>
+        <p>Tuesday Travel Math is one real trip with the math worked out. We do not sell your email, and this is not a card offer.</p>
+        <form class="capture" data-source="card-finder-result" novalidate>
+          <label class="sr-only" for="email-cf">Email address</label>
+          <input id="email-cf" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send the Tuesday brief</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
 
     <div class="cf-actions" id="cf-actions" hidden>
       <button class="cf-share-btn" id="cf-copy-btn" type="button">
@@ -754,8 +773,9 @@
 
 <script src="affiliate-config.js?v20260828f"></script>
 <script src="cards-data.js?v20260829b"></script>
-<script src="card-finder.js?v20260828f"></script>
-<script src="site-nav.js?v20260828a"></script>
+<script src="card-finder.js?v20260924b"></script>
+<script src="calc-quality.js?v20260924b" defer></script>
+<script src="site-nav.js?v20260924b"></script>
 <script>
 (function () {
   'use strict';
@@ -868,7 +888,10 @@
     results.hidden = false;
     restart.hidden = false;
     actionsEl.hidden = false;
-    window.VM_CardFinder.render('cf-results', state.spending, state.perks, state.fee);
+    window.VM_CardFinder.render('cf-results', state.spending, state.perks, state.fee, false);
+    var email = document.getElementById('email-section');
+    if (email) email.hidden = false;
+    results.classList.add('has-results');
     try {
       var url = buildShareURL();
       history.replaceState(null, '', url);
@@ -935,10 +958,22 @@
     showStep(1);
   });
 
+  function showPreview() {
+    if (!window.VM_CardFinder) return;
+    window.VM_CardFinder.render('cf-results', ['groceries', 'dining'], ['signupBonus'], 'low', true);
+    results.hidden = false;
+    results.classList.add('has-results');
+    var email0 = document.getElementById('email-section');
+    if (email0) email0.hidden = false;
+  }
+
   (function restoreFromURL() {
     var params = new URLSearchParams(location.search);
     var s = params.get('s'); var p = params.get('p'); var f = params.get('f');
-    if (!s && !p && !f) return;
+    if (!s && !p && !f) {
+      showPreview();
+      return;
+    }
     if (s) state.spending = s.split(',').filter(Boolean);
     if (p) state.perks = p.split(',').filter(Boolean);
     if (f) state.fee = f;
@@ -970,6 +1005,8 @@
       showResults();
     } else if (state.spending.length) {
       showStep(state.perks.length ? 3 : 2);
+    } else {
+      showPreview();
     }
   })();
 })();

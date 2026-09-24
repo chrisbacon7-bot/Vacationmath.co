@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Free Vacation Trip Tracker Spreadsheet (2026) — Plan & Track Expenses | Vacation Math</title>
-<meta name="description" content="Free Excel and Numbers trip tracker. Plan a budget with a 'biased to over-count' buffer, log expenses as you go, see planned vs actual on a live dashboard. No signup, no email gate." />
+<title>Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math</title>
+<meta name="description" content="Track a vacation in the browser: planned vs actual by category, with a 10% over-count buffer. Free Excel download of the same sheet. No signup wall." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css?v20260530e">
 <link rel="stylesheet" href="calc-shared.css">
+<link rel="stylesheet" href="calc-quality.css?v20260924b">
 <script src="nav-fix.js" defer></script>
 <link rel="stylesheet" href="site-nav.css?v20260530e">
 
@@ -24,11 +25,11 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Vacation Math — Trip Tracker Spreadsheet" />
-<meta property="og:title" content="Free Vacation Trip Tracker Spreadsheet (2026) | Vacation Math" />
-<meta property="og:description" content="Free Excel and Numbers trip tracker. Plan a budget with a 'biased to over-count' buffer, log expenses as you go, see planned vs actual on a live dashboard. No signup." />
+<meta property="og:title" content="Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math" />
+<meta property="og:description" content="Planned vs actual vacation spending in the browser, plus the same sheet as an Excel download. 10% over-count buffer. No signup wall." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Free Vacation Trip Tracker Spreadsheet (2026) | Vacation Math" />
-<meta name="twitter:description" content="Free Excel and Numbers trip tracker. Plan, log, and track your vacation expenses with built-in formulas and a live dashboard. No signup." />
+<meta name="twitter:title" content="Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math" />
+<meta name="twitter:description" content="Planned vs actual vacation spending in the browser, plus the same sheet as an Excel download. 10% over-count buffer. No signup wall." />
 <meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="author" content="Chris Bacon" />
@@ -39,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Free Vacation Trip Tracker Spreadsheet (Excel + Numbers)",
-  "description": "A free Excel and Numbers workbook for planning vacation budgets and tracking actual expenses. Includes Plan, Trip Log, and Dashboard sheets with 138 built-in formulas. Works in Excel, Numbers, Google Sheets, and LibreOffice.",
+  "description": "Plan versus actual vacation spending in the browser, with an optional Excel workbook of the same categories and a 10% over-count buffer.",
   "author": {"@type": "Person", "name": "Chris Bacon", "url": "https://vacationmath.co"},
   "publisher": {"@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co"},
   "datePublished": "2026-06-27",
@@ -209,19 +210,93 @@
   <div class="container">
     <a href="/calculators" class="back-link">&larr; All calculators</a>
     <p class="kicker honey">Trip Tracker</p>
-    <h1 class="calc-h1">Your trip. Your spreadsheet. Your numbers.</h1>
-    <p class="calc-sub">A free Excel and Numbers workbook that does what the website calculators do — plus lets you save it, edit it, and track what you actually spend on the trip. No signup. No email gate. 138 built-in formulas. Works in Excel, Numbers, Google Sheets, and LibreOffice.</p>
+    <h1 class="calc-h1">Vacation expense tracker: planned vs actual, before the spreadsheet.</h1>
+    <p class="calc-sub">Log the plan and what you actually spent. A 10% over-count buffer is the ceiling, not a surprise. The Excel file is the same sheet for your computer. The number on this page is the product.</p>
+    <aside class="vm-peer-gap">
+      <p><strong>Not a download gate.</strong> Spreadsheet blogs hand you a file and ask for an email. This page runs the planned-vs-actual math in the browser, then offers the workbook with no signup wall.</p>
+    </aside>
   </div>
 </header>
 
 <main class="calc-main">
   <div class="container">
 
+    <div class="calc-grid">
+      <section class="calc-inputs" id="calculator">
+        <h2 class="panel-title">Your trip</h2>
+        <div class="field">
+          <label for="trk-name">Trip name</label>
+          <input type="text" id="trk-name" value="Sample: Orlando, party of 4" />
+        </div>
+        <div class="field-row-3">
+          <div>
+            <label for="trk-people">Travelers</label>
+            <input type="number" id="trk-people" min="1" max="20" value="4" />
+          </div>
+          <div>
+            <label for="trk-buffer">Over-count buffer (%)</label>
+            <input type="number" id="trk-buffer" min="0" max="30" step="1" value="10" />
+          </div>
+        </div>
+        <p class="hint">Planned is the budget. Actual is what hit the card. The sample is a 2026 Orlando-shaped trip, not a live quote.</p>
+        <div class="trk-row" aria-hidden="true"><span></span><label>Planned</label><label>Actual</label></div>
+        <div class="trk-row">
+          <label for="trk-p-lodging">Lodging</label>
+          <input type="number" id="trk-p-lodging" min="0" step="10" value="2200" />
+          <input type="number" id="trk-a-lodging" min="0" step="10" value="1980" aria-label="Lodging actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-flights">Flights</label>
+          <input type="number" id="trk-p-flights" min="0" step="10" value="1400" />
+          <input type="number" id="trk-a-flights" min="0" step="10" value="1520" aria-label="Flights actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-food">Food and drinks</label>
+          <input type="number" id="trk-p-food" min="0" step="10" value="900" />
+          <input type="number" id="trk-a-food" min="0" step="10" value="640" aria-label="Food actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-tickets">Tickets and activities</label>
+          <input type="number" id="trk-p-tickets" min="0" step="10" value="1800" />
+          <input type="number" id="trk-a-tickets" min="0" step="10" value="1800" aria-label="Tickets actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-transport">Local transport</label>
+          <input type="number" id="trk-p-transport" min="0" step="10" value="220" />
+          <input type="number" id="trk-a-transport" min="0" step="10" value="180" aria-label="Transport actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-misc">Souvenirs and extras</label>
+          <input type="number" id="trk-p-misc" min="0" step="10" value="350" />
+          <input type="number" id="trk-a-misc" min="0" step="10" value="210" aria-label="Extras actual" />
+        </div>
+        <button class="btn btn-honey calc-go" id="tracker-calc" type="button">Update planned vs actual</button>
+      </section>
+      <section class="calc-results" id="results" aria-live="polite">
+        <p class="results-empty">The sample trip loads with the page. Change a number to see under plan, inside the buffer, or over the ceiling.</p>
+      </section>
+    </div>
+
+    <section class="post-results" id="email-section" hidden>
+      <div class="email-card">
+        <p class="kicker">Optional</p>
+        <h2 class="email-h2">The number is on the page. The email is optional.</h2>
+        <p>The download below has no email gate. If you want the Tuesday brief &mdash; one real trip with the math worked out &mdash; leave an address. We will not sell it.</p>
+        <form class="capture" data-source="tracker-page" novalidate>
+          <label class="sr-only" for="email-tracker">Email address</label>
+          <input id="email-tracker" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-honey">Send me the Tuesday brief</button>
+          <p class="trust">We won't sell your email. Ever.</p>
+          <p class="form-msg" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
     <!-- DOWNLOAD CARD -->
     <div class="download-card">
       <p class="download-card-eyebrow">FREE DOWNLOAD · 2026</p>
       <h2>Vacation Math Trip Tracker</h2>
-      <p class="download-card-sub">Plan a budget with a configurable over-count buffer. Log expenses as you go. See planned vs actual on a live dashboard.</p>
+      <p class="download-card-sub">The same categories as the tracker above, in a workbook. Excel, Numbers, Google Sheets, LibreOffice. No signup.</p>
       <a href="downloads/vacationmath-tracker.xlsx" download class="download-btn" id="tracker-download-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -244,24 +319,6 @@
         <span>Updated September 2026</span>
       </div>
     </div>
-
-    <!-- WHAT'S INSIDE -->
-    <section class="post-results">
-      <div class="container">
-        <div class="email-card">
-      <p class="kicker">Optional</p>
-      <h2 class="email-h2">The file is yours &mdash; no signup needed.</h2>
-      <p>That download has no email gate and never will. If you want the numbers behind it kept current, I send the Tuesday brief: one real trip with the math worked out, every week, plus a note whenever the pricing data is refreshed.</p>
-      <form class="capture" data-source="tracker-page" novalidate>
-        <label class="sr-only" for="email-tracker">Email address</label>
-        <input id="email-tracker" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
-        <button type="submit" class="btn btn-honey">Send me the Tuesday brief</button>
-        <p class="trust">We won't sell your email. Ever.</p>
-        <p class="form-msg" aria-live="polite"></p>
-      </form>
-        </div>
-      </div>
-    </section>
 
     <section style="margin: 3rem 0 1rem;">
       <h2 style="margin-bottom: 0.5rem;">What's inside</h2>
@@ -434,7 +491,9 @@
     });
   });
 </script>
-<script src="site-nav.js?v20260910b"></script>
+<script src="tracker.js?v20260924b" defer></script>
+<script src="calc-quality.js?v20260924b" defer></script>
+<script src="site-nav.js?v20260924b"></script>
 <script src="trust-block.js"></script>
 <script src="analytics.js"></script>
 <script src="main.js" defer></script>

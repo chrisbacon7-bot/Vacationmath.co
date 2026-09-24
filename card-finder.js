@@ -328,16 +328,20 @@
       +     '<div><dt>Best for</dt><dd>' + escapeHtml(card.bestFor) + '</dd></div>'
       +     '<div><dt>Perks</dt><dd>' + escapeHtml(card.networkPerks) + '</dd></div>'
       +   '</dl>'
-      +   '<div class="cf-card-foot">'
-      +     '<a class="cf-card-cta" data-card-id="' + escapeHtml(card.id) + '" href="' + escapeHtml(link.href) + '" target="_blank" rel="' + link.rel + '">'
-      +       'See the offer'
-      +     '</a>'
-      +     link.tag
-      +   '</div>'
+      +   '<details class="vm-card-gate">'
+      +     '<summary>Optional: see card math</summary>'
+      +     '<p class="vm-card-gate-note">Affiliates are off. This is not a paid placement and not cash from Vacation Math. The link goes to the issuer. Confirm the bonus and fee there — offers move.</p>'
+      +     '<div class="cf-card-foot vm-card-gate-body">'
+      +       '<a class="cf-card-cta" data-card-id="' + escapeHtml(card.id) + '" href="' + escapeHtml(link.href) + '" target="_blank" rel="' + link.rel + '">'
+      +         'See the issuer page'
+      +       '</a>'
+      +       link.tag
+      +     '</div>'
+      +   '</details>'
       + '</article>';
   }
 
-  function renderResults(containerId, spendingStyle, perks, feeTolerance) {
+  function renderResults(containerId, spendingStyle, perks, feeTolerance, preview) {
     var container = document.getElementById(containerId);
     if (!container) return;
 
@@ -354,18 +358,24 @@
 
     var top3 = ranked.slice(0, 3);
     var summaryLine = buildSummary(spendingStyle, perks, feeTolerance);
+    var topCard = g.VM_CARDS.CARDS[top3[0].cardId];
+    var topEst = (topCard && typeof topCard.valueFn === "function") ? Math.round(topCard.valueFn(5000)) : 0;
+    var kicker = preview ? "Starting estimate — groceries, dining, fee up to $200" : "Based on your answers";
+    var heading = preview ? "A conservative first pass, before you answer." : "Your three cards.";
 
     var html = ''
       + '<div class="cf-results-head">'
-      +   '<p class="cf-results-kicker">Based on your answers</p>'
-      +   '<h2 class="cf-results-h2">Your three cards.</h2>'
-      +   '<p class="cf-results-sub">' + escapeHtml(summaryLine) + '</p>'
+      +   '<p class="cf-results-kicker">' + escapeHtml(kicker) + '</p>'
+      +   '<h2 class="cf-results-h2">' + escapeHtml(heading) + '</h2>'
+      +   '<p class="big-label">Top match, est. first-year offset on a $5,000 trip</p>'
+      +   '<p class="big-num">' + money(topEst) + '</p>'
+      +   '<p class="cf-results-sub">' + escapeHtml(summaryLine) + ' Not a live offer. September 2026 model. Reconfirm on the issuer page.</p>'
       + '</div>'
       + '<div class="cf-results-grid">'
       +   top3.map(function (r, i) { return renderRankedCard(r, i, spendingStyle, perks); }).join('')
       + '</div>'
       + '<div class="cf-disclosure">'
-      +   '<p><strong>How this works.</strong> We score every card in our 18-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. ' + affiliateDisclosureLine() + ' Card terms verified August 28, 2026. Always reconfirm offers on the issuer page before applying. <a href="/disclosures">Affiliate disclosure</a>.</p>'
+      +   '<p><strong>How this works.</strong> We score every card in our 18-card catalog against where you actually spend and the perks you marked as priorities, then filter by your annual fee tolerance. Point values are conservative — 1¢ floor on Amex MR, real portal rates on Chase. We do not assume aspirational redemptions. The dollar figure is a model, not a live bonus. ' + affiliateDisclosureLine() + ' Card terms last reviewed September 24, 2026. If an issuer renamed a product, the issuer page wins. <a href="/disclosures">Affiliate disclosure</a>. <a href="/points">Value a redemption</a> · <a href="/funding">Weekly savings</a>.</p>'
       + '</div>';
 
     container.innerHTML = html;

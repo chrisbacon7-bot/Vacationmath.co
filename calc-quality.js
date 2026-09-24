@@ -64,9 +64,24 @@
       source: "2026 destination averages. Includes flights, hotels, and on-the-ground costs in the ranking. Excludes live availability. " + COMPILED
     },
     calculator: {
-      title: "Trip cost and card math",
+      title: "Trip cost calculator router",
       canonical: "https://vacationmath.co/calculator",
-      source: "2026 line-item trip math. The estimate is the sticker-to-all-in gap. Any card offset is bonus math, not a payment from Vacation Math. " + COMPILED
+      source: "2026 routing guide. This page does not invent a second price. It sends you to the vertical calculator that itemizes that trip type. Static examples are the same published figures as those tools. " + COMPILED
+    },
+    plan: {
+      title: "Vacation budget planner",
+      canonical: "https://vacationmath.co/plan",
+      source: "2026 destination tables shared with Trip Finder and the vertical calculators. Includes lodging, food, getting there, and the taxes or gratuities that brochure quotes skip. Fits means at least 8% under budget, Tight means within 8%, Over means more than 8% over. Excludes live availability. " + COMPILED
+    },
+    "card-finder": {
+      title: "Travel credit card finder",
+      canonical: "https://vacationmath.co/card-finder",
+      source: "September 2026 card terms in the on-site catalog. The dollar figure is a conservative first-year offset on a $5,000 trip, not a live offer and not cash from Vacation Math. Affiliates are off. Excludes approval odds and transfer bonuses. " + COMPILED
+    },
+    tracker: {
+      title: "Trip expense tracker",
+      canonical: "https://vacationmath.co/tracker",
+      source: "Your planned and actual numbers, plus a default 10% over-count buffer. The sample Orlando trip uses the same 2026 category shape as the Disney calculator. The workbook download is the file version of this page. " + COMPILED
     }
   };
 
@@ -84,9 +99,15 @@
   }
 
   function resultsPanel() {
-    return document.getElementById("results")
-      || document.getElementById("tf-results")
-      || document.getElementById("calc-results");
+    var ids = ["results", "tf-results", "calc-results", "cf-results", "hub-results"];
+    var i, el, fallback = null;
+    for (i = 0; i < ids.length; i++) {
+      el = document.getElementById(ids[i]);
+      if (!el) continue;
+      if (!fallback) fallback = el;
+      if (!el.hasAttribute("hidden")) return el;
+    }
+    return fallback;
   }
 
   function inputRoot() {
@@ -421,7 +442,11 @@
     g.addEventListener("load", function () {
       var restored = restoreUrl();
       if (!restored) return;
-      var btn = document.getElementById("calculate") || document.getElementById("calc-btn");
+      var btn = document.getElementById("calculate")
+        || document.getElementById("calc-btn")
+        || document.getElementById("p-calculate")
+        || document.getElementById("hub-go")
+        || document.getElementById("tracker-calc");
       if (btn) btn.click();
       else writeUrl();
     });

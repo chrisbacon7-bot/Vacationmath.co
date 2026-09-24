@@ -17,8 +17,10 @@
     { href: '/points',       label: 'Points vs. Cash' },
     { href: '/whentobook',   label: 'Best Time to Book' },
     { href: '/timeshare',    label: 'Timeshare Math' },
-    { href: '#',                 label: '— Spreadsheet —', divider: true },
-    { href: '/tracker',      label: 'Trip Tracker (.xlsx)' }
+    { href: '/funding',      label: 'Vacation Savings' },
+    { href: '/calculator',   label: 'Which calculator?' },
+    { href: '#',                 label: '— Track the trip —', divider: true },
+    { href: '/tracker',      label: 'Trip Tracker' }
   ];
 
   const PILLARS = [
@@ -104,6 +106,7 @@
     const root = isSubdir ? '../' : '';
 
     const dropdownItems = CALCULATORS.map(c => {
+      if (c.divider) return `<li class="vm-drop-divider">${c.label}</li>`;
       const isActive = active === 'calc:' + c.href;
       return `<li><a href="${c.href}"${isActive ? ' aria-current="page"' : ''}>${c.label}</a></li>`;
     }).join('');
