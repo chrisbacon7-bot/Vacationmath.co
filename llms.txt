@@ -9,6 +9,8 @@ The site prices real trips before you book: cruises, Disney World / Disneyland, 
 ## Calculators
 
 - [All calculators](https://vacationmath.co/calculators)
+- [Which calculator? Trip-type router](https://vacationmath.co/calculator)
+- [Vacation budget planner](https://vacationmath.co/plan)
 - [Disney World cost calculator](https://vacationmath.co/disney)
 - [Cruise cost calculator](https://vacationmath.co/cruise)
 - [All-inclusive resort cost calculator](https://vacationmath.co/allinclusive)
@@ -20,8 +22,8 @@ The site prices real trips before you book: cruises, Disney World / Disneyland, 
 - [Best time to book](https://vacationmath.co/whentobook)
 - [Points vs. cash](https://vacationmath.co/points)
 - [Timeshare math](https://vacationmath.co/timeshare)
-- [Trip funding planner](https://vacationmath.co/funding)
-- [Trip Tracker spreadsheet](https://vacationmath.co/tracker)
+- [Vacation savings calculator](https://vacationmath.co/funding)
+- [Trip expense tracker (browser + spreadsheet)](https://vacationmath.co/tracker)
 
 ## Sources
 

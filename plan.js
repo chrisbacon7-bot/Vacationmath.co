@@ -808,16 +808,24 @@
 
   function verdictFor(total, budget) {
     if (total <= budget * 0.92) {
-      return { key: "fits", word: "Fits", detail: money(budget - total) + " under your " + money(budget) + " budget. Room to breathe — or to upgrade." };
+      return {
+        key: "fits",
+        word: "Fits",
+        detail: money(budget - total) + " under " + money(budget) + " — at least 8% of room. Next: keep the cash, or upgrade one line."
+      };
     }
     if (total <= budget * 1.08) {
       var delta = total - budget;
       var detail = delta <= 0
-        ? money(budget - total) + " of slack on a " + money(budget) + " budget. Watch the optional lines."
-        : money(delta) + " over " + money(budget) + ". Close enough if you trim one optional line.";
+        ? money(budget - total) + " of slack on " + money(budget) + ". Tight means within 8%. One optional line decides it."
+        : money(delta) + " over " + money(budget) + ". Tight means within 8%. Trim one optional line and it Fits.";
       return { key: "tight", word: "Tight", detail: detail };
     }
-    return { key: "over", word: "Over", detail: money(total - budget) + " over your " + money(budget) + " budget. Cut below, or change the destination / nights." };
+    return {
+      key: "over",
+      word: "Over",
+      detail: money(total - budget) + " over " + money(budget) + " — more than 8%. Cut the optional lines below, shorten the trip, or pick another place."
+    };
   }
 
   function cutsFor(plan, budget) {
@@ -1554,7 +1562,14 @@
         "<p class=\"plan-headline-sub\">" + esc(model.recommended.summary) + " · " + people + " traveler" + (people === 1 ? "" : "s") + " · " + o.nights + " night" + (o.nights === 1 ? "" : "s") + " · " + esc(monthLabel) + "</p>" +
         "<p class=\"plan-headline-total\">" + esc(tierLabel(model.selectedTier)) + " total " + money(model.total) + " vs " + money(o.budget) + " budget (" + money(model.total / Math.max(1, people)) + " per person).</p>" +
       "</div>" +
+      "<p class=\"big-label\">" + esc(v.word) + " · estimated total</p><p class=\"big-num\">" + money(model.total) + "</p>" +
       "<div class=\"plan-verdict-lg " + v.key + "\"><span class=\"plan-verdict-word\">" + v.word + "</span><span class=\"plan-verdict-detail\">" + esc(v.detail) + "</span></div>" +
+      "<ul class=\"plan-verdict-key\">" +
+        "<li class=\"" + (v.key === "fits" ? "is-on" : "") + "\"><strong>Fits</strong> — 8% or more under the hard budget. Room to upgrade, or to keep.</li>" +
+        "<li class=\"" + (v.key === "tight" ? "is-on" : "") + "\"><strong>Tight</strong> — within 8% either side. One optional line is the whole decision.</li>" +
+        "<li class=\"" + (v.key === "over" ? "is-on" : "") + "\"><strong>Over</strong> — more than 8% above the budget. Do not book this version.</li>" +
+      "</ul>" +
+      "<p class=\"plan-section-sub\">Trip Plan prices one place you already want. <a href=\"/tripfinder\">Trip Finder</a> ranks places for a date window. <a href=\"/budget\">Reverse budget</a> ranks trip types for a number. <a href=\"/calculator\">Not sure which tool?</a></p>" +
       moneyGuideCard(model.dest) +
       "<h3 class=\"panel-title\" id=\"plan-tiers-title\">Choose a plan style</h3>" +
       "<p class=\"plan-section-sub\">Budget, Mid-range, or Splurge rebuilds the itemized numbers, verdict, and Where to book. Mid-range is the lodging you picked. Budget steps down one band. Splurge steps up.</p>" +
