@@ -34,10 +34,23 @@
     return DESTS[0];
   }
 
+  // Destination rows use a few region spellings. Map them onto the windows that have source labels.
+  function windowKey(region) {
+    var alias = {
+      Europe_W: "Europe",
+      Europe_C: "Europe",
+      Europe_N: "Europe",
+      domestic_south: "US_domestic",
+      domestic_west: "US_domestic",
+      Latin_America: "Caribbean_Mexico"
+    };
+    return alias[region] || region;
+  }
+
   // Pick the right window based on destination region. Holiday override still applies.
   function getWindowForTrip(dest, holidayKey) {
-    if (holidayKey) return W.holidays[holidayKey];
-    var win = BW[dest.region];
+    if (holidayKey && W.holidays[holidayKey]) return W.holidays[holidayKey];
+    var win = BW[windowKey(dest.region)];
     if (win) return win;
     return W.bestWindowDays.domestic;
   }
@@ -45,9 +58,21 @@
   function updateRegionNote() {
     var dest = getDestination();
     if (!dest) return;
-    var win = BW[dest.region];
+    var win = getWindowForTrip(dest, "");
     var winLabel = win ? (win.min + "–" + win.max + " days out") : "varies";
-    $("region-note").textContent = dest.label + " · Region: " + dest.region.replace("_"," ") + " · Booking window: " + winLabel;
+    $("region-note").textContent = dest.label + " · Booking window: " + winLabel + " · " + windowSource(win);
+  }
+
+  // Region windows store the citation on `source`. Older rows only had `note`,
+  // which made the result print "Booking-window data: undefined".
+  function windowSource(win) {
+    if (win && win.source) return String(win.source);
+    if (win && win.note) {
+      var note = String(win.note).replace(/\s+/g, " ").trim();
+      if (note.length > 140) note = note.slice(0, 137) + "…";
+      return note;
+    }
+    return "Expedia 2026 Air Hacks and Google Flights booking-curve research";
   }
 
   function calculate() {
@@ -122,7 +147,7 @@
     var routeLabel = r.origin
       ? "Route context: " + r.origin.toUpperCase() + " → " + r.destination.label
       : "Destination: " + r.destination.label;
-    html += '<div class="result-note" style="margin-top:0">' + routeLabel + ". Booking-window data: <em>" + r.window.source + "</em>.</div>";
+    html += '<div class="result-note" style="margin-top:0">' + routeLabel + ". Booking-window data: <em>" + windowSource(r.window) + "</em>.</div>";
 
     html += '<div class="compare-grid">';
     html += '  <div class="compare-card winner">';
@@ -145,7 +170,24 @@
     html += '  </div>';
     html += '</div>';
 
-    html += '<div class="estimate-note"><strong>About these numbers.</strong> Booking windows are <em>estimates</em> based on aggregated data from Hopper, Google Flights, and Expedia ARC reports &mdash; not live fare history for your specific route. Sweet-spot and last-minute prices are scaled from the quote you entered. Actual prices move with airline competition, fuel costs, holiday calendars, and the airline&rsquo;s seat-load on the day you check. Use the window as a guide, not a guarantee.</div>';
+    html += '<div class="result-note"><strong>Hopper would paint a color. This is the curve.</strong> A prediction app compares today&rsquo;s fare with its own history and often says &ldquo;wait,&rdquo; including on days that are already inside the sweet spot. This page does not guess tomorrow&rsquo;s fare. It places your date (' + r.days + ' days out) on the published window (' + r.window.min + '&ndash;' + r.window.max + ' days) and scales the ' + money(r.currentPrice) + ' quote you typed. ';
+    if (r.status === "in-window") {
+      html += "You are inside the window. A wait badge here is the prediction, not the curve. Prices from here usually move a few percent, not a new low.";
+    } else if (r.status === "early") {
+      html += "You are early. The curve says re-check as you approach " + r.bookOpenLabel + ". That is not a promise the fare drops on a particular Tuesday.";
+    } else {
+      html += "You are late. A &ldquo;prices may still drop&rdquo; badge inside this part of the curve fights the late premium. Book unless you already see a published sale on this route.";
+    }
+    html += '</div>';
+
+    html += '<h3 class="results-h3">Booking curve for this quote</h3>';
+    html += '<table class="result-table"><thead><tr><th>Where the date sits</th><th>What the curve does</th><th>Scaled from your quote</th></tr></thead><tbody>';
+    html += '<tr' + (r.status === "early" ? ' class="row-total"' : '') + '><td>Too early (before ' + r.window.max + ' days)</td><td>Often ~10% above the eventual low</td><td class="amount">' + money(r.earlyEstimate) + '</td></tr>';
+    html += '<tr' + (r.status === "in-window" ? ' class="row-total"' : '') + '><td>Sweet spot (' + r.window.min + '&ndash;' + r.window.max + ' days)</td><td>Book. Waiting is not the strategy</td><td class="amount">' + money(r.sweetSpotEstimate) + '</td></tr>';
+    html += '<tr' + (r.status === "late" ? ' class="row-total"' : '') + '><td>Too late (inside ' + r.window.min + ' days)</td><td>Late premium, about 35% near departure</td><td class="amount">' + money(r.lateEstimate) + '</td></tr>';
+    html += '</tbody></table>';
+
+    html += '<div class="estimate-note"><strong>About these numbers.</strong> Booking windows are <em>estimates</em> from Expedia Air Hacks, Google Flights research, and Going.com holiday curves &mdash; not a live fare search and not Hopper&rsquo;s buy/wait color for this route. Sweet-spot and last-minute prices are scaled from the quote you entered. Actual prices move with airline competition, fuel, holiday calendars, and how full the flight is the day you check. Use the window as a guide, not a guarantee.</div>';
 
     var vClass, vTitle, vBody;
     if (r.status === "in-window") {

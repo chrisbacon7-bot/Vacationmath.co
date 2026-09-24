@@ -60,7 +60,7 @@
     <h1 class="calc-h1">When to book flights in 2026: the sweet spot, not a price color.</h1>
     <p class="calc-sub">Tell me your travel date and the price you're seeing. I'll place that date on the 2026 curve and scale your quote. Waiting is not automatically cheaper.</p>
     <aside class="vm-peer-gap">
-      <p><strong>Hopper paints a prediction. This page shows the window.</strong> Domestic flights, international flights, and holiday weeks do not share a curve. Cruise fare timing is a different tool &mdash; <a href="/cruise">price the cruise</a> after you know when to buy the flight. Read <a href="/blog/thanksgiving-christmas-flight-booking-2026">holiday flight math</a> and <a href="/blog/summer-airfare-cost-2026">summer airfare</a>.</p>
+      <p><strong>Hopper paints a buy-or-wait color. This page places your date on the curve.</strong> A prediction can say &ldquo;wait&rdquo; on a day that is already inside the sweet spot, because it is scoring today&rsquo;s fare against its own history. Domestic, Europe, Hawaii, and holiday weeks do not share that curve, and a cruise fare is a different calendar. <a href="/cruise">Price the cruise</a> after the flight window is settled. Read <a href="/blog/thanksgiving-christmas-flight-booking-2026">holiday flight math</a> and <a href="/blog/summer-airfare-cost-2026">summer airfare</a>.</p>
     </aside>
   </div>
 </header>
@@ -196,6 +196,26 @@
     </div>
   </section>
 
+
+  <section class="calc-how-it-works" style="margin-top:2rem;">
+    <div class="container">
+      <h2 style="font-size:1.4rem;margin-bottom:1rem;">The booking curve, not a price color</h2>
+      <p style="margin:0 0 1rem;line-height:1.55;">Type the fare on your screen. The result scales that number onto three places: too early, inside the window, and too late. It does not tell you whether tomorrow is red or green.</p>
+      <table class="vm-table">
+        <thead>
+          <tr><th scope="col">Trip</th><th scope="col">Window this page uses</th><th scope="col">What a prediction app often does instead</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">US domestic</th><td>About 15–30 days out (Expedia 2026 Air Hacks)</td><td>A wait badge any time its history says the fare has been lower</td></tr>
+          <tr><th scope="row">Europe</th><td>About 2–5 months, not the domestic curve</td><td>The same domestic rule, applied to a long-haul ticket</td></tr>
+          <tr><th scope="row">Mexico and the Caribbean</th><td>About 35–80 days</td><td>A color that ignores hurricane-season fare patterns</td></tr>
+          <tr><th scope="row">Hawaii</th><td>About 60–90 days</td><td>A last-minute “deal” that is the late premium</td></tr>
+          <tr><th scope="row">Thanksgiving / Christmas</th><td>Tighter, about 45–70 days, not “30 days for everything”</td><td>A generic sweet spot that is already late for the holiday</td></tr>
+        </tbody>
+      </table>
+      <p style="margin:1rem 0 0;line-height:1.55;">Hotels can follow a different window. Refundable rooms can wait until the flight is locked. This is not a live fare search.</p>
+    </div>
+  </section>
 
   <!-- FAQ SECTION -->
   <section class="calc-how-it-works" style="margin-top:2rem;">

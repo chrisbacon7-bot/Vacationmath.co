@@ -114,6 +114,36 @@
     var investedFV = fvLump(purchase, T.investmentRate, years);
     var investedGain = investedFV - purchase;
 
+    function costAt(span) {
+      var maint = 0;
+      var rent = 0;
+      var y;
+      for (y = 0; y < span; y++) {
+        maint += mf1 * Math.pow(1 + escalation, y);
+        rent += rentNow * Math.pow(1 + 0.03, y);
+      }
+      var interestSpan = financed
+        ? loanTotalInterest(purchase, T.avgLoanRate, Math.min(T.avgLoanYears, span))
+        : 0;
+      var assess = T.specialAssessmentPerDecade * Math.floor(span / 10);
+      var recovery = purchase * T.resaleRecoveryPct;
+      return {
+        buy: purchase + interestSpan + maint + assess - recovery,
+        rent: rent
+      };
+    }
+    var crossoverYear = null;
+    var scan;
+    for (scan = 1; scan <= 30; scan++) {
+      var at = costAt(scan);
+      if (at.buy <= at.rent) { crossoverYear = scan; break; }
+    }
+
+    var devSel = $("developer");
+    var devLabel = "Industry average";
+    if (devSel && devSel.value && DEVS[devSel.value]) devLabel = DEVS[devSel.value].label;
+    else if (devSel && devSel.value === "custom") devLabel = "Your numbers";
+
     // ---- Verdict ----
     var rentSavings = totalCost - totalRental;
     var verdict, vClass, vBody;
@@ -147,7 +177,11 @@
       financed: financed,
       verdict: verdict,
       vClass: vClass,
-      vBody: vBody
+      vBody: vBody,
+      crossoverYear: crossoverYear,
+      devLabel: devLabel,
+      perYearBuy: totalCost / Math.max(1, years),
+      perYearRent: totalRental / Math.max(1, years)
     };
   }
 
@@ -179,6 +213,16 @@
 
     html += '<div class="result-note"><strong>What this number means.</strong> The buy total is what ownership costs over ' + r.years + ' years after a thin resale recovery. The rent total is paying for the same week each year with no contract. Compare the per-year lines, not the sales-floor weekly rate.</div>';
     html += '<div class="verdict ' + r.vClass + '"><h3>' + r.verdict + '</h3><p>' + r.vBody + '</p></div>';
+
+    html += '<div class="verdict poor"><h3>Do not sign on the tour.</h3>';
+    html += '<p>The presentation spends the hour on the week you will take. The contract spends the next ' + r.years + ' years on maintenance you do not control. ' + r.devLabel + ' is the label on this run. Per year, owning is about ' + money(r.perYearBuy) + ' and renting the same week is about ' + money(r.perYearRent) + '. ';
+    if (r.crossoverYear) {
+      html += "At these inputs, owning only matches renting around year " + r.crossoverYear + ". That is still a locked week.";
+    } else {
+      html += "Inside 30 years, owning does not catch renting at these inputs.";
+    }
+    html += ' A &ldquo;today only&rdquo; price is the pitch. Most states give a rescission window measured in days after you sign, not weeks after you get home. Exit companies that want a large fee up front are a second sales floor. This page is not a law firm and not an exit service.</p>';
+    html += '<p>If renting wins, price a normal trip instead: <a href="/plan">Trip Plan</a>, <a href="/budget">what the same money buys</a>, <a href="/disney">Disney</a>, or <a href="/cruise">a cruise</a>.</p></div>';
 
     // Opportunity cost callout
     html += '<div class="result-note"><strong>The number the salesperson won\'t show you.</strong> If you took the ' + money(r.purchase) + ' purchase price and put it in a low-cost index fund at the long-run S&amp;P average (7%), in ' + r.years + ' years it would be worth ' + money(r.investedFV) + ' — a gain of ' + money(r.investedGain) + '. The maintenance fees alone (' + money(r.totalMaintenance) + ' over the period) could be funding that account instead.</div>';

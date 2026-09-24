@@ -223,13 +223,14 @@
       var region = "US_domestic";
       if (loc.indexOf("calif") > -1 || loc.indexOf(", ca") > -1) region = "California";
       else if (loc.indexOf("florida") > -1 || loc.indexOf(", fl") > -1) region = "Florida";
-      else if (loc.indexOf("ohio") > -1 || loc.indexOf("penn") > -1 || loc.indexOf("ny") > -1 || loc.indexOf("jersey") > -1) region = "Northeast/Midwest";
-      else if (loc.indexOf("tenn") > -1 || loc.indexOf("miss") > -1 || loc.indexOf("virg") > -1) region = "Southeast";
+      else if (loc.indexOf("texas") > -1 || loc.indexOf(", tx") > -1) region = "Texas";
+      else if (loc.indexOf("ohio") > -1 || loc.indexOf("penn") > -1 || loc.indexOf(", pa") > -1 || loc.indexOf("ny") > -1 || loc.indexOf("jersey") > -1 || loc.indexOf("indiana") > -1 || loc.indexOf(", in") > -1 || loc.indexOf("illinois") > -1) region = "Northeast/Midwest";
+      else if (loc.indexOf("tenn") > -1 || loc.indexOf("miss") > -1 || loc.indexOf("virg") > -1 || loc.indexOf(", va") > -1 || loc.indexOf("carolina") > -1 || loc.indexOf(", nc") > -1 || loc.indexOf(", sc") > -1) region = "Southeast";
       return { id:id, label:p.label, region:region };
     });
     var groups = {};
     parks.forEach(function(p){ (groups[p.region] = groups[p.region] || []).push(p); });
-    ["Florida","California","Northeast/Midwest","Southeast","US_domestic"].forEach(function(r){
+    ["Florida","California","Texas","Northeast/Midwest","Southeast","US_domestic"].forEach(function(r){
       if (!groups[r]) return;
       var og = document.createElement("optgroup");
       og.label = r === "US_domestic" ? "Other" : r;
@@ -261,7 +262,7 @@
     selectEl.innerHTML = "";
     var groups = {
       "Cars": ["compact","sedan","sports"],
-      "Hybrid / Electric": ["compact_hybrid","sedan_hybrid","suv_hybrid","ev"],
+      "Hybrid / Electric": ["compact_hybrid","sedan_hybrid","suv_hybrid","ev","ev_suv"],
       "SUVs & Vans": ["compact_suv","suv","minivan","luxury_suv"],
       "Trucks": ["truck","truck_hd"]
     };
@@ -272,7 +273,10 @@
         if (!D.VEHICLES_EXPANDED[id]) return;
         var v = D.VEHICLES_EXPANDED[id];
         var o = document.createElement("option");
-        o.value = id; o.textContent = v.label + " (" + v.mpg + " mpg)";
+        o.value = id;
+        o.textContent = v.electric
+          ? v.label + " (" + v.kwhPerMile + " kWh/mi)"
+          : v.label + " (" + v.mpg + " mpg)";
         if (selectedId && o.value === selectedId) o.selected = true;
         og.appendChild(o);
       });

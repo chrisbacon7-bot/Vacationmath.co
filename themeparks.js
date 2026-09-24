@@ -28,7 +28,12 @@
     legoland_florida:  { childMultiplier:0.90, llPerDay:50 }, // Reserve N' Ride
     legoland_california:{childMultiplier:0.90, llPerDay:50 },
     great_wolf_lodge:  { childMultiplier:0.00, llPerDay:0 },  // Admission included with room, no LL
-    silver_dollar_city:{ childMultiplier:0.80, llPerDay:0 }   // No skip-line product
+    silver_dollar_city:{ childMultiplier:0.80, llPerDay:0 },  // No skip-line product
+    carowinds:         { childMultiplier:1.00, llPerDay:55 },
+    six_flags_over_texas:{ childMultiplier:1.00, llPerDay:55 },
+    kings_dominion:    { childMultiplier:0.85, llPerDay:60 },
+    holiday_world:     { childMultiplier:0.75, llPerDay:0 },
+    kennywood:         { childMultiplier:0.80, llPerDay:0 }
   };
   // Defaults if a park isn't in the table
   var DEFAULT_RULES = { childMultiplier:0.90, llPerDay:40 };
@@ -195,9 +200,28 @@
 
     var spread = res.priciest.total - res.cheapest.total;
     var pct = res.priciest.total > 0 ? Math.round((spread / res.priciest.total) * 100) : 0;
-    html += '<div class="result-note"><strong>What this number means.</strong> Both totals use the same party, nights, and park days. Disney and Universal tickets use a multi-day ladder (the first day at the 1-day rate, later days cheaper) instead of 1-day price times every day. Regional parks stay at single-day times park days, which is how those gates are usually sold.</div>';
+    var movers = [
+      { key: "tickets", label: "Tickets" },
+      { key: "hotel", label: "Hotel" },
+      { key: "food", label: "Food" },
+      { key: "ll", label: "Skip-the-line" },
+      { key: "parking", label: "Parking" }
+    ].map(function (row) {
+      var aVal = res.a[row.key] || 0;
+      var bVal = res.b[row.key] || 0;
+      var leader = aVal === bVal ? "Tie" : (aVal < bVal ? res.a.label : res.b.label);
+      return { label: row.label, gap: Math.abs(aVal - bVal), leader: leader, a: aVal, b: bVal };
+    }).sort(function (x, y) { return y.gap - x.gap; });
+    var top = movers[0];
+    html += '<h3 class="results-h3">What actually moves the gap</h3>';
+    html += '<table class="result-table"><thead><tr><th>Line</th><th>' + res.a.label + '</th><th>' + res.b.label + '</th><th>Gap</th></tr></thead><tbody>';
+    movers.forEach(function (row) {
+      html += '<tr><td>' + row.label + '</td><td class="amount">' + money(row.a) + '</td><td class="amount">' + money(row.b) + '</td><td>' + (row.gap < 1 ? "Tie" : money(row.gap) + " · " + row.leader + " lower") + '</td></tr>';
+    });
+    html += '</tbody></table>';
+    html += '<div class="result-note"><strong>What this number means.</strong> Both totals use the same party, nights, and park days. Disney and Universal tickets use a multi-day ladder (the first day at the 1-day rate, later days cheaper) instead of 1-day price times every day. Regional parks — Carowinds, Six Flags, Kings Dominion, Holiday World, Kennywood, and the others — stay at single-day times park days, which is how those gates are usually sold. The widest line in this comparison is <strong>' + top.label.toLowerCase() + '</strong> (' + money(top.gap) + ').</div>';
     html += '<div class="verdict good"><h3>' + res.cheapest.label + ' is ' + money(spread) + ' (' + pct + '%) cheaper than ' + res.priciest.label + '.</h3>';
-    html += '<p>Same family, same nights, same park days. What moves the totals the most: ticket pricing (Disney and Universal sit at the top, regional parks at half), hotel tier (on-property at the big two runs higher but bundles perks), and skip-the-line costs (Universal Express runs 3-4x Disney Lightning Lane on a peak day).</p></div>';
+    html += '<p>Same family, same nights, same park days. A regional park can win the ticket line and still lose the trip if you are comparing a day-trip gate with a destination resort hotel. Universal Express is several times a Disney Lightning Lane day. Holiday World&rsquo;s free parking is a real line item against a Six Flags lot. Read the table, not the gate price.</p></div>';
 
     html += '<div class="result-note"><strong>What people forget to add.</strong> Single-day sticker prices mislead. Regional parks look half-price until you add parking on every visit, no early entry, no in-park transportation, and a separate hotel commute. Disney and Universal multi-day pricing flattens out fast — by day 4, the per-day cost drops below most regional sticker prices once you factor in skip-line value.</div>';
 

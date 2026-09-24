@@ -21,22 +21,22 @@
     roadtrip: {
       title: "Road trip vs fly calculator",
       canonical: "https://vacationmath.co/roadtrip",
-      source: "2026 AAA gas average and a conservative wear rate. Includes fuel or electricity, wear, a toll estimate, midway hotels, travel-day meals, and the flying side. Excludes destination hotel and meals. " + COMPILED
+      source: "2026 AAA gas average and a conservative wear rate. Gas cars use gallons. EVs split home charging (about 17¢/kWh) from DC fast charging (about 48¢/kWh) after the first battery of range. Includes fuel or electricity, wear, a toll estimate, midway hotels, travel-day meals, and the flying side. Excludes destination hotel and meals. " + COMPILED
     },
     allinclusive: {
       title: "All-inclusive vs à-la-carte calculator",
       canonical: "https://vacationmath.co/allinclusive",
-      source: "2026 resort-rate averages. Includes the AI rate or a same-tier room-only hotel plus meals, drinks, excursions, tips, spa, airport transfer, and getting there. Excludes some government fees (called out when they apply) and travel insurance. " + COMPILED
+      source: "2026 resort-rate averages across Mexico, the Caribbean, Central America, and Hawaii. The result separates the package premium from meals and drinks you would buy à la carte. Includes the AI rate or a same-tier room-only hotel plus meals, drinks, excursions, tips, spa, airport transfer, and getting there. Calls out Visitax, Dominican tourist card, Hawaii lodging tax, and similar fees that are not inside the resort rate. Excludes travel insurance. " + COMPILED
     },
     points: {
       title: "Points vs cash calculator",
       canonical: "https://vacationmath.co/points",
-      source: "2026 valuations from The Points Guy, Frequent Miler reasonable redemption values, and NerdWallet. When they disagree, the lower figure is the benchmark. Includes the redemption you enter plus cash-out, portal, and transfer comparisons. Excludes award space and transfer bonuses. " + COMPILED
+      source: "2026 valuations from The Points Guy, Frequent Miler reasonable redemption values, and NerdWallet. The default score is the lower of the TPG headline and the transfer floor. Includes the redemption you enter, cash-out, named portal rates, and a transfer-bonus scenario when you still hold the points at the bank. Excludes live award space. " + COMPILED
     },
     themeparks: {
       title: "Theme park comparison",
       canonical: "https://vacationmath.co/themeparks",
-      source: "2026 published ticket and hotel averages. Includes hotel, tickets (multi-day pricing at Disney and Universal), food, skip-the-line, parking, and add-ons you turn on. Excludes special events and annual passes. " + COMPILED
+      source: "2026 published ticket and hotel averages for destination resorts and regional parks (Six Flags, Cedar Fair, Holiday World, Kennywood, and others). Includes hotel, tickets (multi-day pricing at Disney and Universal), food, skip-the-line, parking, and add-ons you turn on. The comparison names which line — tickets, hotel, food, or skip-the-line — moves the gap. Excludes special events and annual passes. " + COMPILED
     },
     budget: {
       title: "Vacation budget calculator",
@@ -46,7 +46,7 @@
     whentobook: {
       title: "When to book calculator",
       canonical: "https://vacationmath.co/whentobook",
-      source: "2026 airfare booking windows compiled from Expedia, Hopper, and Google Flights research used on this site. Includes where your date sits and a price scaled from the quote you type. Excludes a live fare search. Hotels can follow a different window. " + COMPILED
+      source: "2026 airfare booking windows compiled from Expedia Air Hacks, Google Flights, and Going.com. Each region and holiday row has a source label. Includes where your date sits and a price scaled from the quote you type. This is the booking curve, not a Hopper buy/wait color and not a live fare search. Hotels can follow a different window. " + COMPILED
     },
     timeshare: {
       title: "Timeshare vs rent calculator",

@@ -14,7 +14,7 @@
     }
   }
 
-  // Resolve a program: prefer expanded catalog (28 programs), fall back to legacy
+  // Resolve a program from POINTS_EXPANDED. See calc-data.js.
   function getProgram(key) {
     if (EXP && EXP[key]) {
       var e = EXP[key];
@@ -42,12 +42,21 @@
     var cashPrice = Math.max(0, parseFloat($("cashprice").value || 0));
     var taxesFees = Math.max(0, parseFloat($("taxesfees").value || 0));
     var benchKey = $("benchmark").value;
+    var bonusPct = Math.max(0, parseFloat(($("transfer-bonus") || {}).value) || 0);
+    var bonus = bonusPct / 100;
+    // A live transfer bonus means fewer bank points buy the same partner award.
+    // Points already sitting in the airline or hotel account do not get it.
+    var bankPoints = bonus > 0 ? points / (1 + bonus) : points;
 
     var netCashSaved = cashPrice - taxesFees;
-    var actualCPP = points > 0 ? (netCashSaved / points) * 100 : 0;
+    var actualCPP = bankPoints > 0 ? (netCashSaved / bankPoints) * 100 : 0;
+    var cppBeforeBonus = points > 0 ? (netCashSaved / points) * 100 : 0;
+
+    var floorCPP = Math.min(prog.tpg, prog.transfer);
 
     var benchmarkCPP;
-    if (benchKey === "tpg") benchmarkCPP = prog.tpg;
+    if (benchKey === "floor") benchmarkCPP = floorCPP;
+    else if (benchKey === "tpg") benchmarkCPP = prog.tpg;
     else if (benchKey === "transfer") benchmarkCPP = prog.transfer;
     else if (benchKey === "portal") benchmarkCPP = prog.portal;
     else if (benchKey === "custom") benchmarkCPP = Math.max(0.01, parseFloat($("customCpp").value) || 1.5);
@@ -60,10 +69,11 @@
     else if (ratio >= P.verdict.fair)     verdict = "fair";
     else                                  verdict = "poor";
 
-    // Alt redemptions for the same point balance
-    var altCashBackValue = points * (prog.cash / 100);
-    var altPortalValue = points * (prog.portal / 100);
-    var altTransferValue = points * (prog.transfer / 100);
+    // Alt redemptions for the points you actually give up.
+    // A transfer bonus means fewer bank points than the partner award price.
+    var altCashBackValue = bankPoints * (prog.cash / 100);
+    var altPortalValue = bankPoints * (prog.portal / 100);
+    var altTransferValue = bankPoints * (prog.transfer / 100);
 
     return {
       prog: prog,
@@ -72,6 +82,10 @@
       taxesFees: taxesFees,
       netCashSaved: netCashSaved,
       actualCPP: actualCPP,
+      cppBeforeBonus: cppBeforeBonus,
+      bankPoints: bankPoints,
+      bonusPct: bonusPct,
+      floorCPP: floorCPP,
       benchmarkCPP: benchmarkCPP,
       benchKey: benchKey,
       ratio: ratio,
@@ -117,7 +131,10 @@
     }
 
     // Alt redemption table
-    html += '<h3 class="results-h3">What ' + r.points.toLocaleString() + " " + r.prog.label + ' points are worth other ways</h3>';
+    var pointWord = r.bonusPct > 0
+      ? Math.round(r.bankPoints).toLocaleString() + " bank points after a " + r.bonusPct + "% bonus"
+      : r.points.toLocaleString() + " " + r.prog.label + " points";
+    html += '<h3 class="results-h3">What ' + pointWord + ' are worth other ways</h3>';
     html += '<table class="result-table"><thead><tr><th>Redemption type</th><th>Per point</th><th>Total value</th></tr></thead><tbody>';
     html += '<tr><td>Cash back / statement credit</td><td>' + cpp(r.prog.cash) + '</td><td class="amount">' + moneyR(r.altCashBackValue) + '</td></tr>';
     html += '<tr><td>Travel portal booking</td><td>' + cpp(r.prog.portal) + '</td><td class="amount">' + moneyR(r.altPortalValue) + '</td></tr>';
@@ -125,7 +142,50 @@
     html += '<tr class="row-total"><td>This redemption</td><td>' + cpp(r.actualCPP) + '</td><td class="amount">' + moneyR(r.netCashSaved) + '</td></tr>';
     html += '</tbody></table>';
 
-    html += '<div class="result-note"><strong>The rule of thumb.</strong> If your cents-per-point is below the benchmark, the points are being undersold \u2014 pay cash and bank the points. If you\'re above it, redeem. Most flexible-point holders never beat the benchmark on portal redemptions; the wins almost always come from transferring to airline partners with sweet-spot awards.</div>';
+    html += '<div class="result-note"><strong>The floor, not the blog headline.</strong> The Points Guy values ' + r.prog.label + ' at ' + cpp(r.prog.tpg) + '. The transfer / Frequent Miler-style floor on this page is ' + cpp(r.prog.transfer) + '. The conservative floor is the lower one: <strong>' + cpp(r.floorCPP) + '</strong>. A redemption that beats TPG and misses the floor is still an undersell. Award space is not checked here.</div>';
+    if (r.bonusPct > 0) {
+      html += '<div class="result-note"><strong>' + r.bonusPct + '% transfer bonus.</strong> The award price you typed is ' + r.points.toLocaleString() + ' partner points. With a live ' + r.bonusPct + '% bonus you only transfer about ' + Math.round(r.bankPoints).toLocaleString() + ' bank points, so this redemption moves from ' + cpp(r.cppBeforeBonus) + ' to ' + cpp(r.actualCPP) + '. That math applies only while the points are still at the bank and the bonus is actually published. Miles you already moved do not get a second bonus. When the promo ends, re-score at 0%.</div>';
+    }
+
+    var portals = {
+      chase_ur: [
+        { label: "Cash-out / Pay Yourself Back floor", cpp: 1.0 },
+        { label: "Sapphire Preferred portal", cpp: 1.25 },
+        { label: "Sapphire Reserve portal, only if your card still earns 1.5¢", cpp: 1.5 }
+      ],
+      amex_mr: [
+        { label: "Membership Rewards cash-out", cpp: 0.6 },
+        { label: "Amex Travel portal, typical 1¢", cpp: 1.0 }
+      ],
+      capital_one: [
+        { label: "Venture cash-out and Capital One Travel portal", cpp: 1.0 }
+      ],
+      citi_ty: [
+        { label: "ThankYou cash-out", cpp: 0.5 },
+        { label: "Citi travel portal", cpp: 1.0 }
+      ],
+      bilt: [
+        { label: "Bilt cash-out", cpp: 0.55 },
+        { label: "Bilt travel portal", cpp: 1.25 }
+      ],
+      wells_fargo: [
+        { label: "Wells Fargo cash-out and portal", cpp: 1.0 }
+      ]
+    }[($("program") || {}).value];
+    if (portals && r.points > 0) {
+      html += '<h3 class="results-h3">Portal scenarios for the same point balance</h3>';
+      html += '<table class="result-table"><thead><tr><th>How you spend them</th><th>Cents per point</th><th>This balance</th><th>Versus this award</th></tr></thead><tbody>';
+      portals.forEach(function (row) {
+        var value = r.bankPoints * (row.cpp / 100);
+        var delta = r.netCashSaved - value;
+        var vs = delta >= 0 ? "Award beats it by " + money(delta) : "Portal beats the award by " + money(-delta);
+        html += '<tr><td>' + row.label + '</td><td>' + cpp(row.cpp) + '</td><td class="amount">' + moneyR(value) + '</td><td>' + vs + '</td></tr>';
+      });
+      html += '</tbody></table>';
+      html += '<div class="result-note">Portal cents are the published card rate, not a promise that the portal price matches Google Flights. If the portal fare is higher than the cash price you typed, the portal column overstates what the points buy.</div>';
+    }
+
+    html += '<div class="result-note"><strong>The rule of thumb.</strong> If your cents-per-point is below the floor, the points are being undersold — pay cash and bank the points. If you are above the floor, redeem. Most flexible-point holders never beat the floor on a plain portal booking. The wins come from a transfer partner, and a transfer bonus only counts while it is live.</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> Cents-per-point benchmarks are <em>estimates</em> based on published valuations from The Points Guy, NerdWallet, and Frequent Miler, averaged and biased conservatively. Your actual value depends on the specific award, transfer partner, and date. Cash-back and portal rates are fixed by the program. Transfer-partner sweet spots can deliver far more value than the benchmark &mdash; or far less if you book at standard award rates.</div>';
     html += '<div class="freshness-badge">Frequent Miler RRVs (Jul 23, 2026) &middot; refreshed September 2026 &middot; next refresh October 2026</div>';
@@ -169,7 +229,7 @@
   // panel shows stale numbers for the previously selected program. Previously
   // only the Calculate button recalculated, so switching program left the old
   // program's values on screen.
-  ["program", "benchmark", "points", "cashprice", "taxesfees", "customCpp"]
+  ["program", "benchmark", "points", "cashprice", "taxesfees", "customCpp", "transfer-bonus"]
     .forEach(function (id) {
       var el = document.getElementById(id);
       if (!el) return;

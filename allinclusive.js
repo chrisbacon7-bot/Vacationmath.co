@@ -190,29 +190,80 @@
     };
   }
 
-  // Destination-keyed mandatory fees that travelers pay separately (not in the resort rate).
-  // Returns null when the destination has nothing additional to disclose.
+  // Destination-keyed fees the resort rate does not include.
+  // Dollar totals are only used where the fee is a published per-person or per-night charge.
   function destinationFees(destId, travelers, nights) {
-    var QR_VISITAX_PER_PERSON = 15;   // USD; Quintana Roo state tourism tax
-    var QR_ENV_PER_NIGHT = 4;         // USD; Cancun municipal environmental fee, ~$4/room/night
+    var QR_VISITAX_PER_PERSON = 15;
+    var QR_ENV_PER_NIGHT = 4;
+    var people = Math.max(travelers, 0);
+    var stay = Math.max(nights, 0);
 
-    if (destId === "cancun" || destId === "riviera_maya") {
-      var visitax = QR_VISITAX_PER_PERSON * Math.max(travelers, 0);
-      var enviro = QR_ENV_PER_NIGHT * Math.max(nights, 0);
-      var total = visitax + enviro;
-      var location = destId === "cancun" ? "Cancun" : "Riviera Maya";
+    if (destId === "cancun" || destId === "riviera_maya" || destId === "cozumel") {
+      var visitax = QR_VISITAX_PER_PERSON * people;
+      var place = destId === "cancun" ? "Cancún" : (destId === "cozumel" ? "Cozumel" : "the Riviera Maya");
+      var body = "<strong>Visitax</strong> is a Quintana Roo tourism tax of $15 per person (" + money(visitax) + " for your party), paid at <a href=\"https://www.visitax.gob.mx\" target=\"_blank\" rel=\"noopener\">visitax.gob.mx</a> before you fly. Agents at Cancún International check it. It is not in the resort rate.";
+      var heading;
+      if (destId === "cozumel") {
+        heading = "Quintana Roo Visitax the package does not include (" + money(visitax) + ").";
+        body += " The Cancún hotel-zone environmental fee does not automatically apply on the island. Ask the folio for any local environmental charge before you treat the package as all-in.";
+      } else {
+        var enviro = QR_ENV_PER_NIGHT * stay;
+        heading = "Quintana Roo fees the package does not include (~" + money(visitax + enviro) + ").";
+        body += " <strong>Environmental fee</strong> on the Cancún / Riviera Maya hotel zone is about $4 per room per night (" + money(enviro) + " for " + stay + " night" + (stay === 1 ? "" : "s") + "), usually cash at the desk.";
+      }
+      return { heading: heading, body: body };
+    }
+
+    if (destId === "punta_cana" || destId === "dominican_republic_general") {
+      var card = 10 * people;
       return {
-        heading: "Quintana Roo fees the calculator can't add for you (~" + money(total) + ").",
-        body:
-          "Two government fees apply to every " + location + " trip and are not collected by your resort. " +
-          "<strong>Visitax</strong> is a state tourism tax of $15 per person (" + money(visitax) + " for your party of " + travelers + "), paid online at " +
-          "<a href=\"https://www.visitax.gob.mx\" target=\"_blank\" rel=\"noopener\">visitax.gob.mx</a> before you fly. As of June 2026, agents at " +
-          "Cancun International scan QR codes at security; travelers without one pay on the spot before boarding. " +
-          "<strong>Environmental fee</strong> is ~$4 per room per night (" + money(enviro) + " for " + nights + " night" + (nights === 1 ? "" : "s") + "), " +
-          "collected in cash at the front desk, usually in pesos. Both are small, but they're not optional."
+        heading: "Dominican tourist card, if the airline did not already collect it (~" + money(card) + ").",
+        body: "Many tickets already include the ~$10 per person tourist card. If yours does not, you pay it on arrival. It is not inside the resort rate. Punta Cana packages also still leave excursions, spa, and some motorized water sports off the bill."
       };
     }
-    // Other destinations to verify and add later: Bahamas departure tax, Aruba tourism levy, Hawaii TAT/Green Fee, etc.
+
+    if (destId === "hawaii_maui") {
+      return {
+        heading: "Hawaii lodging tax is often outside a pre-tax quote.",
+        body: "Maui is not a classic all-inclusive market. If the nightly number you are comparing is pre-tax, add Hawaii's transient accommodations tax plus the county surcharge, and check whether a 2026 green fee is on that property. Those charges hit the room-only column and a partial-meal resort the same way. They are not in the calculator total."
+      };
+    }
+
+    if (destId === "nassau_bahamas") {
+      return {
+        heading: "Bahamas VAT and resort levies sit outside many package headlines.",
+        body: "Departure tax is usually already inside the airline ticket. A resort VAT or nightly levy (often on the order of 10% VAT, sometimes plus a small per-person fee) shows up on the folio when the quote was pre-tax. Confirm the quote says taxes included before you treat either column as final."
+      };
+    }
+
+    if (destId === "aruba") {
+      return {
+        heading: "Aruba's environmental sustainability fee is not in the resort rate.",
+        body: "Aruba collects a small environmental sustainability fee locally, separate from the package. It is a few dollars per person, not a second hotel bill, and it is still not optional. Departure tax is usually already in the airfare."
+      };
+    }
+
+    if (destId === "jamaica") {
+      return {
+        heading: "Jamaica departure tax is usually in the ticket. The package still is not the week.",
+        body: "If the airline already collected departure tax, do not add it again. What the resort still leaves off: off-property excursions, some spa treatments, and cash tips even at brands that say gratuities are included. Sandals discourages tipping. Most other Jamaican packages do not."
+      };
+    }
+
+    if (destId === "barbados" || destId === "antigua") {
+      return {
+        heading: "Confirm this island is actually all-inclusive before you trust the band.",
+        body: "Barbados and Antigua have true all-inclusives (Sandals, and a short list of others) and a long list of room-only luxury hotels that look like the same nightly number. If the quote does not say meals, drinks, and taxes are included, switch the tier to custom and paste the room-only rate. A room-only Sandy Lane night is not an ultra all-inclusive night."
+      };
+    }
+
+    if (destId === "roatan") {
+      return {
+        heading: "Roatán packages are thinner than Cancún packages.",
+        body: "Several Roatán resorts sell room-plus-breakfast or a meal plan, not unlimited drinks. If the quote is not explicit, use the custom rate and keep the à-la-carte column. A ferry or water-taxi transfer on top of the airport shuttle is common and is not in the $18 shared-shuttle line."
+      };
+    }
+
     return null;
   }
 
@@ -268,6 +319,16 @@
     html += '</div>';
 
     var sharePct = Math.round((r.roomShare || 0.58) * 100);
+    var packagePremium = Math.max(0, r.aiBase - r.alcHotel);
+    var paygFoodDrink = r.alcFood + r.alcDrinks;
+    var foodGap = paygFoodDrink - packagePremium;
+    html += '<div class="result-note"><strong>Package versus paying as you go.</strong> The all-inclusive room-and-meals rate is ' + money(r.aiBase) + '. A same-tier room with no meals is ' + money(r.alcHotel) + ', so the package premium for food and drink is ' + money(packagePremium) + '. Buying those meals and drinks yourself, at the drinking style you picked, is ' + money(paygFoodDrink) + '. ';
+    if (foodGap > 0) {
+      html += "That food-and-drink gap is " + money(foodGap) + " in the package's favor before excursions, spa, and tips — both columns still pay those.";
+    } else {
+      html += "Paying as you go for food and drink is " + money(-foodGap) + " less than the package premium. The package is then a convenience, not a discount, unless you would actually eat and drink more than this.";
+    }
+    html += " Excursions are on both sides because the resort does not include them.</div>";
     html += '<div class="result-note"><strong>What this number means.</strong> The all-inclusive rate used here is about ' + money(r.perAdult) + ' per adult per night before excursions. The à-la-carte hotel is a room-only estimate at the same tier (about ' + sharePct + '% of that rate, for two adults sharing), not a budget room set against a luxury package. Airport transfer is a shared shuttle at about $18 per person round trip on both sides. A private van is often $60–$95 for the vehicle and is not in this number. À-la-carte meals stay at a mid-range restaurant budget.';
     if (r.tierKey === "luxury" || r.tierKey === "ultra") {
       html += ' At this tier, all-inclusive looks more expensive if you would not actually eat and drink at resort prices off-property.';
