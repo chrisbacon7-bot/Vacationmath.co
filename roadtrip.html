@@ -107,7 +107,7 @@
       <div class="field">
         <label for="route">Pick a popular route (optional)</label>
         <select id="route"><option>Loading…</option></select>
-        <p class="hint" id="route-note">20 pre-set US road-trip routes with verified miles and flight averages — or pick “Custom” and enter your own.</p>
+        <p class="hint" id="route-note">28 pre-set US routes, including park drives with no useful flight — or pick Custom and enter your own miles.</p>
       </div>
 
       <div class="field">
@@ -119,7 +119,7 @@
       <div class="field">
         <label for="vehicle">Your vehicle</label>
         <select id="vehicle"><option>Loading…</option></select>
-        <p class="hint">13 vehicles — cars, hybrids, SUVs, vans, trucks, EVs.</p>
+        <p class="hint">14 vehicles. EVs are priced in kWh: home power for the first battery, then DC fast.</p>
       </div>
 
       <div class="field">
@@ -227,6 +227,10 @@
       <details style="margin-bottom:1rem;">
         <summary style="font-weight:600;cursor:pointer;">How accurate is the IRS mileage rate for road trip cost?</summary>
         <p style="margin-top:.5rem;">The IRS rate ($0.76/mile from July 1, 2026; 72.5&cent; for the first half of the year) is a blended cost covering gas, wear, insurance, and depreciation. This calculator uses a lower wear-only rate ($0.10/mile) since fixed costs like insurance apply whether you drive or not — giving a fairer apples-to-apples comparison against flying.</p>
+      </details>
+      <details style="margin-bottom:1rem;">
+        <summary style="font-weight:600;cursor:pointer;">How does the EV math work?</summary>
+        <p style="margin-top:.5rem;">An EV is not a flat cents-per-mile guess. The first battery of range (about 270–280 miles, depending on the vehicle) is priced at about 17¢ per kWh, a round home rate. Miles after that are priced at about 48¢ per kWh, a midpoint for public DC fast charging, and the result counts the stops. If you could charge only at home, the electricity line drops. Wear stays at 10¢ per mile. Copy the trip link on the result to send the same route, vehicle, and party.</p>
       </details>
       <details>
         <summary style="font-weight:600;cursor:pointer;">Does driving or flying have a bigger carbon footprint?</summary>

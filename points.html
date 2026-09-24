@@ -50,7 +50,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are points worth more than cash?","acceptedAnswer":{"@type":"Answer","text":"It depends on how you redeem them. Chase Ultimate Rewards points are worth 1 cent each for cash back but 1.25 to 2 cents each toward travel when transferred to partners. The calculator takes the specific redemption you are looking at and tells you the exact cents-per-point value and whether you are beating the cash equivalent."}},{"@type":"Question","name":"How do I calculate cents per point?","acceptedAnswer":{"@type":"Answer","text":"Divide the cash price of what you want to buy by the number of points required. For example, a $500 flight that costs 50,000 points = $500 divided by 50,000 = $0.01, or 1 cent per point. The Vacation Math points calculator does this math automatically and compares your result to the baseline value of your specific rewards program."}},{"@type":"Question","name":"What is a good cents per point value?","acceptedAnswer":{"@type":"Answer","text":"For most programs, 1 cent per point is the floor — it is what you get for cash back. Good redemptions are 1.5 cents or more. Chase Sapphire Reserve points used for travel through the portal are worth 1.5 cents each. Hyatt redemptions at luxury properties often exceed 2 to 3 cents per point. Airline first class transfer awards can reach 5 cents or more per point."}},{"@type":"Question","name":"Should I use points or pay cash for a hotel?","acceptedAnswer":{"@type":"Answer","text":"Use points when the cents-per-point value of the redemption beats your program baseline. Pay cash when the hotel is offering a sale, when the points redemption rate is poor (under 1 cent per point), or when you want to preserve points for a higher-value redemption in the future. The calculator makes this comparison instantly."}}]}</script>
   <link rel="stylesheet" href="guide-download.css?v20260627">
   <script src="guide-download.js?v20260627" defer></script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Points vs. Cash Calculator 2026: Is This Redemption Worth It?", "description": "Check any award redemption against conservative 2026 point valuations across 28 programs. Cents per point, benchmark comparison, and a plain verdict.", "author": {"@type": "Person", "name": "Chris Bacon", "url": "https://vacationmath.co/how-it-works"}, "publisher": {"@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co"}, "datePublished": "2026-05-24", "dateModified": "2026-08-28", "mainEntityOfPage": "https://vacationmath.co/points"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Points vs. Cash Calculator 2026: Is This Redemption Worth It?", "description": "Check any award redemption against the lower of The Points Guy and a transfer floor across 32 programs, including portal rates and a live transfer bonus.", "author": {"@type": "Person", "name": "Chris Bacon", "url": "https://vacationmath.co/how-it-works"}, "publisher": {"@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co"}, "datePublished": "2026-05-24", "dateModified": "2026-08-28", "mainEntityOfPage": "https://vacationmath.co/points"}</script>
 </head>
 <body class="calc-body">
 
@@ -107,7 +107,7 @@
       <div class="field">
         <label for="program">Points program</label>
         <select id="program"><option>Loading…</option></select>
-        <p class="hint">28 programs — bank, US airlines, international airlines, and hotels.</p>
+        <p class="hint">32 programs — bank, US airlines, international airlines (including LifeMiles, Turkish, and Asia Miles), and hotels.</p>
       </div>
 
       <div class="field">
@@ -130,12 +130,28 @@
       <div class="field">
         <label for="benchmark">Compare against</label>
         <select id="benchmark">
-          <option value="tpg" selected>The Points Guy (aspirational)</option>
-          <option value="transfer">Best transfer value (Frequent Miler)</option>
-          <option value="portal">Portal value (1.25 cpp)</option>
-          <option value="cash">Cash-back value (1 cpp)</option>
+          <option value="floor" selected>Conservative floor (lower of TPG and the transfer value)</option>
+          <option value="tpg">The Points Guy headline (aspirational)</option>
+          <option value="transfer">Transfer value (Frequent Miler-style floor)</option>
+          <option value="portal">Portal value on this program</option>
+          <option value="cash">Cash-back value</option>
           <option value="custom">Custom — set your own benchmark</option>
         </select>
+        <p class="hint">The default is the lower number. Beating only the TPG headline is not a good redemption.</p>
+      </div>
+
+      <div class="field">
+        <label for="transfer-bonus">Transfer bonus, if one is live</label>
+        <select id="transfer-bonus">
+          <option value="0" selected>None — points are already in this program, or the transfer is 1:1</option>
+          <option value="15">15% bonus (you transfer fewer bank points)</option>
+          <option value="20">20% bonus</option>
+          <option value="25">25% bonus</option>
+          <option value="30">30% bonus</option>
+          <option value="40">40% bonus</option>
+          <option value="50">50% bonus</option>
+        </select>
+        <p class="hint">Use this only when the points are still at Chase, Amex, Citi, Capital One, or Bilt and a published bonus is running. Miles already transferred do not get it.</p>
       </div>
 
       <div class="field" id="custom-cpp-field" hidden>
@@ -217,9 +233,17 @@
         <summary style="font-weight:600;cursor:pointer;">What is a good cents per point value?</summary>
         <p style="margin-top:.5rem;">For most programs, 1 cent per point is the floor — what you get for cash back. Good redemptions are 1.5 cents or more. Chase Sapphire Reserve points used for portal travel = 1.5 cents. Hyatt luxury properties often hit 2–3 cents. Airline first class transfer awards can reach 5 cents or more.</p>
       </details>
-      <details>
+      <details style="margin-bottom:1rem;">
         <summary style="font-weight:600;cursor:pointer;">Should I use points or pay cash for a hotel?</summary>
-        <p style="margin-top:.5rem;">Use points when the cents-per-point value beats your program baseline. Pay cash when the hotel is on sale, when the redemption rate is poor (under 1 cent per point), or when you want to preserve points for a higher-value redemption later. The calculator makes this comparison instantly.</p>
+        <p style="margin-top:.5rem;">Use points when the cents-per-point value beats the conservative floor (the lower of The Points Guy and the transfer value). Pay cash when the hotel is on sale, when the rate is under that floor, or when you want the points for a better award later.</p>
+      </details>
+      <details style="margin-bottom:1rem;">
+        <summary style="font-weight:600;cursor:pointer;">How should I treat a transfer bonus?</summary>
+        <p style="margin-top:.5rem;">Only if the points are still at the bank and the bonus is published. A 30% bonus means you transfer fewer bank points for the same partner award, so cents-per-point goes up. Miles you already moved do not get a second bonus. Set the bonus back to none when the promo ends. This page does not check whether award space exists.</p>
+      </details>
+      <details>
+        <summary style="font-weight:600;cursor:pointer;">Is the portal rate the same as The Points Guy?</summary>
+        <p style="margin-top:.5rem;">No. TPG headlines are aspirational. A Chase portal might be 1¢, 1.25¢ on Sapphire Preferred, or 1.5¢ on some Reserve cards. The result lists those portal scenarios next to the award. If the portal fare is higher than the cash price you typed, the portal column overstates the points.</p>
       </details>
     </div>
   </section>

@@ -21,22 +21,22 @@
     roadtrip: {
       title: "Road trip vs fly calculator",
       canonical: "https://vacationmath.co/roadtrip",
-      source: "2026 AAA gas average and a conservative wear rate. Includes fuel or electricity, wear, a toll estimate, midway hotels, travel-day meals, and the flying side. Excludes destination hotel and meals. " + COMPILED
+      source: "2026 AAA gas average and a conservative wear rate. Gas cars use gallons. EVs split home charging (about 17¢/kWh) from DC fast charging (about 48¢/kWh) after the first battery of range. Includes fuel or electricity, wear, a toll estimate, midway hotels, travel-day meals, and the flying side. Excludes destination hotel and meals. " + COMPILED
     },
     allinclusive: {
       title: "All-inclusive vs à-la-carte calculator",
       canonical: "https://vacationmath.co/allinclusive",
-      source: "2026 resort-rate averages. Includes the AI rate or a same-tier room-only hotel plus meals, drinks, excursions, tips, spa, airport transfer, and getting there. Excludes some government fees (called out when they apply) and travel insurance. " + COMPILED
+      source: "2026 resort-rate averages across Mexico, the Caribbean, Central America, and Hawaii. The result separates the package premium from meals and drinks you would buy à la carte. Includes the AI rate or a same-tier room-only hotel plus meals, drinks, excursions, tips, spa, airport transfer, and getting there. Calls out Visitax, Dominican tourist card, Hawaii lodging tax, and similar fees that are not inside the resort rate. Excludes travel insurance. " + COMPILED
     },
     points: {
       title: "Points vs cash calculator",
       canonical: "https://vacationmath.co/points",
-      source: "2026 valuations from The Points Guy, Frequent Miler reasonable redemption values, and NerdWallet. When they disagree, the lower figure is the benchmark. Includes the redemption you enter plus cash-out, portal, and transfer comparisons. Excludes award space and transfer bonuses. " + COMPILED
+      source: "2026 valuations from The Points Guy, Frequent Miler reasonable redemption values, and NerdWallet. The default score is the lower of the TPG headline and the transfer floor. Includes the redemption you enter, cash-out, named portal rates, and a transfer-bonus scenario when you still hold the points at the bank. Excludes live award space. " + COMPILED
     },
     themeparks: {
       title: "Theme park comparison",
       canonical: "https://vacationmath.co/themeparks",
-      source: "2026 published ticket and hotel averages. Includes hotel, tickets (multi-day pricing at Disney and Universal), food, skip-the-line, parking, and add-ons you turn on. Excludes special events and annual passes. " + COMPILED
+      source: "2026 published ticket and hotel averages for destination resorts and regional parks (Six Flags, Cedar Fair, Holiday World, Kennywood, and others). Includes hotel, tickets (multi-day pricing at Disney and Universal), food, skip-the-line, parking, and add-ons you turn on. The comparison names which line — tickets, hotel, food, or skip-the-line — moves the gap. Excludes special events and annual passes. " + COMPILED
     },
     budget: {
       title: "Vacation budget calculator",
@@ -46,7 +46,7 @@
     whentobook: {
       title: "When to book calculator",
       canonical: "https://vacationmath.co/whentobook",
-      source: "2026 airfare booking windows compiled from Expedia, Hopper, and Google Flights research used on this site. Includes where your date sits and a price scaled from the quote you type. Excludes a live fare search. Hotels can follow a different window. " + COMPILED
+      source: "2026 airfare booking windows compiled from Expedia Air Hacks, Google Flights, and Going.com. Each region and holiday row has a source label. Includes where your date sits and a price scaled from the quote you type. This is the booking curve, not a Hopper buy/wait color and not a live fare search. Hotels can follow a different window. " + COMPILED
     },
     timeshare: {
       title: "Timeshare vs rent calculator",
@@ -54,9 +54,9 @@
       source: "Industry averages (ARDA purchase and maintenance figures, resale-style recovery). Includes purchase, financing interest, maintenance, assessments, and renting the same week. Excludes your specific contract. " + COMPILED
     },
     funding: {
-      title: "Vacation funding calculator",
+      title: "Vacation savings plan",
       canonical: "https://vacationmath.co/funding",
-      source: "Savings math plus a 1.6¢ blended earn rate on spend you already make. Includes the weekly cash target. A sign-up bonus is counted only if you type one. " + COMPILED
+      source: "Monthly and weekly cash after savings already set aside. Disney $7,500, cruise $2,800 for two, and all-inclusive $7,000 are the planning bands published on those calculators, not a second price. Includes a month-by-month timeline and a points offset you can turn off (cash-only sinking fund, 1.6¢ blended, or a 2¢ scenario). A sign-up bonus is counted only if you typed one and points are on. " + COMPILED
     },
     tripfinder: {
       title: "Trip finder",
@@ -79,9 +79,9 @@
       source: "September 2026 card terms in the on-site catalog. The dollar figure is a conservative first-year offset on a $5,000 trip, not a live offer and not cash from Vacation Math. Affiliates are off. Excludes approval odds and transfer bonuses. " + COMPILED
     },
     tracker: {
-      title: "Trip expense tracker",
+      title: "Trip budget tracker",
       canonical: "https://vacationmath.co/tracker",
-      source: "Your planned and actual numbers, plus a default 10% over-count buffer. The sample Orlando trip uses the same 2026 category shape as the Disney calculator. The workbook download is the file version of this page. " + COMPILED
+      source: "Your planned and actual numbers by category, plus a default 10% over-count buffer, a multi-day log, and a chart. Sample trips: Orlando, a Caribbean cruise, Cancún all-inclusive, and a Smoky Mountains drive. Category actuals are what you type; the day log does not overwrite them. The workbook download is the optional file version. " + COMPILED
     }
   };
 

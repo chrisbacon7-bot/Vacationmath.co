@@ -196,7 +196,7 @@
   // ----------------------------------------------------------------
   var POINTS = {
     // NOTE: the former `programs` map was removed on 2026-08-28. It duplicated
-    // POINTS_EXPANDED (28 programs) with conflicting numbers, and points.js only
+    // POINTS_EXPANDED with conflicting numbers, and points.js only
     // ever read it as a fallback that never triggered, because the program picker
     // is populated from POINTS_EXPANDED keys. POINTS_EXPANDED is the single source
     // of truth for point values; `verdict` thresholds below are still used.
@@ -305,7 +305,11 @@
     rideshareAirportEach: 45,
     // Road meals are cheaper because of grocery stops + fast food
     roadMealsPerPersonPerDay: 28,
-    flightMealsPerPersonPerDay: 45   // More restaurant-dependent at destination
+    flightMealsPerPersonPerDay: 45,  // More restaurant-dependent at destination
+    // EV energy. Home rate is a round EIA residential planning figure (mid-teens to about 17¢/kWh).
+    // DC fast is the public-charger band (often 40–56¢/kWh); 48¢ is the midpoint used here.
+    evHomePerKwh: 0.17,
+    evDcFastPerKwh: 0.48
   };
 
   // ----------------------------------------------------------------
@@ -402,7 +406,7 @@
   // EXPANDED CATALOGS (spot-verified August 2026; gratuities and point values refreshed this pass)
   // ====================================================================
 
-  // ---- All-Inclusive Destinations (16 cities) ----
+  // ---- All-Inclusive Destinations (20 cities) ----
   var AI_DESTINATIONS = [
     { id:"cancun", label:"Cancún, Mexico", region:"caribbean_mx", adultsOnly:true, budget:175, mid:300, luxury:460, ultra:700, bestMonths:"Nov–Apr (dry season); avoid Aug–Oct (hurricane season, rainy)",
       brands:{ budget:"Riu, Oasis, Krystal Grand", mid:"Hyatt Ziva, Moon Palace, Hard Rock Cancún", luxury:"Hyatt Zilara, Live Aqua, Secrets The Vine", ultra:"Le Blanc Spa Resort, Atelier Playa Mujeres" } },
@@ -436,6 +440,14 @@
       brands:{ budget:"Mahogany Bay Resort, Sandy Point Resorts", mid:"Las Terrazas Resort, Grand Caribe Belize, Cocotal Inn", luxury:"Victoria House Resort, Ramon's Village, Belizean Shores", ultra:"Itz'ana Resort, Naia Resort & Spa, Cayo Espanto" } },
     { id:"dominican_republic_general", label:"Dominican Republic (Puerto Plata / Samaná)", region:"caribbean", adultsOnly:false, budget:140, mid:235, luxury:360, ultra:570, bestMonths:"Dec–Apr (dry); shoulder May–Jun",
       brands:{ budget:"Iberostar Costa Dorada, Be Live Marien, Lifestyle Tropical", mid:"Senator Puerto Plata, Viva Wyndham V Heavens, Bahia Principe Grand", luxury:"Casa Colonial Beach & Spa, Sublime Samaná", ultra:"Amanera (Playa Grande), Peninsula House (Samaná)" } },
+    { id:"cozumel", label:"Cozumel, Mexico", region:"caribbean_mx", adultsOnly:true, budget:165, mid:270, luxury:420, ultra:640, bestMonths:"Nov–Apr (dry); same Quintana Roo Visitax as Cancún",
+      brands:{ budget:"Sunscape Sabor Cozumel, Iberostar Cozumel", mid:"El Cozumeleño, Occidental Cozumel", luxury:"Iberostar Grand Cozumel, Occidental Grand Cozumel", ultra:"Use custom if your quote is a suite-level AI — room-only luxury hotels on the island are not this band" } },
+    { id:"barbados", label:"Barbados", region:"caribbean", adultsOnly:true, budget:260, mid:420, luxury:680, ultra:980, bestMonths:"Dec–Apr (dry); Jun–Nov is cheaper and wetter, outside the main hurricane belt",
+      brands:{ budget:"Sugar Bay is only partly inclusive — prefer a true AI or use custom", mid:"Sandals Barbados", luxury:"Sandals Royal Barbados", ultra:"Sandals Royal suite level. Sandy Lane is not all-inclusive" } },
+    { id:"antigua", label:"Antigua", region:"caribbean", adultsOnly:true, budget:250, mid:400, luxury:640, ultra:950, bestMonths:"Dec–Apr (dry); May–Nov lower rates and more rain",
+      brands:{ budget:"Cocobay Antigua (adults-only, check inclusions)", mid:"Verandah Resort & Spa (confirm the meal plan)", luxury:"Sandals Grande Antigua", ultra:"Sandals Grande Antigua top room category" } },
+    { id:"roatan", label:"Roatán, Honduras", region:"central_america", adultsOnly:false, budget:150, mid:240, luxury:380, ultra:560, bestMonths:"Feb–Jun (drier); Sep–Nov is wetter and cheaper",
+      brands:{ budget:"Fantasy Island Beach Resort, Henry Morgan", mid:"Las Verandas, Paradise Beach Hotel packages", luxury:"True AI is thinner here — use custom if the quote is room-only", ultra:"Kimpton Grand Roatán is not an all-inclusive rate" } },
   ];
 
   // ---- Cruise Lines (17 lines) ----
@@ -477,7 +489,7 @@
     { id:"los_angeles", label:"World Cruise Center, Los Angeles (San Pedro), CA", city:"Los Angeles / San Pedro, CA", region:"pacific_mexico", lines:["Carnival","Royal Caribbean","Norwegian","Princess","Holland America"] },
   ];
 
-  // ---- Theme Parks Expanded (18 parks) ----
+  // ---- Theme Parks Expanded (23 parks) ----
   var THEMEPARKS_EXPANDED = {
     disney_wdw: { label:"Walt Disney World", location:"Orlando, FL", ticketAdultPerDay:140, mealPerPersonPerDay:75, hotelOnPropAvg:340, offsiteHotelAvg:185, parkingPerDay:35, note:"1-Day ticket from $119/day (date-based). 4-Park Magic Ticket from $99.75/day; valid May 26–Sep 26, 2026. On-site ranges value ($100–160/night) to delu" },
     disneyland: { label:"Disneyland Resort", location:"Anaheim, CA", ticketAdultPerDay:130, mealPerPersonPerDay:80, hotelOnPropAvg:450, offsiteHotelAvg:180, parkingPerDay:35, note:"1-Day ticket tiered pricing, estimated average ~$130; YouTube data April 2026 shows $129 for that date. 3-Day Park Hopper CA resident deal $83/day ($2" },
@@ -497,6 +509,11 @@
     legoland_california: { label:"LEGOLAND California", location:"Carlsbad, CA", ticketAdultPerDay:80, mealPerPersonPerDay:45, hotelOnPropAvg:280, offsiteHotelAvg:160, parkingPerDay:25, note:"Pricing benchmarked to LEGOLAND Florida with slight SoCal premium." },
     great_wolf_lodge: { label:"Great Wolf Lodge (average US location)", location:"Multiple US locations", ticketAdultPerDay:0, mealPerPersonPerDay:50, hotelOnPropAvg:430, offsiteHotelAvg:0, parkingPerDay:0, note:"Admission included with room. Family (3–4) ~$350–700/night. Flash sale pricing seen as low as $26/person/night. Typical family suite $350–600/night. W" },
     silver_dollar_city: { label:"Silver Dollar City", location:"Branson, MO", ticketAdultPerDay:90, mealPerPersonPerDay:45, hotelOnPropAvg:0, offsiteHotelAvg:140, parkingPerDay:15, note:"Any-Day 1-Day ticket $95 (gate $95). Pick-A-Day from $65–$85. Gate day-of $95. Add second day for $20 more." },
+    carowinds: { label:"Carowinds", location:"Charlotte, NC", ticketAdultPerDay:60, mealPerPersonPerDay:45, hotelOnPropAvg:0, offsiteHotelAvg:135, parkingPerDay:30, note:"Cedar Fair / Six Flags park on the NC–SC line. Online advance tickets often land near $45–$70; gate is higher. No on-site hotel." },
+    six_flags_over_texas: { label:"Six Flags Over Texas", location:"Arlington, TX", ticketAdultPerDay:55, mealPerPersonPerDay:45, hotelOnPropAvg:0, offsiteHotelAvg:145, parkingPerDay:30, note:"DFW regional park. Online tickets commonly start under $50; gate is closer to $90. Parking is a separate daily charge." },
+    kings_dominion: { label:"Kings Dominion", location:"Doswell, VA", ticketAdultPerDay:60, mealPerPersonPerDay:45, hotelOnPropAvg:180, offsiteHotelAvg:130, parkingPerDay:25, note:"Cedar Fair / Six Flags park north of Richmond. Online single-day often near $50–$70. A campground and nearby hotels, not a Disney-style resort." },
+    holiday_world: { label:"Holiday World & Splashin' Safari", location:"Santa Claus, IN", ticketAdultPerDay:55, mealPerPersonPerDay:40, hotelOnPropAvg:0, offsiteHotelAvg:120, parkingPerDay:0, note:"Southern Indiana regional park. Free parking and free soft drinks are the product difference versus Six Flags. Tickets are date-priced; this is a typical 2026 online day, not a season pass." },
+    kennywood: { label:"Kennywood", location:"West Mifflin, PA", ticketAdultPerDay:50, mealPerPersonPerDay:40, hotelOnPropAvg:0, offsiteHotelAvg:140, parkingPerDay:20, note:"Pittsburgh regional park. Online tickets often sit near $40–$60. No on-site resort. A day trip from the city, not a week-long destination resort." },
   };
 
   // ---- Timeshare Developers (12) ----
@@ -515,7 +532,7 @@
     vistana: { label:"Vistana Signature Experiences (Marriott/Sheraton Vacation Club)", avgPurchase:25000, maintenanceAnnualAvg:1800, financingApr:17, note:"Former Starwood Vacation Ownership; now part of Marriott Vacations Worldwide. StarOptions points; Sheraton and Westin branded resorts. Can exchange into Marriot" },
   };
 
-  // ---- Road Trip Routes (20) ----
+  // ---- Road Trip Routes (28) ----
   var ROADTRIP_ROUTES = [
     { id:"nyc_to_wdw", label:"NYC → Walt Disney World", origin:"New York, NY", destination:"Orlando, FL", miles:1090, driveHours:18, flightAvg:175, flightTime:"2h 50m" },
     { id:"nyc_to_miami", label:"NYC → Miami", origin:"New York, NY", destination:"Miami, FL", miles:1280, driveHours:20, flightAvg:120, flightTime:"3h 15m" },
@@ -537,9 +554,17 @@
     { id:"houston_to_galveston", label:"Houston → Galveston", origin:"Houston, TX", destination:"Galveston, TX", miles:50, driveHours:1, flightAvg:0, flightTime:"—" },
     { id:"minneapolis_to_mt_rushmore", label:"Minneapolis → Mt. Rushmore", origin:"Minneapolis, MN", destination:"Keystone, SD (Mt. Rushmore)", miles:600, driveHours:9, flightAvg:250, flightTime:"3h (via RAP)" },
     { id:"dc_to_williamsburg", label:"Washington D.C. → Colonial Williamsburg", origin:"Washington, D.C.", destination:"Williamsburg, VA", miles:155, driveHours:2.5, flightAvg:150, flightTime:"1h 30m (via ORF/PHF)" },
+    { id:"nyc_to_chicago", label:"NYC → Chicago", origin:"New York, NY", destination:"Chicago, IL", miles:790, driveHours:13, flightAvg:140, flightTime:"2h 30m" },
+    { id:"la_to_seattle", label:"Los Angeles → Seattle", origin:"Los Angeles, CA", destination:"Seattle, WA", miles:1135, driveHours:18, flightAvg:150, flightTime:"2h 45m" },
+    { id:"miami_to_orlando", label:"Miami → Orlando", origin:"Miami, FL", destination:"Orlando, FL", miles:235, driveHours:3.5, flightAvg:90, flightTime:"1h 5m" },
+    { id:"denver_to_moab", label:"Denver → Moab", origin:"Denver, CO", destination:"Moab, UT", miles:350, driveHours:6, flightAvg:0, flightTime:"Drive — no useful nonstop" },
+    { id:"sf_to_yosemite", label:"San Francisco → Yosemite Valley", origin:"San Francisco, CA", destination:"Yosemite Valley, CA", miles:190, driveHours:4, flightAvg:0, flightTime:"Drive — park roads, not a flight" },
+    { id:"atlanta_to_savannah", label:"Atlanta → Savannah", origin:"Atlanta, GA", destination:"Savannah, GA", miles:250, driveHours:4, flightAvg:140, flightTime:"1h 5m" },
+    { id:"dallas_to_colorado_springs", label:"Dallas → Colorado Springs", origin:"Dallas, TX", destination:"Colorado Springs, CO", miles:680, driveHours:10, flightAvg:170, flightTime:"2h 15m" },
+    { id:"philly_to_outer_banks", label:"Philadelphia → Outer Banks", origin:"Philadelphia, PA", destination:"Nags Head, NC", miles:370, driveHours:6.5, flightAvg:220, flightTime:"via ORF or a long drive" },
   ];
 
-  // ---- Vehicles (13) ----
+  // ---- Vehicles (14) ----
   var VEHICLES_EXPANDED = {
     compact: { label:"Compact car (Honda Fit, Hyundai Accent)", mpg:32 },
     compact_hybrid: { label:"Compact hybrid (Toyota Prius, Honda Civic Hybrid)", mpg:52 },
@@ -553,10 +578,11 @@
     truck_hd: { label:"Heavy-duty pickup (F-250, RAM 2500)", mpg:14 },
     luxury_suv: { label:"Luxury SUV (Cadillac Escalade, Lincoln Navigator)", mpg:17 },
     sports: { label:"Sports car (Mustang, Camaro)", mpg:21 },
-    ev: { label:"EV (Tesla Model 3/Y, Chevy Equinox EV)", mpg:105 },
+    ev: { label:"EV sedan (Tesla Model 3, Chevy Equinox EV)", mpg:105, electric:true, kwhPerMile:0.28, rangeMiles:270 },
+    ev_suv: { label:"EV crossover (Model Y, Ioniq 5, EV9)", mpg:96, electric:true, kwhPerMile:0.34, rangeMiles:280 },
   };
 
-  // ---- Points Programs Expanded (28) ----
+  // ---- Points Programs Expanded (32) ----
   var POINTS_EXPANDED = {
     chase_ur: { label:"Chase Ultimate Rewards", cash:1.0, portal:1.0, transfer:1.5, tpg:2.05, source:"FM RRV May 2026 (portal floor 1¢)" },
     amex_mr: { label:"American Express Membership Rewards", cash:0.6, portal:1.0, transfer:1.5, tpg:2.0, source:"FM RRV May 2026" },
@@ -586,6 +612,10 @@
     ihg_one_rewards: { label:"IHG One Rewards", cash:0.59, portal:null, transfer:null, tpg:0.6, source:"FM RRV Aug 2026" },
     accor_all: { label:"Accor Live Limitless (ALL)", cash:0.5, portal:null, transfer:2.0, tpg:2.0, source:"TPG May 2026" },
     radisson_rewards: { label:"Radisson Rewards", cash:0.3, portal:null, transfer:null, tpg:0.4, source:"TPG May 2026" },
+    hawaiian_miles: { label:"Hawaiian Airlines HawaiianMiles", cash:0.8, portal:null, transfer:null, tpg:1.1, source:"TPG May 2026" },
+    avianca_lifemiles: { label:"Avianca LifeMiles", cash:1.0, portal:null, transfer:1.4, tpg:1.6, source:"TPG May 2026 (transfer floor is the lower figure)" },
+    turkish_miles: { label:"Turkish Airlines Miles&Smiles", cash:1.0, portal:null, transfer:1.2, tpg:1.3, source:"TPG May 2026" },
+    cathay_asia_miles: { label:"Cathay Asia Miles", cash:1.0, portal:null, transfer:1.2, tpg:1.3, source:"TPG May 2026" },
   };
 
   // ---- Origin Cities (30) ----
@@ -688,13 +718,15 @@
   ];
 
   // ---- Booking Windows by Route (6 region-pair types) ----
+  // `source` is the label the When-to-Book result prints. Do not omit it:
+  // the page used to render "Booking-window data: undefined" when only `note` existed.
   var BOOKING_WINDOWS = {
-    US_domestic: { min:15, max:30, mid:38, cheapestMonth:"Jan (cheapest), Aug–Sep also low", note:"Expedia 2026 Air Hacks: most affordable domestic booking window 15–30 days out ($130 cheaper vs 180+ days). Google Flights data: domestic sweet spot 21–52 days," },
-    Europe: { min:60, max:150, mid:90, cheapestMonth:"Nov–Mar (ex-holiday); shoulder Jan–Feb", note:"Google Flights recommends booking international earlier. General guidance: 2–5 months out for Europe. Expedia 2026: international booking window 8–29 days (but " },
-    Caribbean_Mexico: { min:35, max:80, mid:60, cheapestMonth:"Aug–Sep (hurricane season = lowest prices), early Dec", note:"Caribbean AI packages often priced 60 days out. Off-season (Aug–Sep) offers 30–50% discounts on resort and air." },
-    Hawaii: { min:60, max:90, mid:75, cheapestMonth:"Apr–May, Sep–Oct (shoulder seasons)", note:"Advance booking especially important in peak winter/holiday season. Shoulder season savings can be 20–40%." },
-    Alaska: { min:90, max:180, mid:120, cheapestMonth:"Shoulder May and early Sep", note:"Cruises and packages often book 6–12 months out. Shoulder season May and September offer best value vs peak July." },
-    Asia: { min:60, max:150, mid:110, cheapestMonth:"Jan–Feb (post-holiday, before Chinese New Year)", note:"Long-haul international; more lead time needed for business/premium cabin availability. Chinese New Year period (Jan–Feb) can spike prices for some Asian routes" },
+    US_domestic: { min:15, max:30, mid:38, cheapestMonth:"Jan (cheapest), Aug–Sep also low", source:"Expedia 2026 Air Hacks (domestic 15–30 days)", note:"Expedia 2026 Air Hacks: most affordable domestic booking window 15–30 days out ($130 cheaper vs 180+ days). Google Flights data: domestic sweet spot 21–52 days," },
+    Europe: { min:60, max:150, mid:90, cheapestMonth:"Nov–Mar (ex-holiday); shoulder Jan–Feb", source:"Google Flights + Expedia 2026 (Europe, book months out — not the domestic curve)", note:"Google Flights recommends booking international earlier. General guidance: 2–5 months out for Europe. Expedia 2026: international booking window 8–29 days (but " },
+    Caribbean_Mexico: { min:35, max:80, mid:60, cheapestMonth:"Aug–Sep (hurricane season = lowest prices), early Dec", source:"Expedia 2026 (Mexico and Caribbean air, wider than domestic)", note:"Caribbean AI packages often priced 60 days out. Off-season (Aug–Sep) offers 30–50% discounts on resort and air." },
+    Hawaii: { min:60, max:90, mid:75, cheapestMonth:"Apr–May, Sep–Oct (shoulder seasons)", source:"Expedia / Google Flights 2026 (Hawaii, about 2–3 months)", note:"Advance booking especially important in peak winter/holiday season. Shoulder season savings can be 20–40%." },
+    Alaska: { min:90, max:180, mid:120, cheapestMonth:"Shoulder May and early Sep", source:"Going.com 2026 (Alaska packages, 3–6 months)", note:"Cruises and packages often book 6–12 months out. Shoulder season May and September offer best value vs peak July." },
+    Asia: { min:60, max:150, mid:110, cheapestMonth:"Jan–Feb (post-holiday, before Chinese New Year)", source:"Going.com 2026 (Asia long-haul, 2–5 months)", note:"Long-haul international; more lead time needed for business/premium cabin availability. Chinese New Year period (Jan–Feb) can spike prices for some Asian routes" },
   };
 
 
