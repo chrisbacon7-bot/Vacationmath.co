@@ -70,6 +70,7 @@
       this.setAttribute("aria-checked", isOn ? "true" : "false");
       this.textContent = isOn ? "On" : "Off";
       updatePremierVisibility();
+      updateLlDaysField();
       updateRunningTotal();
       render(calculate());
     });
@@ -159,7 +160,10 @@
     var parkHopper = parkHopperPretax * (1 + TICKET_TAX);
     var llOn = $("lightning-lane").checked;
     var llRate = LL_MULTI[season] || 27;
-    var lightningPretax = llOn ? (llRate * totalTickets * parkDays) : 0;
+    var llDaysRaw = parseInt((($("ll-days") || {}).value), 10);
+    if (isNaN(llDaysRaw)) llDaysRaw = parkDays;
+    var llDays = llOn ? Math.min(parkDays, Math.max(0, llDaysRaw)) : 0;
+    var lightningPretax = llDays > 0 ? (llRate * totalTickets * llDays) : 0;
     var lightning = lightningPretax * (1 + TICKET_TAX);
     var premierDays = premierOn ? Math.min(parkDays, Math.max(0, premierDaysIn)) : 0;
     var premierRate = LL_PREMIER[premierPark] || LL_PREMIER["magic-kingdom"];
@@ -226,7 +230,7 @@
         { label: "Ticket tax (6.5% Florida sales tax)", amount: ticketTax, kind: "sticker", shown: ticketTax > 0 },
         { label: gt.label, amount: gt.amount, kind: "hidden", shown: gt.amount > 0, isFlight: gt.mode === "fly" },
         { label: "Park Hopper ($89/ticket + 6.5% tax)", amount: parkHopper, kind: "hidden", shown: parkHopperOn },
-        { label: "Lightning Lane Multi Pass (" + parkDays + " days, $" + llRate + "/person/day + 6.5% tax)", amount: lightning, kind: "hidden", shown: llOn },
+        { label: "Lightning Lane Multi Pass (" + llDays + " of " + parkDays + " park days, $" + llRate + "/person/day + 6.5% tax)", amount: lightning, kind: "hidden", shown: llOn && llDays > 0 },
         { label: "Lightning Lane Premier Pass (" + premierDays + " day" + (premierDays !== 1 ? "s" : "") + ", " + premierParkName + "; one-park, no hopper benefit; + 6.5% tax)", amount: premier, kind: "hidden", shown: premierOn && premier > 0 },
         { label: diningLabel, amount: dining, kind: "hidden" },
         { label: "Snacks & drinks (" + billable + " people \u00d7 " + parkDays + " days)", amount: snacks, kind: "hidden" },
@@ -271,6 +275,7 @@
     });
     html += '<tr class="row-total"><td>Estimated total</td><td class="amount">' + money(r.total) + '</td></tr>';
     html += '</tbody></table>';
+    html += '<div class="result-note"><strong>What this number means.</strong> ' + money(r.total) + ' is the all-in estimate for this party, about ' + money(r.perPersonPerDay) + ' per ticketed person per night. Resort + tickets are the booking-page number. The rest is what gets added in the parks. Lightning Lane is only on the days you set, not automatically every park day.</div>';
     html += '<div class="result-note"><strong>Why the gap?</strong> When most families budget a Disney trip, they price-shop the two big line items (resort + tickets) and forget the rest. Disney publishes every price in this calculator &mdash; nothing here is hidden. The gap shows up because dining, Lightning Lane, snacks, transport, tips, and photos get added at the park, not at the booking page. Predictable. Mostly avoidable.</div>';
     html += '<div class="result-next">';
     html += '<p><strong>Next:</strong> lock this total to a hard budget. Trip Plan says Fits, Tight, or Over, and what to cut first.</p>';
@@ -351,6 +356,19 @@
     var k = $("resort").value;
     field.hidden = (k !== "custom" && k !== "dvc");
   }
+  function updateLlDaysField() {
+    var field = document.getElementById("ll-days-field");
+    var cb = $("lightning-lane");
+    if (field) field.hidden = !(cb && cb.checked);
+    var daysEl = $("ll-days");
+    var pd = $("park-days");
+    if (daysEl && pd) {
+      var max = Math.max(0, parseInt(pd.value || 0, 10));
+      daysEl.max = String(max);
+      var v = parseInt(daysEl.value || "0", 10);
+      if (!isNaN(v) && v > max) daysEl.value = String(max);
+    }
+  }
   function updatePremierVisibility() {
     var wrap = document.getElementById("ll-premier-extras");
     var cb = $("ll-premier");
@@ -370,12 +388,14 @@
   });
   updateResortVisibility();
   updatePremierVisibility();
+  updateLlDaysField();
 
-  ["dining","room-promo","ll-premier-park","ll-premier-days","nights","park-days","adults","children","infants","customResortRate"].forEach(function (id) {
+  ["dining","room-promo","ll-premier-park","ll-premier-days","ll-days","nights","park-days","adults","children","infants","customResortRate"].forEach(function (id) {
     var el = $(id);
     if (!el) return;
     el.addEventListener("change", function () {
       updatePremierVisibility();
+      updateLlDaysField();
       updateResortVisibility();
       render(calculate());
     });
@@ -393,6 +413,7 @@
 
   window.addEventListener("DOMContentLoaded", function () {
     updatePremierVisibility();
+    updateLlDaysField();
     updateResortVisibility();
     render(calculate());
   });

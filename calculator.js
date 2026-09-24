@@ -116,7 +116,11 @@
       move2 = "You said no new cards. Skip the move. Re-route your spend to the highest-multiplier card you already hold for each category.";
     } else if (r.recId) {
       var rec = CARDS[r.recId];
-      move2 = "Apply for the " + rec.name + " this month. Hit the $" + rec.min_spend.toLocaleString() + " minimum spend over " + rec.spend_window_months + " months of normal household expenses. That clears the " + Math.round(rec.bonus_points / 1000) + "K bonus — worth about " + fmt$(r.signupValue) + " toward this trip.";
+      if (!rec.bonus_points) {
+        move2 = "The " + rec.name + " can still earn on spend you already make. Its welcome offer is personalized or not a single public number, so this estimate does not include a sign-up bonus. Confirm the offer on the issuer page before you apply.";
+      } else {
+        move2 = "Apply for the " + rec.name + " this month. Hit the $" + rec.min_spend.toLocaleString() + " minimum spend over " + rec.spend_window_months + " months of normal household expenses. That clears the " + Math.round(rec.bonus_points / 1000) + "K bonus — worth about " + fmt$(r.signupValue) + " toward this trip.";
+      }
     } else {
       move2 = "No new card. The math doesn't justify one for this trip.";
     }
@@ -173,7 +177,9 @@
 
       // Scored breakdown table
       var rows = [];
-      rows.push(["Sign-up bonus", rs.signupValue, c.bonus_points.toLocaleString() + " points × $" + VALUATIONS[c.bonus_currency].toFixed(3) + "/pt"]);
+      rows.push(["Sign-up bonus", rs.signupValue, c.bonus_points
+        ? c.bonus_points.toLocaleString() + " points × $" + VALUATIONS[c.bonus_currency].toFixed(3) + "/pt"
+        : "Not scored. The public welcome offer is personalized or changes often — confirm it on the issuer page."]);
       rows.push(["Category earn lift (1 yr)", rs.earnLift, "How much more this card earns vs. a basic 1.5% cashback card, based on your spending profile."]);
       rows.push(["Trip credit applied", rs.tripBenefit, "Travel credit or trip-specific perk usable on this booking."]);
       rows.push(["Lifestyle perks", rs.styleFit, rs.styleFitNotes.length ? rs.styleFitNotes.join("; ") : "Perks aligned with how you travel (lounges, rental insurance, FHR, intl)."]);

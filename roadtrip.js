@@ -64,9 +64,11 @@
       fuelCost = (roundTripMiles / mpg) * R.avgGasPrice;
     }
     var wearCost = roundTripMiles * R.wearPerMile;
+    var tolls = roundTripMiles * 0.012;
     var midwayHotels = midway * 2 * R.midwayHotelAvg;
     var roadMeals = R.roadMealsPerPersonPerDay * travelers * Math.max(1, midway * 2);
-    var driveTotal = fuelCost + wearCost + midwayHotels + roadMeals;
+    var driveTotal = fuelCost + wearCost + tolls + midwayHotels + roadMeals;
+    var irsAllIn = roundTripMiles * (R.irsBusinessRate || 0.76);
 
     // ---- Fly side ----
     var flightTickets = flightPrice * travelers;
@@ -89,7 +91,8 @@
 
     return {
       roundTripMiles: roundTripMiles, mpg: mpg, isEV: ev, vehLabel: vehLabel,
-      fuelCost: fuelCost, wearCost: wearCost, midwayHotels: midwayHotels, roadMeals: roadMeals,
+      fuelCost: fuelCost, wearCost: wearCost, tolls: tolls, irsAllIn: irsAllIn,
+      midwayHotels: midwayHotels, roadMeals: roadMeals,
       driveTotal: driveTotal,
       flightTickets: flightTickets, bagFees: bagFees, rentalCar: rentalCar, airportTransfer: airportTransfer,
       flyTotal: flyTotal,
@@ -113,6 +116,7 @@
     html += '    <p class="cc-total">' + money(r.driveTotal) + '</p>';
     html += '    <div class="cc-line"><span>' + (r.isEV ? "Electricity" : "Gas") + ' (' + Math.round(r.roundTripMiles) + ' mi round trip @ ' + r.mpg + ' mpg)</span><span>' + money(r.fuelCost) + '</span></div>';
     html += '    <div class="cc-line"><span>Wear &amp; tear ($0.10/mi)</span><span>' + money(r.wearCost) + '</span></div>';
+    html += '    <div class="cc-line"><span>Tolls (~1.2&cent;/mi)</span><span>' + money(r.tolls) + '</span></div>';
     if (r.midwayHotels > 0) html += '    <div class="cc-line"><span>Midway hotel nights</span><span>' + money(r.midwayHotels) + '</span></div>';
     if (r.roadMeals > 0) html += '    <div class="cc-line"><span>Travel-day meals</span><span>' + money(r.roadMeals) + '</span></div>';
     html += '    <div class="cc-line"><span>Driving time</span><span>~' + Math.round(r.driveHoursTotal) + ' hrs</span></div>';
@@ -150,7 +154,8 @@
     }
     html += '<div class="verdict ' + vClass + '"><h3>' + vTitle + '</h3><p>' + vBody + '</p></div>';
 
-    html += '<div class="result-note"><strong>What people forget to add.</strong> Driving math usually skips midway hotels, the wear on your car (yes, even on a "free" car you already own), and food at gas stations. Flying math usually skips bag fees ($70 round-trip per checked bag), the rental car at the destination, and airport parking or rideshare. Both add up.</div>';
+    html += '<div class="result-note"><strong>What this number means.</strong> These totals are the cost of getting there and back, not the whole vacation. Destination hotel and meals are left out because they are about the same either way. Per traveler: drive ' + money(r.driveTotal / r.travelers) + ', fly ' + money(r.flyTotal / r.travelers) + '. Tolls are about 1.2&cent; per mile; turnpike routes cost more. The IRS business mileage rate would price the drive at ' + money(r.irsAllIn) + ' because it includes insurance and depreciation you mostly pay even if you stay home. This comparison uses gas (or electricity) plus 10&cent;/mile of wear instead.</div>';
+    html += '<div class="result-note"><strong>What people forget to add.</strong> Driving math usually skips midway hotels, tolls, the wear on your car (yes, even on a "free" car you already own), and food at gas stations. Flying math usually skips bag fees ($70 round-trip per checked bag), the rental car at the destination, and airport parking or rideshare. Both add up.</div>';
     html += '<div class="freshness-badge">Gas at $' + R.avgGasPrice.toFixed(2) + '/gal (AAA, August 2026) &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;

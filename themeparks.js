@@ -32,6 +32,23 @@
   };
   // Defaults if a park isn't in the table
   var DEFAULT_RULES = { childMultiplier:0.90, llPerDay:40 };
+  // Later days on a multi-day ticket cost less than another 1-day ticket.
+  // Disney and Universal publish that ladder. Regional parks mostly do not.
+  var MULTI_DAY_EXTRA = {
+    disney_wdw: 0.75,
+    disneyland: 0.78,
+    universal_orlando: 0.80,
+    universal_hollywood: 0.85
+  };
+
+  function ticketUnits(parkId, days) {
+    var factor = MULTI_DAY_EXTRA[parkId];
+    if (!factor || days <= 1) return { units: days, note: "" };
+    return {
+      units: 1 + (days - 1) * factor,
+      note: "later days at " + Math.round(factor * 100) + "% of the 1-day rate"
+    };
+  }
 
   // Fixed add-on costs (per trip unless noted)
   var SOUVENIR_PER_PERSON = 40;
@@ -70,8 +87,9 @@
     var hotel = hotelRate * opts.nights;
 
     // Tickets — Great Wolf is included with room, so ticketAdultPerDay is 0
-    var ticketsAdult = park.ticketAdultPerDay * opts.adults * opts.parkDays;
-    var ticketsChild = park.ticketAdultPerDay * r.childMultiplier * opts.children * opts.parkDays;
+    var ticketScale = ticketUnits(parkId, opts.parkDays);
+    var ticketsAdult = park.ticketAdultPerDay * opts.adults * ticketScale.units;
+    var ticketsChild = park.ticketAdultPerDay * r.childMultiplier * opts.children * ticketScale.units;
     var tickets = ticketsAdult + ticketsChild;
 
     // Food (per person per day, all nights) — infants free
@@ -99,7 +117,7 @@
       food: food, ll: ll, parking: parking, transfer: transfer,
       souvenirs: souvenirs, photos: photos,
       gettingThere: opts.gettingThere || 0,
-      hotelRate: hotelRate, hotelSource: hotelSource,
+      hotelRate: hotelRate, hotelSource: hotelSource, ticketNote: ticketScale.note,
       hasOnsite: park.hotelOnPropAvg > 0
     };
   }
@@ -138,7 +156,7 @@
     html += '  <p class="tp-total">' + money(r.total) + '</p>';
     if (ppd > 0) html += '  <p class="tp-per-person" style="color:var(--ink-muted);font-size:.85rem;margin:-.3rem 0 .5rem">' + money(ppd) + ' per person per day</p>';
     html += '  <div class="cc-line"><span>Hotel (' + r.hotelSource + ')</span><span>' + money(r.hotel) + '</span></div>';
-    html += '  <div class="cc-line"><span>Tickets</span><span>' + money(r.tickets) + '</span></div>';
+    html += '  <div class="cc-line"><span>Tickets' + (r.ticketNote ? " (" + r.ticketNote + ")" : "") + '</span><span>' + money(r.tickets) + '</span></div>';
     if (r.food > 0) html += '  <div class="cc-line"><span>Food</span><span>' + money(r.food) + '</span></div>';
     if (r.ll > 0) html += '  <div class="cc-line"><span>Skip-line</span><span>' + money(r.ll) + '</span></div>';
     if (r.parking > 0) html += '  <div class="cc-line"><span>Parking</span><span>' + money(r.parking) + '</span></div>';
@@ -177,6 +195,7 @@
 
     var spread = res.priciest.total - res.cheapest.total;
     var pct = res.priciest.total > 0 ? Math.round((spread / res.priciest.total) * 100) : 0;
+    html += '<div class="result-note"><strong>What this number means.</strong> Both totals use the same party, nights, and park days. Disney and Universal tickets use a multi-day ladder (the first day at the 1-day rate, later days cheaper) instead of 1-day price times every day. Regional parks stay at single-day times park days, which is how those gates are usually sold.</div>';
     html += '<div class="verdict good"><h3>' + res.cheapest.label + ' is ' + money(spread) + ' (' + pct + '%) cheaper than ' + res.priciest.label + '.</h3>';
     html += '<p>Same family, same nights, same park days. What moves the totals the most: ticket pricing (Disney and Universal sit at the top, regional parks at half), hotel tier (on-property at the big two runs higher but bundles perks), and skip-the-line costs (Universal Express runs 3-4x Disney Lightning Lane on a peak day).</p></div>';
 

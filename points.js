@@ -106,6 +106,16 @@
     var v = verdictMap[r.verdict];
     html += '<div class="verdict ' + v.cls + '"><h3>' + v.title + '</h3><p>' + v.body + '</p></div>';
 
+    var vsCashout = r.netCashSaved - r.altCashBackValue;
+    html += '<div class="result-note"><strong>What this number means.</strong> Paying cash costs ' + money(r.cashPrice) + '. This award still costs ' + money(r.taxesFees) + ' out of pocket and saves ' + money(r.netCashSaved) + ' versus that fare. Cashing the same points out is about ' + moneyR(r.altCashBackValue) + '. ';
+    html += vsCashout >= 0
+      ? "This redemption beats cash-out by " + money(vsCashout) + "."
+      : "Cash-out beats this redemption by " + money(-vsCashout) + ". Pay cash if you can, and keep the points.";
+    html += "</div>";
+    if (r.cashPrice > 0 && r.taxesFees / r.cashPrice >= 0.2) {
+      html += '<div class="result-note"><strong>High taxes on this award.</strong> Fees are ' + Math.round((r.taxesFees / r.cashPrice) * 100) + '% of the cash price. A heavy surcharge is a reason to pay cash and keep the miles, even when cents-per-point looks fine before fees.</div>';
+    }
+
     // Alt redemption table
     html += '<h3 class="results-h3">What ' + r.points.toLocaleString() + " " + r.prog.label + ' points are worth other ways</h3>';
     html += '<table class="result-table"><thead><tr><th>Redemption type</th><th>Per point</th><th>Total value</th></tr></thead><tbody>';
