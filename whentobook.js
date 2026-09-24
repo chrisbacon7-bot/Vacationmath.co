@@ -78,6 +78,15 @@
       baseline = currentPrice;
     }
     var sweetSpotEstimate = baseline * (1 - W.inWindowSavings);
+    function shiftBack(days) {
+      var d = new Date(dateStr + "T00:00:00");
+      d.setDate(d.getDate() - days);
+      return d;
+    }
+    function fmtDay(d) {
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+    var bestOffset = Math.min(win.max, Math.max(win.min, win.mid || win.min));
     var earlyEstimate = baseline * (1 + W.earlyPenalty);
     var lateEstimate = baseline * (1 + W.latePenalty);
 
@@ -85,7 +94,10 @@
       days: days, status: status, window: win, dateStr: dateStr,
       currentPrice: currentPrice, baseline: baseline,
       sweetSpotEstimate: sweetSpotEstimate, earlyEstimate: earlyEstimate, lateEstimate: lateEstimate,
-      destination: dest, origin: origin, holidayKey: holidayKey
+      destination: dest, origin: origin, holidayKey: holidayKey,
+      bookOpenLabel: dateStr ? fmtDay(shiftBack(win.max)) : "",
+      bookCloseLabel: dateStr ? fmtDay(shiftBack(win.min)) : "",
+      bookBestLabel: dateStr ? fmtDay(shiftBack(bestOffset)) : ""
     };
   }
 
@@ -116,7 +128,8 @@
     html += '  <div class="compare-card winner">';
     html += '    <p class="cc-label">Sweet-spot window</p>';
     html += '    <p class="cc-total">' + r.window.min + '–' + r.window.max + ' days out</p>';
-    html += '    <div class="cc-line"><span>Best single day</span><span>' + r.window.mid + ' days before</span></div>';
+    html += '    <div class="cc-line"><span>Book between</span><span>' + r.bookOpenLabel + ' and ' + r.bookCloseLabel + '</span></div>';
+    html += '    <div class="cc-line"><span>Best single day</span><span>' + r.bookBestLabel + '</span></div>';
     html += '    <div class="cc-line"><span>Cheapest months</span><span>' + (r.window.cheapestMonth || W.cheapestMonth) + '</span></div>';
     html += '    <div class="cc-line"><span>Cheapest book day</span><span>' + W.cheapestBookDay + '</span></div>';
     html += '    <div class="cc-line"><span>Cheapest fly day</span><span>' + W.cheapestFlyDay + '</span></div>';
@@ -158,6 +171,7 @@
     }
     html += '<div class="verdict ' + vClass + '"><h3>' + vTitle + '</h3><p>' + vBody + '</p></div>';
 
+    html += '<div class="result-note"><strong>What this number means.</strong> The window is for airfare. Book between ' + r.bookOpenLabel + ' and ' + r.bookCloseLabel + ' for this departure. Refundable hotels can wait until the flight is locked. Prepaid hotel deals often move on a similar calendar, not the old “30 days for everything” rule.</div>';
     html += '<div class="result-note"><strong>What people forget.</strong> Cheapest book day (' + W.cheapestBookDay + ') and cheapest fly day (' + W.cheapestFlyDay + '/Wednesday) compound: book Friday for a Tuesday departure and you stack two small wins. The single cheapest month for domestic travel is ' + W.cheapestMonth + '; the priciest is ' + W.priciestMonth + ' (no surprise). Holiday windows tighten \u2014 Christmas best at ~58 days out, Thanksgiving at ~45, not the 30-day rule you\'ve probably heard.</div>';
 
     html += '<div class="result-note"><strong>If you don\'t have a quote yet \u2014 typical 2026 ranges, party of 4, round trip.</strong> Domestic short-haul (under 1,000 mi): $800\u2013$1,400. Domestic transcon: $1,200\u2013$2,200. Caribbean / Mexico: $1,400\u2013$2,400. Hawaii: $1,800\u2013$3,200. Europe (summer): $2,800\u2013$4,800. Source: Hopper 2026 Consumer Travel Index + DOT ARC May 2026. These are ranges, not estimates for your specific route \u2014 always check Google Flights for your dates before locking the total in.</div>';

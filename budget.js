@@ -529,6 +529,11 @@
     var partyDesc = partyParts.join(' + ');
     html += '<p class="rev-headline-sub">For ' + partyDesc + ' &middot; ' + opts.nights + ' nights &middot; ' + fits.length + ' trips fit, ' + stretches.length + ' stretch, ' + over.length + ' over.</p>';
     html += '</div>';
+    html += '<div class="result-note"><strong>What ' + money(opts.budget) + ' means.</strong> A planning split, not a quote: about '
+      + money(opts.budget * 0.30) + ' getting there, '
+      + money(opts.budget * 0.35) + ' lodging, '
+      + money(opts.budget * 0.20) + ' food, and '
+      + money(opts.budget * 0.15) + ' activities. Use it to read the trip totals below. A trip can fit the total and still blow one bucket.</div>';
 
     function tripCard(t) {
       var pctText = t.tag === "over"

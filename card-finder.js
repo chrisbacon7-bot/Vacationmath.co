@@ -46,7 +46,7 @@
     },
     amexgold: {
       spending: { travel: 6, dining: 10, groceries: 10, gas: 2, disney: 4, cruise: 7, allinclusive: 5, themeparks: 4, everyday: 6 },
-      perks:    { transferable: 10, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 2, lowFee: 1, signupBonus: 7, insurance: 4 },
+      perks:    { transferable: 10, lounges: 0, hotelStatus: 0, brandLoyalty: 0, simpleCashback: 2, lowFee: 1, signupBonus: 2, insurance: 4 },
       feeTier:  "premium", // $325
       tagline:  "Crushes dining and grocery spend."
     },
@@ -86,9 +86,9 @@
     },
     bonvoyBrilliant: {
       spending: { travel: 6, dining: 6, groceries: 3, gas: 2, disney: 2, cruise: 3, allinclusive: 9, themeparks: 3, everyday: 4 },
-      perks:    { transferable: 0, lounges: 6, hotelStatus: 10, brandLoyalty: 10, simpleCashback: 2, lowFee: 0, signupBonus: 8, insurance: 6 },
+      perks:    { transferable: 0, lounges: 6, hotelStatus: 10, brandLoyalty: 10, simpleCashback: 2, lowFee: 0, signupBonus: 2, insurance: 6 },
       feeTier:  "ultra", // $650
-      tagline:  "Free night + dining credits — Marriott loyalists only. 150k + $250 SC after $6k/6 mo through Sep 30, 2026."
+      tagline:  "Free night and dining credits for Marriott loyalists. Welcome bonus is not scored — confirm the current public offer."
     },
 
     // ----- Cruise co-brands -----

@@ -158,6 +158,7 @@
     html += '  <div class="compare-card ' + (r.rentSavings > 0 ? "" : "winner") + '">';
     html += '    <p class="cc-label">Buy the timeshare</p>';
     html += '    <p class="cc-total">' + money(r.totalCost) + '</p>';
+    html += '    <p class="delta" style="margin:-.2rem 0 .6rem;color:var(--muted)">About ' + money(r.totalCost / Math.max(1, r.years)) + ' per year you keep the contract</p>';
     html += '    <div class="cc-line"><span>Purchase price</span><span>' + money(r.purchase) + '</span></div>';
     if (r.financed) html += '    <div class="cc-line"><span>Financing interest (17%/10yr)</span><span>' + money(r.interest) + '</span></div>';
     html += '    <div class="cc-line"><span>Maintenance ' + r.years + ' yrs (5% escalation)</span><span>' + money(r.totalMaintenance) + '</span></div>';
@@ -167,6 +168,7 @@
     html += '  <div class="compare-card ' + (r.rentSavings > 0 ? "winner" : "") + '">';
     html += '    <p class="cc-label">Rent the same week</p>';
     html += '    <p class="cc-total">' + money(r.totalRental) + '</p>';
+    html += '    <p class="delta" style="margin:-.2rem 0 .6rem;color:var(--muted)">About ' + money(r.totalRental / Math.max(1, r.years)) + ' per year to rent the week</p>';
     html += '    <div class="cc-line"><span>RedWeek rental year 1</span><span>' + money(r.rentNow) + '</span></div>';
     html += '    <div class="cc-line"><span>Years rented</span><span>' + r.years + '</span></div>';
     html += '    <div class="cc-line"><span>Assumed escalation</span><span>3%/yr</span></div>';
@@ -175,6 +177,7 @@
     html += '  </div>';
     html += '</div>';
 
+    html += '<div class="result-note"><strong>What this number means.</strong> The buy total is what ownership costs over ' + r.years + ' years after a thin resale recovery. The rent total is paying for the same week each year with no contract. Compare the per-year lines, not the sales-floor weekly rate.</div>';
     html += '<div class="verdict ' + r.vClass + '"><h3>' + r.verdict + '</h3><p>' + r.vBody + '</p></div>';
 
     // Opportunity cost callout

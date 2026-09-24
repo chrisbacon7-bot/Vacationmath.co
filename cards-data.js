@@ -111,11 +111,11 @@
       issuer: "American Express",
       annualFee: 325,
       bonus: {
-        points: 100000,
-        spend: 8000,
-        months: 6,
-        dollarValue: 1250, // 100k * 1.25¢ conservative cash-out / portal floor, not TPG
-        copy: "As high as 100,000 points after $8,000 in 6 mo (personalized — not everyone sees 100k)"
+        points: 0,
+        spend: 0,
+        months: 0,
+        dollarValue: 0,
+        copy: "Welcome bonus is personalized. No single public amount is scored — confirm the offer Amex shows you."
       },
       earn: "4x restaurants + groceries (US), 3x flights, 2x prepaid hotels via Amex Travel",
       pointValue: 1.25, // conservative MR floor, not TPG transfer value
@@ -124,10 +124,10 @@
       url: "https://www.americanexpress.com/us/credit-cards/card/gold-card/",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1250; // 100k * 1.25¢ conservative
+        // Welcome bonus is personalized and not a single public number, so it is not scored.
         var credits = 200;
         var trip = Math.min(tripCost, 6000) * 0.025;
-        return Math.round(bonus + credits + trip - 325);
+        return Math.round(credits + trip - 325);
       }
     },
 
@@ -245,23 +245,23 @@
       issuer: "American Express",
       annualFee: 650,
       bonus: {
-        points: 150000,
-        spend: 6000,
-        months: 6,
-        dollarValue: 1200,
-        copy: "150,000 Bonvoy points + $250 statement credit after $6,000 in 6 mo (offer ends Sep 30, 2026)"
+        points: 0,
+        spend: 0,
+        months: 0,
+        dollarValue: 0,
+        copy: "Limited-time welcome offers change often. A dated bonus is not scored. Confirm the current public offer on Amex."
       },
       earn: "6x Marriott, 3x dining + flights direct, 2x else",
       pointValue: 0.8,
-      networkPerks: "Annual Free Night (up to 85k pts ~$680), $300 Marriott dining credit, $25/mo Marriott credit, Platinum Elite status. Current 150k + $250 offer ends Sep 30, 2026.",
+      networkPerks: "Annual Free Night (up to 85k pts), Marriott dining and monthly credits, Platinum Elite. Welcome bonus not scored — confirm the live offer.",
       bestFor: "Frequent Marriott AI/resort stays (Mexico, Caribbean Bonvoy properties)",
       url: "https://www.americanexpress.com/us/credit-cards/card/marriott-bonvoy-brilliant/",
       affiliateUrl: "",
       valueFn: function (tripCost) {
-        var bonus = 1200 + 250;
+        // Dated welcome bonus is not scored. Free-night and dining credits are ongoing card benefits.
         var freeNight = 680;
         var diningCredit = 300;
-        return Math.round(bonus + freeNight + diningCredit - 650);
+        return Math.round(freeNight + diningCredit - 650);
       }
     },
 
@@ -442,7 +442,7 @@
     allinclusive: "All-inclusive math rewards transferable points and brand-tied cards. Hyatt is dominant for Ziva/Zilara. Marriott Bonvoy covers Cancún and the Caribbean. CSP is the flexible fallback.",
     themeparks: "Universal has the strongest park-specific card; CSP wins for off-property hotels and flexibility; Disney Visa is here only if you'll mix in a Disney trip too.",
     roadtrip: "Gas is the largest variable cost on a roadtrip. Costco Anywhere still leads on gas if you have a membership. Autograph is 3x gas, travel, and dining with no annual fee and no foreign transaction fees. Strata Premier adds 3x gas plus transferable ThankYou points.",
-    points: "These three cards form the points-collector starter pack. CSP is the $95 workhorse. Amex Gold is the dining/grocery engine (welcome bonus is personalized — as high as 100k). CSR is the premium only if you'll use the lounges and the $300 travel credit.",
+    points: "These three cards form the points-collector starter pack. CSP is the $95 workhorse. Amex Gold is the dining and grocery engine; its welcome bonus is personalized, so no headline points number is scored. CSR is the premium only if you'll use the lounges and the $300 travel credit.",
     whentobook: "If you don't have a strategy yet, start here. CSP is the default workhorse. Citi Strata Premier is the $95 transferable + grocery/gas 3x workhorse. Bilt Blue is the no-annual-fee option that still earns transferable points.",
     budget: "You haven't committed to a trip type yet, so we're showing the flexible workhorse cards \u2014 the ones whose points transfer everywhere. CSP and Strata Premier are the $95 transferable options; Venture is the simpler miles card. The 'Best fit' badge updates based on your budget number.",
     tripfinder: "Since the trip type is still open, these are the transferable-points cards that flex across airlines, hotels, and all-inclusives. CSP and Strata Premier are the $95 workhorses; Venture X is the lounge card if you'll use the $300 credit.",

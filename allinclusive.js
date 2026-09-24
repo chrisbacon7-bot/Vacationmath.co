@@ -125,6 +125,11 @@
       perAdult = dest[TIER_FIELD[tierKey]];
     }
     var kidsDiscount = kidsStayFree ? 0 : KID_DISCOUNT[tierKey];
+    // Room-only share of an equivalent-tier stay. Food and drink are a large
+    // slice of an AI rate, so the à-la-carte hotel is that share × two adults
+    // sharing one room — same tier, not a budget hotel vs a luxury AI.
+    var ROOM_ONLY_SHARE = { budget: 0.62, mid: 0.58, luxury: 0.55, ultra: 0.50, custom: 0.58 };
+    var TRANSFER_PP = 18; // shared shuttle, round trip, per the site's 2026 hidden-fees note
 
     // ---- All-inclusive side ----
     var aiAdults = perAdult * adults * nights;
@@ -134,13 +139,13 @@
     var aiPremDining = A.aiHiddenAdditions.premiumDining * billable * A.aiHiddenAdditions.premiumDiningNights;
     var aiTipsExtra  = A.aiHiddenAdditions.tipsExtra * (nights / 5);
     var aiSpa        = adults >= 2 ? A.aiHiddenAdditions.spaPerTrip : 75;
-    var aiHidden = aiExcursions + aiPremDining + aiTipsExtra + aiSpa;
+    var aiTransfer   = TRANSFER_PP * billable;
+    var aiHidden = aiExcursions + aiPremDining + aiTipsExtra + aiSpa + aiTransfer;
     var aiTotal  = aiBase + aiHidden;
 
     // ---- À-la-carte side ----
-    // Use the destination's budget tier as the hotel-only baseline (room cost without food)
-    // À-la-carte hotel-only rate ~= 55-65% of the equivalent AI-budget tier (food/drink ~35-45% of AI value)
-    var alcHotelPerNight = dest.budget * 0.60 * 2; // *2 because dest pricing is per-adult; assume 2 adults share a room
+    var roomShare = ROOM_ONLY_SHARE[tierKey] || 0.58;
+    var alcHotelPerNight = perAdult * roomShare * 2; // per-adult AI rate → room-only for two sharing
     var alcHotel = alcHotelPerNight * nights;
     var alcBreakfast = A.alc.breakfastPerPerson * billable * nights;
     var alcLunch     = A.alc.lunchPerPerson * billable * nights;
@@ -152,9 +157,10 @@
     var alcExcursions = excursions * A.alc.excursionPerPerson * billable;
     var alcTaxi      = A.alc.taxiPerDay * nights;
     var alcGroceries = A.alc.groceriesIncidental;
+    var alcTransfer  = TRANSFER_PP * billable;
     var alcTotal = alcHotel + alcBreakfast + alcLunch + alcDinner +
                    alcDrinksAdult + alcDrinksKid + alcSnacks + alcTips +
-                   alcExcursions + alcTaxi + alcGroceries;
+                   alcExcursions + alcTaxi + alcGroceries + alcTransfer;
 
     // ---- Getting there (applies equally to both sides) ----
     var gt = (window.VM_GettingThere && window.VM_GettingThere.compute) ? window.VM_GettingThere.compute() : { mode: "none", amount: 0, label: "" };
@@ -172,11 +178,12 @@
       kidsStayFree: kidsStayFree,
       aiTotal: aiTotal, aiBase: aiBase, aiHidden: aiHidden,
       aiAdults: aiAdults, aiKids: aiKids, aiExcursions: aiExcursions,
-      aiPremDining: aiPremDining, aiTipsExtra: aiTipsExtra, aiSpa: aiSpa,
+      aiPremDining: aiPremDining, aiTipsExtra: aiTipsExtra, aiSpa: aiSpa, aiTransfer: aiTransfer,
+      roomShare: roomShare, tierKey: tierKey, perAdult: perAdult,
       alcTotal: alcTotal, alcHotel: alcHotel,
       alcFood: alcBreakfast + alcLunch + alcDinner + alcSnacks,
       alcDrinks: alcDrinksAdult + alcDrinksKid,
-      alcExcursions: alcExcursions, alcTips: alcTips,
+      alcExcursions: alcExcursions, alcTips: alcTips, alcTransfer: alcTransfer,
       alcTransport: alcTaxi + alcGroceries,
       gt: gt,
       diff: diff, winner: winner, winnerLabel: winnerLabel
@@ -244,18 +251,27 @@
     html += '    <div class="cc-line"><span>Excursions (AI doesn\'t cover)</span><span>' + money(r.aiExcursions) + '</span></div>';
     html += '    <div class="cc-line"><span>Off-resort meal / specialty dining</span><span>' + money(r.aiPremDining) + '</span></div>';
     html += '    <div class="cc-line"><span>Spa / extras</span><span>' + money(r.aiSpa) + '</span></div>';
+    html += '    <div class="cc-line"><span>Airport transfer</span><span>' + money(r.aiTransfer) + '</span></div>';
     html += '    <div class="cc-line"><span>Customary tips</span><span>' + money(r.aiTipsExtra) + '</span></div>';
     html += '  </div>';
     html += '  <div class="compare-card ' + (r.winner === "alc" ? "winner" : "") + '">';
     html += '    <p class="cc-label">À-la-Carte</p>';
     html += '    <p class="cc-total">' + money(r.alcTotal) + '</p>';
     if (alcPpd > 0) html += '    <p style="color:var(--ink-muted);font-size:.85rem;margin:-.4rem 0 .6rem">' + money(alcPpd) + ' per person per day</p>';
-    html += '    <div class="cc-line"><span>Hotel only (' + r.nights + ' nights)</span><span>' + money(r.alcHotel) + '</span></div>';
+    html += '    <div class="cc-line"><span>Hotel only, same tier (' + r.nights + ' nights)</span><span>' + money(r.alcHotel) + '</span></div>';
     html += '    <div class="cc-line"><span>Food (3 meals + snacks)</span><span>' + money(r.alcFood) + '</span></div>';
     html += '    <div class="cc-line"><span>Drinks</span><span>' + money(r.alcDrinks) + '</span></div>';
     html += '    <div class="cc-line"><span>Excursions</span><span>' + money(r.alcExcursions) + '</span></div>';
+    html += '    <div class="cc-line"><span>Airport transfer</span><span>' + money(r.alcTransfer) + '</span></div>';
     html += '    <div class="cc-line"><span>Tips / taxis / incidentals</span><span>' + money(r.alcTips + r.alcTransport) + '</span></div>';
     html += '  </div>';
+    html += '</div>';
+
+    var sharePct = Math.round((r.roomShare || 0.58) * 100);
+    html += '<div class="result-note"><strong>What this number means.</strong> The all-inclusive rate used here is about ' + money(r.perAdult) + ' per adult per night before excursions. The à-la-carte hotel is a room-only estimate at the same tier (about ' + sharePct + '% of that rate, for two adults sharing), not a budget room set against a luxury package. Airport transfer is a shared shuttle at about $18 per person round trip on both sides. A private van is often $60–$95 for the vehicle and is not in this number. À-la-carte meals stay at a mid-range restaurant budget.';
+    if (r.tierKey === "luxury" || r.tierKey === "ultra") {
+      html += ' At this tier, all-inclusive looks more expensive if you would not actually eat and drink at resort prices off-property.';
+    }
     html += '</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> These are <em>estimates</em>, not live quotes. They are built from published 2026 resort rates, NerdWallet averages, and Caribbean / Mexico destination research &mdash; then biased to over-count costs and under-count card value. Your real booking will move with season, resort tier, promotions, and how the property prices that week. The honest expectation: your actual total comes in at or below these numbers more often than above them.</div>';

@@ -12,6 +12,7 @@
 (function (g) {
   "use strict";
   var AFF = {
+    // AFFILIATES_LIVE. Keep false until real tracking URLs exist in urls below.
     enabled: false,
     network: "none",
     verifiedLabel: "August 28, 2026",
@@ -60,6 +61,7 @@
     return false;
   }
   g.VM_AFFILIATE = AFF;
+  g.AFFILIATES_LIVE = AFF.enabled === true;
   g.VM_cardHref = resolveHref;
   g.VM_cardRel = relFor;
   g.VM_cardIsAffiliate = isAffiliate;

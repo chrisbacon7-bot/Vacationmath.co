@@ -11,6 +11,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css?v20260530">
 <link rel="stylesheet" href="calc-shared.css">
+<link rel="stylesheet" href="calc-quality.css?v20260924">
 <script src="nav-fix.js" defer></script>
   <link rel="stylesheet" href="site-nav.css?v20260530">
   <link rel="canonical" href="https://vacationmath.co/disney" />
@@ -50,13 +51,6 @@
     <p class="kicker honey">Disney Real-Cost</p>
     <h1 class="calc-h1">Disney World cost calculator 2026: what your Disney trip actually costs.</h1>
     <p class="calc-sub">Most people price-shop resort and tickets and forget the rest. Tell me the basics. I'll show an itemized estimate from published 2026 pricing.</p>
-    <form class="capture capture-atf" data-source="disney-hero" novalidate>
-      <label class="sr-only" for="email-disney-hero">Email address</label>
-      <input id="email-disney-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your@email.com" required />
-      <button type="submit" class="btn btn-honey">Get Tuesday Travel Math</button>
-      <p class="trust">One Tuesday email. What to book, what to skip. Free. We won&rsquo;t sell your email.</p>
-      <p class="form-msg" aria-live="polite"></p>
-    </form>
     <nav aria-label="Disney cost guides">
       <p class="calc-sub">Read the cost guides, then lock a number.</p>
       <ul class="calc-related-links">
@@ -142,6 +136,11 @@
       <div class="toggle-group">
         <p class="pill-label">Add-ons</p>
         <div class="toggle-row" data-checkbox="lightning-lane"><div class="toggle-info"><p class="toggle-name">Lightning Lane Multi Pass</p><p class="toggle-price" id="ll-est">~$27 mid</p></div><button class="toggle-btn on" role="switch" aria-checked="true" data-checkbox="lightning-lane">On</button></div>
+        <div class="field" id="ll-days-field">
+          <label for="ll-days">Lightning Lane days</label>
+          <input type="number" id="ll-days" min="0" max="14" value="4" />
+          <p class="hint">Only the park days you buy Multi Pass. It does not have to match every ticket day.</p>
+        </div>
         <div class="toggle-row" data-checkbox="ll-premier"><div class="toggle-info"><p class="toggle-name">Lightning Lane Premier Pass</p><p class="toggle-price">One park, one day</p></div><button class="toggle-btn" role="switch" aria-checked="false" data-checkbox="ll-premier">Off</button></div>
         <div class="field" id="ll-premier-extras" hidden>
           <label for="ll-premier-park">Premier park</label>
@@ -163,8 +162,6 @@
     <section class="calc-results" id="results" aria-live="polite"><p class="results-empty">Fill in your trip — we'll show what it actually costs.</p></section>
   </div>
   <div id="vm-download-widget" style="display:none;"></div>
-  <section class="container"><div id="card-cta"></div></section>
-  <section class="container"><div id="card-finder-mini"></div></section>
   <section class="post-results" id="email-section" hidden>
     <div class="container"><div class="email-card">
       <h2 class="email-h2">Get Tuesday Travel Math</h2>
@@ -177,6 +174,8 @@
       </form>
     </div></div>
   </section>
+  <section class="container"><div id="card-cta"></div></section>
+  <section class="container"><div id="card-finder-mini"></div></section>
   <section class="container" id="ai-pricing-section"><div id="ai-live-pricing"></div></section>
   <section class="container"><div id="live-quote"></div></section>
 </main>
@@ -216,5 +215,6 @@
 <script src="trust-block.js" defer></script>
 <script src="analytics.js" defer></script>
 <script src="main.js" defer></script>
+<script src="calc-quality.js?v20260924" defer></script>
 </body>
 </html>

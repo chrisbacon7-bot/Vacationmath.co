@@ -283,6 +283,9 @@
     var hidden = gratuities + drinks + wifi + excursionCost + specialty +
                  photos + preCruise + parking + portFees + gt.amount + nclFas;
     var total = sticker + hidden;
+    var gratOwed = (!gratIncluded && gratPerDay > 0) ? (gratPerDay * nights * totalPeople) : 0;
+    var mandatory = fareSticker + portFees + gratuities + nclFas;
+    var optional = Math.max(0, total - mandatory);
     var gap = total - sticker;
     var gapPct = (gap / sticker) * 100;
 
@@ -335,8 +338,13 @@
       people: people,
       perPersonPerDay: perPersonPerDay,
       freeKids: freeKids,
+      paidPeople: paidPeople,
       nclFas: nclFas,
       gratIncluded: gratIncluded,
+      gratOn: gratOn,
+      gratOwed: gratOwed,
+      mandatory: mandatory,
+      optional: optional,
       portInfo: portInfo,
       drinkBE: {
         pkgUnlimitedPerDay: pkgUnlimitedPerDay,
@@ -403,7 +411,7 @@
 
     return '<div class="drink-be">' +
       '<h4>Drink math &mdash; ' + lineLabel + '</h4>' +
-      '<p class="be-sub">Package breaks even around <strong>' + be.breakEvenDrinks + ' alcoholic drinks/day</strong> (avg drink ~' + money(be.avgAlcoholWithGrat) + ' incl. 18% grat).</p>' +
+      '<p class="be-sub">Package breaks even around <strong>' + be.breakEvenDrinks + ' alcoholic drinks/day</strong> (avg drink ~' + money(be.avgAlcoholWithGrat) + ' incl. 18% grat). Package prices here already include that gratuity, so do not add it again.</p>' +
       '<div class="drink-be-grid">' +
         '<div class="drink-be-cell"><p class="lbl">Pay as you go</p><p class="val">' + money(be.dailyPayCost) + '<span style="font-size:14px;font-weight:500;color:var(--muted)"> / adult / day</span></p><p class="delta">Trip: ' + money(be.tripPay) + ' (' + be.adults + ' adults × ' + be.nights + ' nts)</p></div>' +
         '<div class="drink-be-cell"><p class="lbl">Unlimited package</p><p class="val">' + money(be.pkgUnlimitedPerDay) + '<span style="font-size:14px;font-weight:500;color:var(--muted)"> / adult / day</span></p><p class="delta">Trip: ' + money(be.tripPkg) + (be.children > 0 ? ' (incl. soda for ' + be.children + ' kids)' : '') + '</p></div>' +
@@ -427,6 +435,17 @@
     if (r.infants > 0) {
       html += '<div class="benchmark-callout">' + r.infants + ' under 3 sail free &mdash; no fare, no gratuity, no drink package, no excursion charge. Still bring documents and a stroller plan.</div>';
     }
+
+    var hardBits = "fare and port fees";
+    if (r.gratOn && !r.gratIncluded) hardBits += ", auto-gratuities";
+    if (r.nclFas > 0) hardBits += ", Free at Sea service charges";
+    var farePp = r.sticker / Math.max(1, r.paidPeople);
+    var allInPp = r.total / Math.max(1, r.adults + r.children);
+    html += '<div class="result-note"><strong>What this number means.</strong> The brochure fare is about ' + money(farePp) + ' per paying guest. All-in is about ' + money(allInPp) + ' per guest. Roughly ' + money(r.mandatory) + ' is hard to skip (' + hardBits + '). About ' + money(r.optional) + ' is optional: drinks, Wi-Fi, excursions, photos, parking, the pre-cruise hotel, and getting there.';
+    if (!r.gratOn && r.gratOwed > 0) {
+      html += ' Auto-gratuities are off, so this total leaves out about ' + money(r.gratOwed) + ' the line still charges unless gratuities are included in the fare.';
+    }
+    html += '</div>';
 
     html += '<div class="freshness-badge">2026 pricing data · last updated September 2026 · next refresh October 2026</div>';
 

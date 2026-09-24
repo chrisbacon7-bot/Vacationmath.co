@@ -611,6 +611,7 @@
     var drivingPrefix = opts.driving ? ('Driving from ZIP ' + opts.driveFromState + ' &middot; ') : '';
     html += '<p class="tf-headline-sub">' + drivingPrefix + 'From ' + money(opts.budget) + ' for ' + partyDesc + ' &middot; ' + opts.nights + ' nights &middot; ' + opts.months.length + ' months checked &middot; ' + (opts.vibes.length === 0 ? "all vibes" : opts.vibes.map(function(v){ return VIBE_LABELS[v] || v; }).join(" / ")) + '</p>';
     html += '</div>';
+    html += '<div class="result-note"><strong>What this number means.</strong> Each total is an all-in estimate for that month: flights or the drive, hotel, and on-the-ground costs for your party. It is not a live fare. The same place can fit in one month and miss the budget in another.</div>';
 
     if (fitsBest.length) {
       html += '<h3 class="results-h3">Best value &mdash; fits your budget</h3>';
