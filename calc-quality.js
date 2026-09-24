@@ -54,9 +54,9 @@
       source: "Industry averages (ARDA purchase and maintenance figures, resale-style recovery). Includes purchase, financing interest, maintenance, assessments, and renting the same week. Excludes your specific contract. " + COMPILED
     },
     funding: {
-      title: "Vacation funding calculator",
+      title: "Vacation savings plan",
       canonical: "https://vacationmath.co/funding",
-      source: "Savings math plus a 1.6¢ blended earn rate on spend you already make. Includes the weekly cash target. A sign-up bonus is counted only if you type one. " + COMPILED
+      source: "Monthly and weekly cash after savings already set aside. Disney $7,500, cruise $2,800 for two, and all-inclusive $7,000 are the planning bands published on those calculators, not a second price. Includes a month-by-month timeline and a points offset you can turn off (cash-only sinking fund, 1.6¢ blended, or a 2¢ scenario). A sign-up bonus is counted only if you typed one and points are on. " + COMPILED
     },
     tripfinder: {
       title: "Trip finder",
@@ -79,9 +79,9 @@
       source: "September 2026 card terms in the on-site catalog. The dollar figure is a conservative first-year offset on a $5,000 trip, not a live offer and not cash from Vacation Math. Affiliates are off. Excludes approval odds and transfer bonuses. " + COMPILED
     },
     tracker: {
-      title: "Trip expense tracker",
+      title: "Trip budget tracker",
       canonical: "https://vacationmath.co/tracker",
-      source: "Your planned and actual numbers, plus a default 10% over-count buffer. The sample Orlando trip uses the same 2026 category shape as the Disney calculator. The workbook download is the file version of this page. " + COMPILED
+      source: "Your planned and actual numbers by category, plus a default 10% over-count buffer, a multi-day log, and a chart. Sample trips: Orlando, a Caribbean cruise, Cancún all-inclusive, and a Smoky Mountains drive. Category actuals are what you type; the day log does not overwrite them. The workbook download is the optional file version. " + COMPILED
     }
   };
 

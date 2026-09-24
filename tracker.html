@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math</title>
-<meta name="description" content="Track a vacation in the browser: planned vs actual by category, with a 10% over-count buffer. Free Excel download of the same sheet. No signup wall." />
+<title>Trip Budget Tracker 2026 | Planned vs Actual Vacation Cost | Vacation Math</title>
+<meta name="description" content="Trip budget tracker for planned vs actual vacation cost. Categories, a multi-day log, a chart, CSV export, and sample trips beyond Orlando. The Excel workbook is optional. No signup wall." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css?v20260530e">
 <link rel="stylesheet" href="calc-shared.css">
-<link rel="stylesheet" href="calc-quality.css?v20260924b">
+<link rel="stylesheet" href="calc-quality.css?v20260924c">
 <script src="nav-fix.js" defer></script>
 <link rel="stylesheet" href="site-nav.css?v20260530e">
 
@@ -24,27 +24,27 @@
 <meta property="og:image" content="https://vacationmath.co/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Vacation Math — Trip Tracker Spreadsheet" />
-<meta property="og:title" content="Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math" />
-<meta property="og:description" content="Planned vs actual vacation spending in the browser, plus the same sheet as an Excel download. 10% over-count buffer. No signup wall." />
+<meta property="og:image:alt" content="Vacation Math — trip budget tracker" />
+<meta property="og:title" content="Trip Budget Tracker 2026 | Planned vs Actual Vacation Cost | Vacation Math" />
+<meta property="og:description" content="Planned vs actual vacation cost in the browser: categories, a multi-day log, a chart, and CSV. Workbook download is optional." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Vacation Expense Tracker 2026 | Planned vs Actual | Vacation Math" />
-<meta name="twitter:description" content="Planned vs actual vacation spending in the browser, plus the same sheet as an Excel download. 10% over-count buffer. No signup wall." />
+<meta name="twitter:title" content="Trip Budget Tracker 2026 | Planned vs Actual Vacation Cost | Vacation Math" />
+<meta name="twitter:description" content="Planned vs actual vacation cost in the browser: categories, a multi-day log, a chart, and CSV. Workbook download is optional." />
 <meta name="twitter:image" content="https://vacationmath.co/og-image.png" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="author" content="Chris Bacon" />
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co", "logo": "https://vacationmath.co/og-image.png", "description": "Free vacation cost calculators and a Tuesday newsletter — written by Chris Bacon in Orlando.", "founder": {"@type": "Person", "name": "Chris Bacon"}, "sameAs": []}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Trip Tracker Spreadsheet", "item": "https://vacationmath.co/tracker"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Vacation Math", "item": "https://vacationmath.co"}, {"@type": "ListItem", "position": 2, "name": "Trip Budget Tracker", "item": "https://vacationmath.co/tracker"}]}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Free Vacation Trip Tracker Spreadsheet (Excel + Numbers)",
-  "description": "Plan versus actual vacation spending in the browser, with an optional Excel workbook of the same categories and a 10% over-count buffer.",
+  "headline": "Trip budget tracker: planned vs actual vacation cost",
+  "description": "Track a vacation in the browser: planned vs actual by category, a multi-day log, a chart, and CSV export. An Excel workbook of the same idea is optional.",
   "author": {"@type": "Person", "name": "Chris Bacon", "url": "https://vacationmath.co"},
   "publisher": {"@type": "Organization", "name": "Vacation Math", "url": "https://vacationmath.co"},
   "datePublished": "2026-06-27",
-  "dateModified": "2026-08-28",
+  "dateModified": "2026-09-24",
   "mainEntityOfPage": "https://vacationmath.co/tracker"
 }
 </script>
@@ -52,16 +52,14 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Vacation Math Trip Tracker",
+  "name": "Vacation Math Trip Budget Tracker",
   "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Excel, Numbers, Google Sheets, LibreOffice",
+  "operatingSystem": "Web, Excel, Numbers, Google Sheets",
   "url": "https://vacationmath.co/tracker",
-  "downloadUrl": "https://vacationmath.co/downloads/vacationmath-tracker.xlsx",
-  "fileFormat": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  "description": "A free Excel/Numbers workbook for planning vacation budgets and tracking actual expenses, with built-in formulas, dropdowns, conditional formatting, and a live dashboard.",
+  "description": "A free in-browser trip budget tracker for planned vs actual vacation cost, with categories, a multi-day log, a chart, CSV export, and sample trips. The Excel workbook is an optional download.",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
   "publisher": {"@type": "Organization", "name": "Vacation Math"},
-  "softwareVersion": "1.0"
+  "softwareVersion": "2.0"
 }
 </script>
 <script type="application/ld+json">
@@ -71,42 +69,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does the tracker work in Apple Numbers?",
+      "name": "What is a trip budget tracker?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Numbers opens .xlsx files natively. All formulas, conditional formatting, dropdowns, and the dashboard chart are preserved. If you want a .numbers file specifically, open the .xlsx in Numbers and choose File → Save As → Numbers format."
+        "text": "A trip budget tracker compares what you planned to spend with what you actually spent. This page does that in the browser by category, with a multi-day log, a chart, and a CSV export. The Excel workbook is optional."
       }
     },
     {
       "@type": "Question",
-      "name": "Does the tracker work in Google Sheets?",
+      "name": "How do I track planned vs actual vacation cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Upload the .xlsx to Google Drive and open with Sheets. All 138 formulas work, the dashboard chart converts cleanly, and dropdowns are preserved."
+        "text": "Enter a planned amount and an actual amount for lodging, flights, food, tickets, transport, insurance, tips, and extras. The page shows under plan, inside a default 10% buffer, or over the ceiling. Log individual days underneath; those lines do not replace the category actuals until you edit them."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need to sign up or share my email?",
+      "name": "Can I track a vacation that is not Orlando?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The download is a direct .xlsx file with no signup wall, no email gate, and no tracking. Free to copy, edit, and share."
+        "text": "Yes. Sample trips cover an Orlando party of 4, a Caribbean cruise couple, a Cancún all-inclusive family, and a Smoky Mountains drive. Each one links to Trip Plan and to the matching calculator so you can compare the tracker with the planning output."
       }
     },
     {
       "@type": "Question",
-      "name": "What's the 'biased to over-count' buffer?",
+      "name": "Do I have to download the spreadsheet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Plan sheet adds a configurable buffer (default 10%) on top of your category totals. The philosophy: better to over-budget and have buffer than be surprised on the credit card. Change the buffer rate at cell D5 of the Plan sheet."
+        "text": "No. The browser tracker is the tool: categories, day log, chart, shareable trip link, and CSV. The .xlsx is the same idea for Excel, Numbers, or Google Sheets, with no email gate."
       }
     },
     {
       "@type": "Question",
-      "name": "How is this different from the website calculators?",
+      "name": "What's the over-count buffer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The calculators give you a one-shot estimate using our 2026 pricing data. The tracker is editable, lives on your computer, lets you customize categories, and tracks actual spending against your plan as the trip happens. Use the calculators first to set your plan numbers, then drop those into the tracker."
+        "text": "A configurable buffer, 10% by default, sits on top of the planned category total. The ceiling is plan plus that buffer. Better to finish under the ceiling than to be surprised on the card."
       }
     }
   ]
@@ -209,11 +207,11 @@
 <header class="calc-hero tracker-hero">
   <div class="container">
     <a href="/calculators" class="back-link">&larr; All calculators</a>
-    <p class="kicker honey">Trip Tracker</p>
-    <h1 class="calc-h1">Vacation expense tracker: planned vs actual, before the spreadsheet.</h1>
-    <p class="calc-sub">Log the plan and what you actually spent. A 10% over-count buffer is the ceiling, not a surprise. The Excel file is the same sheet for your computer. The number on this page is the product.</p>
+    <p class="kicker honey">Trip budget tracker</p>
+    <h1 class="calc-h1">Planned vs actual vacation cost, in the browser.</h1>
+    <p class="calc-sub">A trip budget tracker and vacation expense tracker: categories, a multi-day log, a chart, CSV export, and a link you can share. Sample trips include a cruise, an all-inclusive week, and a Smoky Mountains drive — not only Orlando. The Excel file is the same idea for your computer, and it is not required.</p>
     <aside class="vm-peer-gap">
-      <p><strong>Not a download gate.</strong> Spreadsheet blogs hand you a file and ask for an email. This page runs the planned-vs-actual math in the browser, then offers the workbook with no signup wall.</p>
+      <p><strong>The browser tool is the product.</strong> Spreadsheet roundups hand you a file and ask for an email. This page runs planned versus actual first. The workbook below has no signup wall.</p>
     </aside>
   </div>
 </header>
@@ -224,10 +222,29 @@
     <div class="calc-grid">
       <section class="calc-inputs" id="calculator">
         <h2 class="panel-title">Your trip</h2>
+        <p id="sample-label" class="hint" style="font-weight:600;color:inherit;">Sample trips</p>
+        <div class="trk-samples" role="group" aria-labelledby="sample-label">
+          <button type="button" class="trk-sample" data-sample="orlando">Orlando party of 4</button>
+          <button type="button" class="trk-sample" data-sample="cruise">Caribbean cruise</button>
+          <button type="button" class="trk-sample" data-sample="ai">Cancún all-inclusive</button>
+          <button type="button" class="trk-sample" data-sample="smokies">Smoky Mountains drive</button>
+        </div>
+        <p class="hint" id="trk-sample-note">Samples are 2026 planning splits, not live quotes. Category actuals are what you type. The day log is the receipt trail.</p>
         <div class="field">
           <label for="trk-name">Trip name</label>
           <input type="text" id="trk-name" value="Sample: Orlando, party of 4" />
         </div>
+        <div class="field">
+          <label for="trk-dest">Compare with Trip Plan</label>
+          <select id="trk-dest">
+            <option value="disney" selected>Disney World</option>
+            <option value="cruise">Caribbean cruise</option>
+            <option value="cancun">Cancún all-inclusive</option>
+            <option value="smoky_mountains">Great Smoky Mountains</option>
+          </select>
+        </div>
+        <input type="hidden" id="trk-sample" value="orlando" />
+        <input type="hidden" id="trk-log" value="" />
         <div class="field-row-3">
           <div>
             <label for="trk-people">Travelers</label>
@@ -238,7 +255,7 @@
             <input type="number" id="trk-buffer" min="0" max="30" step="1" value="10" />
           </div>
         </div>
-        <p class="hint">Planned is the budget. Actual is what hit the card. The sample is a 2026 Orlando-shaped trip, not a live quote.</p>
+        <p class="hint">Planned is the budget. Actual is what hit the card. A 10% buffer is the ceiling.</p>
         <div class="trk-row" aria-hidden="true"><span></span><label>Planned</label><label>Actual</label></div>
         <div class="trk-row">
           <label for="trk-p-lodging">Lodging</label>
@@ -266,10 +283,24 @@
           <input type="number" id="trk-a-transport" min="0" step="10" value="180" aria-label="Transport actual" />
         </div>
         <div class="trk-row">
+          <label for="trk-p-insurance">Travel insurance</label>
+          <input type="number" id="trk-p-insurance" min="0" step="10" value="160" />
+          <input type="number" id="trk-a-insurance" min="0" step="10" value="160" aria-label="Insurance actual" />
+        </div>
+        <div class="trk-row">
+          <label for="trk-p-tips">Tips and gratuities</label>
+          <input type="number" id="trk-p-tips" min="0" step="10" value="80" />
+          <input type="number" id="trk-a-tips" min="0" step="10" value="40" aria-label="Tips actual" />
+        </div>
+        <div class="trk-row">
           <label for="trk-p-misc">Souvenirs and extras</label>
           <input type="number" id="trk-p-misc" min="0" step="10" value="350" />
           <input type="number" id="trk-a-misc" min="0" step="10" value="210" aria-label="Extras actual" />
         </div>
+        <h2 class="panel-title" style="margin-top:18px">Multi-day log</h2>
+        <p class="hint">One line per receipt. The log is the trail. It does not overwrite category actuals.</p>
+        <div id="trk-days"></div>
+        <button class="vm-tool-btn" id="trk-add-day" type="button">Add a day</button>
         <button class="btn btn-honey calc-go" id="tracker-calc" type="button">Update planned vs actual</button>
       </section>
       <section class="calc-results" id="results" aria-live="polite">
@@ -292,11 +323,35 @@
       </div>
     </section>
 
+    <section class="faq-block" id="tracker-faq">
+      <h2>Trip budget tracker — common questions</h2>
+      <div class="faq-item">
+        <h3>What is a trip budget tracker?</h3>
+        <p>It compares what you planned to spend with what you actually spent. This page does that in the browser by category, with a multi-day log, a chart, and a CSV export. The Excel workbook further down is optional.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I track planned vs actual vacation cost?</h3>
+        <p>Enter planned and actual for lodging, flights, food, tickets, transport, insurance, tips, and extras. The result is under plan, inside the buffer, or over the ceiling. Day-log lines are the receipt trail. They do not replace the category actuals until you edit those numbers.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I track a vacation that is not Orlando?</h3>
+        <p>Yes. Load a <a href="/tracker?sample=cruise">Caribbean cruise</a>, a <a href="/tracker?sample=ai">Cancún all-inclusive</a>, or a <a href="/tracker?sample=smokies">Smoky Mountains drive</a>. Each sample links to <a href="/plan">Trip Plan</a> and to the calculator that priced that kind of trip.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I have to download the spreadsheet?</h3>
+        <p>No. Copy a trip link or export CSV from the result. The .xlsx is the same idea for Excel, Numbers, or Google Sheets, with no email gate.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the over-count buffer?</h3>
+        <p>A buffer, 10% by default, sits on top of the planned total. The ceiling is plan plus that buffer. Change the percent on this page. In the workbook the same idea is cell D5 on the Plan sheet.</p>
+      </div>
+    </section>
+
     <!-- DOWNLOAD CARD -->
     <div class="download-card">
-      <p class="download-card-eyebrow">FREE DOWNLOAD · 2026</p>
-      <h2>Vacation Math Trip Tracker</h2>
-      <p class="download-card-sub">The same categories as the tracker above, in a workbook. Excel, Numbers, Google Sheets, LibreOffice. No signup.</p>
+      <p class="download-card-eyebrow">OPTIONAL WORKBOOK</p>
+      <h2>The same tracker as a spreadsheet</h2>
+      <p class="download-card-sub">Use this if you want the file. The browser tool above is the trip budget tracker. Excel, Numbers, Google Sheets, LibreOffice. No signup.</p>
       <a href="downloads/vacationmath-tracker.xlsx" download class="download-btn" id="tracker-download-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -383,43 +438,15 @@
       </p>
     </div>
 
-    <!-- FAQ -->
     <section class="faq-block">
-      <h2>Common questions</h2>
-
+      <h2>Workbook questions</h2>
       <div class="faq-item">
-        <h3>Does it work in Apple Numbers?</h3>
-        <p>Yes. Numbers opens .xlsx files natively. All formulas, conditional formatting, dropdowns, and the dashboard chart are preserved. If you want a .numbers file specifically, open the .xlsx in Numbers and choose File → Save As → Numbers format.</p>
+        <h3>Does the file work in Numbers and Google Sheets?</h3>
+        <p>Yes. Numbers opens the .xlsx natively. In Google Drive, open it with Sheets. Formulas, the dashboard chart, and dropdowns come across. You do not need the file to use the tracker on this page.</p>
       </div>
-
       <div class="faq-item">
-        <h3>Does it work in Google Sheets?</h3>
-        <p>Yes. Upload the .xlsx to Google Drive and open with Sheets. All 138 formulas work, the dashboard chart converts cleanly, and dropdowns are preserved.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Do I need to sign up or share my email?</h3>
-        <p>No. The download is a direct .xlsx file. No signup wall, no email gate, no tracking. Free to copy, edit, and share.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What's the 'biased to over-count' buffer?</h3>
-        <p>The Plan sheet adds a configurable buffer (default 10%) on top of your category totals. The philosophy: better to over-budget and have buffer than be surprised on the credit card statement. Change the buffer rate at cell D5 of the Plan sheet to anything you like (0% to 25% is typical).</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How is this different from the website calculators?</h3>
-        <p>The calculators give you a one-shot estimate using sourced 2026 pricing. The tracker is editable, lives on your computer, lets you customize categories, and tracks actual spending against your plan as the trip happens. Use the calculators first to set your plan numbers, then drop those into the tracker.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Can I add more categories?</h3>
-        <p>Yes. Edit the Categories sheet — add a row, type your new category name. The Trip Log dropdown picks it up automatically. For full Dashboard tracking on a new category, also add it to the Plan sheet and the Dashboard's by-category table.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What if a formula breaks?</h3>
-        <p>The Methodology sheet inside the workbook covers this. The most common cause: a named range was deleted. Named ranges in this workbook: TravelerCount, BufferRate, PlannedTotal, PlannedSubtotal, ActualTotal, LogAmountRange, LogCategoryRange, LogPaidByRange, CategoryList. Restore via Formulas → Name Manager in Excel.</p>
+        <h3>How is this different from the calculators?</h3>
+        <p>Disney, cruise, all-inclusive, and Trip Plan estimate a trip from 2026 prices. This tracker is where you put that plan next to what you actually spent, including days that were not in the estimate. Use the “compare” links on the result to jump back with the destination filled in.</p>
       </div>
     </section>
 
@@ -432,8 +459,8 @@
     <!-- FINAL CTA -->
     <div class="download-card" style="margin-top: 3rem;">
       <p class="download-card-eyebrow">READY?</p>
-      <h2>Download and start planning</h2>
-      <p class="download-card-sub">Free forever. No signup. Works everywhere.</p>
+      <h2>Download the workbook</h2>
+      <p class="download-card-sub">Optional. The planned-vs-actual number is already on this page.</p>
       <a href="downloads/vacationmath-tracker.xlsx" download class="download-btn">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -491,8 +518,8 @@
     });
   });
 </script>
-<script src="tracker.js?v20260924b" defer></script>
-<script src="calc-quality.js?v20260924b" defer></script>
+<script src="tracker.js?v20260924c" defer></script>
+<script src="calc-quality.js?v20260924c" defer></script>
 <script src="site-nav.js?v20260924b"></script>
 <script src="trust-block.js"></script>
 <script src="analytics.js"></script>
