@@ -20,6 +20,7 @@ run("city-guides-data.js");
 run("city-guides-research.js");
 run("city-guides-a2.js");
 run("city-guides-editorial.js");
+run("city-guides-lists.js");
 run("city-guide.js");
 
 const REQUIRED = [
@@ -31,7 +32,7 @@ const REQUIRED = [
 
 const TRANSIT = ["nyc", "paris", "london", "tokyo", "chicago", "san_francisco", "philadelphia", "rome"];
 const CAR_FORK = ["los_angeles", "miami", "maui", "key_west"];
-const BANNED = /\b(basin|leftover|pocket|orientation data|scavenger|villages connected)\b/i;
+const BANNED = /\b(basin|leftover|pocket|orientation data|scavenger|villages connected|hostel-plus)\b/i;
 const VAGUE = /\b(already priced|one named|a named dinner|a named chef|the same walk)\b/i;
 const TAX_META = /\b(are a tax|is usually a tax|Hopper tax|tourist tax|half-day tax|Friday arrivals are a tax|SEPTA tax|room-service tax|restaurant-row tax)\b/i;
 const CAR_OK = /^(Usually|Helpful|Optional|No — transit|No — ship)$/;
@@ -69,8 +70,8 @@ REQUIRED.forEach(function (id) {
   ["stayTiers", "eatTiers", "doTiers"].forEach(function (key) {
     const t = g[key];
     if (!t || !t.budget || !t.mid || !t.lux) errors.push(id + ": missing " + key);
-    else if (t.budget.length < 2 || t.mid.length < 2 || t.lux.length < 2) {
-      errors.push(id + ": " + key + " needs 2 bullets per band");
+    else if (t.budget.length < 3 || t.mid.length < 3 || t.lux.length < 3) {
+      errors.push(id + ": " + key + " needs 3 named bullets per band");
     }
   });
   const who = (g.forWho || []).concat(g.notFor || []);
@@ -83,11 +84,13 @@ REQUIRED.forEach(function (id) {
   if (!g.skip || g.skip.length !== 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 3)");
   const tips = g.tips || [];
   if (tips.length !== 5) errors.push(id + ": tips " + tips.length + " (need 5)");
-  if (!/^Money edge:/.test(String(tips[0] || ""))) errors.push(id + ": tip 1 must start with Money edge:");
+  var gems = tips.filter(function (t) { return /^Hidden gem:/.test(String(t)); });
+  if (gems.length !== 3) errors.push(id + ": need exactly 3 Hidden gem tips, got " + gems.length);
   const notes = R && R[id];
   if (!notes || !notes.tax || !notes.gem || !notes.facts || notes.facts.length < 3) {
     errors.push(id + ": research notes incomplete");
   }
+  if (!notes || !notes.sources || notes.sources.length < 4) errors.push(id + ": research sources too thin");
   (g.hidden || []).forEach(function (line) {
     if (tips.indexOf(line) >= 0) errors.push(id + ": tip duplicates a hidden-cost line");
   });
@@ -183,7 +186,8 @@ REQUIRED.forEach(function (id) {
     if (article.indexOf("Mid-range room") < 0) errors.push(id + ": HTML missing room band");
     if (article.indexOf("Food / person / day") < 0) errors.push(id + ": HTML missing food band");
     if (article.indexOf("(orientation)") < 0 && article.indexOf("orientation") < 0) errors.push(id + ": HTML missing orientation label");
-    if (src.indexOf("Money edge:") < 0) errors.push(id + ": HTML missing Money edge");
+    var gemHits = src.split("Hidden gem:").length - 1;
+    if (gemHits < 3) errors.push(id + ": HTML needs 3 Hidden gem labels, got " + gemHits);
     if (id === "disney" && /Orange County/i.test(article)) errors.push("disney: Orange County bleed");
     if (id === "disney" && article.indexOf("12.5%") < 0) errors.push("disney: missing Florida 12.5% lodging tax");
     if (id === "disney" && /Orange-side/i.test(article)) errors.push("disney: Orange-side wording");

@@ -496,7 +496,7 @@
       doRule: "The British Museum and the National Gallery are free. Pay for one West End seat or the Tower, not the Eye and the Tower the same day.",
       zones: [
         z("South Bank", "Premier Inn County Hall class. The river walk is free; the Eye is not"),
-        z("Bloomsbury", "Generator or a hostel-plus. British Museum on foot, Tube cap for the rest"),
+        z("Bloomsbury", "Generator London. British Museum on foot, contactless cap for the rest"),
         z("South Ken", "The Resident or a museum-mile room. Not a Mayfair rate"),
         z("Heathrow hotel", "Fine the night you land. A sad week if you stay and ride in every morning")
       ],
@@ -821,8 +821,6 @@
     g.hidden = ed.hidden;
     g.skip = ed.skip;
     g.tips = ed.tips;
-    if (!/^Money edge:/.test(ed.tips[0])) {
-      throw new Error(g.id + ": money edge must lead the tips");
-    }
+    /* Tips and branded Stay/Eat/Do lists are replaced by city-guides-lists.js. */
   });
 })(typeof window !== "undefined" ? window : this);

@@ -473,7 +473,7 @@
     var seo = seoPack(guide);
 
     var tips = (guide.tips || []).map(function (t) {
-      var html = linkify(t);
+      var html = linkify(t).replace(/Hidden gem:/g, "<strong>Hidden gem:</strong>");
       if (id === "cruise" && /drink-package|break-even/i.test(t) && html.indexOf("<a ") === -1) {
         html += " <a href=\"/blog/cruise-drink-package-break-even-2026\">Break-even math &rarr;</a>";
       }
