@@ -21,6 +21,7 @@ run("city-guides-research.js");
 run("city-guides-a2.js");
 run("city-guides-editorial.js");
 run("city-guides-lists.js");
+run("city-guides-polish.js");
 run("city-guide.js");
 
 const REQUIRED = [
@@ -125,6 +126,8 @@ REQUIRED.forEach(function (id) {
 
   const blob = JSON.stringify(g);
   if (BANNED.test(blob)) errors.push(id + ": banned jargon in data");
+  if (/Still one base/i.test(blob)) errors.push(id + ": Still one base template");
+  if (/The overrun is/i.test(String(g.hook || ""))) errors.push(id + ": hook still uses overrun template");
   if (TAX_META.test(blob)) errors.push(id + ": metaphorical tax still in data");
   if (VAGUE.test(blob)) errors.push(id + ": vague placeholder still in data");
   if (!g.updated || g.updated.indexOf("Compiled Sep 2026") < 0) {

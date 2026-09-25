@@ -79,7 +79,7 @@
       eat: tiers(
         ["Albertsons or Target the night you land", "Mobile-order inside the park you already entered", "A Downtown Disney counter — dinner without a park ticket"],
         ["Naples or Tortilla Jo's in Downtown Disney — a table, not a dining plan", "Carthay Circle or Lamplight Lounge — book before you fly", "Harbor Boulevard casual the night you are walked out"],
-        ["Napa Rose — one reservation", "World of Color dessert package only if that show is the night", "Club 33 is not a plan you can count on"]
+        ["Napa Rose — the Grand Californian dining room, booked before you fly", "World of Color dessert package only if that show is the night", "Club 33 is not a plan you can count on"]
       ),
       do: tiers(
         ["Disneyland as one park day — rope-drop Adventureland or Galaxy's Edge", "California Adventure the next day — Cars Land or Pixar Pier, no Hopper dash", "Downtown Disney after dark, which does not require a ticket"],
@@ -183,7 +183,7 @@
       eat: tiers(
         ["Versailles or a ventanita — breakfast", "Time Out Market — lunch, not a beach club", "Little Havana or Wynwood at night"],
         ["Yardbird on Collins — sit-down off Ocean Drive", "Joe's Stone Crab — share it once", "A Brickell table if that is where you slept"],
-        ["Stubborn Seed — one reservation", "Nikki Beach or a 1 Hotel cabana — the minimum spend is the price", "A tasting menu once, then Cuban coffee again"]
+        ["Stubborn Seed — the South of Fifth tasting, booked", "Nikki Beach or a 1 Hotel cabana — the minimum spend is the price", "A tasting menu once, then Cuban coffee again"]
       ),
       do: tiers(
         ["Lummus Park or South Pointe — the sand you booked", "Wynwood Walls from the sidewalk", "Calle Ocho on foot"],
@@ -442,7 +442,7 @@
       ),
       eat: tiers(
         ["The Riu or Hyatt Ziva buffet — that is what the rate bought", "Coffee on property; do not buy the same water at a dock kiosk", "Parque de las Palapas tacos only if the taxi is cheap"],
-        ["One specialty restaurant inside Ziva or Moon Palace", "La Habichuela — one downtown dinner", "A beach-club lunch is a day-price, not a snack"],
+        ["The Swan at Hyatt Ziva — the on-property dinner that is not the buffet", "La Habichuela — one downtown dinner", "A beach-club lunch is a day-price, not a snack"],
         ["Le Blanc specialty dining — the reason you paid for that resort", "A Puerto Morelos dinner — a different transfer, one night", "A swim-up upgrade at the desk is a different room from the garden view you compared"]
       ),
       do: tiers(
@@ -495,7 +495,7 @@
       eat: tiers(
         ["Grocery at the first market after OGG", "A Kihei or Paia food truck — lunch", "Cook two nights"],
         ["Kihei Caffe — one plate", "Paia Fish Market on the way back from Hana", "A Kaanapali casual the night you are already on that path"],
-        ["Mama's Fish House — one reservation", "Spago at Four Seasons — the other reservation, not both", "The Westin or Sheraton breakfast buffet is why the condo was cheaper"]
+        ["Mama's Fish House in Paia — book it or eat elsewhere", "Spago at Four Seasons Wailea — the other big dinner, not the same night", "The Westin or Sheraton breakfast buffet is why the condo was cheaper"]
       ),
       do: tiers(
         ["Keawakapu or the beach in front of the condo", "A shore snorkel and a grocery picnic", "Watch a later morning from a lot you can enter after 7 a.m. if you do not hold a sunrise reservation"],
@@ -547,7 +547,7 @@
       eat: tiers(
         ["Cuban Coffee Queen or a ventanita", "Garbo's Grill or Eaton Street Seafood — lunch, not Mallory", "El Siboney — dinner off the tourist row"],
         ["Blue Heaven at opening if you want that courtyard", "Pepe's — one harbor breakfast or lunch", "Schooner Wharf fritters are a snack, not the meal"],
-        ["Louie's Backyard — one reservation", "Latitudes at Sunset Pier — the other Splurge, not the same night", "Kermit's key lime once, not as dinner"]
+        ["Louie's Backyard — the waterfront table, booked", "Latitudes at Sunset Pier — the other Splurge, not the same night", "Kermit's key lime once, not as dinner"]
       ),
       do: tiers(
         ["Mallory Square from the sidewalk at sunset — free", "Duval as a street you walk, not a hotel strategy", "The Southernmost Point buoy — a photo, not a morning"],

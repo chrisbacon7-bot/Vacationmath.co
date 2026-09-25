@@ -25,6 +25,7 @@ run("city-guides-research.js");
 run("city-guides-a2.js");
 run("city-guides-editorial.js");
 run("city-guides-lists.js");
+run("city-guides-polish.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -223,7 +224,8 @@ function injectIndex(filePath) {
     "city-guides-research.js",
     "city-guides-a2.js",
     "city-guides-editorial.js",
-    "city-guides-lists.js"
+    "city-guides-lists.js",
+    "city-guides-polish.js"
   ].forEach(function (file) {
     next = next.replace(new RegExp(file.replace(".", "\\.") + "\\?v[0-9a-z]+", "g"), file + "?" + CACHE);
   });
@@ -237,6 +239,7 @@ function injectIndex(filePath) {
   next = insertAfter(next, "city-guides-research.js", "city-guides-a2.js");
   next = insertAfter(next, "city-guides-a2.js", "city-guides-editorial.js");
   next = insertAfter(next, "city-guides-editorial.js", "city-guides-lists.js");
+  next = insertAfter(next, "city-guides-lists.js", "city-guides-polish.js");
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
