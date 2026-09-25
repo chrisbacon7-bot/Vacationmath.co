@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260925dense";
+const CACHE = "v20260925shell";
 const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
 const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
@@ -27,6 +27,7 @@ run("city-guides-editorial.js");
 run("city-guides-lists.js");
 run("city-guides-polish.js");
 run("city-guides-dense.js");
+run("city-guides-pilot.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -84,7 +85,7 @@ function page(g) {
 <meta name="description" content="${esc(desc)}" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Newsreader:opsz,ital,wght@6..72,0,400;6..72,0,500;6..72,0,600;6..72,1,400;6..72,1,500&family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../styles.css?${CACHE}">
 <link rel="stylesheet" href="../site-nav.css?v20260530">
@@ -227,7 +228,8 @@ function injectIndex(filePath) {
     "city-guides-editorial.js",
     "city-guides-lists.js",
     "city-guides-polish.js",
-    "city-guides-dense.js"
+    "city-guides-dense.js",
+    "city-guides-pilot.js"
   ].forEach(function (file) {
     next = next.replace(new RegExp(file.replace(".", "\\.") + "\\?v[0-9a-z]+", "g"), file + "?" + CACHE);
   });
@@ -243,6 +245,7 @@ function injectIndex(filePath) {
   next = insertAfter(next, "city-guides-editorial.js", "city-guides-lists.js");
   next = insertAfter(next, "city-guides-lists.js", "city-guides-polish.js");
   next = insertAfter(next, "city-guides-polish.js", "city-guides-dense.js");
+  next = insertAfter(next, "city-guides-dense.js", "city-guides-pilot.js");
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
