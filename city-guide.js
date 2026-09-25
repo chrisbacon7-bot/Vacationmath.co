@@ -77,7 +77,7 @@
       desc: "Caribbean cruise in Budget, Mid-range, and Splurge: cabin, gratuities, drinks, and flights to port. Printable. Not live rates."
     },
     key_west: {
-      desc: "Key West in Budget, Mid-range, and Splurge: Old Town on foot, Cuban breakfast, one named dinner. Printable. Not live rates."
+      desc: "Key West in Budget, Mid-range, and Splurge: Old Town on foot, Cuban breakfast, El Siboney or Louie’s. Printable. Not live rates."
     }
   };
 
@@ -339,6 +339,13 @@
   }
 
   function factsBox(guide) {
+    var money = (guide.money || []).map(function (row) {
+      if (!row || !row.dt || !row.dd) return "";
+      return "<div><dt>" + esc(row.dt) + "</dt><dd>" + esc(plainVoice(row.dd)) + "</dd></div>";
+    }).join("");
+    var note = money
+      ? "<p class=\"cg-facts-note\">Orientation bands from Trip Finder 2026 hotel tables, published tax rates, and calculator figures in this repo — not live quotes.</p>"
+      : "";
     return ""
       + "<aside class=\"cg-facts\" id=\"facts\">"
       +   "<p class=\"cg-facts-kicker\">Quick facts</p>"
@@ -347,7 +354,9 @@
       +     "<div><dt>Mid-range posture</dt><dd>" + esc(plainVoice(guide.midrange)) + "</dd></div>"
       +     "<div><dt>Best months</dt><dd>" + esc(guide.months) + "</dd></div>"
       +     "<div><dt>Need a car?</dt><dd>" + esc(carLabel(guide)) + "</dd></div>"
+      +     money
       +   "</dl>"
+      +   note
       + "</aside>";
   }
 
@@ -464,7 +473,7 @@
     var seo = seoPack(guide);
 
     var tips = (guide.tips || []).map(function (t) {
-      var html = linkify(t);
+      var html = linkify(t).replace(/Hidden gem:/g, "<strong>Hidden gem:</strong>");
       if (id === "cruise" && /drink-package|break-even/i.test(t) && html.indexOf("<a ") === -1) {
         html += " <a href=\"/blog/cruise-drink-package-break-even-2026\">Break-even math &rarr;</a>";
       }
@@ -516,14 +525,14 @@
       + skipSection(guide)
 
       + "<section class=\"cg-tips\" id=\"money-saving-tips\">"
-      +   "<p class=\"cg-tips-kicker\">Keep the number honest</p>"
+      +   "<p class=\"cg-tips-kicker\">" + esc(guide.tipsKicker || "Five numbers that move the total") + "</p>"
       +   "<h2>Top money-saving tips</h2>"
       +   "<ol>" + tips + "</ol>"
       + "</section>"
 
       + "<section class=\"cg-cta\" id=\"plan-cta\">"
       +   "<h2>Next step</h2>"
-      +   "<p>Same hotel, food, and activity names — constrained to a number you can actually spend.</p>"
+      +   "<p>" + esc(plainVoice(guide.cta || ("Build the " + (guide.short || guide.label) + " Trip Plan with these hotel and food names, then cut until the total fits."))) + "</p>"
       +   "<div class=\"cg-cta-row\">"
       +     "<a class=\"cg-btn cg-btn-primary\" href=\"" + planHref + "\">Trip Plan for " + esc(guide.short || guide.label) + " &rarr;</a>"
       +     "<button type=\"button\" class=\"cg-print-btn cg-no-print\" data-cg-print>Download / Print money guide</button>"

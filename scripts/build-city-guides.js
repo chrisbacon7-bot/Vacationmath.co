@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260923seo";
+const CACHE = "v20260925ed";
 const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
 const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
@@ -21,6 +21,11 @@ run("trip-finder-data.js");
 run("plan-data.js");
 run("plan-recs-extra.js");
 run("city-guides-data.js");
+run("city-guides-research.js");
+run("city-guides-a2.js");
+run("city-guides-editorial.js");
+run("city-guides-lists.js");
+run("city-guides-polish.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -111,7 +116,7 @@ function page(g) {
     author: { "@type": "Person", name: "Chris Bacon", url: "https://vacationmath.co/how-it-works" },
     publisher: { "@type": "Organization", name: "Vacation Math", url: "https://vacationmath.co" },
     datePublished: "2026-09-12",
-    dateModified: "2026-09-23",
+    dateModified: "2026-09-25",
     mainEntityOfPage: url
   })}</script>
 <script type="application/ld+json">${JSON.stringify({
@@ -211,9 +216,30 @@ function injectIndex(filePath) {
     console.warn("did not find money-guides-grid in", path.relative(root, filePath));
     return;
   }
-  next = next.replace(/city-guide\.css\?v[0-9a-z]+/g, "city-guide.css?" + CACHE);
-  next = next.replace(/city-guide\.js\?v[0-9a-z]+/g, "city-guide.js?" + CACHE);
-  next = next.replace(/city-guides-data\.js\?v[0-9a-z]+/g, "city-guides-data.js?" + CACHE);
+  var prefix = filePath.indexOf(path.sep + "guides" + path.sep) >= 0 ? "../" : "";
+  [
+    "city-guide.css",
+    "city-guide.js",
+    "city-guides-data.js",
+    "city-guides-research.js",
+    "city-guides-a2.js",
+    "city-guides-editorial.js",
+    "city-guides-lists.js",
+    "city-guides-polish.js"
+  ].forEach(function (file) {
+    next = next.replace(new RegExp(file.replace(".", "\\.") + "\\?v[0-9a-z]+", "g"), file + "?" + CACHE);
+  });
+  function insertAfter(html, afterFile, newFile) {
+    if (html.indexOf(newFile) >= 0) return html;
+    var safe = afterFile.replace(/\./g, "\\.");
+    var re = new RegExp('(<script src="(?:\\.\\./)?' + safe + '\\?[^"]+"></script>)');
+    return html.replace(re, "$1\n<script src=\"" + prefix + newFile + "?" + CACHE + "\"></script>");
+  }
+  next = insertAfter(next, "city-guides-data.js", "city-guides-research.js");
+  next = insertAfter(next, "city-guides-research.js", "city-guides-a2.js");
+  next = insertAfter(next, "city-guides-a2.js", "city-guides-editorial.js");
+  next = insertAfter(next, "city-guides-editorial.js", "city-guides-lists.js");
+  next = insertAfter(next, "city-guides-lists.js", "city-guides-polish.js");
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
