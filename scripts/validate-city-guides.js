@@ -17,6 +17,7 @@ run("trip-finder-data.js");
 run("plan-data.js");
 run("plan-recs-extra.js");
 run("city-guides-data.js");
+run("city-guides-a2.js");
 run("city-guide.js");
 
 const REQUIRED = [
@@ -29,6 +30,7 @@ const REQUIRED = [
 const TRANSIT = ["nyc", "paris", "london", "tokyo", "chicago", "san_francisco", "philadelphia", "rome"];
 const CAR_FORK = ["los_angeles", "miami", "maui", "key_west"];
 const BANNED = /\b(basin|leftover|pocket|orientation data|scavenger|villages connected)\b/i;
+const VAGUE = /\b(already priced|one named|a named dinner|a named chef|the same walk)\b/i;
 const TAX_META = /\b(are a tax|is usually a tax|Hopper tax|tourist tax|half-day tax|Friday arrivals are a tax|SEPTA tax|room-service tax|restaurant-row tax)\b/i;
 const CAR_OK = /^(Usually|Helpful|Optional|No — transit|No — ship)$/;
 const COMPILED = "Compiled Sep 2026 from public rates, official calendars, and transit maps — orientation, not a field visit.";
@@ -40,6 +42,9 @@ const errors = [];
 if (G.ALL.length !== 20) errors.push("expected 20 guides, got " + G.ALL.length);
 
 const hooks = {};
+const starts = {};
+const kickers = {};
+const ctas = {};
 
 REQUIRED.forEach(function (id) {
   const g = G.BY_ID[id];
@@ -74,7 +79,21 @@ REQUIRED.forEach(function (id) {
   }
   if (!g.skip || g.skip.length !== 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 3)");
   const tips = g.tips || [];
-  if (tips.length < 5 || tips.length > 8) errors.push(id + ": tips " + tips.length + " (need 5–8)");
+  if (tips.length !== 5) errors.push(id + ": tips " + tips.length + " (need 5)");
+  if (!g.money || g.money.length < 4) errors.push(id + ": need 4 quick-facts money rows");
+  (g.money || []).forEach(function (row) {
+    if (!row.dt || !row.dd || String(row.dd).length < 12) errors.push(id + ": weak money row " + (row && row.dt));
+  });
+  var moneyLabels = (g.money || []).map(function (row) { return row.dt; });
+  if (moneyLabels.indexOf("Mid-range room") < 0) errors.push(id + ": missing Mid-range room row");
+  if (moneyLabels.indexOf("Food / person / day") < 0) errors.push(id + ": missing food row");
+  if (moneyLabels.indexOf("#1 ticket") < 0) errors.push(id + ": missing ticket row");
+  if (moneyLabels.indexOf("Sample total") < 0) errors.push(id + ": missing sample total");
+  if (!g.tipsKicker || g.tipsKicker === "Keep the number honest") errors.push(id + ": stock tips kicker");
+  if (!g.cta || /Same hotel, food, and activity names/.test(g.cta)) errors.push(id + ": stock Trip Plan CTA");
+  (g.zones || []).forEach(function (z) {
+    if (/\btrap\b/i.test(z.name)) errors.push(id + ": zone still titled trap: " + z.name);
+  });
   if (!g.book || g.book.length < 3) errors.push(id + ": need book-before checklist");
   if (!g.hidden || g.hidden.length < 3) errors.push(id + ": need hidden costs");
   if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
@@ -83,10 +102,17 @@ REQUIRED.forEach(function (id) {
   });
   if (hooks[g.hook]) errors.push(id + ": hook repeats " + hooks[g.hook]);
   hooks[g.hook] = id;
+  if (starts[g.startHere]) errors.push(id + ": startHere repeats " + starts[g.startHere]);
+  starts[g.startHere] = g.startHere;
+  if (kickers[g.tipsKicker]) errors.push(id + ": tips kicker repeats " + kickers[g.tipsKicker]);
+  kickers[g.tipsKicker] = id;
+  if (ctas[g.cta]) errors.push(id + ": CTA repeats " + ctas[g.cta]);
+  ctas[g.cta] = id;
 
   const blob = JSON.stringify(g);
   if (BANNED.test(blob)) errors.push(id + ": banned jargon in data");
   if (TAX_META.test(blob)) errors.push(id + ": metaphorical tax still in data");
+  if (VAGUE.test(blob)) errors.push(id + ": vague placeholder still in data");
   if (!g.updated || g.updated.indexOf("Compiled Sep 2026") < 0) {
     errors.push(id + ": missing Compiled Sep 2026 footer");
   }
@@ -140,6 +166,13 @@ REQUIRED.forEach(function (id) {
     const article = body.split("</article>")[0] || body;
     if (BANNED.test(article)) errors.push(id + ": banned jargon in HTML");
     if (TAX_META.test(article)) errors.push(id + ": metaphorical tax still in HTML");
+    if (VAGUE.test(article)) errors.push(id + ": vague placeholder still in HTML");
+    if (article.indexOf("Keep the number honest") >= 0) errors.push(id + ": stock tips kicker in HTML");
+    if (article.indexOf("Same hotel, food, and activity names") >= 0) errors.push(id + ": stock CTA in HTML");
+    if (article.indexOf("Mid-range room") < 0) errors.push(id + ": HTML missing room band");
+    if (article.indexOf("Food / person / day") < 0) errors.push(id + ": HTML missing food band");
+    if (article.indexOf("(orientation)") < 0 && article.indexOf("orientation") < 0) errors.push(id + ": HTML missing orientation label");
+    if (id === "disney" && /Orange County/i.test(article)) errors.push("disney: Orange County bleed");
     if (/\bLean\b/.test(src) || /\bStretch\b/.test(src)) errors.push(id + ": leftover Lean/Stretch in HTML");
     if (TRANSIT.indexOf(id) >= 0) {
       if (article.indexOf("You usually don’t need a car") < 0 && article.indexOf("You usually don't need a car") < 0) {
@@ -209,4 +242,4 @@ if (errors.length) {
   console.error("FAIL\n" + errors.join("\n"));
   process.exit(1);
 }
-console.log("ok 20 money guides — locked outline, static HTML, 5–8 tips, Budget/Mid-range/Splurge");
+console.log("ok 20 money guides — locked outline, static HTML, 5 tips, money bands, Budget/Mid-range/Splurge");

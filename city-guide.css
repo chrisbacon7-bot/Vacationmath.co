@@ -159,6 +159,14 @@
   font-weight: 600;
 }
 
+.cg-facts-note {
+  margin: 12px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--muted, #6B6660);
+}
+
 .cg-zones {
   margin: 1.35rem 0 0.15rem;
 }

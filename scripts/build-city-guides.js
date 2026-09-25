@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260923seo";
+const CACHE = "v20260925a2";
 const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
 const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
@@ -21,6 +21,7 @@ run("trip-finder-data.js");
 run("plan-data.js");
 run("plan-recs-extra.js");
 run("city-guides-data.js");
+run("city-guides-a2.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -111,7 +112,7 @@ function page(g) {
     author: { "@type": "Person", name: "Chris Bacon", url: "https://vacationmath.co/how-it-works" },
     publisher: { "@type": "Organization", name: "Vacation Math", url: "https://vacationmath.co" },
     datePublished: "2026-09-12",
-    dateModified: "2026-09-23",
+    dateModified: "2026-09-25",
     mainEntityOfPage: url
   })}</script>
 <script type="application/ld+json">${JSON.stringify({
@@ -214,6 +215,14 @@ function injectIndex(filePath) {
   next = next.replace(/city-guide\.css\?v[0-9a-z]+/g, "city-guide.css?" + CACHE);
   next = next.replace(/city-guide\.js\?v[0-9a-z]+/g, "city-guide.js?" + CACHE);
   next = next.replace(/city-guides-data\.js\?v[0-9a-z]+/g, "city-guides-data.js?" + CACHE);
+  next = next.replace(/city-guides-a2\.js\?v[0-9a-z]+/g, "city-guides-a2.js?" + CACHE);
+  if (next.indexOf("city-guides-a2.js") < 0) {
+    var prefix = filePath.indexOf(path.sep + "guides" + path.sep) >= 0 ? "../" : "";
+    next = next.replace(
+      /(<script src="(?:\.\.\/)?city-guides-data\.js\?[^"]+"><\/script>)/,
+      "$1\n<script src=\"" + prefix + "city-guides-a2.js?" + CACHE + "\"></script>"
+    );
+  }
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
