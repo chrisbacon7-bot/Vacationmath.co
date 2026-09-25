@@ -240,7 +240,7 @@
         [
           "Pod 39 — A small Midtown room, about $180–280 a night before New York's 14.75% lodging tax. You are paying for a bed and a subway, not a desk. It fails for a family that needs a real closet and then quietly adds a second room.",
           "citizenM Bowery — Downtown, about $200–320 before tax. The F and the 6 are the point. The room is compact on purpose. If you need a suite, you are no longer in this band.",
-          "The Jane — A downtown cabin rather than a Times Square tower, often under $250 before tax when the dates are quiet. The rate only works if the party accepts the size. An outer-borough room on the L or the 7 can undercut it, and then every late night is a last-train problem.",
+          "The Jane — A downtown cabin rather than a Times Square tower. When the dates are quiet it sits nearer the Pod band, about $180–280 before tax, and only if the party accepts the size. An outer-borough room on the L or the 7 can undercut it, and then every late night is a last-train problem.",
           "Motto by Hilton Chelsea — The 1 or the A/C/E, about $200–300 before tax. A full-service flag without a Times Square view. Ask about a destination fee before you treat it as the cheap Hilton. Some Manhattan hotels in this family add $25–45 a night."
         ],
         [
@@ -251,7 +251,7 @@
         ],
         [
           "1 Hotel Central Park — The park address, often $700–1,200 before tax. The subway is still $3. You bought the block, not a better fare, and a crosstown meeting is still a walk or a train.",
-          "The Greenwich Hotel — A downtown suite-level night, commonly $900 and up before tax. Keep the trip in one neighborhood. Do not also book a Midtown flagship for the two nights you have a show. Two luxury rates is a different vacation.",
+          "The Greenwich Hotel — A downtown suite-level night, in the same range as 1 Hotel Central Park at $700–1,200 before tax. Keep the trip in one neighborhood. Do not also book a Midtown flagship for the two nights you have a show. Two luxury rates is a different vacation.",
           "Park Hyatt New York — Midtown flagship, often $800–1,400 before tax. Breakfast is not in that figure. A hotel breakfast here can pass $40 a person, which is a week of bodega sandwiches.",
           "The Mark — Upper East Side. The 6 is how you get downtown. A cab habit to Midtown is a second hotel bill by the third day, at $20–40 a ride, on top of a rate that was already the splurge."
         ]
