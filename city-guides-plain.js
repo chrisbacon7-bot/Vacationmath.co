@@ -536,7 +536,7 @@
       doRule: "The beach is free. Vizcaya is about $25. A beach-club daybed often starts with a minimum around $75–150 a person. That minimum is the purchase.",
       zones: [
         zone("Collins Avenue, off Ocean Drive", "Book The Gale or Hyatt Centric South Beach. The Gale is about $180–280 a night before Miami's 13% lodging tax. Hyatt Centric is about $250–360. You can walk to the sand. Do not choose an Ocean Drive address for the same beach at a higher rate."),
-        zone("Mid-Beach", "Book the Hampton Inn Miami Beach, about $160–260 a night before the 13% tax. The sand is a walk or a short bus. Do not choose it if you wanted Brickell restaurants outside the door. That is a different hotel."),
+        zone("Hampton Inn Miami Beach", "Book the Hampton Inn Miami Beach, about $160–260 a night before the 13% tax. The sand is a walk or a short bus. Do not choose it if you wanted Brickell restaurants outside the door. That is a different hotel."),
         zone("Brickell", "Book Kimpton EPIC or the Courtyard downtown, about $180–370 a night before tax. The Metromover is free. You traded the postcard beach for restaurants you can walk to. Do not pay a Brickell rate and then taxi to the sand for every hour of daylight."),
         zone("1 Hotel South Beach", "Book 1 Hotel only when the beach hotel is the treat, about $500–900 a night. A cabana is extra. Do not choose it for a three-night trip that is mostly a Cuban sandwich and a free beach.")
       ],
@@ -692,7 +692,7 @@
       zones: [
         zone("Ferry Building and the Embarcadero", "Book the Hyatt Regency on the Embarcadero or Hotel Emeline in Jackson Square. Rooms are about $280–420 a night before the 16% lodging tax. You can walk to the Ferry Building. Do not choose this and then rent a car to move ten blocks."),
         zone("Downtown, near BART", "Book the Hampton Inn downtown or the Courtyard downtown, about $180–300 a night before tax. BART is a walk. Do not choose it if you wanted the Wharf outside the door. Visit the Wharf for an hour, then leave."),
-        zone("Union Square", "Book the Hilton on Union Square, about $250–400 a night before tax. A cable car is nearby and still costs $8. Do not choose Union Square and also book a Nob Hill suite for the other nights."),
+        zone("Hilton on Union Square", "Book the Hilton on Union Square, about $250–400 a night before tax. A cable car is nearby and still costs $8. Do not choose Union Square and also book a Nob Hill suite for the other nights."),
         zone("Nob Hill", "Book the Fairmont when the hill is the treat, about $400–700 a night. The cable car at the door is still $8. Do not choose Nob Hill as a base for a Mission dinner every night.")
       ],
       stayTiers: tiers(
@@ -840,9 +840,9 @@
       eatRule: "A diner breakfast is about $10–15. An Italian beef is about $12–18. One Fulton Market dinner is $40–70 a person. Deep-dish once, then stop.",
       doRule: "The riverwalk is free. The Art Institute is $32 for adults who do not live in Chicago. An architecture cruise is often $50–65. You do not need both on a three-night trip.",
       zones: [
-        zone("Fulton Market", "Book The Hoxton Chicago. Rooms are about $220–340 a night before Chicago's 17.4% lodging tax. Dinner is a walk. Do not choose it if you wanted a lake view from the room. The lake is a walk or a short L ride, and it is free."),
+        zone("The Hoxton, Fulton Market", "Book The Hoxton Chicago. Rooms are about $220–340 a night before Chicago's 17.4% lodging tax. Dinner is a walk. Do not choose it if you wanted a lake view from the room. The lake is a walk or a short L ride, and it is free."),
         zone("The Loop, by the L", "Book the Hampton Inn on the Magnificent Mile or a Loop Hilton. The Hampton is about $140–220 a night before tax. The Hilton is about $190–320. Trains are downstairs. Do not choose a suburban hotel and commute in for this."),
-        zone("River North", "Book the Courtyard in River North, about $160–250 a night before tax, or the Hyatt Regency by the river, about $200–330. You can walk to the riverwalk. Do not choose it and then rent a car to sit in a Michigan Avenue garage."),
+        zone("Courtyard River North", "Book the Courtyard in River North, about $160–250 a night before tax, or the Hyatt Regency by the river, about $200–330. You can walk to the riverwalk. Do not choose it and then rent a car to sit in a Michigan Avenue garage."),
         zone("The Langham, when the room is the treat", "Book The Langham or the Park Hyatt when the hotel is the splurge. The Langham is about $450–750 a night. The river is outside, and it is still free. Do not choose it and also buy a cruise, two museums, and a tasting menu.")
       ],
       stayTiers: tiers(
@@ -1300,9 +1300,9 @@
       eatRule: "A cafe breakfast is about $10–15. Ponce City Market lunch is about $12–20. Mary Mac's or Fox Bros is about $20–40 a person. A Buckhead steakhouse is the splurge.",
       doRule: "The BeltLine and Piedmont Park are free. Georgia Aquarium general admission starts at $44.49. Anytime admission is $67.99. World of Coca-Cola is about $20–25.",
       zones: [
-        zone("Midtown", "Book the Hampton Inn in Midtown, about $140–220 a night before Atlanta's 16.9% lodging tax. Piedmont Park is the green space. Do not choose a highway hotel and rideshare in for the park."),
+        zone("Hampton Inn Midtown", "Book the Hampton Inn in Midtown, about $140–220 a night before Atlanta's 16.9% lodging tax. Piedmont Park is the green space. Do not choose a highway hotel and rideshare in for the park."),
         zone("Ponce and the BeltLine", "Book Hotel Clermont, about $180–280 a night before tax. Ponce City Market and the BeltLine are the evening. Do not choose it if you wanted a Buckhead mall outside the door."),
-        zone("Downtown", "Book the Hyatt Regency or the Hilton downtown, about $170–280 a night before tax. Read the convention calendar before you book. Do not choose downtown and then expect a quiet BeltLine morning at the door."),
+        zone("Hyatt Regency downtown", "Book the Hyatt Regency or the Hilton downtown, about $170–280 a night before tax. Read the convention calendar before you book. Do not choose downtown and then expect a quiet BeltLine morning at the door."),
         zone("Buckhead", "Book the St. Regis or the Grand Hyatt in Buckhead only when that neighborhood is the trip, about $300–700 a night. You gave up the BeltLine walk. Do not choose Buckhead and also book a Midtown hotel for the other nights.")
       ],
       stayTiers: tiers(
