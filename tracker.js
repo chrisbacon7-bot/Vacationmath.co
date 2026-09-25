@@ -95,6 +95,61 @@
         { day: 2, cat: "tickets", amount: 40, note: "Parking and pass" },
         { day: 3, cat: "food", amount: 112, note: "Cabin groceries and one dinner" }
       ]
+    },
+    hawaii: {
+      name: "Sample: Hawaii, couple, 7 nights",
+      people: 2,
+      buffer: 10,
+      dest: "oahu",
+      note: "Planning split of the $5,800 low end on the Big Trip page (couple, 7 nights): flights $1,800, hotel 7×$260, car 7×$80, and the rest of that floor in food, activities, insurance, and extras. Not a live quote.",
+      plan: "/plan?dest=oahu",
+      vertical: "/big-trip",
+      verticalLabel: "See the Hawaii cost range",
+      values: {
+        lodging: [1820, 1760], flights: [1800, 1880], food: [900, 820], tickets: [500, 420],
+        transport: [560, 540], insurance: [100, 100], tips: [40, 40], misc: [80, 60]
+      },
+      days: [
+        { day: 1, cat: "flights", amount: 1880, note: "Two seats" },
+        { day: 1, cat: "transport", amount: 90, note: "Rental car, day 1" },
+        { day: 3, cat: "tickets", amount: 160, note: "Snorkel boat" },
+        { day: 5, cat: "food", amount: 140, note: "Dinner out" }
+      ]
+    },
+    europe: {
+      name: "Sample: Europe, couple, 10 days",
+      people: 2,
+      buffer: 10,
+      dest: "paris",
+      note: "Planning split of the $7,500 summer floor on the Big Trip page (couple, 10 days): flights $1,400, hotel 10×$180, transit 10×$40, and the rest of that floor in food, activities, insurance, tips, and extras. Shoulder months on that page run $5,200–$8,800. Not a live quote.",
+      plan: "/plan?dest=paris",
+      vertical: "/big-trip",
+      verticalLabel: "See the Europe cost range",
+      values: {
+        lodging: [1800, 1800], flights: [1400, 1320], food: [2000, 2140], tickets: [1200, 980],
+        transport: [400, 360], insurance: [200, 200], tips: [200, 160], misc: [300, 220]
+      },
+      days: [
+        { day: 1, cat: "flights", amount: 1320, note: "Two seats" },
+        { day: 2, cat: "food", amount: 96, note: "Train-day meals" },
+        { day: 4, cat: "tickets", amount: 84, note: "Museum day" },
+        { day: 6, cat: "transport", amount: 48, note: "Metro cards" }
+      ]
+    },
+    blank: {
+      name: "My trip",
+      people: 2,
+      buffer: 10,
+      dest: "",
+      note: "Blank trip. Planned and actual start at zero. Type a budget, then log the first expense — or load a sample.",
+      plan: "/plan",
+      vertical: "/funding",
+      verticalLabel: "Turn a total into a savings plan",
+      values: {
+        lodging: [0, 0], flights: [0, 0], food: [0, 0], tickets: [0, 0],
+        transport: [0, 0], insurance: [0, 0], tips: [0, 0], misc: [0, 0]
+      },
+      days: []
     }
   };
 
@@ -226,11 +281,18 @@
 
   function verdict(m) {
     var logged = m.rows.some(function (r) { return r.actual > 0; });
+    if (!logged && m.planned <= 0) {
+      return {
+        key: "tight",
+        word: "Start here",
+        detail: "This trip is blank. Load a sample, or type a planned amount and add the first expense."
+      };
+    }
     if (!logged) {
       return {
         key: "tight",
         word: "Plan set",
-        detail: "No actuals yet. With a " + m.bufferPct + "% over-count buffer the ceiling is " + money(m.ceiling) + "."
+        detail: "No expenses yet. With a " + m.bufferPct + "% over-count buffer the ceiling is " + money(m.ceiling) + ". Log the first receipt."
       };
     }
     if (m.actual <= m.planned) {
@@ -287,6 +349,12 @@
     }).join("");
     var left = m.ceiling - m.actual;
     var links = planLinks(m);
+    var emptyCta = "";
+    if (m.actual <= 0 && m.logged <= 0) {
+      emptyCta = m.planned <= 0
+        ? '<p class="result-note"><strong>No expenses yet.</strong> Load Orlando, a cruise, Hawaii, or Europe above, or type the first planned category and add a receipt.</p>'
+        : '<p class="result-note"><strong>No expenses yet.</strong> The plan is set. Add a day in the log, or type an actual next to a category.</p>';
+    }
     var logNote = "Day log " + money(m.logged) + " across " + m.days.length + " lines. Category actuals stay what you typed";
     if (m.logged > m.actual + 1) {
       logNote += " — the log is above those actuals, so update one of them.";
@@ -303,6 +371,7 @@
       '<p class="big-label">Actual spent</p>' +
       '<p class="big-num">' + money(m.actual) + "</p>" +
       '<p class="hint">' + money(m.actual / m.people) + " per person. Plan " + money(m.planned) + ". Ceiling " + money(m.ceiling) + " (" + money(left) + " left).</p>" +
+      emptyCta +
       '<h3 class="results-h3">By category</h3>' +
       '<p class="hint"><span class="trk-swatch plan"></span> Planned &nbsp; <span class="trk-swatch act"></span> Actual</p>' +
       chartHtml(m) +
@@ -316,11 +385,20 @@
       '<div class="fund-actions">' +
       '<button type="button" class="vm-tool-btn" data-act="share">Copy trip link</button>' +
       '<button type="button" class="vm-tool-btn" data-act="csv">Export CSV</button>' +
+      '<button type="button" class="vm-tool-btn" data-act="print">Print tracker</button>' +
       '<p class="vm-tool-status" id="trk-share-status" aria-live="polite"></p>' +
       "</div>" +
-      "<p><a href=\"" + esc(links.plan) + "\">Compare this destination in Trip Plan</a> · <a href=\"" + esc(links.vertical) + "\">" + esc(links.verticalLabel) + "</a> · <a href=\"/funding?preset=sinking\">Fund a gap</a></p>";
+      "<p><a href=\"" + esc(links.plan) + "\">Compare this destination in Trip Plan</a> · <a href=\"" + esc(links.vertical) + "\">" + esc(links.verticalLabel) + "</a> · <a href=\"/funding\">Vacation savings calculator</a></p>";
     var email = $("email-section");
     if (email) email.hidden = false;
+    var glance = $("trk-glance");
+    if (glance) {
+      if (m.planned <= 0 && m.actual <= 0) {
+        glance.innerHTML = "<strong>At a glance:</strong> this trip is blank. Load a sample, or type a planned budget and the first expense.";
+      } else {
+        glance.innerHTML = "<strong>At a glance:</strong> " + esc(v.word) + ". Actual " + money(m.actual) + " against a " + money(m.planned) + " plan (" + money(m.actual / m.people) + " per person).";
+      }
+    }
     var sampleNote = $("trk-sample-note");
     if (sampleNote && m.sample) sampleNote.textContent = m.sample.note;
   }
@@ -479,6 +557,7 @@
         if (!btn) return;
         if (btn.getAttribute("data-act") === "csv") downloadCsv();
         if (btn.getAttribute("data-act") === "share") shareUrl();
+        if (btn.getAttribute("data-act") === "print") window.print();
       });
     }
 

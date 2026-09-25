@@ -56,7 +56,7 @@
     funding: {
       title: "Vacation savings plan",
       canonical: "https://vacationmath.co/funding",
-      source: "Monthly and weekly cash after savings already set aside. Disney $7,500, cruise $2,800 for two, and all-inclusive $7,000 are the planning bands published on those calculators, not a second price. Includes a month-by-month timeline and a points offset you can turn off (cash-only sinking fund, 1.6¢ blended, or a 2¢ scenario). A sign-up bonus is counted only if you typed one and points are on. " + COMPILED
+      source: "Monthly and weekly cash after savings already set aside. Disney $7,500, cruise $2,800 for two, and all-inclusive $7,000 are the planning bands published on those calculators. Hawaii $5,800 and Europe $7,500 are the low ends of the Big Trip bands. The road-trip preset is $2,010, the Smoky Mountains tracker sample. Not a second price. Includes a month-by-month timeline, print, a shareable link, and a points offset you can turn off (cash-only sinking fund, 1.6¢ blended, or a 2¢ scenario). A sign-up bonus is counted only if you typed one and points are on. Last reviewed September 25, 2026."
     },
     tripfinder: {
       title: "Trip finder",
@@ -81,7 +81,7 @@
     tracker: {
       title: "Trip budget tracker",
       canonical: "https://vacationmath.co/tracker",
-      source: "Your planned and actual numbers by category, plus a default 10% over-count buffer, a multi-day log, and a chart. Sample trips: Orlando, a Caribbean cruise, Cancún all-inclusive, and a Smoky Mountains drive. Category actuals are what you type; the day log does not overwrite them. The workbook download is the optional file version. " + COMPILED
+      source: "Trip expense tracker: planned and actual numbers by category, a default 10% over-count buffer, a multi-day log, a chart, CSV, and a shareable link. One-click samples: Orlando, a Caribbean cruise, Cancún all-inclusive, Hawaii, Europe, a Smoky Mountains drive, or a blank trip. Category actuals are what you type; the day log does not overwrite them. The workbook download is the optional file version. Last reviewed September 25, 2026."
     }
   };
 
