@@ -43,11 +43,11 @@
 
   var L = {
     disney: {
-      cta: "Open the Disney Trip Plan and lock the resort before Hopper. A wrong grid will not be saved by another ticket.",
+      cta: "Open the Disney Trip Plan and choose the resort before you add Park Hopper. Buying another ticket does not fix the wrong resort.",
       startHere: "Pop Century, Art of Animation, or Caribbean Beach. Grocery the room the night you land at MCO. One park on the ticket you hold.",
       stay: tiers(
         ["Pop Century — Value on the Skyliner; gondola toward Hollywood Studios and Epcot, bus to Magic Kingdom", "Art of Animation — family suites when six share; compare them with connecting rooms at Pop before you pay the theme", "All-Star Movies, Music, or Sports — cheapest on-property bus; Osceola lodging tax is 13.5%"],
-        ["Caribbean Beach — Moderate Skyliner hub; ask Riviera-side so the gondola is a walk", "Port Orleans French Quarter — boat to Disney Springs, still a bus to Magic Kingdom", "Coronado Springs, Gran Destino tower — Moderate, bus grid, not a gondola"],
+        ["Caribbean Beach — Moderate Skyliner hub; ask Riviera-side so the gondola is a walk", "Port Orleans French Quarter — boat to Disney Springs, still a bus to Magic Kingdom", "Coronado Springs, Gran Destino tower — Moderate, buses to the parks, not the Skyliner gondola"],
         ["Disney's Riviera Resort — the Deluxe that actually sits on the Skyliner, closest to the Epcot line", "Grand Floridian, Contemporary, or Polynesian — monorail Deluxe because Magic Kingdom is the commute you bought", "Beach Club or Yacht Club — walk to Epcot; club level is a second nightly rate"]
       ),
       eat: tiers(
@@ -63,7 +63,7 @@
       tips: [
         "Hidden gem: Riviera is the Deluxe on the Skyliner. Grand Floridian, Contemporary, and Polynesian sell the monorail to Magic Kingdom. If the week is Epcot and Hollywood Studios, do not pay for that loop.",
         "Hidden gem: Lightning Lane Single Pass is a separate per-ride product for Rise of the Resistance, TRON, Guardians of the Galaxy, and Flight of Passage. Multi Pass does not include those headliners.",
-        "Hidden gem: On-site guests book Multi Pass about seven days out for the trip. Off property, the window is about three days and one day at a time. That window is the reason to sleep on the grid, not a dining plan.",
+        "Hidden gem: On-site guests book Multi Pass about seven days out for the trip. Off property, the window is about three days and one day at a time. That booking window is the reason to sleep on property, not a reason to buy a dining plan.",
         "Ask for a Riviera-side room at Caribbean Beach. Otherwise the 'Skyliner resort' still includes a campus bus.",
         "A Tuesday or Wednesday MCO arrival beats a Saturday check-in on the same All-Star or Pop room."
       ]
@@ -87,7 +87,7 @@
         ["Hopper only if you will switch after lunch", "Early entry from a Deluxe on-property hotel — included with that room, not with a Harbor rate", "Universal Studios Hollywood is a Los Angeles ticket and a separate parking lot"]
       ),
       tips: [
-        "Hidden gem: Eat at Naples or Tortilla Jo's in Downtown Disney without a park ticket. A dining plan is not the key to dinner.",
+        "Hidden gem: Eat at Naples or Tortilla Jo's in Downtown Disney without a park ticket. You can buy that dinner without a dining plan.",
         "Hidden gem: Candy Cane Inn on Harbor beats a Santa Monica hotel. The Westside drive can eat the park day you bought.",
         "Hidden gem: Price the SNA ride against a cheap LAX fare before you call the airfare a win. ART covers an off-walk hotel. A rental that never leaves the garage is a parking line.",
         "Lightning Lane on the Disneyland day. California Adventure is a second decision.",
@@ -124,7 +124,7 @@
       cta: "The New York Trip Plan starts at the subway stop under the hotel. Add the Met, MoMA, or one Broadway seat — not three observation decks.",
       startHere: "Pod 39, citizenM Bowery, or The Hoxton Williamsburg. Bodega egg-and-cheese. One paid thing, and it is not Times Square.",
       stay: tiers(
-        ["Pod 39 or citizenM Bowery — compact rooms on a train you will ride", "Motto by Hilton Chelsea or Courtyard Manhattan/Chelsea — the 1 or the A/C/E", "Hampton Inn Times Square Central only if the train downstairs is the point, not the neon"],
+        ["Pod 39 or citizenM Bowery — compact rooms on a train you will ride", "Motto by Hilton Chelsea or Courtyard Manhattan/Chelsea — the 1 or the A/C/E", "Hampton Inn Times Square Central only if you want the subway downstairs, not the neon"],
         ["Ace Hotel NoMad — the neighborhood over a convention tower", "Hyatt Grand Central or The Westin Grand Central — you arrived on a train", "The Hoxton Williamsburg — one river, a lower night than Midtown"],
         ["Park Hyatt New York — Midtown flagship", "Conrad New York Downtown — Battery Park, not a Times Square tower", "1 Hotel Central Park or The St. Regis — the address is the Splurge"]
       ),
@@ -147,7 +147,7 @@
       ]
     },
     vegas: {
-      cta: "Put the resort fee inside the Vegas room before a Tuesday rate looks clever. Then buy one show.",
+      cta: "Add the resort fee to the Vegas room before a Tuesday rate looks cheap. Then buy one show.",
       startHere: "Tuesday through Thursday at Park MGM, New York-New York, or Circa. Add about $35–55 a night before you compare towers. Walk to the fountains.",
       stay: tiers(
         ["Ellis Island or a Fremont 2-star — downtown walking", "Hampton Inn Tropicana or Hilton Garden Inn Strip South — one Deuce ride, fee still applies", "The LINQ or Flamingo — a Center-Strip bed, not a suite"],
@@ -155,9 +155,9 @@
         ["Bellagio — fountain-adjacent, still a resort-fee hotel", "Wynn or Encore — north Strip; you will still walk or tram", "Waldorf Astoria Las Vegas or Four Seasons at Mandalay Bay — quieter tower, same fee logic"]
       ),
       eat: tiers(
-        ["Park MGM food hall or a Cosmo hall — off the carpet", "Ellis Island if you slept downtown", "Chinatown at District One — the plate that is not a steakhouse"],
-        ["Tacos El Gordo — ten minutes off the carpet", "Mon Ami Gabi — one patio, not every night", "Esther's Kitchen — the sit-down if you are downtown"],
-        ["Bazaar Meat or Hell's Kitchen at Caesars — one night", "Picasso or Guy Savoy — the tasting, then back to the food hall", "A $40 buffet only if the buffet is the point"]
+        ["Park MGM food hall or a Cosmo hall — off the casino floor", "Ellis Island if you slept downtown", "Chinatown at District One — a meal that is not a steakhouse"],
+        ["Tacos El Gordo — a short walk off the casino floor", "Mon Ami Gabi — one patio, not every night", "Esther's Kitchen — the sit-down if you are downtown"],
+        ["Bazaar Meat or Hell's Kitchen at Caesars — one night", "Picasso or Guy Savoy — the tasting, then back to the food hall", "A $40 buffet only if that buffet is the meal you want"]
       ),
       do: tiers(
         ["Bellagio fountains — no ticket", "The conservatory — no ticket", "A Fremont walk after dark"],
@@ -173,10 +173,10 @@
       ]
     },
     miami: {
-      cta: "Collins, a few blocks off Ocean Drive, is the Miami plan. Wynwood can come. A cabana minimum should not.",
+      cta: "Stay on Collins, a few blocks off Ocean Drive. Wynwood can be one afternoon. Skip the cabana minimum.",
       startHere: "The Gale, Freehand, or The Betsy. Versailles or a ventanita before the sand. One other neighborhood: Wynwood, Little Havana, or Brickell.",
       stay: tiers(
-        ["The Gale South Beach — Collins, a few blocks off the postcard", "Freehand Miami — walk to the sand and the bus", "Courtyard Miami Downtown/Brickell — Metromover, not an Ocean Drive address"],
+        ["The Gale South Beach — Collins, a few blocks off Ocean Drive", "Freehand Miami — walk to the sand and the bus", "Courtyard Miami Downtown/Brickell — Metromover, not an Ocean Drive address"],
         ["Kimpton EPIC — Brickell bay, one neighborhood", "Hyatt Centric South Beach — Collins walk to the sand", "The Confidante — Art Deco mid without an Ocean Drive menu"],
         ["1 Hotel South Beach — the beach premium; the cabana is still extra", "Faena or The Setai — Mid-Beach quiet, still not an Ocean Drive menu", "Four Seasons at The Surf Club — Surfside, a different ride than Lummus"]
       ),
@@ -202,7 +202,7 @@
       cta: "Ferry Building or the Mission first. Alcatraz only after that room exists. Leave the Wharf dinner off the San Francisco Trip Plan.",
       startHere: "Hotel Emeline, or a Jackson Square room you can walk to the ferry. Tartine if you are in the Mission. Book the official Alcatraz ferry before a second museum.",
       stay: tiers(
-        ["HI San Francisco Downtown — BART downstairs, a shared room if that is the brief", "Hampton Inn Downtown/Convention Center — walk to BART", "Hotel Zephyr — only if the Wharf grid is actually the trip"],
+        ["HI San Francisco Downtown — BART downstairs, a shared room if that is the brief", "Hampton Inn Downtown/Convention Center — walk to BART", "Hotel Zephyr — only if you actually want to stay at Fisherman's Wharf"],
         ["Hotel Emeline — Jackson Square, Ferry Building on foot", "Hyatt Regency San Francisco — Embarcadero", "Hotel Nikko or Hilton Union Square — fine if BART is downstairs, not because the lobby menu is"],
         ["Fairmont or Mark Hopkins — Nob Hill; the bus up the hill is a Clipper tap", "1 Hotel San Francisco — Embarcadero boutique", "St. Regis or Four Seasons SoMa — walk to SFMOMA, still not a Wharf week"]
       ),
@@ -228,7 +228,7 @@
       cta: "Loop or Fulton Market in the Chicago Trip Plan. Then one indoor hour — the Art Institute or a Wendella cruise — and stop.",
       startHere: "Freehand, a Loop Hampton, or The Hoxton. A diner, not the Mag Mile hotel. The Riverwalk before any ticket.",
       stay: tiers(
-        ["Freehand Chicago — share the room if that is the brief; the L is the point", "Hampton Inn Magnificent Mile or Courtyard River North — trains downstairs", "Motto by Hilton Chicago Downtown — compact, not a suburban cloverleaf"],
+        ["Freehand Chicago — share the room if that is the brief; you are there because the L is downstairs", "Hampton Inn Magnificent Mile or Courtyard River North — trains downstairs", "Motto by Hilton Chicago Downtown — compact, not a suburban cloverleaf"],
         ["The Hoxton Chicago — Fulton Market, restaurants over the Mag Mile", "Hilton Chicago — Grant Park and the L", "LondonHouse or Hyatt Regency Chicago — the river, still downtown"],
         ["The Langham — river, winter is when that rate can make sense", "Park Hyatt or Four Seasons — Mag Mile flagship", "Waldorf Astoria Chicago — Gold Coast; January is the window, Lollapalooza week is not"]
       ),
@@ -240,7 +240,7 @@
       do: tiers(
         ["The Riverwalk and the architecture from the sidewalk — no ticket", "The lakefront if the weather allows", "Blue Line from O'Hare or Orange Line from Midway — a Ventra fare"],
         ["Art Institute — the indoor ticket", "A Wendella architecture cruise — the other indoor ticket, not the same afternoon", "A Ventra day pass before a loop of rideshares"],
-        ["A reserved show only after the museum-or-cruise choice is made", "Lollapalooza week is a different rate for the same Loop hotel", "Two museums plus a cruise is how the day breaks"]
+        ["A reserved show only after the museum-or-cruise choice is made", "Lollapalooza week is a different rate for the same Loop hotel", "Two museums plus a cruise do not fit in one day"]
       ),
       tips: [
         "Hidden gem: The Blue Line from O'Hare is a Ventra fare. The Orange Line does the same job from Midway. A Friday rideshare to the Loop can erase a suburban room.",
@@ -251,17 +251,17 @@
       ]
     },
     nola: {
-      cta: "Book Galatoire's or Commander's Palace, then a Warehouse or Garden District room that does not spend the table.",
+      cta: "Book Galatoire's or Commander's Palace first, then a Warehouse District or Garden District room. Do not spend the dinner money on a balcony.",
       startHere: "Hotel Peter and Paul, The Pontchartrain, or a Warehouse Hampton. Café du Monde once. Parkway for the po'boy. The reservation is why you came.",
       stay: tiers(
         ["HI New Orleans or The Drifter — streetcar, not a Bourbon balcony", "Hampton Inn Convention Center or Courtyard Downtown — Warehouse District", "A Mid-City motel on the Canal line — lower than a Quarter photo"],
         ["Hotel Peter and Paul — Marigny, walk to dinner", "The Pontchartrain — Garden District, St. Charles line", "Omni Royal Orleans or New Orleans Marriott — Quarter or Canal if you accept the premium"],
-        ["Hotel Monteleone — Quarter flagship; the balcony is not the plate", "The Roosevelt — Waldorf, CBD", "Windsor Court or Four Seasons — the room is the treat, the table is still separate"]
+        ["Hotel Monteleone — Quarter flagship; a balcony does not change the dinner bill", "The Roosevelt — Waldorf, CBD", "Windsor Court or Four Seasons — the room is the treat, the table is still separate"]
       ),
       eat: tiers(
         ["Café du Monde once, then a neighborhood café", "Parkway Bakery — the po'boy", "A casual Creole plate that is not a tourist courtyard"],
         ["Galatoire's — book it first", "Commander's Palace — the other reservation", "Coop's or a Warehouse District dinner the night you do not have the table"],
-        ["A modern tasting only after Galatoire's or Commander's is decided", "The Roosevelt bar once, not as dinner", "A second courtyard menu is how the food budget dies"]
+        ["A modern tasting only after Galatoire's or Commander's is decided", "The Roosevelt bar once, not as dinner", "A second courtyard menu is a second dinner bill"]
       ),
       do: tiers(
         ["Royal and Decatur in daylight", "St. Charles streetcar to the Garden District", "Frenchmen Street — a cover, not a haunted stack"],
@@ -270,7 +270,7 @@
       ),
       tips: [
         "Hidden gem: The St. Charles streetcar is the Garden District tour. The Quarter photo is on the Royal Street sidewalk, not a Bourbon balcony.",
-        "Hidden gem: Book Galatoire's or Commander's Palace before Hotel Monteleone. The plate does not improve because the room has a gallery.",
+        "Hidden gem: Book Galatoire's or Commander's Palace before Hotel Monteleone. A balcony or gallery does not change what dinner costs.",
         "Hidden gem: Café du Monde once. A neighborhood café the other mornings. The line is not a meal plan.",
         "A rental is for Whitney Plantation or a Honey Island swamp tour, not for Bourbon at night.",
         "One cover at Preservation Hall or on Frenchmen. A second tour the same night is another ticket."
@@ -287,7 +287,7 @@
       eat: tiers(
         ["Reading Terminal bakery in the morning", "DiNic's roast pork — the sandwich", "Pat's or Geno's once, then stop"],
         ["Villa di Roma or another South Philly red-gravy room", "A Terminal stall for lunch the day you are in Old City", "Vetri if the neighborhood Italian is the night"],
-        ["Zahav — only if that dinner is the trip", "The Rittenhouse dining room is the expensive version of a market plate", "A second tasting the night after Zahav is how the food number breaks"]
+        ["Zahav — only if that dinner is why you came", "The Rittenhouse dining room costs more than a Reading Terminal meal", "A second tasting the night after Zahav is another full dinner bill"]
       ),
       do: tiers(
         ["Independence Hall timed entry — free, and it sells out", "The Liberty Bell after the Hall", "Love Park and City Hall as a walk-through, not a hop-on bus"],
@@ -334,7 +334,7 @@
       stay: tiers(
         ["Ibis Gare du Nord or Ibis Styles République — Metro downstairs, bakery on the block", "Holiday Inn Express Canal de la Villette — the night you land late", "Generator Paris — a shared room by the canal if that is the brief"],
         ["Hôtel Malte or a Left Bank 3-star near Odéon — the mid if you want the 5th or 6th", "Novotel Les Halles — central, still not a tower-view surcharge", "Hilton Paris Opera or Paris Marriott Opera Ambassador — one arrondissement"],
-        ["Hôtel de Crillon or Le Bristol — the palace is the point", "Park Hyatt Paris-Vendôme or the Ritz — Place Vendôme prices", "Lutetia — Left Bank, still a bakery breakfast unless you came for the dining room"]
+        ["Hôtel de Crillon or Le Bristol — only if the palace stay is why you booked", "Park Hyatt Paris-Vendôme or the Ritz — Place Vendôme prices", "Lutetia — Left Bank, still a bakery breakfast unless you came for the dining room"]
       ),
       eat: tiers(
         ["A bakery on the block — Du Pain et des Idées if you are in the 10th", "Bouillon Chartier or Bouillon Pigalle — the formule", "L'As du Fallafel or a neighborhood bistro, not a table on the tower steps"],
@@ -360,7 +360,7 @@
       stay: tiers(
         ["Premier Inn London County Hall — South Bank walk, not a West End rate", "Ibis London Euston or Holiday Inn Express Southwark — Zone 1–2, Tesco nearby", "Travelodge Covent Garden — compact, if you packed light"],
         ["The Hoxton — restaurants on the block", "Hilton Bankside or London Marriott County Hall — South Bank, walk to a station", "Canopy by Hilton London City — Aldgate, not Mayfair"],
-        ["Claridge's or The Connaught — Mayfair is the point", "The Savoy — the river Splurge", "The Langham or Raffles at The OWO — one of them, not a week of landmark tickets as well"]
+        ["Claridge's or The Connaught — only if you came to stay in Mayfair", "The Savoy — the river Splurge", "The Langham or Raffles at The OWO — one of them, not a week of landmark tickets as well"]
       ),
       eat: tiers(
         ["A bakery, or a Tesco meal deal when you are between museums", "Borough Market or Maltby Street — one lunch", "A pub pie or a Zone 2 grill — dinner"],
@@ -386,10 +386,10 @@
       stay: tiers(
         ["The Beehive — Termini the night you land late, not automatically the whole week", "Ibis Styles Roma Vintage — Metro, stairs are common", "A Prati guesthouse near Ottaviano — calmer than a Navona view"],
         ["Hotel Nazionale — centro, walk to the Pantheon", "Hotel Indigo Rome – St. George — walk the center", "NH Collection Palazzo Cinquecento — Termini-adjacent if the flight is late"],
-        ["Hotel de Russie — Piazza del Popolo, the walk is the product", "Hotel Eden — Via Veneto Splurge", "Hassler Roma — above the Spanish Steps; breakfast there is not the bar price"]
+        ["Hotel de Russie — Piazza del Popolo; you are paying for that location and the walk", "Hotel Eden — Via Veneto Splurge", "Hassler Roma — above the Spanish Steps; breakfast there costs more than coffee at the bar"]
       ),
       eat: tiers(
-        ["Cornetto and coffee al banco — standing", "Supplì or pizza al taglio in Testaccio or Trastevere", "A trattoria without a photo menu"],
+        ["Cornetto and coffee at the bar, standing", "Supplì or pizza by the slice in Testaccio or Trastevere", "A trattoria without a photo menu"],
         ["Da Enzo al 29 — Trastevere, ask about coperto", "Flavio al Velavevodetto — Testaccio carbonara", "Roscioli — one reserved lunch or dinner, not both"],
         ["La Pergola — one tasting menu", "Hotel de Russie or Hotel Eden breakfast — the Splurge morning", "A Navona table is the markup on pasta you can eat in Testaccio"]
       ),
@@ -410,18 +410,18 @@
       cta: "A station hotel, a Suica, and one counter booked before the flight. Leave the nationwide rail pass out of the Tokyo Trip Plan.",
       startHere: "APA, Toyoko Inn, or Mitsui Garden over a JR or Metro line. Onigiri from the lobby konbini. One ward today.",
       stay: tiers(
-        ["APA Hotel Shinjuku or a Toyoko Inn in Ueno — station downstairs, konbini in the lobby", "Super Hotel in Ikebukuro or Ueno — limited-service, Metro in the block", "Nine Hours Shinjuku — a crash pad, not a week"],
+        ["APA Hotel Shinjuku or a Toyoko Inn in Ueno — station downstairs, convenience store in the lobby", "Super Hotel in Ikebukuro or Ueno — limited-service, Metro in the block", "Nine Hours Shinjuku — a crash pad, not a week"],
         ["Mitsui Garden or Hotel Gracery Shinjuku — Japanese 4-star, trains not a rail-pass spreadsheet", "Hilton Tokyo or Hyatt Regency Tokyo — Shinjuku, Metro in the basement", "The Westin Tokyo — Ebisu, one train zone"],
         ["Park Hyatt Tokyo — the view; you still take the Metro to dinner", "Aman Tokyo or Palace Hotel Tokyo — the room is the treat", "Conrad Tokyo or The Ritz-Carlton Tokyo — one of them, and the sushi counter is still separate"]
       ),
       eat: tiers(
-        ["Onigiri and coffee from the station konbini", "Conveyor sushi or a standing sushi counter", "A ramen shop or a gyudon chain in the ward you booked"],
-        ["A depachika lunch in the station", "Golden Gai or Omoide Yokocho — one izakaya", "A kissaten breakfast the morning you skip the konbini"],
+        ["Rice balls and coffee from the station convenience store", "Conveyor sushi or a standing sushi counter", "A ramen shop or a beef-bowl chain in the ward you booked"],
+        ["A department-store food-hall lunch in the station", "Golden Gai or Omoide Yokocho — one izakaya", "A coffee-shop breakfast the morning you skip the convenience store"],
         ["Sushi Saito or a Ginza counter — only if it was booked before the flight", "A Toyosu outer-market counter if that booking exists", "The hotel breakfast buffet is a second room charge"]
       ),
       do: tiers(
-        ["Sensō-ji at opening — no admission", "Yanaka or Shimokitazawa on foot", "A park picnic from the konbini"],
-        ["teamLab Planets — the timed ticket", "Suica or PASMO for JR, Metro, and most city buses", "Kamakura as a half-day, not a fake Kyoto"],
+        ["Sensō-ji at opening — no admission", "Yanaka or Shimokitazawa on foot", "A park picnic from the convenience store"],
+        ["teamLab Planets — the timed ticket", "Suica or PASMO for JR, Metro, and most city buses", "Kamakura as a half-day. Kyoto is a different trip"],
         ["A JR Pass on a city-only week — usually a loss", "Narita Skyliner or N'EX if you did not fly Haneda", "Kyoto is a different trip"]
       ),
       tips: [
@@ -459,11 +459,11 @@
       ]
     },
     oahu: {
-      cta: "Waikiki, one block back, on TheBus. The car shows up the morning you leave for Hanauma or Haleʻiwa — not before.",
+      cta: "Stay in Waikiki, one block back, and ride TheBus. Rent the car the morning you leave for Hanauma Bay or Haleʻiwa, not before.",
       startHere: "The Equus, a Kuhio room, or the Outrigger. Rainbow Drive-In or a grocery run. Reserve Hanauma Bay or Pearl Harbor, not both.",
       stay: tiers(
         ["The Equus — Kuhio, one block back; a kitchenette beats resort breakfast", "Holiday Inn Express Waikiki or Aqua Oasis — same beach, less Kalakaua", "Hampton Inn & Suites Honolulu/Waikiki — walk to the sand"],
-        ["Outrigger Waikiki or Hilton Hawaiian Village — the lagoon campus, still no car required", "Hyatt Regency Waikiki — same grid", "Embassy Suites Waikiki Beach Walk — kitchenette if you will grocery dinner"],
+        ["Outrigger Waikiki or Hilton Hawaiian Village — the lagoon campus, still no car required", "Hyatt Regency Waikiki — same Waikiki block, still no car required", "Embassy Suites Waikiki Beach Walk — kitchenette if you will grocery dinner"],
         ["Halekulani — the Splurge on the sand; La Mer is one dinner", "The Royal Hawaiian — Luxury Collection, you still do not need a car for Kuhio Beach", "The Kahala or Four Seasons Ko Olina — a car becomes the default"]
       ),
       eat: tiers(
@@ -488,7 +488,7 @@
       cta: "One coast and a kitchen in the Maui Trip Plan. Hana, the summit, and Molokini do not share a day.",
       startHere: "A Kihei condo with a kitchen — Punahoa, Kohea Kai, or Aston Maui Kamaole class. Grocery the first hour after OGG. Then the beach in front.",
       stay: tiers(
-        ["Aston Maui Kamaole or a South Kihei studio — the kitchen is the product", "Kohea Kai Maui — South Kihei, cook", "Holiday Inn Express Kahului — the crash pad the night you land, not the week"],
+        ["Aston Maui Kamaole or a South Kihei studio — the kitchen is why this room stays cheaper", "Kohea Kai Maui — South Kihei, cook", "Holiday Inn Express Kahului — the crash pad the night you land, not the week"],
         ["Sheraton Maui or The Westin Maui — Kaanapali path; add the resort fee and parking before you compare it with Kihei", "Hyatt Regency Maui — bigger campus, same fee logic", "Marriott's Maui Ocean Club — points-friendly only if the kitchen still wins dinner"],
         ["Grand Wailea — Wailea Splurge", "Andaz Maui or Four Seasons Maui — the room is the treat, not also every boat", "The Ritz-Carlton Kapalua — a different drive; do not pretend it is Kihei"]
       ),
@@ -526,7 +526,7 @@
       do: tiers(
         ["A sea day on the Lido deck — already in the fare", "One independent walk in Nassau or Cozumel", "Skip the spa menu"],
         ["One ship excursion, not three pier-kiosk tours", "The drink-package break-even before you tap yes", "Ship shows — included"],
-        ["A second excursion only if the line waits for you", "A spa afternoon — its own line", "Three pier tours are how the port day breaks"]
+        ["A second excursion only if the line waits for you", "A spa afternoon — its own line", "Three pier tours do not fit in one port day"]
       ),
       tips: [
         "Hidden gem: Gratuities on mainstream lines bill kids age 2 and up, about $16–20 a person per day. The infant who sails free still needs documents, not a drink package.",
@@ -537,7 +537,7 @@
       ]
     },
     key_west: {
-      cta: "Old Town, on foot, in the Key West Trip Plan. The Tortugas ferry only if the rest of that day is empty.",
+      cta: "Build the Key West Trip Plan around an Old Town hotel you can walk from. Add the Dry Tortugas ferry only if that day has nothing else on it.",
       startHere: "The Big Ruby, Caribbean House, or The Gardens. Cuban Coffee Queen in the morning. Sunset from the Mallory sidewalk.",
       stay: tiers(
         ["The Big Ruby — guesthouse, walk to Duval, no car", "Caribbean House or a Truman Annex inn — quieter than the bar strip", "Hampton Inn Key West — Old Town-adjacent, still walkable"],

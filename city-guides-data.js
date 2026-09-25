@@ -21,7 +21,7 @@
       months: "Late Jan–Feb, two weeks after Labor Day",
       car: "maybe",
       forWho: [
-        "Families who will stay on a bus, boat, or Skyliner grid and treat Magic Kingdom as a commute",
+        "Families who will stay where Disney buses, boats, or the Skyliner run, and treat Magic Kingdom as a commute",
         "Anyone who will grocery breakfast and skip the dining plan on purpose"
       ],
       notFor: [
@@ -49,7 +49,7 @@
         { title: "Cheaper park or a rest day", bullets: ["Animal Kingdom, a second single-park ticket, or Springs plus a pool", "Do not Hopper unless you will switch after lunch on purpose", "Memory Maker and the refillable mug only if you will use them every day"] }
       ],
       book: [
-        "Park tickets and the lodging grid before you fly",
+        "Park tickets and the on-property hotel before you fly",
         "Lightning Lane Multi Pass only if you already priced Magic Kingdom or Hollywood Studios",
         "One table-service if you want it — California Grill / Space 220 / character breakfast sell out",
         "MCO transfer (Mears or rideshare). Magical Express is gone"
@@ -266,7 +266,7 @@
       ],
       book: [
         "One museum timed entry (Met or MoMA — pick one)",
-        "Broadway rush / lottery, or one reserved seat if that is the trip",
+        "Broadway rush or lottery, or one reserved seat if a show is why you came",
         "Ellis / Summit only if you already picked one paid view",
         "OMNY or a 7-day pass if you will ride twice a day"
       ],
@@ -309,7 +309,7 @@
       months: "Midweek Jan–Feb, early December after holiday parties",
       car: "maybe",
       forWho: [
-        "People who will walk Center-Strip or own downtown lights — not both in three nights",
+        "People who will walk the Center Strip, or stay downtown for the Fremont lights — not both in three nights",
         "Anyone who will add the resort fee before celebrating a $40 rate"
       ],
       notFor: [
@@ -338,7 +338,7 @@
       ],
       book: [
         "Tuesday–Thursday room — check the convention calendar first",
-        "One show if that is the trip",
+        "One show if a show is why you came",
         "Resort fee is not optional — add it before you book",
         "Airport ride: LAS is close; skip a rental unless Red Rock is a planned day"
       ],
@@ -387,7 +387,7 @@
       ],
       notFor: [
         "Spring break weeks if you came for the rate",
-        "Anyone who thinks bottle service is a snack"
+        "Anyone treating a beach-club bottle minimum as a casual drink"
       ],
       aroundKind: "fork",
       aroundRule: "Walk the beach grid you booked. A car is a parking fee in South Beach.",
@@ -548,7 +548,7 @@
         "Art Institute or a river cruise — pick one",
         "Ventra pass if you will ride",
         "ORD or MDW midweek; price the L from either",
-        "Skip Lolla / July 4 lodging unless that is the trip"
+        "Skip Lollapalooza and July 4 lodging unless those dates are why you came"
       ],
       hidden: [
         "Chicago hotel tax about 17.4%",
@@ -594,7 +594,7 @@
       ],
       notFor: [
         "Mardi Gras “by accident” — it is a different budget",
-        "Anyone who wants a rental car as the default in Old Town"
+        "Anyone who wants a rental car as the default in the French Quarter"
       ],
       aroundKind: "fork",
       aroundRule: "Walk or streetcar. A rental car is a parking fee in Old Town.",
@@ -617,10 +617,10 @@
         { title: "Music, then stop stacking festivals", bullets: ["A club or a street you can walk", "Jazz Fest and Mardi Gras are priced like what they are", "Do not “just happen” to overlap them"] }
       ],
       book: [
-        "Galatoire’s or Commander’s if that is the trip — book before you fly",
+        "Galatoire’s or Commander’s if that dinner is why you came — book before you fly",
         "Streetcar day pass if you will ride Canal and St. Charles",
         "Flexible fare in hurricane season",
-        "Skip Mardi Gras lodging unless that is the trip"
+        "Skip Mardi Gras lodging unless those dates are why you came"
       ],
       hidden: [
         "Lodging tax about 16.2%",
@@ -801,7 +801,7 @@
       months: "Late January through March, November before holiday lights become a room tax",
       car: "no",
       forWho: [
-        "People who will pick an arrondissement they can walk in slippers and tap the Metro without thinking",
+        "People who will stay in one arrondissement they can walk, and use the Metro for everything else",
         "Anyone who wants one timed museum and dinner on the block"
       ],
       notFor: [
@@ -936,7 +936,7 @@
       months: "Late January through March, November before nativity crowds",
       car: "no",
       forWho: [
-        "People who will walk the centro until the stones blur, then eat where the photo menus are not",
+        "People who will walk the center, then eat where restaurants do not post photo menus for tourists",
         "Anyone who will book one timed interior a day"
       ],
       notFor: [
@@ -999,7 +999,7 @@
       hook: "Tokyo can be cheap if you let it. Convenience-store breakfast is not a compromise — hotel breakfast is.",
       blurb: "Business hotel next to a JR or Metro station. A JR Pass is usually a bad buy on a 5-night city trip.",
       nights: "4–5 nights",
-      midrange: "Business hotel over a station + konbini + one sushi counter",
+      midrange: "Business hotel over a station + convenience-store breakfast + one sushi counter",
       months: "Late January through early March, June if you accept rain for rooms",
       car: "no",
       forWho: [
@@ -1007,15 +1007,15 @@
         "Anyone who will pick a ward and walk it"
       ],
       notFor: [
-        "Anyone faking Kyoto as a Tokyo day",
+        "Anyone treating Kyoto as a day trip from a Tokyo hotel",
         "People buying a JR Pass for a 5-night city trip"
       ],
       aroundKind: "transit",
       aroundRule: "Suica / PASMO on JR and Metro. Station downstairs is the lodging product. Taxis are Splurge.",
       aroundNoCar: [
-        "IC card (Suica / PASMO / Welcome Suica). Tap and stop thinking",
+        "IC card (Suica / PASMO / Welcome Suica) for trains and most buses",
         "Shinjuku, Shibuya, Ueno, or Tokyo Station — pick a ward and walk it",
-        "NRT vs HND: Haneda is the closer gift. Narita is a Skyliner or N’EX line you should price"
+        "NRT vs HND: Haneda is the closer airport. Narita adds a Skyliner or N’EX fare you should price"
       ],
       stayRule: "APA, Super Hotel, or Toyoko Inn next to Shinjuku or Ueno. Capsule only if you packed a cube.",
       eatRule: "Onigiri and coffee. Conveyor sushi and ramen at lunch. Book one sushi counter if you already priced it — before you land.",
@@ -1080,7 +1080,7 @@
       aroundKind: "fork",
       aroundRule: "The resort is the lodging and the transit. One pre-booked transfer. Downtown is a planned night, not a wandering taxi habit.",
       aroundNoCar: [
-        "Airport transfer in the rate — or a pre-booked van. The dock surprise is how a Budget week dies",
+        "Airport transfer in the rate — or a pre-booked van. A surprise van at the dock blows a Budget week",
         "Hotel Zone bus (R-1) if you will hop. Most AI weeks never need it",
         "CUN is close"
       ],
@@ -1231,7 +1231,7 @@
         "Airport shuttle plus a grocery delivery is the honest no-car version"
       ],
       aroundCar: [
-        "Pick up the car at OGG and grocery before the condo. The first hour is the budget",
+        "Pick up the car at OGG and grocery before the condo. That first grocery stop is what keeps the food bill down",
         "Kihei / Wailea / Kaanapali — pick one coast. Do not hotel-hop",
         "Road to Hana is an early start, not a beach day. Haleakalā sunrise is a 2 a.m. ticket"
       ],
@@ -1368,7 +1368,7 @@
       aroundKind: "fork",
       aroundRule: "Walk Old Town. A rental car is a parking fee. Drive-down from Miami is a day you should price as a day.",
       aroundNoCar: [
-        "Old Town is the product. Bike or walk. Duval is a street, not a hotel strategy",
+        "Stay in Old Town and bike or walk. Duval is a street, not a reason to pick a hotel farther out",
         "EYW is tiny and expensive air. Midweek, or accept the premium",
         "Stock Island lodging only if you like the commute. Most people should not"
       ],

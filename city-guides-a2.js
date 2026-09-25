@@ -606,7 +606,7 @@
       ],
       money: money(
         "about ¥30,000–45,000/night (Trip Finder 2026 shoulder mid $200–290, converted at roughly $1 ≈ ¥150 — orientation, not a live rate).",
-        "about ¥2,500–6,000 with konbini breakfast, a ramen or conveyor lunch, and one izakaya.",
+        "about ¥2,500–6,000 with convenience-store breakfast, a ramen or conveyor lunch, and one izakaya.",
         "teamLab or one museum is the ticket. Suica or PASMO pay-as-you-go beats a JR Pass on a city-only week.",
         "4 nights Mid-range ≈ ¥140,000–230,000 lodging + food for 2 before flights (orientation)."
       )
