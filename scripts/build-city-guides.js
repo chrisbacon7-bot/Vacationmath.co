@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260925shell";
+const CACHE = "v20260925plain";
 const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
 const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
@@ -28,6 +28,7 @@ run("city-guides-lists.js");
 run("city-guides-polish.js");
 run("city-guides-dense.js");
 run("city-guides-pilot.js");
+run("city-guides-plain.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -229,7 +230,8 @@ function injectIndex(filePath) {
     "city-guides-lists.js",
     "city-guides-polish.js",
     "city-guides-dense.js",
-    "city-guides-pilot.js"
+    "city-guides-pilot.js",
+    "city-guides-plain.js"
   ].forEach(function (file) {
     next = next.replace(new RegExp(file.replace(".", "\\.") + "\\?v[0-9a-z]+", "g"), file + "?" + CACHE);
   });
@@ -246,6 +248,7 @@ function injectIndex(filePath) {
   next = insertAfter(next, "city-guides-lists.js", "city-guides-polish.js");
   next = insertAfter(next, "city-guides-polish.js", "city-guides-dense.js");
   next = insertAfter(next, "city-guides-dense.js", "city-guides-pilot.js");
+  next = insertAfter(next, "city-guides-pilot.js", "city-guides-plain.js");
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
