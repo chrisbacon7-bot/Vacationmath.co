@@ -1982,7 +1982,7 @@
 .tf-suggestions strong { color: var(--navy); }
 
 
-/* ===== Injected from calculator.css ===== */
+/* ===== Calculator form styles (inlined; calculator.css is not loaded) ===== */
 /* ============ How It Works Strip (Competitive Improvement #3 + #8) ============ */
 .calc-how-it-works {
   background: #fff;

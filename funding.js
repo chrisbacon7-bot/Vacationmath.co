@@ -42,6 +42,35 @@
         { href: "/plan?dest=cancun", label: "Open Cancún in Trip Plan" }
       ]
     },
+    hawaii: {
+      target: 5800,
+      months: 12,
+      note: "Hawaii savings plan for a couple, 7 nights. $5,800 is the low end of the $5,800–$9,200 band published on the Big Trip page. It is not a live quote and not a new price.",
+      bridges: [
+        { href: "/big-trip", label: "See the Hawaii cost range" },
+        { href: "/plan?dest=oahu", label: "Open Oahu in Trip Plan" },
+        { href: "/tracker?sample=hawaii", label: "Track a Hawaii trip" }
+      ]
+    },
+    europe: {
+      target: 7500,
+      months: 12,
+      note: "Europe savings plan for a couple, 10 days in summer. $7,500 is the low end of the $7,500–$12,500 band on the Big Trip page. Shoulder months on that page run $5,200–$8,800. This preset does not invent a second price.",
+      bridges: [
+        { href: "/big-trip", label: "See the Europe cost range" },
+        { href: "/plan?dest=paris", label: "Open Paris in Trip Plan" },
+        { href: "/tracker?sample=europe", label: "Track a Europe trip" }
+      ]
+    },
+    road: {
+      target: 2010,
+      months: 4,
+      note: "Road-trip savings plan for a party of 4 on a Smoky Mountains weekend. $2,010 is the sum of the planned categories on the tracker’s Smoky Mountains sample. Flights are $0 because that sample is a drive.",
+      bridges: [
+        { href: "/tracker?sample=smokies", label: "Open the Smokies expense tracker" },
+        { href: "/roadtrip", label: "Price drive vs fly" }
+      ]
+    },
     sinking: {
       target: 6000,
       months: 12,
@@ -253,11 +282,19 @@
     html += '<p class="vm-tool-status" id="fund-share-status" aria-live="polite"></p>';
     html += "</div>";
 
-    html += '<div class="result-note"><strong>What to move this week.</strong> ' + money(r.weeklyTarget) + " cash. Miss a week and you still owe it — add it to a later week. Points use the rate you selected on spend you already listed. A sign-up bonus is included only if you typed one.</div>";
+    html += '<div class="result-note"><strong>What to move this week.</strong> ' + money(r.weeklyTarget) + " cash. Miss a week and you still owe it — add it to a later week. Points use the rate you selected on spend you already listed. A sign-up bonus is included only if you typed one. After you travel, log receipts in the <a href=\"/tracker\">trip expense tracker</a>.</div>";
     html += '<div class="freshness-badge">Blended default 1.6&cent;/$ &middot; preset totals match the 2026 Disney, cruise, and all-inclusive bands &middot; next refresh October 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
+    var glance = $("fund-glance");
+    if (glance) {
+      if (r.cashNeeded <= 0) {
+        glance.innerHTML = "<strong>At a glance:</strong> this " + money(r.target) + " trip is already covered by cash saved" + (r.totalFromCard > 0 ? " and the points offset" : "") + ".";
+      } else {
+        glance.innerHTML = "<strong>At a glance:</strong> save " + money(r.monthlyTarget) + " a month (" + money(r.weeklyTarget) + " a week). That is the cash still needed (" + money(r.cashNeeded) + " of " + money(r.target) + ") over " + r.months + " months, after what you already saved" + (r.totalFromCard > 0 ? " and the points offset" : "") + ".";
+      }
+    }
     if (typeof VM_ANALYTICS !== "undefined") { VM_ANALYTICS.calcComplete("funding", r.target || 0); }
     if ($("email-section")) $("email-section").hidden = false;
 

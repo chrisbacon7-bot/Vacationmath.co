@@ -211,6 +211,16 @@
   .fund-actions, .trk-samples, .fund-presets { display: none !important; }
 }
 
+.fund-glance {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid rgba(30, 58, 95, 0.14);
+  border-radius: 12px;
+  max-width: 68ch;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
 .fund-presets, .trk-samples { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
 .fund-preset, .trk-sample, .trk-day-remove {
   border: 1px solid var(--hairline, #d7d1c7);
