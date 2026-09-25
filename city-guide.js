@@ -77,7 +77,7 @@
       desc: "Caribbean cruise in Budget, Mid-range, and Splurge: cabin, gratuities, drinks, and flights to port. Printable. Not live rates."
     },
     key_west: {
-      desc: "Key West in Budget, Mid-range, and Splurge: Old Town on foot, Cuban breakfast, one named dinner. Printable. Not live rates."
+      desc: "Key West in Budget, Mid-range, and Splurge: Old Town on foot, Cuban breakfast, El Siboney or Louie’s. Printable. Not live rates."
     }
   };
 

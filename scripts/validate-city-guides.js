@@ -17,7 +17,9 @@ run("trip-finder-data.js");
 run("plan-data.js");
 run("plan-recs-extra.js");
 run("city-guides-data.js");
+run("city-guides-research.js");
 run("city-guides-a2.js");
+run("city-guides-editorial.js");
 run("city-guide.js");
 
 const REQUIRED = [
@@ -37,6 +39,7 @@ const COMPILED = "Compiled Sep 2026 from public rates, official calendars, and t
 
 const P = ctx.VM_PLAN_DATA;
 const G = ctx.VM_CITY_GUIDES;
+const R = ctx.VM_CITY_GUIDE_RESEARCH;
 const errors = [];
 
 if (G.ALL.length !== 20) errors.push("expected 20 guides, got " + G.ALL.length);
@@ -80,6 +83,14 @@ REQUIRED.forEach(function (id) {
   if (!g.skip || g.skip.length !== 3) errors.push(id + ": skip " + ((g.skip || []).length) + " (need 3)");
   const tips = g.tips || [];
   if (tips.length !== 5) errors.push(id + ": tips " + tips.length + " (need 5)");
+  if (!/^Money edge:/.test(String(tips[0] || ""))) errors.push(id + ": tip 1 must start with Money edge:");
+  const notes = R && R[id];
+  if (!notes || !notes.tax || !notes.gem || !notes.facts || notes.facts.length < 3) {
+    errors.push(id + ": research notes incomplete");
+  }
+  (g.hidden || []).forEach(function (line) {
+    if (tips.indexOf(line) >= 0) errors.push(id + ": tip duplicates a hidden-cost line");
+  });
   if (!g.money || g.money.length < 4) errors.push(id + ": need 4 quick-facts money rows");
   (g.money || []).forEach(function (row) {
     if (!row.dt || !row.dd || String(row.dd).length < 12) errors.push(id + ": weak money row " + (row && row.dt));
@@ -172,7 +183,10 @@ REQUIRED.forEach(function (id) {
     if (article.indexOf("Mid-range room") < 0) errors.push(id + ": HTML missing room band");
     if (article.indexOf("Food / person / day") < 0) errors.push(id + ": HTML missing food band");
     if (article.indexOf("(orientation)") < 0 && article.indexOf("orientation") < 0) errors.push(id + ": HTML missing orientation label");
+    if (src.indexOf("Money edge:") < 0) errors.push(id + ": HTML missing Money edge");
     if (id === "disney" && /Orange County/i.test(article)) errors.push("disney: Orange County bleed");
+    if (id === "disney" && article.indexOf("12.5%") < 0) errors.push("disney: missing Florida 12.5% lodging tax");
+    if (id === "disney" && /Orange-side/i.test(article)) errors.push("disney: Orange-side wording");
     if (/\bLean\b/.test(src) || /\bStretch\b/.test(src)) errors.push(id + ": leftover Lean/Stretch in HTML");
     if (TRANSIT.indexOf(id) >= 0) {
       if (article.indexOf("You usually don’t need a car") < 0 && article.indexOf("You usually don't need a car") < 0) {

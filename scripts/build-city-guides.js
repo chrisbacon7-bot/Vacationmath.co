@@ -5,7 +5,7 @@ const path = require("path");
 const vm = require("vm");
 
 const root = path.join(__dirname, "..");
-const CACHE = "v20260925a2";
+const CACHE = "v20260925ed";
 const HUB_TITLE = "Vacation Money Guides 2026 | 20 Destinations | Vacation Math";
 const HUB_DESC = "20 printable destination money guides: Budget, Mid-range, and Splurge stay, eat, and hidden costs for 2026. Not live rates.";
 const ctx = { window: {}, console };
@@ -21,7 +21,9 @@ run("trip-finder-data.js");
 run("plan-data.js");
 run("plan-recs-extra.js");
 run("city-guides-data.js");
+run("city-guides-research.js");
 run("city-guides-a2.js");
+run("city-guides-editorial.js");
 run("city-guide.js");
 
 const GUIDES = ctx.VM_CITY_GUIDES.ALL;
@@ -212,17 +214,26 @@ function injectIndex(filePath) {
     console.warn("did not find money-guides-grid in", path.relative(root, filePath));
     return;
   }
-  next = next.replace(/city-guide\.css\?v[0-9a-z]+/g, "city-guide.css?" + CACHE);
-  next = next.replace(/city-guide\.js\?v[0-9a-z]+/g, "city-guide.js?" + CACHE);
-  next = next.replace(/city-guides-data\.js\?v[0-9a-z]+/g, "city-guides-data.js?" + CACHE);
-  next = next.replace(/city-guides-a2\.js\?v[0-9a-z]+/g, "city-guides-a2.js?" + CACHE);
-  if (next.indexOf("city-guides-a2.js") < 0) {
-    var prefix = filePath.indexOf(path.sep + "guides" + path.sep) >= 0 ? "../" : "";
-    next = next.replace(
-      /(<script src="(?:\.\.\/)?city-guides-data\.js\?[^"]+"><\/script>)/,
-      "$1\n<script src=\"" + prefix + "city-guides-a2.js?" + CACHE + "\"></script>"
-    );
+  var prefix = filePath.indexOf(path.sep + "guides" + path.sep) >= 0 ? "../" : "";
+  [
+    "city-guide.css",
+    "city-guide.js",
+    "city-guides-data.js",
+    "city-guides-research.js",
+    "city-guides-a2.js",
+    "city-guides-editorial.js"
+  ].forEach(function (file) {
+    next = next.replace(new RegExp(file.replace(".", "\\.") + "\\?v[0-9a-z]+", "g"), file + "?" + CACHE);
+  });
+  function insertAfter(html, afterFile, newFile) {
+    if (html.indexOf(newFile) >= 0) return html;
+    var safe = afterFile.replace(/\./g, "\\.");
+    var re = new RegExp('(<script src="(?:\\.\\./)?' + safe + '\\?[^"]+"></script>)');
+    return html.replace(re, "$1\n<script src=\"" + prefix + newFile + "?" + CACHE + "\"></script>");
   }
+  next = insertAfter(next, "city-guides-data.js", "city-guides-research.js");
+  next = insertAfter(next, "city-guides-research.js", "city-guides-a2.js");
+  next = insertAfter(next, "city-guides-a2.js", "city-guides-editorial.js");
   const ld = "<!-- GUIDES_JSONLD_START -->\n<script type=\"application/ld+json\">"
     + JSON.stringify(collectionLd())
     + "</script>\n<!-- GUIDES_JSONLD_END -->";
