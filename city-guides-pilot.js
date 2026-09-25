@@ -41,7 +41,7 @@
       nights: "4–6 nights, one park on the ticket you hold",
       midrange: "Caribbean Beach or Port Orleans, counters, one table",
       months: "Late January through February, and the two weeks after Labor Day. A Saturday in a holiday week is a different rate for the same room.",
-      startHere: "Name the park days before the hotel. For Hollywood Studios and Epcot, book Pop Century, Art of Animation, Caribbean Beach, or Riviera — those sit on the Skyliner, Disney's gondola to those two parks. A Magic Kingdom week is Grand Floridian, Contemporary, or Polynesian, on the monorail to that park. Grocery the room after you land at Orlando airport (MCO).",
+      startHere: "Choose your park days before you choose the hotel. For Hollywood Studios and Epcot, book Pop Century, Art of Animation, Caribbean Beach, or Riviera. Those hotels are on the Skyliner, Disney's gondola to those two parks. For a Magic Kingdom week, book Grand Floridian, Contemporary, or Polynesian. Those hotels are on the monorail to that park. Buy groceries for the room after you land at Orlando airport (MCO).",
       tipsKicker: "The gondola, the monorail, and the bus are three different hotels",
       cta: "Open the Disney Trip Plan and lock the resort that reaches your park days. Add a second ticket type only after that room is in the total.",
       forWho: [
@@ -53,7 +53,7 @@
         "People who want to drive to the gate each morning and still call the hotel the cheap part"
       ],
       aroundKind: "fork",
-      aroundRule: "On property you do not need a car to reach a park. Buses go to every gate. The Skyliner, Disney's gondola, is a smaller map: Pop Century, Art of Animation, Caribbean Beach, Riviera, Hollywood Studios, and Epcot. The monorail is a third map, only from the Magic Kingdom Deluxe resorts. Magical Express is gone, so the ride from Orlando airport (MCO) is its own line. The calculator uses about $130 round trip for a family of four.",
+      aroundRule: "On property you do not need a car to reach a park. Buses go to every park gate. The Skyliner is Disney's gondola, and it only connects Pop Century, Art of Animation, Caribbean Beach, Riviera, Hollywood Studios, and Epcot. The monorail only runs from Grand Floridian, Contemporary, and Polynesian to Magic Kingdom. Disney's old free airport bus, Magical Express, is gone, so the ride from Orlando airport (MCO) is a separate charge. The calculator uses about $130 round trip for a family of four.",
       aroundNoCar: [
         "Bus to every park from a Disney resort. The Skyliner only if you are at Pop Century, Art of Animation, Caribbean Beach, or Riviera, and only toward Hollywood Studios and Epcot",
         "Monorail, walk, or boat from Grand Floridian, Contemporary, or Polynesian. That loop does not get you to Animal Kingdom",
@@ -64,34 +64,34 @@
         "Driving to a theme-park gate adds about $35 in parking. Buses and the Skyliner do not",
         "Park-to-park by car is the expensive way to do what a second ticket day, or a Hopper you will use after lunch, already does"
       ],
-      stayRule: "Buy the transportation, not the theme. Skyliner resorts, on Disney's gondola, earn the rate on Hollywood Studios and Epcot weeks. Monorail Deluxe resorts earn theirs when Magic Kingdom is the morning. All-Star is the cheap bus to every park, and it sits in a county with a higher lodging tax.",
+      stayRule: "Pay for how you will get to the parks, not for the hotel's theme. Hotels on the Skyliner gondola are the right rate when your days are Hollywood Studios and Epcot. Hotels on the monorail are the right rate when Magic Kingdom is the morning. All-Star is the cheaper hotel with a bus to every park, and it sits in a county with a higher lodging tax.",
       eatRule: "Counters at Cosmic Ray's, Pecos Bill, and Satu'li Canteen run about $14–18 a person. A table is $35 and up, plus tip. The dining plan prices a day nearer the calculator's typical $215 for a party of four, which is the heavy version of a quick-service trip.",
       doRule: "A 1-day, 1-park ticket is about $119–209 before 6.5% sales tax. Animal Kingdom is the floor. A peak Magic Kingdom day is the ceiling. Hopper, Lightning Lane Multi Pass, and Lightning Lane Single Pass are three extra products. None of them is included because you bought a room.",
       zones: [
-        zone("Pop Century and Art of Animation", "Value resorts on the Skyliner, Disney's gondola to Hollywood Studios and Epcot. Magic Kingdom from either resort is a bus. Standard Pop rooms on an ordinary week sit around $150–250 before tax."),
-        zone("All-Star Movies, Music, or Sports", "Disney's cheapest on-property hotels, and a bus to every park. Commonly $140–220 before tax, and the resorts billed at Osceola County's 13.5% lodging tax rather than 12.5%."),
-        zone("Caribbean Beach", "A Moderate resort on the same gondola as Pop Century, about $280–450 before Florida's 12.5% lodging tax. The campus is large. A room on the far side means an internal bus before you reach the gondola station."),
-        zone("Grand Floridian, Contemporary, Polynesian", "About $500–750, on the monorail to Magic Kingdom. You are paying so that park is a walk, a boat, or the monorail. Hollywood Studios and Epcot from here are buses."),
-        zone("Off Disney property", "A hotel on International Drive can post a lower nightly rate, then adds a car, about $35 a day to park at the gate, and a shorter Lightning Lane booking window.")
+        zone("Pop Century and Art of Animation", "Pop Century and Art of Animation are Disney's lower-priced hotels. They are on the Skyliner, the gondola to Hollywood Studios and Epcot. From either hotel, Magic Kingdom is a bus. A standard Pop Century room on an ordinary week is about $150–250 before tax."),
+        zone("All-Star Movies, Music, or Sports", "All-Star Movies, Music, and Sports are Disney's cheapest hotels on property. A bus from each one goes to every park. Rooms are commonly $140–220 before tax. These hotels are charged Osceola County's 13.5% lodging tax, not the 12.5% on most other Walt Disney World hotels."),
+        zone("Caribbean Beach", "Caribbean Beach is a mid-priced Disney hotel on the same gondola as Pop Century. Rooms are about $280–450 a night before Florida's 12.5% lodging tax. The grounds are large. A room on the far side of the resort means a bus inside the hotel before you reach the gondola station."),
+        zone("Grand Floridian, Contemporary, Polynesian", "Grand Floridian, Contemporary, and Polynesian are about $500–750 a night. They are on the monorail, so Magic Kingdom is a walk, a boat, or that train. From these hotels, Hollywood Studios and Epcot are bus rides."),
+        zone("Off Disney property", "A hotel on International Drive, outside Walt Disney World, can show a lower nightly rate. You then pay for a car, about $35 a day to park at the park entrance, and you get a shorter window to book Lightning Lane.")
       ],
       stayTiers: tiers(
         [
-          "Pop Century — The Value resort that sits on the Skyliner. Standard rooms on ordinary weeks land around $150–250 before tax. A preferred room, roughly $20–40 more, is a location upsell inside the same hotel. It does not move Magic Kingdom any closer. That park is still a bus.",
+          "Pop Century — Disney's lower-priced hotel on the Skyliner gondola to Hollywood Studios and Epcot. Standard rooms on ordinary weeks are about $150–250 before tax. A preferred room, roughly $20–40 more, only puts you closer to the hotel's own bus stop. It does not move Magic Kingdom any closer. That park is still a bus.",
           "Art of Animation — Family suites often run $250–400. For five or six people that can beat two connecting Pop rooms. For four, price both before you pay for the theme. The gondola is the same one Pop already has.",
-          "All-Star Movies, Music, or Sports — The cheapest on-property bus, commonly $140–220 before tax. These are the rooms at 13.5% Osceola lodging tax, not the 12.5% on most other Walt Disney World hotels. A $20 gap in the rate can disappear once both bills include tax.",
+          "All-Star Movies, Music, or Sports — Disney's cheapest hotel on property, with a bus to the parks, commonly $140–220 before tax. These rooms are taxed at 13.5% in Osceola County, not the 12.5% on most other Walt Disney World hotels. A $20 gap in the rate can disappear once both bills include tax.",
           "On-property early entry — About 30 minutes before the general public, included with a Disney resort stay, Value included. An off-property rate that ignores that half hour, and the longer Lightning Lane window, is not a clean comparison with Pop at $150–250."
         ],
         [
-          "Caribbean Beach — Moderate Skyliner hub, about $280–450 a night before Florida's 12.5% lodging tax. Ask for a Riviera-side room. Without that request the 'Skyliner resort' can still mean a campus bus to the station, which is the moment the mid tip fails.",
-          "Port Orleans French Quarter — Same Moderate money, about $280–420, on a smaller campus than Caribbean Beach. A boat reaches Disney Springs. Hollywood Studios and Epcot are buses. Buy this for the boat and the scale, not because you thought it was on the gondola.",
-          "Coronado Springs — Gran Destino tower is the room to ask for, about $300–450. Buses to the parks, not the Skyliner. It fits a convention-sized resort with a nicer tower. It does not fit a week whose whole point was the gondola.",
-          "Port Orleans Riverside — About $280–420. Magnolia Bend is a room request inside that rate, not a second resort and not a second price list. Like French Quarter, Springs is the easy evening. Magic Kingdom is the bus."
+          "Caribbean Beach — A mid-priced hotel on the Skyliner gondola, about $280–450 a night before Florida's 12.5% lodging tax. Ask for a room on the Riviera side, closer to the gondola station. If you do not ask, you can still be on a bus across the resort before you reach that station.",
+          "Port Orleans French Quarter — Same Moderate money, about $280–420, on a smaller campus than Caribbean Beach. A boat reaches Disney Springs. Hollywood Studios and Epcot are bus rides. Buy this for the boat and the scale, not because you thought it was on the gondola.",
+          "Coronado Springs — Gran Destino tower is the room to ask for, about $300–450. You take a bus to the parks. This hotel is not on the Skyliner gondola. It fits a convention-sized resort with a nicer tower. It does not fit a week whose whole point was the gondola.",
+          "Port Orleans Riverside — About $280–420. Magnolia Bend is a room request inside that rate, not a second resort and not a second price list. Like French Quarter, the easy evening is the boat to Disney Springs. Magic Kingdom is a bus."
         ],
         [
           "Disney's Riviera Resort — The Deluxe that actually sits on the Skyliner, often $450–700 a night before tax. You are paying for a shorter walk to the gondola than Caribbean Beach, and for Deluxe early-evening hours on the nights they run. You are not buying the monorail.",
           "Grand Floridian, Contemporary, or Polynesian — Monorail Deluxe, about $500–750. This is the right spend when Magic Kingdom is most of the week. It is the wrong spend for an Epcot week: you will bus to parks a Skyliner resort already reaches for less.",
           "Beach Club or Yacht Club — You can walk into Epcot. Deluxe rates, in the $450–700 world. Club level can add about $100–200 a night for a lounge. The walk does not get shorter because you bought the lounge.",
-          "BoardWalk — The other walk toward Epcot and Hollywood Studios, same Deluxe band, often $450–700. Wilderness Lodge is the alternative when you want a boat toward Magic Kingdom, also often $450–700. Neither is the Skyliner. Pick the water that matches the park."
+          "BoardWalk — You can walk toward Epcot and Hollywood Studios. Same deluxe price, often $450–700. Wilderness Lodge is the alternative when you want a boat toward Magic Kingdom, also often $450–700. Neither hotel is on the Skyliner gondola. Book the one that faces the park you will visit."
         ]
       ),
       eatTiers: tiers(
@@ -151,7 +151,7 @@
       },
       days: [
         day("Magic Kingdom, then stop", [
-          "Rope-drop one land. Fantasyland if the party is small children. Tomorrowland if TRON is a Single Pass you already hold, at $12–25, not a hope.",
+          "Enter at park opening and go straight to one area. Fantasyland if you have small children. Tomorrowland if you already hold a TRON Lightning Lane, at $12–25, rather than hoping one is still for sale.",
           "Mobile-order Pecos Bill or Cosmic Ray's, about $14–18. Do not add a character meal the same day unless that meal is the reservation.",
           "Disney Springs or the resort after the fireworks you came for. The bus back is the plan. Epcot the same night is a Hopper you did not buy."
         ]),
@@ -169,7 +169,7 @@
       book: [
         "The resort and the dated tickets together. A 1-day, 1-park ticket is about $119–209 before 6.5% tax, and the cheaper dates go first.",
         "Lightning Lane Multi Pass at the on-site window, about seven days before check-in, if Magic Kingdom or Hollywood Studios is a peak day. Off property that window is about three days, and one day at a time.",
-        "One table. California Grill, Space 220, Sci-Fi Dine-In, or a character breakfast at $45–75. These are not walk-up.",
+        "One table. California Grill, Space 220, Sci-Fi Dine-In, or a character breakfast at $45–75. Book it ahead. You cannot walk in the same day.",
         "The ride from Orlando airport (MCO). Mears or rideshare, about $130 round trip for a family of four in the calculator. Magical Express does not exist."
       ],
       hidden: [
@@ -227,32 +227,32 @@
         "Jackson Heights and Flushing, in Queens, are the same $3 subway fare as a ride to Times Square. The 7 train is the one that goes there"
       ],
       stayRule: "Compare rooms after 14.75% lodging tax, and after you have asked whether a destination fee exists. A $320 NoMad rate and a $290 Times Square rate are not the same bill if only one of them adds $40 a night.",
-      eatRule: "Breakfast is a corner deli or a bakery, $5–12. Three $28 Midtown salads are $84, which is a rush ticket. One sit-down in the neighborhood you slept in is the mid dinner. Wine is how that dinner leaves the $55–95 band.",
-      doRule: "The free city is the ferry, the bridge, and the High Line. The paid city is one museum at about $30, or one show. Summit, Edge, and Top of the Rock are a third purchase, about $40 each, and they stack badly.",
+      eatRule: "Breakfast is a corner deli or a bakery, $5–12. Three $28 Midtown salads are $84, which is a rush ticket. One sit-down dinner in the neighborhood you slept in is the mid-range plan. Wine is what pushes that dinner above $55–95.",
+      doRule: "The Staten Island Ferry, the Brooklyn Bridge, and the High Line are free. The paid day is one museum at about $30, or one Broadway show. Summit, Edge, and Top of the Rock are a separate purchase, about $40 each, and buying more than one adds little.",
       zones: [
-        zone("Near Ace Hotel NoMad", "Ace Hotel NoMad, or Arlo NoMad if you want the room smaller. The subway is a short walk (the 6 and the N/R/W, if you are checking a map). Mid rooms here run about $300–450 before the 14.75% tax. Dinner can stay in the neighborhood."),
-        zone("Downtown, the Bowery", "citizenM Bowery, The Ludlow, or The Beekman if you are closer to the Staten Island Ferry. The subway is downstairs (the F or the 6). A downtown dinner does not need a car across town."),
-        zone("Williamsburg, Brooklyn", "The Hoxton, often $280–420 before tax, with the subway back to Manhattan (the L train). The rate wins until every dinner is in Manhattan after 11 p.m. and you stop being willing to ride back."),
-        zone("Times Square, narrowly", "Pod 39 can make sense: a small room, about $180–280 before tax, with the subway downstairs. A full-size tower with a destination fee is a billboard you will not watch."),
-        zone("By Central Park", "1 Hotel Central Park, The Mark, or a Fifth Avenue flagship. Often $700 and up before tax. You bought the block. The subway is still $3.")
+        zone("Near Ace Hotel NoMad", "Book Ace Hotel NoMad, or Arlo NoMad if you want a smaller room. The subway is a short walk from the hotel. On a subway map, those stations are the 6 and the N, R, and W. Mid-range rooms here are about $300–450 a night before the 14.75% lodging tax. You can eat dinner in the same neighborhood."),
+        zone("Downtown, the Bowery", "Book citizenM Bowery or The Ludlow. Book The Beekman if you want to be closer to the Staten Island Ferry. The subway is in or next to the hotel. On a map, the nearby lines are the F and the 6. You can eat dinner downtown without taking a car across town."),
+        zone("Williamsburg, Brooklyn", "Book The Hoxton in Williamsburg, Brooklyn, often $280–420 a night before tax. The subway back to Manhattan is short. On a map, that line is the L. The lower rate stops being a saving if every dinner is in Manhattan after 11 p.m. and you no longer want to ride back."),
+        zone("Times Square, small room", "Pod 39 can make sense if you want a small room in Times Square, about $180–280 a night before tax, with the subway downstairs. A full-size Times Square hotel that adds a destination fee is a view you will not sit and watch."),
+        zone("By Central Park", "1 Hotel Central Park, The Mark, and the large hotels on Fifth Avenue are often $700 and up before tax. You are paying for an address next to the park. The subway is still $3 a ride.")
       ],
       stayTiers: tiers(
         [
           "Pod 39 — A small Midtown room, about $180–280 a night before New York's 14.75% lodging tax. You are paying for a bed and a subway, not a desk. It fails for a family that needs a real closet and then quietly adds a second room.",
-          "citizenM Bowery — Downtown, about $200–320 before tax, with the subway downstairs (the F and the 6). The room is compact on purpose. If you need a suite, you are no longer in this band.",
+          "citizenM Bowery — Downtown, about $200–320 before tax, with the subway downstairs (the F and the 6). The room is compact on purpose. If you need a suite, this price range is the wrong one.",
           "The Jane — A downtown cabin rather than a Times Square tower. When the dates are quiet it sits nearer the Pod band, about $180–280 before tax, and only if the party accepts the size. A cheaper room in Queens or Brooklyn can undercut it, and then every late night is a last-train problem.",
-          "Motto by Hilton Chelsea — A Chelsea hotel with the subway nearby (the 1 or the A/C/E), about $200–300 before tax. A full-service flag without a Times Square view. Ask about a destination fee before you treat it as the cheap Hilton. Some Manhattan hotels in this family add $25–45 a night."
+          "Motto by Hilton Chelsea — A Chelsea hotel with the subway nearby (the 1 or the A/C/E), about $200–300 before tax. A full-service Hilton without a Times Square view. Ask about a destination fee before you treat it as the cheap Hilton. Some Manhattan hotels in this family add $25–45 a night."
         ],
         [
-          "Ace Hotel NoMad — The mid default, about $300–450 a night before 14.75% tax. Trains and dinner are both a walk. If this property is charging a destination fee, put it in the comparison before you call Williamsburg more expensive.",
-          "The Beekman — Downtown near the Staten Island Ferry, in the Financial District, at the top of the mid band or just over it. Right if your days start at the ferry. A poor fit if every morning is MoMA: that is a long subway, which is fine, or a $25–40 rideshare, which spends the room.",
-          "The Hoxton Williamsburg — Often $280–420 before tax, across the river in Brooklyn. The subway back to 14th Street in Manhattan is short (the L train). The mid tip fails when the curtain is at 8 and you have a second late table in the West Village. Those Ubers, $25–50 each, erase the discount.",
-          "Arlo NoMad — A smaller room on the same trains as Ace, often inside $300–450 before tax. Take it over a Times Square Marriott when the rates are close. The neon is not an amenity."
+          "Ace Hotel NoMad — The mid-range hotel to book first, about $300–450 a night before 14.75% tax. The subway and dinner are both a short walk. If this hotel charges a destination fee, include that fee before you decide Williamsburg is more expensive.",
+          "The Beekman — Downtown near the Staten Island Ferry, in the Financial District, at the top of the mid-range prices or just above them. Book it if your days start at the ferry. It is a poor fit if every morning is the Museum of Modern Art. That is a long subway ride, which is fine, or a $25–40 car ride, which spends the money you saved on the room.",
+          "The Hoxton Williamsburg — In Brooklyn, across the river from Manhattan, often $280–420 before tax. The subway back to 14th Street is short. On a map, that line is the L. The lower Brooklyn rate stops paying off when the show starts at 8 and you have a second late dinner in the West Village. Those Ubers, $25–50 each, erase the discount.",
+          "Arlo NoMad — A smaller room on the same trains as Ace, often inside $300–450 before tax. Take it over a Times Square Marriott when the rates are close. You are not paying extra for the Times Square lights."
         ],
         [
-          "1 Hotel Central Park — The park address, often $700–1,200 before tax. The subway is still $3. You bought the block, not a better fare, and a crosstown meeting is still a walk or a train.",
-          "The Greenwich Hotel — A downtown suite-level night, in the same range as 1 Hotel Central Park at $700–1,200 before tax. Keep the trip in one neighborhood. Do not also book a Midtown flagship for the two nights you have a show. Two luxury rates is a different vacation.",
-          "Park Hyatt New York — Midtown flagship, often $800–1,400 before tax. Breakfast is not in that figure. A hotel breakfast here can pass $40 a person, which is a week of corner-deli sandwiches.",
+          "1 Hotel Central Park — A hotel beside Central Park, often $700–1,200 before tax. The subway is still $3. You are paying for the address next to the park, not for a cheaper subway ride, and a trip across town is still a walk or a train.",
+          "The Greenwich Hotel — A downtown luxury hotel, in the same range as 1 Hotel Central Park at $700–1,200 before tax. Stay in one neighborhood. Do not also book a second luxury hotel in Midtown for the two nights you have a show. Two luxury rates is a different vacation.",
+          "Park Hyatt New York — A luxury hotel in Midtown, often $800–1,400 before tax. Breakfast is not in that figure. A hotel breakfast here can pass $40 a person, which is a week of corner-deli sandwiches.",
           "The Mark — Upper East Side, beside Central Park. The subway is how you get downtown (the 6 train). A cab habit to Midtown is a second hotel bill by the third day, at $20–40 a ride, on top of a rate that was already the splurge."
         ]
       ),
@@ -325,7 +325,7 @@
         day("A Broadway seat, or dinner in Queens", [
           "TKTS or rush if a show is why you came, often $80–120 after fees. Or dinner in Jackson Heights or Flushing, $12–20, one subway ride from Manhattan (the 7 train).",
           "Do not add Summit and Edge because the afternoon looks empty. One deck is about $40. Zero decks is a finished day.",
-          "A corner deli in the morning. Hotel breakfast is the splurge you did not book, and at a flagship it can pass $40 a person."
+          "A corner deli in the morning. Hotel breakfast is the splurge you did not book, and at a luxury hotel it can pass $40 a person."
         ])
       ],
       book: [
@@ -366,12 +366,12 @@
     },
 
     paris: {
-      hook: "Paris gets expensive in three specific purchases: a room priced for a view of the tower, a summit ticket bought from a reseller, and lunch at a table aimed at the iron. A bakery on the block and one museum, bought on that museum's own site, is a different week by hundreds of euros.",
-      blurb: "Book a hotel by Gare du Nord or République, with the Metro downstairs. The VAT (TVA) is already in the room quote. The taxe de séjour, a small per-person nightly charge, is not. Buy one museum, and do not buy a Monday–Sunday Navigo pass for a Wednesday arrival.",
+      hook: "Paris gets expensive in three purchases: a room with an Eiffel Tower view, a summit ticket bought from a reseller, and lunch at a table facing the tower. A nearby bakery and one museum, bought on that museum's own website, is a different week by hundreds of euros.",
+      blurb: "Book a hotel by the Gare du Nord train station or by République, with the Metro at the hotel. Tax is already in the room price (VAT, called TVA in France). A small per-person nightly city charge (taxe de séjour) is not. Buy one museum, and do not buy a Monday–Sunday transit pass for a Wednesday arrival.",
       nights: "4 nights in one neighborhood",
       midrange: "A canal or Left Bank 3-star, bakery breakfast, one bistro",
       months: "January into early March, and November. August is cheaper and half the kitchens you wanted are shut.",
-      startHere: "Book a mid hotel by Gare du Nord or République (Ibis or similar), Metro downstairs, bakery breakfast — not a tower-view room by the Eiffel. Choose the Louvre or the Orsay before you fly, on the museum's site. If the dinner is Septime, the reservation has to exist before the flight does.",
+      startHere: "Book a mid-range hotel by the Gare du Nord train station or by République, such as an Ibis. The Metro should be at the hotel, and breakfast should be a bakery nearby. Do not pay extra for a room with an Eiffel Tower view. Choose the Louvre or the Orsay before you fly, on the museum's website. If dinner is at Septime, book that table before you book the flight.",
       tipsKicker: "The week pass starts Monday, even if your plane does not",
       cta: "Build the Paris Trip Plan in euros, from one neighborhood on the Metro. Add one museum. Add Septime only if you already hold the table.",
       forWho: [
@@ -388,33 +388,33 @@
         "A day pass (Navigo Jour) covers the day you will actually ride four times. On a museum day with two taps, single tickets may be the smaller number. Do the count before you buy the week",
         "Versailles is a half day on the suburban train from central Paris (RER line C). A Navigo week pass may cover the train and still not cover the palace, about €21"
       ],
-      stayRule: "Paris quotes usually include TVA, the VAT inside the price. They do not include the taxe de séjour, charged per person per night and higher in a palace than in an Ibis, roughly €2–8. Do not add another 10% and call it the Paris rate. Trip Plan's Europe assumption is not this city's statutory number.",
-      eatRule: "A pastry and a coffee downstairs are about €4–7. A set-price lunch at a bouillon, the formule, is about €20–30. One booked dinner is the mid week. A table facing the tower is a surcharge for a view you can already get from Trocadéro, the plaza across from the Eiffel.",
-      doRule: "See the tower from Trocadéro, the plaza across the river, for €0. Buy the Louvre or the Orsay from the museum. Since 14 January 2026 the Louvre is €32 if you live outside the EEA (that includes the US) and €22 if you live in the EEA. A 2-day Museum Pass, about €60, loses if you only go through one door.",
+      stayRule: "Paris hotel quotes usually include tax already in the price (VAT, called TVA). They do not include the city visitor charge (taxe de séjour), billed per person per night and higher in a palace hotel than in an Ibis, roughly €2–8. Do not add another 10% and call it the Paris rate. Trip Plan's Europe assumption is not this city's actual tax.",
+      eatRule: "A pastry and a coffee nearby are about €4–7. A set-price lunch at a simple traditional restaurant is about €20–30. One dinner you booked ahead is the mid-range week. A table facing the Eiffel Tower costs extra for a view you can already get from Trocadéro, the plaza across the river.",
+      doRule: "See the Eiffel Tower from Trocadéro, the plaza across the river, for €0. Buy the Louvre or the Orsay from the museum. Since 14 January 2026 the Louvre is €32 if you live in the US or another country outside Europe's economic area (the EEA), and €22 if you live in that area. A 2-day Museum Pass, about €60, costs more than it saves if you only enter one museum.",
       zones: [
-        zone("Near Gare du Nord", "Ibis Paris Gare du Nord, Metro downstairs, a bakery on the block. Rooms often €120–180 with the VAT (TVA) already in the quote. You are not paying for a tower outside the window."),
-        zone("République / Canal Saint-Martin", "Ibis Styles, or a walk-up near Oberkampf, often €130–200. The canal is a dinner walk. This base fails when every plan is a 9 a.m. Louvre and a Left Bank dinner: you will spend the savings in taxis."),
-        zone("A canal hotel", "Hôtel Fabric or another Canal Saint-Martin boutique, about €190–280. The mid-range room that is not a tower with a view of the Eiffel."),
-        zone("Left Bank near Odéon (Latin Quarter)", "Hôtel Malte's side of town, or a 3-star near the Odéon Metro, about €200–320. Pay it when the days are the museums and a Left Bank table. Do not pay it and then cab to the canal every night."),
-        zone("Concorde and Place Vendôme", "Hôtel de Crillon, Le Bristol, the Ritz, Cheval Blanc. Often €900 and up. Breakfast in the hotel is its own line. The corner bakery is still about €5.")
+        zone("Near Gare du Nord", "Book an Ibis, or a similar hotel, by the Gare du Nord train station. The Metro is at the hotel, and a bakery for breakfast is nearby. Rooms are about €120–180 a night, with tax already in the price. You are not paying extra for an Eiffel Tower view from the room."),
+        zone("République / Canal Saint-Martin", "Book Ibis Styles, or a small hotel near République and Canal Saint-Martin. Rooms are about €130–200 a night. You can walk to dinner along the canal. Choose a different hotel if every morning is the Louvre and every dinner is on the Left Bank, the neighborhoods across the river. You will spend the room savings on taxis."),
+        zone("A canal hotel", "Book Hôtel Fabric, or another small hotel on Canal Saint-Martin, about €190–280 a night. This is a mid-range room. It does not include a view of the Eiffel Tower from the window."),
+        zone("Left Bank near Odéon (Latin Quarter)", "Book Hôtel Malte, or a 3-star hotel near the Odéon Metro stop, in the Latin Quarter on the Left Bank. Rooms are about €200–320 a night. Choose this if your days are the museums and your dinners are nearby. Do not pay this rate and then take a taxi to Canal Saint-Martin every night."),
+        zone("Place de la Concorde / Place Vendôme", "Hôtel de Crillon, Le Bristol, the Ritz, and Cheval Blanc are on Place de la Concorde and Place Vendôme. Rates often start at €900 a night. Breakfast in the hotel is a separate charge, and it is often expensive. A bakery on the corner is still about €5.")
       ],
       stayTiers: tiers(
         [
-          "Ibis Paris Gare du Nord — Metro at the door, often €120–180 with TVA already in the quote. You land and you sleep. A room by the Eiffel with a tower view, €80–150 more a night, is a different purchase.",
-          "Ibis Styles Paris République — Near République and Canal Saint-Martin, about €130–190. Better if dinner is a walk to the canal. Worse if you will not ride a Metro in the morning and intend to taxi to the Louvre every day at €15–25 a ride.",
-          "Holiday Inn Express Paris Canal de la Villette — About €120–180, the night the train from Charles de Gaulle airport gets you in late. It is a bed at the north end of the canal. It is not a week in Saint-Germain, on the Left Bank. Stay on if the rest of the trip is actually up here.",
-          "A walk-up near Oberkampf, a short walk from République — A two-star, sometimes under the Ibis at €120–180, if you can live with stairs and a smaller room. The taxe de séjour is lower here than at a palace and it is still not zero. Budget a few euros a person per night on top of a rate that looked finished."
+          "Ibis Paris Gare du Nord — The Metro is at the hotel door. Rooms are often €120–180 with tax already in the price (VAT, called TVA). You can go to bed the night you land. A room by the Eiffel with a tower view, €80–150 more a night, is a different purchase.",
+          "Ibis Styles Paris République — A hotel near République and Canal Saint-Martin, about €130–190 a night. Choose this if you want to walk to dinner on Canal Saint-Martin. Skip it if you will not take the Metro in the morning and plan to taxi to the Louvre every day at €15–25 a ride.",
+          "Holiday Inn Express Paris Canal de la Villette — About €120–180, the night the train from Charles de Gaulle airport gets you in late. It is a room at the north end of the canal. It is not a week in Saint-Germain, on the Left Bank. Keep the hotel only if the rest of your days are actually up here.",
+          "A small hotel with stairs and no elevator, near République and Canal Saint-Martin — A two-star, sometimes under the Ibis price of €120–180, if you can manage the stairs and a smaller room. The city visitor charge (taxe de séjour) is lower here than at a palace hotel, and it is still not zero. Budget a few euros a person per night on top of a rate that looked finished."
         ],
         [
-          "Hôtel Fabric — Canal Saint-Martin boutique, about €190–280 a night. This is the canal hotel in the mid band. Dinner can be on the block. The tip fails when you treat it as a base for a daily taxi to the Eiffel Tower, at €20–30 each way.",
-          "Hôtel Malte — Or a Left Bank 3-star near Odéon, in the Latin Quarter, about €200–320, when that side of the river is the week you wanted. You are closer to the Louvre and the Orsay. Eat there. Commuting back to République for a cheaper bistro spends the difference.",
-          "Novotel Paris Les Halles — Central, about €200–300, useful for the Louvre and the Châtelet Metro hub. The failure is paying Les Halles money to face a shopping center when Fabric, on the canal, is the same band and a better walk to dinner.",
+          "Hôtel Fabric — A small hotel on Canal Saint-Martin, about €190–280 a night. This is the mid-range canal hotel. You can eat dinner nearby. The saving disappears if you take a taxi to the Eiffel Tower every day, at €20–30 each way.",
+          "Hôtel Malte — Or a Left Bank 3-star near Odéon, in the Latin Quarter, about €200–320, when you want the Latin Quarter, on the Left Bank. You are closer to the Louvre and the Orsay. Eat nearby. Going back to République for a cheaper dinner spends the difference.",
+          "Novotel Paris Les Halles — Central, about €200–300, useful for the Louvre and the Châtelet Metro hub. Do not pay a central Les Halles rate to look at a shopping center. Hôtel Fabric, on the canal, is the same price range and an easier walk to dinner.",
           "Hilton Paris Opera — One neighborhood for the whole stay, about €220–340, near the Opéra. Stop splitting the week. A night by the Louvre and a night in Montmartre is two tax bills and a lost afternoon in between."
         ],
         [
-          "Cheval Blanc — On the quai. Palace rates that often start around €1,000 a night. The bakery downstairs did not get more expensive. The room did. The Metro, if you use it, is still about €2.50.",
+          "Cheval Blanc — A palace hotel on the riverbank by the Seine. Rates often start around €1,000 a night. The bakery downstairs is still a bakery price. The room is what got expensive. The Metro, if you use it, is still about €2.50.",
           "Hôtel de Crillon — Place de la Concorde, often €900 and up. Breakfast in the hotel is frequently €50 and up a person. That morning is the splurge. It is not what the rate quietly included.",
-          "The Ritz or Park Hyatt Paris-Vendôme — Place Vendôme, often €1,000 and up. You are paying for the address. Taxis that replace the Metro do not come back out of that rate. They add up at €15–30 a hop.",
+          "The Ritz or Park Hyatt Paris-Vendôme — Place Vendôme, often €1,000 and up. You are paying for the address. Taxis that replace the Metro do not come back out of that rate. They add up at €15–30 a ride.",
           "Lutetia — Left Bank, about €500–900. Take a bakery breakfast unless the dining room is why you chose it. Le Bristol is the other palace breakfast people treat as included. It is not. It is often €50 and up."
         ]
       ),
@@ -434,7 +434,7 @@
         [
           "Septime — About €80–120 a person. The book opens and then it is gone. If you do not have it, you do not have it. Eat at the cave, or eat at the bistro.",
           "Frenchie — About €70–110, and not the same night as Septime. Both on a four-night trip pushes food well past €30–55 a person per day. Pick one.",
-          "Le Comptoir du Relais — The counter fills early. About €50–80. It is not a walk-up you attempt at 9 p.m. after the Louvre.",
+          "Le Comptoir du Relais — The counter fills early. About €50–80. You cannot show up at 9 p.m. after the Louvre and expect a table.",
           "Breakfast at Le Bristol or Hôtel de Crillon — Often €50 and up a person. Once, if the hotel is the trip. The other mornings, the block bakery is about €5."
         ]
       ),
@@ -446,7 +446,7 @@
           "Père Lachaise cemetery, or the canal — €0 beyond the pastry, about €4–7. This is the evening that makes a hotel by République or Canal Saint-Martin the right hotel."
         ],
         [
-          "The Louvre — €32 if you live outside the EEA, including the US, and €22 if you live in the EEA. Timed, on the museum's site, at the rates in force since 14 January 2026. A reseller bundle is often €20 more for the same door.",
+          "The Louvre — €32 if you live in the US or another country outside Europe's economic area (the EEA), and €22 if you live in that area. Timed, on the museum's site, at the rates in force since 14 January 2026. A reseller bundle is often €20 more for the same door.",
           "Musée d'Orsay — €16 online, €14 at the door, on a different day from the Louvre. Both in one afternoon means you paid full price to rush two buildings.",
           "Musée de l'Orangerie — A smaller timed ticket, about €12. The water lilies, then you are done. It is not a third giant museum to stack on the Louvre.",
           "A 2-day Paris Museum Pass — Around €60. It wins if you will enter two paying museums and a monument. It loses on a single Louvre visit at €22 or €32."
@@ -461,11 +461,11 @@
       walk: {
         lead: "Two adults visiting from the United States. Four nights at a hotel by République or on Canal Saint-Martin. They arrive Monday, so a Navigo week pass matches the calendar. Bakery breakfast, one bistro inside the food band, and the Louvre. Orsay is not in this total. The planning rate used here is $1 ≈ €0.92.",
         lines: [
-          line("Room", "€1,040", "€260 a night, four nights. Inside €190–330. TVA is already inside the quote. At $1 ≈ €0.92 that room total is about $1,130."),
+          line("Room", "€1,040", "€260 a night, four nights. Inside €190–330. Tax is already inside the price (VAT, called TVA). At $1 ≈ €0.92 that room total is about $1,130."),
           line("Taxe de séjour", "€32", "A mid-hotel assumption of €4 a person per night: €4 × 2 × 4. The legal amount varies by class, roughly €2–8 a person, and a palace is the high end. This is not a second VAT."),
           line("Food", "€336", "€42 a person, two people, four days. Inside €30–55. Bakery mornings, a set-price lunch, one bistro. Not Septime."),
           line("Navigo", "€64", "The Monday–Sunday week pass for central Paris (zones 1–5), about €32 × 2, because this example starts on Monday. Arrive Wednesday and skip it: eight rides at €2.50 is €20 a person, €40 for two."),
-          line("Louvre", "€64", "€32 × 2 for visitors from outside the EEA, including the US. If you live in the EEA the tickets are €22 each, and this line would be €44. Buy them on the museum's site.")
+          line("Louvre", "€64", "€32 × 2 for visitors from the US and other countries outside Europe's economic area (the EEA). If you live in that area the tickets are €22 each, and this line would be €44. Buy them on the museum's site.")
         ],
         day: "The museum day is the room (€260) plus food for two (€84) plus a pair of Metro rides if you are not on the Navigo (about €10) plus two Louvre tickets (€64): about €420, before that night's taxe de séjour.",
         tripLabel: "4-night trip",
@@ -486,17 +486,17 @@
         day("Versailles, or a smaller ticket", [
           "If Versailles is the day, take the suburban train from central Paris (RER line C) in the morning and the palace at about €21. Be back before dinner. The Louvre is not this afternoon.",
           "If you skip the palace, Orangerie at about €12 or Sainte-Chapelle at about €13, then the canal or the Marais on foot.",
-          "Septime only with a reservation in hand, at €80–120. Frenchie is also not a walk-in. The bistro on the block, €35–55, is the dinner that actually happens."
+          "Septime only with a reservation in hand, at €80–120. Frenchie is also not a walk-in. The bistro near the hotel, €35–55, is the dinner that actually happens."
         ])
       ],
       book: [
-        "The Louvre (€22 if you live in the EEA, €32 for US visitors and everyone else) or the Orsay (€16 online), on the museum's site, before you look at a bundle.",
+        "The Louvre (€22 if you live in Europe's economic area, the EEA, and €32 for US visitors and everyone else) or the Orsay (€16 online), on the museum's site, before you look at a bundle.",
         "Septime, Frenchie, or Le Comptoir if that table is the point of the trip. They run about €50–120 a person and do not accept a same-evening hope.",
         "The Monday–Sunday Navigo week pass, about €32 for central Paris (zones 1–5), only when your dates are Monday through Sunday. Otherwise single rides at about €2.50, or a day pass (Navigo Jour) on the day you will ride.",
         "The flight, midweek, as early as the fare looks real. A round trip you will use beats an open-jaw you will pay to change."
       ],
       hidden: [
-        "The taxe de séjour, roughly €2–8 a person per night by hotel class, on top of a rate that already includes TVA.",
+        "The taxe de séjour, roughly €2–8 a person per night by hotel class, on top of a rate that already includes tax (VAT, called TVA).",
         "A tower-view room, often €80–150 a night above a hotel near Gare du Nord, for a view you can see from Trocadéro.",
         "An official summit elevator, about €35, if you add it on top of a Louvre ticket.",
         "A 2-day Museum Pass, about €60, which loses when you walk through one museum.",
@@ -511,19 +511,19 @@
         "Hidden gem: Navigo Semaine does not start when you land. It starts on Monday and ends on Sunday. A Wednesday-to-Tuesday trip should not buy it. Count the days you are actually in the city.",
         "Hidden gem: A Museum Pass around €60 for two days can beat two museums plus a monument. One Louvre or one Orsay is cheaper as a single timed ticket on the museum's own site.",
         "Hidden gem: The tower from Trocadéro is free. If you still want the summit, buy the elevator on the official site, about €35. A kiosk is not a different elevator.",
-        "The room quote includes TVA. The taxe de séjour is extra, per person, per night, and higher at a palace than at an Ibis. Do not lay a flat 10% on a rate that already has VAT inside it.",
+        "The room quote includes tax (VAT, called TVA). The city visitor charge (taxe de séjour) is extra, per person, per night, and higher at a palace hotel than at an Ibis. Do not lay a flat 10% on a rate that already has VAT inside it.",
         "Versailles is a morning on the suburban train from central Paris (RER line C) and about €21 at the palace. It does not fit after a Louvre opening. Give it the day or take it off the list."
       ],
       money: money(
-        "About €190–330 a night for a mid hotel near Gare du Nord, by République, or on the Left Bank near Odéon. That is the Trip Finder shoulder band of about $200–350, converted at roughly $1 ≈ €0.92. TVA is usually in the quote. The taxe de séjour is not.",
+        "About €190–330 a night for a mid hotel near Gare du Nord, by République, or on the Left Bank near Odéon. That is the Trip Finder shoulder band of about $200–350, converted at roughly $1 ≈ €0.92. Tax (VAT, called TVA) is usually in the quote. The city visitor charge (taxe de séjour) is not.",
         "About €30–55 with a bakery breakfast, a set-price lunch, and one dinner. A Septime night at €80–120 is the exception, not the daily rate.",
-        "The Louvre is €32 for visitors from outside the EEA, including the US, and €22 if you live in the EEA. The Orsay is €16 online. A single museum beats a Museum Pass. The Metro is about €2.50, or about €32 for a Monday–Sunday Navigo week pass covering central Paris (zones 1–5).",
+        "The Louvre is €32 if you live in the US or another country outside Europe's economic area (the EEA), and €22 if you live in that area. The Orsay is €16 online. A single museum beats a Museum Pass. The Metro is about €2.50, or about €32 for a Monday–Sunday Navigo week pass covering central Paris (zones 1–5).",
         "Four mid-range nights run about €1,000–1,750 in lodging plus food for two, before flights (orientation)."
       ),
       sources: [
         "Louvre: €22 EEA and €32 non-EEA from 14 January 2026; buy on the museum site",
         "Navigo Semaine is Monday–Sunday, zones 1–5 about €32, not a rolling week from arrival",
-        "Taxe de séjour is per person per night and separate from TVA already inside most hotel quotes"
+        "Taxe de séjour is per person per night and separate from the VAT (TVA) already inside most hotel quotes"
       ]
     }
   };
