@@ -19,11 +19,11 @@
     disney: {
       hook: "Pop Century next to a Skyliner park is a different trip from a monorail Deluxe resort plus Park Hopper. The dining plan is usually how people who booked the cheaper stay end up spending like the expensive one.",
       startHere: "If Hollywood Studios and Epcot are the days that matter, take Pop Century, Art of Animation, or Caribbean Beach and grocery the room after MCO. Keep one park on the ticket. Hopper can wait until you know you will actually switch after lunch.",
-      aroundRule: "Disney buses and the Skyliner are the week. A rental is for a Winter Garden grocery run, not a drive to Magic Kingdom that then costs about $35 to park.",
+      aroundRule: "Disney buses and the Skyliner cover getting to the parks. A rental is for a Winter Garden grocery run, not a drive to Magic Kingdom that then costs about $35 to park.",
       aroundCar: [
         "Garden Grocer or a Winn-Dixie run, then leave the car at the resort",
         "Driving to a park gate adds about $35 a day. Resort buses do not",
-        "Do not use the car to hop four parks. That is what Hopper wishes it were"
+        "Do not drive between parks. A second park day, or a Hopper you will use after lunch, is the other choice"
       ],
       sources: ["Walt Disney World transportation pages: Skyliner vs monorail vs bus", "Calculator park-parking line, about $35"]
     },
@@ -75,7 +75,7 @@
     san_francisco: {
       hook: "A Clipper card and a Mission bakery will get you through San Francisco. A Union Square tourist hotel plus Fisherman's Wharf seafood on the same day will not.",
       startHere: "Hotel Emeline if you want to walk to the Ferry Building; the Mission if Tartine is the breakfast. Book the official Alcatraz ferry before you invent a second museum.",
-      aroundRule: "Clipper on Muni and BART is the system. The Powell-Hyde cable car is one souvenir fare on top of that, not the pass. Parking is a Napa or Muir Woods expense."
+      aroundRule: "Clipper on Muni and BART is how you get around the city. The Powell-Hyde cable car is one souvenir fare on top of that, not the pass. Parking is a Napa or Muir Woods expense."
     },
     chicago: {
       hook: "Winter is when a Loop or Fulton Market room makes sense. The expensive version is a suburban hotel rate, then Ubering to the Art Institute and a river cruise on the same afternoon.",
@@ -85,7 +85,7 @@
     nola: {
       hook: "Spend on Galatoire's or Commander's Palace, and sleep in the Warehouse District or on the St. Charles streetcar line. A Bourbon Street balcony looks good in photos and does nothing for the food bill.",
       startHere: "Hotel Peter and Paul, The Pontchartrain, or a Warehouse Hampton. Café du Monde once, then a neighborhood café. Parkway for the po'boy if the reservation is at night.",
-      aroundRule: "The St. Charles streetcar is the Garden District. The Canal line is the Quarter from Mid-City. A car is for Whitney Plantation or Honey Island, and then it should sit.",
+      aroundRule: "The St. Charles streetcar is how you reach the Garden District. The Canal line is how you reach the Quarter from Mid-City. A car is for Whitney Plantation or Honey Island, and then it should sit.",
       aroundCar: [
         "Whitney Plantation or a Honey Island swamp morning",
         "Bourbon at night is a walk or a short ride, not a parking search",
@@ -117,11 +117,11 @@
     },
     paris: {
       hook: "Paris stays affordable when breakfast is a bakery downstairs and you pick one museum. It stops being cheap when the room faces the tower, the summit ticket is from a reseller, and lunch is on the tourist steps.",
-      startHere: "An Ibis or a walk-up near République puts the Metro at the corner and breakfast downstairs. Decide between the Louvre and the Orsay before you fly. Septime is a table you either hold or you do not.",
-      cta: "Build the Paris week from the arrondissement, not the postcard. The Trip Plan should show one museum and, only if you already hold it, Septime.",
+      startHere: "An Ibis or a walk-up near République puts the Metro at the corner and breakfast downstairs. Decide between the Louvre and the Orsay before you fly. Book Septime before you fly, or plan on a different dinner. Walk-ins do not get that table.",
+      cta: "Build the Paris Trip Plan from the neighborhood you will walk, with one museum. Add Septime only if you already have the reservation.",
       aroundRule: "Navigo or a carnet on the Metro. The free tower picture is the walk to Trocadéro, not a taxi to a summit elevator. A rental in the 10th is a parking problem.",
       stayMid: ["Hôtel Fabric or a Canal Saint-Martin boutique — the mid that is not a Novotel tower"],
-      stayLux: ["Cheval Blanc on the quai — the palace breakfast is not the bakery downstairs"],
+      stayLux: ["Cheval Blanc on the quai — the palace breakfast costs more than the bakery downstairs"],
       eatMid: ["Clamato or Septime La Cave if the main Septime room is gone — still that kitchen's prices"],
       eatLux: ["Le Comptoir du Relais — the counter fills; it is not a 9 p.m. walk-up"],
       doMid: ["Musée de l'Orangerie, timed, on the day you did not do the Orsay"],
@@ -134,7 +134,7 @@
       cta: "Price the London Trip Plan with the contactless cap already assumed. A Heathrow hotel is a landing night. The Eye is optional.",
       aroundRule: "Tap contactless on the Tube, the bus, and the Elizabeth line. The same card on Heathrow Express bills the Express fare, not a Tube fare. A car in Zone 1 also meets the congestion charge.",
       stayMid: ["The Resident Victoria or South Kensington — museum mile without a Mayfair rate"],
-      stayLux: ["The Ned — the room is the scene, and breakfast is still its own line"],
+      stayLux: ["The Ned — you are paying for the room, and breakfast is still charged separately"],
       eatMid: ["Padella or Flat Iron — the queue is the price, not a Mayfair markup"],
       eatLux: ["Gymkhana — one serious curry, which is a different restaurant from Dishoom"],
       doMid: ["A TodayTix or Leicester Square TKTS day seat"],
@@ -160,7 +160,7 @@
       doMid: ["Borghese Gallery timed entry — it sells out separately from the Vatican"],
       doLux: ["The Villa Borghese park outside the gallery is free. The ceiling inside is the ticket"],
       tips: [
-        "Hidden gem: Order the cornetto and the coffee al banco, standing. The seated price on Piazza Navona is a different menu for the same pastry, before dinner even starts.",
+        "Hidden gem: Order the cornetto and the coffee at the bar, standing. The seated price on Piazza Navona is a different menu for the same pastry, before dinner even starts.",
         "Hidden gem: The Colosseum and the Roman Forum share one timed ticket. The Vatican Museums are a second ticket and a second morning. A golf cart sells the walk between them.",
         "Hidden gem: Borghese Gallery tickets are timed and they go. The park around the gallery does not. A 48-hour metro pass does not get you into either.",
         "Hotel de Russie breakfast is the Splurge morning. The bar on the walk to the Pantheon is the other one.",
@@ -170,7 +170,7 @@
     },
     tokyo: {
       hook: "Tokyo stays cheap when the hotel sits above a station and breakfast is a convenience-store onigiri. It gets expensive when the buffet is in the room rate and someone buys a JR Pass for a week that never leaves the Yamanote line.",
-      startHere: "APA, Toyoko Inn, or Mitsui Garden over a JR or Metro stop, and eat the lobby konbini. Stay in one ward. A sushi counter only counts if it was booked before the flight.",
+      startHere: "APA, Toyoko Inn, or Mitsui Garden over a JR or Metro stop, and buy breakfast at the convenience store in the lobby. Stay in one ward. A sushi counter only counts if it was booked before the flight.",
       cta: "The Tokyo Trip Plan is a station hotel and a Suica. A nationwide rail pass does not belong on a city week.",
       aroundRule: "Suica or PASMO from the station under the hotel covers JR, Metro, and most buses. A taxi is for luggage at Haneda or Narita, not for Shibuya to Shinjuku.",
       stayMid: ["Trunk Hotel Shibuya or Sequence Miyashita Park — the mid that is not a business-hotel clone"],
@@ -191,8 +191,8 @@
     cancun: {
       hook: "An all-inclusive in the Hotel Zone already covers the beach and the buffet. It did not buy the airport transfer, a timeshare morning, or a rental car parked under the tower.",
       startHere: "Compare Hyatt Ziva, Moon Palace, and a Riu only after the airport van is inside each rate. Eat on property the night you land. Isla Mujeres is a later day, not the transfer.",
-      cta: "If the Cancún Trip Plan shows two resorts and no van, it is not finished. One outing after the beach is the week.",
-      aroundRule: "The Hotel Zone R-1 is the bus. The airport van should already be inside the Hyatt, Moon Palace, or Riu rate. A rental is for a Chichén morning, then it waits.",
+      cta: "If the Cancún Trip Plan shows two resorts and no airport van, it is not finished. After the beach, add one outing, not three.",
+      aroundRule: "The Hotel Zone R-1 bus covers hops inside the zone. The airport van should already be inside the Hyatt, Moon Palace, or Riu rate. A rental is for a Chichén morning, then it sits.",
       aroundCar: [
         "Chichén Itzá or a cenote, as the one day the car moves",
         "Do not drive the Hotel Zone for a beach you can reach on the R-1",
@@ -224,7 +224,7 @@
         "Hidden gem: Start the rental the morning you drive to Hanauma Bay or Haleʻiwa. Every earlier night in a Waikiki garage is about $40–55 for a car that did not move.",
         "Hidden gem: A HOLO card on TheBus includes a transfer window and a day cap. Cash fares do not. The North Shore is that transfer, not a walk from Kuhio.",
         "Hidden gem: Hanauma Bay needs a reservation, and non-residents pay an entry fee on top of parking. The USS Arizona memorial is timed and free; the Missouri is the paid ship. They are not one ticket.",
-        "Rainbow Drive-In or L&L is the plate. The resort café is the same beach at a higher check.",
+        "Rainbow Drive-In or L&L is the meal. The resort café is the same beach at a higher check.",
         "Leonard's is a malasada on the way back, not a reason to keep the car overnight."
       ],
       sources: ["Honolulu DTS HOLO fare sheet: transfer window and day cap; cash fares differ", "Hanauma Bay reservations and non-resident entry fee, separate from parking"]
@@ -239,10 +239,10 @@
       doLux: ["Kai Kanani leaves from the Wailea side; Pride of Maui is the Maalaea boat. They are different harbors"],
       tips: [
         "Hidden gem: Haleakalā sunrise is a $1 vehicle reservation on Recreation.gov, required from 3 a.m. to 7 a.m., on top of the park entrance fee. A fee-free entrance day does not waive it, and there is no first-come line at the gate.",
-        "Hidden gem: A Kihei kitchen at Aston Maui Kamaole or Kohea Kai is the budget. Sheraton or Westin Kaanapali still owes a resort fee and parking before that rate beats the condo.",
+        "Hidden gem: A Kihei kitchen at Aston Maui Kamaole or Kohea Kai is what keeps food costs down. Sheraton or Westin Kaanapali still owes a resort fee and parking before that rate beats the condo.",
         "Hidden gem: Kai Kanani and Pride of Maui leave from different harbors. Booking 'a Molokini boat' without the harbor means a drive you did not put on the Hana day. Those are three mornings, not one.",
         "Grocery the first hour after OGG. Two cooked dinners change the week more than skipping Mama's.",
-        "Paia Fish Market is the plate on the way back from Hana. It is not a reason to book a second hotel."
+        "Paia Fish Market is a meal on the way back from Hana. It is not a reason to book a second hotel."
       ],
       sources: ["NPS Haleakalā: sunrise reservation $1, 3–7 a.m., separate from entrance", "Pride of Maui (Maalaea) vs Kai Kanani (Wailea) are different departures"]
     },
@@ -258,7 +258,7 @@
       tips: [
         "Hidden gem: A 'kids sail free' line does not waive gratuities once the child is 2. Mainstream lines still bill about $16–20 a person per day for that child. The infant under 2 needs documents, not a drink package, and does not make the adult package free.",
         "Hidden gem: Carnival CHEERS, Royal's Deluxe Beverage Package, and NCL's drink package bill per person. On many lines both adults in the cabin must take it. Run the drink-package break-even on the people who will drink, not on the cabin.",
-        "Hidden gem: A children's soda package and an adult drink package are different products. Buying the adult package so a child can have Coke is how a short sailing loses.",
+        "Hidden gem: A children's soda package and an adult drink package are different products. Buying the adult package so a child can have Coke is how a short cruise overspends.",
         "Add port fees, about $200 a person, before two brochure fares are comparable.",
         "One night at Chops Grille or Cagney's. Main dining is already in the fare the other nights."
       ],
@@ -266,7 +266,7 @@
     },
     key_west: {
       hook: "Old Town is a walk, Cuban coffee, and a sidewalk at Mallory Square. The money leaves when you eat on the pier or sleep on Stock Island and take a cab both ways.",
-      startHere: "The Big Ruby, Caribbean House, or The Gardens, close enough that Duval is a walk. Cuban Coffee Queen in the morning. Be on the Mallory sidewalk at sunset, not at a table that rents the same sky.",
+      startHere: "The Big Ruby, Caribbean House, or The Gardens, close enough that Duval is a walk. Cuban Coffee Queen in the morning. Watch sunset from the Mallory sidewalk. A pier table charges extra for the same view.",
       aroundRule: "Duval and Mallory are a walk from an Old Town inn. A rental is the Overseas Highway day from Miami, or a parking bill if you brought it to drink on Duval.",
       aroundCar: [
         "The drive from Miami is a full day on the Overseas Highway — count it as a day",

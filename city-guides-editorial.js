@@ -20,16 +20,16 @@
     disney: {
       hook: "Pop Century next to a Skyliner park is a different trip from a monorail Deluxe resort plus Park Hopper. The dining plan is usually how people who booked the cheaper stay end up spending like the expensive one.",
       startHere: "Book Pop Century, Art of Animation, or Caribbean Beach. Grocery the room the night you land. One park per ticket — Hopper only if you switch after lunch.",
-      tipsKicker: "Grid first, tickets second",
+      tipsKicker: "Choose the resort buses or Skyliner before you add park tickets",
       cta: "Build the Disney Trip Plan on the resort grid first. Add Hopper or Multi Pass only after that total still fits.",
-      stayRule: "Pop, Art of Animation, or Caribbean Beach when the days are Hollywood Studios and Epcot. All-Star if you want the cheapest bus. A monorail Deluxe is a Magic Kingdom commute you decided to buy.",
+      stayRule: "Pop, Art of Animation, or Caribbean Beach when the days are Hollywood Studios and Epcot. All-Star if you want the cheapest bus. A monorail Deluxe resort is what you pay when you want the Magic Kingdom commute.",
       eatRule: "Garden Grocer or Winn-Dixie for breakfast. Cosmic Ray’s, Pecos Bill, or Satu’li Canteen for lunch. One table — Sci-Fi Dine-In, ‘Ohana, or California Grill — not a dining plan.",
-      doRule: "One park on the ticket you hold. The Skyliner day is Hollywood Studios or Epcot. Magic Kingdom from those resorts is a bus, not a gondola.",
+      doRule: "One park on the ticket you hold. From a Skyliner resort, Hollywood Studios and Epcot are the gondola. Magic Kingdom from those resorts is a bus. The Skyliner does not go there.",
       zones: [
         z("Skyliner Value", "Pop or Art of Animation, about $150–310 before tax — gondola to Studios and Epcot, bus to Magic Kingdom"),
         z("All-Star bus", "Cheapest on-property bus. Osceola lodging tax is 13.5%, higher than the 12.5% rate on other Walt Disney World rooms"),
         z("Moderate campus", "Caribbean Beach or Port Orleans, about $280–450 before Florida’s 12.5% lodging tax"),
-        z("Monorail Deluxe", "Grand Floridian, Contemporary, or Polynesian — about $500–750 because the Magic Kingdom ride is the product"),
+        z("Monorail Deluxe", "Grand Floridian, Contemporary, or Polynesian — about $500–750, which is the price of the monorail ride to Magic Kingdom"),
         z("International Drive", "Off-property rooms start nearer $140–280, then $35 a day in park parking plus a car")
       ],
       days: [
@@ -60,7 +60,7 @@
     anaheim: {
       hook: "Harbor Boulevard puts you within walking distance of both Disneyland parks. Santa Monica, a dining plan, and a Universal day are three ways to spend that same money somewhere else.",
       startHere: "Candy Cane Inn or another Harbor walk. Albertsons or Target the night you land. Disneyland one day, California Adventure the next, and leave Universal in Los Angeles.",
-      tipsKicker: "Harbor first, Hopper later",
+      tipsKicker: "Stay on Harbor Boulevard before you add a Park Hopper",
       cta: "Build the Anaheim Trip Plan from Harbor Boulevard. Add Lightning Lane on the Disneyland day only if that total still works.",
       stayRule: "A Harbor Boulevard 3-star you can walk, or Pixar Place if you want the Downtown Disney path. Grand Californian is the Splurge walk into California Adventure. Santa Monica is a different city.",
       eatRule: "Breakfast from Albertsons or Target. Mobile-order inside the park you already entered. One table at Carthay Circle, Lamplight Lounge, or Napa Rose — not a dining plan.",
@@ -99,9 +99,9 @@
     los_angeles: {
       hook: "Los Angeles food is neighborhood food. The bill people remember is the rideshare across town, and the hotel garage they paid for on a night they did not drive.",
       startHere: "Pick Downtown, Koreatown, or Santa Monica and stay there. Porto’s or a bakery in the morning. Getty with a reservation, or one Universal day — not both, and not Disneyland.",
-      tipsKicker: "One zip code, one ticketed day",
+      tipsKicker: "Stay in one neighborhood, then pay for one attraction",
       cta: "Build the LA Trip Plan with one neighborhood’s hotels and restaurants, then cut anything that requires a cross-town ride.",
-      stayRule: "Freehand or Ace if you are Downtown, The Line or Hotel Normandie in Koreatown, Shore Hotel if the sand is the trip. Crossing town for dinner is a second rate.",
+      stayRule: "Freehand or Ace if you are Downtown, The Line or Hotel Normandie in Koreatown, Shore Hotel if you came for the beach. Dinner across town is a second transportation bill.",
       eatRule: "Porto’s or Grand Central Market where you slept. Koreatown BBQ if that is the bed. Providence or n/naka is one tasting, not a drive from Santa Monica.",
       doRule: "Getty Center is free once you reserve it. Universal Studios Hollywood is the paid day, about $100–160. Griffith is the free evening. Disneyland is Anaheim lodging.",
       zones: [
@@ -125,7 +125,7 @@
       skip: [
         s("Disneyland from Santa Monica", "That is an Anaheim day with a long ride on both ends."),
         s("Casa del Mar or 1 Hotel dining rooms", "Lobby prices. Porto’s and Grand Central Market exist."),
-        s("Dinner in a different neighborhood", "The ride can cost more than the plate.")
+        s("Dinner in a different neighborhood", "The rideshare can cost more than the meal.")
       ],
       tips: [
         "Money edge: Reserve the Getty. Admission is free. A $40 rideshare each way costs more than the parking.",
@@ -138,7 +138,7 @@
     nyc: {
       hook: "The subway ride is cheap. The trip gets expensive when the hotel is in the wrong neighborhood and lunch keeps landing in Midtown.",
       startHere: "Sleep on a train you will ride — Lower East Side, downtown, or a Brooklyn stop. Bodega breakfast. One paid thing: the Met, MoMA, or a single Broadway seat.",
-      tipsKicker: "The borough is the budget",
+      tipsKicker: "The subway stop under the hotel sets the New York budget",
       cta: "Build the New York Trip Plan from the subway stop you will sleep near. Add one museum or one show after that.",
       stayRule: "Pod 39, citizenM Bowery, Ace Hotel NoMad, or The Hoxton Williamsburg. Times Square rents you the neon and a resort-style fee.",
       eatRule: "Bodega egg-and-cheese or a bakery. One dinner at L’Artusi, Russ & Daughters Cafe, or farther out on the 7. Le Bernardin or Via Carota is the reservation, not the daily lunch.",
@@ -177,7 +177,7 @@
     vegas: {
       hook: "A Tuesday room rate looks cheap until you add the nightly resort fee, a Saturday night, and one steakhouse dinner on the Strip.",
       startHere: "Tuesday through Thursday at Park MGM, New York-New York, or Circa. Add the resort fee before you compare rooms. Walk to the fountains.",
-      tipsKicker: "Resort fee before the rate",
+      tipsKicker: "Add the nightly resort fee before you trust the room rate",
       cta: "Build the Vegas Trip Plan with the resort fee inside the room, then add one show.",
       stayRule: "Park MGM, New York-New York, or Horseshoe if you want to walk the Strip. Circa or Ellis Island if you want Fremont. Saturday is a different hotel.",
       eatRule: "Park MGM food hall or Chinatown at District One. Esther’s Kitchen downtown for one sit-down. Bazaar Meat or Hell’s Kitchen once, then back to the food hall.",
@@ -189,7 +189,7 @@
         z("Convention week", "Saturday and trade-show dates reprice the same tower. The resort fee is still about $35–55")
       ],
       days: [
-        d("Center-Strip on foot", ["Check into Park MGM or New York-New York", "Bellagio fountains and the conservatory — no ticket", "Dinner at the Park MGM food hall or off the carpet"]),
+        d("Center-Strip on foot", ["Check into Park MGM or New York-New York", "Bellagio fountains and the conservatory — no ticket", "Dinner at the Park MGM food hall, or a restaurant off the casino floor"]),
         d("One daytime outing", ["High Roller off-peak, or Red Rock only if a car is already booked for that day", "Otherwise stay on the sidewalk", "The Deuce or the monorail is the backup, not four rideshares"]),
         d("One show, then leave", ["Mystère or O — one ticket", "Not a nightclub table the same night", "Fly before Saturday if the rate is why you came"])
       ],
@@ -201,8 +201,8 @@
         "Saturday or convention rates versus the Tuesday you used for comparison"
       ],
       skip: [
-        s("A rental for Center-Strip", "The walk is the product. Parking is a fee."),
-        s("A steakhouse every night", "The food hall is ten minutes off the carpet."),
+        s("A rental for Center-Strip", "You can walk the Strip from these hotels. A rental adds a parking fee."),
+        s("A steakhouse every night", "The food hall is a short walk off the casino floor, and it costs less."),
         s("Omnia or XS the night you have show tickets", "That is a second admission.")
       ],
       tips: [
@@ -216,7 +216,7 @@
     miami: {
       hook: "A few blocks inland from Collins Avenue has the same sand as Ocean Drive without the postcard prices. The expensive mistakes are a Nikki Beach minimum and a rental car you barely use.",
       startHere: "The Gale, Freehand, or The Betsy — not the Ocean Drive postcard. Versailles or a ventanita for breakfast. One other neighborhood: Wynwood, Little Havana, or Brickell.",
-      tipsKicker: "Same sand, different menu",
+      tipsKicker: "The same beach costs less a few blocks off Ocean Drive",
       cta: "Build the Miami Trip Plan a few blocks off Ocean Drive. Add Wynwood or the Everglades, not a cabana minimum.",
       stayRule: "The Gale or a Collins 2-star for the sand. Kimpton EPIC if you want Brickell restaurants and a free Metromover. 1 Hotel or Faena is the Splurge, and the cabana is still extra.",
       eatRule: "Versailles or a ventanita. Yardbird if you want a sit-down off Ocean Drive. Joe’s Stone Crab or Stubborn Seed once, then Cuban breakfast again.",
@@ -225,7 +225,7 @@
         z("Collins, off Ocean Drive", "The Gale or Essex House. Same sand, about $250–360 before 13% lodging tax"),
         z("Brickell", "Kimpton EPIC. Metromover is free; one rideshare to the sand"),
         z("Mid-Beach", "Faena or The Setai — quieter, still not an Ocean Drive menu"),
-        z("Ocean Drive", "The postcard rate and the tourist menu. The beach is the same one Collins already has")
+        z("Ocean Drive", "The Ocean Drive rate and the tourist menu. The beach is the same one Collins already has")
       ],
       days: [
         d("The sand you booked", ["Versailles or a ventanita, then Lummus Park", "Dinner a few blocks inland at Yardbird, not on Ocean Drive", "No rental for this day"]),
@@ -235,7 +235,7 @@
       hidden: [
         "Miami lodging tax about 13%",
         "MIA versus FLL ground transfer",
-        "A rental for a week you spend on one beach grid",
+        "A rental for a week you spend on one walkable beach",
         "Beach-club or cabana minimum at Nikki Beach or 1 Hotel",
         "Ocean Drive menu prices on the same sand as Collins"
       ],
@@ -255,7 +255,7 @@
     san_francisco: {
       hook: "A Clipper card and a Mission bakery will get you through San Francisco. A Union Square tourist hotel plus Fisherman's Wharf seafood on the same day will not.",
       startHere: "Hotel Emeline or a Ferry Building walk. Tartine or a Mission bakery. Book the Alcatraz ferry before you book a second museum.",
-      tipsKicker: "Clipper, then one ferry",
+      tipsKicker: "Use a Clipper card, then buy one Alcatraz ferry",
       cta: "Build the San Francisco Trip Plan from the Ferry Building or the Mission. Add Alcatraz after the room, not a Wharf dinner.",
       stayRule: "Hotel Emeline or a Jackson Square room if you want the ferry. HI or a Mission walk-up on Budget. Fairmont or 1 Hotel if the room is the treat. Union Square is the same Muni ride at a higher rate.",
       eatRule: "Tartine or the Ferry Building. A Mission taqueria at lunch. State Bird Provisions or Quince once. The French Laundry is a Napa transfer, not a San Francisco reservation.",
@@ -294,7 +294,7 @@
     chicago: {
       hook: "Winter is when a Loop or Fulton Market room makes sense. The expensive version is a suburban hotel rate, then Ubering to the Art Institute and a river cruise on the same afternoon.",
       startHere: "Sleep in the Loop or at The Hoxton in Fulton Market. A diner breakfast. One paid indoor: the Art Institute or a Wendella cruise, not both the same afternoon.",
-      tipsKicker: "The L, then one indoor",
+      tipsKicker: "Ride the L, then pay for one indoor stop",
       cta: "Build the Chicago Trip Plan from the Loop or Fulton Market. Buy one museum or one river cruise after the room.",
       stayRule: "Freehand, HI, or a Loop Hampton so the L is downstairs. The Hoxton if you want Fulton Market. The Langham in winter is when that rate can make sense.",
       eatRule: "A diner or a doughnut, not the hotel. Lou Malnati’s or Giordano’s once. The Publican or Girl & the Goat for the sit-down. Oriole is the Splurge reservation.",
@@ -333,9 +333,9 @@
     nola: {
       hook: "Spend on Galatoire's or Commander's Palace, and sleep in the Warehouse District or on the St. Charles streetcar line. A Bourbon Street balcony looks good in photos and does nothing for the food bill.",
       startHere: "Warehouse District or the Garden District on the St. Charles line. A Parkway po’boy at lunch. Galatoire’s or Commander’s if that booking is why you came.",
-      tipsKicker: "The reservation is the trip",
+      tipsKicker: "Book the restaurant before you book the hotel",
       cta: "Build the New Orleans Trip Plan around the reservation, then pick a Warehouse or Garden District room that does not eat it.",
-      stayRule: "HI or a Warehouse 2-star, Hotel Peter and Paul, or The Pontchartrain on the streetcar. Hotel Monteleone is the Quarter flagship. The balcony premium does not improve the plate.",
+      stayRule: "HI or a Warehouse 2-star, Hotel Peter and Paul, or The Pontchartrain on the streetcar. Hotel Monteleone is the Quarter flagship. A balcony costs more, and it does not change the price of dinner.",
       eatRule: "Café du Monde once, then a neighborhood café. Parkway for the po’boy. Galatoire’s or Commander’s Palace for the reservation.",
       doRule: "Daylight in the Quarter, then the St. Charles streetcar through the Garden District. Preservation Hall or Frenchmen Street is the music night. A swamp tour needs a car you already counted.",
       zones: [
@@ -357,7 +357,7 @@
         "A second music cover the night you already have a reservation"
       ],
       skip: [
-        s("A Bourbon balcony as the strategy", "The plate does not get better."),
+        s("A Bourbon balcony as the strategy", "A balcony does not make dinner cheaper."),
         s("A haunted-tour stack", "Frenchmen Street or Preservation Hall is the night."),
         s("Café du Monde every morning", "Once. Then a neighborhood café.")
       ],
@@ -372,7 +372,7 @@
     philadelphia: {
       hook: "Reading Terminal can feed you twice, and Independence Hall is free if you booked the timed ticket. An airport hotel charges you Regional Rail fare just to start every morning over.",
       startHere: "The Notary or another City Hall walk. Reading Terminal in the morning. Independence Hall on a timed entry, then either the Barnes or the Art Museum — not both.",
-      tipsKicker: "Terminal lunch, one museum",
+      tipsKicker: "Eat at Reading Terminal, then pick one museum",
       cta: "Build the Philadelphia Trip Plan from Center City or Old City. Add Reading Terminal and one museum after the room.",
       stayRule: "The Notary, Kimpton Hotel Monaco, or a Center City Hampton. Four Seasons or The Rittenhouse if the room is the treat. An airport hotel owes Regional Rail every day.",
       eatRule: "Reading Terminal for breakfast and a DiNic’s plate. Pat’s or Geno’s once. Vetri or Villa di Roma at night. Zahav only if that dinner is the reason for the trip.",
@@ -411,7 +411,7 @@
     atlanta: {
       hook: "MARTA from the airport and a walk from Ponce City Market to Krog Street Market are the cheap Atlanta. A hotel off the train means Ubers you will take twice, and Buckhead is a third fare.",
       startHere: "MARTA from ATL to Midtown or to Hotel Clermont on Ponce. Mary Mac’s for a meat-and-three. Georgia Aquarium or World of Coca-Cola — one morning.",
-      tipsKicker: "MARTA in, trail after",
+      tipsKicker: "Ride MARTA from the airport, then walk the BeltLine",
       cta: "Build the Atlanta Trip Plan from Midtown or Ponce. Add one ticketed morning, not a Buckhead steakhouse.",
       stayRule: "Hampton or Home2 in Midtown, or Hotel Clermont on Ponce, so the BeltLine is the evening. Four Seasons is the Midtown flagship. St. Regis Buckhead trades the trail for a different fare.",
       eatRule: "West Egg or a café, then Mary Mac’s. Fox Bros. Bar-B-Q if you are on the trail. Staplehouse or Bacchanalia once. Bones is a Buckhead ride.",
@@ -437,7 +437,7 @@
       skip: [
         s("A hotel that is not on MARTA", "You will pay for the rides the train already runs."),
         s("Aquarium and World of Coca-Cola the same morning", "Pick one."),
-        s("Bones on a trail week", "Mary Mac’s and Fox Bros. are the plates.")
+        s("Bones on a trail week", "Mary Mac’s and Fox Bros. cover the meals. Bones adds a ride to Buckhead.")
       ],
       tips: [
         "Money edge: MARTA from ATL to Midtown is one fare. The BeltLine from Ponce City Market to Krog does not charge admission.",
@@ -450,9 +450,9 @@
     paris: {
       hook: "Paris stays affordable when breakfast is a bakery downstairs and you pick one museum. It stops being cheap when the room faces the tower, the summit ticket is from a reseller, and lunch is on the tourist steps.",
       startHere: "A Metro hotel in the 10th or 11th. Breakfast at the bakery downstairs. The Louvre or the Orsay — one — and Septime, Frenchie, or Le Comptoir only if that table is already booked.",
-      tipsKicker: "One museum, one booking",
+      tipsKicker: "Pick one museum and book the timed ticket before you fly",
       cta: "Build the Paris Trip Plan from a Metro-line hotel. Add one museum, and the dinner only if you already hold it.",
-      stayRule: "Ibis or a walk-up near République or Oberkampf. A canal boutique in the 10th or 11th if you want dinner on the block. Crillon or Bristol when the palace is the point, not the default.",
+      stayRule: "Ibis or a walk-up near République or Oberkampf. A canal boutique in the 10th or 11th if you want dinner on the block. Crillon or Bristol only if you came to stay in a palace, not as the default room.",
       eatRule: "Bakery and coffee every morning. Bouillon Chartier or a formule for lunch. A fromagerie on Rue du Faubourg-Saint-Denis is a real dinner. Le Clarence or Epicure is palace dining, its own line.",
       doRule: "Trocadéro at dusk is the tower view. Pay for the Louvre or the Orsay, not both the same day. Versailles is an RER half-day.",
       zones: [
@@ -476,7 +476,7 @@
       skip: [
         s("A restaurant on the tower steps", "Trocadéro is the view. The bakery is the breakfast."),
         s("Four museums in a day", "One timed ticket. A pass wins at two or more."),
-        s("A rental car", "The Metro is the product. Stairs are the other one.")
+        s("A rental car", "The Metro covers the city. Many buildings have stairs and no elevator, which is a luggage problem, not a reason to drive.")
       ],
       tips: [
         "Money edge: See the tower from Trocadéro for free. Buy a Museum Pass only if you will enter two museums.",
@@ -489,16 +489,16 @@
     london: {
       hook: "Contactless fare caps and free national museums make London workable. Mayfair lodging plus the London Eye plus the Tower is a week that looks full and costs about twice as much.",
       startHere: "Premier Inn or The Hoxton in Zone 1–2. A Tesco meal deal or a bakery. The British Museum or the National Gallery before you buy the Eye.",
-      tipsKicker: "Cap the Tube, skip the paper ticket",
+      tipsKicker: "Tap a contactless card so the daily Tube cap applies",
       cta: "Build the London Trip Plan on the contactless cap. Add one free museum or one West End seat, not both landmarks.",
-      stayRule: "Premier Inn or Travelodge in Southwark, King’s Cross, or Earl’s Court. The Hoxton if you want restaurants on the block. Claridge’s or The Connaught if Mayfair is the point.",
+      stayRule: "Premier Inn or Travelodge in Southwark, King’s Cross, or Earl’s Court. The Hoxton if you want restaurants on the block. Claridge’s or The Connaught if you came to stay in Mayfair.",
       eatRule: "Bakery or a Tesco meal deal. Borough Market for one lunch. Dishoom or a Dalston grill for dinner. The Ivy is the reservation, then Tesco again.",
       doRule: "The British Museum and the National Gallery are free. Pay for one West End seat or the Tower, not the Eye and the Tower the same day.",
       zones: [
         z("South Bank", "Premier Inn County Hall class. The river walk is free; the Eye is not"),
         z("Bloomsbury", "Generator London. British Museum on foot, contactless cap for the rest"),
         z("South Ken", "The Resident or a museum-mile room. Not a Mayfair rate"),
-        z("Heathrow hotel", "Fine the night you land. A sad week if you stay and ride in every morning")
+        z("Heathrow hotel", "Fine the night you land. A poor base for the week if you ride into the city every morning")
       ],
       days: [
         d("A free museum", ["British Museum or the National Gallery", "Bakery or Tesco breakfast — hotel breakfast only if it is in the rate", "South Bank walk. No Eye ticket"]),
@@ -528,10 +528,10 @@
     rome: {
       hook: "Rome is a walking city until you sit down. The money goes to a Piazza Navona table, a golf-cart tour, and a second ruin ticket you tried to squeeze in before lunch.",
       startHere: "Trastevere, or a Prati room near Ottaviano. Cornetto at the bar. Colosseum and Forum one day, Vatican Museums a different day.",
-      tipsKicker: "One ruin, then the table",
+      tipsKicker: "Buy one ruin ticket, then eat away from the main piazzas",
       cta: "Build the Rome Trip Plan from Trastevere or Prati. Book one timed ruin, not a golf-cart stack.",
       stayRule: "A Trastevere guesthouse or Hotel Nazionale in the center. The Beehive if you land late at Termini. Hotel de Russie or Hotel Eden when the room is the Splurge.",
-      eatRule: "Cornetto standing at the bar. Da Enzo al 29 or Flavio al Velavevodetto for the meal, and ask about coperto. La Pergola is one tasting menu, not a nightly habit.",
+      eatRule: "Cornetto standing at the bar. Da Enzo al 29 or Flavio al Velavevodetto for the meal, and ask about the cover charge (coperto). La Pergola is one tasting menu, not a nightly habit.",
       doRule: "Pantheon and Trastevere on foot. Pay for the Colosseum and Forum as one timed ticket, or the Vatican Museums, not both before lunch. Skip the golf-cart.",
       zones: [
         z("Trastevere", "Walk the river. Dinner without a photo menu. The bar breakfast is the cheap one"),
@@ -540,7 +540,7 @@
         z("Navona menus", "Carbonara priced for the piazza. The same pasta costs less in Testaccio or Trastevere")
       ],
       days: [
-        d("Centro on foot", ["Cornetto at the bar, not at a Navona table", "Pantheon neighborhood in daylight", "Da Enzo or a Trastevere table at night — ask about coperto"]),
+        d("Centro on foot", ["Cornetto at the bar, not at a Navona table", "Pantheon neighborhood in daylight", "Da Enzo or a Trastevere table at night — ask about the cover charge (coperto)"]),
         d("Colosseum and Forum", ["One timed ticket for the Colosseum and the Forum", "No Vatican Museums the same morning", "No golf-cart between them"]),
         d("Vatican, or a Prati morning", ["Vatican Museums on their own day", "Or a walk along the Vatican walls in Prati if you are not buying a second ticket", "Flavio al Velavevodetto if you want Testaccio instead of another interior"])
       ],
@@ -567,32 +567,32 @@
     tokyo: {
       hook: "Tokyo stays cheap when the hotel sits above a station and breakfast is a convenience-store onigiri. It gets expensive when the buffet is in the room rate and someone buys a JR Pass for a week that never leaves the Yamanote line.",
       startHere: "APA, Toyoko Inn, or Mitsui Garden over a JR or Metro line. Konbini breakfast. One ward a day. A sushi counter only if you booked it before you landed.",
-      tipsKicker: "Suica, not a JR Pass",
+      tipsKicker: "A Suica card covers a Tokyo week. A JR Pass does not",
       cta: "Build the Tokyo Trip Plan from a station hotel. Add Suica taps and one booked counter, not a nationwide rail pass.",
       stayRule: "APA, Super Hotel, or Toyoko Inn in Shinjuku or Ueno. Mitsui Garden or Hotel Gracery for Mid-range. Park Hyatt or Aman if the room is the treat — you still take the Metro to dinner.",
-      eatRule: "Onigiri and coffee. Conveyor sushi or ramen at lunch. Golden Gai or Omoide Yokocho for the izakaya. Sushi Saito or a Ginza counter only if it was booked before the flight.",
-      doRule: "Walk the ward you booked. Sensō-ji at opening is free. teamLab Planets is the timed ticket. Kamakura is a half-day, not a fake Kyoto.",
+      eatRule: "Rice balls and coffee from a convenience store. Conveyor sushi or ramen at lunch. Golden Gai or Omoide Yokocho for the izakaya. Sushi Saito or a Ginza counter only if it was booked before the flight.",
+      doRule: "Walk the ward you booked. Sensō-ji at opening is free. teamLab Planets is the timed ticket. Kamakura is a half-day. Kyoto is a different trip.",
       zones: [
-        z("Shinjuku / Shibuya", "APA or Toyoko Inn over a JR or Metro line. The lobby konbini is the breakfast"),
+        z("Shinjuku / Shibuya", "APA or Toyoko Inn over a JR or Metro line. Breakfast is the convenience store in the lobby"),
         z("Ueno / Asakusa", "A cheaper station hotel. Sensō-ji in the morning"),
         z("Ginza / Marunouchi", "Mitsui Garden or Palace Hotel when the room is the treat"),
         z("Narita hotel", "A crash pad the night you land. The Skyliner or N’EX fare is the cost of not flying Haneda")
       ],
       days: [
-        d("The ward you booked", ["Konbini breakfast", "Shinjuku or Shibuya on foot", "Golden Gai or Omoide Yokocho — one izakaya"]),
+        d("The ward you booked", ["Convenience-store breakfast", "Shinjuku or Shibuya on foot", "Golden Gai or Omoide Yokocho — one izakaya"]),
         d("Asakusa, or teamLab", ["Sensō-ji at opening, free", "teamLab Planets only if that timed ticket is the indoor", "Not both plus a Kamakura afternoon"]),
         d("A quieter ward", ["Yanaka or Shimokitazawa in the morning", "Sushi Saito or a Toyosu outer-market counter only if the booking exists", "No JR Pass math on a city day"])
       ],
       hidden: [
         "Narita Skyliner or N’EX fare if you did not fly Haneda",
-        "A hotel breakfast buffet versus konbini prices",
+        "A hotel breakfast buffet versus convenience-store prices",
         "A JR Pass on a Tokyo-only week",
         "teamLab timed entry on top of a museum the same day",
         "A small accommodation tax outside the rate that already includes consumption tax"
       ],
       skip: [
         s("A JR Pass for a city week", "Suica or PASMO already covers the rides you will take."),
-        s("The hotel buffet", "The konbini is in the station you slept above."),
+        s("The hotel buffet", "A convenience store is in the station under the hotel, and it is cheaper."),
         s("Kyoto as a Tokyo day", "Kamakura is the half-day. Kyoto is a different trip.")
       ],
       tips: [
@@ -606,11 +606,11 @@
     cancun: {
       hook: "An all-inclusive in the Hotel Zone already covers the beach and the buffet. It did not buy the airport transfer, a timeshare morning, or a rental car parked under the tower.",
       startHere: "Confirm the van is inside the Hyatt Ziva, Moon Palace, or Riu rate. Eat on property. One outing — Isla Mujeres or a cenote — not both, and not Chichén the same day.",
-      tipsKicker: "The van, then the beach",
+      tipsKicker: "Confirm the airport van is included before you compare resorts",
       cta: "Build the Cancún Trip Plan with the airport van inside the rate. Add one outing, not a timeshare morning.",
       stayRule: "Riu or an Oasis-class garden view on Budget. Hyatt Ziva or Moon Palace when the transfer is in the rate. Le Blanc or Nizuc is the Splurge, and Nizuc is a different transfer.",
       eatRule: "The Riu or Hyatt Ziva buffet is what you paid for. A Parque de las Palapas taco run only if the taxi is cheap. A specialty restaurant at Le Blanc or Ziva is one night, not a timeshare lunch.",
-      doRule: "The beach in front of the resort is the week. The R-1 bus is the Hotel Zone hop. Isla Mujeres or one cenote. Chichén Itzá is its own booked day.",
+      doRule: "The beach in front of the resort is what the rate already includes. The R-1 bus is the Hotel Zone hop. Pick Isla Mujeres or one cenote. Chichén Itzá is its own booked day.",
       zones: [
         z("Hotel Zone value", "Riu class, garden view on purpose. Quoted in USD, about $200–330 in the shoulder band"),
         z("Hotel Zone 4-star", "Hyatt Ziva or Moon Palace — only if the airport van is in the rate"),
@@ -645,7 +645,7 @@
     oahu: {
       hook: "Waikiki on TheBus, with a plate lunch, is a complete week. Resort breakfast and a rental that sleeps in a $40–55 garage are how the same beach gets expensive.",
       startHere: "The Equus, a Kuhio room, or the Outrigger. Rainbow Drive-In or a grocery run. One reserved outing — Hanauma Bay or Pearl Harbor, not both.",
-      tipsKicker: "TheBus until you leave",
+      tipsKicker: "Use TheBus until the morning you leave Waikiki",
       cta: "Build the Oahu Trip Plan from Waikiki, one block back. Add TheBus. Add a car only on the day you leave the grid.",
       stayRule: "The Equus or a Kuhio 2-star, one block back. Outrigger or ‘Alohilani if you want Kalakaua. Halekulani is the Splurge. Kahala or Ko Olina assumes a car.",
       eatRule: "Grocery or Rainbow Drive-In and L&L. Helena’s or Highway Inn for one dinner. La Mer or House Without a Key if the view is the reservation, then grocery breakfast again.",
@@ -670,7 +670,7 @@
       ],
       skip: [
         s("A car that never leaves Waikiki", "You are paying $40–55 to park it."),
-        s("Resort breakfast every morning", "Rainbow Drive-In and L&L are the plate."),
+        s("Resort breakfast every morning", "Rainbow Drive-In and L&L are the meal. The resort café charges more for the same beach."),
         s("Hanauma and Pearl Harbor and a flight to Maui", "One timed outing. Maui is a different ticket.")
       ],
       tips: [
@@ -684,7 +684,7 @@
     maui: {
       hook: "A Kihei condo with a kitchen already includes the beach in front of it. The expensive week stacks the Road to Hana, a Haleakalā sunrise, and a Molokini boat as if they were errands.",
       startHere: "A Kihei condo with a kitchen. Grocery the first hour after OGG. One big day — Road to Hana, Haleakalā sunrise, or a Molokini boat — then the same coast.",
-      tipsKicker: "The kitchen is the budget",
+      tipsKicker: "Cook in the condo so you are not buying resort breakfast",
       cta: "Build the Maui Trip Plan from one coast and a kitchen. Add one outing, not Hana plus a summit plus a boat.",
       stayRule: "A Kihei condo (Punahoa or Kohea Kai class) if you will cook. Sheraton or Westin Maui if you want the Kaanapali path. Grand Wailea, Andaz, or Four Seasons is the Splurge — still one coast.",
       eatRule: "Grocery at the first market. Kihei Caffe or Paia Fish Market for one plate. Mama’s Fish House or Spago once. Skip the Westin or Sheraton breakfast buffet.",
@@ -723,14 +723,14 @@
     cruise: {
       hook: "The brochure fare bought a cabin and the main dining room. Gratuities, port fees, and a drink package priced per person — including the adult who will not drink — are the rest of the week.",
       startHere: "Price the interior or the balcony with gratuities and port fees already on the card. Run the drink-package break-even before you tap yes. One port is a walk.",
-      tipsKicker: "Fare, then the lines they left off",
+      tipsKicker: "Add port fees and gratuities before you compare brochure fares",
       cta: "Build the cruise Trip Plan with gratuities and the drink math in the total. Add one port walk, not three pier tours.",
       aroundRule: "The ship is the hotel. A pier kiosk is the expensive version of a walk. Price the pre-cruise night if the flight cannot miss the gangway.",
       stayRule: "An interior guarantee if you want the deck more than the cabin. An oceanview or a Royal or NCL balcony for the Caribbean product. A suite adds suite gratuities.",
       eatRule: "Main dining is in the fare. Chops Grille or Cagney’s once, about $45 a person. Bar drinks until the package’s break-even says otherwise.",
       doRule: "Sea days on the Lido deck. One ship excursion plus a walk in Nassau or Cozumel. A pier kiosk is the expensive version of that walk.",
       zones: [
-        z("Interior", "About $250–650 a person for 7 nights on Carnival through Royal, before port fees. The deck is the trip"),
+        z("Interior", "About $250–650 a person for 7 nights on Carnival through Royal, before port fees. You are paying for time on the ship, not a large cabin"),
         z("Oceanview or balcony", "The balcony add in the cruise table is about $500 a person"),
         z("Suite", "Space, and suite gratuities as their own line"),
         z("Pre-cruise hotel", "About $200 if the flight can miss the ship. Missing the ship costs more")
@@ -763,9 +763,9 @@
     key_west: {
       hook: "Old Town is a walk, Cuban coffee, and a sidewalk at Mallory Square. The money leaves when you eat on the pier or sleep on Stock Island and take a cab both ways.",
       startHere: "Caribbean House, The Gardens, or The Big Ruby — Old Town, walkable. Cuban Coffee Queen in the morning. Sunset from the Mallory sidewalk.",
-      tipsKicker: "Walk Old Town, price the ferry",
+      tipsKicker: "Walk Old Town, and price the Dry Tortugas ferry as its own day",
       cta: "Build the Key West Trip Plan from an Old Town walk. Add the Tortugas ferry only if that day is otherwise empty.",
-      stayRule: "The Big Ruby, Caribbean House, or The Gardens, close enough to walk. Casa Marina if you want the beach-end Splurge. Stock Island plus a nightly cab is not the budget.",
+      stayRule: "The Big Ruby, Caribbean House, or The Gardens, close enough to walk. Casa Marina if you want the beach-end Splurge. A Stock Island room plus a cab each way usually spends the discount.",
       eatRule: "Cuban Coffee Queen or a ventanita. El Siboney or Garbo’s at night. Louie’s Backyard or Latitudes once. Kermit’s key lime once, not as dinner.",
       doRule: "Mallory Square from the sidewalk at sunset. Fort Zachary Taylor for the swim. The Dry Tortugas ferry only if it is the whole day. A Sebago sail does not share that day.",
       zones: [
