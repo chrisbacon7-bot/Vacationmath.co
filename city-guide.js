@@ -419,6 +419,24 @@
       + "</section>";
   }
 
+  function walkSection(guide) {
+    var w = guide.walk;
+    if (!w || !w.lines || !w.lines.length) return "";
+    var rows = w.lines.map(function (line) {
+      return "<div><dt>" + esc(line.item) + "</dt><dd>" + esc(plainVoice(line.cost)) + "</dd></div>";
+    }).join("");
+    var tripLabel = w.tripLabel || "Trip";
+    return ""
+      + "<section class=\"cg-section cg-walk\" id=\"money-walk\">"
+      +   "<h2 class=\"cg-h2\">Mid-range money walkthrough</h2>"
+      +   "<p class=\"cg-rule\">" + esc(plainVoice(w.lead)) + "</p>"
+      +   "<dl class=\"cg-walk-grid\">" + rows + "</dl>"
+      +   "<p class=\"cg-walk-total\"><strong>Day:</strong> " + esc(plainVoice(w.day)) + "</p>"
+      +   "<p class=\"cg-walk-total\"><strong>" + esc(tripLabel) + ":</strong> " + esc(plainVoice(w.trip)) + "</p>"
+      +   "<p class=\"cg-facts-note\">" + esc(plainVoice(w.note || "Worked example inside the Quick facts bands. Public rates, not a live quote.")) + "</p>"
+      + "</section>";
+  }
+
   function daysSection(guide) {
     var days = (guide.days || []).map(function (d, i) {
       var bullets = (d.bullets || []).map(function (b) {
@@ -519,6 +537,7 @@
       + staySection(guide, planHref)
       + eatSection(guide)
       + doSection(guide)
+      + walkSection(guide)
       + daysSection(guide)
       + bookSection(guide)
       + hiddenSection(guide)
