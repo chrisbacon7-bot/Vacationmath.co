@@ -17,7 +17,7 @@
 
   var P = {
     disney: {
-      hook: "Pop Century to a Skyliner park is a different vacation from a monorail Deluxe and a Hopper. The dining plan is how the second one sneaks up on people who booked the first.",
+      hook: "Pop Century next to a Skyliner park is a different trip from a monorail Deluxe resort plus Park Hopper. The dining plan is usually how people who booked the cheaper stay end up spending like the expensive one.",
       startHere: "If Hollywood Studios and Epcot are the days that matter, take Pop Century, Art of Animation, or Caribbean Beach and grocery the room after MCO. Keep one park on the ticket. Hopper can wait until you know you will actually switch after lunch.",
       aroundRule: "Disney buses and the Skyliner are the week. A rental is for a Winter Garden grocery run, not a drive to Magic Kingdom that then costs about $35 to park.",
       aroundCar: [
@@ -28,7 +28,7 @@
       sources: ["Walt Disney World transportation pages: Skyliner vs monorail vs bus", "Calculator park-parking line, about $35"]
     },
     anaheim: {
-      hook: "Harbor Boulevard is two parks you can walk to. Santa Monica, a dining plan, and a Universal day are three ways to spend the Disneyland money somewhere else.",
+      hook: "Harbor Boulevard puts you within walking distance of both Disneyland parks. Santa Monica, a dining plan, and a Universal day are three ways to spend that same money somewhere else.",
       startHere: "Candy Cane Inn, or any Harbor hotel you can walk from, plus an Albertsons or Target run the night you land. Disneyland one day, California Adventure the next. Universal Studios Hollywood belongs on a Los Angeles calendar.",
       aroundRule: "Walk Harbor or ride ART to the esplanade. SNA is the close airport. A cheap LAX fare still owes the ground ride, and a rental that sleeps in the garage is only a parking bill.",
       aroundCar: [
@@ -38,7 +38,7 @@
       ]
     },
     los_angeles: {
-      hook: "Los Angeles food is neighborhood food. The bill people remember is the rideshare to a restaurant in a different neighborhood, and the hotel garage they paid for on a night they did not drive.",
+      hook: "Los Angeles food is neighborhood food. The bill people remember is the rideshare across town, and the hotel garage they paid for on a night they did not drive.",
       startHere: "Pick the bed first — Downtown, Koreatown, or Santa Monica — and let the restaurants follow that choice. Porto's or Grand Central Market in the morning. Reserve the Getty if you want the free museum; buy Universal only if that is the one paid day.",
       aroundRule: "The E Line is the Downtown–Santa Monica trip on TAP. A car earns the $40–60 hotel garage on a Getty or canyon day, and loses money every other night.",
       aroundCar: [
@@ -48,12 +48,12 @@
       ]
     },
     nyc: {
-      hook: "A $3 OMNY tap is not the New York budget. The neighborhood of the room is, and so is the third $28 Midtown salad.",
+      hook: "The subway ride is cheap. The trip gets expensive when the hotel is in the wrong neighborhood and lunch keeps landing in Midtown.",
       startHere: "Sleep on a train you will ride: citizenM on the Bowery, Pod 39, or The Hoxton in Williamsburg. Bodega egg-and-cheese in the morning. Spend on the Met, MoMA, or one Broadway seat — Times Square is a corridor, not a hotel strategy.",
       aroundRule: "OMNY on the subway under the hotel covers the city, and the cap is about $35 after 12 local rides on the same card. A Manhattan garage plus a tunnel is a different vacation."
     },
     vegas: {
-      hook: "The Tuesday rate at Park MGM is a headline. The resort fee, the Saturday night, and a steakhouse on the carpet are the trip.",
+      hook: "A Tuesday room rate looks cheap until you add the nightly resort fee, a Saturday night, and one steakhouse dinner on the Strip.",
       startHere: "Arrive Tuesday, leave before Saturday, and stay at Park MGM, New York-New York, or Circa. Add about $35–55 a night for the resort fee before you tell anyone the room was cheap. The fountains are a walk.",
       aroundRule: "Center-Strip, from Park MGM to the Bellagio fountains, is a sidewalk. The Deuce is the backup. Rent a car only if Red Rock is actually on the calendar.",
       aroundCar: [
@@ -63,7 +63,7 @@
       ]
     },
     miami: {
-      hook: "Collins, a few blocks inland, has the same sand as Ocean Drive and a menu that is not priced for the postcard. The expensive mistakes are a Nikki Beach minimum and a rental that moves once.",
+      hook: "A few blocks inland from Collins Avenue has the same sand as Ocean Drive without the postcard prices. The expensive mistakes are a Nikki Beach minimum and a rental car you barely use.",
       startHere: "The Gale, Freehand, or The Betsy. Versailles or a ventanita before you touch the beach. If you leave the sand, pick one of Wynwood, Little Havana, or Brickell — not a tour of all three.",
       aroundRule: "South Beach is a walk. Brickell is the Metromover, and that loop does not charge a fare. A car is for the Everglades morning, not for two blocks to Yardbird.",
       aroundCar: [
@@ -73,17 +73,17 @@
       ]
     },
     san_francisco: {
-      hook: "Clipper and a Mission bakery will get you through San Francisco. A Union Square tourist hotel plus a Wharf seafood rack, on the same day, will not.",
+      hook: "A Clipper card and a Mission bakery will get you through San Francisco. A Union Square tourist hotel plus Fisherman's Wharf seafood on the same day will not.",
       startHere: "Hotel Emeline if you want to walk to the Ferry Building; the Mission if Tartine is the breakfast. Book the official Alcatraz ferry before you invent a second museum.",
       aroundRule: "Clipper on Muni and BART is the system. The Powell-Hyde cable car is one souvenir fare on top of that, not the pass. Parking is a Napa or Muir Woods expense."
     },
     chicago: {
-      hook: "Winter is when a Loop or Fulton Market room makes sense. The expensive version of Chicago is a suburban rate, then the Art Institute and a Wendella cruise on the same afternoon.",
+      hook: "Winter is when a Loop or Fulton Market room makes sense. The expensive version is a suburban hotel rate, then Ubering to the Art Institute and a river cruise on the same afternoon.",
       startHere: "Freehand, a Loop Hampton, or The Hoxton. Eat at a diner, not at the Mag Mile hotel. Walk the Riverwalk before you buy anything.",
       aroundRule: "Ventra on the L includes the Blue Line from O'Hare and the Orange Line from Midway. A suburban hotel does not become the Loop because you rented a car; you will pay to park when you arrive."
     },
     nola: {
-      hook: "Spend on Galatoire's or Commander's Palace, and sleep in the Warehouse District or on the St. Charles line. A Bourbon balcony photographs well and does nothing for the plate.",
+      hook: "Spend on Galatoire's or Commander's Palace, and sleep in the Warehouse District or on the St. Charles streetcar line. A Bourbon Street balcony looks good in photos and does nothing for the food bill.",
       startHere: "Hotel Peter and Paul, The Pontchartrain, or a Warehouse Hampton. Café du Monde once, then a neighborhood café. Parkway for the po'boy if the reservation is at night.",
       aroundRule: "The St. Charles streetcar is the Garden District. The Canal line is the Quarter from Mid-City. A car is for Whitney Plantation or Honey Island, and then it should sit.",
       aroundCar: [
@@ -93,12 +93,12 @@
       ]
     },
     philadelphia: {
-      hook: "Reading Terminal can feed you twice, and Independence Hall is free if you booked the slot. An airport hotel charges you Regional Rail for the privilege of starting over every morning.",
+      hook: "Reading Terminal can feed you twice, and Independence Hall is free if you booked the timed ticket. An airport hotel charges you Regional Rail fare just to start every morning over.",
       startHere: "The Notary, by City Hall, or Kimpton Hotel Monaco if you want to walk to the Hall. Reading Terminal first. The Barnes or the Art Museum after that, not both.",
       aroundRule: "Center City and Old City are a walk, then SEPTA. Regional Rail is the penalty for sleeping at PHL. A hop-on bus sells streets the subway already covers."
     },
     atlanta: {
-      hook: "MARTA from the airport and a walk from Ponce City Market to Krog Street Market are the cheap Atlanta. A hotel off the train is an Uber you will take twice, and Buckhead is a third fare.",
+      hook: "MARTA from the airport and a walk from Ponce City Market to Krog Street Market are the cheap Atlanta. A hotel off the train means Ubers you will take twice, and Buckhead is a third fare.",
       startHere: "Ride MARTA from ATL to a Midtown Hampton, or get off for Hotel Clermont if the BeltLine is the evening. Mary Mac's or West Egg. Save the Aquarium or World of Coca-Cola for one morning, not both.",
       aroundRule: "MARTA from the airport station reaches Midtown and Five Points on one fare. The BeltLine is a footpath, not a train. The Atlanta Streetcar does not substitute for that walk.",
       aroundCar: [
@@ -116,7 +116,7 @@
       sources: ["MARTA airport line vs Atlanta Streetcar — different systems", "BeltLine Eastside Trail has no admission"]
     },
     paris: {
-      hook: "The cheap Paris week is a bakery downstairs in the 10th or 11th and one museum you timed. A tower-view room, a summit ticket from a reseller, and lunch on the steps are how it stops being cheap.",
+      hook: "Paris stays affordable when breakfast is a bakery downstairs and you pick one museum. It stops being cheap when the room faces the tower, the summit ticket is from a reseller, and lunch is on the tourist steps.",
       startHere: "An Ibis or a walk-up near République puts the Metro at the corner and breakfast downstairs. Decide between the Louvre and the Orsay before you fly. Septime is a table you either hold or you do not.",
       cta: "Build the Paris week from the arrondissement, not the postcard. The Trip Plan should show one museum and, only if you already hold it, Septime.",
       aroundRule: "Navigo or a carnet on the Metro. The free tower picture is the walk to Trocadéro, not a taxi to a summit elevator. A rental in the 10th is a parking problem.",
@@ -129,7 +129,7 @@
       sources: ["Official Eiffel Tower tickets vs reseller markups", "Navigo Semaine is Monday–Sunday (Île-de-France Mobilités rules), not a rolling week"]
     },
     london: {
-      hook: "Contactless capping and a free national museum are the London week that works. Mayfair plus the Eye plus the Tower is the week that looks full and costs twice.",
+      hook: "Contactless fare caps and free national museums make London workable. Mayfair lodging plus the London Eye plus the Tower is a week that looks full and costs about twice as much.",
       startHere: "Premier Inn County Hall if you want the river walk, or The Hoxton if you want restaurants on the block. Tesco or a bakery the first morning. The British Museum or the National Gallery before you even look at the Eye.",
       cta: "Price the London Trip Plan with the contactless cap already assumed. A Heathrow hotel is a landing night. The Eye is optional.",
       aroundRule: "Tap contactless on the Tube, the bus, and the Elizabeth line. The same card on Heathrow Express bills the Express fare, not a Tube fare. A car in Zone 1 also meets the congestion charge.",
@@ -149,7 +149,7 @@
       sources: ["2026 fare notes: Elizabeth line to Zone 1 about £15.50; Heathrow Express walk-up about £26; advance Express from about £10", "National museums free general admission; special exhibitions are separate"]
     },
     rome: {
-      hook: "Rome is a walking city until you sit down. The money goes to a Navona table, a golf cart, and a second ruin ticket you tried to squeeze in before lunch.",
+      hook: "Rome is a walking city until you sit down. The money goes to a Piazza Navona table, a golf-cart tour, and a second ruin ticket you tried to squeeze in before lunch.",
       startHere: "Sleep in Trastevere, or in Prati near Ottaviano if the Vatican is the day you care about. Cornetto and coffee standing at the bar. Give the Colosseum and Forum their own day.",
       cta: "The Rome Trip Plan is a neighborhood and one timed ticket. If a golf cart is on it, delete the golf cart.",
       aroundRule: "Trastevere to the Pantheon is a walk. Metro A to Ottaviano is the Vatican. A taxi on Via del Corso at noon is stuck traffic with a meter.",
@@ -169,7 +169,7 @@
       sources: ["Rome bar service (al banco) vs table service in standard city guides", "Parco Archeologico del Colosseo combined ticket vs Vatican Museums"]
     },
     tokyo: {
-      hook: "Tokyo gets cheap when the hotel is above a station and breakfast is a konbini onigiri. It gets expensive when the buffet is in the rate and someone adds a JR Pass for a week that never leaves the Yamanote line.",
+      hook: "Tokyo stays cheap when the hotel sits above a station and breakfast is a convenience-store onigiri. It gets expensive when the buffet is in the room rate and someone buys a JR Pass for a week that never leaves the Yamanote line.",
       startHere: "APA, Toyoko Inn, or Mitsui Garden over a JR or Metro stop, and eat the lobby konbini. Stay in one ward. A sushi counter only counts if it was booked before the flight.",
       cta: "The Tokyo Trip Plan is a station hotel and a Suica. A nationwide rail pass does not belong on a city week.",
       aroundRule: "Suica or PASMO from the station under the hotel covers JR, Metro, and most buses. A taxi is for luggage at Haneda or Narita, not for Shibuya to Shinjuku.",
@@ -189,7 +189,7 @@
       sources: ["teamLab Planets (Toyosu) vs teamLab Borderless (Azabudai Hills) are separate venues", "Ghibli Museum tickets are advance-only, not same-day Shibuya sales"]
     },
     cancun: {
-      hook: "An all-inclusive in the Hotel Zone already bought the beach and the buffet. It did not buy the airport van, a timeshare morning, or a rental parked under the tower.",
+      hook: "An all-inclusive in the Hotel Zone already covers the beach and the buffet. It did not buy the airport transfer, a timeshare morning, or a rental car parked under the tower.",
       startHere: "Compare Hyatt Ziva, Moon Palace, and a Riu only after the airport van is inside each rate. Eat on property the night you land. Isla Mujeres is a later day, not the transfer.",
       cta: "If the Cancún Trip Plan shows two resorts and no van, it is not finished. One outing after the beach is the week.",
       aroundRule: "The Hotel Zone R-1 is the bus. The airport van should already be inside the Hyatt, Moon Palace, or Riu rate. A rental is for a Chichén morning, then it waits.",
@@ -230,7 +230,7 @@
       sources: ["Honolulu DTS HOLO fare sheet: transfer window and day cap; cash fares differ", "Hanauma Bay reservations and non-resident entry fee, separate from parking"]
     },
     maui: {
-      hook: "A Kihei condo with a kitchen already includes the beach in front of it. The expensive week adds Hana, a Haleakalā sunrise, and a Molokini boat as if they were errands.",
+      hook: "A Kihei condo with a kitchen already includes the beach in front of it. The expensive week stacks the Road to Hana, a Haleakalā sunrise, and a Molokini boat as if they were errands.",
       startHere: "Take a Kihei kitchen — Aston Maui Kamaole, Kohea Kai, or something in that class — and grocery in the first hour after OGG. The sand that day is Keawakapu. The big outing gets its own morning.",
       aroundRule: "Kihei to Kaanapali is a drive. The car is the island the day you leave the condo path. Haleakalā before dawn needs that car and a separate sunrise reservation.",
       stayMid: ["Honua Kai or a Kaanapali condo — kitchen plus the path, still add the resort fee before it beats Kihei"],
@@ -265,7 +265,7 @@
       sources: ["Cruise-line gratuity rules: children 2 and older on mainstream lines", "Drink packages are per person; several lines require both adults in a cabin"]
     },
     key_west: {
-      hook: "Old Town is a walk, Cuban coffee, and a sidewalk at Mallory. The money leaves when you eat on the pier or sleep on Stock Island and cab both ways.",
+      hook: "Old Town is a walk, Cuban coffee, and a sidewalk at Mallory Square. The money leaves when you eat on the pier or sleep on Stock Island and take a cab both ways.",
       startHere: "The Big Ruby, Caribbean House, or The Gardens, close enough that Duval is a walk. Cuban Coffee Queen in the morning. Be on the Mallory sidewalk at sunset, not at a table that rents the same sky.",
       aroundRule: "Duval and Mallory are a walk from an Old Town inn. A rental is the Overseas Highway day from Miami, or a parking bill if you brought it to drink on Duval.",
       aroundCar: [
