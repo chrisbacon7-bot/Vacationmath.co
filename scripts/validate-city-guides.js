@@ -22,6 +22,7 @@ run("city-guides-a2.js");
 run("city-guides-editorial.js");
 run("city-guides-lists.js");
 run("city-guides-polish.js");
+run("city-guides-dense.js");
 run("city-guide.js");
 
 const REQUIRED = [
@@ -111,6 +112,27 @@ REQUIRED.forEach(function (id) {
   });
   if (!g.book || g.book.length < 3) errors.push(id + ": need book-before checklist");
   if (!g.hidden || g.hidden.length < 3) errors.push(id + ": need hidden costs");
+  if (!g.walk || !g.walk.lead || !g.walk.day || !g.walk.trip || !g.walk.lines || g.walk.lines.length < 4) {
+    errors.push(id + ": missing mid-range money walkthrough");
+  } else {
+    g.walk.lines.forEach(function (line, i) {
+      if (!line.item || !line.cost || !/[$€£¥]/.test(String(line.cost))) {
+        errors.push(id + ": walk line " + (i + 1) + " needs a currency amount");
+      }
+    });
+    if (!/[$€£¥]/.test(String(g.walk.day)) || !/[$€£¥]/.test(String(g.walk.trip))) {
+      errors.push(id + ": walkthrough day and trip need currency");
+    }
+  }
+  ["stayTiers", "eatTiers", "doTiers"].forEach(function (key) {
+    var t = g[key];
+    if (!t) return;
+    ["budget", "mid", "lux"].forEach(function (band) {
+      (t[band] || []).forEach(function (b, i) {
+        if (!/[$€£¥]/.test(String(b))) errors.push(id + ": " + key + " " + band + " bullet " + (i + 1) + " missing currency");
+      });
+    });
+  });
   if (!g.days || g.days.length !== 3) errors.push(id + ": need 3-day skeleton");
   (g.days || []).forEach(function (d, i) {
     if (!d.title || !d.bullets || d.bullets.length < 2) errors.push(id + ": weak day " + (i + 1));
@@ -165,6 +187,13 @@ REQUIRED.forEach(function (id) {
     if (src.indexOf("Where to eat") < 0) errors.push(id + ": missing Where to eat");
     if (src.indexOf("Things to do") < 0) errors.push(id + ": missing Things to do");
     if (src.indexOf("3-day skeleton") < 0) errors.push(id + ": missing 3-day skeleton");
+    if (src.indexOf("Mid-range money walkthrough") < 0) errors.push(id + ": missing mid-range walkthrough");
+    var walkPos = src.indexOf("id=\"money-walk\"");
+    var doPos = src.indexOf("id=\"do\"");
+    var daysPos = src.indexOf("id=\"days\"");
+    if (walkPos < 0 || doPos < 0 || daysPos < 0 || !(doPos < walkPos && walkPos < daysPos)) {
+      errors.push(id + ": walkthrough should sit after things to do and before the 3-day skeleton");
+    }
     if (src.indexOf("Book before you go") < 0) errors.push(id + ": missing Book before you go");
     if (src.indexOf("Hidden costs") < 0) errors.push(id + ": missing Hidden costs");
     if (src.indexOf("Skip this") < 0) errors.push(id + ": missing Skip this");
