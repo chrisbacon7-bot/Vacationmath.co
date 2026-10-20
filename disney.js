@@ -6,6 +6,10 @@
   var D = VM_DATA.DISNEY;
 
   // Verified Aug 29, 2026 rates — kept here (do not put in calc-data.js).
+  // Rechecked Oct 5, 2026: dining plans $60.47 / $98.59 (planDisney), 12.5% lodging tax, 6.5% ticket tax,
+  // 1-day tickets $119-$209, $35 parking (Disney parking page) unchanged. Multi Pass next-27-day
+  // averages were MK $35, EPCOT $28, DHS $31, AK $22 (Whistle While You Work); $27 stays as the
+  // all-season blend. Premier Oct bands: MK $379-$429, EPCOT $189-$249, DHS $329-$349, AK $159-$199.
   // Premier: late-July 2026 band midpoints (WDW Prep / MouseHacking).
   var LL_PREMIER = { "magic-kingdom": 389, "hollywood-studios": 309, "epcot": 209, "animal-kingdom": 159 };
   var LL_MULTI = { low: 20, avg: 27, high: 35 }; // ~$15–$45; mid $27
@@ -257,7 +261,7 @@
     if (r.infants > 0) {
       html += '<div class="benchmark-callout">' + r.infants + ' under 3 enter the parks free &mdash; no ticket, no Lightning Lane, no dining charge. Stroller and gear still cost.</div>';
     }
-    html += '<div class="freshness-badge">2026 pricing data \u00b7 last updated September 2026 \u00b7 next refresh October 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data \u00b7 last checked October 2026 \u00b7 next refresh November 2026</div>';
     html += '<div class="estimate-note"><strong>About these numbers.</strong> This is an <em>estimate</em>, not a live quote. It is built from published 2026 Disney pricing, NerdWallet averages, and Touring Plans research \u2014 then biased to over-count costs and under-count card value. Your real booking price will move with season, resort tier, promotions, and how the parks price tickets that week. The honest expectation: your actual total comes in at or below this number more often than above it.</div>';
     html += '<h3 class="results-h3">Itemized</h3>';
     html += '<table class="result-table"><thead><tr><th scope="col">Category</th><th scope="col">Cost</th></tr></thead><tbody>';
