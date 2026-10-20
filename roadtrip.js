@@ -201,7 +201,7 @@
     }
     html += '<p class="result-note"><button type="button" class="vm-tool-btn" id="rt-share">Copy trip link</button> <span id="rt-share-status"></span></p>';
     html += '<div class="result-note"><strong>What people forget to add.</strong> Driving math usually skips midway hotels, tolls, the wear on your car (yes, even on a "free" car you already own), and food at gas stations. Flying math usually skips bag fees ($70 round-trip per checked bag), the rental car at the destination, and airport parking or rideshare. Both add up.</div>';
-    html += '<div class="freshness-badge">Gas at $' + R.avgGasPrice.toFixed(2) + '/gal (AAA, August 2026) &middot; next refresh October 2026</div>';
+    html += '<div class="freshness-badge">Gas at $' + R.avgGasPrice.toFixed(2) + '/gal (AAA, October 2026) &middot; next refresh November 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");

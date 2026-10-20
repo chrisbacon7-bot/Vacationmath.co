@@ -282,14 +282,14 @@
   };
 
   // ----------------------------------------------------------------
-  // ROAD TRIP VS FLY (August 2026)
+  // ROAD TRIP VS FLY (October 2026)
   // Sources: AAA Your Driving Costs 2025 edition (13.00¢/mi fuel + 11.04¢/mi maintenance,
   //          77¢/mi all-in at 15k mi/yr; 2026 edition not yet published),
   //          IRS mileage rate 76¢/mi for Jul 1-Dec 31, 2026, AAA national average
-  //          gas $4.09/gal on Aug 28, 2026 (gasprices.aaa.com)
+  //          regular gas $4.28/gal on Oct 20, 2026 (gasprices.aaa.com, $4.2786)
   // ----------------------------------------------------------------
   var ROADTRIP = {
-    avgGasPrice: 4.09,               // AAA national average Aug 28, 2026 (gasprices.aaa.com). Up ~4.9% since the June reading. FL $3.95, CA $5.65.
+    avgGasPrice: 4.28,               // AAA national average regular Oct 20, 2026 (gasprices.aaa.com, $4.2786). Next refresh November 2026.
     mpgByVehicle: {
       compact: 32, sedan: 28, suv: 22, minivan: 24, truck: 18, ev: 105 // EV MPGe
     },
