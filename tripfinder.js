@@ -383,7 +383,7 @@
     var driveFromCoords = getOriginCoords();
     var driveFromState = getDrivingState(); // kept for display label
     var mpg = Math.max(8, parseFloat((($("tf-mpg") || {}).value)) || 25);
-    var gas = Math.max(2, parseFloat((($("tf-gas") || {}).value)) || 3.50);
+    var gas = Math.max(2, parseFloat((($("tf-gas") || {}).value)) || 4.28);
 
     var opts = {
       origin: origin,
@@ -668,7 +668,7 @@
     var driveableN = DESTS.filter(function (d) {
       return DRIVE_COORDS[d.id] && String(d.region || "").toLowerCase() !== "hawaii";
     }).length;
-    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? (driveableN + ' drivable US destinations') : (DESTS.length + ' destinations')) + ' &middot; last refreshed September 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data &middot; ' + (opts.driving ? (driveableN + ' drivable US destinations') : (DESTS.length + ' destinations')) + ' &middot; gas default $4.28/gal (AAA, Oct 20, 2026) &middot; next refresh November 2026</div>';
 
     $("tf-results").innerHTML = html;
     $("tf-results").classList.add("has-results");
