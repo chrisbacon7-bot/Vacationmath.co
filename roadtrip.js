@@ -152,7 +152,7 @@
     } else {
       html += '    <div class="cc-line"><span>Gas (' + Math.round(r.roundTripMiles) + ' mi round trip @ ' + r.mpg + ' mpg)</span><span>' + money(r.fuelCost) + '</span></div>';
     }
-    html += '    <div class="cc-line"><span>Wear &amp; tear ($0.10/mi)</span><span>' + money(r.wearCost) + '</span></div>';
+    html += '    <div class="cc-line"><span>Wear &amp; tear (11.7¢/mi)</span><span>' + money(r.wearCost) + '</span></div>';
     html += '    <div class="cc-line"><span>Tolls (~1.2&cent;/mi)</span><span>' + money(r.tolls) + '</span></div>';
     if (r.midwayHotels > 0) html += '    <div class="cc-line"><span>Midway hotel nights</span><span>' + money(r.midwayHotels) + '</span></div>';
     if (r.roadMeals > 0) html += '    <div class="cc-line"><span>Travel-day meals</span><span>' + money(r.roadMeals) + '</span></div>';

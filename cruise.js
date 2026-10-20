@@ -7,13 +7,15 @@
   var LINES = VM_DATA.CRUISE_LINES_EXPANDED;
   var PORTS = VM_DATA.CRUISE_PORTS;
 
-  // Aug 29 2026 rate corrections — kept here (do not put in calc-data.js).
-  // Royal Deluxe Beverage typical pre-cruise ~$63.99 + 18% ≈ $76 (was $105 high-end).
+  // Rate corrections kept here (do not put in calc-data.js).
+  // Royal Deluxe Beverage has no single official price. The $76 all-in figure
+  // ($63.99 + 18%) was left in place on Oct 20, 2026.
   if (C.drinkPackagePerLine && C.drinkPackagePerLine.royal) {
     C.drinkPackagePerLine.royal.unlimited = 76;
   }
-  // Celebrity interior/oceanview/veranda $18/day; $19.50 was a Concierge blend.
-  if (LINES.celebrity) LINES.celebrity.gratuityPerDay = 18;
+  // Celebrity inside/oceanview/veranda is $19.50/person/day effective July 29, 2026
+  // (celebritycruises.com gratuity FAQ, checked Oct 20, 2026).
+  if (LINES.celebrity) LINES.celebrity.gratuityPerDay = 19.5;
   var NCL_FAS_PER_DAY = 28.50; // NCL Free at Sea daily service charge
   var DRINK_GRAT_BY_LINE = { carnival: 0.20, ncl: 0.20, princess: 0.20 };
 
@@ -447,7 +449,7 @@
     }
     html += '</div>';
 
-    html += '<div class="freshness-badge">2026 pricing data · last updated September 2026 · next refresh October 2026</div>';
+    html += '<div class="freshness-badge">2026 pricing data · last updated October 2026 · next refresh November 2026</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> This is an <em>estimate</em>, not a live quote. It is built from published 2026 cruise fares, NerdWallet averages, and Cruise Critic research &mdash; then biased to over-count costs and under-count card value. Your real booking price will move with season, cabin type, promotions, and how the line prices that sailing week. The honest expectation: your actual total comes in at or below this number more often than above it.</div>';
 

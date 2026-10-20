@@ -1,7 +1,8 @@
 /* =====================================================================
    Vacation Math — Shared calculator data
-   All numbers updated August 28, 2026 (Q4/September refresh). Estimates built from published pricing, not live quotes. Sources cited at /sources.html
-   Next scheduled refresh: October 2026.
+   Prices rechecked October 20, 2026 where a current authoritative source was available.
+   Estimates built from published pricing, not live quotes. Sources cited at /sources.html
+   Next scheduled refresh: November 2026.
    ===================================================================== */
 (function (global) {
   "use strict";
@@ -75,7 +76,7 @@
     //          Princess official Plus/Premier terms, MSC package pricing - all verified Aug 2026
     drinkPackagePerLine: {
       msc:      { unlimited: 86,  soda: 13 },  // Premium Extra, pre-cruise ($85-88 range)
-      carnival: { unlimited: 84,  soda: 11 },  // CHEERS $69.95 pre-cruise + 20% = ~$83.94
+      carnival: { unlimited: 84,  soda: 14 },  // CHEERS $69.95 pre-cruise + 20% = ~$83.94, stored as $84. Bottomless Bubbles adult $11.99 + 20% = $14.39 (Carnival guest notice, effective Apr 2, 2026), stored as $14.
       royal:    { unlimited: 105, soda: 12 },  // Deluxe Beverage, typical all-in ($63-120 + 18%)
       ncl:      { unlimited: 54,  soda: 14 },  // Unlimited Open Bar $45 + 20%. Free at Sea service charge is $28.50 separately.
       princess: { unlimited: 65,  soda: 13 },  // Princess Plus ($70 Sphere class)
@@ -189,9 +190,10 @@
   ];
 
   // ----------------------------------------------------------------
-  // POINTS VALUATIONS (August 2026)
-  // Sources: Frequent Miler Reasonable Redemption Values (page dated Jul 23, 2026),
-  //          The Points Guy 2026, NerdWallet 2026
+  // POINTS VALUATIONS (checked October 20, 2026)
+  // Sources: Frequent Miler Reasonable Redemption Values (live page, Oct 20, 2026),
+  //          The Points Guy October 2026 valuations
+  // transfer = Frequent Miler RRV floor; tpg = TPG valuation.
   // Cents per point at the redemption type indicated
   // ----------------------------------------------------------------
   var POINTS = {
@@ -283,10 +285,12 @@
 
   // ----------------------------------------------------------------
   // ROAD TRIP VS FLY (October 2026)
-  // Sources: AAA Your Driving Costs 2025 edition (13.00¢/mi fuel + 11.04¢/mi maintenance,
-  //          77¢/mi all-in at 15k mi/yr; 2026 edition not yet published),
+  // Sources: AAA Your Driving Costs 2026 (fact sheet Sept 15, 2026: fuel 17.3¢/mi,
+  //          maintenance/repair/tires 11.7¢/mi, 85.75¢/mi all-in at 15k mi/yr, EV charging 18¢/kWh),
   //          IRS mileage rate 76¢/mi for Jul 1-Dec 31, 2026, AAA national average
-  //          regular gas $4.28/gal on Oct 20, 2026 (gasprices.aaa.com, $4.2786)
+  //          regular gas $4.28/gal on Oct 20, 2026 (gasprices.aaa.com, $4.2786),
+  //          Delta and American first checked bag $45 prepaid (checked Oct 20, 2026),
+  //          EIA residential electricity 18.31¢/kWh in July 2026
   // ----------------------------------------------------------------
   var ROADTRIP = {
     avgGasPrice: 4.28,               // AAA national average regular Oct 20, 2026 (gasprices.aaa.com, $4.2786). Next refresh November 2026.
@@ -294,21 +298,22 @@
       compact: 32, sedan: 28, suv: 22, minivan: 24, truck: 18, ev: 105 // EV MPGe
     },
     // Wear & tear per mile (AAA 2025: ~$0.45/mi non-fuel for ownership)
-    wearPerMile: 0.10,               // Conservative — strips out fixed costs that exist anyway
-    irsBusinessRate: 0.76,           // IRS rate for Jul 1-Dec 31, 2026 (was 72.5¢ Jan-Jun) — used as "upper-bound real cost" comparison
+    wearPerMile: 0.117,              // AAA Your Driving Costs 2026 maintenance, repair, and tires: 11.7¢/mi (fact sheet Sept 15, 2026). Fixed ownership costs stay out.
+    irsBusinessRate: 0.76,           // IRS rate for Jul 1-Dec 31, 2026 (was 72.5¢ Jan-Jun) — used as "upper-bound real cost" comparison. Confirmed on irs.gov Oct 20, 2026.
     // Hotel mid-trip stops on the road
     midwayHotelAvg: 152,             // Highway/interstate mid-tier. US average daily rate was $171.74 in Jul 2026 (CoStar/STR, +5.7% YoY).
     // Flight cost defaults (will be user-input)
-    avgBagFeePerWay: 35,
+    avgBagFeePerWay: 45,            // First checked bag, each way, prepaid. Delta $45; American $45 online ($50 at the airport) for tickets issued on/after Apr 9, 2026. Checked Oct 20, 2026.
     rentalCarPerDay: 83,             // US airport average $82.90/day incl. taxes, summer 2026 (+13% YoY)
     parkingPerDayAtAirport: 18,
     rideshareAirportEach: 45,
     // Road meals are cheaper because of grocery stops + fast food
     roadMealsPerPersonPerDay: 28,
     flightMealsPerPersonPerDay: 45,  // More restaurant-dependent at destination
-    // EV energy. Home rate is a round EIA residential planning figure (mid-teens to about 17¢/kWh).
-    // DC fast is the public-charger band (often 40–56¢/kWh); 48¢ is the midpoint used here.
-    evHomePerKwh: 0.17,
+    // EV home rate: EIA residential average was 18.31¢/kWh in July 2026. Stored as 18¢,
+    // the same planning rate AAA Your Driving Costs 2026 uses for EV charging.
+    // DC fast is the public-charger band (often 40–56¢/kWh); 48¢ is the midpoint used here and was not re-verified.
+    evHomePerKwh: 0.18,
     evDcFastPerKwh: 0.48
   };
 
@@ -456,9 +461,9 @@
     royal_caribbean: { label:"Royal Caribbean International", tier:"mainstream", perPersonLow:346, perPersonAvg:650, perPersonHigh:1100, gratuityPerDay:18.5, note:"7-night Caribbean interior from ~$346/person. Gratuity $18.50/day (non-suite), $21/day (suite) as of 2026. Icon of the Seas and Utopia of th" },
     ncl: { label:"Norwegian Cruise Line (NCL)", tier:"mainstream", perPersonLow:429, perPersonAvg:750, perPersonHigh:1300, gratuityPerDay:20, note:"7-night Caribbean from ~$429/person. 'Free at Sea' included beverage/dining promos common. Gratuity $20/day standard, $25/day Haven/Suites. " },
     msc: { label:"MSC Cruises", tier:"mainstream", perPersonLow:298, perPersonAvg:520, perPersonHigh:850, gratuityPerDay:17, note:"From $208 base pricing on homepage; 7-night Caribbean from ~$298/person. MSC expanding US homeports significantly for 2025–26 season includi" },
-    princess: { label:"Princess Cruises", tier:"premium", perPersonLow:499, perPersonAvg:850, perPersonHigh:1450, gratuityPerDay:18, note:"7-night Caribbean from ~$499/person. Princess Plus/Premier fares include gratuities. Gratuity $17–19/day (non-suite). Medallion technology d" },
-    celebrity: { label:"Celebrity Cruises", tier:"premium", perPersonLow:624, perPersonAvg:950, perPersonHigh:1500, gratuityPerDay:19.5, note:"7-night Caribbean from ~$624/person. Gratuity $18/day (inside/oceanview/veranda), $19/day (Concierge/AquaClass), $23/day (The Retreat). Beve" },
-    holland_america: { label:"Holland America Line", tier:"premium", perPersonLow:599, perPersonAvg:900, perPersonHigh:1400, gratuityPerDay:18, note:"7-night Caribbean from ~$599/person. 'Crew appreciation' $17/day (standard), $19/day (suites). Older demographic; classical cruising focus. " },
+    princess: { label:"Princess Cruises", tier:"premium", perPersonLow:499, perPersonAvg:850, perPersonHigh:1450, gratuityPerDay:18, note:"7-night Caribbean from ~$499/person. Princess Plus/Premier fares include gratuities. Crew Appreciation $18/day standard, $19/day Mini-Suite, $20/day suite (Princess official, checked Oct 20, 2026). Medallion technology d" },
+    celebrity: { label:"Celebrity Cruises", tier:"premium", perPersonLow:624, perPersonAvg:950, perPersonHigh:1500, gratuityPerDay:19.5, note:"7-night Caribbean from ~$624/person. Gratuity $19.50/day (inside/oceanview/veranda), $20.50/day (Concierge/AquaClass), $24.50/day (The Retreat), effective July 29, 2026 (Celebrity official FAQ). Beve" },
+    holland_america: { label:"Holland America Line", tier:"premium", perPersonLow:599, perPersonAvg:900, perPersonHigh:1400, gratuityPerDay:18, note:"7-night Caribbean from ~$599/person. Crew Appreciation $18/day (non-suite), $20/day (suites), Holland America official, checked Oct 20, 2026. Older demographic; classical cruising focus. " },
     disney: { label:"Disney Cruise Line", tier:"premium", perPersonLow:1108, perPersonAvg:1750, perPersonHigh:2800, gratuityPerDay:16, note:"7-night Eastern Caribbean from ~$1,108/person. Disney Treasure 7-night party of 4 ~$8,074 (spring 2026). Gratuity at guest discretion; cust" },
     virgin_voyages: { label:"Virgin Voyages", tier:"premium", perPersonLow:545, perPersonAvg:950, perPersonHigh:1600, gratuityPerDay:22, note:"Adults-only (18+). From ~$545/person 7-night Caribbean. Daily gratuity $22/day (auto-charged; $20/day if pre-paid). Noted price increases in" },
     viking_ocean: { label:"Viking Ocean Cruises", tier:"luxury", perPersonLow:4799, perPersonAvg:6500, perPersonHigh:9500, gratuityPerDay:15, note:"7-night Caribbean from ~$4,799/person. Adults-only (18+). No casinos, no kids, no formal wear. All veranda staterooms; river-style service. " },
@@ -584,38 +589,38 @@
 
   // ---- Points Programs Expanded (32) ----
   var POINTS_EXPANDED = {
-    chase_ur: { label:"Chase Ultimate Rewards", cash:1.0, portal:1.0, transfer:1.5, tpg:2.05, source:"FM RRV May 2026 (portal floor 1¢)" },
-    amex_mr: { label:"American Express Membership Rewards", cash:0.6, portal:1.0, transfer:1.5, tpg:2.0, source:"FM RRV May 2026" },
-    bilt: { label:"Bilt Rewards", cash:0.55, portal:1.25, transfer:1.55, tpg:2.2, source:"FM RRV May 2026" },
-    capital_one: { label:"Capital One Rewards", cash:1.0, portal:1.0, transfer:1.45, tpg:1.85, source:"FM RRV May 2026" },
-    citi_ty: { label:"Citi ThankYou Rewards", cash:0.5, portal:1.0, transfer:1.5, tpg:1.9, source:"FM RRV Aug 2026" },
-    wells_fargo: { label:"Wells Fargo Rewards", cash:1.0, portal:1.0, transfer:null, tpg:1.75, source:"TPG May 2026" },
-    hyatt: { label:"World of Hyatt", cash:0.5, portal:null, transfer:1.5, tpg:1.65, source:"FM RRV Aug 2026" },
-    american_aadvantage: { label:"American Airlines AAdvantage", cash:1.0, portal:null, transfer:1.4, tpg:1.6, source:"FM RRV Aug 2026" },
-    united_mileageplus: { label:"United MileagePlus", cash:1.0, portal:null, transfer:1.3, tpg:1.35, source:"FM RRV Aug 2026" },
-    jetblue_trueblue: { label:"JetBlue TrueBlue", cash:1.0, portal:null, transfer:null, tpg:1.35, source:"TPG May 2026" },
-    delta_skymiles: { label:"Delta SkyMiles", cash:1.0, portal:null, transfer:1.1, tpg:1.2, source:"FM RRV May 2026" },
-    southwest_rapid_rewards: { label:"Southwest Rapid Rewards", cash:1.0, portal:null, transfer:null, tpg:1.25, source:"TPG May 2026" },
-    alaska_mileageplan: { label:"Alaska Airlines Mileage Plan (Atmos Rewards)", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG May 2026" },
-    marriott_bonvoy: { label:"Marriott Bonvoy", cash:0.35, portal:null, transfer:0.73, tpg:0.8, source:"FM RRV Aug 2026" },
-    hilton_honors: { label:"Hilton Honors", cash:0.35, portal:null, transfer:null, tpg:0.41, source:"FM RRV Aug 2026" },
-    aeroplan: { label:"Aeroplan (Air Canada)", cash:1.0, portal:null, transfer:1.7, tpg:1.4, source:"TPG May 2026" },
-    avios: { label:"British Airways Avios / Iberia Avios", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG May 2026" },
-    flying_blue: { label:"Air France/KLM Flying Blue", cash:1.0, portal:null, transfer:1.3, tpg:1.3, source:"TPG May 2026" },
-    virgin_atlantic_flying_club: { label:"Virgin Atlantic Flying Club", cash:1.0, portal:null, transfer:1.3, tpg:1.3, source:"TPG May 2026" },
-    ana_mileage_club: { label:"ANA Mileage Club", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG May 2026" },
-    singapore_krisflyer: { label:"Singapore Airlines KrisFlyer", cash:1.0, portal:null, transfer:1.3, tpg:1.3, source:"TPG May 2026" },
-    emirates_skywards: { label:"Emirates Skywards", cash:1.0, portal:null, transfer:1.2, tpg:1.2, source:"TPG May 2026" },
-    wyndham_rewards: { label:"Wyndham Rewards", cash:0.5, portal:null, transfer:null, tpg:0.65, source:"TPG May 2026" },
-    choice_privileges: { label:"Choice Privileges", cash:0.35, portal:null, transfer:null, tpg:0.6, source:"TPG May 2026" },
-    best_western_rewards: { label:"Best Western Rewards", cash:0.4, portal:null, transfer:null, tpg:0.6, source:"TPG May 2026" },
-    ihg_one_rewards: { label:"IHG One Rewards", cash:0.59, portal:null, transfer:null, tpg:0.6, source:"FM RRV Aug 2026" },
-    accor_all: { label:"Accor Live Limitless (ALL)", cash:0.5, portal:null, transfer:2.0, tpg:2.0, source:"TPG May 2026" },
-    radisson_rewards: { label:"Radisson Rewards", cash:0.3, portal:null, transfer:null, tpg:0.4, source:"TPG May 2026" },
-    hawaiian_miles: { label:"Hawaiian Airlines HawaiianMiles", cash:0.8, portal:null, transfer:null, tpg:1.1, source:"TPG May 2026" },
-    avianca_lifemiles: { label:"Avianca LifeMiles", cash:1.0, portal:null, transfer:1.4, tpg:1.6, source:"TPG May 2026 (transfer floor is the lower figure)" },
-    turkish_miles: { label:"Turkish Airlines Miles&Smiles", cash:1.0, portal:null, transfer:1.2, tpg:1.3, source:"TPG May 2026" },
-    cathay_asia_miles: { label:"Cathay Asia Miles", cash:1.0, portal:null, transfer:1.2, tpg:1.3, source:"TPG May 2026" },
+    chase_ur: { label:"Chase Ultimate Rewards", cash:1.0, portal:1.0, transfer:1.5, tpg:2.05, source:"FM RRV 1.5¢ and TPG 2.05¢, checked Oct 20, 2026" },
+    amex_mr: { label:"American Express Membership Rewards", cash:0.6, portal:1.0, transfer:1.5, tpg:2.0, source:"FM RRV 1.5¢ and TPG 2.0¢, checked Oct 20, 2026" },
+    bilt: { label:"Bilt Rewards", cash:0.55, portal:1.25, transfer:1.55, tpg:2.2, source:"FM RRV 1.55¢ and TPG 2.2¢, checked Oct 20, 2026" },
+    capital_one: { label:"Capital One Rewards", cash:1.0, portal:1.0, transfer:1.45, tpg:1.85, source:"FM RRV 1.45¢ and TPG 1.85¢, checked Oct 20, 2026" },
+    citi_ty: { label:"Citi ThankYou Rewards", cash:0.5, portal:1.0, transfer:1.5, tpg:1.9, source:"FM RRV 1.5¢ and TPG 1.9¢, checked Oct 20, 2026" },
+    wells_fargo: { label:"Wells Fargo Rewards", cash:1.0, portal:1.0, transfer:1.4, tpg:1.75, source:"FM RRV 1.4¢ and TPG 1.75¢, checked Oct 20, 2026" },
+    hyatt: { label:"World of Hyatt", cash:0.5, portal:null, transfer:1.5, tpg:1.65, source:"FM RRV 1.5¢ and TPG 1.65¢, checked Oct 20, 2026" },
+    american_aadvantage: { label:"American Airlines AAdvantage", cash:1.0, portal:null, transfer:1.4, tpg:1.45, source:"FM RRV 1.4¢ and TPG 1.45¢, Oct 2026" },
+    united_mileageplus: { label:"United MileagePlus", cash:1.0, portal:null, transfer:1.3, tpg:1.2, source:"FM RRV 1.3¢ and TPG 1.2¢, Oct 2026" },
+    jetblue_trueblue: { label:"JetBlue TrueBlue", cash:1.0, portal:null, transfer:1.3, tpg:1.35, source:"FM RRV 1.3¢ and TPG 1.35¢, Oct 2026" },
+    delta_skymiles: { label:"Delta SkyMiles", cash:1.0, portal:null, transfer:1.1, tpg:1.2, source:"FM RRV 1.1¢ and TPG 1.2¢, checked Oct 20, 2026" },
+    southwest_rapid_rewards: { label:"Southwest Rapid Rewards", cash:1.0, portal:null, transfer:1.3, tpg:1.25, source:"FM RRV 1.3¢ and TPG 1.25¢, Oct 2026" },
+    alaska_mileageplan: { label:"Alaska Airlines Mileage Plan (Atmos Rewards)", cash:1.0, portal:null, transfer:1.5, tpg:1.55, source:"FM Atmos RRV 1.5¢ and TPG 1.55¢, Oct 2026" },
+    marriott_bonvoy: { label:"Marriott Bonvoy", cash:0.35, portal:null, transfer:0.73, tpg:0.75, source:"FM RRV 0.73¢ and TPG 0.75¢, Oct 2026" },
+    hilton_honors: { label:"Hilton Honors", cash:0.35, portal:null, transfer:0.35, tpg:0.4, source:"FM RRV 0.35¢ and TPG 0.40¢, Oct 2026" },
+    aeroplan: { label:"Aeroplan (Air Canada)", cash:1.0, portal:null, transfer:1.4, tpg:1.5, source:"FM RRV 1.4¢ and TPG 1.5¢, Oct 2026" },
+    avios: { label:"British Airways Avios / Iberia Avios", cash:1.0, portal:null, transfer:1.1, tpg:1.4, source:"FM RRV 1.1¢ and TPG 1.4¢, Oct 2026" },
+    flying_blue: { label:"Air France/KLM Flying Blue", cash:1.0, portal:null, transfer:1.3, tpg:1.4, source:"FM RRV 1.3¢ and TPG 1.4¢, Oct 2026" },
+    virgin_atlantic_flying_club: { label:"Virgin Atlantic Flying Club", cash:1.0, portal:null, transfer:1.5, tpg:1.5, source:"FM RRV 1.5¢ and TPG 1.5¢, Oct 2026" },
+    ana_mileage_club: { label:"ANA Mileage Club", cash:1.0, portal:null, transfer:1.4, tpg:1.4, source:"TPG 1.4¢ Oct 2026; FM does not publish a separate ANA RRV" },
+    singapore_krisflyer: { label:"Singapore Airlines KrisFlyer", cash:1.0, portal:null, transfer:1.3, tpg:1.3, source:"TPG 1.3¢ Oct 2026; FM does not publish a separate KrisFlyer RRV" },
+    emirates_skywards: { label:"Emirates Skywards", cash:1.0, portal:null, transfer:1.2, tpg:1.2, source:"TPG 1.2¢ Oct 2026; FM does not publish a separate Skywards RRV" },
+    wyndham_rewards: { label:"Wyndham Rewards", cash:0.5, portal:null, transfer:0.57, tpg:0.55, source:"FM RRV 0.57¢ (Oct 5, 2026) and TPG 0.55¢, Oct 2026" },
+    choice_privileges: { label:"Choice Privileges", cash:0.35, portal:null, transfer:0.75, tpg:0.85, source:"FM RRV 0.75¢ and TPG 0.85¢, Oct 2026" },
+    best_western_rewards: { label:"Best Western Rewards", cash:0.4, portal:null, transfer:0.61, tpg:0.6, source:"FM RRV 0.61¢ and TPG 0.6¢, Oct 2026" },
+    ihg_one_rewards: { label:"IHG One Rewards", cash:0.59, portal:null, transfer:0.59, tpg:0.6, source:"FM RRV 0.59¢ and TPG 0.6¢, checked Oct 20, 2026" },
+    accor_all: { label:"Accor Live Limitless (ALL)", cash:0.5, portal:null, transfer:2.0, tpg:2.3, source:"TPG 2.3¢ Oct 2026. FM quotes 2 euro cents, not converted to USD; transfer floor left at 2.0" },
+    radisson_rewards: { label:"Radisson Rewards", cash:0.3, portal:null, transfer:null, tpg:0.4, source:"TPG May 2026; not on the Oct 2026 TPG or FM tables" },
+    hawaiian_miles: { label:"Hawaiian Airlines HawaiianMiles", cash:0.8, portal:null, transfer:null, tpg:1.1, source:"TPG May 2026. Oct 2026 TPG lists Atmos Rewards, not a separate HawaiianMiles value" },
+    avianca_lifemiles: { label:"Avianca LifeMiles", cash:1.0, portal:null, transfer:1.3, tpg:1.6, source:"FM RRV 1.3¢ and TPG 1.6¢, Oct 2026" },
+    turkish_miles: { label:"Turkish Airlines Miles&Smiles", cash:1.0, portal:null, transfer:1.2, tpg:1.1, source:"TPG 1.1¢ Oct 2026. FM does not publish a Miles&Smiles RRV; prior 1.2¢ transfer floor left in place" },
+    cathay_asia_miles: { label:"Cathay Asia Miles", cash:1.0, portal:null, transfer:1.1, tpg:1.3, source:"FM RRV 1.1¢ and TPG 1.3¢, Oct 2026" },
   };
 
   // ---- Origin Cities (30) ----
