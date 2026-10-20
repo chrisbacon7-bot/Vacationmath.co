@@ -19,7 +19,7 @@ NEXT = "October 2026"
 # (section, label, value, as-of, source name, source url)
 ROWS = [
  ("Road trip and driving", [
-  ("National average gas price", f"${D['ROADTRIP']['avgGasPrice']:.2f}/gal", "Aug 28, 2026",
+  ("National average gas price", f"${D['ROADTRIP']['avgGasPrice']:.2f}/gal", "Oct 20, 2026",
    "AAA Fuel Prices", "https://gasprices.aaa.com/"),
   ("IRS standard mileage rate", f"{D['ROADTRIP']['irsBusinessRate']*100:.1f}&cent;/mi", "Jul 1&ndash;Dec 31, 2026",
    "IRS standard mileage rates", "https://www.irs.gov/tax-professionals/standard-mileage-rates"),
