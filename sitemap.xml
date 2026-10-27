@@ -121,7 +121,7 @@
 
   <url>
     <loc>https://vacationmath.co/whentobook</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -254,7 +254,7 @@
 
   <url>
     <loc>https://vacationmath.co/blog/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -371,6 +371,12 @@
   <url>
     <loc>https://vacationmath.co/blog/disney-christmas-party-math-2026</loc>
     <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://vacationmath.co/blog/flying-home-christmas-new-year-2026</loc>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>

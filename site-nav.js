@@ -75,7 +75,8 @@
     { href: '/blog/disney-fall-room-promo-math-2026', label: 'Issue #16 · Disney Fall Room Promo' },
     { href: '/blog/cruise-drink-package-break-even-2026', label: 'Issue #17 · Cruise Drink Package Break-Even' },
     { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Issue #18 · Lightning Lane Multi Pass Math' },
-    { href: '/blog/disney-christmas-party-math-2026', label: 'Issue #19 · Disney Christmas Party Math' }
+    { href: '/blog/disney-christmas-party-math-2026', label: 'Issue #19 · Disney Christmas Party Math' },
+    { href: '/blog/flying-home-christmas-new-year-2026', label: 'Issue #22 · Flying Home for Christmas' }
   ];
 
   // Page detection so we can highlight active nav item
@@ -287,6 +288,7 @@
       { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }
     ],
     '/whentobook': [
+      { href: '/blog/flying-home-christmas-new-year-2026', label: 'Flying home for Christmas 2026' },
       { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Thanksgiving &amp; Christmas flights 2026' },
       { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' },
       { href: '/blog/post-july-4th-travel-prices-2026', label: 'Post-July 4th travel prices 2026' },
