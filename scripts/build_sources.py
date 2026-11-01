@@ -12,9 +12,9 @@ D = json.loads(subprocess.check_output(
     ["node", "-e", "console.log(JSON.stringify(require('%s/calc-data.js').VM_DATA))" % REPO]
 ).decode())
 
-REFRESHED = "August 28, 2026"
-REFRESHED_ISO = "2026-08-28"
-NEXT = "October 2026"
+REFRESHED = "October 20, 2026"
+REFRESHED_ISO = "2026-10-20"
+NEXT = "November 2026"
 
 # (section, label, value, as-of, source name, source url)
 ROWS = [
@@ -23,8 +23,12 @@ ROWS = [
    "AAA Fuel Prices", "https://gasprices.aaa.com/"),
   ("IRS standard mileage rate", f"{D['ROADTRIP']['irsBusinessRate']*100:.1f}&cent;/mi", "Jul 1&ndash;Dec 31, 2026",
    "IRS standard mileage rates", "https://www.irs.gov/tax-professionals/standard-mileage-rates"),
-  ("Wear and tear (non-fuel, per mile)", f"${D['ROADTRIP']['wearPerMile']:.2f}/mi", "2025 edition",
-   "AAA Your Driving Costs", "https://newsroom.aaa.com/wp-content/uploads/2025/09/UPDATE-AAA-Fact-Sheet-Your-Driving-Cost-9.2025-1.pdf"),
+  ("Wear and tear (maintenance, per mile)", f"{D['ROADTRIP']['wearPerMile']*100:.1f}&cent;/mi", "Sept 15, 2026",
+   "AAA Your Driving Costs 2026", "https://newsroom.aaa.com/wp-content/uploads/2026/09/AAA_YDC-Fact-Sheet_2026.pdf"),
+  ("First checked bag, each way", f"${D['ROADTRIP']['avgBagFeePerWay']}", "Oct 20, 2026",
+   "Delta baggage fees", "https://www.delta.com/us/en/baggage/overview"),
+  ("EV home charging", f"{D['ROADTRIP']['evHomePerKwh']*100:.0f}&cent;/kWh", "July 2026",
+   "EIA Electricity Monthly Update", "https://www.eia.gov/electricity/monthly/update/end-use.php"),
   ("Rental car, per day", f"${D['ROADTRIP']['rentalCarPerDay']}", "Summer 2026",
    "CheapCarRental airport survey", "https://www.cheapcarrental.com/survey/summer2026.php"),
   ("Mid-trip hotel, per night", f"${D['ROADTRIP']['midwayHotelAvg']}", "July 2026",
@@ -93,19 +97,19 @@ ROWS = [
    "Bahamas Customs", "https://www.bahamascustoms.gov.bs/tariffs-and-various-taxes-collected-by-customs/other-taxes/"),
  ]),
  ("Points and cards", [
-  ("Chase Ultimate Rewards", f"{D['POINTS_EXPANDED']['chase_ur']['transfer']:.2f}&cent;/point (transfer)", "Jul 23, 2026",
+  ("Chase Ultimate Rewards", f"{D['POINTS_EXPANDED']['chase_ur']['transfer']:.2f}&cent;/point (transfer)", "Oct 20, 2026",
    "Frequent Miler Reasonable Redemption Values", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("Amex Membership Rewards", f"{D['POINTS_EXPANDED']['amex_mr']['transfer']:.2f}&cent;/point (transfer)", "Jul 23, 2026",
+  ("Amex Membership Rewards", f"{D['POINTS_EXPANDED']['amex_mr']['transfer']:.2f}&cent;/point (transfer)", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("Capital One Miles", f"{D['POINTS_EXPANDED']['capital_one']['transfer']:.2f}&cent;/point (transfer)", "Jul 23, 2026",
+  ("Capital One Miles", f"{D['POINTS_EXPANDED']['capital_one']['transfer']:.2f}&cent;/point (transfer)", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("Citi ThankYou", f"{D['POINTS_EXPANDED']['citi_ty']['transfer']:.2f}&cent;/point (transfer)", "Jul 23, 2026",
+  ("Citi ThankYou", f"{D['POINTS_EXPANDED']['citi_ty']['transfer']:.2f}&cent;/point (transfer)", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("World of Hyatt", f"{D['POINTS_EXPANDED']['hyatt']['transfer']:.2f}&cent;/point", "Jul 23, 2026",
+  ("World of Hyatt", f"{D['POINTS_EXPANDED']['hyatt']['transfer']:.2f}&cent;/point", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("Marriott Bonvoy", f"{D['POINTS_EXPANDED']['marriott_bonvoy']['transfer']:.2f}&cent;/point", "Jul 23, 2026",
+  ("Marriott Bonvoy", f"{D['POINTS_EXPANDED']['marriott_bonvoy']['transfer']:.2f}&cent;/point", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
-  ("Hilton Honors", f"{D['POINTS_EXPANDED']['hilton_honors']['tpg']:.2f}&cent;/point", "Jul 23, 2026",
+  ("Hilton Honors", f"{D['POINTS_EXPANDED']['hilton_honors']['transfer']:.2f}&cent;/point", "Oct 20, 2026",
    "Frequent Miler RRV", "https://frequentmiler.com/reasonable-redemption-values-rrvs/"),
  ]),
  ("Airfare and lodging baselines", [

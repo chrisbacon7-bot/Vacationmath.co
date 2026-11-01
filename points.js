@@ -188,7 +188,7 @@
     html += '<div class="result-note"><strong>The rule of thumb.</strong> If your cents-per-point is below the floor, the points are being undersold — pay cash and bank the points. If you are above the floor, redeem. Most flexible-point holders never beat the floor on a plain portal booking. The wins come from a transfer partner, and a transfer bonus only counts while it is live.</div>';
 
     html += '<div class="estimate-note"><strong>About these numbers.</strong> Cents-per-point benchmarks are <em>estimates</em> based on published valuations from The Points Guy, NerdWallet, and Frequent Miler, averaged and biased conservatively. Your actual value depends on the specific award, transfer partner, and date. Cash-back and portal rates are fixed by the program. Transfer-partner sweet spots can deliver far more value than the benchmark &mdash; or far less if you book at standard award rates.</div>';
-    html += '<div class="freshness-badge">Frequent Miler RRVs (Jul 23, 2026) &middot; refreshed September 2026 &middot; next refresh October 2026</div>';
+    html += '<div class="freshness-badge">Frequent Miler RRVs and TPG October 2026 valuations, checked Oct 20, 2026 &middot; next refresh November 2026</div>';
 
     $("results").innerHTML = html;
     $("results").classList.add("has-results");
