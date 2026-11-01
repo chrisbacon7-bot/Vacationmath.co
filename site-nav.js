@@ -76,7 +76,12 @@
     { href: '/blog/cruise-drink-package-break-even-2026', label: 'Issue #17 · Cruise Drink Package Break-Even' },
     { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Issue #18 · Lightning Lane Multi Pass Math' },
     { href: '/blog/disney-christmas-party-math-2026', label: 'Issue #19 · Disney Christmas Party Math' },
-    { href: '/blog/flying-home-christmas-new-year-2026', label: 'Issue #22 · Flying Home for Christmas' }
+    { href: '/blog/spring-break-flight-booking-window-2027', label: 'Issue #22 · Spring Break Flight Booking' },
+    { href: '/blog/disney-vs-universal-2027-ticket-math', label: 'Issue #23 · Disney vs Universal 2027' },
+    { href: '/blog/caribbean-cruise-fares-2027', label: 'Issue #24 · Caribbean Cruise Fares' },
+    { href: '/blog/black-friday-travel-deals-2026', label: 'Issue #25 · Black Friday Travel Deals' },
+    { href: '/blog/what-points-are-worth-2026', label: 'Issue #26 · What Points Are Worth' },
+    { href: '/blog/flying-home-christmas-new-year-2026', label: 'Holiday Guide · Flying Home for Christmas' }
   ];
 
   // Page detection so we can highlight active nav item
@@ -242,6 +247,7 @@
       { href: '/guides/hidden-costs-disney-world', label: 'Hidden costs of Disney World' }
     ],
     '/themeparks': [
+      { href: '/blog/disney-vs-universal-2027-ticket-math', label: 'Disney vs Universal 2027 ticket math' },
       { href: '/blog/disney-christmas-party-math-2026', label: 'Disney Christmas Party math 2026' },
       { href: '/blog/lightning-lane-multi-pass-math-2026', label: 'Lightning Lane Multi Pass math 2026' },
       { href: '/blog/disney-fall-room-promo-math-2026', label: 'Disney fall room promo math 2026' },
@@ -250,6 +256,7 @@
       { href: '/guides/hidden-costs-disney-world', label: 'Hidden costs of Disney World' }
     ],
     '/cruise': [
+      { href: '/blog/caribbean-cruise-fares-2027', label: 'Caribbean cruise fares 2027' },
       { href: '/blog/hurricane-season-travel-insurance-2026', label: 'Hurricane season travel insurance 2026' },
       { href: '/blog/should-you-buy-travel-insurance-2026', label: 'Should you buy travel insurance 2026' },
       { href: '/guides/how-much-does-a-cruise-cost', label: 'How much does a cruise cost' },
@@ -272,6 +279,7 @@
       { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' }
     ],
     '/plan': [
+      { href: '/blog/black-friday-travel-deals-2026', label: 'Black Friday travel deals 2026' },
       { href: '/guides#money-guides', label: 'Money guides' },
       { href: '/guides/how-much-to-budget-for-vacation', label: 'How much to budget for vacation' },
       { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' },
@@ -288,6 +296,7 @@
       { href: '/blog/fall-travel-cost-2026', label: 'Fall travel cost 2026' }
     ],
     '/whentobook': [
+      { href: '/blog/spring-break-flight-booking-window-2027', label: 'Spring break flight booking window 2027' },
       { href: '/blog/flying-home-christmas-new-year-2026', label: 'Flying home for Christmas 2026' },
       { href: '/blog/thanksgiving-christmas-flight-booking-2026', label: 'Thanksgiving &amp; Christmas flights 2026' },
       { href: '/blog/labor-day-travel-cost-2026', label: 'Labor Day travel cost 2026' },
@@ -295,6 +304,7 @@
       { href: '/blog/summer-airfare-cost-2026', label: 'Summer airfare cost 2026' }
     ],
     '/points': [
+      { href: '/blog/what-points-are-worth-2026', label: 'What points are worth 2026' },
       { href: '/blog/hotel-points-math-2026', label: 'Hotel points math 2026' },
       { href: '/blog/credit-card-vacation-debt-2026', label: 'Credit card vacation debt 2026' }
     ],
