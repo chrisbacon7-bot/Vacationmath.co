@@ -23,6 +23,8 @@ run("city-guides-editorial.js");
 run("city-guides-lists.js");
 run("city-guides-polish.js");
 run("city-guides-dense.js");
+run("city-guides-pilot.js");
+run("city-guides-plain.js");
 run("city-guide.js");
 
 const REQUIRED = [

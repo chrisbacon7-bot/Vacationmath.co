@@ -266,8 +266,9 @@
 
   function tierBlock(label, html) {
     if (!html) return "";
+    var band = /splurge/i.test(label) ? "lux" : /mid/i.test(label) ? "mid" : "budget";
     return ""
-      + "<div class=\"cg-tier\">"
+      + "<div class=\"cg-tier cg-tier-" + band + "\">"
       +   "<p class=\"cg-tier-label\">" + esc(label) + "</p>"
       +   html
       + "</div>";
@@ -338,10 +339,20 @@
       + "</section>";
   }
 
+  function factRow(dt, dd) {
+    return "<div><dt>" + esc(dt) + "</dt><dd>" + esc(plainVoice(dd)) + "</dd></div>";
+  }
+
   function factsBox(guide) {
+    var meta = [
+      factRow("Nights that fit", guide.nights),
+      factRow("Mid-range posture", guide.midrange),
+      factRow("Best months", guide.months),
+      factRow("Need a car?", carLabel(guide))
+    ].join("");
     var money = (guide.money || []).map(function (row) {
       if (!row || !row.dt || !row.dd) return "";
-      return "<div><dt>" + esc(row.dt) + "</dt><dd>" + esc(plainVoice(row.dd)) + "</dd></div>";
+      return factRow(row.dt, row.dd);
     }).join("");
     var note = money
       ? "<p class=\"cg-facts-note\">Orientation bands from Trip Finder 2026 hotel tables, published tax rates, and calculator figures in this repo — not live quotes.</p>"
@@ -349,13 +360,8 @@
     return ""
       + "<aside class=\"cg-facts\" id=\"facts\">"
       +   "<p class=\"cg-facts-kicker\">Quick facts</p>"
-      +   "<dl class=\"cg-facts-grid\">"
-      +     "<div><dt>Nights that fit</dt><dd>" + esc(guide.nights) + "</dd></div>"
-      +     "<div><dt>Mid-range posture</dt><dd>" + esc(plainVoice(guide.midrange)) + "</dd></div>"
-      +     "<div><dt>Best months</dt><dd>" + esc(guide.months) + "</dd></div>"
-      +     "<div><dt>Need a car?</dt><dd>" + esc(carLabel(guide)) + "</dd></div>"
-      +     money
-      +   "</dl>"
+      +   "<dl class=\"cg-facts-grid cg-facts-meta\">" + meta + "</dl>"
+      +   (money ? "<dl class=\"cg-facts-grid cg-facts-money\">" + money + "</dl>" : "")
       +   note
       + "</aside>";
   }
@@ -364,11 +370,14 @@
     var zones = (guide.zones || []).slice(0, 5);
     if (zones.length < 3) return "";
     var cards = zones.map(function (z, i) {
+      var n = (i + 1 < 10 ? "0" : "") + (i + 1);
       return ""
         + "<li class=\"cg-zone\">"
-        +   "<span class=\"cg-zone-n\" aria-hidden=\"true\">" + (i + 1) + "</span>"
-        +   "<p class=\"cg-zone-name\">" + esc(z.name) + "</p>"
-        +   "<p class=\"cg-zone-note\">" + esc(plainVoice(z.note)) + "</p>"
+        +   "<span class=\"cg-zone-n\" aria-hidden=\"true\">" + n + "</span>"
+        +   "<div class=\"cg-zone-body\">"
+        +     "<p class=\"cg-zone-name\">" + esc(z.name) + "</p>"
+        +     "<p class=\"cg-zone-note\">" + esc(plainVoice(z.note)) + "</p>"
+        +   "</div>"
         + "</li>";
     }).join("");
     return ""
@@ -389,8 +398,8 @@
       + "<section class=\"cg-section\" id=\"who\">"
       +   "<h2 class=\"cg-h2\">Who this is for</h2>"
       +   "<div class=\"cg-who\">"
-      +     "<div><p class=\"cg-subhead\">For</p><ul class=\"cg-plain\">" + forWho + "</ul></div>"
-      +     "<div><p class=\"cg-subhead\">Not for</p><ul class=\"cg-plain\">" + notFor + "</ul></div>"
+      +     "<div class=\"cg-who-for\"><p class=\"cg-subhead\">For</p><ul class=\"cg-plain\">" + forWho + "</ul></div>"
+      +     "<div class=\"cg-who-not\"><p class=\"cg-subhead\">Not for</p><ul class=\"cg-plain\">" + notFor + "</ul></div>"
       +   "</div>"
       + "</section>";
   }
@@ -423,16 +432,29 @@
     var w = guide.walk;
     if (!w || !w.lines || !w.lines.length) return "";
     var rows = w.lines.map(function (line) {
-      return "<div><dt>" + esc(line.item) + "</dt><dd>" + esc(plainVoice(line.cost)) + "</dd></div>";
+      var figure = "<span class=\"cg-ledger-figure\">" + esc(plainVoice(line.cost)) + "</span>";
+      var note = line.note
+        ? "<span class=\"cg-ledger-note\">" + esc(plainVoice(line.note)) + "</span>"
+        : "";
+      if (!line.note) {
+        figure = "<span class=\"cg-ledger-note\">" + esc(plainVoice(line.cost)) + "</span>";
+      }
+      return "<tr><th scope=\"row\">" + esc(line.item) + "</th><td>" + figure + note + "</td></tr>";
     }).join("");
     var tripLabel = w.tripLabel || "Trip";
     return ""
       + "<section class=\"cg-section cg-walk\" id=\"money-walk\">"
       +   "<h2 class=\"cg-h2\">Mid-range money walkthrough</h2>"
       +   "<p class=\"cg-rule\">" + esc(plainVoice(w.lead)) + "</p>"
-      +   "<dl class=\"cg-walk-grid\">" + rows + "</dl>"
-      +   "<p class=\"cg-walk-total\"><strong>Day:</strong> " + esc(plainVoice(w.day)) + "</p>"
-      +   "<p class=\"cg-walk-total\"><strong>" + esc(tripLabel) + ":</strong> " + esc(plainVoice(w.trip)) + "</p>"
+      +   "<table class=\"cg-ledger\">"
+      +     "<caption>Worked example</caption>"
+      +     "<thead><tr><th scope=\"col\">Line</th><th scope=\"col\">Amount</th></tr></thead>"
+      +     "<tbody>" + rows + "</tbody>"
+      +   "</table>"
+      +   "<dl class=\"cg-walk-sums\">"
+      +     "<div><dt>Day</dt><dd>" + esc(plainVoice(w.day)) + "</dd></div>"
+      +     "<div><dt>" + esc(tripLabel) + "</dt><dd>" + esc(plainVoice(w.trip)) + "</dd></div>"
+      +   "</dl>"
       +   "<p class=\"cg-facts-note\">" + esc(plainVoice(w.note || "Worked example inside the Quick facts bands. Public rates, not a live quote.")) + "</p>"
       + "</section>";
   }
@@ -466,9 +488,9 @@
 
   function hiddenSection(guide) {
     return ""
-      + "<section class=\"cg-section\" id=\"hidden\">"
+      + "<section class=\"cg-section cg-hidden\" id=\"hidden\">"
       +   "<h2 class=\"cg-h2\">Hidden costs</h2>"
-      +   bulletList(guide.hidden)
+      +   bulletList(guide.hidden, "cg-plain cg-hidden-list")
       + "</section>";
   }
 
@@ -525,9 +547,9 @@
       +   "<h1 class=\"cg-h1\">" + esc(seo.h1) + "</h1>"
       +   "<p class=\"cg-hook\">" + esc(plainVoice(guide.hook)) + "</p>"
       +   (guide.startHere
-        ? "<p class=\"cg-start\"><span>Start here</span> " + esc(plainVoice(guide.startHere)) + "</p>"
+        ? "<div class=\"cg-start\"><p class=\"cg-start-label\">Start here</p><p>" + esc(plainVoice(guide.startHere)) + "</p></div>"
         : "")
-      +   "<p class=\"cg-crumb\"><a href=\"/guides\">All money guides</a> · <a href=\"" + planHref + "\">Build a Trip Plan</a></p>"
+      +   "<p class=\"cg-crumb cg-no-print\"><a href=\"/guides\">All money guides</a> · <a href=\"" + planHref + "\">Build a Trip Plan</a></p>"
       + "</header>"
 
       + factsBox(guide)
