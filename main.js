@@ -103,9 +103,14 @@
       });
   }
 
-  document.querySelectorAll("form.capture").forEach(function (form) {
+  document.querySelectorAll("form.capture").forEach(injectHoneypot);
+  // Delegation so pages that render a capture form after load (The Gobbler
+  // end screen) use the same /subscribe path as the rest of the site.
+  document.addEventListener("submit", function (e) {
+    var form = e.target && e.target.closest ? e.target.closest("form.capture") : null;
+    if (!form) return;
     injectHoneypot(form);
-    form.addEventListener("submit", function (e) { submitForm(form, e); });
+    submitForm(form, e);
   });
 })();
 

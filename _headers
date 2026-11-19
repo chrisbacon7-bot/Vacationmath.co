@@ -25,3 +25,20 @@
 # HTML stays revalidate-always so content edits appear at once.
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+# The Gobbler is a live phone game. Keep the page fresh, and don't let a
+# long-lived JS bundle strand a table mid-dinner after a fix.
+/gobbler
+  Cache-Control: public, max-age=0, must-revalidate
+
+/gobbler/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/gobbler/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/gobbler/*.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+/gobbler/*.css
+  Cache-Control: public, max-age=300, must-revalidate
