@@ -243,6 +243,13 @@
   </url>
 
   <url>
+    <loc>https://vacationmath.co/truth-or-turkey</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://vacationmath.co/tracker</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,0 +1,27 @@
+# Truth or Turkey. One command publishes the live tables AND the route.
+# Do not put this file at the repo root. The site worker "vacationmath"
+# already deploys from git, and a root config would replace it.
+#
+#   cd workers/truth-or-turkey
+#   npx wrangler login
+#   npx wrangler deploy
+#
+# That creates the TruthRoom Durable Object and attaches
+# vacationmath.co/api/truth* so phones can use the same site.
+
+name = "vacationmath-truth"
+main = "src/index.js"
+compatibility_date = "2025-11-01"
+workers_dev = true
+
+[[routes]]
+pattern = "vacationmath.co/api/truth*"
+zone_name = "vacationmath.co"
+
+[[durable_objects.bindings]]
+name = "ROOMS"
+class_name = "TruthRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["TruthRoom"]

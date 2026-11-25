@@ -25,3 +25,18 @@
 # HTML stays revalidate-always so content edits appear at once.
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/truth-or-turkey
+  Cache-Control: public, max-age=0, must-revalidate
+
+/truth-or-turkey/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/truth-or-turkey/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/truth-or-turkey/*.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+/truth-or-turkey/*.css
+  Cache-Control: public, max-age=300, must-revalidate
