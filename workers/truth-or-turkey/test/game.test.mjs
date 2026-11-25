@@ -136,6 +136,75 @@ test("the defend clock reveals on its own, and refresh keeps the truth private",
   assert.equal(viewFor(ctx.game, other.id, ends).turn.truthPos === 0 || viewFor(ctx.game, other.id, ends).turn.truthPos === 1, true);
 });
 
+test("a late joiner waits for the next round, and stepping out does not stall the vote", () => {
+  const ctx = start(table(["Ann", "Bo"], 2, 8));
+  const late = joinGame(ctx.game, "Cy", ctx.now());
+  assert.equal(late.ok, true, late.error);
+  assert.equal(late.player.playFromRound, 0);
+  applyAction(ctx.game, ctx.seats[0].id, { type: "submit", truth: "Ann real thankful note", turkey: "Ann fake thankful note" }, ctx.now(), ctx.random);
+  applyAction(ctx.game, ctx.seats[1].id, { type: "submit", truth: "Bo real thankful note", turkey: "Bo fake thankful note" }, ctx.now(), ctx.random);
+  assert.equal(ctx.game.phase, "write");
+  applyAction(ctx.game, late.player.id, { type: "submit", truth: "Cy real thankful note", turkey: "Cy fake thankful note" }, ctx.now(), ctx.random);
+  assert.equal(ctx.game.phase, "defend");
+  const during = joinGame(ctx.game, "Dee", ctx.now());
+  assert.equal(during.ok, true, during.error);
+  assert.equal(during.player.playFromRound, 1);
+  const author = ctx.game.turnOrder[0];
+  for (const id of [ctx.seats[0].id, ctx.seats[1].id, late.player.id]) {
+    if (id === author) continue;
+    applyAction(ctx.game, id, { type: "vote", pick: 0 }, ctx.now(), ctx.random);
+  }
+  assert.equal(ctx.game.phase, "reveal");
+  applyAction(ctx.game, during.player.id, { type: "leave" }, ctx.now(), ctx.random);
+  assert.equal(ctx.game.players[during.player.id].kicked, true);
+});
+
+test("tied awards name everyone, and a player who never votes stays at zero guesses", () => {
+  const ctx = start(table(["Ada", "Bea", "Cam"], 1, 4));
+  submitAll(ctx, "Tie");
+  const ledger = { Ada: { points: 0, correct: 0, fooled: 0 }, Bea: { points: 0, correct: 0, fooled: 0 }, Cam: { points: 0, correct: 0, fooled: 0 } };
+  const plan = [
+    { correct: ["Bea"], wrong: ["Cam"] },
+    { correct: ["Ada"], wrong: ["Cam"] },
+    { correct: [], wrong: ["Ada", "Bea"] },
+  ];
+  let turn = 0;
+  while (ctx.game.phase !== "ended") {
+    if (ctx.game.phase === "reveal") {
+      applyAction(ctx.game, ctx.seats[0].id, { type: "skip" }, ctx.now(), ctx.random);
+      continue;
+    }
+    if (ctx.game.phase !== "defend") break;
+    const author = ctx.game.players[ctx.game.turnOrder[ctx.game.turnIndex]];
+    const sub = ctx.game.submissions[String(ctx.game.roundIndex)][author.id];
+    const pos = sub.order.indexOf("truth");
+    const step = plan[turn];
+    for (const name of step.correct) {
+      const voter = ctx.seats.find((s) => s.name === name);
+      applyAction(ctx.game, voter.id, { type: "vote", pick: pos }, ctx.now(), ctx.random);
+      ledger[name].points += 1; ledger[name].correct += 1;
+    }
+    for (const name of step.wrong) {
+      const voter = ctx.seats.find((s) => s.name === name);
+      applyAction(ctx.game, voter.id, { type: "vote", pick: pos === 0 ? 1 : 0 }, ctx.now(), ctx.random);
+      ledger[author.name].points += 1; ledger[author.name].fooled += 1;
+    }
+    turn += 1;
+  }
+  assert.equal(ctx.game.phase, "ended");
+  for (const seat of ctx.seats) {
+    const got = ctx.game.players[seat.id];
+    assert.equal(got.points, ledger[seat.name].points, seat.name);
+    assert.equal(got.correctGuesses, ledger[seat.name].correct, seat.name + " guesses");
+    assert.equal(got.fooled, ledger[seat.name].fooled, seat.name + " fooled");
+  }
+  assert.equal(ctx.game.players[ctx.seats[2].id].correctGuesses, 0);
+  const teller = ctx.game.awards.find((a) => a.id === "truth-teller");
+  assert.deepEqual(teller.names.sort(), ["Ada", "Bea"]);
+  const turkey = ctx.game.awards.find((a) => a.id === "biggest-turkey");
+  assert.deepEqual(turkey.names, ["Cam"]);
+});
+
 test("rematch keeps the token and clears the score", () => {
   const ctx = start(table(["Alex", "Sam"], 1, 2));
   submitAll(ctx, "Past");

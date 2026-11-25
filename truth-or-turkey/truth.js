@@ -10,6 +10,8 @@
   var ui = { error: "", toast: "", busy: false, confirm: null };
   var draft = { truth: "", turkey: "" };
   var draftRound = -1;
+  var paintKey = "";
+  var forcePaint = false;
   var offset = 0;
   var ws = null;
   var want = false;
@@ -40,7 +42,12 @@
     return m + ":" + (r < 10 ? "0" : "") + r;
   }
   function say(text) { if (live && text) live.textContent = text; }
-  function toast(text) { ui.toast = text || ""; paint(); if (text) setTimeout(function () { ui.toast = ""; paint(); }, 3800); }
+  function toast(text) {
+    ui.toast = text || "";
+    forcePaint = true;
+    paint();
+    if (text) setTimeout(function () { ui.toast = ""; forcePaint = true; paint(); }, 3800);
+  }
 
   function applyView(next) {
     if (!next) return;
@@ -76,8 +83,13 @@
     var saved = session();
     if (!saved) return;
     want = true;
+    pull();
     openSocket();
-    if (!pollTimer) pollTimer = setInterval(pull, 4000);
+  }
+
+  function ensurePoll() {
+    if (pollTimer) return;
+    pollTimer = setInterval(pull, 2000);
   }
 
   function openSocket() {
@@ -87,6 +99,11 @@
     var proto = location.protocol === "https:" ? "wss:" : "ws:";
     var socket = new WebSocket(proto + "//" + location.host + "/api/truth/rooms/" + saved.code + "/ws?token=" + encodeURIComponent(saved.token));
     ws = socket;
+    socket.onopen = function () {
+      backoff = 500;
+      clearInterval(pollTimer);
+      pollTimer = null;
+    };
     socket.onmessage = function (ev) {
       var msg; try { msg = JSON.parse(ev.data); } catch (e) { return; }
       if (msg.type === "state") applyView(msg.view);
@@ -96,6 +113,7 @@
     socket.onclose = function () {
       if (ws === socket) ws = null;
       if (want) {
+        ensurePoll();
         clearTimeout(reconnectTimer);
         var wait = backoff;
         backoff = Math.min(5000, backoff * 2);
@@ -223,7 +241,9 @@
     var body = mine
       ? '<div class="tot-card"><p class="tot-ok">Locked in. Hang on for the others.</p><p><strong>Truth:</strong> ' + esc(mine.truth) + "</p><p><strong>Turkey:</strong> " + esc(mine.turkey) + "</p></div>"
       : '<form class="tot-card tot-stack" data-form="write"><label class="tot-label" for="truth-box">The truth</label><textarea class="tot-area" id="truth-box" name="truth" maxlength="160" required placeholder="' + esc(view.round.truthHint) + '">' + esc(draft.truth) + '</textarea><p class="tot-help">Example: ' + esc(view.round.truthHint) + '</p><label class="tot-label" for="turkey-box">The turkey</label><textarea class="tot-area" id="turkey-box" name="turkey" maxlength="160" required placeholder="' + esc(view.round.turkeyHint) + '">' + esc(draft.turkey) + '</textarea><p class="tot-help">Example: ' + esc(view.round.turkeyHint) + '</p><button class="tot-btn tot-btn-honey" type="submit" data-testid="lock">Lock it in</button></form>';
-    var skip = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-ghost" data-act="skip">Move on</button><p class="tot-help">Anyone who has not locked in gets skipped this round.</p>' : "";
+    var skip = (view.you.sittingOut ? '<p class="tot-banner">You jumped in late. You will write on the next round.</p>' : "") +
+      (view.youCanManage ? '<button type="button" class="tot-btn tot-btn-ghost" data-act="skip">Move on</button><p class="tot-help">Anyone who has not locked in gets skipped this round.</p>' : "") +
+      '<button type="button" class="tot-link" data-act="step-out">Step out</button>';
     return '<section data-testid="write" class="tot-stack"><div class="tot-top"><p class="tot-kicker">Round ' + view.round.number + " of " + view.round.total + '</p><span class="tot-tag">' + esc(view.code) + "</span></div>" +
       '<h1 class="tot-title" style="font-size:2.3rem">' + esc(view.round.title) + "</h1><p class=\"tot-lede\">" + esc(view.round.prompt) + "</p>" +
       '<p class="tot-help" data-locked-count>' + locked + " of " + total + " locked in</p>" + body + skip +
@@ -234,16 +254,19 @@
     var turn = view.turn;
     var cards = turn.statements.map(function (text, i) {
       var cls = "tot-statement" + (turn.yourVote === i ? " is-pick" : "");
-      if (turn.youAreAuthor) return '<div class="' + cls + '">' + esc(text) + "</div>";
+      if (turn.youAreAuthor || view.you.sittingOut || turn.yourVote != null) return '<div class="' + cls + '">' + esc(text) + "</div>";
       return '<button type="button" class="' + cls + '" data-testid="pick" data-act="vote" data-pick="' + i + '">' + esc(text) + "</button>";
     }).join("");
-    var note = turn.youAreAuthor
+    var note = view.you.sittingOut
+      ? '<p class="tot-banner">You jumped in late. Watch this one. You play on the next round.</p>'
+      : turn.youAreAuthor
       ? '<p class="tot-banner">Defend both out loud. Your truth is the ' + (turn.yourTruthPos === 0 ? "top" : "bottom") + " one. Don't point.</p>"
       : (turn.yourVote != null ? '<p class="tot-ok">Vote in. ' + turn.votesIn + " of " + turn.voters + " voted.</p>" : '<p class="tot-help">Tap the one you think is true.</p>');
     var skip = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-ghost" data-act="skip">Reveal now</button>' : "";
+    skip += '<button type="button" class="tot-link" data-act="step-out">Step out</button>';
     return '<section data-testid="defend" class="tot-stack"><p class="tot-kicker">' + esc(turn.authorName) + " says</p>" +
       '<p class="tot-clock" data-countdown data-ends="' + (turn.endsAt || 0) + '">' + fmt(Math.max(0, (turn.endsAt || 0) - (Date.now() + offset))) + "</p>" +
-      note + cards + skip + "</section>";
+      note + cards + skip + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
   }
 
   function revealHtml() {
@@ -256,7 +279,7 @@
     var spot = reveal.spotted.length ? " " + esc(reveal.spotted.join(", ")) + " spotted the truth." : "";
     var next = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-honey" data-act="skip" data-testid="next">Next</button>' : '<p class="tot-help">Next story comes up in a few seconds.</p>';
     return '<section data-testid="reveal" class="tot-stack"><p class="tot-kicker">The truth</p><h1 class="tot-title" style="font-size:2.2rem">' + esc(reveal.authorName) + "</h1>" +
-      cards + '<p class="tot-banner">' + fool + spot + "</p>" + next + '<div class="tot-card">' + playersHtml(false) + "</div></section>";
+      cards + '<p class="tot-banner">' + fool + spot + "</p>" + next + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
   }
 
   function endHtml() {
@@ -280,9 +303,19 @@
     return '<div class="tot-card tot-stack"><h2>' + esc(ui.confirm.title) + "</h2><p>" + esc(ui.confirm.text) + '</p><button type="button" class="tot-btn tot-btn-hot" data-act="confirm-yes">Yes</button><button type="button" class="tot-btn tot-btn-ghost" data-act="confirm-no">Not now</button></div>';
   }
 
+  function captureDraft() {
+    var truth = document.getElementById("truth-box");
+    var turkey = document.getElementById("turkey-box");
+    if (truth) draft.truth = truth.value;
+    if (turkey) draft.turkey = turkey.value;
+  }
+
   function paint() {
+    captureDraft();
+    var key = mode + ":" + (view ? view.phase + ":" + view.round.index + ":" + (view.turn ? view.turn.authorId : "") + ":" + (view.you && view.you.submission ? "1" : "0") : "");
     var el = document.activeElement;
-    if (el && app.contains(el) && (el.tagName === "TEXTAREA" || (el.tagName === "INPUT" && el.type !== "submit"))) {
+    var typing = el && app.contains(el) && el.tagName === "TEXTAREA";
+    if (typing && key === paintKey && !forcePaint) {
       var count = app.querySelector("[data-locked-count]");
       if (count && view && view.phase === "write") {
         var locked = view.players.filter(function (p) { return p.locked && !p.kicked; }).length;
@@ -291,6 +324,8 @@
       }
       return;
     }
+    forcePaint = false;
+    paintKey = key;
     var body = landingHtml();
     if (mode === "howto") body = howtoHtml();
     else if (mode === "game" && view) {
@@ -368,11 +403,15 @@
     }
     if (act === "rounds") { send({ type: "settings", rounds: Number(btn.dataset.value) }); return; }
     if (act === "start") { send({ type: "start" }); return; }
-    if (act === "leave") { ui.confirm = { action: { type: "leave" }, title: "Leave the table?", text: "You can join again with the code before the game starts." }; paint(); return; }
+    if (act === "leave" || act === "step-out") {
+      ui.confirm = { action: { type: "leave" }, title: "Step out?", text: "You leave this game. The table keeps going." };
+      paint();
+      return;
+    }
     if (act === "kick") { ui.confirm = { action: { type: "kick", targetId: btn.dataset.id }, title: "Remove this player?", text: "They drop out of the rest of the game." }; paint(); return; }
     if (act === "confirm-no") { ui.confirm = null; paint(); return; }
     if (act === "confirm-yes" && ui.confirm) { var action = ui.confirm.action; ui.confirm = null; send(action); return; }
-    if (act === "skip") { send({ type: "skip" }); return; }
+    if (act === "skip") { send({ type: "skip", phase: view && view.phase }); return; }
     if (act === "vote") { send({ type: "vote", pick: Number(btn.dataset.pick) }); return; }
     if (act === "rematch") { send({ type: "rematch" }); return; }
     if (act === "share-award" && view && view.recap) {
@@ -418,7 +457,6 @@
     }
   });
 
-  app.addEventListener("focusout", function () { setTimeout(paint, 0); });
 
   setInterval(function () {
     var nodes = app.querySelectorAll("[data-countdown]");

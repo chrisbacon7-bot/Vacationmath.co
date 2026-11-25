@@ -124,6 +124,8 @@
   line-height: 0.9;
   color: #8C2F39;
 }
+.tot-statement, .tot-area, .tot-name { overflow-wrap: anywhere; }
+.tot-page .vm-nav-toggle { min-width: 44px; min-height: 44px; }
 .tot-statement {
   width: 100%;
   text-align: left;

@@ -3,7 +3,6 @@ import { THEMES } from "./themes.js";
 export const MIN_PLAYERS = 2;
 export const MAX_PLAYERS = 12;
 export const DEFEND_MS = 30_000;
-export const REVEAL_MS = 12_000;
 export const CODE_RE = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{4}$/;
 
 const BLOCKED = ["fuck", "shit", "bitch", "asshole", "cunt", "nigger", "faggot", "slut"];
@@ -67,6 +66,7 @@ function makePlayer(name, now) {
     joinedAt: now,
     connected: false,
     kicked: false,
+    playFromRound: 0,
     points: 0,
     correctGuesses: 0,
     fooled: 0,
@@ -94,6 +94,10 @@ export function canManage(game, playerId) {
 
 function activeIds(game) {
   return game.playerOrder.filter((pid) => game.players[pid] && !game.players[pid].kicked);
+}
+
+function playingIds(game) {
+  return activeIds(game).filter((pid) => (game.players[pid].playFromRound || 0) <= game.roundIndex);
 }
 
 function theme(game) {
@@ -178,7 +182,7 @@ function beginDefend(game, now, rng) {
 
 function closeWrite(game, now, rng) {
   const subs = bucket(game);
-  game.turnOrder = activeIds(game).filter((pid) => subs[pid]);
+  game.turnOrder = playingIds(game).filter((pid) => subs[pid]);
   game.turnIndex = 0;
   if (!game.turnOrder.length) {
     if (game.roundIndex + 1 < game.settings.rounds) {
@@ -198,7 +202,7 @@ function scoreTurn(game, authorId) {
   const author = game.players[authorId];
   const fooled = [];
   const spotted = [];
-  for (const pid of activeIds(game)) {
+  for (const pid of playingIds(game)) {
     if (pid === authorId) continue;
     const pick = sub.votes[pid];
     if (pick == null) continue;
@@ -224,7 +228,7 @@ function closeDefend(game, now) {
   const result = scoreTurn(game, authorId);
   game.phase = "reveal";
   game.defendEndsAt = null;
-  game.revealEndsAt = now + REVEAL_MS;
+  game.revealEndsAt = null;
   const author = game.players[authorId];
   game.reveal = {
     authorId,
@@ -313,16 +317,17 @@ export function createGame({ code, hostName, now = Date.now() }) {
 
 export function joinGame(game, rawName, now = Date.now()) {
   if (!game || game.abandoned) return { ok: false, error: "No table with that code. Check the letters." };
-  if (game.phase !== "lobby") return { ok: false, error: "This game already started. Ask for the next one." };
+  if (game.phase === "ended") return { ok: false, error: "This game is over. Ask the host for a new one." };
   if (game.playerOrder.length >= MAX_PLAYERS) return { ok: false, error: "This table is full." };
   const cleaned = cleanName(rawName);
   if (cleaned.error) return { ok: false, error: cleaned.error };
-  const taken = Object.values(game.players).some((p) => p.name.toLowerCase() === cleaned.name.toLowerCase());
+  const taken = Object.values(game.players).some((p) => !p.kicked && p.name.toLowerCase() === cleaned.name.toLowerCase());
   if (taken) return { ok: false, error: "That name is already at the table. Add an initial." };
   const player = makePlayer(cleaned.name, now);
+  player.playFromRound = game.phase === "lobby" || game.phase === "write" ? game.roundIndex : game.roundIndex + 1;
   game.players[player.id] = player;
   game.playerOrder.push(player.id);
-  pushLog(game, now, `${player.name} pulled up a chair.`);
+  pushLog(game, now, game.phase === "lobby" ? `${player.name} pulled up a chair.` : `${player.name} jumped in. They play next round.`);
   return { ok: true, player };
 }
 
@@ -344,9 +349,21 @@ function removePlayer(game, targetId, now) {
   }
 }
 
+function afterDrop(game, targetId, now, rng) {
+  const authorId = currentAuthorId(game);
+  if (game.phase === "defend" && authorId === targetId) closeReveal(game, now, rng);
+  else if (game.phase === "reveal" && game.reveal && game.reveal.authorId === targetId) closeReveal(game, now, rng);
+  else if (game.phase === "defend" && authorId && votersAllIn(game, authorId)) closeDefend(game, now);
+  else if (game.phase === "write") {
+    const subs = bucket(game);
+    const waiting = playingIds(game).filter((pid) => !subs[pid]);
+    if (!waiting.length) closeWrite(game, now, rng);
+  }
+}
+
 function votersAllIn(game, authorId) {
   const sub = bucket(game)[authorId];
-  return activeIds(game).filter((pid) => pid !== authorId).every((pid) => sub.votes[pid] != null);
+  return playingIds(game).filter((pid) => pid !== authorId).every((pid) => sub.votes[pid] != null);
 }
 
 export function applyAction(game, playerId, action, now, rng) {
@@ -377,17 +394,19 @@ export function applyAction(game, playerId, action, now, rng) {
     }
     target.kicked = true;
     pushLog(game, now, `${target.name} left the game.`);
-    const authorId = currentAuthorId(game);
-    if (game.phase === "defend" && authorId === target.id) closeReveal(game, now, rng);
-    else if (game.phase === "reveal" && game.reveal && game.reveal.authorId === target.id) closeReveal(game, now, rng);
-    else if (game.phase === "defend" && authorId && votersAllIn(game, authorId)) closeDefend(game, now);
+    afterDrop(game, target.id, now, rng);
     return ok();
   }
 
   if (type === "leave") {
-    if (game.phase !== "lobby") return fail("The game already started. Stay if you can.", changedByTick);
-    removePlayer(game, playerId, now);
-    return ok({}, { empty: game.playerOrder.length === 0 });
+    if (game.phase === "lobby") {
+      removePlayer(game, playerId, now);
+      return ok({}, { empty: game.playerOrder.length === 0 });
+    }
+    player.kicked = true;
+    pushLog(game, now, `${player.name} stepped out.`);
+    afterDrop(game, playerId, now, rng);
+    return ok();
   }
 
   if (type === "start") {
@@ -413,7 +432,7 @@ export function applyAction(game, playerId, action, now, rng) {
     if (truth.text.toLowerCase() === turkey.text.toLowerCase()) return fail("The truth and the turkey need to be different.", changedByTick);
     subs[player.id] = { truth: truth.text, turkey: turkey.text, order: null, votes: {} };
     pushLog(game, now, `${player.name} locked in.`);
-    const waiting = activeIds(game).filter((pid) => !subs[pid]);
+    const waiting = playingIds(game).filter((pid) => !subs[pid]);
     if (!waiting.length) closeWrite(game, now, rng);
     return ok();
   }
@@ -434,6 +453,7 @@ export function applyAction(game, playerId, action, now, rng) {
 
   if (type === "skip") {
     if (!canManage(game, playerId)) return fail("Only the host can skip ahead.", changedByTick);
+    if (action.phase && action.phase !== game.phase) return fail("That moment already passed.", changedByTick);
     if (game.phase === "write") {
       closeWrite(game, now, rng);
       return ok();
@@ -549,6 +569,7 @@ export function viewFor(game, playerId, now = Date.now()) {
           fooled: you.fooled,
           kicked: !!you.kicked,
           connected: !!you.connected,
+          sittingOut: (you.playFromRound || 0) > game.roundIndex,
           submission: yours ? { truth: yours.truth, turkey: yours.turkey } : null,
         }
       : null,
