@@ -170,7 +170,7 @@
   }
 
   function playersHtml(canKick) {
-    return view.players.filter(function (p) { return !p.kicked; }).map(function (p) {
+    return '<div class="tot-people">' + view.players.filter(function (p) { return !p.kicked; }).map(function (p) {
       var tags = "";
       if (p.isHost) tags += '<span class="tot-tag">Host</span>';
       if (p.locked && view.phase === "write") tags += '<span class="tot-tag">Ready</span>';
@@ -178,32 +178,39 @@
       var kick = canKick && !p.isHost
         ? '<button type="button" class="tot-x" data-act="kick" data-id="' + esc(p.id) + '" aria-label="Remove ' + esc(p.name) + '">×</button>'
         : "";
-      return '<div class="tot-row" data-testid="player" data-name="' + esc(p.name) + '"><div class="tot-who"><span class="tot-dot' + (p.connected ? " on" : "") + '"></span><span class="tot-name">' + esc(p.name) + '</span></div><div class="tot-who"><span class="tot-score">' + p.points + '</span>' + tags + kick + "</div></div>";
-    }).join("");
+      return '<div class="tot-row" data-testid="player" data-name="' + esc(p.name) + '"><div class="tot-who"><span class="tot-dot' + (p.connected ? " on" : "") + '"></span><span class="tot-name">' + esc(p.name) + "</span></div><div class=\"tot-who\">" + tags + '<span class="tot-score">' + p.points + "</span>" + kick + "</div></div>";
+    }).join("") + "</div>";
   }
 
   function rulesBlock() {
-    return '<ol class="tot-rules"><li><span class="tot-num">1</span><span>Write one true thing and one fake thing.</span></li><li><span class="tot-num">2</span><span>Everyone else votes which one is true.</span></li><li><span class="tot-num">3</span><span>You score if you fool them. They score if they spot it.</span></li></ol>';
+    return '<ol class="tot-rules">' +
+      '<li><span class="tot-num">1</span><span>Write one truth and one turkey, the fake.</span></li>' +
+      '<li><span class="tot-num">2</span><span>Read both out loud for 30 seconds.</span></li>' +
+      '<li><span class="tot-num">3</span><span>Everyone else taps the true one.</span></li>' +
+      '<li><span class="tot-num">4</span><span>A point for each person you fool. A point for each truth you spot.</span></li>' +
+      "</ol>";
   }
 
   function landingHtml() {
     var preset = roomFromUrl();
     var saved = session();
     return '<section data-testid="landing" class="tot-stack">' +
-      '<div><p class="tot-kicker">Play it at the table</p><h1 class="tot-title">Truth or <em>Turkey</em></h1>' +
-      '<p class="tot-lede">A phone game for Thanksgiving. No app. No account. No TV.</p></div>' +
+      '<div><p class="tot-kicker">Thanksgiving table game</p><h1 class="tot-title">Truth or <em>Turkey</em></h1>' +
+      '<p class="tot-lede">A bluff you play from your phone while you eat. Two lines each turn: one true, one made up. The table has to tell them apart.</p></div>' +
       rulesBlock() +
+      '<p class="tot-rounds">Rounds, in order: Thankful, Thanksgivings past, Food confessions, Kid me. The host picks how many. Awards: Top Truth Teller and Biggest Turkey.</p>' +
       (ui.error ? '<p class="tot-error" role="alert">' + esc(ui.error) + "</p>" : "") +
-      (saved ? '<div class="tot-card tot-stack"><p>This phone was ' + esc(saved.name) + " at table " + esc(saved.code) + '.</p><button type="button" class="tot-btn tot-btn-navy" data-act="rejoin">Rejoin</button><button type="button" class="tot-link" data-act="forget">Forget this phone</button></div>' : "") +
-      '<form class="tot-card tot-stack" data-form="create"><label class="tot-label" for="host-name">Your name</label><input class="tot-input" id="host-name" name="name" maxlength="20" autocomplete="off" required placeholder="Alex" /><button class="tot-btn tot-btn-honey" type="submit">Start a table</button></form>' +
-      '<form class="tot-card tot-stack" data-form="join"><label class="tot-label" for="join-code">Room code</label><input class="tot-input" id="join-code" name="code" maxlength="4" autocapitalize="characters" autocomplete="off" value="' + esc(preset) + '" placeholder="AB3K" required /><label class="tot-label" for="join-name">Your name</label><input class="tot-input" id="join-name" name="name" maxlength="20" autocomplete="off" placeholder="Sam" required /><button class="tot-btn tot-btn-navy" type="submit">Join with a code</button></form>' +
-      '<button type="button" class="tot-btn tot-btn-ghost" data-act="howto">How to play</button></section>';
+      (saved ? '<div class="tot-card tot-tight"><p class="tot-now">You were ' + esc(saved.name) + " at " + esc(saved.code) + '.</p><button type="button" class="tot-btn tot-btn-navy" data-act="rejoin">Rejoin</button><button type="button" class="tot-link" data-act="forget">Forget this phone</button></div>' : "") +
+      '<form class="tot-card tot-tight" data-form="create"><label class="tot-label" for="host-name">Your name</label><input class="tot-input" id="host-name" name="name" maxlength="20" autocomplete="off" required placeholder="Alex" /><button class="tot-btn tot-btn-honey" type="submit">Start a table</button></form>' +
+      '<form class="tot-card tot-tight" data-form="join"><label class="tot-label" for="join-code">Room code</label><input class="tot-input" id="join-code" name="code" maxlength="4" autocapitalize="characters" autocomplete="off" value="' + esc(preset) + '" placeholder="AB3K" required /><label class="tot-label" for="join-name">Your name</label><input class="tot-input" id="join-name" name="name" maxlength="20" autocomplete="off" placeholder="Sam" required /><button class="tot-btn tot-btn-navy" type="submit">Join with a code</button></form>' +
+      '<div class="tot-actions"><button type="button" class="tot-link" data-act="howto">How to play</button></div></section>';
   }
 
   function howtoHtml() {
-    return '<section data-testid="howto" class="tot-stack"><button type="button" class="tot-btn tot-btn-ghost" data-act="back">Back</button><p class="tot-kicker">How to play</p><h1 class="tot-title" style="font-size:2.4rem">Three steps</h1>' +
+    return '<section data-testid="howto" class="tot-stack"><div class="tot-actions"><button type="button" class="tot-link" data-act="back">Back</button></div>' +
+      '<div><p class="tot-kicker">How to play</p><h1 class="tot-title">How a turn goes</h1><p class="tot-now">Read both stories. Then tap the true one.</p></div>' +
       rulesBlock() +
-      '<div class="tot-card"><p class="tot-label">Four rounds, in order</p><p>Thankful. Thanksgivings past. Food confessions. Kid me. The host picks how many, from 1 to 4.</p><p>You have about 30 seconds to defend both stories out loud. Then the truth comes out.</p><p>1 point for every truth you spot. The storyteller gets 1 point for every person they fool.</p></div></section>';
+      '<p class="tot-rounds">Thankful. Thanksgivings past. Food confessions. Kid me. About 30 seconds to defend both, then the truth comes out.</p></section>';
   }
 
   function lobbyHtml() {
@@ -211,7 +218,7 @@
     var buttons = [1, 2, 3, 4].map(function (n) {
       return '<button type="button" class="tot-btn tot-btn-ghost' + (rounds === n ? " is-on" : "") + '" data-act="rounds" data-value="' + n + '">' + n + "</button>";
     }).join("");
-    var themes = view.themes.map(function (t) { return "<li>" + esc(t.title) + "</li>"; }).join("");
+    var themes = view.themes.map(function (t) { return esc(t.title); }).join(" · ");
     var away = view.players.filter(function (p) { return !p.connected && !p.kicked; });
     var blocker = view.players.filter(function (p) { return !p.kicked; }).length < 2
       ? "Need one more player."
@@ -219,11 +226,11 @@
     var start = view.youCanManage
       ? '<button type="button" class="tot-btn tot-btn-honey" data-testid="start" data-act="start"' + (blocker ? " disabled" : "") + ">Start</button>" + (blocker ? '<p class="tot-help">' + esc(blocker) + "</p>" : "")
       : '<p class="tot-banner">Waiting for the host to start.</p>';
-    return '<section data-testid="lobby" class="tot-stack"><p class="tot-kicker">Table code</p><h1 class="tot-code" data-testid="room-code">' + esc(view.code) + '</h1><p class="tot-help" style="text-align:center">Read it out loud, or send the link.</p>' +
-      '<div class="tot-choice"><button type="button" class="tot-btn tot-btn-navy" data-act="copy">Copy link</button><button type="button" class="tot-btn tot-btn-ghost" data-act="share">Share</button></div>' +
-      '<div class="tot-card"><p class="tot-label">' + view.players.length + " at the table</p>" + playersHtml(view.youCanManage) + "</div>" +
-      '<div class="tot-card tot-stack"><p class="tot-label">How many rounds</p><div class="tot-choice tot-choice-4">' + buttons + "</div><ul>" + themes + "</ul></div>" +
-      start + '<button type="button" class="tot-link" data-act="leave">Leave this table</button></section>';
+    return '<section data-testid="lobby" class="tot-stack"><div><p class="tot-kicker">Table code</p><h1 class="tot-code" data-testid="room-code">' + esc(view.code) + '</h1><p class="tot-now" style="text-align:center">Share the code. Start when everyone is in.</p></div>' +
+      '<div class="tot-actions"><button type="button" class="tot-link" data-act="copy">Copy link</button><button type="button" class="tot-link" data-act="share">Share</button></div>' +
+      '<div class="tot-card"><p class="tot-label">' + view.players.filter(function (p) { return !p.kicked; }).length + " here</p>" + playersHtml(view.youCanManage) + "</div>" +
+      '<div class="tot-card tot-tight"><p class="tot-label">Rounds</p><div class="tot-pills">' + buttons + '</div><p class="tot-rounds">' + themes + "</p></div>" +
+      start + '<div class="tot-actions"><button type="button" class="tot-link" data-act="leave">Leave</button></div></section>';
   }
 
   function writeHtml() {
@@ -239,14 +246,15 @@
     var locked = view.players.filter(function (p) { return p.locked && !p.kicked; }).length;
     var total = view.players.filter(function (p) { return !p.kicked; }).length;
     var body = mine
-      ? '<div class="tot-card"><p class="tot-ok">Locked in. Hang on for the others.</p><p><strong>Truth:</strong> ' + esc(mine.truth) + "</p><p><strong>Turkey:</strong> " + esc(mine.turkey) + "</p></div>"
-      : '<form class="tot-card tot-stack" data-form="write"><label class="tot-label" for="truth-box">The truth</label><textarea class="tot-area" id="truth-box" name="truth" maxlength="160" required placeholder="' + esc(view.round.truthHint) + '">' + esc(draft.truth) + '</textarea><p class="tot-help">Example: ' + esc(view.round.truthHint) + '</p><label class="tot-label" for="turkey-box">The turkey</label><textarea class="tot-area" id="turkey-box" name="turkey" maxlength="160" required placeholder="' + esc(view.round.turkeyHint) + '">' + esc(draft.turkey) + '</textarea><p class="tot-help">Example: ' + esc(view.round.turkeyHint) + '</p><button class="tot-btn tot-btn-honey" type="submit" data-testid="lock">Lock it in</button></form>';
-    var skip = (view.you.sittingOut ? '<p class="tot-banner">You jumped in late. You will write on the next round.</p>' : "") +
-      (view.youCanManage ? '<button type="button" class="tot-btn tot-btn-ghost" data-act="skip">Move on</button><p class="tot-help">Anyone who has not locked in gets skipped this round.</p>' : "") +
-      '<button type="button" class="tot-link" data-act="step-out">Step out</button>';
-    return '<section data-testid="write" class="tot-stack"><div class="tot-top"><p class="tot-kicker">Round ' + view.round.number + " of " + view.round.total + '</p><span class="tot-tag">' + esc(view.code) + "</span></div>" +
-      '<h1 class="tot-title" style="font-size:2.3rem">' + esc(view.round.title) + "</h1><p class=\"tot-lede\">" + esc(view.round.prompt) + "</p>" +
-      '<p class="tot-help" data-locked-count>' + locked + " of " + total + " locked in</p>" + body + skip +
+      ? '<div class="tot-card tot-tight"><p class="tot-ok">Locked in.</p><p class="tot-now"><strong>Truth.</strong> ' + esc(mine.truth) + "</p><p class=\"tot-now\"><strong>Turkey.</strong> " + esc(mine.turkey) + "</p></div>"
+      : '<form class="tot-card tot-tight" data-form="write"><label class="tot-label" for="truth-box">The truth</label><textarea class="tot-area" id="truth-box" name="truth" maxlength="160" required placeholder="' + esc(view.round.truthHint) + '">' + esc(draft.truth) + '</textarea><label class="tot-label" for="turkey-box">The turkey</label><textarea class="tot-area" id="turkey-box" name="turkey" maxlength="160" required placeholder="' + esc(view.round.turkeyHint) + '">' + esc(draft.turkey) + '</textarea><button class="tot-btn tot-btn-honey" type="submit" data-testid="lock">Lock it in</button></form>';
+    var skip = (view.you.sittingOut ? '<p class="tot-banner">You jumped in late. You play on the next round.</p>' : "") +
+      '<div class="tot-actions">' +
+      (view.youCanManage ? '<button type="button" class="tot-link" data-act="skip">Move on</button>' : "") +
+      '<button type="button" class="tot-link" data-act="step-out">Step out</button></div>';
+    return '<section data-testid="write" class="tot-stack"><div class="tot-head"><p class="tot-kicker">Round ' + view.round.number + " of " + view.round.total + '</p><span class="tot-tag">' + esc(view.code) + "</span></div>" +
+      '<div><h1 class="tot-title">' + esc(view.round.title) + '</h1><p class="tot-now">Write one true line and one fake line.</p><p class="tot-help">' + esc(view.round.prompt) + "</p></div>" +
+      '<p class="tot-help" data-locked-count>' + locked + " of " + total + " ready</p>" + body + skip +
       '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
   }
 
@@ -258,28 +266,29 @@
       return '<button type="button" class="' + cls + '" data-testid="pick" data-act="vote" data-pick="' + i + '">' + esc(text) + "</button>";
     }).join("");
     var note = view.you.sittingOut
-      ? '<p class="tot-banner">You jumped in late. Watch this one. You play on the next round.</p>'
+      ? '<p class="tot-banner">You jumped in late. You play on the next round.</p>'
       : turn.youAreAuthor
-      ? '<p class="tot-banner">Defend both out loud. Your truth is the ' + (turn.yourTruthPos === 0 ? "top" : "bottom") + " one. Don't point.</p>"
-      : (turn.yourVote != null ? '<p class="tot-ok">Vote in. ' + turn.votesIn + " of " + turn.voters + " voted.</p>" : '<p class="tot-help">Tap the one you think is true.</p>');
-    var skip = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-ghost" data-act="skip">Reveal now</button>' : "";
-    skip += '<button type="button" class="tot-link" data-act="step-out">Step out</button>';
-    return '<section data-testid="defend" class="tot-stack"><p class="tot-kicker">' + esc(turn.authorName) + " says</p>" +
-      '<p class="tot-clock" data-countdown data-ends="' + (turn.endsAt || 0) + '">' + fmt(Math.max(0, (turn.endsAt || 0) - (Date.now() + offset))) + "</p>" +
-      note + cards + skip + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
+      ? '<p class="tot-banner">Defend both out loud. Your truth is the ' + (turn.yourTruthPos === 0 ? "top" : "bottom") + " one.</p>"
+      : (turn.yourVote != null ? '<p class="tot-ok">Vote in. ' + turn.votesIn + " of " + turn.voters + ".</p>" : '<p class="tot-now">Tap the one you think is true.</p>');
+    var skip = '<div class="tot-actions">' +
+      (view.youCanManage ? '<button type="button" class="tot-link" data-act="skip">Reveal now</button>' : "") +
+      '<button type="button" class="tot-link" data-act="step-out">Step out</button></div>';
+    return '<section data-testid="defend" class="tot-stack"><div><p class="tot-kicker">' + esc(turn.authorName) + " says</p>" +
+      '<p class="tot-clock" data-countdown data-ends="' + (turn.endsAt || 0) + '">' + fmt(Math.max(0, (turn.endsAt || 0) - (Date.now() + offset))) + "</p></div>" +
+      note + '<div class="tot-tight">' + cards + "</div>" + skip + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
   }
 
   function revealHtml() {
     var reveal = view.reveal;
     var cards = reveal.statements.map(function (text, i) {
-      var cls = "tot-statement " + (i === reveal.truthPos ? "is-truth" : "is-turkey");
-      return '<div class="' + cls + '">' + esc(text) + "</div>";
+      var truth = i === reveal.truthPos;
+      var cls = "tot-statement " + (truth ? "is-truth" : "is-turkey");
+      return '<div class="' + cls + '"><span class="tot-mark">' + (truth ? "Truth" : "Turkey") + "</span>" + esc(text) + "</div>";
     }).join("");
-    var fool = reveal.fooled.length ? esc(reveal.authorName) + " fooled " + esc(reveal.fooled.join(", ")) + "." : esc(reveal.authorName) + " fooled nobody.";
-    var spot = reveal.spotted.length ? " " + esc(reveal.spotted.join(", ")) + " spotted the truth." : "";
-    var next = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-honey" data-act="skip" data-testid="next">Next</button>' : '<p class="tot-help">Next story comes up in a few seconds.</p>';
-    return '<section data-testid="reveal" class="tot-stack"><p class="tot-kicker">The truth</p><h1 class="tot-title" style="font-size:2.2rem">' + esc(reveal.authorName) + "</h1>" +
-      cards + '<p class="tot-banner">' + fool + spot + "</p>" + next + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
+    var fool = reveal.fooled.length ? esc(reveal.authorName) + " fooled " + reveal.fooled.length + "." : esc(reveal.authorName) + " fooled nobody.";
+    var next = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-honey" data-act="skip" data-testid="next">Next</button>' : '<p class="tot-now">Wait for the host to tap Next.</p>';
+    return '<section data-testid="reveal" class="tot-stack"><div><p class="tot-kicker">The truth</p><h1 class="tot-title">' + esc(reveal.authorName) + '</h1><p class="tot-now">Green is true.</p></div>' +
+      '<div class="tot-tight">' + cards + '</div><p class="tot-banner">' + fool + "</p>" + next + '<div class="tot-card">' + playersHtml(view.youCanManage) + "</div></section>";
   }
 
   function endHtml() {
@@ -290,12 +299,12 @@
     var rows = recap.players.slice().sort(function (a, b) { return b.points - a.points; }).map(function (p) {
       return '<div class="tot-row"><span class="tot-name">' + esc(p.name) + "</span><span class=\"tot-score\">" + p.points + "</span></div>";
     }).join("");
-    var again = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-navy" data-act="rematch">Same table, play again</button>' : '<p class="tot-help">The host can deal a new game on this code.</p>';
-    return '<section data-testid="end" class="tot-stack"><p class="tot-kicker">Game over</p><h1 class="tot-title" style="font-size:2.4rem">Pass the pie.</h1><p class="tot-lede">' + esc(view.winReason) + "</p>" +
+    var again = view.youCanManage ? '<button type="button" class="tot-btn tot-btn-navy" data-act="rematch">Play again</button>' : '<p class="tot-now">The host can deal another game.</p>';
+    return '<section data-testid="end" class="tot-stack"><div><p class="tot-kicker">Game over</p><h1 class="tot-title">Pass the pie.</h1><p class="tot-now">Share an award, or play again.</p></div>' +
       awards +
-      '<div class="tot-xmas"><h2>Play again at Christmas</h2><p>Same phones. New stories. The turkey comes back with the leftovers.</p><button type="button" class="tot-btn tot-btn-honey" data-act="share-christmas">Share the Christmas invite</button></div>' +
-      '<div class="tot-card"><p class="tot-label">Scoreboard</p>' + rows + "</div>" + again +
-      '<p class="tot-help">The Tuesday email is just below, if you want the trip math too.</p></section>';
+      '<div class="tot-card"><p class="tot-label">Scoreboard</p>' + rows + "</div>" +
+      '<div class="tot-xmas"><h2>Play again at Christmas</h2><p>Same phones. New stories.</p><button type="button" class="tot-btn tot-btn-honey" data-act="share-christmas">Share the invite</button></div>' +
+      again + "</section>";
   }
 
   function confirmHtml() {
@@ -320,12 +329,13 @@
       if (count && view && view.phase === "write") {
         var locked = view.players.filter(function (p) { return p.locked && !p.kicked; }).length;
         var total = view.players.filter(function (p) { return !p.kicked; }).length;
-        count.textContent = locked + " of " + total + " locked in";
+        count.textContent = locked + " of " + total + " ready";
       }
       return;
     }
     forcePaint = false;
     paintKey = key;
+    document.body.classList.toggle("tot-playing", mode === "game" && !!view && view.phase !== "ended");
     var body = landingHtml();
     if (mode === "howto") body = howtoHtml();
     else if (mode === "game" && view) {
