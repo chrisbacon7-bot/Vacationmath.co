@@ -7,7 +7,7 @@
   var KEY = "vm-truth-session";
   var view = null;
   var mode = "landing";
-  var ui = { error: "", toast: "", busy: false, confirm: null };
+  var ui = { error: "", toast: "", busy: false, confirm: null, showHost: false };
   var draft = { truth: "", turkey: "" };
   var draftRound = -1;
   var paintKey = "";
@@ -31,10 +31,14 @@
     localStorage.setItem(KEY, JSON.stringify({ code: data.code, playerId: data.playerId, token: data.token, name: data.name }));
   }
   function clearSession() { localStorage.removeItem(KEY); }
-  function roomFromUrl() {
-    return (new URLSearchParams(location.search).get("room") || "").replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+  function cleanCode(value) {
+    return String(value || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4);
   }
-  function joinUrl(code) { return location.origin + "/truth-or-turkey/?room=" + code; }
+  function roomFromUrl() {
+    var params = new URLSearchParams(location.search);
+    return cleanCode(params.get("code") || params.get("room") || "");
+  }
+  function joinUrl(code) { return location.origin + "/truth-or-turkey/?code=" + code; }
   function fmt(ms) {
     var s = Math.max(0, Math.ceil(ms / 1000));
     var m = Math.floor(s / 60);
@@ -160,7 +164,7 @@
 
   function enter(data) {
     saveSession(data);
-    history.replaceState(null, "", "/truth-or-turkey/?room=" + data.code);
+    history.replaceState(null, "", "/truth-or-turkey/?code=" + data.code);
     mode = "game";
     view = null;
     ui.error = "";
@@ -191,18 +195,30 @@
       "</ol>";
   }
 
+  function joinForm(preset) {
+    var ready = preset.length === 4;
+    return '<form class="tot-card tot-tight" data-form="join" data-testid="join"><label class="tot-label" for="join-code">Room code</label><input class="tot-input tot-code-input" id="join-code" name="code" maxlength="8" inputmode="text" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-len="' + preset.length + '" value="' + esc(preset) + '" placeholder="ABCD" required /><label class="tot-label" for="join-name">Your name</label><input class="tot-input" id="join-name" name="name" maxlength="20" autocomplete="given-name" placeholder="Sam" required /><button class="tot-btn tot-btn-navy" type="submit"' + (ready ? "" : " disabled") + ">Join with a code</button></form>";
+  }
+
   function landingHtml() {
     var preset = roomFromUrl();
     var saved = session();
+    var savedCard = saved ? '<div class="tot-card tot-tight"><p class="tot-now">You were ' + esc(saved.name) + " at " + esc(saved.code) + '.</p><button type="button" class="tot-btn tot-btn-navy" data-act="rejoin">Rejoin</button><button type="button" class="tot-link" data-act="forget">Forget this phone</button></div>' : "";
+    var error = ui.error ? '<p class="tot-error" role="alert">' + esc(ui.error) + "</p>" : "";
+    if (preset && !ui.showHost) {
+      return '<section data-testid="join-step" class="tot-stack">' +
+        '<div><p class="tot-kicker">Your table</p><h1 class="tot-title">Join in</h1><p class="tot-now">Type your name, then join.</p></div>' +
+        error + savedCard + joinForm(preset) +
+        '<div class="tot-actions"><button type="button" class="tot-link" data-act="show-host">Start a new table</button><button type="button" class="tot-link" data-act="howto">How to play</button></div></section>';
+    }
     return '<section data-testid="landing" class="tot-stack">' +
       '<div><p class="tot-kicker">Thanksgiving table game</p><h1 class="tot-title">Truth or <em>Turkey</em></h1>' +
       '<p class="tot-lede">A bluff you play from your phone while you eat. Two lines each turn: one true, one made up. The table has to tell them apart.</p></div>' +
       rulesBlock() +
       '<p class="tot-rounds">Rounds, in order: Thankful, Thanksgivings past, Food confessions, Kid me. The host picks how many. Awards: Top Truth Teller and Biggest Turkey.</p>' +
-      (ui.error ? '<p class="tot-error" role="alert">' + esc(ui.error) + "</p>" : "") +
-      (saved ? '<div class="tot-card tot-tight"><p class="tot-now">You were ' + esc(saved.name) + " at " + esc(saved.code) + '.</p><button type="button" class="tot-btn tot-btn-navy" data-act="rejoin">Rejoin</button><button type="button" class="tot-link" data-act="forget">Forget this phone</button></div>' : "") +
+      error + savedCard +
       '<form class="tot-card tot-tight" data-form="create"><label class="tot-label" for="host-name">Your name</label><input class="tot-input" id="host-name" name="name" maxlength="20" autocomplete="off" required placeholder="Alex" /><button class="tot-btn tot-btn-honey" type="submit">Start a table</button></form>' +
-      '<form class="tot-card tot-tight" data-form="join"><label class="tot-label" for="join-code">Room code</label><input class="tot-input" id="join-code" name="code" maxlength="4" autocapitalize="characters" autocomplete="off" value="' + esc(preset) + '" placeholder="AB3K" required /><label class="tot-label" for="join-name">Your name</label><input class="tot-input" id="join-name" name="name" maxlength="20" autocomplete="off" placeholder="Sam" required /><button class="tot-btn tot-btn-navy" type="submit">Join with a code</button></form>' +
+      joinForm("") +
       '<div class="tot-actions"><button type="button" class="tot-link" data-act="howto">How to play</button></div></section>';
   }
 
@@ -226,7 +242,7 @@
     var start = view.youCanManage
       ? '<button type="button" class="tot-btn tot-btn-honey" data-testid="start" data-act="start"' + (blocker ? " disabled" : "") + ">Start</button>" + (blocker ? '<p class="tot-help">' + esc(blocker) + "</p>" : "")
       : '<p class="tot-banner">Waiting for the host to start.</p>';
-    return '<section data-testid="lobby" class="tot-stack"><div><p class="tot-kicker">Table code</p><h1 class="tot-code" data-testid="room-code">' + esc(view.code) + '</h1><p class="tot-now" style="text-align:center">Share the code. Start when everyone is in.</p></div>' +
+    return '<section data-testid="lobby" class="tot-stack"><div><p class="tot-kicker">Table code</p><h1 class="tot-code" data-testid="room-code">' + esc(view.code) + '</h1><p class="tot-now" style="text-align:center">Say each letter. Start when everyone is in.</p></div>' +
       '<div class="tot-actions"><button type="button" class="tot-link" data-act="copy">Copy link</button><button type="button" class="tot-link" data-act="share">Share</button></div>' +
       '<div class="tot-card"><p class="tot-label">' + view.players.filter(function (p) { return !p.kicked; }).length + " here</p>" + playersHtml(view.youCanManage) + "</div>" +
       '<div class="tot-card tot-tight"><p class="tot-label">Rounds</p><div class="tot-pills">' + buttons + '</div><p class="tot-rounds">' + themes + "</p></div>" +
@@ -349,6 +365,8 @@
     } else if (mode === "game") body = '<p class="tot-banner">Pulling up chairs...</p>';
     var toastHtml = ui.toast ? '<p class="tot-error" role="status">' + esc(ui.toast) + "</p>" : "";
     app.innerHTML = toastHtml + body;
+    var joinName = document.getElementById("join-name");
+    if (joinName && roomFromUrl() && !ui.showHost && document.activeElement === document.body) joinName.focus();
   }
 
   function copyText(text) {
@@ -401,6 +419,7 @@
     if (!btn || !app.contains(btn)) return;
     var act = btn.dataset.act;
     if (act === "howto") { mode = "howto"; paint(); return; }
+    if (act === "show-host") { ui.showHost = true; history.replaceState(null, "", "/truth-or-turkey/"); paint(); return; }
     if (act === "back") { mode = view ? "game" : "landing"; paint(); return; }
     if (act === "forget") { clearSession(); stop(); view = null; paint(); return; }
     if (act === "rejoin") { connect(); pull(); return; }
@@ -434,6 +453,19 @@
 
   app.addEventListener("input", function (e) {
     if (!e.target || !e.target.name) return;
+    if (e.target.id === "join-code") {
+      var next = cleanCode(e.target.value);
+      var prev = Number(e.target.dataset.len || 0);
+      e.target.dataset.len = String(next.length);
+      if (e.target.value !== next) e.target.value = next;
+      var form = e.target.form;
+      var joinBtn = form && form.querySelector("button[type=submit]");
+      if (joinBtn) joinBtn.disabled = next.length !== 4;
+      var name = form && form.querySelector("[name=name]");
+      if (prev < 4 && next.length === 4 && name && String(name.value || "").trim()) form.requestSubmit();
+      else if (prev < 4 && next.length === 4 && name) name.focus();
+      return;
+    }
     if (e.target.name === "truth" || e.target.name === "turkey") {
       draft[e.target.name] = e.target.value;
       if (view) sessionStorage.setItem("tot-draft-" + view.code + "-" + view.round.index, JSON.stringify(draft));
@@ -454,7 +486,7 @@
       }).catch(function () { ui.busy = false; ui.error = "We can't reach the table. Check your signal and try again."; paint(); });
     }
     if (form.dataset.form === "join") {
-      var code = String(data.get("code") || "").replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
+      var code = cleanCode(data.get("code"));
       post("/api/truth/rooms/" + code + "/join", { name: String(data.get("name") || "") }).then(function (result) {
         if (!result.ok) { ui.error = (result.data && result.data.error) || "Check the code and try again."; paint(); return; }
         enter(result.data);

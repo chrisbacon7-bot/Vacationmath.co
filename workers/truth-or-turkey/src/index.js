@@ -10,6 +10,7 @@ import {
   tick,
   viewFor,
 } from "./game.js";
+import { makeCode } from "./codes.js";
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -235,15 +236,6 @@ export class TruthRoom {
       } else await this.schedule();
     });
   }
-}
-
-function makeCode() {
-  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const bytes = new Uint8Array(4);
-  crypto.getRandomValues(bytes);
-  let out = "";
-  for (const b of bytes) out += alphabet[b % alphabet.length];
-  return out;
 }
 
 export default {
